@@ -116,7 +116,7 @@
 .section .card-container {
   max-width: 296px;
   width: 100%;
-  padding: 24px 16px;
+  padding: 16px 16px;
   border-radius: 8px;
   border: 1px solid #b7b7b7;
   display: flex;
