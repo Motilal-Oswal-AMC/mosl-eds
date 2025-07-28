@@ -21,15 +21,15 @@
         padding-bottom: 40px;
 
         h3 {
-            @include font-style(40px, 48px, $primary-blue, map.get($font-weights, bold));
+            @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold));
             margin: 0;
             padding: 0;
             padding-bottom: 8px;
             text-align: left;
 
             @include media(mobile) {
-                font-size: 32px;
-                line-height: 40px;
+                font-size: 24px;
+                line-height: 28px;
             }
         }
 
@@ -87,7 +87,7 @@
                                 font-family: $Poppins;
                                 font-size: 12px;
                                 font-style: normal;
-                                font-weight: 500;
+                                font-weight: 400;
                                 line-height: 16px;
                                 min-width: 124px;
                                 min-height: 32px;
@@ -103,17 +103,17 @@
                         }
 
                         &>li:nth-child(2) {
-                            @include font-style(18px, 24px, $primary-blue, map.get($font-weights, bold), $Poppins);
+                            @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $Poppins);
                             margin-bottom: 8px;
 
                             @include media(mobile) {
-                                @include font-style(16px, 20px, $primary-blue, map.get($font-weights, bold), $Poppins);
+                                @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $Poppins);
                                 // margin-bottom: 8px;
                             }
                         }
 
                         &>li:nth-child(3) {
-                            @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
+                            @include font-style(16px, 24px, $color-text-body, map.get($font-weights, regular), $Poppins);
 
                             @include media(mobile) {
                                 @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
@@ -154,7 +154,7 @@
         position: absolute;
         padding: 0;
         top: 78px;
-        right: 0;
+        right: 1px;
 
         @include media(desktop-sm) {
             right: 20px;
@@ -188,10 +188,10 @@
                 gap: 8px;
                 border-radius: map.get($radius, r8);
                 background: map.get($button-primary, default);
-                @include font-style(14px, 20px, $primary-white, map.get($font-weights, bold), $Poppins);
+                @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
 
                 @include media(mobile) {
-                    @include font-style(14px, 20px, $primary-white, map.get($font-weights, bold), $Poppins);
+                    @include font-style(14px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
                 }
 
             }
