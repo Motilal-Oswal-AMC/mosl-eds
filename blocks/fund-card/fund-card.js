@@ -192,7 +192,7 @@ export default function decorate(block) {
           ),
           img({
             class:"riskfactor-icon",
-            src:"",
+            src:"../../icons/Risk-o-meter.svg",
             alt:"risk icon"
           })
         ),
