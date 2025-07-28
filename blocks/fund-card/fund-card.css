@@ -133,34 +133,56 @@
   width: 100%;
 }
 .section .card-container .card-upper-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  align-items: start;
   gap: 30px;
   margin: 0 0 8px;
   min-height: 50px;
+  flex-direction: column;
 }
-.section .card-container .card-upper-title h2 {
-  font-size: 14px;
+.section .card-container .card-upper-title .title-headLogo {
+  display: flex;
+  justify-content: space-between;
+}
+.section .card-container .card-upper-title .title-headLogo .title-logo {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
+  border-radius: 50%;
+  background: #BDCBFF;
+}
+.section .card-container .card-upper-title .title-headLogo .title-logo .logoScheme {
+  width: 29.977px;
+  height: 20.855px;
+  flex-shrink: 0;
+}
+.section .card-container .card-upper-title .title-headLogo .star {
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.section .card-container .card-upper-title .title-headLogo .star.star-filled .star-icon, .section .card-container .card-upper-title .title-headLogo .star:not(.star-filled) .fillstar-icon {
+  display: none;
+}
+.section .card-container .card-upper-title .title-headLogo .star img {
+  width: 100%;
+  height: 100%;
+}
+.section .card-container .card-upper-title .title-subtitle p {
+  margin: 0;
+  font-size: 12px;
   line-height: 16px;
+  color: #5659FA;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.section .card-container .card-upper-title .title-subtitle .title-logo h2 {
+  font-size: 16px;
+  line-height: 20px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
-}
-.section .card-container .card-upper-title .star {
-  min-width: 40px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-.section .card-container .card-upper-title .star.star-filled .star-icon, .section .card-container .card-upper-title .star:not(.star-filled) .fillstar-icon {
-  display: none;
-}
-.section .card-container .card-upper-title .star img {
-  width: 100%;
-  height: 100%;
 }
 .section .card-container .card-category {
   display: flex;
@@ -180,7 +202,7 @@
 .section .card-container .card-category .fundtagging-list li {
   font-size: 12px;
   line-height: 16px;
-  color: #2e312f;
+  color: #242177;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   display: flex;
@@ -231,10 +253,17 @@
 }
 .section .card-container .cagr-container {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 10px;
   padding: 4px 0;
+  height: 88px;
+  padding: 24px 12px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 0.5px solid #E8E8E8;
+  background: #FAFAFA;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
 }
 .section .card-container .cagr-container.not-provided .cagr-dropdown,
 .section .card-container .cagr-container.not-provided .cagr-value {
@@ -244,24 +273,25 @@
   display: none;
 }
 .section .card-container .cagr-container .cagr-dropdown {
-  max-width: 46%;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1 0 0;
   position: relative;
-  line-height: 0;
 }
 .section .card-container .cagr-container .cagr-dropdown label {
   font-size: 12px;
   line-height: 16px;
-  color: #2e312f;
+  color: #111;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  padding-bottom: 4px;
+  font-weight: 500;
 }
 .section .card-container .cagr-container .cagr-select-wrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 80px;
+  justify-content: center;
+  gap: 4px;
 }
 .section .card-container .cagr-container .cagr-select-wrapper::after {
   content: "";
@@ -294,13 +324,11 @@
   line-height: 32px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   text-align: right;
 }
 .section .card-container .cagr-container .cagr-value h2 span {
-  font-size: 14px;
-  line-height: 16px;
   font-weight: 300;
 }
 .section .card-container .cagr-container .cagr-value .scheme-yet,
@@ -316,7 +344,6 @@
 }
 .section .card-container .cagr-container .cagr-desc {
   background: #f3f3f3;
-  padding: 4px 8px;
   line-height: 0;
   width: 100%;
 }
@@ -371,6 +398,8 @@
   margin: 24px 0 0;
 }
 .section .card-container .discription .dis-choosen {
+  display: flex;
+  justify-content: space-between;
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
@@ -379,7 +408,15 @@
   margin: 0;
 }
 .section .card-container .discription .dis-choosen .dis-investor {
-  font-weight: 600;
+  display: flex;
+  gap: 6px;
+}
+.section .card-container .discription .dis-choosen .dis-investor .person {
+  width: 16px;
+  height: 16px;
+}
+.section .card-container .discription .dis-choosen .dis-investor span {
+  font-weight: 400;
 }
 .section .card-container .button-container {
   display: flex;
@@ -391,9 +428,9 @@
 .section .card-container .button-container .know-more {
   font-size: 14px;
   line-height: 20px;
-  color: #2e2a94;
+  color: #4338f3;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -413,7 +450,7 @@
   line-height: 16px;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
 .section.index-fund {
   margin: 40px auto;

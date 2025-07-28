@@ -1,8 +1,8 @@
 /* stylelint-disable alpha-value-notation */
 /* stylelint-disable media-feature-range-notation */
 @use 'sass:map';
-@use '../../styles/common-theme/css/variables_mixins' as *;
-@use '../../styles/common-theme/css/fluid-typography' as *;
+@use '../../styles/common-theme/css/variables_mixins'as *;
+@use '../../styles/common-theme/css/fluid-typography'as *;
 
 .section {
   &.tabs-container {
@@ -26,7 +26,7 @@
           $line-height: 48px,
           $color: $primary-blue,
           $weight: map.get($font-weights, bold),
-          $family: $ButlerPro );
+          $family: $ButlerPro);
         margin: 0;
       }
     }
@@ -90,7 +90,7 @@
         $line-height: 16px,
         $color: $primary-blue,
         $weight: map.get($font-weights, semibold),
-        $family: $Poppins );
+        $family: $Poppins);
       text-decoration: none;
       display: block;
       margin: 0;
@@ -123,14 +123,14 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins );
+          $family: $Poppins);
 
         &[aria-selected="true"] {
           @include font-style($size: 14px,
             $line-height: 16px,
             $color: $primary-blue,
             $weight: map.get($font-weights, semibold),
-            $family: $Poppins );
+            $family: $Poppins);
           border-bottom: 2px solid $primary-blue;
         }
       }
@@ -163,36 +163,66 @@
     }
 
     .card-upper-title {
-      @include flex-center($align: center, $justify: space-between);
-      align-items: start;
+      // @include flex-center($align: center, $justify: space-between);
+      // align-items: start;
       gap: 30px;
       margin: 0 0 8px;
       // height: 100%;
       min-height: 50px;
+      flex-direction: column;
 
-      h2 {
-        @include font-style($size: 14px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $Poppins );
-        margin: 0;
-      }
+      .title-headLogo {
+        display: flex;
+        justify-content: space-between;
 
-      .star {
-        min-width: 40px;
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-
-        &.star-filled .star-icon,
-        &:not(.star-filled) .fillstar-icon {
-          display: none;
+        .title-logo {
+          min-width: 40px;
+          width: 40px;
+          height: 40px;
+          box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
+          border-radius: 50%;
+          background: #BDCBFF;
+          .logoScheme {
+            width: 29.977px;
+            height: 20.855px;
+            flex-shrink: 0;
+          }
         }
 
-        img {
-          width: 100%;
-          height: 100%;
+        .star {
+          min-width: 20px;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+
+          &.star-filled .star-icon,
+          &:not(.star-filled) .fillstar-icon {
+            display: none;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+      }
+
+      .title-subtitle {
+        p {
+          margin: 0;
+          @include font-style($size: 12px, $line-height: 16px, $color: #5659FA, $weight: map.get($font-weights, medium), $family: $Poppins);
+        }
+
+        .title-logo {
+          h2 {
+            @include font-style($size: 16px,
+              $line-height: 20px,
+              $color: $primary-blue,
+              $weight: map.get($font-weights, medium),
+              $family: $Poppins);
+            margin: 0;
+          }
         }
       }
     }
@@ -211,9 +241,11 @@
         li {
           @include font-style($size: 12px,
             $line-height: 16px,
-            $color: map.get($dark-liver, 500),
+            $color: $primary-Blue-1-900,
             $weight: map.get($font-weights, regular),
-            $family: $Poppins );
+            $family: $Poppins);
+
+
           @include flex-center($align: center, $justify: flex-start);
           gap: 8px;
 
@@ -252,7 +284,7 @@
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: map.get($font-weights, regular),
-            $family: $Poppins );
+            $family: $Poppins);
           border: none;
           outline: none;
           appearance: none;
@@ -263,9 +295,17 @@
     }
 
     .cagr-container {
-      @include flex-center($align: start, $justify: space-between);
-      gap: 24px;
+      @include flex-center($align: center, $justify: space-between);
+      // gap: 24px;
+      gap: 10px;
       padding: 4px 0;
+      height: 88px;
+      padding: 24px 12px;
+      align-self: stretch;
+      border-radius: 12px;
+      border: 0.5px solid #E8E8E8;
+      background: $neutrals-50;
+      box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
 
       &.not-provided {
 
@@ -280,24 +320,31 @@
       }
 
       .cagr-dropdown {
-        max-width: 46%;
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        flex: 1 0 0;
+
+        // max-width: 46%;
+        // width: 100%;
         position: relative;
-        line-height: 0;
+        // line-height: 0;
 
         label {
           @include font-style($size: 12px,
             $line-height: 16px,
-            $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
-            $family: $Poppins );
-          padding-bottom: 4px;
+            $color: #111,
+            $weight: map.get($font-weights, medium),
+            $family: $Poppins);
+          // padding-bottom: 4px;
         }
       }
 
       .cagr-select-wrapper {
-        @include flex-center($align: center, $justify: flex-start);
-        width: 80px;
+        @include flex-center($align: center, $justify: center);
+        gap: 4px;
+        // width: 80px;
 
         &::after {
           content: "";
@@ -312,7 +359,7 @@
             $line-height: 16px,
             $color: $primary-blue,
             $weight: map.get($font-weights, medium),
-            $family: $Poppins );
+            $family: $Poppins);
           width: 100%;
           border: none;
           outline: none;
@@ -330,15 +377,13 @@
           @include font-style($size: 24px,
             $line-height: 32px,
             $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $Poppins );
+            $weight: map.get($font-weights, semibold),
+            $family: $Poppins);
           margin: 0;
           text-align: right;
 
           span {
-            font-size: 14px;
-            line-height: 16px;
-            font-weight: 300;
+            font-weight:map.get($font-weights, light);
           }
         }
 
@@ -348,7 +393,7 @@
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: map.get($font-weights, regular),
-            $family: $Poppins );
+            $family: $Poppins);
           text-align: right;
           margin: 0;
           padding: 0;
@@ -357,7 +402,7 @@
 
       .cagr-desc {
         background: map.get($old-silver, 50);
-        padding: 4px 8px;
+        // padding: 4px 8px;
         line-height: 0;
         width: 100%;
 
@@ -366,7 +411,7 @@
             $line-height: 16px,
             $color: $primary-blue,
             $weight: map.get($font-weights, regular),
-            $family: $Poppins );
+            $family: $Poppins);
           padding: 8px 0;
           display: block;
         }
@@ -386,7 +431,7 @@
           $line-height: 16px,
           $color: map.get($dark-liver, 500),
           $weight: map.get($font-weights, regular),
-          $family: $Poppins );
+          $family: $Poppins);
         margin: 0;
         padding: 0;
       }
@@ -396,7 +441,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins );
+          $family: $Poppins);
         @include flex-center($align: center, $justify: flex-start);
         gap: 4px;
 
@@ -415,15 +460,27 @@
       margin: 24px 0 0;
 
       .dis-choosen {
+        display: flex;
+        justify-content: space-between;
         @include font-style($size: 12px,
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, regular),
-          $family: $Poppins );
+          $family: $Poppins);
         margin: 0;
 
         .dis-investor {
-          font-weight: map.get($font-weights, semibold);
+          display: flex;
+          gap: 6px;
+
+          .person {
+            width: 16px;
+            height: 16px;
+          }
+
+          span {
+            font-weight: map.get($font-weights, regular);
+          }
         }
       }
     }
@@ -436,9 +493,9 @@
       .know-more {
         @include font-style($size: 14px,
           $line-height: 20px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $Poppins );
+          $color: map.get($blue-1,b500),
+          $weight: map.get($font-weights, regular),
+          $family: $Poppins);
         margin: 0;
         padding: 0;
         background-color: transparent;
@@ -458,8 +515,8 @@
         @include font-style($size: 14px,
           $line-height: 16px,
           $color: $primary-white,
-          $weight: map.get($font-weights, semibold),
-          $family: $Poppins );
+          $weight: map.get($font-weights, medium),
+          $family: $Poppins);
       }
     }
   }
@@ -513,7 +570,7 @@
             $line-height: 32px,
             $color: $primary-blue,
             $weight: map.get($font-weights, medium),
-            $family: $ButlerPro );
+            $family: $ButlerPro);
           margin: 0;
           max-width: 306px;
           width: 100%;
@@ -588,7 +645,7 @@
         $line-height: 40px,
         $color: $primary-blue,
         $weight: map.get($font-weights, bold),
-        $family: $ButlerPro );
+        $family: $ButlerPro);
     }
 
     .tabs-wrapper {
@@ -605,7 +662,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins );
+          $family: $Poppins);
       }
     }
 
@@ -637,7 +694,7 @@
           $line-height: 20px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins );
+          $family: $Poppins);
       }
 
       .card-category {
@@ -661,7 +718,7 @@
             $line-height: 32px,
             $color: $primary-blue,
             $weight: map.get($font-weights, medium),
-            $family: $Poppins );
+            $family: $Poppins);
         }
       }
 
