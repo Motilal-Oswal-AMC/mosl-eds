@@ -2,10 +2,10 @@
   height: 100%;
 }
 
-.embed-wrapper>div:first-child {
+/* .embed-wrapper>div:first-child {
   border: 10px solid #ffffff;
   border-radius: 8px;
-}
+} */
 
 .embed {
   width: 100%;
