@@ -3,6 +3,7 @@ import fundCardBlock from '../fund-card-v2/fund-card-v2.js';
 import fundcardblock from '../fund-card/fund-card.js';
 
 export default function decorate(block) {
+  block.style.display = 'none';
   Array.from(block.children).forEach((element) => {
     element.classList.add('compound-item');
     Array.from(element.children).forEach((subelement) => {
