@@ -60,13 +60,13 @@
       @include flex-center($align: start, $justify: flex-start);
       gap: 8px;
       margin: 0 0 16px;
-
+      flex-wrap: wrap;
       .fundtagging-list {
         @include flex-center($align: center, $justify: flex-start);
         gap: 8px;
         list-style: none;
         margin: 0;
-
+        flex-wrap: wrap;
         li {
           @include font-style($size: 12px,
             $line-height: 16px,
@@ -75,8 +75,8 @@
             $family: $Poppins );
           @include flex-center($align: center, $justify: flex-start);
           gap: 8px;
-
-          &::before {
+          // white-space: nowrap;
+          &::after {
             content: "";
             min-width: 3px;
             height: 3px;
@@ -85,9 +85,9 @@
             border-radius: 50%;
           }
 
-          &:first-of-type::before {
-            content: none;
-          }
+          // &:last-of-type::before {
+          //   content: none;
+          // }
         }
       }
 
@@ -97,19 +97,19 @@
         @include flex-center($align: center, $justify: flex-start);
         gap: 8px;
 
-        &::before {
-          content: "";
-          min-width: 3px;
-          height: 3px;
-          display: block;
-          background-color: $primary-blue;
-          border-radius: 50%;
-        }
+        // &::before {
+        //   content: "";
+        //   min-width: 3px;
+        //   height: 3px;
+        //   display: block;
+        //   background-color: $primary-blue;
+        //   border-radius: 50%;
+        // }
 
         select {
           @include font-style($size: 12px,
             $line-height: 16px,
-            $color: map.get($dark-liver, 500),
+            $color: $primary-blue-1-900,
             $weight: map.get($font-weights, regular),
             $family: $Poppins );
           border: none;
@@ -206,9 +206,7 @@
           text-align: right;
 
           span {
-            font-size: 14px;
-            line-height: 16px;
-            font-weight: 300;
+            font-weight:map.get($font-weights, light);
           }
         }
 
@@ -505,9 +503,9 @@
         }
 
         .star {
-          min-width: 20px;
-          width: 20px;
-          height: 20px;
+          min-width: 40px;
+          width: 40px;
+          height: 40px;
           cursor: pointer;
 
           &.star-filled .star-icon,
@@ -537,6 +535,7 @@
               $weight: map.get($font-weights, medium),
               $family: $Poppins);
             margin: 0;
+            min-height: 50px;
           }
         }
       }
@@ -552,11 +551,11 @@
         gap: 8px;
         list-style: none;
         margin: 0;
-
+        flex-wrap: wrap;
         li {
           @include font-style($size: 12px,
             $line-height: 16px,
-            $color: $primary-Blue-1-900,
+            $color: $primary-blue-1-900,
             $weight: map.get($font-weights, regular),
             $family: $Poppins);
 
@@ -564,7 +563,7 @@
           @include flex-center($align: center, $justify: flex-start);
           gap: 8px;
 
-          &::before {
+          &::after {
             content: "";
             min-width: 3px;
             height: 3px;
@@ -573,9 +572,9 @@
             border-radius: 50%;
           }
 
-          &:first-of-type::before {
-            content: none;
-          }
+          // &:last-of-type::after {
+          //   content: none;
+          // }
         }
       }
 
@@ -585,19 +584,19 @@
         @include flex-center($align: center, $justify: flex-start);
         gap: 8px;
 
-        &::before {
-          content: "";
-          min-width: 3px;
-          height: 3px;
-          display: block;
-          background-color: $primary-blue;
-          border-radius: 50%;
-        }
+        // &::before {
+        //   content: "";
+        //   min-width: 3px;
+        //   height: 3px;
+        //   display: block;
+        //   background-color: $primary-blue;
+        //   border-radius: 50%;
+        // }
 
         select {
           @include font-style($size: 12px,
             $line-height: 16px,
-            $color: map.get($dark-liver, 500),
+            $color: $primary-blue-1-900,
             $weight: map.get($font-weights, regular),
             $family: $Poppins);
           border: none;
@@ -621,7 +620,7 @@
       border: 0.5px solid #E8E8E8;
       background: $neutrals-50;
       box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
-
+      margin-top: auto;
       &.not-provided {
 
         .cagr-dropdown,

@@ -69,7 +69,7 @@ export default function decorate(block) {
             },
             img({
               class: 'star-icon',
-              src: '../../icons/Vector.svg',
+              src: '../../icons/star.svg',
               alt: "star-icon"
             }),
             img({
