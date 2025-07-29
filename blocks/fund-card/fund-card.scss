@@ -5,6 +5,316 @@
 @use '../../styles/common-theme/css/fluid-typography' as *;
 
 .section {
+  .card-container {
+    max-width: 296px;
+    width: 100%;
+    padding: 24px 16px;
+    border-radius: map.get($radius, r8);
+    border: 1px solid map.get($old-silver, 100);
+    @include flex-center;
+    background-color: $primary-white;
+
+    .card-wrapper {
+      @include flex-center($align: stretch, $justify: space-between);
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+    }
+
+    .card-upper-title {
+      @include flex-center($align: center, $justify: space-between);
+      align-items: start;
+      gap: 30px;
+      margin: 0 0 8px;
+      // height: 100%;
+      min-height: 50px;
+
+      h2 {
+        @include font-style($size: 14px,
+          $line-height: 16px,
+          $color: $primary-blue,
+          $weight: map.get($font-weights, medium),
+          $family: $Poppins );
+        margin: 0;
+      }
+
+      .star {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        &.star-filled .star-icon,
+        &:not(.star-filled) .fillstar-icon {
+          display: none;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .card-category {
+      @include flex-center($align: start, $justify: flex-start);
+      gap: 8px;
+      margin: 0 0 16px;
+
+      .fundtagging-list {
+        @include flex-center($align: center, $justify: flex-start);
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+
+        li {
+          @include font-style($size: 12px,
+            $line-height: 16px,
+            $color: map.get($dark-liver, 500),
+            $weight: map.get($font-weights, regular),
+            $family: $Poppins );
+          @include flex-center($align: center, $justify: flex-start);
+          gap: 8px;
+
+          &::before {
+            content: "";
+            min-width: 3px;
+            height: 3px;
+            display: block;
+            background-color: $primary-blue;
+            border-radius: 50%;
+          }
+
+          &:first-of-type::before {
+            content: none;
+          }
+        }
+      }
+
+      .planlist-dropdown {
+        max-width: 70px;
+        width: 100%;
+        @include flex-center($align: center, $justify: flex-start);
+        gap: 8px;
+
+        &::before {
+          content: "";
+          min-width: 3px;
+          height: 3px;
+          display: block;
+          background-color: $primary-blue;
+          border-radius: 50%;
+        }
+
+        select {
+          @include font-style($size: 12px,
+            $line-height: 16px,
+            $color: map.get($dark-liver, 500),
+            $weight: map.get($font-weights, regular),
+            $family: $Poppins );
+          border: none;
+          outline: none;
+          appearance: none;
+          background-color: transparent;
+          width: 100%;
+        }
+      }
+    }
+    .risk-container {
+      @include flex-center($align: stretch, $justify: flex-start);
+      flex-direction: column;
+      gap: 2px;
+      border-bottom: 1px solid map.get($old-silver, 100);
+      padding-bottom: 16px;
+      margin: 8px 0 0;
+
+      label {
+        @include font-style($size: 12px,
+          $line-height: 16px,
+          $color: map.get($dark-liver, 500),
+          $weight: map.get($font-weights, regular),
+          $family: $Poppins );
+        margin: 0;
+        padding: 0;
+      }
+
+      span {
+        @include font-style($size: 12px,
+          $line-height: 16px,
+          $color: $primary-blue,
+          $weight: map.get($font-weights, medium),
+          $family: $Poppins );
+        @include flex-center($align: center, $justify: flex-start);
+        gap: 4px;
+
+        &::after {
+          content: "";
+          background: url("../../icons/info-icon.svg") center/cover no-repeat;
+          width: 12px;
+          height: 12px;
+          display: block;
+          cursor: pointer;
+        }
+      }
+    }
+    .cagr-container {
+      @include flex-center($align: start, $justify: space-between);
+      gap: 24px;
+      padding: 4px 0;
+      .cagr-dropdown {
+        max-width: 46%;
+        width: 100%;
+        position: relative;
+        line-height: 0;
+
+        label {
+          @include font-style($size: 12px,
+            $line-height: 16px,
+            $color: map.get($dark-liver, 500),
+            $weight: map.get($font-weights, regular),
+            $family: $Poppins );
+          padding-bottom: 4px;
+        }
+      }
+      .cagr-desc {
+        background: map.get($old-silver, 50);
+        padding: 4px 8px;
+        line-height: 0;
+        width: 100%;
+
+        span {
+          @include font-style($size: 12px,
+            $line-height: 16px,
+            $color: $primary-blue,
+            $weight: map.get($font-weights, regular),
+            $family: $Poppins );
+          padding: 8px 0;
+          display: block;
+        }
+      }
+      .cagr-value {
+        max-width: 46%;
+        width: 100%;
+
+        h2 {
+          @include font-style($size: 24px,
+            $line-height: 32px,
+            $color: $primary-blue,
+            $weight: map.get($font-weights, medium),
+            $family: $Poppins );
+          margin: 0;
+          text-align: right;
+
+          span {
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 300;
+          }
+        }
+
+        .scheme-yet,
+        .cagr-date {
+          @include font-style($size: 12px,
+            $line-height: 16px,
+            $color: map.get($dark-liver, 500),
+            $weight: map.get($font-weights, regular),
+            $family: $Poppins );
+          text-align: right;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      &.not-provided {
+
+        .cagr-dropdown,
+        .cagr-value {
+          display: none;
+        }
+      }
+
+      &:not(.not-provided) .cagr-desc {
+        display: none;
+      }
+
+      .cagr-select-wrapper {
+        @include flex-center($align: center, $justify: flex-start);
+        width: 80px;
+
+        &::after {
+          content: "";
+          background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
+          width: 12px;
+          height: 12px;
+          display: block;
+        }
+
+        select {
+          @include font-style($size: 12px,
+            $line-height: 16px,
+            $color: $primary-blue,
+            $weight: map.get($font-weights, medium),
+            $family: $Poppins );
+          width: 100%;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          appearance: none;
+          padding: 4px 4px 4px 0;
+        }
+      }
+    }
+    .discription {
+      margin: 24px 0 0;
+
+      .dis-choosen {
+        @include font-style($size: 12px,
+          $line-height: 16px,
+          $color: $primary-blue,
+          $weight: map.get($font-weights, regular),
+          $family: $Poppins );
+        margin: 0;
+
+        .dis-investor {
+          font-weight: map.get($font-weights, semibold);
+        }
+      }
+    }
+
+    .button-container {
+      @include flex-center($align: center, $justify: space-between);
+      margin: 24px 0 0;
+      gap: 20px;
+
+      .know-more {
+        @include font-style($size: 14px,
+          $line-height: 20px,
+          $color: $primary-blue,
+          $weight: map.get($font-weights, medium),
+          $family: $Poppins );
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        text-decoration-line: underline;
+        text-underline-offset: 20%;
+        border-radius: 0;
+      }
+
+      .invest-now {
+        max-width: 132px;
+        width: 100%;
+        border-radius: map.get($radius, r8);
+        background: map.get($button-primary, default);
+        padding: 12px;
+        margin: 0;
+        border: none;
+        @include font-style($size: 14px,
+          $line-height: 16px,
+          $color: $primary-white,
+          $weight: map.get($font-weights, semibold),
+          $family: $Poppins );
+      }
+    }
+  }
   &.tabs-container {
     // max-width: 1264px;
     width: 100%;
@@ -145,325 +455,6 @@
       }
     }
   }
-
-  .card-container {
-    max-width: 296px;
-    width: 100%;
-    padding: 24px 16px;
-    border-radius: map.get($radius, r8);
-    border: 1px solid map.get($old-silver, 100);
-    @include flex-center;
-    background-color: $primary-white;
-
-    .card-wrapper {
-      @include flex-center($align: stretch, $justify: space-between);
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-    }
-
-    .card-upper-title {
-      @include flex-center($align: center, $justify: space-between);
-      align-items: start;
-      gap: 30px;
-      margin: 0 0 8px;
-      // height: 100%;
-      min-height: 50px;
-
-      h2 {
-        @include font-style($size: 14px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $Poppins );
-        margin: 0;
-      }
-
-      .star {
-        min-width: 40px;
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-
-        &.star-filled .star-icon,
-        &:not(.star-filled) .fillstar-icon {
-          display: none;
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-
-    .card-category {
-      @include flex-center($align: start, $justify: flex-start);
-      gap: 8px;
-      margin: 0 0 16px;
-
-      .fundtagging-list {
-        @include flex-center($align: center, $justify: flex-start);
-        gap: 8px;
-        list-style: none;
-        margin: 0;
-
-        li {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
-            $family: $Poppins );
-          @include flex-center($align: center, $justify: flex-start);
-          gap: 8px;
-
-          &::before {
-            content: "";
-            min-width: 3px;
-            height: 3px;
-            display: block;
-            background-color: $primary-blue;
-            border-radius: 50%;
-          }
-
-          &:first-of-type::before {
-            content: none;
-          }
-        }
-      }
-
-      .planlist-dropdown {
-        max-width: 70px;
-        width: 100%;
-        @include flex-center($align: center, $justify: flex-start);
-        gap: 8px;
-
-        &::before {
-          content: "";
-          min-width: 3px;
-          height: 3px;
-          display: block;
-          background-color: $primary-blue;
-          border-radius: 50%;
-        }
-
-        select {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
-            $family: $Poppins );
-          border: none;
-          outline: none;
-          appearance: none;
-          background-color: transparent;
-          width: 100%;
-        }
-      }
-    }
-
-    .cagr-container {
-      @include flex-center($align: start, $justify: space-between);
-      gap: 24px;
-      padding: 4px 0;
-
-      &.not-provided {
-
-        .cagr-dropdown,
-        .cagr-value {
-          display: none;
-        }
-      }
-
-      &:not(.not-provided) .cagr-desc {
-        display: none;
-      }
-
-      .cagr-dropdown {
-        max-width: 46%;
-        width: 100%;
-        position: relative;
-        line-height: 0;
-
-        label {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
-            $family: $Poppins );
-          padding-bottom: 4px;
-        }
-      }
-
-      .cagr-select-wrapper {
-        @include flex-center($align: center, $justify: flex-start);
-        width: 80px;
-
-        &::after {
-          content: "";
-          background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
-          width: 12px;
-          height: 12px;
-          display: block;
-        }
-
-        select {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $Poppins );
-          width: 100%;
-          border: none;
-          outline: none;
-          background-color: transparent;
-          appearance: none;
-          padding: 4px 4px 4px 0;
-        }
-      }
-
-      .cagr-value {
-        max-width: 46%;
-        width: 100%;
-
-        h2 {
-          @include font-style($size: 24px,
-            $line-height: 32px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $Poppins );
-          margin: 0;
-          text-align: right;
-
-          span {
-            font-size: 14px;
-            line-height: 16px;
-            font-weight: 300;
-          }
-        }
-
-        .scheme-yet,
-        .cagr-date {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
-            $family: $Poppins );
-          text-align: right;
-          margin: 0;
-          padding: 0;
-        }
-      }
-
-      .cagr-desc {
-        background: map.get($old-silver, 50);
-        padding: 4px 8px;
-        line-height: 0;
-        width: 100%;
-
-        span {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, regular),
-            $family: $Poppins );
-          padding: 8px 0;
-          display: block;
-        }
-      }
-    }
-
-    .risk-container {
-      @include flex-center($align: stretch, $justify: flex-start);
-      flex-direction: column;
-      gap: 2px;
-      border-bottom: 1px solid map.get($old-silver, 100);
-      padding-bottom: 16px;
-      margin: 8px 0 0;
-
-      label {
-        @include font-style($size: 12px,
-          $line-height: 16px,
-          $color: map.get($dark-liver, 500),
-          $weight: map.get($font-weights, regular),
-          $family: $Poppins );
-        margin: 0;
-        padding: 0;
-      }
-
-      span {
-        @include font-style($size: 12px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $Poppins );
-        @include flex-center($align: center, $justify: flex-start);
-        gap: 4px;
-
-        &::after {
-          content: "";
-          background: url("../../icons/info-icon.svg") center/cover no-repeat;
-          width: 12px;
-          height: 12px;
-          display: block;
-          cursor: pointer;
-        }
-      }
-    }
-
-    .discription {
-      margin: 24px 0 0;
-
-      .dis-choosen {
-        @include font-style($size: 12px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, regular),
-          $family: $Poppins );
-        margin: 0;
-
-        .dis-investor {
-          font-weight: map.get($font-weights, semibold);
-        }
-      }
-    }
-
-    .button-container {
-      @include flex-center($align: center, $justify: space-between);
-      margin: 24px 0 0;
-      gap: 20px;
-
-      .know-more {
-        @include font-style($size: 14px,
-          $line-height: 20px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $Poppins );
-        margin: 0;
-        padding: 0;
-        background-color: transparent;
-        text-decoration-line: underline;
-        text-underline-offset: 20%;
-        border-radius: 0;
-      }
-
-      .invest-now {
-        max-width: 132px;
-        width: 100%;
-        border-radius: map.get($radius, r8);
-        background: map.get($button-primary, default);
-        padding: 12px;
-        margin: 0;
-        border: none;
-        @include font-style($size: 14px,
-          $line-height: 16px,
-          $color: $primary-white,
-          $weight: map.get($font-weights, semibold),
-          $family: $Poppins );
-      }
-    }
-  }
-
   &.index-fund {
     margin: 40px auto;
     // max-width: 1232px;

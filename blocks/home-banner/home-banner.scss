@@ -21,6 +21,9 @@
     right: 67px;
     bottom: -13px;
     z-index: 1;
+    @include media(tab){
+      right: 16px;
+    }
   }
 
   ul {
