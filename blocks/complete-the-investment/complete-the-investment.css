@@ -1,6 +1,6 @@
 @import "../../../styles/fonts.css";
 .complete-the-investment > div:first-child {
-  display: grid;
+  display: none;
   grid-template-columns: 1fr 1fr;
   align-items: start;
   padding: 20px 16px;
