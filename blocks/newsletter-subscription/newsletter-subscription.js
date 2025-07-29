@@ -3,6 +3,7 @@ import {
 } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {
+  block.style.display = 'none'; // RM11
   Array.from(block.children).forEach((el, index) => {
     el.classList.add(`newsitem${index + 1}`);
     Array.from(el.children).forEach((subel) => {
