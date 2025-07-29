@@ -1,4 +1,5 @@
-@import "../../../styles/fonts.css";
+@import url("../../../styles/fonts.css");
+/* stylelint-disable */
 .section.think-equity-container {
   padding: 48px 0px;
   margin: 0 auto;
@@ -202,4 +203,4 @@
 .section.think-equity-container .default-content-wrapper .button-container .button:hover, .section.think-equity-container .default-content-wrapper .button-container .button:focus {
   background-color: #181643;
   transform: translateY(-2px);
-}/*# sourceMappingURL=think-equity.css.map */
+}

@@ -1,6 +1,7 @@
 /* stylelint-disable alpha-value-notation */
 /* stylelint-disable media-feature-range-notation */
-@import "../../../styles/fonts.css";
+@import url("../../../styles/fonts.css");
+/* stylelint-disable */
 .section.tabs-container {
   width: 100%;
   margin: 0 auto;
@@ -599,4 +600,4 @@
   .section.tabs-container .card-container {
     max-width: 100%;
   }
-}/*# sourceMappingURL=fund-card.css.map */
+}
