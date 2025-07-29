@@ -445,6 +445,7 @@
   width: 100%;
 }
 .section .card-container .card-upper-title .title-headLogo .title-logo {
+  position: relative;
   min-width: 40px;
   width: 40px;
   height: 40px;
@@ -453,6 +454,9 @@
   background: #BDCBFF;
 }
 .section .card-container .card-upper-title .title-headLogo .title-logo .logoScheme {
+  position: absolute;
+  top: 20%;
+  left: 15%;
   width: 29.977px;
   height: 20.855px;
   flex-shrink: 0;
