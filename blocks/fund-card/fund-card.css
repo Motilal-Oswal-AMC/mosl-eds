@@ -27,7 +27,7 @@
   align-items: start;
   gap: 30px;
   margin: 0 0 8px;
-  min-height: 50px;
+  flex-direction: column;
 }
 .section .card-container .card-upper-title h2 {
   font-size: 14px;
@@ -57,6 +57,9 @@
   gap: 8px;
   margin: 0 0 16px;
   flex-wrap: wrap;
+  margin-top: auto;
+  max-height: 40px;
+  height: 100%;
 }
 .section .card-container .card-category .fundtagging-list {
   display: flex;
@@ -425,7 +428,6 @@
 .section .card-container .card-upper-title {
   gap: 30px;
   margin: 0 0 8px;
-  min-height: 50px;
   flex-direction: column;
 }
 .section .card-container .card-upper-title .title-headLogo {
@@ -440,7 +442,7 @@
   height: 40px;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
   border-radius: 50%;
-  background: #BDCBFF;
+  background: #bdcbff;
 }
 .section .card-container .card-upper-title .title-headLogo .title-logo .logoScheme {
   position: absolute;
@@ -467,7 +469,7 @@
   margin: 0;
   font-size: 12px;
   line-height: 16px;
-  color: #5659FA;
+  color: #5659fa;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
@@ -486,6 +488,10 @@
   justify-content: flex-start;
   gap: 8px;
   margin: 0 0 16px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  max-height: 40px;
+  height: 100%;
 }
 .section .card-container .card-category .fundtagging-list {
   display: flex;
@@ -543,11 +549,12 @@
   justify-content: space-between;
   gap: 10px;
   padding: 4px 0;
+  min-height: 88px;
   height: 88px;
-  padding: 24px 12px;
+  padding: 12px;
   align-self: stretch;
   border-radius: 12px;
-  border: 0.5px solid #E8E8E8;
+  border: 0.5px solid #e8e8e8;
   background: #FAFAFA;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
   margin-top: auto;
@@ -579,7 +586,7 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  width: 120px;
+  width: 80px;
 }
 .section .card-container .cagr-container .cagr-select-wrapper::after {
   content: "";
