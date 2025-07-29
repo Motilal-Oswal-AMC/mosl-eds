@@ -107,7 +107,7 @@
 }
 
 .section.compound-journey .compound-item .compound-sub-item .button-container .button {
-  font-size: var(--Button-Small-Size, 14px);
+  font-size: var(--button-small-size, 14px);
   line-height: 16px;
   color: #fff;
   font-family: Poppins, sans-serif;
@@ -302,12 +302,12 @@
 .section.compound-journey .compound-item .card-items .card-container .return-btn label {
   grid-area: label;
   margin: 0;
-  color: var(--Text-Body, #424242);
-  font-family: var(--Body, Poppins);
-  font-size: var(--Disclaimer-XSmall-Size, 12px);
+  color: var(--text-body, #424242);
+  font-family: var(--body, Poppins);
+  font-size: var(--disclaimer-xsmall-size, 12px);
   font-style: normal;
   font-weight: 400;
-  line-height: var(--Disclaimer-XSmall-Line-Height, 16px);
+  line-height: var(--disclaimer-xsmall-line-height, 16px);
 }
 
 .section.compound-journey .compound-item .card-items .card-container .return-btn .cagr-value {
@@ -349,6 +349,12 @@
 }
 
 .section.compound-journey .compound-item .card-items .card-container .return-btn .btn-knowmore a {
+  font-size: var(--button-small-size, 14px);
+  line-height: 16px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  background: #5659fa;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -362,8 +368,8 @@
   width: 100%;
   display: block;
   color: #FFF;
-  font-family: var(--Body, Poppins);
-  font-size: var(--Button-Small-Size, 14px);
+  font-family: var(--body, Poppins);
+  font-size: var(--button-small-size, 14px);
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
@@ -378,8 +384,8 @@
 
 .section.compound-journey .compound-item .card-items .card-container .return-btn .btn-knowmore a span {
   color: #FFF;
-  font-family: var(--Body, "Poppins", sans-serif);
-  font-size: var(--Button-Small-Size, 14px);
+  font-family: var(--body, "Poppins", sans-serif);
+  font-size: var(--button-small-size, 14px);
   font-style: normal;
   font-weight: 600;
   line-height: 16px;

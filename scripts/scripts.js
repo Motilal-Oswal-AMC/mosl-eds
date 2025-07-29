@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import loadFragment from '../blocks/fragment/fragment.js';
-
 import {
   loadHeader,
   loadFooter,
@@ -63,6 +62,17 @@ async function loadFonts() {
     // do nothing
   }
 }
+function autolinkModals(element) {
+  element.addEventListener('click', async (e) => {
+    const origin = e.target.closest('a');
+
+    if (origin && origin.href && origin.href.includes('/modals/')) {
+      e.preventDefault();
+      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+      openModal(origin.href);
+    }
+  });
+}
 
 /**
  * Builds all synthetic blocks in a container element.
@@ -122,8 +132,9 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
+  autolinkModals(doc)
   const main = doc.querySelector('main');
-  autolinkFragements(doc); // 15 Apr 25
+  autolinkFragements(doc);
   await loadSections(main);
 
   const { hash } = window.location;
@@ -136,6 +147,7 @@ async function loadLazy(doc) {
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 }
+
 
 /**
  * Loads everything that happens a lot later,
@@ -154,6 +166,7 @@ async function loadPage() {
 }
 
 loadPage();
+
 
 
 /// API ///

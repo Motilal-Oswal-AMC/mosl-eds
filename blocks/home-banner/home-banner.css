@@ -748,8 +748,13 @@ button.swiper-pagination-bullet {
   position: absolute;
   padding: 0;
   right: 67px;
-  bottom: -15px;
+  bottom: -13px;
   z-index: 1;
+}
+@media (max-width: 1025px) {
+  .section.home-banner-container .default-content-wrapper {
+    right: 16px;
+  }
 }
 .section.home-banner-container ul {
   display: flex;

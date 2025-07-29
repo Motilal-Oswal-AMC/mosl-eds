@@ -1,7 +1,7 @@
 @import url("../../../styles/fonts.css");
 
 .complete-the-investment > div:first-child {
-  display: grid;
+  display: none;
   grid-template-columns: 1fr 1fr;
   padding: 20px 16px;
   align-items: flex-start;
