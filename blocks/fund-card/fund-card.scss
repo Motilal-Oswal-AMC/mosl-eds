@@ -177,7 +177,7 @@
         }
       }
       .cagr-desc {
-        background: map.get($old-silver, 50);
+        // background: map.get($old-silver, 50);
         padding: 4px 8px;
         line-height: 0;
         width: 100%;
@@ -484,6 +484,7 @@
       .title-headLogo {
         display: flex;
         justify-content: space-between;
+        width: 100%;;
 
         .title-logo {
           min-width: 40px;
@@ -711,7 +712,7 @@
       }
 
       .cagr-desc {
-        background: map.get($old-silver, 50);
+        // background: map.get($old-silver, 50);
         // padding: 4px 8px;
         line-height: 0;
         width: 100%;
