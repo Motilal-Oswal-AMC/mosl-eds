@@ -49,7 +49,7 @@ $breakpoint-desktop: 1367px;
 }
 
 @mixin button-style($bg-color: $secondary-purple, $text-color: $white, $padding: $spacing-md) {
-  @include typography(var(--Button-Small-Size, 14px), 16px, $text-color, $font-poppins, 600);
+  @include typography(var(--button-small-size, 14px), 16px, $text-color, $font-poppins, 600);
   background: $bg-color;
   border-radius: $border-radius-sm;
   padding: $padding;
@@ -302,12 +302,12 @@ $breakpoint-desktop: 1367px;
             grid-area: label;
             @include typography(14px, 16px, $primary-purple, $font-poppins, 400);
             margin: 0; // Reset margin
-            color: var(--Text-Body, #424242);
-            font-family: var(--Body, Poppins);
-            font-size: var(--Disclaimer-XSmall-Size, 12px);
+            color: var(--text-body, #424242);
+            font-family: var(--body, Poppins);
+            font-size: var(--disclaimer-xsmall-size, 12px);
             font-style: normal;
             font-weight: 400;
-            line-height: var(--Disclaimer-XSmall-Line-Height, 16px);
+            line-height: var(--disclaimer-xsmall-line-height, 16px);
 
           }
 
@@ -352,8 +352,8 @@ $breakpoint-desktop: 1367px;
               width: 100%;
               display: block;
               color: #FFF;
-              font-family: var(--Body, Poppins);
-              font-size: var(--Button-Small-Size, 14px);
+              font-family: var(--body, Poppins);
+              font-size: var(--button-small-size, 14px);
               font-style: normal;
               font-weight: 600;
               line-height: 16px;
@@ -363,8 +363,8 @@ $breakpoint-desktop: 1367px;
               & span {
                 // Targeting button text
                 color: #FFF;
-                font-family: var(--Body, $font-poppins);
-                font-size: var(--Button-Small-Size, 14px);
+                font-family: var(--body, $font-poppins);
+                font-size: var(--button-small-size, 14px);
                 font-style: normal;
                 font-weight: 600;
                 line-height: 16px;

@@ -44,7 +44,7 @@
 
 @media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel {
-    margin-right: 115px;
+    margin-right: 87px;
   }
 }
 
@@ -57,7 +57,7 @@
 
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev,
-.section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination {
+.section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination {
   top: 0;
   right: 0;
   left: unset;
@@ -71,17 +71,18 @@
 @media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next,
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev,
-  .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination {
+  .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination {
     right: 0;
     top: unset;
     bottom: 0;
     margin: 0;
+    display: none;
   }
 }
 
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev::after,
-.section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination::after {
+.section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination::after {
   content: "";
   background: url("../../icons/arrow-left.svg");
   background-position: center;
@@ -94,7 +95,7 @@
 
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next.swiper-button-disabled::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev.swiper-button-disabled::after,
-.section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination.swiper-button-disabled::after {
+.section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination.swiper-button-disabled::after {
   background: url("../../icons/arrow-left-disabled.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -122,7 +123,27 @@
 
 @media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination {
-    right: 25px;
+    display: flex;
+    position: absolute;
+    right: 8px;
+    top: unset;
+    left: unset;
+    bottom: 0;
+    max-width: -moz-max-content;
+    max-width: max-content;
+    height: 2px;
+    border-radius: 10px;
+    background-color: #E0E0E0;
+  }
+  .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination-bullet {
+    background-color: transparent;
+    opacity: unset;
+    margin: 0;
+    height: 2px;
+    border-radius: 10px;
+  }
+  .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination-bullet-active {
+    background-color: #2e2a94;
   }
 }
 
@@ -156,6 +177,7 @@
     flex-direction: column-reverse;
     align-items: start;
     width: 100%;
+    gap: 8px;
   }
 }
 
@@ -171,6 +193,7 @@
   .section.live-streaming-carousel-container .live-streaming-carousel ul li:first-of-type {
     font-size: 14px;
     line-height: 20px;
+    padding-right: 9px;
   }
 }
 
