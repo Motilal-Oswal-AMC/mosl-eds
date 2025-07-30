@@ -694,7 +694,8 @@
 
         .start-sip-btn button {
           display: flex;
-          width: 132px;
+          // width: 132px;
+          width: 100%;
           padding: map.get($spacing, sm);
           justify-content: center;
           align-items: center;
