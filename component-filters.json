@@ -27,7 +27,8 @@
       "newsletter-subscription",
       "think-equity",
       "fund-card",
-      "investment-block"
+      "investment-block",
+      "our-fund-block"
     ]
   },
   {
@@ -85,6 +86,12 @@
     "id": "live-streaming",
     "components": [
       "live-streaming-content"
+    ]
+  },
+  {
+    "id": "our-fund-block",
+    "components": [
+      "our-fund-block-item"
     ]
   }
 ]
