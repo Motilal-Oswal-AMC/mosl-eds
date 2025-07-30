@@ -687,5 +687,17 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id":"left-filter-item",
+    "fields":[
+      {
+        "component": "richtext",
+        "name": "col_leftfilter",
+        "value": "",
+        "label": "Enter Context for icon Label filter container",
+        "valueType": "string"
+      }
+    ]
   }
 ]
