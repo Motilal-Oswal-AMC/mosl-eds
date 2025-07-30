@@ -651,11 +651,33 @@
     "id": "growth-now",
     "fields": [
       {
+        "component": "reference",
+        "name": "fstimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "fstimageAlt",
+        "label": "Alt Text"
+      },
+      {
         "component": "richtext",
         "name": "col2_text",
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "name": "sndimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "sndimageAlt",
+        "label": "Alt Text"
       },
       {
         "component": "richtext",
