@@ -16,16 +16,19 @@
   }
 
   .default-content-wrapper {
-    position: fixed;
+    // position: fixed;
+    position: absolute;
     padding: 0;
     right: 67px;
-    top: 62%;
+    // top: 62%;
+    bottom: -20px;
     z-index: 15;
     @include media(tab) {
       right: 16px;
     }
     @include media(mobile){
-      top: 295px;
+      // top: 295px;
+      bottom: -60px;
     }
   }
 
