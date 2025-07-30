@@ -64,7 +64,7 @@
       margin: 0 0 16px;
       flex-wrap: wrap;
       margin-top: auto;
-      max-height: 40px;
+      min-height: 40px;
       height: 100%;
       .fundtagging-list {
         @include flex-center($align: center, $justify: flex-start);
@@ -305,6 +305,7 @@
 
     .button-container {
       @include flex-center($align: center, $justify: space-between);
+      flex-wrap: wrap;
       margin: 24px 0 0;
       gap: 20px;
 
@@ -589,7 +590,7 @@
       margin: 0 0 16px;
       flex-wrap: wrap;
       margin-top: auto;
-      max-height: 40px;
+      min-height: 40px;
       height: 100%;
       .fundtagging-list {
         @include flex-center($align: center, $justify: flex-start);
