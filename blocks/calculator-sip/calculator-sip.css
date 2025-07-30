@@ -388,7 +388,7 @@
 }
 .compounding .calculator-sip-wrapper .cal-container .cal-discription .start-sip-btn button {
   display: flex;
-  width: 132px;
+  width: 100%;
   padding: 12px;
   justify-content: center;
   align-items: center;
