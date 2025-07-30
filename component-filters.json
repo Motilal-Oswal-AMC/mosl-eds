@@ -92,7 +92,8 @@
     "id": "our-fund-block",
     "components": [
       "our-fund-block-item",
-      "left-filter-item"
+      "left-filter-item",
+      "right-block-item"
     ]
   }
 ]

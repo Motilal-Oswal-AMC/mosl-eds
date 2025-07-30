@@ -397,6 +397,21 @@
               }
             }
           }
+        },
+        {
+          "title": "Right block Item",
+          "id": "right-block-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Right block Item",
+                  "model": "right-block-item"
+                }
+              }
+            }
+          }
         }
       ]
     }

@@ -2,8 +2,8 @@ import dataCfObj from "../../scripts/dataCfObj.js"
 import {div, input, label,span, p} from "../../scripts/dom-helpers.js"
 import dataMapMoObj from "../../scripts/constant.js"
 export default function decorate(block){
-    Array.from(block.children).forEach((el)=>{
-        el.classList.add("block-item");
+    Array.from(block.children).forEach((el,index)=>{
+        el.classList.add("block-item"+(index+1));
         Array.from(el.children).forEach((elsub,index)=>{
             elsub.classList.add("block-subitem"+(index+1));
             Array.from(elsub.children).forEach((finelsub,index)=>{
@@ -14,7 +14,9 @@ export default function decorate(block){
     
     dataMapMoObj['data'] = dataFilterfun(dataCfObj);
     console.log(dataMapMoObj['data']);
-    
+
+    // block.querySelector(".block-item2 span"); //filter
+    // block.querySelector(".block-item2 block-subitem-finelsub2"); //filter
 
     let divfund = div({class:"blockwrapper"},
         div({class:"fundcontainer"},
@@ -49,11 +51,9 @@ export default function decorate(block){
         div({class:"filter-cards"},
             div({class:"left-container"},
                 div({class: "FundCategory-container"},
-                    div({
-                                class: "title-container"
-                            },
-                                label("Fund Category"),
-                                label("Clear")
+                    div({class: "title-container"},
+                        block.querySelector(".block-item2 span"),
+                        label(block.querySelector(".block-item2 .block-subitem-finelsub2").textContent.trim()) 
                     ),
                     div({class: "filter-container"},
                         ...dataMapMoObj.data.fundCategory.map((element, index) => {
@@ -169,8 +169,52 @@ export default function decorate(block){
                             ) : ""
                         })
                     )
-                ),    
-            )
+                ),
+                div({class: "FundTye-container"},
+                    div({class: "title-container"},
+                        label(block.querySelector(".block-item2 .block-subitem-finelsub3").textContent.trim()),
+                    ),
+                    div({
+                        class: "fund-container"
+                    },
+                        ...dataMapMoObj.data.fundType.map((element) => {
+                            return label({class: "checkbox-label-container"},
+                                span({class: "square-shape"},
+                                    input({
+                                        class: "categorey-direct",
+                                        type: "checkbox",
+                                        dataattr: element[Object.keys(element)[0]].join("-"),
+                                        onclick: function (ele) {
+                                            let tempSchCode =[];
+                                            block.querySelectorAll(".fund-container .categorey-direct").forEach((elm)=>{
+                                                if(elm.checked){
+                                                    tempSchCode.push(elm.getAttribute('dataattr').split("-"))
+                                                }
+                                            })
+                                            //Cards
+                                            tempSchCode = tempSchCode.flat(2)
+                                            let tempScheme = dataCfObj.filter((item)=>{
+                                                if(tempSchCode.includes(item.schcode)){
+                                                    return item
+                                                }
+                                            })
+                                            Array.from(block.querySelector(".searchBarContainer .searchModal ul").children).forEach((elre)=>{
+                                                elre.style.display="none"
+                                                    if (tempSchCode.includes(elre.getAttribute("dataattr"))) {
+                                                            elre.style.display="block"
+                                                    }
+                                        }) 
+                                        rightBottomcardRender(block,tempScheme,dataMapMoObj)
+                                        }
+                                    })
+                                ),
+                                span(capitalizeEachWord(Object.keys(element)[0].replaceAll("-"," ")) + "(" + element[Object.keys(element)[0]].length + ")"),
+                            )
+                        })
+                    )
+                ) 
+            ),
+            div({class:"right-container"})
         )
     )
     block.innerHTML ="";
