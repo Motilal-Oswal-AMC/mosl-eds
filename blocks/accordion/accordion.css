@@ -1,36 +1,18 @@
-/* stylelint-disable alpha-value-notation */
-/* stylelint-disable media-feature-range-notation */
-@import "../../../styles/fonts.css";
-.section.accordion-container {
+.accordion-container {
   display: flex;
-  justify-content: space-between;
-  max-width: 1232px;
-  margin: 0 auto;
-  padding: 0 24px;
 }
-.section.accordion-container > div {
-  max-width: unset;
-  margin: unset;
-  padding: 0;
-}
-.section.accordion-container > div:first-child p {
-  color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 44px;
-}
-.section.accordion-container .accordion details {
+
+.accordion details {
   border: 1px solid #dadada;
+  /* stylelint-disable-next-line no-descending-specificity */
 }
-.section.accordion-container .accordion details + .section.accordion-container .accordion details {
+.accordion details + .accordion details {
   margin-top: 24px;
 }
-.section.accordion-container .accordion details p {
+.accordion details p {
   margin-bottom: 0.8em;
 }
-.section.accordion-container .accordion details summary {
+.accordion details summary {
   position: relative;
   padding: 0 46px 0 16px;
   cursor: pointer;
@@ -38,13 +20,13 @@
   overflow: auto;
   transition: background-color 0.2s;
 }
-.section.accordion-container .accordion details summary:focus, .section.accordion-container .accordion details summary:hover {
+.accordion details summary:focus, .accordion details summary:hover {
   background-color: var(--light-color);
 }
-.section.accordion-container .accordion details summary::-webkit-details-marker {
+.accordion details summary::-webkit-details-marker {
   display: none;
 }
-.section.accordion-container .accordion details summary::after {
+.accordion details summary::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -56,19 +38,16 @@
   border-width: 2px 2px 0 0;
   transition: transform 0.2s;
 }
-.section.accordion-container .accordion details .accordion-item-body {
+.accordion details .accordion-item-body {
   padding: 0 16px;
 }
-.section.accordion-container .accordion details[open] summary {
+.accordion details[open] summary {
   background-color: var(--light-color);
 }
-.section.accordion-container .accordion details[open] summary::after {
+.accordion details[open] summary::after {
   transform: translateY(-50%) rotate(-45deg);
 }
-.section.accordion-container .accordion details[open] .accordion-item-body {
+.accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
-}
-.section.accordion-container > div:nth-child(3) {
-  display: none;
 }/*# sourceMappingURL=accordion.css.map */

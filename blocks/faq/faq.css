@@ -1,1 +1,101 @@
-/*# sourceMappingURL=faq.css.map */
+/* stylelint-disable alpha-value-notation */
+/* stylelint-disable media-feature-range-notation */
+@import "../../../styles/fonts.css";
+.section.freq-ask-ques {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.section.freq-ask-ques > div {
+  max-width: unset;
+  margin: unset;
+  padding: 0;
+}
+.section.freq-ask-ques > div:nth-child(1) {
+  width: 25%;
+}
+.section.freq-ask-ques > div:nth-child(1) p {
+  color: #2e2a94;
+  font-family: "ButlerPro", sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 44px;
+  padding: 0;
+  margin: 0;
+}
+.section.freq-ask-ques .accordion-wrapper {
+  width: 68.5%;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 52px;
+  flex: 1 0 0;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details {
+  width: 100%;
+  border: none;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details + .section.freq-ask-ques .accordion-wrapper .accordion details {
+  margin-top: 24px;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details p {
+  margin: 0;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details summary {
+  position: relative;
+  padding: 0 46px 0 16px;
+  cursor: pointer;
+  list-style: none;
+  overflow: auto;
+  transition: background-color 0.2s;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details summary:focus, .section.freq-ask-ques .accordion-wrapper .accordion details summary:hover {
+  background-color: var(--light-color);
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details summary::-webkit-details-marker {
+  display: none;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%) rotate(135deg);
+  width: 6px;
+  height: 6px;
+  border: 2px solid;
+  border-width: 2px 2px 0 0;
+  transition: transform 0.2s;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details .accordion-item-body {
+  padding: 0 16px;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details[open] summary {
+  color: #fff;
+  background: #242177;
+  border-radius: 8px 8px 0px 0px;
+  padding: 16px;
+  padding-bottom: 8px;
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details[open] summary::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+.section.freq-ask-ques .accordion-wrapper .accordion details[open] .accordion-item-body {
+  color: #fff;
+  border: none;
+  outline: none;
+  margin-top: -1px;
+  padding: 16px;
+  padding-top: 0;
+  border-radius: 0px 0px 8px 8px;
+  background: #242177;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+}
+.section.freq-ask-ques > div:nth-child(3) {
+  display: none;
+}/*# sourceMappingURL=faq.css.map */

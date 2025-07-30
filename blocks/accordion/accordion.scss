@@ -1,98 +1,72 @@
-/* stylelint-disable alpha-value-notation */
-/* stylelint-disable media-feature-range-notation */
-@use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
-
-.section.accordion-container {
+.accordion-container {
     display: flex;
-    justify-content: space-between;
-    max-width: 1232px;
-    margin: 0 auto;
-    padding: 0 24px;
+}
 
-    >div {
-        max-width: unset;
-        margin: unset;
-        padding: 0;
-    }
+.accordion {
+    details {
+        border: 1px solid #dadada;
 
-    &>div:first-child {
-        p {
-            color: $primary-blue;
-            font-family: $ButlerPro;
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 44px;
+        /* stylelint-disable-next-line no-descending-specificity */
+        // Use the parent selector `&` to target an adjacent sibling
+        &+& {
+            margin-top: 24px;
         }
-    }
 
-    .accordion {
-        details {
-            border: 1px solid #dadada;
+        p {
+            margin-bottom: 0.8em;
+        }
 
-            &+& {
-                margin-top: 24px;
+        summary {
+            position: relative;
+            // The original CSS was `padding: 0 16px;` followed by `padding-right: 46px;`.
+            // This is the simplified version of that.
+            padding: 0 46px 0 16px;
+            cursor: pointer;
+            list-style: none;
+            overflow: auto;
+            transition: background-color 0.2s;
+
+            &:focus,
+            &:hover {
+                background-color: var(--light-color);
             }
 
-            p {
-                margin-bottom: 0.8em;
+            &::-webkit-details-marker {
+                display: none;
             }
 
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 18px;
+                transform: translateY(-50%) rotate(135deg);
+                width: 6px;
+                height: 6px;
+                border: 2px solid;
+                border-width: 2px 2px 0 0;
+                transition: transform 0.2s;
+            }
+        }
+
+        .accordion-item-body {
+            padding: 0 16px;
+        }
+
+        // Styles for when the details element is open
+        &[open] {
             summary {
-                position: relative;
-                padding: 0 46px 0 16px;
-                cursor: pointer;
-                list-style: none;
-                overflow: auto;
-                transition: background-color 0.2s;
-
-                &:focus,
-                &:hover {
-                    background-color: var(--light-color);
-                }
-
-                &::-webkit-details-marker {
-                    display: none;
-                }
+                background-color: var(--light-color);
 
                 &::after {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    right: 18px;
-                    transform: translateY(-50%) rotate(135deg);
-                    width: 6px;
-                    height: 6px;
-                    border: 2px solid;
-                    border-width: 2px 2px 0 0;
-                    transition: transform 0.2s;
+                    transform: translateY(-50%) rotate(-45deg);
                 }
             }
 
             .accordion-item-body {
-                padding: 0 16px;
-            }
-
-            &[open] {
-                summary {
-                    background-color: var(--light-color);
-
-                    &::after {
-                        transform: translateY(-50%) rotate(-45deg);
-                    }
-                }
-
-                .accordion-item-body {
-                    border-top: 1px solid #dadada;
-                    background-color: var(--background-color);
-                }
+                border-top: 1px solid #dadada;
+                background-color: var(--background-color);
             }
         }
-    }
-
-    &>div:nth-child(3) {
-        display: none;
     }
 }
