@@ -152,12 +152,17 @@
           font-size: 18px;
           text-align: left;
 
+          border-radius: 6px;
+          border: 1px solid var(--Neutrals-200, #EEE);
+          box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+
           @include media(mobile) {
             border: 1px solid map.get($strokes, default);
           }
 
           li {
-            padding: 10px;
+            // padding: 10px;
+            padding: 12px 16px;
             cursor: pointer;
 
             &:hover {
@@ -165,8 +170,9 @@
             }
 
             &.active {
-              background: map.get($blue-1, b25);
-              border-left: 3px solid $primary-blue;
+              // background: map.get($blue-1, b25);
+              // border-left: 3px solid $primary-blue;
+              background: var(--Neutrals-200, #EEE);
             }
           }
         }
