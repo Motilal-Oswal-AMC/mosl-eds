@@ -27,8 +27,9 @@
       right: 16px;
     }
     @include media(mobile){
-      // top: 295px;
-      bottom: -60px;
+      position: fixed;
+      top: 297px;
+      bottom: unset;
     }
   }
 

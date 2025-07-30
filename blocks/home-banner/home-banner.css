@@ -758,7 +758,9 @@ button.swiper-pagination-bullet {
 }
 @media (max-width: 768px) {
   .section.home-banner-container .default-content-wrapper {
-    bottom: -60px;
+    position: fixed;
+    top: 297px;
+    bottom: unset;
   }
 }
 .section.home-banner-container ul {
