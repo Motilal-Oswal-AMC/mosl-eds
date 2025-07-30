@@ -110,15 +110,12 @@
   right: 104px;
 }
 
-@media (width <= 768px) {
-  .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev {
-    right: 83px;
-  }
-}
-
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination {
   right: 36px;
   width: max-content;
+}
+.section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination::after {
+  content: unset;
 }
 
 @media (width <= 768px) {

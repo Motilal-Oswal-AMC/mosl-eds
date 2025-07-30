@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import {
-  div, a, label, input, span, button, ul, img, h2, p as pTag,
+  div, a, label, input, span, button, ul, img, h2, p as pTag, select, option
 } from '../../scripts/dom-helpers.js';
 // import moslFundData from './datacal.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -99,17 +99,34 @@ export default function decorate(block) {
           }),
         ),
       ),
+      // div(
+      //   { class: 'tenure-wrapper' },
+      //   label(col2[3].textContent.trim()),
+      //   input({
+      //     type: 'number',
+      //     value: col3[0].textContent.trim(),
+      //     name: 'investmentTenure',
+      //     id: 'investmentTenure',
+      //     placeholder: 'Enter tenure in years',
+      //   }),
+      // ),
       div(
         { class: 'tenure-wrapper' },
         label(col2[3].textContent.trim()),
-        input({
-          type: 'number',
-          value: col3[0].textContent.trim(),
-          name: 'investmentTenure',
-          id: 'investmentTenure',
-          placeholder: 'Enter tenure in years',
-        }),
+        select(
+          {
+            name: 'investmentTenure',
+            id: 'investmentTenure',
+          },
+          ...[1, 3, 5, 7, 10].map((year) =>
+            option(
+              { value: year, selected: parseInt(col3[0].textContent.trim(), 10) === year },
+              `${year} years`
+            )
+          )
+        ),
       ),
+
     ),
     div(
       { class: 'invested-amount' },
