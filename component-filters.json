@@ -48,7 +48,7 @@
   },
   {
     "id": "accordion",
-    "components": ["accordionitem"]
+    "components": ["accordion-item"]
   },
   {
     "id": "future-building",
