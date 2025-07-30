@@ -680,9 +680,11 @@
         "valueType": "string"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "name": "col_trending",
-        "label": "Enter Label Text For Trending"
+        "value": "",
+        "label": "Enter Context for Trending",
+        "valueType": "string"
       }
     ]
   }
