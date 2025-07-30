@@ -233,173 +233,316 @@
         }
       }
 
-.investment-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: map.get($spacing, xxl);
-        margin: map.get($spacing, md) 0;
-        border-bottom: 1px solid map.get($strokes, default);
+// .investment-wrapper {
+//         display: flex;
+//         flex-wrap: wrap;
+//         gap: map.get($spacing, xxl);
+//         margin: map.get($spacing, md) 0;
+//         border-bottom: 1px solid map.get($strokes, default);
 
-        // Common styles for both wrappers
-        .sip-wrapper,
-        .tenure-wrapper {
-          position: relative;
-          flex: 1 1 45%;
-          display: flex;
-          flex-direction: column;
-          gap: map.get($spacing, xs);
-          width: 290px;
-          height: 68px;
-          padding: map.get($spacing, xs) 0;
-          justify-content: space-between;
+//         // Common styles for both wrappers
+//         .sip-wrapper,
+//         .tenure-wrapper {
+//           position: relative;
+//           flex: 1 1 45%;
+//           display: flex;
+//           flex-direction: column;
+//           gap: map.get($spacing, xs);
+//           width: 290px;
+//           height: 68px;
+//           padding: map.get($spacing, xs) 0;
+//           justify-content: space-between;
 
-          label {
-            @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
-          }
-        }
+//           label {
+//             @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+//           }
+//         }
         
-        // ✅ STEP 1: Define ALL base input styles together
-        .sip-wrapper input { //         .tenure-wrapper input
-          border: none;
-          background-color: transparent;
-          color: #2E2A94;
-          font-family: $Poppins;
-          font-size: 20px;
-          font-weight: 500;
-          line-height: 24px;
-          width: 100%;
-          appearance: textfield;
-          border-radius: map.get($radius, r4);
-          box-sizing: border-box;
+//         // ✅ STEP 1: Define ALL base input styles together
+//         .sip-wrapper input { //         .tenure-wrapper input
+//           border: none;
+//           background-color: transparent;
+//           color: #2E2A94;
+//           font-family: $Poppins;
+//           font-size: 20px;
+//           font-weight: 500;
+//           line-height: 24px;
+//           width: 100%;
+//           appearance: textfield;
+//           border-radius: map.get($radius, r4);
+//           box-sizing: border-box;
 
-          &::-webkit-outer-spin-button,
-          &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-          }
-        }
+//           &::-webkit-outer-spin-button,
+//           &::-webkit-inner-spin-button {
+//             -webkit-appearance: none;
+//             margin: 0;
+//           }
+//         }
 
-         // ✅ NEW: Styles for Tenure SELECT
-  .tenure-wrapper select {
-    // border: none;
-    // background-color: transparent;
-    // color: #2E2A94;
-    // font-family: $Poppins;
-    // font-size: 20px;
-    // font-weight: 500;
-    // line-height: 24px;
-    // width: 100%;
-    // height: 100%;
-    // appearance: none;
-    // padding-right: 28px; // extra space for custom arrow
-    // border-radius: map.get($radius, r4);
-    // box-sizing: border-box;
-    // cursor: pointer;
+//          // ✅ NEW: Styles for Tenure SELECT
+//   .tenure-wrapper select {
+//     // border: none;
+//     // background-color: transparent;
+//     // color: #2E2A94;
+//     // font-family: $Poppins;
+//     // font-size: 20px;
+//     // font-weight: 500;
+//     // line-height: 24px;
+//     // width: 100%;
+//     // height: 100%;
+//     // appearance: none;
+//     // padding-right: 28px; // extra space for custom arrow
+//     // border-radius: map.get($radius, r4);
+//     // box-sizing: border-box;
+//     // cursor: pointer;
+//     border: none;
+//     background-color: transparent;
+//     color: #2E2A94;
+//     font-family: $Poppins;
+//     font-size: 20px;
+//     font-weight: 500;
+//     line-height: 24px;
+//     width: 100%;
+//     height: 100%;
+//     appearance: none; // remove native arrow
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     padding-right: 32px; // space for custom icon
+//     border-radius: map.get($radius, r4);
+//     box-sizing: border-box;
+//     cursor: pointer;
+//     outline: none;
+
+//      // optional: remove default focus border in Safari
+//     &:focus {
+//       outline: none;
+//       box-shadow: none;
+//     }
+//   }
+
+//   .tenure-wrapper select:focus {
+//     outline: none;
+//   }
+
+//   // ✅ Keep the pseudo-element for the dropdown arrow
+//   .tenure-wrapper::after {
+//     // content: '';
+//     // position: absolute;
+//     // right: 10px;
+//     // top: 50%;
+//     // transform: translateY(-50%);
+//     // width: 20px;
+//     // height: 20px;
+//     // background: url('../../icons/Frame.svg') no-repeat center;
+//     // background-size: contain;
+//     // pointer-events: none;
+//      content: '';
+//     position: absolute;
+//     right: 12px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     width: 20px;
+//     height: 20px;
+//     background: url('../../icons/Frame.svg') no-repeat center;
+//     background-size: contain;
+//     pointer-events: none;
+//   }
+
+  
+//   // Optional: style the dropdown options if needed
+//   .tenure-wrapper select option {
+//     color: #2E2A94;
+//     font-family: $Poppins;
+//     font-size: 18px;
+//     font-weight: 400;
+//     padding: 10px;
+//     border: 1px solid transparent; // optional, for better click area
+//     margin: 10px;
+//     border-bottom: 1px solid black;
+    
+//   }
+
+//         // ✅ STEP 2: Add specific overrides AFTER the base styles
+//         .sip-wrapper input {
+//           padding-left: 28px;
+//           height: 100%;
+//         }
+
+//         // ✅ STEP 3: Define ALL :focus styles together, after all base styles
+//         .sip-wrapper input:focus,
+//         .tenure-wrapper input:focus {
+//           outline: none;
+//         }
+
+//         // ✅ STEP 4: Define pseudo-elements
+//         .sip-wrapper::before {
+//           content: '₹';
+//           position: absolute;
+//           left: 0;
+//           top: 74%;
+//           transform: translateY(-50%);
+//           pointer-events: none;
+//           color: #2E2A94;
+//           font-family: $Poppins;
+//           font-size: 20px;
+//           font-weight: 500;
+//         }
+
+//         .tenure-wrapper::after {
+//           content: '';
+//           position: absolute;
+//           right: 10px;
+//           top: 65%;
+//           width: 20px;
+//           height: 20px;
+//           background: url('../../icons/Frame.svg') no-repeat center;
+//           background-size: contain;
+//           pointer-events: none;
+//         }
+//       }
+
+.investment-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: map.get($spacing, xxl);
+  margin: map.get($spacing, md) 0;
+  border-bottom: 1px solid map.get($strokes, default);
+  // padding-bottom: map.get($spacing, md); // Add some padding
+
+  .sip-wrapper,
+  .tenure-wrapper {
+    position: relative; // Crucial for icon positioning
+    flex: 1 1 45%;    // Allows wrapping
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, xs);
+    min-width: 200px; // Prevents items from getting too squished
+  }
+
+  label {
+    @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+  }
+
+  // --- Base styles for BOTH input and select ---
+  input,
+  select {
     border: none;
     background-color: transparent;
     color: #2E2A94;
     font-family: $Poppins;
     font-size: 20px;
     font-weight: 500;
-    line-height: 24px;
     width: 100%;
-    height: 100%;
-    appearance: none; // remove native arrow
+    // Remove default browser appearance
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding-right: 32px; // space for custom icon
-    border-radius: map.get($radius, r4);
-    box-sizing: border-box;
-    cursor: pointer;
+    appearance: none;
     outline: none;
 
-     // optional: remove default focus border in Safari
-    &:focus {
-      outline: none;
-      box-shadow: none;
+    // Remove number input spinners
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
   }
 
-  .tenure-wrapper select:focus {
-    outline: none;
+  // --- Specific style for the amount input ---
+  .sip-wrapper input {
+    padding-left: 24px; // Make space for the Rupee symbol
   }
 
-  // ✅ Keep the pseudo-element for the dropdown arrow
-  .tenure-wrapper::after {
+  // --- Specific style for the tenure select ---
+  .tenure-wrapper select {
+    padding-right: 32px; // Make space for the dropdown arrow
+    cursor: pointer;
+  }
+
+  // --- Icon Positioning ---
+  .sip-wrapper::before {
+    content: '₹';
+    position: absolute;
+    left: 0;
+    bottom: 4px; // Position relative to the bottom
+    pointer-events: none;
+    color: #2E2A94;
+    font-family: $Poppins;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  // .tenure-wrapper::after {
     // content: '';
     // position: absolute;
-    // right: 10px;
-    // top: 50%;
-    // transform: translateY(-50%);
+    // right: 12px;
+    // bottom: 4px; // Position relative to the bottom
     // width: 20px;
     // height: 20px;
     // background: url('../../icons/Frame.svg') no-repeat center;
     // background-size: contain;
     // pointer-events: none;
-     content: '';
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background: url('../../icons/Frame.svg') no-repeat center;
-    background-size: contain;
-    pointer-events: none;
-  }
+  // }
 
-  
-  // Optional: style the dropdown options if needed
-  .tenure-wrapper select option {
-    color: #2E2A94;
-    font-family: $Poppins;
-    font-size: 18px;
-    font-weight: 400;
-    padding: 10px;
-    border: 1px solid transparent; // optional, for better click area
-    margin: 10px;
-    border-bottom: 1px solid black;
-    
-  }
+  //new css 
+    .custom-select {
+    position: relative; // Parent for the absolute positioned options
 
-        // ✅ STEP 2: Add specific overrides AFTER the base styles
-        .sip-wrapper input {
-          padding-left: 28px;
-          height: 100%;
-        }
 
-        // ✅ STEP 3: Define ALL :focus styles together, after all base styles
-        .sip-wrapper input:focus,
-        .tenure-wrapper input:focus {
-          outline: none;
-        }
+    .select-selected {
+      color: #2E2A94;
+      font-family: $Poppins;
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
 
-        // ✅ STEP 4: Define pseudo-elements
-        .sip-wrapper::before {
-          content: '₹';
-          position: absolute;
-          left: 0;
-          top: 74%;
-          transform: translateY(-50%);
-          pointer-events: none;
-          color: #2E2A94;
-          font-family: $Poppins;
-          font-size: 20px;
-          font-weight: 500;
-        }
-
-        .tenure-wrapper::after {
-          content: '';
-          position: absolute;
-          right: 10px;
-          top: 65%;
-          width: 20px;
-          height: 20px;
-          background: url('../../icons/Frame.svg') no-repeat center;
-          background-size: contain;
-          pointer-events: none;
-        }
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background: url('../../icons/Frame.svg') no-repeat center;
+        background-size: contain;
+        transition: transform 0.2s ease;
       }
+    }
+
+    // The container for all options, hidden by default
+    .select-options {
+      display: none; // Hidden by default
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+      background: $primary-white;
+      border-radius: map.get($radius, r8);
+      box-shadow: $box-shadow-soft;
+      z-index: 10;
+      overflow: hidden;
+
+      &.open {
+        display: block; // Show when the 'open' class is added
+      }
+    }
+
+    // Individual option styles
+    .select-option {
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      @include font-style(16px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
+
+
+      &:hover {
+        background-color: #f0f0f0; // Or your theme's hover color
+      }
+    }
+  }
+}
 
 // .investment-wrapper {
 //   display: flex;
@@ -636,7 +779,7 @@
           }
 
           .sip-wrapper::before {
-            top: 66%; 
+            top: 42%; 
           }
 
           .tenure-wrapper select {

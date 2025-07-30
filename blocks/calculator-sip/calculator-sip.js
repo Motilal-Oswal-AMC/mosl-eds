@@ -110,21 +110,50 @@ export default function decorate(block) {
       //     placeholder: 'Enter tenure in years',
       //   }),
       // ),
+
+      // div(
+      //   { class: 'tenure-wrapper' },
+      //   label(col2[3].textContent.trim()),
+      //   select(
+      //     {
+      //       name: 'investmentTenure',
+      //       id: 'investmentTenure',
+      //     },
+      //     ...[1, 3, 5, 7, 10].map((year) =>
+      //       option(
+      //         { value: year, selected: parseInt(col3[0].textContent.trim(), 10) === year },
+      //         `${year} years`
+      //       )
+      //     )
+      //   ),
+      // ),
+
+      // In your decorate() function, find and replace the tenure-wrapper div
+
       div(
-        { class: 'tenure-wrapper' },
+        { class: 'tenure-wrapper custom-select' },
         label(col2[3].textContent.trim()),
-        select(
-          {
-            name: 'investmentTenure',
-            id: 'investmentTenure',
-          },
-          ...[1, 3, 5, 7, 10].map((year) =>
-            option(
-              { value: year, selected: parseInt(col3[0].textContent.trim(), 10) === year },
-              `${year} years`
-            )
-          )
+
+        // This div will display the selected option
+        div({ class: 'select-selected', 'aria-haspopup': 'listbox' }, `${col3[0].textContent.trim()} Years`),
+
+        // This list contains all the options and is hidden by default
+        div({ class: 'select-options', role: 'listbox' },
+          ...[5, 10, 15, 20, 25].map((year) =>
+            div(
+              { class: 'select-option', role: 'option', 'data-value': year },
+              `${year} Years`,
+            ),
+          ),
         ),
+
+        // A hidden input to store the actual value for your calculations
+        input({
+          type: 'hidden',
+          name: 'investmentTenure',
+          id: 'investmentTenure',
+          value: col3[0].textContent.trim(),
+        }),
       ),
 
     ),
@@ -182,6 +211,37 @@ export default function decorate(block) {
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
 
+  // --- Custom Select Dropdown Logic ---
+  const customSelect = block.querySelector('.custom-select');
+  const selectedDisplay = customSelect.querySelector('.select-selected');
+  const optionsContainer = customSelect.querySelector('.select-options');
+  const allOptions = customSelect.querySelectorAll('.select-option');
+  const hiddenInput = customSelect.querySelector('#investmentTenure');
+
+  selectedDisplay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Toggle the dropdown
+    optionsContainer.classList.toggle('open');
+  });
+
+  allOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+      // Set the text of the display
+      selectedDisplay.textContent = option.textContent;
+      // Set the value of the hidden input
+      hiddenInput.value = option.getAttribute('data-value');
+      // Close the dropdown
+      optionsContainer.classList.remove('open');
+      // Trigger the calculation update
+      updateValues();
+    });
+  });
+
+  // Close the dropdown if the user clicks outside of it
+  document.addEventListener('click', () => {
+    optionsContainer.classList.remove('open');
+  });
+
   function updateValues() {
     const amount = parseFloat(amountInput.value) || 0;
     const tenure = parseFloat(tenureInput.value) || 0;
@@ -236,6 +296,21 @@ export default function decorate(block) {
     // ✅ Add thousands separator
     investedAmountSpan.textContent = `₹${(investedAmount / 100000).toFixed(2)} Lac`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     currentValueSpan.textContent = `₹${(futureValue / 100000).toFixed(2)} Lac`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+
+    // ✅ START: NEW NUMBER FORMATTING LOGIC
+    // Create a formatter for Indian Rupee currency.
+    // const formatter = new Intl.NumberFormat('en-IN', {
+    //   style: 'currency',
+    //   currency: 'INR',
+    //   maximumFractionDigits: 0, // Hides decimals like .00
+    // });
+
+    // Use the formatter to display the values.
+    // investedAmountSpan.textContent = formatter.format(investedAmount);
+    // currentValueSpan.textContent = formatter.format(futureValue);
+    // ✅ END: NEW NUMBER FORMATTING LOGIC
+
     returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
   }
 
@@ -243,10 +318,17 @@ export default function decorate(block) {
   amountInput.addEventListener('input', updateValues);
   tenureInput.addEventListener('input', updateValues);
 
+  // Get the labels once at the top
+  const sipLabel = calContainer.querySelector('.labelforsip');
+  const lumpsumLabel = calContainer.querySelector('.labelforlumsum');
+
   sipBtn.addEventListener('click', () => {
     mode = 'sip';
     sipBtn.classList.add('active');
     lumpsumBtn.classList.remove('active');
+    // ✅ Show SIP label, hide Lumpsum label
+    sipLabel.style.display = '';
+    lumpsumLabel.style.display = 'none';
     updateValues();
   });
 
@@ -254,8 +336,25 @@ export default function decorate(block) {
     mode = 'lumpsum';
     lumpsumBtn.classList.add('active');
     sipBtn.classList.remove('active');
+    // ✅ Hide SIP label, show Lumpsum label
+    sipLabel.style.display = 'none';
+    lumpsumLabel.style.display = '';
     updateValues();
   });
+
+  // sipBtn.addEventListener('click', () => {
+  //   mode = 'sip';
+  //   sipBtn.classList.add('active');
+  //   lumpsumBtn.classList.remove('active');
+  //   updateValues();
+  // });
+
+  // lumpsumBtn.addEventListener('click', () => {
+  //   mode = 'lumpsum';
+  //   lumpsumBtn.classList.add('active');
+  //   sipBtn.classList.remove('active');
+  //   updateValues();
+  // });
 
   let currentFocus = -1;
 
