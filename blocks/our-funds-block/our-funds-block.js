@@ -217,8 +217,8 @@ export default function decorate(block){
             div({class:"right-container"})
         )
     )
-    block.innerHTML ="";
-    block.append(divfund)
+    // block.innerHTML ="";
+    // block.append(divfund)
 }
 
 function dataFilterfun(param){

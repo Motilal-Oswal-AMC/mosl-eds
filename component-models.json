@@ -705,13 +705,13 @@
     "fields":[
       {
         "component": "text",
-        "name": "title",
+        "name": "col_title",
         "label": "Enter Label For Sort Dropdown"
       },
       {
         "component": "text",
-        "name": "title_RPD",
-        "label": "Enter Label For Returns Period Dropdown"
+        "name": "col_titleRPD",
+        "label": "Enter Label For Returns Dropdown"
       },
       {
         "component": "richtext",
