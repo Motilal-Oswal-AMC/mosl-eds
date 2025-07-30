@@ -27,7 +27,7 @@
   align-items: start;
   gap: 30px;
   margin: 0 0 8px;
-  min-height: 50px;
+  flex-direction: column;
 }
 .section .card-container .card-upper-title h2 {
   font-size: 14px;
@@ -56,6 +56,10 @@
   justify-content: flex-start;
   gap: 8px;
   margin: 0 0 16px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  max-height: 40px;
+  height: 100%;
 }
 .section .card-container .card-category .fundtagging-list {
   display: flex;
@@ -64,6 +68,7 @@
   gap: 8px;
   list-style: none;
   margin: 0;
+  flex-wrap: wrap;
 }
 .section .card-container .card-category .fundtagging-list li {
   font-size: 12px;
@@ -76,16 +81,13 @@
   justify-content: flex-start;
   gap: 8px;
 }
-.section .card-container .card-category .fundtagging-list li::before {
+.section .card-container .card-category .fundtagging-list li::after {
   content: "";
   min-width: 3px;
   height: 3px;
   display: block;
   background-color: #2e2a94;
   border-radius: 50%;
-}
-.section .card-container .card-category .fundtagging-list li:first-of-type::before {
-  content: none;
 }
 .section .card-container .card-category .planlist-dropdown {
   max-width: 70px;
@@ -95,18 +97,10 @@
   justify-content: flex-start;
   gap: 8px;
 }
-.section .card-container .card-category .planlist-dropdown::before {
-  content: "";
-  min-width: 3px;
-  height: 3px;
-  display: block;
-  background-color: #2e2a94;
-  border-radius: 50%;
-}
 .section .card-container .card-category .planlist-dropdown select {
   font-size: 12px;
   line-height: 16px;
-  color: #2e312f;
+  color: #242177;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   border: none;
@@ -204,8 +198,6 @@
   text-align: right;
 }
 .section .card-container .cagr-container .cagr-value h2 span {
-  font-size: 14px;
-  line-height: 16px;
   font-weight: 300;
 }
 .section .card-container .cagr-container .cagr-value .scheme-yet,
@@ -454,7 +446,6 @@
 .section .card-container .card-upper-title {
   gap: 30px;
   margin: 0 0 8px;
-  min-height: 50px;
   flex-direction: column;
 }
 .section .card-container .card-upper-title .title-headLogo {
@@ -469,7 +460,7 @@
   height: 40px;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
   border-radius: 50%;
-  background: #BDCBFF;
+  background: #bdcbff;
 }
 .section .card-container .card-upper-title .title-headLogo .title-logo .logoScheme {
   position: absolute;
@@ -480,9 +471,9 @@
   flex-shrink: 0;
 }
 .section .card-container .card-upper-title .title-headLogo .star {
-  min-width: 20px;
-  width: 20px;
-  height: 20px;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 .section .card-container .card-upper-title .title-headLogo .star.star-filled .star-icon, .section .card-container .card-upper-title .title-headLogo .star:not(.star-filled) .fillstar-icon {
@@ -496,7 +487,7 @@
   margin: 0;
   font-size: 12px;
   line-height: 16px;
-  color: #5659FA;
+  color: #5659fa;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
@@ -507,6 +498,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
+  min-height: 50px;
 }
 .section .card-container .card-category {
   display: flex;
@@ -514,6 +506,10 @@
   justify-content: flex-start;
   gap: 8px;
   margin: 0 0 16px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  max-height: 40px;
+  height: 100%;
 }
 
 .section .card-container .card-category .fundtagging-list {
@@ -523,6 +519,7 @@
   gap: 8px;
   list-style: none;
   margin: 0;
+  flex-wrap: wrap;
 }
 
 .section .card-container .card-category .fundtagging-list li {
@@ -536,8 +533,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
-
-.section .card-container .card-category .fundtagging-list li::before {
+.section .card-container .card-category .fundtagging-list li::after {
   content: "";
   min-width: 3px;
   height: 3px;
@@ -545,11 +541,6 @@
   background-color: #2e2a94;
   border-radius: 50%;
 }
-
-.section .card-container .card-category .fundtagging-list li:first-of-type::before {
-  content: none;
-}
-
 .section .card-container .card-category .planlist-dropdown {
   max-width: 70px;
   width: 100%;
@@ -558,21 +549,11 @@
   justify-content: flex-start;
   gap: 8px;
 }
-
-.section .card-container .card-category .planlist-dropdown::before {
-  content: "";
-  min-width: 3px;
-  height: 3px;
-  display: block;
-  background-color: #2e2a94;
-  border-radius: 50%;
-}
-
 .section .card-container .card-category .planlist-dropdown select {
   font-size: 12px;
   line-height: 16px;
-  color: #2e312f;
-  font-family: Poppins, sans-serif;
+  color: #242177;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   border: none;
   outline: none;
@@ -587,13 +568,15 @@
   justify-content: space-between;
   gap: 10px;
   padding: 4px 0;
+  min-height: 88px;
   height: 88px;
-  padding: 24px 12px;
+  padding: 12px;
   align-self: stretch;
   border-radius: 12px;
-  border: 0.5px solid #E8E8E8;
+  border: 0.5px solid #e8e8e8;
   background: #FAFAFA;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
+  margin-top: auto;
 }
 .section .card-container .cagr-container.not-provided .cagr-dropdown,
 .section .card-container .cagr-container.not-provided .cagr-value {
@@ -626,6 +609,7 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
+  width: 80px;
 }
 
 .section .card-container .cagr-container .cagr-select-wrapper::after {
