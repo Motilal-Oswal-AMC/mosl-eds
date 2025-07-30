@@ -680,6 +680,17 @@
         "label": "Alt Text"
       },
       {
+        "component": "reference",
+        "name": "trdimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "trdimageAlt",
+        "label": "Alt Text"
+      },
+      {
         "component": "richtext",
         "name": "col3_text",
         "value": "",
