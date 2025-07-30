@@ -306,6 +306,7 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  padding-bottom: 4px;
 }
 .compounding .calculator-sip-wrapper .cal-container .investment-wrapper .custom-select .select-selected::after {
   content: "";
@@ -343,6 +344,7 @@
   color: #424242;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  border-bottom: 1px solid #EEE;
 }
 .compounding .calculator-sip-wrapper .cal-container .investment-wrapper .custom-select .select-option:hover {
   background-color: #f0f0f0;
