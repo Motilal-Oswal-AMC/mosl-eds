@@ -1,4 +1,4 @@
-@import url("../../../styles/fonts.css");
+@import "../../../styles/fonts.css";
 /* stylelint-disable */
 /**
  * Swiper 11.2.6
@@ -745,15 +745,20 @@ button.swiper-pagination-bullet {
   margin: 0;
 }
 .section.home-banner-container .default-content-wrapper {
-  position: absolute;
+  position: fixed;
   padding: 0;
   right: 67px;
-  bottom: -13px;
-  z-index: 1;
+  top: 62%;
+  z-index: 15;
 }
 @media (max-width: 1025px) {
   .section.home-banner-container .default-content-wrapper {
     right: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .section.home-banner-container .default-content-wrapper {
+    top: 295px;
   }
 }
 .section.home-banner-container ul {
@@ -761,6 +766,11 @@ button.swiper-pagination-bullet {
   gap: 8px;
   list-style: none;
   margin: 0;
+}
+@media (max-width: 768px) {
+  .section.home-banner-container ul {
+    flex-direction: column;
+  }
 }
 .section.home-banner-container ul li {
   width: 48px;
@@ -944,4 +954,4 @@ button.swiper-pagination-bullet {
 }
 .block.home-banner .swiper-button-next::after {
   transform: rotate(180deg);
-}
+}/*# sourceMappingURL=home-banner.css.map */
