@@ -16,7 +16,7 @@ export default function decorate(block){
     console.log(dataMapMoObj['data']);
 
     // block.querySelector(".block-item2 span"); //filter
-    // block.querySelector(".block-item2 block-subitem-finelsub2"); //filter
+    // block.querySelector(".block-item3 block-subitem-finelsub1"); //filter
 
     let divfund = div({class:"blockwrapper"},
         div({class:"fundcontainer"},
@@ -214,11 +214,37 @@ export default function decorate(block){
                     )
                 ) 
             ),
-            div({class:"right-container"})
+            div({class:"right-container"},
+                div({class:"sort-pop-container"},
+                    div({class:"sort-popular"},
+                        div({class:"sort-container"},
+                            label(block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim())
+                        ),
+                        div({class:"popular-container"},
+                            label(block.querySelector(".block-item3 .block-subitem-finelsub2").textContent.trim())
+                        )
+                    ),
+                    div({class:"group-view-container"},
+                        div({class:"togglebtn"},
+                            p("Direct"),
+                            p("Regular")
+                        ),
+                        div({class:"view-container"},
+                            div({class:"squareby-container"},
+                                block.querySelector(".block-item3 .block-subitem-finelsub3")
+                            ),
+                            div({class:"listby-container"},
+                                block.querySelector(".block-item3 .block-subitem-finelsub4")
+                            )
+                        )
+                    )
+                ),
+                div({class:"cards-container"})
+            )
         )
     )
-    // block.innerHTML ="";
-    // block.append(divfund)
+    block.innerHTML ="";
+    block.append(divfund)
 }
 
 function dataFilterfun(param){
