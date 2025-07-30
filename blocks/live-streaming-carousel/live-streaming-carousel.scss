@@ -148,7 +148,7 @@
           @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
         }
         & .total-slide {
-          color: map.get($blue-1, b300);
+          color: $neutrals-600;
         }
       }
     }
