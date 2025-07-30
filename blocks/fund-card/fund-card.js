@@ -45,32 +45,50 @@ export default function decorate(block) {
           class: 'card-upper-title'
         },
         div({
-            class: 'title'
+            class: "title-headLogo"
           },
-          h2(block.schDetail.schemeName),
+          div({
+              class: 'title title-logo'
+            },
+            img({
+              class: "logoScheme",
+              src: "../../icons/Group.svg",
+              alt: "BrandLogo"
+            })
+          ),
+          div({
+              class: 'star',
+              onclick: (event) => {
+                if (!Array.from(event.target.parentElement.classList).includes('star-filled')) {
+                  event.target.parentElement.classList.add('star-filled');
+                } else {
+                  event.target.parentElement.classList.remove('star-filled');
+                }
+              },
+              schcode: block.schcode
+            },
+            img({
+              class: 'star-icon',
+              src: '../../icons/star.svg',
+              alt: "star-icon"
+            }),
+            img({
+              class: 'fillstar-icon',
+              src: '../../icons/star-filled.svg',
+              alt: "fillstar-icon"
+            }),
+          ),
         ),
         div({
-            class: 'star',
-            onclick: (event) => {
-              if (!Array.from(event.target.parentElement.classList).includes('star-filled')) {
-                event.target.parentElement.classList.add('star-filled');
-              } else {
-                event.target.parentElement.classList.remove('star-filled');
-              }
-            },
-            schcode: block.schcode
+            class: "title-subtitle"
           },
-          img({
-            class: 'star-icon',
-            src: '../../icons/star.svg',
-            alt: "star-icon"
-          }),
-          img({
-            class: 'fillstar-icon',
-            src: '../../icons/star-filled.svg',
-            alt: "fillstar-icon"
-          }),
-        ),
+          p("Motilal Oswal"),
+          div({
+              class: 'title title-logo'
+            },
+            h2(block.schDetail.schemeName),
+          ),
+        )
       ),
       div({
           class: 'card-category'
@@ -86,7 +104,7 @@ export default function decorate(block) {
         ),
         div({
             class: 'planlist-dropdown',
-            style:"display:"+classdropdown
+            style: "display:" + classdropdown
           },
           select({
               onchange: (event) => {
@@ -104,12 +122,12 @@ export default function decorate(block) {
         ),
       ),
       div({
-          class: 'cagr-container '+classplan
+          class: 'cagr-container ' + classplan
         },
         div({
             class: 'cagr-dropdown'
           },
-          label('Return (Absolute)'),
+          label('Annualised'),
           div({
               class: 'cagr-select-wrapper'
             },
@@ -150,7 +168,8 @@ export default function decorate(block) {
         ),
       ),
       div({
-          class: 'risk-container'
+          class: 'risk-container',
+          style:"display:none"
         },
         label('Risk Factor'),
         span(block.risk.riskType),
@@ -161,10 +180,21 @@ export default function decorate(block) {
         p({
             class: 'dis-choosen'
           },
-          'Chosen by ',
-          span({
+          // 'Chosen by ',
+          div({
             class: 'dis-investor'
-          }, '2.7 lakh investors'),
+          }, 
+          img({
+            class:"icon person",
+            src:"../../icons/Icon.svg"
+          }),
+          span('2.7 lakh investors')
+          ),
+          img({
+            class:"riskfactor-icon",
+            src:"../../icons/Risk-o-meter.svg",
+            alt:"risk icon"
+          })
         ),
       ),
       div({
@@ -175,7 +205,7 @@ export default function decorate(block) {
         }, 'Know More'),
         button({
           class: 'invest-now'
-        }, 'Invest Now'),
+        }, 'Invest'),
       ),
     ),
   );
@@ -201,7 +231,7 @@ function planListEvent(param, block) {
     let dropdown = div({
         class: 'cagr-dropdown',
       },
-      label('Return (Absolute)'),
+      label('Annualised'),
       div({
           class: "cagr-select-wrapper"
         },
@@ -247,7 +277,7 @@ function planListEvent(param, block) {
         class: 'cagr-dropdown',
       },
       label('Return (Absolute)'),
-      )
+    )
     let dropvalue = div({
         class: 'cagr-value',
       },
