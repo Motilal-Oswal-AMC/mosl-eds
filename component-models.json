@@ -662,6 +662,11 @@
         "label": "Alt Text"
       },
       {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
         "component": "richtext",
         "name": "col2_text",
         "value": "",
