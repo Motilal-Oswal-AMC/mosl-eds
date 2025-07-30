@@ -705,12 +705,12 @@
     "fields":[
       {
         "component": "text",
-        "name": "col_title",
+        "name": "col_sort",
         "label": "Enter Label For Sort Dropdown"
       },
       {
         "component": "text",
-        "name": "col_titleRPD",
+        "name": "col_return",
         "label": "Enter Label For Returns Dropdown"
       },
       {
