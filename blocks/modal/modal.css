@@ -10,11 +10,6 @@ body.modal-open {
     overscroll-behavior: none;
     overflow-y: hidden;
     position: relative;
-    width: calc(100vw - 48px);
-    max-width: 900px;
-    max-height: calc(100dvh - (2 * var(--header-height)));
-    padding: 0;
-    border: 1px solid var(--dark-color);
     background: transparent;
     max-height: 100%;
     padding: 0;

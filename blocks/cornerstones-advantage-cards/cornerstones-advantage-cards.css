@@ -68,7 +68,7 @@
   .section.cornerstones-advantage .cornerstones-advantage-cards {
     flex-wrap: unset;
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
   }
 }
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item {
@@ -88,7 +88,7 @@
 }
 @media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item {
-    min-height: 176px;
+    min-height: 168px;
     max-width: 100%;
     padding-right: 0;
   }
@@ -101,18 +101,18 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding-right: 26px;
 }
 @media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item > div {
     padding-right: 0;
-    border-bottom: 1px solid #bdbdbd;
     padding-bottom: 16px;
     display: grid;
     grid-template-areas: "icon heading" "icon text" "icon button";
     grid-template-columns: 64px 1fr;
     gap: 0 8px;
     align-items: start;
-    min-height: 176px;
+    min-height: 168px;
   }
 }
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item p {
@@ -155,12 +155,12 @@
   color: #424242;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  padding-right: 20px;
 }
 @media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item p:not(:first-of-type, :last-of-type) {
     font-size: 14px;
     line-height: 20px;
+    white-space: break-spaces;
   }
 }
 @media (max-width: 768px) {
@@ -178,6 +178,8 @@
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .button-container {
     grid-area: button;
     margin: 24px 0 0;
+    line-height: unset;
+    height: 23px;
   }
 }
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .button-container .button {

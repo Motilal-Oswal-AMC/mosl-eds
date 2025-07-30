@@ -65,7 +65,8 @@
       @include media(mobile) {
         flex-wrap: unset;
         flex-direction: column;
-        gap: 40px;
+        // gap: 40px;
+        gap: 24px;
       }
 
       & .cards-item {
@@ -83,7 +84,8 @@
         }
 
         @include media(mobile) {
-          min-height: 176px;
+          // min-height: 176px;
+          min-height: 168px;
           max-width: 100%;
           padding-right: 0;
 
@@ -97,10 +99,10 @@
           height: 100%;
           display: flex;
           flex-direction: column;
-
+          padding-right: 26px;
           @include media(mobile) {
             padding-right: 0;
-            border-bottom: 1px solid $neutrals-400;
+            // border-bottom: 1px solid $neutrals-400;
             padding-bottom: 16px;
             display: grid;
             grid-template-areas:
@@ -110,7 +112,8 @@
             grid-template-columns: 64px 1fr;
             gap: 0 8px;
             align-items: start;
-            min-height: 176px;
+            // min-height: 176px;
+            min-height: 168px;
           }
         }
 
@@ -144,11 +147,11 @@
         p {
           &:not(:first-of-type, :last-of-type) {
             @include font-style(16px, 24px, $color-text-body, 400, $Poppins);
-            padding-right: 20px;
-
+            // padding-right: 20px;
             @include media(mobile) {
               font-size: 14px;
               line-height: 20px;
+              white-space: break-spaces;
             }
           }
 
@@ -167,6 +170,8 @@
           @include media(mobile) {
             grid-area: button;
             margin: 24px 0 0;
+            line-height: unset;
+            height: 23px;
           }
 
           .button {
