@@ -669,19 +669,19 @@
       },
       {
         "component": "text",
-        "name": "titlePlaceHolder",
+        "name": "col_titlePlaceHolder",
         "label": "Enter Text For Input PlaceHolder"
       },
       {
         "component": "richtext",
-        "name": "coltext",
+        "name": "col_text",
         "value": "",
         "label": "Enter Context for Watchlist",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "coltrending",
+        "name": "col_trending",
         "label": "Enter Label Text For Trending"
       }
     ]
