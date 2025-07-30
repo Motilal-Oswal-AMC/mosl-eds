@@ -1,6 +1,7 @@
 import dataCfObj from "../../scripts/dataCfObj.js"
 import {div, input, label,span, p} from "../../scripts/dom-helpers.js"
 import dataMapMoObj from "../../scripts/constant.js"
+import fundcardblock from "../fund-card/fund-card.js"
 export default function decorate(block){
     Array.from(block.children).forEach((el,index)=>{
         el.classList.add("block-item"+(index+1));
@@ -239,7 +240,11 @@ export default function decorate(block){
                         )
                     )
                 ),
-                div({class:"cards-container"})
+                div({class:"cards-container"},
+                    ...dataCfObj.map((el)=>{
+                        return fundcardblock(el)
+                    })
+                )
             )
         )
     )
