@@ -3,8 +3,6 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-
-
 .section.home-banner-container {
   position: relative;
   padding: 0;
@@ -18,13 +16,16 @@
   }
 
   .default-content-wrapper {
-    position: absolute;
+    position: fixed;
     padding: 0;
     right: 67px;
-    bottom: -13px;
-    z-index: 1;
-    @include media(tab){
+    top: 62%;
+    z-index: 15;
+    @include media(tab) {
       right: 16px;
+    }
+    @include media(mobile){
+      top: 295px;
     }
   }
 
@@ -33,7 +34,9 @@
     gap: 8px;
     list-style: none;
     margin: 0;
-
+    @include media(mobile){
+      flex-direction: column;
+    }
     li {
       width: 48px;
       height: 48px;
@@ -57,9 +60,11 @@
     .sub-banner-item-1 {
       &::after {
         content: "";
-        background: linear-gradient(90deg,
-            #787735 -1.21%,
-            rgb(120 119 53 / 0%) 52.42%);
+        background: linear-gradient(
+          90deg,
+          #787735 -1.21%,
+          rgb(120 119 53 / 0%) 52.42%
+        );
         width: 100%;
         height: 100%;
         display: block;
@@ -172,7 +177,6 @@
     }
 
     @include media(mobile) {
-
       .sub-banner-item-1,
       .sub-banner-item-2,
       .sub-banner-item-4 {
@@ -237,7 +241,7 @@
   }
 
   .swiper-button-next {
-    left: auto; 
+    left: auto;
     right: 67px;
 
     &::after {
