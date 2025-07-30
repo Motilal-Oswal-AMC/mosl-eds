@@ -277,6 +277,25 @@
     ]
   },
   {
+    "id": "accordion-item",
+    "type": "accordion/text",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "question",
+        "label": "Question"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "answer",
+        "label": "Answer",
+        "raw": true
+      }
+    ]
+  },
+  {
     "id": "tabsitem",
     "fields": [
       {
@@ -625,6 +644,25 @@
         "name": "col4_other_calculators_url",
         "label": "Other Calculators URL",
         "value": "#"
+      }
+    ]
+  },
+  {
+    "id": "growth-now",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "col2_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "col3_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   }
