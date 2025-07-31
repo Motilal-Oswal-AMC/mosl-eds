@@ -36,9 +36,10 @@
   margin: 0 auto;
   gap: 16px;
   border-radius: 16px;
+  width: 100%;
 }
 .compounding .compounding-two-inner .default-content-wrapper {
-  flex: 1 1 40%;
+  flex: 1 1 37%;
   text-align: left;
   flex-shrink: 0;
   display: flex;
@@ -55,7 +56,6 @@
 .compounding .compounding-two-inner .default-content-wrapper .hero-text {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   text-align: left;
 }
 @media (max-width: 768px) {
@@ -64,12 +64,12 @@
   }
 }
 .compounding .compounding-two-inner .default-content-wrapper h3 {
-  font-size: 40px;
+  font-size: 36px;
   line-height: 48px;
   color: #2e2a94;
   font-family: "ButlerPro", sans-serif;
   font-weight: 700;
-  margin: 0 0 16px;
+  margin: 0px;
 }
 @media (max-width: 768px) {
   .compounding .compounding-two-inner .default-content-wrapper h3 {
@@ -95,8 +95,8 @@
   }
 }
 .compounding .calculator-sip-wrapper {
-  flex: 1 1 50%;
-  max-width: 600px;
+  flex: 1 1 53%;
+  max-width: 608px;
 }
 .compounding .calculator-sip-wrapper .cal-container {
   background: #fff;

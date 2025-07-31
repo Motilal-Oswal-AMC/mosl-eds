@@ -39,11 +39,12 @@
     margin: 0 auto;
     gap: 16px;
     border-radius: map.get($radius, r16);
+    width: 100%;
 
     .default-content-wrapper {
-      flex: 1 1 40%;
+      flex: 1 1 37%;
       text-align: left;
-       flex-shrink: 0; // ✅ Add this line
+      flex-shrink: 0; // ✅ Add this line
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -59,7 +60,7 @@
       .hero-text {
         display: flex;
         flex-direction: column;
-        gap: map.get($spacing, sm);
+        // gap: map.get($spacing, sm);
         text-align: left;
 
         @include media(mobile) {
@@ -68,8 +69,9 @@
       }
 
       h3 {
-        @include font-style(40px, 48px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
-        margin: 0 0 map.get($spacing, md);
+        @include font-style(36px, 48px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+        // margin: 0 0 map.get($spacing, md);
+        margin: 0px;
 
         @include media(mobile) {
           @include font-style(32px, 40px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
@@ -93,8 +95,8 @@
   }
 
   .calculator-sip-wrapper {
-    flex: 1 1 50%;
-    max-width: 600px;
+    flex: 1 1 53%;
+    max-width: 608px;
 
     .cal-container {
       background: $primary-white;
