@@ -721,5 +721,25 @@
         "valueType": "string"
       }
     ]
+  },
+   {
+    "id":"watchlist-block",
+    "fields":[
+      {
+        "component": "richtext",
+        "name": "left",
+        "value": "",
+        "label": "Enter Context for Icon Label View Container",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "right_card",
+        "value": "",
+        "label": "Enter Context for Icon Label View Container",
+        "valueType": "string"
+      }
+
+    ]
   }
 ]
