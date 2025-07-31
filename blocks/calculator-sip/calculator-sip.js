@@ -25,26 +25,21 @@ export default function decorate(block) {
   }
 
   // ✅ UPDATE: Create hero split structure
-  // const hero = block.closest('.default-content-wrapper');
   const sectionHero = block.closest('.section');
   const hero = sectionHero?.querySelector('.default-content-wrapper');
 
   if (hero && !hero.querySelector('.hero-image')) {
-    // ✅ Find whole <p> that contains <img>
     const iconPara = hero.querySelector('p:has(img)');
     const heading = hero.querySelector('h3');
     const paras = hero.querySelectorAll('p');
 
-    // ✅ Clear hero
     hero.innerHTML = '';
-
-    // ✅ Separate hero-image and hero-text
     const heroImage = div({ class: 'hero-image' }, iconPara);
 
     const heroText = div(
       { class: 'hero-text' },
       heading,
-      ...[...paras].filter(p => p !== iconPara) // Exclude the moved one
+      ...[...paras].filter(p => p !== iconPara)
     );
 
     hero.append(heroImage, heroText);
@@ -80,13 +75,6 @@ export default function decorate(block) {
         { class: 'sip-wrapper' },
         label({ class: 'labelforsip' }, col2[0].textContent.trim()),
         label({ class: 'labelforlumsum', style: 'display:none' }, col2[1].textContent.trim()),
-        // input({
-        //   type: 'number',
-        //   value: col2[2].textContent.trim(),
-        //   name: 'investmentAmount',
-        //   id: 'investmentAmount',
-        //   placeholder: 'Enter amount',
-        // }),
         div(
           { class: 'input-with-symbol' },
           span({ class: 'rupee-symbol' }, ''),
@@ -99,55 +87,11 @@ export default function decorate(block) {
           }),
         ),
       ),
-      // div(
-      //   { class: 'tenure-wrapper' },
-      //   label(col2[3].textContent.trim()),
-      //   input({
-      //     type: 'number',
-      //     value: col3[0].textContent.trim(),
-      //     name: 'investmentTenure',
-      //     id: 'investmentTenure',
-      //     placeholder: 'Enter tenure in years',
-      //   }),
-      // ),
-
-      // div(
-      //   { class: 'tenure-wrapper' },
-      //   label(col2[3].textContent.trim()),
-      //   select(
-      //     {
-      //       name: 'investmentTenure',
-      //       id: 'investmentTenure',
-      //     },
-      //     ...[1, 3, 5, 7, 10].map((year) =>
-      //       option(
-      //         { value: year, selected: parseInt(col3[0].textContent.trim(), 10) === year },
-      //         `${year} years`
-      //       )
-      //     )
-      //   ),
-      // ),
-
-      // In your decorate() function, find and replace the tenure-wrapper div
-
       div(
         { class: 'tenure-wrapper custom-select' },
         label(col2[3].textContent.trim()),
-
-        // This div will display the selected option
         div({ class: 'select-selected', 'aria-haspopup': 'listbox' }, `${col3[0].textContent.trim()} Years`),
-
-        // This list contains all the options and is hidden by default
-        div({ class: 'select-options', role: 'listbox' },
-          ...[1, 3, 5, 7, 10].map((year) =>
-            div(
-              { class: 'select-option', role: 'option', 'data-value': year },
-              `${year} Years`,
-            ),
-          ),
-        ),
-
-        // A hidden input to store the actual value for your calculations
+        div({ class: 'select-options', role: 'listbox' }),
         input({
           type: 'hidden',
           name: 'investmentTenure',
@@ -220,19 +164,14 @@ export default function decorate(block) {
 
   selectedDisplay.addEventListener('click', (e) => {
     e.stopPropagation();
-    // Toggle the dropdown
     optionsContainer.classList.toggle('open');
   });
 
   allOptions.forEach((option) => {
     option.addEventListener('click', () => {
-      // Set the text of the display
       selectedDisplay.textContent = option.textContent;
-      // Set the value of the hidden input
       hiddenInput.value = option.getAttribute('data-value');
-      // Close the dropdown
       optionsContainer.classList.remove('open');
-      // Trigger the calculation update
       updateValues();
     });
   });
@@ -245,6 +184,19 @@ export default function decorate(block) {
   function updateValues() {
     const amount = parseFloat(amountInput.value) || 0;
     const tenure = parseFloat(tenureInput.value) || 0;
+
+    // ✅ START: New logic to handle "Since Inception"
+    let tenureValue = tenureInput.value;
+    if (tenureValue === 'inception') {
+      if (selectedFund && selectedFund.dateOfAllotment) {
+        const inceptionDate = new Date(selectedFund.dateOfAllotment);
+        const today = new Date();
+        // Calculate the difference in milliseconds and convert to years
+        const yearsDiff = (today.getTime() - inceptionDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+        tenureValue = yearsDiff;
+      }
+    }
+    // ✅ END: New logic
 
     const investmentWrapper = document.querySelector('.investment-wrapper');
     const investedAmountEl = document.querySelector('.invested-amount');
@@ -277,9 +229,8 @@ export default function decorate(block) {
     if (investedAmountEl) investedAmountEl.style.display = '';
     if (calDescription) calDescription.style.display = '';
 
-    // Continue with calculations...
     const r = returnCAGR / 100 / 12;
-    const n = tenure * 12;
+    const n = tenureValue * 12;
 
     let investedAmount = 0;
     let futureValue = 0;
@@ -290,35 +241,138 @@ export default function decorate(block) {
     } else {
       investedAmount = amount;
       const lumpsumRate = returnCAGR / 100;
-      futureValue = amount * (1 + lumpsumRate) ** tenure;
+      futureValue = amount * (1 + lumpsumRate) ** tenureValue;
     }
 
     // ✅ Add thousands separator
     investedAmountSpan.textContent = `₹${(investedAmount / 100000).toFixed(2)} Lac`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     currentValueSpan.textContent = `₹${(futureValue / 100000).toFixed(2)} Lac`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-
-    // ✅ START: NEW NUMBER FORMATTING LOGIC
-    // Create a formatter for Indian Rupee currency.
-    // const formatter = new Intl.NumberFormat('en-IN', {
-    //   style: 'currency',
-    //   currency: 'INR',
-    //   maximumFractionDigits: 0, // Hides decimals like .00
-    // });
-
-    // Use the formatter to display the values.
-    // investedAmountSpan.textContent = formatter.format(investedAmount);
-    // currentValueSpan.textContent = formatter.format(futureValue);
-    // ✅ END: NEW NUMBER FORMATTING LOGIC
-
     returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
+  }
+
+  // Tenure update function 
+  // Add this new function inside decorate()
+  // function updateTenureOptions(fund) {
+  //   if (!fund || !fund.returns) {
+  //     // If there's no fund or no returns data, clear the options
+  //     optionsContainer.innerHTML = '';
+  //     return;
+  //   }
+
+  //   // Find the returns data for the Growth plan, or fallback to the first available
+  //   const growthReturns = fund.returns.find((r) => r.optioncode === 'G') || fund.returns[0];
+  //   if (!growthReturns) {
+  //     optionsContainer.innerHTML = '';
+  //     return;
+  //   }
+
+  //   // Map the API keys to year numbers
+  //   const availableTenures = [];
+  //   // if (growthReturns.inception_Ret) availableTenures.push("Since Inception");
+  //   if (growthReturns.oneYear_Ret) availableTenures.push(1);
+  //   if (growthReturns.threeYear_Ret) availableTenures.push(3);
+  //   if (growthReturns.fiveYear_Ret) availableTenures.push(5);
+  //   if (growthReturns.sevenYear_Ret) availableTenures.push(7);
+  //   if (growthReturns.tenYear_Ret) availableTenures.push(10);
+  //   // We can add more here if the API supports them
+
+  //   // ✅ Check for inception_Ret and add it to the list
+  //   if (growthReturns.inception_Ret) {
+  //     availableTenures.push({ value: 'inception', text: 'Since Inception' });
+  //   }
+
+  //   // Clear the old options
+  //   optionsContainer.innerHTML = '';
+
+  //   // Create and append the new options
+  //   availableTenures.forEach((year) => {
+  //     const optionEl = div(
+  //       { class: 'select-option', role: 'option', 'data-value': year },
+  //       `${year} Years`,
+  //     );
+
+  //     // Add a click listener to each new option
+  //     optionEl.addEventListener('click', () => {
+  //       selectedDisplay.textContent = optionEl.textContent;
+  //       hiddenInput.value = optionEl.getAttribute('data-value');
+  //       optionsContainer.classList.remove('open');
+  //       updateValues();
+  //     });
+
+  //     optionsContainer.appendChild(optionEl);
+  //   });
+
+  //   // After rebuilding, set the initial value to the first available tenure
+  //   if (availableTenures.length > 0) {
+  //     const defaultTenure = availableTenures[0];
+  //     selectedDisplay.textContent = `${defaultTenure} Years`;
+  //     hiddenInput.value = defaultTenure;
+  //   } else {
+  //     // Handle cases where a fund has no return periods
+  //     selectedDisplay.textContent = 'N/A';
+  //     hiddenInput.value = 0;
+  //   }
+  // }
+
+  function updateTenureOptions(fund) {
+    if (!fund || !fund.returns) {
+      optionsContainer.innerHTML = '';
+      return;
+    }
+    const growthReturns = fund.returns.find((r) => r.optioncode === 'G') || fund.returns[0];
+    if (!growthReturns) {
+      optionsContainer.innerHTML = '';
+      return;
+    }
+
+    // ✅ Create a consistent array of objects
+    const availableTenures = [];
+    if (growthReturns.inception_Ret) {
+      availableTenures.push({ value: 'inception', text: 'Since Inception' });
+    }
+    if (growthReturns.oneYear_Ret) availableTenures.push({ value: 1, text: '1 Year' });
+    if (growthReturns.threeYear_Ret) availableTenures.push({ value: 3, text: '3 Years' });
+    if (growthReturns.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 Years' });
+    if (growthReturns.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 Years' });
+    if (growthReturns.tenYear_Ret) availableTenures.push({ value: 10, text: '10 Years' });
+
+
+    optionsContainer.innerHTML = '';
+
+    // ✅ Loop through the array of objects correctly
+    availableTenures.forEach((tenureOption) => {
+      const optionEl = div(
+        { class: 'select-option', role: 'option', 'data-value': tenureOption.value },
+        tenureOption.text, // Use the .text property
+      );
+
+      optionEl.addEventListener('click', () => {
+        selectedDisplay.textContent = optionEl.textContent;
+        hiddenInput.value = optionEl.getAttribute('data-value');
+        optionsContainer.classList.remove('open');
+        updateValues();
+      });
+      optionsContainer.appendChild(optionEl);
+    });
+
+    // ✅ Update the default selection logic
+    if (availableTenures.length > 0) {
+      // const defaultTenure = availableTenures[0];
+      const defaultTenure = availableTenures[availableTenures.length - 1];
+      selectedDisplay.textContent = defaultTenure.text;
+      hiddenInput.value = defaultTenure.value;
+    } else {
+      selectedDisplay.textContent = 'N/A';
+      hiddenInput.value = 0;
+    }
   }
 
 
   amountInput.addEventListener('input', updateValues);
-  tenureInput.addEventListener('input', updateValues);
+  // tenureInput.addEventListener('input', updateValues);
 
-  // Get the labels once at the top
+
   const sipLabel = calContainer.querySelector('.labelforsip');
   const lumpsumLabel = calContainer.querySelector('.labelforlumsum');
 
@@ -326,7 +380,6 @@ export default function decorate(block) {
     mode = 'sip';
     sipBtn.classList.add('active');
     lumpsumBtn.classList.remove('active');
-    // ✅ Show SIP label, hide Lumpsum label
     sipLabel.style.display = '';
     lumpsumLabel.style.display = 'none';
     updateValues();
@@ -336,25 +389,10 @@ export default function decorate(block) {
     mode = 'lumpsum';
     lumpsumBtn.classList.add('active');
     sipBtn.classList.remove('active');
-    // ✅ Hide SIP label, show Lumpsum label
     sipLabel.style.display = 'none';
     lumpsumLabel.style.display = '';
     updateValues();
   });
-
-  // sipBtn.addEventListener('click', () => {
-  //   mode = 'sip';
-  //   sipBtn.classList.add('active');
-  //   lumpsumBtn.classList.remove('active');
-  //   updateValues();
-  // });
-
-  // lumpsumBtn.addEventListener('click', () => {
-  //   mode = 'lumpsum';
-  //   lumpsumBtn.classList.add('active');
-  //   sipBtn.classList.remove('active');
-  //   updateValues();
-  // });
 
   let currentFocus = -1;
 
@@ -381,6 +419,9 @@ export default function decorate(block) {
         selectedFundName = name;
         selectedFund = dataCfObj.find((f) => f.schDetail.schemeName === name);
         returnCAGR = selectedFund?.returns.find((r) => r.inception_Ret)?.inception_Ret || 0;
+
+        // ✅ Add this call to update the tenure dropdown
+        updateTenureOptions(selectedFund);
         searchResults.innerHTML = '';
         searchInput.setAttribute('aria-expanded', 'false');
         updateValues();
@@ -418,13 +459,6 @@ export default function decorate(block) {
 
   });
 
-
-  // document.addEventListener('click', (e) => {
-  //   if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-  //     searchResults.innerHTML = '';
-  //   }
-  // });
-
   document.addEventListener('click', (e) => {
     if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
       searchResults.innerHTML = '';
@@ -435,7 +469,7 @@ export default function decorate(block) {
     }
   });
 
-
+  updateTenureOptions(selectedFund);
   updateValues();
 
 
@@ -470,6 +504,4 @@ export default function decorate(block) {
     items[currentFocus].classList.add('active');
     items[currentFocus].scrollIntoView({ block: 'nearest' });
   }
-
-
 }

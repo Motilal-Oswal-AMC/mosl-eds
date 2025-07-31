@@ -39,26 +39,28 @@
     margin: 0 auto;
     gap: 16px;
     border-radius: map.get($radius, r16);
+    width: 100%;
 
     .default-content-wrapper {
-      flex: 1 1 40%;
+      flex: 1 1 37%;
       text-align: left;
+      flex-shrink: 0; // ✅ Add this line
       display: flex;
       flex-direction: row;
-      align-items: center;
+      // align-items: center;
       gap: map.get($spacing, md);
 
       .icon {
         flex: 0 0 auto;
-        width: 88px;
-        height: 88px;
+        width: 56px;
+        height: 56px;
         flex-shrink: 0;
       }
 
       .hero-text {
         display: flex;
         flex-direction: column;
-        gap: map.get($spacing, sm);
+        // gap: map.get($spacing, sm);
         text-align: left;
 
         @include media(mobile) {
@@ -67,8 +69,9 @@
       }
 
       h3 {
-        @include font-style(40px, 48px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
-        margin: 0 0 map.get($spacing, md);
+        @include font-style(36px, 48px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+        // margin: 0 0 map.get($spacing, md);
+        margin: 0px;
 
         @include media(mobile) {
           @include font-style(32px, 40px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
@@ -92,8 +95,8 @@
   }
 
   .calculator-sip-wrapper {
-    flex: 1 1 50%;
-    max-width: 600px;
+    flex: 1 1 53%;
+    max-width: 608px;
 
     .cal-container {
       background: $primary-white;
@@ -695,7 +698,7 @@
         .start-sip-btn button {
           display: flex;
           // width: 132px;
-          width: 100%;
+          // width: 100%;
           padding: map.get($spacing, sm);
           justify-content: center;
           align-items: center;
@@ -710,6 +713,13 @@
           line-height: 16px;
           cursor: pointer;
           transition: background-color 0.2s ease;
+          //
+          width: 176px;
+          // padding: 12px var(--Spacing-12, 12px);
+          // gap: var(--Spacing-8, 8px);
+          // border-radius: var(--Border-Radius-4, 4px);
+          // background: var(--Button-Primary-Default, #2E2A94);
+          //
 
           &:hover {
             background: $primary-blue-dark;
@@ -818,7 +828,11 @@
 
           .start-sip-btn {
             flex: 1 1 100%;
+            button {
+              width: 100%; ;
+            }
           }
+          
         }
       }
 
