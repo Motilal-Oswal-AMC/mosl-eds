@@ -1,0 +1,201 @@
+.section.watchlist-block-container {
+  padding: 3rem 2rem;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+
+  .watchlist-block-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .watchlist-block.block {
+    .card-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: #f7f8ff;
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      gap: 2rem;
+      position: relative;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      .card-left {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .card-left-title {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+
+          .watchlist-logo {
+            width: 64px;
+            height: 64px;
+          }
+
+          .titlewrapper {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+              font-size: 1.75rem;
+              font-weight: 700;
+              color: #2b2c5c;
+              margin: 0;
+              line-height: 1.3;
+            }
+
+            .card-title-1 {
+              margin-top: 0.25rem;
+              font-weight: 600;
+              color: #2b2c5c;
+            }
+          }
+        }
+
+        .button-wrapper {
+          margin-top: 1.5rem;
+
+          .button-container {
+            margin-left: 64px; // aligns with text start
+
+            .button {
+              background: #2b2c5c;
+              color: #fff;
+              padding: 0.75rem 1.5rem;
+              border-radius: 8px;
+              font-size: 1rem;
+              font-weight: 500;
+              text-decoration: none;
+              display: inline-block;
+              transition: background 0.3s ease;
+
+              &:hover {
+                background: #1f1f47;
+              }
+            }
+          }
+        }
+      }
+
+      .card-right {
+        position: relative;
+        background: #fff;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-width: 300px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+        z-index: 3;
+
+        // Stacked background cards
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 12px;
+          left: 12px;
+          width: 100%;
+          height: 100%;
+          border-radius: 0.75rem;
+          background: #fff;
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+          z-index: -1;
+        }
+
+        &::after {
+          top: 24px;
+          left: 24px;
+          z-index: -2;
+        }
+
+        .upper-right {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .fund-logo {
+            width: 48px;
+            height: 48px;
+            background: #eef1ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          .wishlist-icon ul {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .icon img {
+              width: 28px;
+              height: 28px;
+            }
+          }
+        }
+
+        .lower-right {
+          margin-top: 1rem;
+
+          .fund-name-card {
+            p {
+              margin: 0;
+              font-size: 0.875rem;
+              font-weight: 600;
+              color: #8c8da3; // lighter "Motilal Oswal"
+            }
+
+            .fund-name {
+              font-size: 1rem;
+              color: #3f3f7b;
+              font-weight: 500;
+              margin-top: 0.25rem;
+            }
+          }
+        }
+
+        .fund-returns {
+          position: absolute;
+          right: 1.5rem;
+          bottom: 1.5rem;
+          text-align: right;
+
+          p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #666;
+          }
+
+          .returns {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #2b2c5c;
+
+            .returns-percentage {
+              font-size: 1.25rem;
+              vertical-align: super;
+            }
+          }
+        }
+      }
+    }
+  }
+}
