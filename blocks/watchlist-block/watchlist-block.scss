@@ -1,3 +1,6 @@
+@use '../../styles/common-theme/css/variables_mixins' as *;
+@use '../../styles/common-theme/css/fluid-typography' as *;
+@use 'sass:map';
 .section.watchlist-block-container {
   padding: 3rem 2rem;
   background: #fff;
@@ -46,7 +49,7 @@
             h2 {
               font-size: 1.75rem;
               font-weight: 700;
-              color: #2b2c5c;
+              color: $primary-blue;
               margin: 0;
               line-height: 1.3;
             }
@@ -54,7 +57,7 @@
             .card-title-1 {
               margin-top: 0.25rem;
               font-weight: 600;
-              color: #2b2c5c;
+              color: $primary-blue;
             }
           }
         }
@@ -66,7 +69,7 @@
             margin-left: 64px; // aligns with text start
 
             .button {
-              background: #2b2c5c;
+              background: $primary-blue;
               color: #fff;
               padding: 0.75rem 1.5rem;
               border-radius: 8px;
@@ -160,12 +163,12 @@
               margin: 0;
               font-size: 0.875rem;
               font-weight: 600;
-              color: #8c8da3; // lighter "Motilal Oswal"
+              color: map-get($map: $blue-1, $key:b400 ); // lighter "Motilal Oswal"
             }
 
             .fund-name {
               font-size: 1rem;
-              color: #3f3f7b;
+              color: $primary-blue;
               font-weight: 500;
               margin-top: 0.25rem;
             }
@@ -176,22 +179,33 @@
           position: absolute;
           right: 1.5rem;
           bottom: 1.5rem;
-          text-align: right;
+          text-align: right;  
 
           p {
             margin: 0;
             font-size: 0.875rem;
-            color: #666;
+            color: #111111;
           }
 
           .returns {
+            display: flex;
+            flex-direction: row;
             font-size: 1.75rem;
             font-weight: 700;
             color: #2b2c5c;
-
+            .returns-percent{
+              color: $primary-blue;
+              font-family: $Poppins;
+              font-size: 24px;
+              font-weight: 600;
+              line-height: 32px; /* 133.333% */
+            }
             .returns-percentage {
-              font-size: 1.25rem;
-              vertical-align: super;
+              color: #2E2A94;
+              font-family: $Poppins;
+              font-size:  24px;
+              font-weight: 300;
+              line-height: 32px;
             }
           }
         }

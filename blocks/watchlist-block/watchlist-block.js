@@ -63,9 +63,9 @@ export default function decorate(block) {
         ),
         div({class:'fund-returns'},
             p("Annualised"),
-            div({class:'returns'},"24.02",
+            div({class:'returns'},
+                p({class: 'returns-percent'},"24.02"), 
                 span({class:'returns-percentage'}, "%")
-                
             )
         )
     )
