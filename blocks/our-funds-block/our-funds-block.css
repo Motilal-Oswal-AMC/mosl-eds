@@ -1,1 +1,120 @@
-@import"../fund-card/fund-card.css"
+/* Reset */
+@import "../../../styles/fonts.css";
+@import url("../fund-card/fund-card.css");
+.our-funds-block-wrapper {
+  width: 100%;
+}
+.our-funds-block .fundcontainer {
+  display: flex;
+  justify-content: space-between;
+}
+.our-funds-block .fundcontainer .block-subitem1 h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 48px;
+  color: #2e2a94;
+  font-family: "ButlerPro", sans-serif;
+  font-weight: 700;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 74.68%;
+  width: 100%;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #9E9E9E;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .search-input::before {
+  content: "";
+  background-image: url("../../icons/search-icon-black.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .search-input .search {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  color: #616161;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .watchlist {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .watchlist .staricon .icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .watchlist .staricon .icon-star-filled {
+  display: none;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .watchlist .staricon.watchlist-active .icon {
+  display: none;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .watchlist .staricon.watchlist-active .icon-star-filled {
+  display: block;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .watchlisttext {
+  width: -moz-max-content;
+  width: max-content;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-watch .watchlisttext span {
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-underline-offset: 20%;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .trending-container,
+.our-funds-block .fundcontainer .search-trending-wrapper .trendinglabel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel,
+.our-funds-block .fundcontainer .search-trending-wrapper .trendinglabel .trendinglabel {
+  gap: 4px;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel p,
+.our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel span,
+.our-funds-block .fundcontainer .search-trending-wrapper .trendinglabel .trendinglabel p,
+.our-funds-block .fundcontainer .search-trending-wrapper .trendinglabel .trendinglabel span {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel label,
+.our-funds-block .fundcontainer .search-trending-wrapper .trendinglabel .trendinglabel label {
+  color: var(--Neutrals-Black, #111);
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}/*# sourceMappingURL=our-funds-block.css.map */

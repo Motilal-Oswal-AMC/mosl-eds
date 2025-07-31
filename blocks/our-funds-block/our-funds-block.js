@@ -62,7 +62,7 @@ export default function decorate(block) {
             )
           ),
           div(
-            { class: "trendingContainer" },
+            { class: "trending-container" },
             div(
               { class: "trendinglabel" },
               p(
@@ -428,8 +428,8 @@ export default function decorate(block) {
       )
     )
   );
-//   block.innerHTML = "";
-//   block.append(divfund);
+  block.innerHTML = "";
+  block.append(divfund);
 }
 
 function dataFilterfun(param) {
