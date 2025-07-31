@@ -124,6 +124,7 @@
           color: $primary-blue;
           font-size: 16px;
           font-weight: 600;
+          font-family: $Poppins;
           line-height: 20px;
           padding: 12px;
           background-color: $primary-white;
@@ -167,6 +168,7 @@
           color: $primary-blue;
           font-size: 14px;
           line-height: 16px;
+          font-family: $Poppins;
           background-color: $primary-white;
           padding: 8px 12px;
           border-radius: map.get($radius, r8);
