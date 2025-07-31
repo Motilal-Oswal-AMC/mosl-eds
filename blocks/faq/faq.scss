@@ -10,6 +10,12 @@
     max-width: 1232px;
     margin: 0 auto;
     padding: 0 24px;
+    padding-top: 40px;
+
+    @include media(mobile) {
+        flex-direction: column;
+        gap: 16px;
+    }
 
     >div {
         max-width: unset;
@@ -19,6 +25,10 @@
 
     &>div:nth-child(1) {
         width: 25%;
+
+        @include media(mobile) {
+            width: 100%;
+        }
 
         p {
             color: $primary-blue;
@@ -34,6 +44,10 @@
 
     .accordion-wrapper {
         width: 68.5%;
+
+        @include media(mobile) {
+            width: 100%;
+        }
 
         .accordion {
             display: flex;

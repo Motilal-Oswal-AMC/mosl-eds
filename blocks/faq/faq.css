@@ -7,6 +7,13 @@
   max-width: 1232px;
   margin: 0 auto;
   padding: 0 24px;
+  padding-top: 40px;
+}
+@media (max-width: 768px) {
+  .section.freq-ask-ques {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
 .section.freq-ask-ques > div {
   max-width: unset;
@@ -15,6 +22,11 @@
 }
 .section.freq-ask-ques > div:nth-child(1) {
   width: 25%;
+}
+@media (max-width: 768px) {
+  .section.freq-ask-ques > div:nth-child(1) {
+    width: 100%;
+  }
 }
 .section.freq-ask-ques > div:nth-child(1) p {
   color: #2e2a94;
@@ -28,6 +40,11 @@
 }
 .section.freq-ask-ques .accordion-wrapper {
   width: 68.5%;
+}
+@media (max-width: 768px) {
+  .section.freq-ask-ques .accordion-wrapper {
+    width: 100%;
+  }
 }
 .section.freq-ask-ques .accordion-wrapper .accordion {
   display: flex;

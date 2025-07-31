@@ -1,3 +1,9 @@
+/* stylelint-disable alpha-value-notation */
+/* stylelint-disable media-feature-range-notation */
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
 .growth-now-container {
     .growth-now {
         display: flex;
@@ -5,46 +11,187 @@
         align-items: center;
         justify-content: space-between;
         border-radius: 16px;
-        background: var(--blue-1800-primary, #2E2A94);
+        background: #2E2A94;
+        height: 160px;
+
+        @include media(tab) {
+            height: 100%;
+            align-items: flex-start;
+        }
+
+        @include media(mobile) {
+            flex-direction: column;
+            position: relative;
+            padding: 24px;
+        }
 
         .fund-sec-1 {
+            // padding-right: 29px;
+
+            @include media(mobile) {
+                padding: 0;
+                order: 3;
+                position: absolute;
+                bottom: 0;
+            }
+
             div {
                 img {
                     width: 109px;
                     height: 160px;
                     flex-shrink: 0;
+                    margin-bottom: -13px;
+
+                    @include media(mobile) {
+                        width: 142px;
+                        height: 173px;
+                        margin-bottom: -10px;
+                    }
                 }
             }
         }
 
         .fund-sec-2 {
+            // padding-right: 54px;
+
+            @include media(mobile) {
+                padding: 0;
+                padding-bottom: 16px;
+                order: 1;
+            }
+
             div {
                 p {
-                    color: #fff;
-                    font-family: ButlerPro;
-                    font-size: 32px;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: 40px;
+                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $ButlerPro);
                     max-inline-size: 11ch;
                     text-wrap: balance;
+                    margin: 0;
+                    padding: 0;
                 }
             }
         }
 
         .fund-sec-3 {
+            // padding-right: 40px;
+
+            @include media(mobile) {
+                padding: 0;
+                order: 2;
+                width: 100%;
+                padding-bottom: 40px;
+            }
+
             div {
                 .button-container {
+                    margin: 0;
+                    padding: 0;
+
                     form {
                         display: flex;
                         align-items: center;
+                        gap: 5px;
+
+                        @include media(mobile) {
+                            flex-direction: column;
+                        }
+
+                        .fieldset-wrapper {
+                            @include media(mobile) {
+                                width: 100%;
+                            }
+
+                        }
 
                         fieldset {
                             display: flex;
                             align-items: center;
+                            display: flex;
+                            padding: 8px 12px;
+                            justify-content: space-between;
+                            align-items: flex-end;
+                            align-self: stretch;
+                            border-radius: 6px;
+                            border: 1px solid var(--Neutrals-500, #9E9E9E);
+
+                            @include media(mobile) {
+                                width: 100%;
+                            }
+
+
+                            .field-wrapper {
+                                line-height: normal;
+                            }
+
+                            .select-wrapper {
+                                border-radius: 3px 0px 0px 3px;
+                                border-right: 1px solid #6D798E;
+                                padding-right: 4px;
+
+                            }
+
+                            select {
+                                background: transparent;
+                                border: none;
+                                color: #FFF;
+                                text-align: center;
+                                font-family: 'Poppins';
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 20px;
+                                -webkit-appearance: menulist;
+                                padding-right: 4px;
+                            }
+
+                            .text-wrapper {
+                                input {
+                                    width: 100%;
+                                    min-width: 111px;
+                                    background: transparent;
+                                    box-shadow: none;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-family: "Poppins";
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 20px;
+                                    padding: 0;
+                                    padding-inline: unset;
+                                    padding-block: unset;
+                                    border: none;
+                                    text-align: left;
+                                    padding-left: 10px;
+
+                                    &::-webkit-input-placeholder {
+                                        color: #fff;
+                                        font-family: "Poppins";
+                                        font-size: 14px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 20px;
+                                    }
+
+                                }
+
+                                // &::after {
+                                //     content: '';
+                                //     background: url(../../icons/close-blue.png);
+                                //     display: flex;
+                                //     width: 24px;
+                                //     height: 24px;
+                                //     padding: 2px;
+                                //     justify-content: center;
+                                //     align-items: center;
+                                // }
+                            }
                         }
 
                         .submit-wrapper {
+                            @include media(mobile) {
+                                width: 100%;
+                            }
+
                             .button {
                                 display: flex;
                                 padding: 12px;
@@ -59,6 +206,11 @@
                                 font-style: normal;
                                 font-weight: 500;
                                 line-height: 16px;
+                                margin: 0;
+
+                                @include media(mobile) {
+                                    width: 100%;
+                                }
                             }
                         }
                     }
@@ -66,52 +218,84 @@
             }
         }
 
-        .fund-sec-4 {}
+        .fund-sec-4 {
+            // padding-right: 44px;
+            margin-bottom: -35px;
 
-        .fund-sec-5 {}
+            @include media(mobile) {
+                padding: 0;
+                margin: 0;
+                order: 1;
+                position: absolute;
+                right: 24px;
+                overflow: hidden;
 
-        .fund-sec-6 {
-            div {
-                >ul {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
+                img {
+                    width: 45px;
+                    height: 120px;
+                }
+            }
+        }
+    }
+
+    .fund-sec-5 {
+        // padding-right: 18px;
+
+        @include media(mobile) {
+            padding: 0;
+            display: none;
+        }
+    }
+
+    .fund-sec-6 {
+        @include media(mobile) {
+            display: flex;
+            justify-content: end;
+            order: 3;
+            width: 100%;
+            padding-top: 36px;
+        }
+
+        div {
+            >ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 9px;
+
+                >li {
                     display: flex;
-                    flex-direction: column;
-                    gap: 9px;
+                    align-items: center;
+                    gap: 8px;
 
-                    >li {
-                        display: flex;
-                        align-items: center;
-                        gap: 8px;
+                    p {
+                        margin: 0;
+                        padding: 0;
+                    }
 
-                        p {
-                            margin: 0;
-                            padding: 0;
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+
+                        li:first-child {
+                            color: #FFF;
+                            font-family: Poppins;
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 16px;
                         }
 
-                        ul {
-                            margin: 0;
-                            padding: 0;
-                            list-style: none;
-
-                            li:first-child {
-                                color: #FFF;
-                                font-family: Poppins;
-                                font-size: 12px;
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: 16px;
-                            }
-
-                            li:nth-child(2) {
-                                color: #FFF;
-                                font-family: Poppins;
-                                font-size: 14px;
-                                font-style: normal;
-                                font-weight: 600;
-                                line-height: 16px;
-                            }
+                        li:nth-child(2) {
+                            color: #FFF;
+                            font-family: Poppins;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 16px;
                         }
                     }
                 }

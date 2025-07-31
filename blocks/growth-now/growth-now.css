@@ -1,33 +1,162 @@
+/* stylelint-disable alpha-value-notation */
+/* stylelint-disable media-feature-range-notation */
+@import "../../../styles/fonts.css";
 .growth-now-container .growth-now {
   display: flex;
   padding: 32px;
   align-items: center;
   justify-content: space-between;
   border-radius: 16px;
-  background: var(--blue-1800-primary, #2E2A94);
+  background: #2E2A94;
+  height: 160px;
+}
+@media (max-width: 1025px) {
+  .growth-now-container .growth-now {
+    height: 100%;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now {
+    flex-direction: column;
+    position: relative;
+    padding: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-1 {
+    padding: 0;
+    order: 3;
+    position: absolute;
+    bottom: 0;
+  }
 }
 .growth-now-container .growth-now .fund-sec-1 div img {
   width: 109px;
   height: 160px;
   flex-shrink: 0;
+  margin-bottom: -13px;
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-1 div img {
+    width: 142px;
+    height: 173px;
+    margin-bottom: -10px;
+  }
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-2 {
+    padding: 0;
+    padding-bottom: 16px;
+    order: 1;
+  }
 }
 .growth-now-container .growth-now .fund-sec-2 div p {
-  color: #fff;
-  font-family: ButlerPro;
   font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
   line-height: 40px;
+  color: #fff;
+  font-family: "ButlerPro", sans-serif;
+  font-weight: 700;
   max-inline-size: 11ch;
   text-wrap: balance;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-3 {
+    padding: 0;
+    order: 2;
+    width: 100%;
+    padding-bottom: 40px;
+  }
+}
+.growth-now-container .growth-now .fund-sec-3 div .button-container {
+  margin: 0;
+  padding: 0;
 }
 .growth-now-container .growth-now .fund-sec-3 div .button-container form {
   display: flex;
   align-items: center;
+  gap: 5px;
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-3 div .button-container form {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-3 div .button-container form .fieldset-wrapper {
+    width: 100%;
+  }
 }
 .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset {
   display: flex;
   align-items: center;
+  display: flex;
+  padding: 8px 12px;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: stretch;
+  border-radius: 6px;
+  border: 1px solid var(--Neutrals-500, #9E9E9E);
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset {
+    width: 100%;
+  }
+}
+.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .field-wrapper {
+  line-height: normal;
+}
+.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .select-wrapper {
+  border-radius: 3px 0px 0px 3px;
+  border-right: 1px solid #6D798E;
+  padding-right: 4px;
+}
+.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset select {
+  background: transparent;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  -webkit-appearance: menulist;
+  padding-right: 4px;
+}
+.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input {
+  width: 100%;
+  min-width: 111px;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 0;
+  padding-inline: unset;
+  padding-block: unset;
+  border: none;
+  text-align: left;
+  padding-left: 10px;
+}
+.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input::-webkit-input-placeholder {
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper {
+    width: 100%;
+  }
 }
 .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper .button {
   display: flex;
@@ -43,8 +172,46 @@
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
+  margin: 0;
 }
-.growth-now-container .growth-now .fund-sec-6 div > ul {
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper .button {
+    width: 100%;
+  }
+}
+.growth-now-container .growth-now .fund-sec-4 {
+  margin-bottom: -35px;
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-4 {
+    padding: 0;
+    margin: 0;
+    order: 1;
+    position: absolute;
+    right: 24px;
+    overflow: hidden;
+  }
+  .growth-now-container .growth-now .fund-sec-4 img {
+    width: 45px;
+    height: 120px;
+  }
+}
+@media (max-width: 768px) {
+  .growth-now-container .fund-sec-5 {
+    padding: 0;
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .growth-now-container .fund-sec-6 {
+    display: flex;
+    justify-content: end;
+    order: 3;
+    width: 100%;
+    padding-top: 36px;
+  }
+}
+.growth-now-container .fund-sec-6 div > ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -52,21 +219,21 @@
   flex-direction: column;
   gap: 9px;
 }
-.growth-now-container .growth-now .fund-sec-6 div > ul > li {
+.growth-now-container .fund-sec-6 div > ul > li {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.growth-now-container .growth-now .fund-sec-6 div > ul > li p {
+.growth-now-container .fund-sec-6 div > ul > li p {
   margin: 0;
   padding: 0;
 }
-.growth-now-container .growth-now .fund-sec-6 div > ul > li ul {
+.growth-now-container .fund-sec-6 div > ul > li ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.growth-now-container .growth-now .fund-sec-6 div > ul > li ul li:first-child {
+.growth-now-container .fund-sec-6 div > ul > li ul li:first-child {
   color: #FFF;
   font-family: Poppins;
   font-size: 12px;
@@ -74,7 +241,7 @@
   font-weight: 400;
   line-height: 16px;
 }
-.growth-now-container .growth-now .fund-sec-6 div > ul > li ul li:nth-child(2) {
+.growth-now-container .fund-sec-6 div > ul > li ul li:nth-child(2) {
   color: #FFF;
   font-family: Poppins;
   font-size: 14px;
