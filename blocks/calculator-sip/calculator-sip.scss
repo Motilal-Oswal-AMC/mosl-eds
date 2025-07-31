@@ -47,13 +47,13 @@
       flex-shrink: 0; // ✅ Add this line
       display: flex;
       flex-direction: row;
-      align-items: center;
+      // align-items: center;
       gap: map.get($spacing, md);
 
       .icon {
         flex: 0 0 auto;
-        width: 88px;
-        height: 88px;
+        width: 56px;
+        height: 56px;
         flex-shrink: 0;
       }
 
