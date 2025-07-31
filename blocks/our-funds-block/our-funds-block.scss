@@ -33,6 +33,7 @@
     .search-trending-wrapper {
       display: flex;
       //   flex-direction: column;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
       max-width: 74.68%;
@@ -44,18 +45,27 @@
           "search"
           "trending"
           "watchlist";
+        justify-content: unset;
       }
       .search-input {
         // width: 100%;
-        width: 81.8%;
+        max-width: 81.8%;
+        width: 100%;
         padding: 8px 12px;
         border-radius: 6px;
         border: 1px solid map.get($strokes, default);
         display: flex;
         align-items: center;
         gap: 8px;
+        @include media(desktop-sm) {
+          max-width: 76.8%;
+        }
+        @include media(tab) {
+          max-width: 69.7%;
+        }
         @include media(mobile) {
           grid-area: search;
+          max-width: 100%;
         }
         &::before {
           content: "";
@@ -119,6 +129,10 @@
           grid-area: trending;
           align-items: center;
           overflow: auto;
+          width: calc(100% + 16px);
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
         .trendinglabel {
           display: flex;
@@ -211,6 +225,7 @@
           .togglebtn {
             display: flex;
             align-items: center;
+            gap: 8px;
             p {
               margin: 0;
               @include font-style(
@@ -220,6 +235,42 @@
                 600,
                 $Poppins
               );
+            }
+            p:last-of-type{
+                color: $neutrals-black;
+            }
+            .fund-toggle-wrap {
+              input {
+                opacity: 0;
+                position: absolute;
+                z-index: 1;
+              }
+              .fund-toggle {
+                width: 36px;
+                height: 20px;
+                background-color: $neutrals-500;
+                display: block;
+                border-radius: 16px;
+                position: relative;
+                transition: all 0.2s;
+                cursor: pointer;
+                &::before {
+                  content: "";
+                  width: 16.667px;
+                  height: 16.667px;
+                  display: block;
+                  background: #fff;
+                  border-radius: 50%;
+                  box-shadow: 0 3.333px 16.667px 0 rgba(0, 0, 0, 0.10);
+                  position: absolute;
+                  top: 1.67px;
+                  transform: translateX(1.67px);
+                  transition: all 0.2s;
+                }
+              }
+              input:checked + .fund-toggle::before {
+                transform: translateX(17.67px);
+              }
             }
           }
         }
@@ -261,6 +312,9 @@
               }
             }
           }
+          @include media(mobile) {
+            display: none;
+          }
         }
       }
       .cards-container {
@@ -272,31 +326,31 @@
   }
 }
 // .categorey-direct{
-    // background-color: red;
-    // width: 20px;
-    // height: 20px;
-    // display: block;
-    // opacity: 0;
+// background-color: red;
+// width: 20px;
+// height: 20px;
+// display: block;
+// opacity: 0;
 // }
 
-.categorey-direct::before{
-    content: '';
-    background-image: url('../../icons/checkbox.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 20px;
-    height: 20px;
-    display: block;
+.categorey-direct::before {
+  content: "";
+  background-image: url("../../icons/checkbox.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
-.categorey-direct:checked::before{
-    content: '';
-    background-image: url('../../icons/checkbox-fill.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 20px;
-    height: 20px;
-    display: block;
+.categorey-direct:checked::before {
+  content: "";
+  background-image: url("../../icons/checkbox-fill.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  display: block;
 }

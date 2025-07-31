@@ -1,6 +1,6 @@
 /* eslint-disable */
 import dataCfObj from "../../scripts/dataCfObj.js";
-import { div, input, label, span, p } from "../../scripts/dom-helpers.js";
+import { div, input, label, span, p, button } from "../../scripts/dom-helpers.js";
 import dataMapMoObj from "../../scripts/constant.js";
 import fundcardblock from "../fund-card/fund-card.js";
 export default function decorate(block) {
@@ -110,84 +110,92 @@ export default function decorate(block) {
           ),
           div(
             { class: "filter-container" },
-            ...dataMapMoObj.data.fundCategory.map((element, index) => {
-              if (
-                capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity") {
-                dataMapMoObj[index + "ArrayDoc"] = div(
-                  {
-                    class: "Indian-Equity-container",
-                  },
-                  ...dataMapMoObj.data.fundCategory[
-                    dataMapMoObj.data.fundCategory.length - 1
-                  ]["indianEquitySub"].map((elme, ind) => {
-                    let sublabel = Object.keys(elme)[0].split("-")[1].trim();
-                    return div(
+            div(
+              { class: "clearall-wrapper" },
+              span("Filters"),
+              button({ class: "clearall-btn" }, "Clear All")
+            ),
+            div(
+              { class: "filter-list-wrapper" },
+              ...dataMapMoObj.data.fundCategory.map((element, index) => {
+                if (
+                  capitalizeEachWord(
+                    Object.keys(element)[0].replaceAll("-", " ")
+                  ) === "Indian Equity"
+                ) {
+                  dataMapMoObj[index + "ArrayDoc"] = div(
+                    {
+                      class: "Indian-Equity-container",
+                    },
+                    ...dataMapMoObj.data.fundCategory[
+                      dataMapMoObj.data.fundCategory.length - 1
+                    ]["indianEquitySub"].map((elme, ind) => {
+                      let sublabel = Object.keys(elme)[0].split("-")[1].trim();
+                      return div(
+                        { class: "checkbox-label-container" },
+                        input({
+                          class: "categorey-direct",
+                          type: "checkbox",
+                          id: "ind" + (ind + 1),
+                        }),
+                        label({ for: "ind" + (ind + 1) }, sublabel)
+                      );
+                    })
+                  );
+                }
+                return Object.keys(element)[0] !== "indianEquitySub"
+                  ? div(
                       { class: "checkbox-label-container" },
                       input({
                         class: "categorey-direct",
                         type: "checkbox",
-                        id: "ind" + (ind + 1),
+                        id: "index" + (index + 1),
                       }),
-                      label({ for: "ind" + (ind + 1) }, sublabel)
-                    );
-                  })
-                );
-              }
-              return Object.keys(element)[0] !== "indianEquitySub"
-                ? div(
-                    { class: "checkbox-label-container" },
-                    input({
-                      class: "categorey-direct",
-                      type: "checkbox",
-                      id: "index" + (index + 1),
-                    }),
-                    label(
-                      { for: "index" + (index + 1) },
+                      label(
+                        { for: "index" + (index + 1) },
+                        capitalizeEachWord(
+                          Object.keys(element)[0].replaceAll("-", " ")
+                        ) +
+                          "(" +
+                          element[Object.keys(element)[0]].length +
+                          ")"
+                      ),
                       capitalizeEachWord(
                         Object.keys(element)[0].replaceAll("-", " ")
-                      ) +
-                        "(" +
-                        element[Object.keys(element)[0]].length +
-                        ")"
-                    ),
-                    capitalizeEachWord(
-                      Object.keys(element)[0].replaceAll("-", " ")
-                    ) === "Indian Equity"
-                      ? div(
-                          {
-                            class: "innerIndianEquity",
-                          },
-                          dataMapMoObj[index + "ArrayDoc"]
-                        )
-                      : ""
-                  )
-                : "";
-            })
-          )
-        ),
-        div(
-          { class: "FundTye-container" },
-          div(
-            {
-              class: "fund-container",
-            },
-            ...dataMapMoObj.data.fundType.map((element) => {
-              return div(
-                { class: "checkbox-label-container" },
-                input({
+                      ) === "Indian Equity"
+                        ? div(
+                            {
+                              class: "innerIndianEquity",
+                            },
+                            dataMapMoObj[index + "ArrayDoc"]
+                          )
+                        : ""
+                    )
+                  : "";
+              }),
+              ...dataMapMoObj.data.fundType.map((element) => {
+                return div(
+                  { class: "checkbox-label-container" },
+                  input({
                     class: "categorey-direct",
                     type: "checkbox",
                   }),
-                label(
-                  capitalizeEachWord(
-                    Object.keys(element)[0].replaceAll("-", " ")
-                  ) +
-                    "(" +
-                    element[Object.keys(element)[0]].length +
-                    ")"
-                )
-              );
-            })
+                  label(
+                    capitalizeEachWord(
+                      Object.keys(element)[0].replaceAll("-", " ")
+                    ) +
+                      "(" +
+                      element[Object.keys(element)[0]].length +
+                      ")"
+                  )
+                );
+              })
+            ),
+            div(
+              { class: "apply-wrapper" },
+              button({ class: "close-btn" }, "Close"),
+              button({ class: "apply-btn" }, "Apply")
+            )
           )
         )
       ),
@@ -216,7 +224,16 @@ export default function decorate(block) {
           ),
           div(
             { class: "group-view-container" },
-            div({ class: "togglebtn" }, p("Direct"), p("Regular")),
+            div(
+              { class: "togglebtn" },
+              p("Direct"),
+              div(
+                { class: "fund-toggle-wrap" },
+                input({ type: "checkbox", id: "toggle" }),
+                label({ class: "fund-toggle", for: "toggle" })
+              ),
+              p("Regular")
+            ),
             div(
               { class: "view-container" },
               div(

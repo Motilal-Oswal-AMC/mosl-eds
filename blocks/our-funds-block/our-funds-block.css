@@ -37,6 +37,7 @@
 }
 .our-funds-block .fundcontainer .search-trending-wrapper {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
   max-width: 74.68%;
@@ -47,10 +48,12 @@
     max-width: 100%;
     display: grid;
     grid-template-areas: "search" "trending" "watchlist";
+    justify-content: unset;
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input {
-  width: 81.8%;
+  max-width: 81.8%;
+  width: 100%;
   padding: 8px 12px;
   border-radius: 6px;
   border: 1px solid #9E9E9E;
@@ -58,9 +61,20 @@
   align-items: center;
   gap: 8px;
 }
+@media (max-width: 1299px) {
+  .our-funds-block .fundcontainer .search-trending-wrapper .search-input {
+    max-width: 76.8%;
+  }
+}
+@media (max-width: 1025px) {
+  .our-funds-block .fundcontainer .search-trending-wrapper .search-input {
+    max-width: 69.7%;
+  }
+}
 @media (max-width: 768px) {
   .our-funds-block .fundcontainer .search-trending-wrapper .search-input {
     grid-area: search;
+    max-width: 100%;
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input::before {
@@ -133,6 +147,10 @@
     grid-area: trending;
     align-items: center;
     overflow: auto;
+    width: calc(100% + 16px);
+  }
+  .our-funds-block .fundcontainer .search-trending-wrapper .trending-container::-webkit-scrollbar {
+    display: none;
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel {
@@ -245,6 +263,7 @@
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn p {
   margin: 0;
@@ -253,6 +272,40 @@
   color: #332ab5;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn p:last-of-type {
+  color: #111;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap input {
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap .fund-toggle {
+  width: 36px;
+  height: 20px;
+  background-color: #99A1B0;
+  display: block;
+  border-radius: 16px;
+  position: relative;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap .fund-toggle::before {
+  content: "";
+  width: 16.667px;
+  height: 16.667px;
+  display: block;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3.333px 16.667px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 1.67px;
+  transform: translateX(1.67px);
+  transition: all 0.2s;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap input:checked + .fund-toggle::before {
+  transform: translateX(17.67px);
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container ul,
 .our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container ul {
@@ -284,6 +337,11 @@
 .our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container:not(.grid-view-active) ul li:first-of-type,
 .our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container:not(.list-view-active) ul li:first-of-type {
   display: none;
+}
+@media (max-width: 768px) {
+  .our-funds-block .filter-cards .right-container .sort-pop-container .view-container {
+    display: none;
+  }
 }
 .our-funds-block .filter-cards .right-container .cards-container {
   display: flex;
