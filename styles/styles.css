@@ -21,7 +21,7 @@
   box-sizing: border-box;
   outline: none;
   text-size-adjust: none;
-  appearance: none;
+  /* appearance: none; */
 }
 
 *::after,

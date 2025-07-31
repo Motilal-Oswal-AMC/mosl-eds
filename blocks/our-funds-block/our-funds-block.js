@@ -30,34 +30,31 @@ export default function decorate(block) {
         div(
           { class: "search-trending-wrapper" },
           div(
-            { class: "search-watch" },
+            { class: "search-input" },
+            input({
+              class: "search",
+              placeholder: block
+                .querySelector(".block-subitem2 .block-subitem-finelsub1")
+                .textContent.trim(),
+            })
+          ),
+          div(
+            { class: "watchlist" },
             div(
-              { class: "search-input" },
-              input({
-                class: "search",
-                placeholder: block
-                  .querySelector(".block-subitem2 .block-subitem-finelsub1")
-                  .textContent.trim(),
-              })
+              { class: "staricon" },
+              block.querySelector(
+                ".block-subitem2 .block-subitem-finelsub2 span"
+              ),
+              block.querySelector(
+                ".block-subitem2 .block-subitem-finelsub3 span"
+              )
             ),
             div(
-              { class: "watchlist" },
-              div(
-                { class: "staricon" },
-                block.querySelector(
-                  ".block-subitem2 .block-subitem-finelsub2 span"
-                ),
-                block.querySelector(
-                  ".block-subitem2 .block-subitem-finelsub3 span"
-                )
-              ),
-              div(
-                { class: "watchlisttext" },
-                span(
-                  block
-                    .querySelector(".block-subitem2 .block-subitem-finelsub3")
-                    .textContent.trim()
-                )
+              { class: "watchlisttext" },
+              span(
+                block
+                  .querySelector(".block-subitem2 .block-subitem-finelsub3")
+                  .textContent.trim()
               )
             )
           ),
@@ -115,10 +112,7 @@ export default function decorate(block) {
             { class: "filter-container" },
             ...dataMapMoObj.data.fundCategory.map((element, index) => {
               if (
-                capitalizeEachWord(
-                  Object.keys(element)[0].replaceAll("-", " ")
-                ) === "Indian Equity"
-              ) {
+                capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity") {
                 dataMapMoObj[index + "ArrayDoc"] = div(
                   {
                     class: "Indian-Equity-container",
@@ -127,167 +121,28 @@ export default function decorate(block) {
                     dataMapMoObj.data.fundCategory.length - 1
                   ]["indianEquitySub"].map((elme, ind) => {
                     let sublabel = Object.keys(elme)[0].split("-")[1].trim();
-                    return label(
-                      {
-                        class: "checkbox-label-container",
-                      },
-                      span(
-                        {
-                          class: "square-shape",
-                        },
-                        input({
-                          class: "categorey-direct",
-                          type: "checkbox",
-                          dataattr: elme[Object.keys(elme)].join("-"),
-                          onclick: function (ele) {
-                            let tempSchCode = [];
-                            block
-                              .querySelectorAll(
-                                ".innerIndianEquity .categorey-direct"
-                              )
-                              .forEach((el) => {
-                                if (el.checked) {
-                                  tempSchCode.push(
-                                    el.getAttribute("dataattr").split("-")
-                                  );
-                                }
-                              });
-                            tempSchCode = tempSchCode.flat(2);
-                            let tempScheme = dataCfObj.filter((item) => {
-                              if (tempSchCode.includes(item.schcode)) {
-                                return item;
-                              }
-                            });
-                            //Search Input
-                            Array.from(
-                              block.querySelector(
-                                ".searchBarContainer .searchModal ul"
-                              ).children
-                            ).forEach((elre) => {
-                              elre.style.display = "none";
-                              if (
-                                tempSchCode.includes(
-                                  elre.getAttribute("dataattr")
-                                )
-                              ) {
-                                elre.style.display = "block";
-                              }
-                            });
-                            rightBottomcardRender(
-                              block,
-                              tempScheme,
-                              dataMapMoObj
-                            );
-                          },
-                        })
-                      ),
-                      span(sublabel)
+                    return div(
+                      { class: "checkbox-label-container" },
+                      input({
+                        class: "categorey-direct",
+                        type: "checkbox",
+                        id: "ind" + (ind + 1),
+                      }),
+                      label({ for: "ind" + (ind + 1) }, sublabel)
                     );
                   })
                 );
               }
               return Object.keys(element)[0] !== "indianEquitySub"
-                ? label(
-                    {
-                      class: "checkbox-label-container",
-                    },
-                    span(
-                      {
-                        class: "square-shape",
-                      },
-                      input({
-                        class: "categorey-direct",
-                        type: "checkbox",
-                        dataattr: element[Object.keys(element)[0]].join("-"),
-                        onclick: function (ele) {
-                          let tempSchCode = [];
-                          Array.from(
-                            block.querySelector(".filter-container").children
-                          ).forEach((el) => {
-                            if (el.querySelector(".categorey-direct").checked) {
-                              if (el.querySelector(".innerIndianEquity")) {
-                                block
-                                  .querySelectorAll(
-                                    ".innerIndianEquity .categorey-direct"
-                                  )
-                                  .forEach((elm) => {
-                                    if (elm.checked) {
-                                      tempSchCode.push(
-                                        elm.getAttribute("dataattr").split("-")
-                                      );
-                                    }
-                                  });
-                                if (tempSchCode.length == 0) {
-                                  block
-                                    .querySelectorAll(
-                                      ".innerIndianEquity .categorey-direct"
-                                    )
-                                    .forEach((elsm) => {
-                                      elsm.checked = true;
-                                    });
-                                  tempSchCode.push(
-                                    el
-                                      .querySelector(".categorey-direct")
-                                      .getAttribute("dataattr")
-                                      .split("-")
-                                  );
-                                }
-                              } else {
-                                tempSchCode.push(
-                                  el
-                                    .querySelector(".categorey-direct")
-                                    .getAttribute("dataattr")
-                                    .split("-")
-                                );
-                              }
-                            } else {
-                              if (el.querySelector(".innerIndianEquity")) {
-                                block
-                                  .querySelectorAll(
-                                    ".innerIndianEquity .categorey-direct"
-                                  )
-                                  .forEach((elm) => {
-                                    elm.checked = false;
-                                  });
-                              }
-                            }
-                          });
-                          if (ele.target.checked) {
-                            ele.target.checked = true;
-                          } else {
-                            ele.target.checked = false;
-                          }
-                          //Cards
-                          tempSchCode = tempSchCode.flat(2);
-                          let tempScheme = dataCfObj.filter((item) => {
-                            if (tempSchCode.includes(item.schcode)) {
-                              return item;
-                            }
-                          });
-                          //Search Input
-                          Array.from(
-                            block.querySelector(
-                              ".searchBarContainer .searchModal ul"
-                            ).children
-                          ).forEach((elre) => {
-                            elre.style.display = "none";
-                            if (
-                              tempSchCode.includes(
-                                elre.getAttribute("dataattr")
-                              )
-                            ) {
-                              elre.style.display = "block";
-                            }
-                          });
-                          rightBottomcardRender(
-                            block,
-                            tempScheme,
-                            dataMapMoObj
-                          );
-                        },
-                      })
-                    ),
-                    span(
+                ? div(
+                    { class: "checkbox-label-container" },
+                    input({
+                      class: "categorey-direct",
+                      type: "checkbox",
+                      id: "index" + (index + 1),
+                    }),
+                    label(
+                      { for: "index" + (index + 1) },
                       capitalizeEachWord(
                         Object.keys(element)[0].replaceAll("-", " ")
                       ) +
@@ -313,61 +168,17 @@ export default function decorate(block) {
         div(
           { class: "FundTye-container" },
           div(
-            { class: "title-container" },
-            label(
-              block
-                .querySelector(".block-item2 .block-subitem-finelsub3")
-                .textContent.trim()
-            )
-          ),
-          div(
             {
               class: "fund-container",
             },
             ...dataMapMoObj.data.fundType.map((element) => {
-              return label(
+              return div(
                 { class: "checkbox-label-container" },
-                span(
-                  { class: "square-shape" },
-                  input({
+                input({
                     class: "categorey-direct",
                     type: "checkbox",
-                    dataattr: element[Object.keys(element)[0]].join("-"),
-                    onclick: function (ele) {
-                      let tempSchCode = [];
-                      block
-                        .querySelectorAll(".fund-container .categorey-direct")
-                        .forEach((elm) => {
-                          if (elm.checked) {
-                            tempSchCode.push(
-                              elm.getAttribute("dataattr").split("-")
-                            );
-                          }
-                        });
-                      //Cards
-                      tempSchCode = tempSchCode.flat(2);
-                      let tempScheme = dataCfObj.filter((item) => {
-                        if (tempSchCode.includes(item.schcode)) {
-                          return item;
-                        }
-                      });
-                      Array.from(
-                        block.querySelector(
-                          ".searchBarContainer .searchModal ul"
-                        ).children
-                      ).forEach((elre) => {
-                        elre.style.display = "none";
-                        if (
-                          tempSchCode.includes(elre.getAttribute("dataattr"))
-                        ) {
-                          elre.style.display = "block";
-                        }
-                      });
-                      rightBottomcardRender(block, tempScheme, dataMapMoObj);
-                    },
-                  })
-                ),
-                span(
+                  }),
+                label(
                   capitalizeEachWord(
                     Object.keys(element)[0].replaceAll("-", " ")
                   ) +
