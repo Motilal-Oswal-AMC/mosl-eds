@@ -280,6 +280,7 @@
   opacity: 0;
   position: absolute;
   z-index: 1;
+  cursor: pointer;
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap .fund-toggle {
   width: 36px;
