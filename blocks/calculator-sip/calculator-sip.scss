@@ -43,6 +43,7 @@
     .default-content-wrapper {
       flex: 1 1 40%;
       text-align: left;
+       flex-shrink: 0; // ✅ Add this line
       display: flex;
       flex-direction: row;
       align-items: center;
