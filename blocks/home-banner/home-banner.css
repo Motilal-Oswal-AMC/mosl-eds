@@ -787,6 +787,9 @@ button.swiper-pagination-bullet {
 .section.home-banner-container ul li:first-of-type {
   background: #242177;
 }
+.section.home-banner-container ul li:last-of-type {
+  display: none;
+}
 
 .home-banner .sub-home-banner {
   position: relative;
