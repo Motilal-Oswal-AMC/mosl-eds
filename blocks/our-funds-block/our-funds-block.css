@@ -111,10 +111,9 @@
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel label,
 .our-funds-block .fundcontainer .search-trending-wrapper .trendinglabel .trendinglabel label {
-  color: var(--Neutrals-Black, #111);
   font-size: 14px;
   line-height: 16px;
-  color: #2e2a94;
+  color: #111;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }/*# sourceMappingURL=our-funds-block.css.map */

@@ -102,12 +102,7 @@
             display: flex;
           }
           label {
-            color: var(--Neutrals-Black, #111);
-            // font-family: var(--Body, Poppins);
-            // font-size: var(--Body-Small-medium-Size, 14px);
-            // font-weight: 500;
-            // line-height: var(--Body-Small-medium-Line-Height, 16px);
-            @include font-style(14px, 16px, $primary-blue, 500, $Poppins);
+            @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
           }
         }
       }
