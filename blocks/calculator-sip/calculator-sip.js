@@ -32,7 +32,7 @@ export default function decorate(block) {
   if (hero && !hero.querySelector('.hero-image')) {
     // ✅ Find whole <p> that contains <img>
     const iconPara = hero.querySelector('p:has(img)');
-    const heading = hero.querySelector('h2');
+    const heading = hero.querySelector('h3');
     const paras = hero.querySelectorAll('p');
 
     // ✅ Clear hero
@@ -139,7 +139,7 @@ export default function decorate(block) {
 
         // This list contains all the options and is hidden by default
         div({ class: 'select-options', role: 'listbox' },
-          ...[5, 10, 15, 20, 25].map((year) =>
+          ...[1, 3, 5, 7, 10].map((year) =>
             div(
               { class: 'select-option', role: 'option', 'data-value': year },
               `${year} Years`,
