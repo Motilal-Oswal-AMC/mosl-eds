@@ -698,7 +698,7 @@
         .start-sip-btn button {
           display: flex;
           // width: 132px;
-          width: 100%;
+          // width: 100%;
           padding: map.get($spacing, sm);
           justify-content: center;
           align-items: center;
@@ -713,6 +713,13 @@
           line-height: 16px;
           cursor: pointer;
           transition: background-color 0.2s ease;
+          //
+          width: 176px;
+          // padding: 12px var(--Spacing-12, 12px);
+          // gap: var(--Spacing-8, 8px);
+          // border-radius: var(--Border-Radius-4, 4px);
+          // background: var(--Button-Primary-Default, #2E2A94);
+          //
 
           &:hover {
             background: $primary-blue-dark;
@@ -821,7 +828,11 @@
 
           .start-sip-btn {
             flex: 1 1 100%;
+            button {
+              width: 100%; ;
+            }
           }
+          
         }
       }
 

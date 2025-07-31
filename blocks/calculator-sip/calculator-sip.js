@@ -185,6 +185,19 @@ export default function decorate(block) {
     const amount = parseFloat(amountInput.value) || 0;
     const tenure = parseFloat(tenureInput.value) || 0;
 
+    // ✅ START: New logic to handle "Since Inception"
+    let tenureValue = tenureInput.value;
+    if (tenureValue === 'inception') {
+      if (selectedFund && selectedFund.dateOfAllotment) {
+        const inceptionDate = new Date(selectedFund.dateOfAllotment);
+        const today = new Date();
+        // Calculate the difference in milliseconds and convert to years
+        const yearsDiff = (today.getTime() - inceptionDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+        tenureValue = yearsDiff;
+      }
+    }
+    // ✅ END: New logic
+
     const investmentWrapper = document.querySelector('.investment-wrapper');
     const investedAmountEl = document.querySelector('.invested-amount');
     const calDescription = document.querySelector('.cal-discription');
@@ -217,7 +230,7 @@ export default function decorate(block) {
     if (calDescription) calDescription.style.display = '';
 
     const r = returnCAGR / 100 / 12;
-    const n = tenure * 12;
+    const n = tenureValue * 12;
 
     let investedAmount = 0;
     let futureValue = 0;
@@ -228,7 +241,7 @@ export default function decorate(block) {
     } else {
       investedAmount = amount;
       const lumpsumRate = returnCAGR / 100;
-      futureValue = amount * (1 + lumpsumRate) ** tenure;
+      futureValue = amount * (1 + lumpsumRate) ** tenureValue;
     }
 
     // ✅ Add thousands separator
@@ -240,57 +253,116 @@ export default function decorate(block) {
 
   // Tenure update function 
   // Add this new function inside decorate()
+  // function updateTenureOptions(fund) {
+  //   if (!fund || !fund.returns) {
+  //     // If there's no fund or no returns data, clear the options
+  //     optionsContainer.innerHTML = '';
+  //     return;
+  //   }
+
+  //   // Find the returns data for the Growth plan, or fallback to the first available
+  //   const growthReturns = fund.returns.find((r) => r.optioncode === 'G') || fund.returns[0];
+  //   if (!growthReturns) {
+  //     optionsContainer.innerHTML = '';
+  //     return;
+  //   }
+
+  //   // Map the API keys to year numbers
+  //   const availableTenures = [];
+  //   // if (growthReturns.inception_Ret) availableTenures.push("Since Inception");
+  //   if (growthReturns.oneYear_Ret) availableTenures.push(1);
+  //   if (growthReturns.threeYear_Ret) availableTenures.push(3);
+  //   if (growthReturns.fiveYear_Ret) availableTenures.push(5);
+  //   if (growthReturns.sevenYear_Ret) availableTenures.push(7);
+  //   if (growthReturns.tenYear_Ret) availableTenures.push(10);
+  //   // We can add more here if the API supports them
+
+  //   // ✅ Check for inception_Ret and add it to the list
+  //   if (growthReturns.inception_Ret) {
+  //     availableTenures.push({ value: 'inception', text: 'Since Inception' });
+  //   }
+
+  //   // Clear the old options
+  //   optionsContainer.innerHTML = '';
+
+  //   // Create and append the new options
+  //   availableTenures.forEach((year) => {
+  //     const optionEl = div(
+  //       { class: 'select-option', role: 'option', 'data-value': year },
+  //       `${year} Years`,
+  //     );
+
+  //     // Add a click listener to each new option
+  //     optionEl.addEventListener('click', () => {
+  //       selectedDisplay.textContent = optionEl.textContent;
+  //       hiddenInput.value = optionEl.getAttribute('data-value');
+  //       optionsContainer.classList.remove('open');
+  //       updateValues();
+  //     });
+
+  //     optionsContainer.appendChild(optionEl);
+  //   });
+
+  //   // After rebuilding, set the initial value to the first available tenure
+  //   if (availableTenures.length > 0) {
+  //     const defaultTenure = availableTenures[0];
+  //     selectedDisplay.textContent = `${defaultTenure} Years`;
+  //     hiddenInput.value = defaultTenure;
+  //   } else {
+  //     // Handle cases where a fund has no return periods
+  //     selectedDisplay.textContent = 'N/A';
+  //     hiddenInput.value = 0;
+  //   }
+  // }
+
   function updateTenureOptions(fund) {
     if (!fund || !fund.returns) {
-      // If there's no fund or no returns data, clear the options
       optionsContainer.innerHTML = '';
       return;
     }
-
-    // Find the returns data for the Growth plan, or fallback to the first available
     const growthReturns = fund.returns.find((r) => r.optioncode === 'G') || fund.returns[0];
     if (!growthReturns) {
       optionsContainer.innerHTML = '';
       return;
     }
 
-    // Map the API keys to year numbers
+    // ✅ Create a consistent array of objects
     const availableTenures = [];
-    if (growthReturns.oneYear_Ret) availableTenures.push(1);
-    if (growthReturns.threeYear_Ret) availableTenures.push(3);
-    if (growthReturns.fiveYear_Ret) availableTenures.push(5);
-    if (growthReturns.sevenYear_Ret) availableTenures.push(7);
-    if (growthReturns.tenYear_Ret) availableTenures.push(10);
-    // We can add more here if the API supports them
+    if (growthReturns.inception_Ret) {
+      availableTenures.push({ value: 'inception', text: 'Since Inception' });
+    }
+    if (growthReturns.oneYear_Ret) availableTenures.push({ value: 1, text: '1 Year' });
+    if (growthReturns.threeYear_Ret) availableTenures.push({ value: 3, text: '3 Years' });
+    if (growthReturns.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 Years' });
+    if (growthReturns.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 Years' });
+    if (growthReturns.tenYear_Ret) availableTenures.push({ value: 10, text: '10 Years' });
 
-    // Clear the old options
+
     optionsContainer.innerHTML = '';
 
-    // Create and append the new options
-    availableTenures.forEach((year) => {
+    // ✅ Loop through the array of objects correctly
+    availableTenures.forEach((tenureOption) => {
       const optionEl = div(
-        { class: 'select-option', role: 'option', 'data-value': year },
-        `${year} Years`,
+        { class: 'select-option', role: 'option', 'data-value': tenureOption.value },
+        tenureOption.text, // Use the .text property
       );
 
-      // Add a click listener to each new option
       optionEl.addEventListener('click', () => {
         selectedDisplay.textContent = optionEl.textContent;
         hiddenInput.value = optionEl.getAttribute('data-value');
         optionsContainer.classList.remove('open');
         updateValues();
       });
-
       optionsContainer.appendChild(optionEl);
     });
 
-    // After rebuilding, set the initial value to the first available tenure
+    // ✅ Update the default selection logic
     if (availableTenures.length > 0) {
-      const defaultTenure = availableTenures[0];
-      selectedDisplay.textContent = `${defaultTenure} Years`;
-      hiddenInput.value = defaultTenure;
+      // const defaultTenure = availableTenures[0];
+      const defaultTenure = availableTenures[availableTenures.length - 1];
+      selectedDisplay.textContent = defaultTenure.text;
+      hiddenInput.value = defaultTenure.value;
     } else {
-      // Handle cases where a fund has no return periods
       selectedDisplay.textContent = 'N/A';
       hiddenInput.value = 0;
     }
