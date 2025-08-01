@@ -3,7 +3,12 @@ import dataCfObj from "../../scripts/dataCfObj.js";
 import { div, input, label, span, p, button } from "../../scripts/dom-helpers.js";
 import dataMapMoObj from "../../scripts/constant.js";
 import fundcardblock from "../fund-card/fund-card.js";
+import listviewblock from '../list-view-card/list-view-card.js'
 export default function decorate(block) {
+
+  Array.from(block.closest('.section').children).forEach((el, index) => {
+    el.classList.add("item"+(index+1))
+  })
   Array.from(block.children).forEach((el, index) => {
     el.classList.add("block-item" + (index + 1));
     Array.from(el.children).forEach((elsub, index) => {
@@ -16,9 +21,6 @@ export default function decorate(block) {
 
   dataMapMoObj["data"] = dataFilterfun(dataCfObj);
   console.log(dataMapMoObj["data"]);
-
-  // block.querySelector(".block-item2 span"); //filter
-  // block.querySelector(".block-item3 block-subitem-finelsub1"); //filter
 
   let divfund = div(
     { class: "blockwrapper" },
@@ -237,11 +239,23 @@ export default function decorate(block) {
             div(
               { class: "view-container" },
               div(
-                { class: "squareby-container" },
+                { class: "squareby-container grid-view-active",
+                  onclick:(event)=>{
+                    event.currentTarget.classList.add("grid-view-active");
+                    event.currentTarget.closest(".view-container").querySelector(".listby-container").classList.remove("list-view-active");
+                    viewFunction(block);
+                  }
+                 },
                 block.querySelector(".block-item3 .block-subitem-finelsub3")
               ),
               div(
-                { class: "listby-container" },
+                { class: "listby-container",
+                  onclick:(event)=>{
+                    event.currentTarget.classList.add("list-view-active");
+                    event.currentTarget.closest(".view-container").querySelector(".squareby-container").classList.remove("grid-view-active");
+                    viewFunction(block);
+                  }
+                 },
                 block.querySelector(".block-item3 .block-subitem-finelsub4")
               )
             )
@@ -249,9 +263,27 @@ export default function decorate(block) {
         ),
         div(
           { class: "cards-container" },
-          ...dataCfObj.map((el) => {
-            return fundcardblock(el);
+          ...dataCfObj.map((el,index) => {
+            if (index < 8) {
+              return fundcardblock(el);  
+            }else{
+              return "";
+            }
           })
+        ),
+        div({class:"list-view-header"},
+          div({class:"list-header"},
+            block.closest('.section').querySelector(".item2")
+          ),
+          div({class:"list-container"},
+            ...dataCfObj.map((el,index) => {
+            if (index < 8) {
+              return listviewblock(el);  
+            }else{
+              return "";
+            }
+          })
+          )
         )
       )
     )
@@ -437,4 +469,29 @@ function capitalizeEachWord(sentence) {
   return sentence.replace(/\b\w/g, function (char) {
     return char.toUpperCase();
   });
+}
+
+function viewFunction(param) {
+  let cardblock = dataCfObj.filter((el, index) => {
+    if (index < 8) {
+      if (Array.from(param.querySelector(".listby-container").classList).includes("list-view-active")) {
+        return (el);  
+      }else{
+        return (el);
+      }
+    } else {
+      return "";
+    }
+  })
+  param.querySelector(".list-container").innerHTML = ""
+  param.querySelector(".cards-container").innerHTML = ""
+  if (Array.from(param.querySelector(".listby-container").classList).includes("list-view-active")) {
+    cardblock.forEach((el)=>{
+      param.querySelector(".list-container").append(listviewblock(el));
+    })    
+  }else{
+    cardblock.forEach((el)=>{
+      param.querySelector(".cards-container").append(fundcardblock(el));
+    })
+  }
 }
