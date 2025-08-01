@@ -393,7 +393,7 @@
     display: block;
   }
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -402,12 +402,12 @@
   align-items: center;
   padding: 12px 0;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) .categorey-direct {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct {
   visibility: hidden;
   width: 20px;
   height: 20px;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) .categorey-direct::before, .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) .categorey-direct:checked::before {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct::before, .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct:checked::before {
   content: "";
   background-image: url("../../icons/checkbox.svg");
   background-position: center;
@@ -418,10 +418,10 @@
   display: block;
   visibility: visible;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) .categorey-direct:checked::before {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct:checked::before {
   background-image: url("../../icons/checkbox-fill.svg");
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) label {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container label {
   font-size: 14px;
   line-height: 20px;
   color: #111;
@@ -434,8 +434,9 @@
   width: 100%;
   padding-left: 12px;
   cursor: pointer;
+  position: relative;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) label::after {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container label::after {
   content: "";
   background-image: url("../../icons/filter-info.svg");
   background-position: center;
@@ -444,20 +445,27 @@
   width: 12px;
   height: 12px;
   display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) .Indian-Equity-container:not(.checkbox-label-container) label::after {
-  content: unset;
-}
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) .innerIndianEquity {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity {
   padding: 12px 0 12px 30px;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) .innerIndianEquity .Indian-Equity-container {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity .Indian-Equity-container {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) .innerIndianEquity .Indian-Equity-container .checkbox-label-container {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity .Indian-Equity-container .checkbox-label-container {
   padding: 0;
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity .Indian-Equity-container .checkbox-label-container label::after {
+  content: unset;
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container.indaneqsub {
+  display: block;
 }
 .our-funds-block .filter-cards .right-container {
   max-width: calc(100% - 296px);
