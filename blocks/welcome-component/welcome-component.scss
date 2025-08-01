@@ -1,3 +1,80 @@
-.section.welcome-component{
+/* stylelint-disable alpha-value-notation */
+/* stylelint-disable media-feature-range-notation */
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.section.welcome-component {
     width: 100%;
+
+    div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        @include media(mobile) {
+            flex-direction: column;
+            gap: 40px;
+            // position: relative;
+            // padding: 24px;
+            // overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            width: 33.7%;
+
+            @include media(mobile) {
+                width: 100%;
+            }
+
+            li:first-child {
+                @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                margin-bottom: 16px;
+
+                @include media(mobile) {
+                    @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                }
+            }
+
+            li:nth-child(2) {
+                @include font-style(24px, 32px, $primary-blue-dark, map.get($font-weights, semibold), $Poppins);
+                margin-bottom: 8px;
+
+                @include media(mobile) {
+                    @include font-style(20px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                }
+            }
+
+            li:nth-child(3) {
+                @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $Poppins);
+                margin-bottom: 40px;
+            }
+
+            li {
+                a {
+                    display: flex;
+                    width: 176px;
+                    padding: 12px 12px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 8px;
+                    @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
+                    border-radius: 4px;
+                    background: $primary-blue;
+                    text-align: center;
+                }
+            }
+        }
+
+        p {
+            width: 57.8%;
+            margin: 0;
+            padding: 0;
+
+            @include media(mobile) {
+                width: 100%;
+            }
+        }
+    }
 }
