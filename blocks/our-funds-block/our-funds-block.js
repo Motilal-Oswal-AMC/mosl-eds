@@ -155,20 +155,12 @@ export default function decorate(block) {
                       }),
                       label(
                         { for: "index" + (index + 1) },
-                        capitalizeEachWord(
-                          Object.keys(element)[0].replaceAll("-", " ")
-                        ) +
-                          "(" +
-                          element[Object.keys(element)[0]].length +
-                          ")"
+                        div({class:"fund-label-wrapper"},
+                          capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")),
+                          span({class:"fund-length"},"(" +element[Object.keys(element)[0]].length +")")
+                        )
                       ),
-                      capitalizeEachWord(
-                        Object.keys(element)[0].replaceAll("-", " ")
-                      ) === "Indian Equity"
-                        ? div(
-                            {
-                              class: "innerIndianEquity",
-                            },
+                      capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity" ? div({class: "innerIndianEquity"},
                             dataMapMoObj[index + "ArrayDoc"]
                           )
                         : ""
