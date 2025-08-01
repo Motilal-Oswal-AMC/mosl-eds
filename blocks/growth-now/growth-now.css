@@ -5,10 +5,14 @@
   display: flex;
   padding: 32px;
   align-items: center;
-  justify-content: space-between;
   border-radius: 16px;
   background: #2E2A94;
   height: 160px;
+}
+@media (max-width: 1299px) {
+  .growth-now-container .growth-now {
+    justify-content: space-between;
+  }
 }
 @media (max-width: 1025px) {
   .growth-now-container .growth-now {
@@ -21,6 +25,14 @@
     flex-direction: column;
     position: relative;
     padding: 24px;
+  }
+}
+.growth-now-container .growth-now .fund-sec-1 {
+  padding-right: 21px;
+}
+@media (max-width: 1299px) {
+  .growth-now-container .growth-now .fund-sec-1 {
+    padding: 0;
   }
 }
 @media (max-width: 768px) {
@@ -42,6 +54,18 @@
     width: 142px;
     height: 173px;
     margin-bottom: -10px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: bottom;
+       object-position: bottom;
+  }
+}
+.growth-now-container .growth-now .fund-sec-2 {
+  padding-right: 54px;
+}
+@media (max-width: 1299px) {
+  .growth-now-container .growth-now .fund-sec-2 {
+    padding: 0;
   }
 }
 @media (max-width: 768px) {
@@ -61,6 +85,23 @@
   text-wrap: balance;
   margin: 0;
   padding: 0;
+}
+@media (max-width: 768px) {
+  .growth-now-container .growth-now .fund-sec-2 div p {
+    font-size: 28px;
+    line-height: 32px;
+    color: #fff;
+    font-family: "ButlerPro", sans-serif;
+    font-weight: 700;
+  }
+}
+.growth-now-container .growth-now .fund-sec-3 {
+  padding-right: 40px;
+}
+@media (max-width: 1299px) {
+  .growth-now-container .growth-now .fund-sec-3 {
+    padding: 0;
+  }
 }
 @media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-3 {
@@ -90,11 +131,11 @@
   }
 }
 .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset {
-  display: flex;
-  align-items: center;
+  width: 228px;
+  height: 40px;
   display: flex;
   padding: 8px 12px;
-  align-items: flex-end;
+  align-items: center;
   align-self: stretch;
   border-radius: 6px;
   border: 1px solid var(--Neutrals-500, #9E9E9E);
@@ -172,6 +213,7 @@
   font-weight: 500;
   line-height: 16px;
   margin: 0;
+  height: 40px;
 }
 @media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper .button {
@@ -179,7 +221,13 @@
   }
 }
 .growth-now-container .growth-now .fund-sec-4 {
+  padding-right: 44px;
   margin-bottom: -35px;
+}
+@media (max-width: 1299px) {
+  .growth-now-container .growth-now .fund-sec-4 {
+    padding: 0;
+  }
 }
 @media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-4 {
@@ -195,6 +243,14 @@
     height: 120px;
   }
 }
+.growth-now-container .fund-sec-5 {
+  padding-right: 18px;
+}
+@media (max-width: 1299px) {
+  .growth-now-container .fund-sec-5 {
+    padding: 0;
+  }
+}
 @media (max-width: 768px) {
   .growth-now-container .fund-sec-5 {
     padding: 0;
@@ -207,7 +263,7 @@
     justify-content: end;
     order: 3;
     width: 100%;
-    padding-top: 36px;
+    padding-top: 68px;
   }
 }
 .growth-now-container .fund-sec-6 div > ul {

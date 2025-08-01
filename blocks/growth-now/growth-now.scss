@@ -9,10 +9,14 @@
         display: flex;
         padding: 32px;
         align-items: center;
-        justify-content: space-between;
+        // justify-content: space-between;
         border-radius: 16px;
         background: #2E2A94;
         height: 160px;
+
+        @include media (desktop-sm) {
+            justify-content: space-between;
+        }
 
         @include media(tab) {
             height: 100%;
@@ -26,7 +30,11 @@
         }
 
         .fund-sec-1 {
-            // padding-right: 29px;
+            padding-right: 21px;
+
+            @include media (desktop-sm) {
+                padding: 0;
+            }
 
             @include media(mobile) {
                 padding: 0;
@@ -46,13 +54,19 @@
                         width: 142px;
                         height: 173px;
                         margin-bottom: -10px;
+                        object-fit: cover;
+                        object-position: bottom;
                     }
                 }
             }
         }
 
         .fund-sec-2 {
-            // padding-right: 54px;
+            padding-right: 54px;
+
+            @include media (desktop-sm) {
+                padding: 0;
+            }
 
             @include media(mobile) {
                 padding: 0;
@@ -67,12 +81,20 @@
                     text-wrap: balance;
                     margin: 0;
                     padding: 0;
+
+                    @include media(mobile) {
+                        @include font-style(28px, 32px, $primary-white, map.get($font-weights, bold), $ButlerPro);
+                    }
                 }
             }
         }
 
         .fund-sec-3 {
-            // padding-right: 40px;
+            padding-right: 40px;
+
+            @include media (desktop-sm) {
+                padding: 0;
+            }
 
             @include media(mobile) {
                 padding: 0;
@@ -95,20 +117,22 @@
                             flex-direction: column;
                         }
 
+                        // .field-wrapper {
+                        //     width: 228px;
+                        // }
+
                         .fieldset-wrapper {
                             @include media(mobile) {
                                 width: 100%;
                             }
-
                         }
 
                         fieldset {
-                            display: flex;
-                            align-items: center;
+                            width: 228px;
+                            height: 40px;
                             display: flex;
                             padding: 8px 12px;
-                            // justify-content: space-between;
-                            align-items: flex-end;
+                            align-items: center;
                             align-self: stretch;
                             border-radius: 6px;
                             border: 1px solid var(--Neutrals-500, #9E9E9E);
@@ -207,6 +231,7 @@
                                 font-weight: 500;
                                 line-height: 16px;
                                 margin: 0;
+                                height: 40px;
 
                                 @include media(mobile) {
                                     width: 100%;
@@ -219,8 +244,12 @@
         }
 
         .fund-sec-4 {
-            // padding-right: 44px;
+            padding-right: 44px;
             margin-bottom: -35px;
+
+            @include media (desktop-sm) {
+                padding: 0;
+            }
 
             @include media(mobile) {
                 padding: 0;
@@ -239,7 +268,11 @@
     }
 
     .fund-sec-5 {
-        // padding-right: 18px;
+        padding-right: 18px;
+
+        @include media (desktop-sm) {
+            padding: 0;
+        }
 
         @include media(mobile) {
             padding: 0;
@@ -253,7 +286,7 @@
             justify-content: end;
             order: 3;
             width: 100%;
-            padding-top: 36px;
+            padding-top: 68px;
         }
 
         div {
