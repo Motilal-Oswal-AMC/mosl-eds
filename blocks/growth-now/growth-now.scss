@@ -27,6 +27,7 @@
             flex-direction: column;
             position: relative;
             padding: 24px;
+            overflow: hidden;
         }
 
         .fund-sec-1 {
@@ -40,7 +41,7 @@
                 padding: 0;
                 order: 3;
                 position: absolute;
-                bottom: 0;
+                bottom: -1px;
             }
 
             div {
@@ -269,6 +270,7 @@
 
     .fund-sec-5 {
         padding-right: 18px;
+        height: 100%;
 
         @include media (desktop-sm) {
             padding: 0;
@@ -277,6 +279,10 @@
         @include media(mobile) {
             padding: 0;
             display: none;
+        }
+
+        img {
+            height: 100%;
         }
     }
 
