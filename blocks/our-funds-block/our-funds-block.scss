@@ -195,9 +195,9 @@
     display: flex;
     gap: 16px;
     margin-top: 55px;
-    @include media(mobile) {
-      display: none;
-    }
+    // @include media(mobile) {
+    //   display: none;
+    // }
     .left-container {
       max-width: 296px;
       width: 100%;
@@ -323,7 +323,7 @@
           .filter-list-wrapper {
             @include media(tab) {
               overflow: auto;
-              height: 60vh;
+              height: 72vh;
               margin: 10px 16px 0;
             }
             &::-webkit-scrollbar {
@@ -338,6 +338,10 @@
               display: flex;
               align-items: center;
               padding: 12px 0;
+              -webkit-tap-highlight-color: transparent;
+              @include media(tab){
+                padding: 16px 0;
+              }
               .categorey-direct {
                 visibility: hidden;
                 width: 20px;
@@ -382,14 +386,24 @@
                   top: 50%;
                   transform: translateY(-50%);
                   right: 0;
+                  @include media(tab){
+                    width: 20px;
+                    height: 20px;
+                  }
                 }
               }
               .innerIndianEquity {
                 padding: 12px 0 12px 30px;
+                @include media(tab){
+                    padding: 12px 0 0 28px;
+                }
                 .Indian-Equity-container {
                   display: flex;
                   flex-direction: column;
                   gap: 14px;
+                  @include media(tab){
+                    gap: 12px;
+                  }
                   .checkbox-label-container {
                     padding: 0;
                     label::after {

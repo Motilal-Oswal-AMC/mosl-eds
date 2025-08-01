@@ -217,11 +217,6 @@
   gap: 16px;
   margin-top: 55px;
 }
-@media (max-width: 768px) {
-  .our-funds-block .filter-cards {
-    display: none;
-  }
-}
 .our-funds-block .filter-cards .left-container {
   max-width: 296px;
   width: 100%;
@@ -378,7 +373,7 @@
 @media (max-width: 1025px) {
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper {
     overflow: auto;
-    height: 60vh;
+    height: 72vh;
     margin: 10px 16px 0;
   }
 }
@@ -396,6 +391,12 @@
   display: flex;
   align-items: center;
   padding: 12px 0;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container {
+    padding: 16px 0;
+  }
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct {
   visibility: hidden;
@@ -450,13 +451,29 @@
   transform: translateY(-50%);
   right: 0;
 }
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container label::after {
+    width: 20px;
+    height: 20px;
+  }
+}
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity {
   padding: 12px 0 12px 30px;
+}
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity {
+    padding: 12px 0 0 28px;
+  }
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity .Indian-Equity-container {
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity .Indian-Equity-container {
+    gap: 12px;
+  }
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity .Indian-Equity-container .checkbox-label-container {
   padding: 0;
