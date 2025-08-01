@@ -201,13 +201,11 @@
     .left-container {
       max-width: 296px;
       width: 100%;
-      background-color: $primary-white;
-      border-radius: 8px;
       @include media(tab) {
         display: flex;
         justify-content: space-between;
         position: fixed;
-        z-index: 10;
+        z-index: 150;
         background-color: $primary-white;
         border-radius: 8px 8px 0 0;
         box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.05);
@@ -218,6 +216,8 @@
       }
       .FundCategory-container {
         width: 100%;
+        background-color: $primary-white;
+        border-radius: 8px;
         .filter-sort-container {
           padding: 12px;
           @include media(tab) {
@@ -246,6 +246,7 @@
               width: 100%;
               background-color: $primary-white;
               justify-content: center;
+              cursor: pointer;
             }
             label {
               @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
@@ -267,23 +268,66 @@
           @include media(tab) {
             position: fixed;
             z-index: 12;
-            background-color: red;
+            background-color: tan;
             max-width: 100%;
             width: 100%;
             left: 0;
             bottom: 0;
+            padding: 0;
+            border-radius: 12px 12px 0 0;
             // overflow: auto;
             // max-height: 702px;
-            display: none;
+            // display: none;
           }
           .clearall-wrapper,
           .apply-wrapper {
             display: none;
+            @include media(tab) {
+              display: flex;
+              justify-content: space-between;
+              padding: 16px;
+              border-bottom: 1px solid $neutrals-300;
+              span {
+                @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
+              }
+              button {
+                margin: 0;
+                padding: 0;
+                background-color: transparent;
+                border: none;
+                border-radius: 0;
+                @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
+              }
+            }
+          }
+          .apply-wrapper {
+            @include media(tab) {
+              border: none;
+              padding: 0;
+              border-radius: 8px 8px 0 0;
+              button {
+                padding: 16px 16px 20px;
+                max-width: 50%;
+                width: 100%;
+                background-color: thistle;
+                border-top-left-radius: 8px;
+              }
+              .apply-btn {
+                border-left: 1px solid $neutrals-300;
+                @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
+                border-top-left-radius: 0;
+                border-top-right-radius: 8px;
+              }
+            }
           }
           .filter-list-wrapper {
             @include media(tab) {
               overflow: auto;
               height: 60vh;
+              margin: 10px 16px 0;
+            }
+            &::-webkit-scrollbar {
+              display: none;
             }
             .checkbox-label-container {
               user-select: none;

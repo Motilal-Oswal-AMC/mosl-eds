@@ -225,15 +225,13 @@
 .our-funds-block .filter-cards .left-container {
   max-width: 296px;
   width: 100%;
-  background-color: #fff;
-  border-radius: 8px;
 }
 @media (max-width: 1025px) {
   .our-funds-block .filter-cards .left-container {
     display: flex;
     justify-content: space-between;
     position: fixed;
-    z-index: 10;
+    z-index: 150;
     background-color: #fff;
     border-radius: 8px 8px 0 0;
     box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.05);
@@ -245,6 +243,8 @@
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container {
   width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-sort-container {
   padding: 12px;
@@ -271,6 +271,7 @@
     width: 100%;
     background-color: #fff;
     justify-content: center;
+    cursor: pointer;
   }
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-sort-container .filter-wrapper label,
@@ -307,12 +308,13 @@
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container {
     position: fixed;
     z-index: 12;
-    background-color: red;
+    background-color: tan;
     max-width: 100%;
     width: 100%;
     left: 0;
     bottom: 0;
-    display: none;
+    padding: 0;
+    border-radius: 12px 12px 0 0;
   }
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .clearall-wrapper,
@@ -320,10 +322,68 @@
   display: none;
 }
 @media (max-width: 1025px) {
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .clearall-wrapper,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .apply-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .clearall-wrapper span,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .apply-wrapper span {
+    font-size: 16px;
+    line-height: 20px;
+    color: #2e2a94;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .clearall-wrapper button,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .apply-wrapper button {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #757575;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+  }
+}
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .apply-wrapper {
+    border: none;
+    padding: 0;
+    border-radius: 8px 8px 0 0;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .apply-wrapper button {
+    padding: 16px 16px 20px;
+    max-width: 50%;
+    width: 100%;
+    background-color: thistle;
+    border-top-left-radius: 8px;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .apply-wrapper .apply-btn {
+    border-left: 1px solid #E0E0E0;
+    font-size: 16px;
+    line-height: 20px;
+    color: #2e2a94;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    border-top-left-radius: 0;
+    border-top-right-radius: 8px;
+  }
+}
+@media (max-width: 1025px) {
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper {
     overflow: auto;
     height: 60vh;
+    margin: 10px 16px 0;
   }
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper::-webkit-scrollbar {
+  display: none;
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container {
   -webkit-user-select: none;
