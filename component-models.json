@@ -652,97 +652,6 @@
     ]
   },
   {
-<<<<<<< HEAD
-    "id":"our-fund-block-item",
-    "fields":[
-      {
-        "component": "text",
-        "name": "title",
-        "label": "Enter Text For Title"
-      },
-      {
-        "component": "select",
-        "name": "titleType",
-        "label": "Title Type",
-        "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "name": "col_titlePlaceHolder",
-        "label": "Enter Text For Input PlaceHolder"
-      },
-      {
-        "component": "richtext",
-        "name": "col_text",
-        "value": "",
-        "label": "Enter Context For Watchlist",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "col_trending",
-        "value": "",
-        "label": "Enter Context For Trending",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id":"left-filter-item",
-    "fields":[
-      {
-        "component": "richtext",
-        "name": "col_leftfilter",
-        "value": "",
-        "label": "Enter Context for Icon Label Filter Container",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id":"right-block-item",
-    "fields":[
-      {
-        "component": "text",
-        "name": "col_sort",
-        "label": "Enter Label For Sort Dropdown"
-      },
-      {
-        "component": "text",
-        "name": "col_return",
-        "label": "Enter Label For Returns Dropdown"
-      },
-      {
-        "component": "richtext",
-        "name": "col_leftfilter",
-        "value": "",
-        "label": "Enter Context for Icon Label View Container",
-=======
     "id": "growth-now",
     "fields": [
       {
@@ -795,7 +704,6 @@
         "name": "col3_text",
         "value": "",
         "label": "Text",
->>>>>>> bb54a585822d5fe02fa019e927efc6a14b154804
         "valueType": "string"
       }
     ]

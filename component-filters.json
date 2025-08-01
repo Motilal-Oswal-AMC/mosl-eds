@@ -27,11 +27,7 @@
       "think-equity",
       "fund-card",
       "investment-block",
-<<<<<<< HEAD
-      "our-fund-block"
-=======
       "growth-now"
->>>>>>> bb54a585822d5fe02fa019e927efc6a14b154804
     ]
   },
   {
@@ -72,20 +68,6 @@
   },
   {
     "id": "live-streaming",
-<<<<<<< HEAD
-    "components": [
-      "live-streaming-content"
-    ]
-  },
-  {
-    "id": "our-fund-block",
-    "components": [
-      "our-fund-block-item",
-      "left-filter-item",
-      "right-block-item"
-    ]
-=======
     "components": ["live-streaming-content"]
->>>>>>> bb54a585822d5fe02fa019e927efc6a14b154804
   }
 ]
