@@ -369,6 +369,15 @@ export default function decorate(block) {
   );
   block.innerHTML = "";
   block.append(divfund);
+  
+  //added wrapper
+  let divmop = div({class:"indanequity-wrapper"},
+    block.querySelector(".indaneqsub #index1"),
+    block.querySelector(".indaneqsub [for='index1']"),
+  )
+  let divinner = block.querySelector(".indaneqsub .innerIndianEquity");
+  block.querySelector(".indaneqsub").innerHTML = "";
+  block.querySelector(".indaneqsub").append(divmop,divinner)
 }
 
 function dataFilterfun(param) {
