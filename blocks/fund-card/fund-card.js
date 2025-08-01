@@ -197,6 +197,7 @@ export default function decorate(block) {
                 } else {
                   event.target.parentElement.classList.remove('star-filled');
                 }
+                wishlist(block)
               },
               schcode: block.schcode
             },
@@ -219,7 +220,7 @@ export default function decorate(block) {
           div({
               class: 'title title-logo'
             },
-            h2(block.schDetail.schemeName),
+            h2(block.schDetail.schemeName.replaceAll("Motilal Oswal","")),
           ),
         )
       ),
@@ -423,4 +424,14 @@ function planListEvent(param, block) {
     )
     param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
   }
+}
+
+function wishlist(){
+  let paramCount = document.querySelectorAll(".star-filled");
+   document.querySelector(".watchlisttext span").textContent ="";
+  if (paramCount.length < 10) {
+    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"(0"+paramCount.length+")";
+  }else{
+    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
+  }  
 }
