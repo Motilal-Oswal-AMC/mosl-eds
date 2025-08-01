@@ -174,25 +174,15 @@ export default function decorate(block) {
                       }),
                       label(
                         { for: "index" + (index + 1) },
-                        div(
-                          { class: "fund-label-wrapper" },
-                          capitalizeEachWord(
+                        capitalizeEachWord(
                             Object.keys(element)[0].replaceAll("-", " ")
                           ),
                           span(
                             { class: "fund-length" },
                             "(" + element[Object.keys(element)[0]].length + ")"
                           )
-                        )
                       ),
-                      capitalizeEachWord(
-                        Object.keys(element)[0].replaceAll("-", " ")
-                      ) === "Indian Equity"
-                        ? div(
-                            { class: "innerIndianEquity" },
-                            dataMapMoObj[index + "ArrayDoc"]
-                          )
-                        : ""
+                      capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity"? div({ class: "innerIndianEquity" },dataMapMoObj[index + "ArrayDoc"]): ""
                     )
                   : "";
               }),
@@ -220,10 +210,10 @@ export default function decorate(block) {
                     { for: "fundtype" + (index + 1) },
                     capitalizeEachWord(
                       Object.keys(element)[0].replaceAll("-", " ")
-                    ) +
-                      "(" +
+                    ),
+                    span("(" +
                       element[Object.keys(element)[0]].length +
-                      ")"
+                      ")")    
                   )
                 );
               })
