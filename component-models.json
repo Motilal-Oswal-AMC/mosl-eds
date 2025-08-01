@@ -156,6 +156,10 @@
           {
             "name": "Cornerstones Advantage",
             "value": "cornerstones-advantage"
+          },
+          {
+            "name": "Welcome Component",
+            "value": "welcome-component"
           }
         ]
       }
@@ -722,7 +726,7 @@
       }
     ]
   },
-   {
+  {
     "id":"watchlist-block",
     "fields":[
       {
