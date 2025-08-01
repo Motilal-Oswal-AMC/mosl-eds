@@ -805,4 +805,152 @@
   .our-funds-block .filter-cards .right-container .cards-container {
     gap: 20px;
   }
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper {
+  background-color: thistle;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border-radius: 8px;
+  padding: 14px 20px;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(1) {
+  max-width: 41.83%;
+  width: 100%;
+  margin-right: 47px;
+  background-color: teal;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(2) {
+  max-width: 9.44%;
+  width: 100%;
+  margin-right: 34px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: teal;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(2)::after {
+  content: "";
+  background-image: url("../../icons/returns-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 20px;
+  height: 20px;
+  display: block;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(3) {
+  max-width: 9%;
+  width: 100%;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container {
+  margin: 8px 0 0;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container {
+  background-color: thistle;
+  border-radius: 8px;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 20px;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper {
+  max-width: 41.83%;
+  width: 100%;
+  margin-right: 47px;
+  background-color: teal;
+  display: flex;
+  gap: 8px;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .logo-container {
+  max-width: 28px;
+  width: 100%;
+  height: 28px;
+  margin-right: 2px;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
+  background-color: #BDCBFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 5px;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .logo-container img {
+  width: 100%;
+  height: 100%;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container {
+  display: flex;
+  flex-direction: column;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: #5659fa;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container label {
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .logoScheme {
+  max-width: 16px;
+  width: 100%;
+  height: 16px;
+  align-self: end;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .cagr-return {
+  max-width: 9.44%;
+  width: 100%;
+  margin-right: 34px;
+  background-color: tan;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: end;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .cagr-return .cagr-value {
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .cagr-return p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: #757575;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon {
+  max-width: 9%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon img {
+  max-width: 20px;
+  width: 100%;
+  height: 20px;
+}
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon .star {
+  display: none;
 }/*# sourceMappingURL=our-funds-block.css.map */
