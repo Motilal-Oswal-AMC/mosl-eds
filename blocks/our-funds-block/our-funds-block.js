@@ -118,9 +118,9 @@ export default function decorate(block) {
             ),
             div(
               { class: "filter-list-wrapper" },
-              div({class:"fundcategory-label"},
-                span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
-              ),
+              // div({class:"fundcategory-label"},
+              //   span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
+              // ),
               ...dataMapMoObj.data.fundCategory.map((element, index) => {
                 let indexeq = index === 0 ? "indaneqsub" : "";
                 if (capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity") {

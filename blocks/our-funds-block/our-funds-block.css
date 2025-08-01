@@ -388,11 +388,6 @@
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .fundcategory-label {
   display: none;
 }
-@media (max-width: 1025px) {
-  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .fundcategory-label {
-    display: block;
-  }
-}
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -429,12 +424,17 @@
   font-weight: 400;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
   width: 100%;
   padding-left: 12px;
   cursor: pointer;
   position: relative;
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container label span {
+  font-size: 14px;
+  line-height: 20px;
+  color: #757575;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container label::after {
   content: "";
@@ -466,6 +466,9 @@
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container.indaneqsub {
   display: block;
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .sort-container {
+  display: none;
 }
 .our-funds-block .filter-cards .right-container {
   max-width: calc(100% - 296px);

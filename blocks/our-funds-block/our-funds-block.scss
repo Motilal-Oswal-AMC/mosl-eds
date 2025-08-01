@@ -329,11 +329,8 @@
             &::-webkit-scrollbar {
               display: none;
             }
-            .fundcategory-label{
-                display: none;
-                @include media(tab){
-                    display: block;
-                }
+            .fundcategory-label {
+              display: none;
             }
             .checkbox-label-container {
               user-select: none;
@@ -365,12 +362,13 @@
                 @include font-style(14px, 20px, $neutrals-black, 400, $Poppins);
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
-                gap: 10px;
                 width: 100%;
                 padding-left: 12px;
                 cursor: pointer;
                 position: relative;
+                span {
+                  @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
+                }
                 &::after {
                   content: "";
                   background-image: url("../../icons/filter-info.svg");
@@ -394,17 +392,20 @@
                   gap: 14px;
                   .checkbox-label-container {
                     padding: 0;
-                    label::after{
-                        content: unset;
+                    label::after {
+                      content: unset;
                     }
                   }
                 }
               }
             }
-            .checkbox-label-container.indaneqsub{
-                display: block;
+            .checkbox-label-container.indaneqsub {
+              display: block;
             }
           }
+        }
+        .sort-container{
+            display: none;
         }
       }
     }
