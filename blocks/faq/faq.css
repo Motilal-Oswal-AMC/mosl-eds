@@ -13,6 +13,7 @@
   .section.freq-ask-ques {
     flex-direction: column;
     gap: 20px;
+    padding: 0 16px;
   }
 }
 .section.freq-ask-ques > div {
