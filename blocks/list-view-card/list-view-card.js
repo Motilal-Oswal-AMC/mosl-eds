@@ -4,7 +4,7 @@ export default function decorate(block){
     //     let planFlow =  block.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct"
     //     console.log(planFlow);   
     // }
-    console.log(block);
+    // console.log(block);
     let listcontainer = div({class:"list-view-container"},
         div({class:"list-wrapper"},
             div({class:"fund-name-wrapper"},

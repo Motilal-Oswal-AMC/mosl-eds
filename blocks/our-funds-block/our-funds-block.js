@@ -20,8 +20,7 @@ export default function decorate(block) {
   });
 
   dataMapMoObj["data"] = dataFilterfun(dataCfObj);
-  console.log(dataMapMoObj["data"]);
-
+  dataMapMoObj["funddata"] = dataCfObj.slice(0,9);
   let divfund = div(
     { class: "blockwrapper" },
     div(
@@ -119,16 +118,13 @@ export default function decorate(block) {
             ),
             div(
               { class: "filter-list-wrapper" },
+              div({class:"fundcategory-labe"},
+                span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
+              ),
               ...dataMapMoObj.data.fundCategory.map((element, index) => {
-                if (
-                  capitalizeEachWord(
-                    Object.keys(element)[0].replaceAll("-", " ")
-                  ) === "Indian Equity"
-                ) {
+                if (capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity") {
                   dataMapMoObj[index + "ArrayDoc"] = div(
-                    {
-                      class: "Indian-Equity-container",
-                    },
+                    {class: "Indian-Equity-container"},
                     ...dataMapMoObj.data.fundCategory[
                       dataMapMoObj.data.fundCategory.length - 1
                     ]["indianEquitySub"].map((elme, ind) => {
@@ -139,6 +135,16 @@ export default function decorate(block) {
                           class: "categorey-direct",
                           type: "checkbox",
                           id: "ind" + (ind + 1),
+                          dataattr: elme[Object.keys(elme)].join("-"),
+                          onclick:(event)=>{
+                              let fundScheme = event.target.getAttribute("dataattr").split("-");
+                              dataMapMoObj["funddata"] = dataCfObj.filter((el)=>{
+                                if(fundScheme.includes(el.schcode)){
+                                  return el
+                                }
+                              })
+                              viewFunction(block);
+                          }
                         }),
                         label({ for: "ind" + (ind + 1) }, sublabel)
                       );
@@ -152,6 +158,16 @@ export default function decorate(block) {
                         class: "categorey-direct",
                         type: "checkbox",
                         id: "index" + (index + 1),
+                        dataattr: element[Object.keys(element)[0]].join("-"),
+                        onclick:(event)=>{
+                          let fundScheme = event.target.getAttribute("dataattr").split("-");
+                          dataMapMoObj["funddata"] = dataCfObj.filter((el)=>{
+                            if(fundScheme.includes(el.schcode)){
+                              return el
+                            }
+                          })
+                          viewFunction(block);
+                        }
                       }),
                       label(
                         { for: "index" + (index + 1) },
@@ -173,6 +189,16 @@ export default function decorate(block) {
                   input({
                     class: "categorey-direct",
                     type: "checkbox",
+                    dataattr: element[Object.keys(element)[0]].join("-"),
+                    onclick:(event)=>{
+                      let fundScheme = event.target.getAttribute("dataattr").split("-");
+                      dataMapMoObj["funddata"] = dataCfObj.filter((el)=>{
+                         if(fundScheme.includes(el.schcode)){
+                          return el
+                         }
+                      })
+                      viewFunction(block);
+                    }
                   }),
                   label(
                     capitalizeEachWord(
@@ -189,6 +215,69 @@ export default function decorate(block) {
               { class: "apply-wrapper" },
               button({ class: "close-btn" }, "Close"),
               button({ class: "apply-btn" }, "Apply")
+            )
+          ),
+          div({class:"sort-container"},
+            div({class:"sort-label"},
+              span(label(
+                block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
+              ))
+            ),
+            div({class:"arrange-returns"},
+              div({class:"arrange-container"},
+                span("Arrange by"),
+                div({class:"radio-label-container"},
+                  div({class:"radio-label"},
+                    input({type:"radio" ,id:"popular"}),
+                    label({for:"popular"},"Popular")
+                  ),
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"lastnav"}),
+                    label({for:"lastnav"},"Latest NAV")
+                  ),
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"lastnavone"}),
+                    label({for:"lastnavone"},"Latest by 1 day")
+                  ),
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"oldnew"}),
+                    label({for:"oldnew"},"Oldest to Newest")
+                  ),
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"newold"}),
+                    label({for:"newold"},"Newest to Oldest")
+                  )
+                )
+              ),
+              div({class:"return-container"},
+                span("Returns Period"),
+                div({class:"radio-label-container"},
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"sinceinp"}),
+                    label({for:"sinceinp"},"Since Inception")
+                  ),
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"oneyear"}),
+                    label({for:"oneyear"},"1 year")
+                  ),
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"threeyear"}),
+                    label({for:"threeyear"},"3 years")
+                  ),
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"fiveyear"}),
+                    label({for:"fiveyear"},"5 years")
+                  ),
+                  div({class:"radio-label"},
+                    input({type:"radio",id:"tenyear"}),
+                    label({for:"tenyear"},"10 years")
+                  )
+                )
+              )
+            ),
+            div({class:"close-apply-btn"},
+              button("close"),
+              button("Apply")
             )
           )
         )
@@ -219,16 +308,6 @@ export default function decorate(block) {
           div(
             { class: "group-view-container" },
             div(
-              { class: "togglebtn" },
-              p("Direct"),
-              div(
-                { class: "fund-toggle-wrap" },
-                input({ type: "checkbox", id: "toggle" }),
-                label({ class: "fund-toggle", for: "toggle" })
-              ),
-              p("Regular")
-            ),
-            div(
               { class: "view-container" },
               div(
                 { class: "squareby-container grid-view-active",
@@ -250,32 +329,33 @@ export default function decorate(block) {
                  },
                 block.querySelector(".block-item3 .block-subitem-finelsub4")
               )
+            ),
+            div(
+              { class: "togglebtn" },
+              p("Direct"),
+              div(
+                { class: "fund-toggle-wrap" },
+                input({ type: "checkbox", id: "toggle" }),
+                label({ class: "fund-toggle", for: "toggle" })
+              ),
+              p("Regular")
+            ),
+            div({class:"compare-btn"},
+              button("Compare")
             )
           )
         ),
         div(
           { class: "cards-container" },
-          ...dataCfObj.map((el,index) => {
-            if (index < 8) {
-              return fundcardblock(el);  
-            }else{
-              return "";
-            }
+          ...dataMapMoObj["funddata"].map((el,index) => {
+            return fundcardblock(el);
           })
         ),
         div({class:"list-view-header"},
           div({class:"list-header"},
             block.closest('.section').querySelector(".item2")
           ),
-          div({class:"list-container"},
-            ...dataCfObj.map((el,index) => {
-            if (index < 8) {
-              return listviewblock(el);  
-            }else{
-              return "";
-            }
-          })
-          )
+          div({class:"list-container"})
         )
       )
     )
@@ -464,25 +544,14 @@ function capitalizeEachWord(sentence) {
 }
 
 function viewFunction(param) {
-  let cardblock = dataCfObj.filter((el, index) => {
-    if (index < 8) {
-      if (Array.from(param.querySelector(".listby-container").classList).includes("list-view-active")) {
-        return (el);  
-      }else{
-        return (el);
-      }
-    } else {
-      return "";
-    }
-  })
   param.querySelector(".list-container").innerHTML = ""
   param.querySelector(".cards-container").innerHTML = ""
   if (Array.from(param.querySelector(".listby-container").classList).includes("list-view-active")) {
-    cardblock.forEach((el)=>{
+    dataMapMoObj["funddata"].forEach((el)=>{
       param.querySelector(".list-container").append(listviewblock(el));
     })    
   }else{
-    cardblock.forEach((el)=>{
+    dataMapMoObj["funddata"].forEach((el)=>{
       param.querySelector(".cards-container").append(fundcardblock(el));
     })
   }
