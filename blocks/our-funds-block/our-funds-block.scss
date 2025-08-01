@@ -329,7 +329,13 @@
             &::-webkit-scrollbar {
               display: none;
             }
-            .checkbox-label-container {
+            .fundcategory-label{
+                display: none;
+                @include media(tab){
+                    display: block;
+                }
+            }
+            .checkbox-label-container:not(.indaneqsub) {
               user-select: none;
               cursor: pointer;
               display: flex;
@@ -391,9 +397,6 @@
                   }
                 }
               }
-            }
-            > .checkbox-label-container:first-of-type {
-              display: block;
             }
           }
         }

@@ -118,10 +118,11 @@ export default function decorate(block) {
             ),
             div(
               { class: "filter-list-wrapper" },
-              div({class:"fundcategory-labe"},
+              div({class:"fundcategory-label"},
                 span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
               ),
               ...dataMapMoObj.data.fundCategory.map((element, index) => {
+                let indexeq = index === 0 ? "indaneqsub" : "";
                 if (capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity") {
                   dataMapMoObj[index + "ArrayDoc"] = div(
                     {class: "Indian-Equity-container"},
@@ -153,54 +154,70 @@ export default function decorate(block) {
                 }
                 return Object.keys(element)[0] !== "indianEquitySub"
                   ? div(
-                      { class: "checkbox-label-container" },
+                      { class: "checkbox-label-container " + indexeq },
                       input({
                         class: "categorey-direct",
                         type: "checkbox",
                         id: "index" + (index + 1),
                         dataattr: element[Object.keys(element)[0]].join("-"),
-                        onclick:(event)=>{
-                          let fundScheme = event.target.getAttribute("dataattr").split("-");
-                          dataMapMoObj["funddata"] = dataCfObj.filter((el)=>{
-                            if(fundScheme.includes(el.schcode)){
-                              return el
+                        onclick: (event) => {
+                          let fundScheme = event.target
+                            .getAttribute("dataattr")
+                            .split("-");
+                          dataMapMoObj["funddata"] = dataCfObj.filter((el) => {
+                            if (fundScheme.includes(el.schcode)) {
+                              return el;
                             }
-                          })
+                          });
                           viewFunction(block);
-                        }
+                        },
                       }),
                       label(
                         { for: "index" + (index + 1) },
-                        div({class:"fund-label-wrapper"},
-                          capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")),
-                          span({class:"fund-length"},"(" +element[Object.keys(element)[0]].length +")")
+                        div(
+                          { class: "fund-label-wrapper" },
+                          capitalizeEachWord(
+                            Object.keys(element)[0].replaceAll("-", " ")
+                          ),
+                          span(
+                            { class: "fund-length" },
+                            "(" + element[Object.keys(element)[0]].length + ")"
+                          )
                         )
                       ),
-                      capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity" ? div({class: "innerIndianEquity"},
+                      capitalizeEachWord(
+                        Object.keys(element)[0].replaceAll("-", " ")
+                      ) === "Indian Equity"
+                        ? div(
+                            { class: "innerIndianEquity" },
                             dataMapMoObj[index + "ArrayDoc"]
                           )
                         : ""
                     )
                   : "";
               }),
-              ...dataMapMoObj.data.fundType.map((element) => {
+              ...dataMapMoObj.data.fundType.map((element,index) => {
                 return div(
                   { class: "checkbox-label-container" },
                   input({
                     class: "categorey-direct",
                     type: "checkbox",
+                    id: "fundtype" + (index + 1),
                     dataattr: element[Object.keys(element)[0]].join("-"),
-                    onclick:(event)=>{
-                      let fundScheme = event.target.getAttribute("dataattr").split("-");
-                      dataMapMoObj["funddata"] = dataCfObj.filter((el)=>{
-                         if(fundScheme.includes(el.schcode)){
-                          return el
-                         }
-                      })
+                    onclick: (event) => {
+                      let fundScheme = event.target
+                        .getAttribute("dataattr")
+                        .split("-");
+                      dataMapMoObj["funddata"] = dataCfObj.filter((el) => {
+                        if (fundScheme.includes(el.schcode)) {
+                          return el;
+                        }
+                      });
                       viewFunction(block);
-                    }
+                    },
                   }),
                   label(
+                    { for: "fundtype" + (index + 1) },
                     capitalizeEachWord(
                       Object.keys(element)[0].replaceAll("-", " ")
                     ) +
