@@ -226,9 +226,10 @@ export default function decorate(block) {
           ),
           div({class:"sort-container"},
             div({class:"sort-label"},
-              span(label(
-                block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
-              ))
+              // span(label(
+              //   block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
+              // ))
+              span(block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim())
             ),
             div({class:"arrange-returns"},
               div({class:"arrange-container"},

@@ -55,7 +55,7 @@
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input {
-  max-width: 81.8%;
+  max-width: 81.2%;
   width: 100%;
   padding: 8px 12px;
   border-radius: 6px;
@@ -145,6 +145,11 @@
   align-items: start;
   gap: 16px;
 }
+@media (max-width: 1025px) {
+  .our-funds-block .fundcontainer .search-trending-wrapper .trending-container {
+    gap: 6px;
+  }
+}
 @media (max-width: 768px) {
   .our-funds-block .fundcontainer .search-trending-wrapper .trending-container {
     grid-area: trending;
@@ -164,7 +169,10 @@
 }
 @media (max-width: 768px) {
   .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel {
-    padding: 0;
+    position: sticky;
+    left: 0;
+    background: #fff;
+    padding: 4px 10px 4px 4px;
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel p,
@@ -196,6 +204,7 @@
   .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul {
     flex-wrap: nowrap;
     gap: 24px;
+    padding-right: 16px;
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul li a {
@@ -215,7 +224,12 @@
 .our-funds-block .filter-cards {
   display: flex;
   gap: 16px;
-  margin-top: 55px;
+  margin: 55px 0 0;
+}
+@media (max-width: 768px) {
+  .our-funds-block .filter-cards {
+    margin: 12px 0 0;
+  }
 }
 .our-funds-block .filter-cards .left-container {
   max-width: 296px;
@@ -303,13 +317,14 @@
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container {
     position: fixed;
     z-index: 12;
-    background-color: tan;
+    background-color: #fff;
     max-width: 100%;
     width: 100%;
     left: 0;
     bottom: 0;
     padding: 0;
     border-radius: 12px 12px 0 0;
+    display: none;
   }
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .clearall-wrapper,
@@ -356,8 +371,6 @@
     padding: 16px 16px 20px;
     max-width: 50%;
     width: 100%;
-    background-color: thistle;
-    border-top-left-radius: 8px;
   }
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .apply-wrapper .apply-btn {
     border-left: 1px solid #E0E0E0;
@@ -366,14 +379,12 @@
     color: #2e2a94;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    border-top-left-radius: 0;
-    border-top-right-radius: 8px;
   }
 }
 @media (max-width: 1025px) {
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper {
     overflow: auto;
-    height: 72vh;
+    height: 437px;
     margin: 10px 16px 0;
   }
 }
@@ -457,6 +468,9 @@
     height: 20px;
   }
 }
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .indanequity-wrapper {
+  display: flex;
+}
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity {
   padding: 12px 0 12px 30px;
 }
@@ -487,15 +501,149 @@
 .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container {
   display: none;
 }
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container {
+    display: none;
+    position: fixed;
+    z-index: 12;
+    background-color: #fff;
+    max-width: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    border-radius: 12px 12px 0 0;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .sort-label {
+    padding: 16px;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .sort-label span {
+    font-size: 16px;
+    line-height: 20px;
+    color: #2e2a94;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns {
+    padding: 0 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 350px;
+    overflow: auto;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns::-webkit-scrollbar {
+    display: none;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .arrange-container span,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .return-container span {
+    padding: 24px 0 20px;
+    display: block;
+    font-size: 14px;
+    line-height: 16px;
+    color: #111;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .arrange-container .radio-label-container,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .return-container .radio-label-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .return-container .radio-label-container .radio-label {
+    display: flex;
+    gap: 8px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .return-container .radio-label-container .radio-label input {
+    visibility: hidden;
+    width: 20px;
+    cursor: pointer;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input::before,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .return-container .radio-label-container .radio-label input::before {
+    content: "";
+    min-width: 20px;
+    height: 20px;
+    display: block;
+    border: 1.67px solid #2e2a94;
+    border-radius: 50%;
+    visibility: visible;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input:checked::before,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .return-container .radio-label-container .radio-label input:checked::before {
+    outline: 1.67px solid #2e2a94;
+    background: #2e2a94;
+    border: 4px solid #fff;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label label,
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .return-container .radio-label-container .radio-label label {
+    font-size: 14px;
+    line-height: 20px;
+    color: #111;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    width: 100%;
+    cursor: pointer;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .arrange-returns .arrange-container {
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 28px;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .close-apply-btn {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 8px 8px 0 0;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .close-apply-btn button {
+    max-width: 50%;
+    width: 100%;
+    margin: 0;
+    background-color: transparent;
+    padding: 16px 16px 20px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    color: #757575;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+  }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .sort-container .close-apply-btn button:last-of-type {
+    font-size: 16px;
+    line-height: 20px;
+    color: #2e2a94;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    border-left: 1px solid #E0E0E0;
+  }
+}
 .our-funds-block .filter-cards .right-container {
   max-width: calc(100% - 296px);
   width: 100%;
   background-color: #fff;
 }
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .right-container {
+    max-width: 100%;
+  }
+}
 .our-funds-block .filter-cards .right-container .sort-pop-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
+}
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .right-container .sort-pop-container {
+    margin: 0 0 32px;
+  }
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular,
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container,
@@ -525,6 +673,57 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular {
+    display: none;
+  }
+}
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container {
+    width: 100%;
+    position: relative;
+  }
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container {
+  border-right: 1px solid #505050;
+  padding-right: 12px;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .squareby-container ul,
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .listby-container ul {
+  margin: 0;
+  list-style: none;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .squareby-container ul li,
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .listby-container ul li {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .squareby-container ul li .icon,
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .squareby-container ul li img,
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .listby-container ul li .icon,
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .listby-container ul li img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .squareby-container.grid-view-active ul li:first-of-type,
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .listby-container.list-view-active ul li:first-of-type {
+  display: block;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .squareby-container.grid-view-active ul li:last-of-type,
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .listby-container.list-view-active ul li:last-of-type {
+  display: none;
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .squareby-container:not(.grid-view-active) ul li:first-of-type,
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .listby-container:not(.list-view-active) ul li:first-of-type {
+  display: none;
+}
+@media (max-width: 768px) {
+  .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container {
+    display: none;
+  }
+}
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn {
   display: flex;
   align-items: center;
@@ -532,7 +731,7 @@
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn p {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 16px;
   color: #332ab5;
   font-family: "Poppins", sans-serif;
@@ -540,6 +739,8 @@
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn p:last-of-type {
   color: #111;
+  font-size: 14px;
+  line-height: 20px;
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap input {
   opacity: 0;
@@ -556,6 +757,7 @@
   position: relative;
   transition: all 0.2s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap .fund-toggle::before {
   content: "";
@@ -573,44 +775,34 @@
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap input:checked + .fund-toggle::before {
   transform: translateX(17.67px);
 }
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container ul,
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container ul {
-  margin: 0;
-  list-style: none;
-}
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container ul li,
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container ul li {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container ul li .icon,
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container ul li img,
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container ul li .icon,
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container ul li img {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container.grid-view-active ul li:first-of-type,
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container.list-view-active ul li:first-of-type {
-  display: block;
-}
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container.grid-view-active ul li:last-of-type,
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container.list-view-active ul li:last-of-type {
-  display: none;
-}
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .squareby-container:not(.grid-view-active) ul li:first-of-type,
-.our-funds-block .filter-cards .right-container .sort-pop-container .view-container .listby-container:not(.list-view-active) ul li:first-of-type {
-  display: none;
-}
-@media (max-width: 768px) {
-  .our-funds-block .filter-cards .right-container .sort-pop-container .view-container {
-    display: none;
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .compare-btn {
+    position: absolute;
+    right: 0;
+    top: -45px;
   }
+}
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .compare-btn button {
+  margin: 0 0 0 12px;
+  background-color: transparent;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #2e2a94;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 .our-funds-block .filter-cards .right-container .cards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  display: none;
+}
+@media (max-width: 1025px) {
+  .our-funds-block .filter-cards .right-container .cards-container {
+    gap: 20px;
+  }
 }/*# sourceMappingURL=our-funds-block.css.map */
