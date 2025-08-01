@@ -69,6 +69,26 @@ export default function decorate(block) {
       button({ class: 'sip-btn active' }, col1[2].textContent.trim()),
       button({ class: 'lumpsum-btn' }, col1[3].textContent.trim()),
     ),
+    div({ class: 'plan-options-wrapper' },
+      div({ class: 'plan-type-toggle' },
+        span({ class: 'toggle-label active' }, 'Direct'),
+        label({ class: 'toggle-switch' },
+          input({ type: 'checkbox', id: 'planToggle' }),
+          span({ class: 'slider' }),
+        ),
+        span({ class: 'toggle-label' }, 'Regular'),
+      ),
+      div({ class: 'plan-option-select custom-select-plan' },
+        div({ class: 'select-selected-plan' }, 'IDCW Reinvestment'),
+        div({ class: 'select-options-plan' },
+          div({ class: 'select-option-plan', 'data-value': 'Growth' }, 'Growth'),
+          div({ class: 'select-option-plan', 'data-value': 'IDCW Reinvestment' }, 'IDCW Reinvestment'),
+          div({ class: 'select-option-plan', 'data-value': 'IDCW Payout' }, 'IDCW Payout'),
+        ),
+        input({ type: 'hidden', id: 'planOption', value: 'IDCW Reinvestment' }),
+      )
+
+    ),
     div(
       { class: 'investment-wrapper' },
       div(
@@ -161,6 +181,53 @@ export default function decorate(block) {
   const optionsContainer = customSelect.querySelector('.select-options');
   const allOptions = customSelect.querySelectorAll('.select-option');
   const hiddenInput = customSelect.querySelector('#investmentTenure');
+
+  // PLAN OPTIONS TOGGLE
+  const planToggle = calContainer.querySelector('#planToggle');
+  const directLabel = calContainer.querySelector('.plan-type-toggle .toggle-label:first-child');
+  const regularLabel = calContainer.querySelector('.plan-type-toggle .toggle-label:last-child');
+
+  // PLAN OPTION SELECT
+  const planCustomSelect = calContainer.querySelector('.custom-select-plan');
+  const selectedPlanDisplay = planCustomSelect.querySelector('.select-selected-plan');
+  const planOptionsContainer = planCustomSelect.querySelector('.select-options-plan');
+  const planHiddenInput = planCustomSelect.querySelector('#planOption');
+  const planOptions = planOptionsContainer.querySelectorAll('.select-option-plan');
+
+  planToggle.addEventListener('change', () => {
+    if (planToggle.checked) {
+      // Regular selected
+      regularLabel.classList.add('active');
+      directLabel.classList.remove('active');
+    } else {
+      // Direct selected
+      directLabel.classList.add('active');
+      regularLabel.classList.remove('active');
+    }
+  });
+
+  // Open/close the plan dropdown
+  selectedPlanDisplay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    planOptionsContainer.classList.toggle('open');
+  });
+
+  // Update on option click
+  planOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+      selectedPlanDisplay.textContent = option.textContent;
+      planHiddenInput.value = option.getAttribute('data-value');
+      planOptionsContainer.classList.remove('open');
+      updateValues(); // Call your update logic if needed
+    });
+  });
+
+  // Close plan dropdown on outside click
+  document.addEventListener('click', () => {
+    planOptionsContainer.classList.remove('open');
+  });
+
+
 
   selectedDisplay.addEventListener('click', (e) => {
     e.stopPropagation();
