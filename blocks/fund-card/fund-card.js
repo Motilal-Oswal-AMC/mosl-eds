@@ -233,7 +233,7 @@ export default function decorate(block) {
           ul({
               class: 'fundtagging-list'
             },
-            ...fundsTaggingSection.map((eloption) => li(eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' ').toUpperCase())),
+            ...fundsTaggingSection.map((eloption) => li(toTitleCase(eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' ')))),
           ),
         ),
         div({
@@ -434,4 +434,9 @@ function wishlist(){
   }else{
     document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
   }  
+}
+function toTitleCase(str) {
+  return str
+    .toLowerCase()
+    .replace(/\b\w/g, char => char.toUpperCase());
 }

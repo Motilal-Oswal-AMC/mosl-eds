@@ -138,13 +138,9 @@ export default function decorate(block) {
                           id: "ind" + (ind + 1),
                           dataattr: elme[Object.keys(elme)].join("-"),
                           onclick:(event)=>{
-                              let fundScheme = event.target.getAttribute("dataattr").split("-");
-                              dataMapMoObj["funddata"] = dataCfObj.filter((el)=>{
-                                if(fundScheme.includes(el.schcode)){
-                                  return el
-                                }
-                              })
-                              viewFunction(block);
+                              checkfilter(block)
+                              
+                              // viewFunction(block);
                           }
                         }),
                         label({ for: "ind" + (ind + 1) }, sublabel)
@@ -164,12 +160,15 @@ export default function decorate(block) {
                           let fundScheme = event.target
                             .getAttribute("dataattr")
                             .split("-");
-                          dataMapMoObj["funddata"] = dataCfObj.filter((el) => {
-                            if (fundScheme.includes(el.schcode)) {
-                              return el;
-                            }
-                          });
-                          viewFunction(block);
+                          // viewFunction(block);
+                          Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el)=>{
+                                  if (el.querySelector(".innerIndianEquity")) {
+                                      el.querySelectorAll(".innerIndianEquity input").forEach((elemsub)=>{
+                                        elemsub.checked = el.querySelector("input").checked
+                                      })
+                                  } 
+                              })
+                          checkfilter(block)
                         },
                       }),
                       label(
@@ -195,15 +194,9 @@ export default function decorate(block) {
                     id: "fundtype" + (index + 1),
                     dataattr: element[Object.keys(element)[0]].join("-"),
                     onclick: (event) => {
-                      let fundScheme = event.target
-                        .getAttribute("dataattr")
-                        .split("-");
-                      dataMapMoObj["funddata"] = dataCfObj.filter((el) => {
-                        if (fundScheme.includes(el.schcode)) {
-                          return el;
-                        }
-                      });
-                      viewFunction(block);
+              
+                      checkfilter(block)
+                      // viewFunction(block);
                     },
                   }),
                   label(
@@ -378,6 +371,7 @@ export default function decorate(block) {
   let divinner = block.querySelector(".indaneqsub .innerIndianEquity");
   block.querySelector(".indaneqsub").innerHTML = "";
   block.querySelector(".indaneqsub").append(divmop,divinner)
+  
 }
 
 function dataFilterfun(param) {
@@ -571,4 +565,42 @@ function viewFunction(param) {
       param.querySelector(".cards-container").append(fundcardblock(el));
     })
   }
+}
+
+function checkfilter(block){
+  let tempData = [];
+  Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el)=>{
+    if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
+        el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub)=>{
+          if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
+            elemsub.getAttribute('dataattr').split("-").forEach((eldata)=>{
+            if (!tempData.includes(eldata)) {
+                  tempData.push(eldata)
+              }
+            })
+          }
+        })
+    }
+    if(el.querySelector("input").checked && el.querySelector("input").getAttribute("id") !== "index1"){
+      el.querySelector("input").getAttribute('dataattr').split("-").forEach((eldata)=>{
+      if (!tempData.includes(eldata)) {
+            tempData.push(eldata)
+        }
+      })
+     }
+  })
+  console.log(tempData);
+  dataMapMoObj["funddata"] = []
+  dataMapMoObj["funddata"] = dataCfObj.filter((el,index)=>{
+    if (tempData.length > 0) {
+      if (tempData.includes(el.schcode)) {
+        return el
+      }
+    }else{
+      if (index < 9) {
+        return el
+      }
+    }
+  })
+  viewFunction(block)
 }
