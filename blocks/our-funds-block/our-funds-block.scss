@@ -5,6 +5,9 @@
 @import url("../fund-card/fund-card.css");
 
 .our-funds-block {
+  &-container {
+    background-color: $neutrals-100;
+  }
   &-wrapper {
     width: 100%;
     padding-top: 32px;
@@ -198,10 +201,128 @@
     .left-container {
       max-width: 296px;
       width: 100%;
+      background-color: $primary-white;
+      border-radius: 8px;
+      .filter-sort-container {
+        padding: 12px;
+        @include media(tab){
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            z-index: 10;
+            background-color: red;
+            max-width: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .filter-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          label {
+            @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+            padding: 4px 0;
+          }
+        }
+        .sort-wrapper {
+          display: none;
+        }
+      }
+      .filter-container {
+        padding: 0 12px;
+        @include media(tab){
+            position: fixed;
+            z-index: 12;
+            background-color: red;
+            max-width: 100%;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            // overflow: auto;
+            // max-height: 702px;
+            display: none;
+        }
+        .clearall-wrapper,
+        .apply-wrapper {
+          display: none;
+        }
+        .filter-list-wrapper {
+            @include media(tab){
+                overflow: auto;
+                height: 60vh;
+            }
+          .checkbox-label-container {
+            user-select: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            .categorey-direct {
+              visibility: hidden;
+              width: 20px;
+              height: 20px;
+              &::before,
+              &:checked::before {
+                content: "";
+                background-image: url("../../icons/checkbox.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 20px;
+                height: 20px;
+                display: block;
+                visibility: visible;
+              }
+              &:checked::before {
+                background-image: url("../../icons/checkbox-fill.svg");
+              }
+            }
+            label {
+              @include font-style(14px, 20px, $neutrals-black, 400, $Poppins);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 10px;
+              width: 100%;
+              padding-left: 12px;
+              cursor: pointer;
+              &::after {
+                content: "";
+                background-image: url("../../icons/filter-info.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 12px;
+                height: 12px;
+                display: block;
+              }
+            }
+            & .Indian-Equity-container:not(.checkbox-label-container) label::after {
+              content: unset;
+            }
+            .innerIndianEquity {
+              padding: 12px 0 12px 30px;
+              .Indian-Equity-container {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                .checkbox-label-container {
+                  padding: 0;
+                }
+              }
+            }
+          }
+          > .checkbox-label-container:first-of-type {
+            display: block;
+          }
+        }
+      }
     }
     .right-container {
       max-width: calc(100% - 296px);
       width: 100%;
+      background-color: $primary-white;
       .sort-pop-container {
         display: flex;
         justify-content: space-between;
@@ -236,8 +357,8 @@
                 $Poppins
               );
             }
-            p:last-of-type{
-                color: $neutrals-black;
+            p:last-of-type {
+              color: $neutrals-black;
             }
             .fund-toggle-wrap {
               input {
@@ -262,7 +383,7 @@
                   display: block;
                   background: #fff;
                   border-radius: 50%;
-                  box-shadow: 0 3.333px 16.667px 0 rgba(0, 0, 0, 0.10);
+                  box-shadow: 0 3.333px 16.667px 0 rgba(0, 0, 0, 0.1);
                   position: absolute;
                   top: 1.67px;
                   transform: translateX(1.67px);
@@ -325,33 +446,4 @@
       }
     }
   }
-}
-// .categorey-direct{
-// background-color: red;
-// width: 20px;
-// height: 20px;
-// display: block;
-// opacity: 0;
-// }
-
-.categorey-direct::before {
-  content: "";
-  background-image: url("../../icons/checkbox.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-
-.categorey-direct:checked::before {
-  content: "";
-  background-image: url("../../icons/checkbox-fill.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  display: block;
 }
