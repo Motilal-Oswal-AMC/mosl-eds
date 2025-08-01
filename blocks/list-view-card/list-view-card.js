@@ -1,5 +1,9 @@
-import {button, div, span, p, img} from "../../scripts/dom-helpers.js"
+import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
 export default function decorate(block){
+    // if (block.querySelector(".fund-toggle-wrap [type='checkbox']")) {
+    //     let planFlow =  block.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct"
+    //     console.log(planFlow);   
+    // }
     console.log(block);
     let listcontainer = div({class:"list-view-container"},
         div({class:"list-wrapper"},
@@ -9,7 +13,7 @@ export default function decorate(block){
                 ),
                 div({class:"fund-name-container"},
                     p("Motilal Oswal"),
-                    label("Nifty 500 Momentum 50 Index Fund")
+                    label(block.schDetail.schemeName.replaceAll("Motilal Oswal",""))
                 ),
                 img({class: "logoScheme",src: "../../icons/direction-right.svg",alt: "Direction Right"})
             ),
