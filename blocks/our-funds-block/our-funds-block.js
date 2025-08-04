@@ -1,6 +1,6 @@
 /* eslint-disable */
 import dataCfObj from "../../scripts/dataCfObj.js";
-import { div, input, label, span, p, button, ul,li } from "../../scripts/dom-helpers.js";
+import { div, input, label, span, p, button, ul,li, img } from "../../scripts/dom-helpers.js";
 import dataMapMoObj from "../../scripts/constant.js";
 import fundcardblock from "../fund-card/fund-card.js";
 import listviewblock from '../list-view-card/list-view-card.js'
@@ -38,9 +38,13 @@ export default function decorate(block) {
                 .querySelector(".block-subitem2 .block-subitem-finelsub1")
                 .textContent.trim(),
             }),
-            ul({class:"list-search"},
-              ...dataMapMoObj["funddata"].map((el)=>{
-                return li({class:"list-fund-name",schcode:el.schcode},el.schDetail.schemeName)
+            ul(
+              { class: "list-search" },
+              ...dataMapMoObj["funddata"].map((el) => {
+                return li(
+                  { class: "list-fund-name", schcode: el.schcode },
+                  el.schDetail.schemeName
+                );
               })
             )
           ),
@@ -419,6 +423,27 @@ export default function decorate(block) {
               p("Regular")
             ),
             div({ class: "compare-btn" }, button("Compare"))
+          )
+        ),
+        div(
+          { class: "applied-filter-wrap" },
+          ul(
+            { class: "applied-filter-list" },
+            li(
+              { class: "applied-filter-name" },
+              span("Large Cap"),
+              img({ src: "../../icons/cross-icon.svg", alt: "cross icon" })
+            ),
+            li(
+              { class: "applied-filter-name" },
+              span("Tax saver (ELSS)"),
+              img({ src: "../../icons/cross-icon.svg", alt: "cross icon" })
+            ),
+            li(
+              { class: "applied-filter-name" },
+              span("Hybrid & Balanced"),
+              img({ src: "../../icons/cross-icon.svg", alt: "cross icon" })
+            )
           )
         ),
         div(
