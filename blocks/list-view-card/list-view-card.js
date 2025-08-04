@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
 export default function decorate(block){
     let planFlow = 'Direct';
@@ -23,10 +24,10 @@ export default function decorate(block){
             ),
             div({class:"risk-star-icon"},
                 img({class: "riskfactor-icon",src: "../../icons/Risk-o-meter.svg",alt: "risk icon"}),
-                div({class: "star"},
+            ),
+            div({class: "star"},
                     img({class: "star-icon",src: "../../icons/star.svg",alt: "star-icon"}),
                     img({class: "fillstar-icon",src: "../../icons/star-filled.svg",alt: "fillstar-icon"})
-                )
             ),
             div({class:"btn-invest"},
                 button("Invest")

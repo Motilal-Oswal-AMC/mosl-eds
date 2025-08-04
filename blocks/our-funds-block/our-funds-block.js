@@ -110,176 +110,225 @@ export default function decorate(block) {
             )
           ),
           div(
-            { class: "filter-container" },
+            { class: "filter-overlay" },
             div(
-              { class: "clearall-wrapper" },
-              span("Filters"),
-              button({ class: "clearall-btn" }, "Clear All")
-            ),
-            div(
-              { class: "filter-list-wrapper" },
-              // div({class:"fundcategory-label"},
-              //   span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
-              // ),
-              ...dataMapMoObj.data.fundCategory.map((element, index) => {
-                let indexeq = index === 0 ? "indaneqsub" : "";
-                if (capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity") {
-                  dataMapMoObj[index + "ArrayDoc"] = div(
-                    {class: "Indian-Equity-container"},
-                    ...dataMapMoObj.data.fundCategory[
-                      dataMapMoObj.data.fundCategory.length - 1
-                    ]["indianEquitySub"].map((elme, ind) => {
-                      let sublabel = Object.keys(elme)[0].split("-")[1].trim();
-                      return div(
-                        { class: "checkbox-label-container" },
+              { class: "filter-container" },
+              div(
+                { class: "clearall-wrapper" },
+                span("Filters"),
+                button({ class: "clearall-btn" }, "Clear All")
+              ),
+              div(
+                { class: "filter-list-wrapper" },
+                // div({class:"fundcategory-label"},
+                //   span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
+                // ),
+                ...dataMapMoObj.data.fundCategory.map((element, index) => {
+                  let indexeq = index === 0 ? "indaneqsub" : "";
+                  if (
+                    capitalizeEachWord(
+                      Object.keys(element)[0].replaceAll("-", " ")
+                    ) === "Indian Equity"
+                  ) {
+                    dataMapMoObj[index + "ArrayDoc"] = div(
+                      { class: "Indian-Equity-container" },
+                      ...dataMapMoObj.data.fundCategory[
+                        dataMapMoObj.data.fundCategory.length - 1
+                      ]["indianEquitySub"].map((elme, ind) => {
+                        let sublabel = Object.keys(elme)[0]
+                          .split("-")[1]
+                          .trim();
+                        return div(
+                          { class: "checkbox-label-container" },
+                          input({
+                            class: "categorey-direct",
+                            type: "checkbox",
+                            id: "ind" + (ind + 1),
+                            dataattr: elme[Object.keys(elme)].join("-"),
+                            onclick: (event) => {
+                              checkfilter(block);
+
+                              // viewFunction(block);
+                            },
+                          }),
+                          label({ for: "ind" + (ind + 1) }, sublabel)
+                        );
+                      })
+                    );
+                  }
+                  return Object.keys(element)[0] !== "indianEquitySub"
+                    ? div(
+                        { class: "checkbox-label-container " + indexeq },
                         input({
                           class: "categorey-direct",
                           type: "checkbox",
-                          id: "ind" + (ind + 1),
-                          dataattr: elme[Object.keys(elme)].join("-"),
-                          onclick:(event)=>{
-                              checkfilter(block)
-                              
-                              // viewFunction(block);
-                          }
+                          id: "index" + (index + 1),
+                          dataattr: element[Object.keys(element)[0]].join("-"),
+                          onclick: (event) => {
+                            let fundScheme = event.target
+                              .getAttribute("dataattr")
+                              .split("-");
+                            // viewFunction(block);
+                            if (event.target.closest(".indaneqsub")) {
+                              let el = event.target.closest(".indaneqsub");
+                              if (el.querySelector(".innerIndianEquity")) {
+                                el.querySelectorAll(
+                                  ".innerIndianEquity input"
+                                ).forEach((elemsub) => {
+                                  elemsub.checked =
+                                    el.querySelector("input").checked;
+                                });
+                              }
+                            }
+                            checkfilter(block);
+                          },
                         }),
-                        label({ for: "ind" + (ind + 1) }, sublabel)
-                      );
-                    })
-                  );
-                }
-                return Object.keys(element)[0] !== "indianEquitySub"
-                  ? div(
-                      { class: "checkbox-label-container " + indexeq },
-                      input({
-                        class: "categorey-direct",
-                        type: "checkbox",
-                        id: "index" + (index + 1),
-                        dataattr: element[Object.keys(element)[0]].join("-"),
-                        onclick: (event) => {
-                          let fundScheme = event.target
-                            .getAttribute("dataattr")
-                            .split("-");
-                          // viewFunction(block);
-                          if (event.target.closest(".indaneqsub")) {
-                            let el =event.target.closest(".indaneqsub");
-                            if (el.querySelector(".innerIndianEquity")) {
-                                el.querySelectorAll(".innerIndianEquity input").forEach((elemsub)=>{
-                                  elemsub.checked = el.querySelector("input").checked
-                                })
-                            } 
-                          }
-                          checkfilter(block)
-                        },
-                      }),
-                      label(
-                        { for: "index" + (index + 1) },
-                        capitalizeEachWord(
+                        label(
+                          { for: "index" + (index + 1) },
+                          capitalizeEachWord(
                             Object.keys(element)[0].replaceAll("-", " ")
                           ),
                           span(
                             { class: "fund-length" },
                             "(" + element[Object.keys(element)[0]].length + ")"
                           )
+                        ),
+                        capitalizeEachWord(
+                          Object.keys(element)[0].replaceAll("-", " ")
+                        ) === "Indian Equity"
+                          ? div(
+                              { class: "innerIndianEquity" },
+                              dataMapMoObj[index + "ArrayDoc"]
+                            )
+                          : ""
+                      )
+                    : "";
+                }),
+                ...dataMapMoObj.data.fundType.map((element, index) => {
+                  return div(
+                    { class: "checkbox-label-container" },
+                    input({
+                      class: "categorey-direct",
+                      type: "checkbox",
+                      id: "fundtype" + (index + 1),
+                      dataattr: element[Object.keys(element)[0]].join("-"),
+                      onclick: (event) => {
+                        checkfilter(block);
+                        // viewFunction(block);
+                      },
+                    }),
+                    label(
+                      { for: "fundtype" + (index + 1) },
+                      capitalizeEachWord(
+                        Object.keys(element)[0].replaceAll("-", " ")
                       ),
-                      capitalizeEachWord(Object.keys(element)[0].replaceAll("-", " ")) === "Indian Equity"? div({ class: "innerIndianEquity" },dataMapMoObj[index + "ArrayDoc"]): ""
+                      span("(" + element[Object.keys(element)[0]].length + ")")
                     )
-                  : "";
-              }),
-              ...dataMapMoObj.data.fundType.map((element,index) => {
-                return div(
-                  { class: "checkbox-label-container" },
-                  input({
-                    class: "categorey-direct",
-                    type: "checkbox",
-                    id: "fundtype" + (index + 1),
-                    dataattr: element[Object.keys(element)[0]].join("-"),
-                    onclick: (event) => {
-              
-                      checkfilter(block)
-                      // viewFunction(block);
-                    },
-                  }),
-                  label(
-                    { for: "fundtype" + (index + 1) },
-                    capitalizeEachWord(
-                      Object.keys(element)[0].replaceAll("-", " ")
-                    ),
-                    span("(" +
-                      element[Object.keys(element)[0]].length +
-                      ")")    
-                  )
-                );
-              })
-            ),
-            div(
-              { class: "apply-wrapper" },
-              button({ class: "close-btn" }, "Close"),
-              button({ class: "apply-btn" }, "Apply")
+                  );
+                })
+              ),
+              div(
+                { class: "apply-wrapper" },
+                button({ class: "close-btn" }, "Close"),
+                button({ class: "apply-btn" }, "Apply")
+              )
             )
           ),
-          div({class:"sort-container"},
-            div({class:"sort-label"},
-              // span(label(
-              //   block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
-              // ))
-              span(block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim())
-            ),
-            div({class:"arrange-returns"},
-              div({class:"arrange-container"},
-                span("Arrange by"),
-                div({class:"radio-label-container"},
-                  div({class:"radio-label"},
-                    input({type:"radio" ,id:"popular"}),
-                    label({for:"popular"},"Popular")
-                  ),
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"lastnav"}),
-                    label({for:"lastnav"},"Latest NAV")
-                  ),
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"lastnavone"}),
-                    label({for:"lastnavone"},"Latest by 1 day")
-                  ),
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"oldnew"}),
-                    label({for:"oldnew"},"Oldest to Newest")
-                  ),
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"newold"}),
-                    label({for:"newold"},"Newest to Oldest")
+          div(
+            { class: "sort-overlay" },
+            div(
+              { class: "sort-container" },
+              div(
+                { class: "sort-label" },
+                // span(label(
+                //   block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
+                // ))
+                span(
+                  block
+                    .querySelector(".block-item3 .block-subitem-finelsub1")
+                    .textContent.trim()
+                )
+              ),
+              div(
+                { class: "arrange-returns" },
+                div(
+                  { class: "arrange-container" },
+                  span("Arrange by"),
+                  div(
+                    { class: "radio-label-container" },
+                    div(
+                      { class: "radio-label" },
+                      input({ type: "radio", id: "popular", name: "arrange" }),
+                      label({ for: "popular" }, "Popular")
+                    ),
+                    div(
+                      { class: "radio-label" },
+                      input({ type: "radio", id: "lastnav", name: "arrange" }),
+                      label({ for: "lastnav" }, "Latest NAV")
+                    ),
+                    div(
+                      { class: "radio-label" },
+                      input({
+                        type: "radio",
+                        id: "lastnavone",
+                        name: "arrange",
+                      }),
+                      label({ for: "lastnavone" }, "Latest by 1 day")
+                    ),
+                    div(
+                      { class: "radio-label" },
+                      input({ type: "radio", id: "oldnew", name: "arrange" }),
+                      label({ for: "oldnew" }, "Oldest to Newest")
+                    ),
+                    div(
+                      { class: "radio-label" },
+                      input({ type: "radio", id: "newold", name: "arrange" }),
+                      label({ for: "newold" }, "Newest to Oldest")
+                    )
+                  )
+                ),
+                div(
+                  { class: "return-container" },
+                  span("Returns Period"),
+                  div(
+                    { class: "radio-label-container" },
+                    div(
+                      { class: "radio-label" },
+                      input({ type: "radio", id: "sinceinp", name: "returns" }),
+                      label({ for: "sinceinp" }, "Since Inception")
+                    ),
+                    div(
+                      { class: "radio-label" },
+                      input({ type: "radio", id: "oneyear", name: "returns" }),
+                      label({ for: "oneyear" }, "1 year")
+                    ),
+                    div(
+                      { class: "radio-label" },
+                      input({
+                        type: "radio",
+                        id: "threeyear",
+                        name: "returns",
+                      }),
+                      label({ for: "threeyear" }, "3 years")
+                    ),
+                    div(
+                      { class: "radio-label" },
+                      input({ type: "radio", id: "fiveyear", name: "returns" }),
+                      label({ for: "fiveyear" }, "5 years")
+                    ),
+                    div(
+                      { class: "radio-label" },
+                      input({ type: "radio", id: "tenyear", name: "returns" }),
+                      label({ for: "tenyear" }, "10 years")
+                    )
                   )
                 )
               ),
-              div({class:"return-container"},
-                span("Returns Period"),
-                div({class:"radio-label-container"},
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"sinceinp"}),
-                    label({for:"sinceinp"},"Since Inception")
-                  ),
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"oneyear"}),
-                    label({for:"oneyear"},"1 year")
-                  ),
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"threeyear"}),
-                    label({for:"threeyear"},"3 years")
-                  ),
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"fiveyear"}),
-                    label({for:"fiveyear"},"5 years")
-                  ),
-                  div({class:"radio-label"},
-                    input({type:"radio",id:"tenyear"}),
-                    label({for:"tenyear"},"10 years")
-                  )
-                )
+              div(
+                { class: "close-apply-btn" },
+                button("close"),
+                button("Apply")
               )
-            ),
-            div({class:"close-apply-btn"},
-              button("close"),
-              button("Apply")
             )
           )
         )
@@ -312,23 +361,31 @@ export default function decorate(block) {
             div(
               { class: "view-container" },
               div(
-                { class: "squareby-container grid-view-active",
-                  onclick:(event)=>{
+                {
+                  class: "squareby-container grid-view-active",
+                  onclick: (event) => {
                     event.currentTarget.classList.add("grid-view-active");
-                    event.currentTarget.closest(".view-container").querySelector(".listby-container").classList.remove("list-view-active");
+                    event.currentTarget
+                      .closest(".view-container")
+                      .querySelector(".listby-container")
+                      .classList.remove("list-view-active");
                     viewFunction(block);
-                  }
-                 },
+                  },
+                },
                 block.querySelector(".block-item3 .block-subitem-finelsub3")
               ),
               div(
-                { class: "listby-container",
-                  onclick:(event)=>{
+                {
+                  class: "listby-container",
+                  onclick: (event) => {
                     event.currentTarget.classList.add("list-view-active");
-                    event.currentTarget.closest(".view-container").querySelector(".squareby-container").classList.remove("grid-view-active");
+                    event.currentTarget
+                      .closest(".view-container")
+                      .querySelector(".squareby-container")
+                      .classList.remove("grid-view-active");
                     viewFunction(block);
-                  }
-                 },
+                  },
+                },
                 block.querySelector(".block-item3 .block-subitem-finelsub4")
               )
             ),
@@ -342,22 +399,22 @@ export default function decorate(block) {
               ),
               p("Regular")
             ),
-            div({class:"compare-btn"},
-              button("Compare")
-            )
+            div({ class: "compare-btn" }, button("Compare"))
           )
         ),
         div(
           { class: "cards-container" },
-          ...dataMapMoObj["funddata"].map((el,index) => {
+          ...dataMapMoObj["funddata"].map((el, index) => {
             return fundcardblock(el);
           })
         ),
-        div({class:"list-view-header"},
-          div({class:"list-header"},
-            block.closest('.section').querySelector(".item2")
+        div(
+          { class: "list-view-header" },
+          div(
+            { class: "list-header" },
+            block.closest(".section").querySelector(".item2")
           ),
-          div({class:"list-container"})
+          div({ class: "list-container" })
         )
       )
     )
