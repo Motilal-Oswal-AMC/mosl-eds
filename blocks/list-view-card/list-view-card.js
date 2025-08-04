@@ -1,10 +1,10 @@
 import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
 export default function decorate(block){
-    // if (block.querySelector(".fund-toggle-wrap [type='checkbox']")) {
-    //     let planFlow =  block.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct"
-    //     console.log(planFlow);   
-    // }
-    // console.log(block);
+    let planFlow = 'Direct';
+    if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
+        planFlow =  document.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct";    
+    }
+  console.log(planFlow);
     let listcontainer = div({class:"list-view-container"},
         div({class:"list-wrapper"},
             div({class:"fund-name-wrapper"},
