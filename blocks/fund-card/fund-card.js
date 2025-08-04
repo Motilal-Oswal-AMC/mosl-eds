@@ -18,7 +18,6 @@ export default function decorate(block) {
   if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
     planFlow =  document.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct";    
   }
-  console.log(planFlow);
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
   let finPlangrp = [];
   const tempReturns = [];
