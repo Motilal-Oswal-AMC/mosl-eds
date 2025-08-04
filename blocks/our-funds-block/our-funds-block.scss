@@ -284,6 +284,9 @@
             align-items: end;
             display: none;
           }
+          &.active {
+            display: flex;
+          }
           .filter-container {
             padding: 0 12px;
             @include media(mobile) {
@@ -460,6 +463,9 @@
             align-items: end;
             display: none;
           }
+          &.active {
+            display: flex;
+          }
           .sort-container {
             display: none;
             @include media(mobile) {
@@ -575,10 +581,6 @@
               }
             }
           }
-        }
-        .filter-overlay.active,
-        .sort-overlay.active {
-          display: flex;
         }
       }
     }
@@ -776,7 +778,9 @@
         }
       }
       .list-view-header {
-        // display: none;
+          @include media(mobile){
+            display: none;
+        }
         .list-header {
           .default-content-wrapper {
             background-color: thistle;
@@ -794,6 +798,9 @@
               width: 100%;
               margin-right: 47px;
               background-color: teal;
+              @include media(tab){
+                margin: 0;
+              }
             }
             p:nth-of-type(2) {
               max-width: 9.44%;
@@ -803,6 +810,10 @@
               align-items: center;
               gap: 8px;
               background-color: tan;
+              @include media(tab){
+                margin: 0;
+                max-width: max-content;
+              }
               &::after {
                 content: "";
                 background-image: url("../../icons/returns-icon.svg");
@@ -815,13 +826,13 @@
               }
             }
             p:nth-of-type(3) {
-              max-width: 9%;
-              width: 100%;
+              //   max-width: 9%;
+              //   width: 100%;
               background-color: turquoise;
             }
             p:nth-of-type(4) {
-              max-width: 9%;
-              width: 100%;
+              //   max-width: 9%;
+              //   width: 100%;
               background-color: tomato;
             }
           }
@@ -836,6 +847,10 @@
               align-items: center;
               gap: 22px;
               padding: 14px 20px;
+              @include media(tab) {
+                gap: 30px;
+              }
+
               .fund-name-wrapper {
                 max-width: 41.83%;
                 width: 100%;
@@ -843,6 +858,9 @@
                 background-color: teal;
                 display: flex;
                 gap: 8px;
+                @include media(tab) {
+                  margin: 0;
+                }
                 .logo-container {
                   max-width: 28px;
                   width: 100%;
@@ -923,8 +941,45 @@
                   display: none;
                 }
               }
-              .star{
+              .star {
+                max-width: 7.74%;
+                width: 100%;
                 background-color: tomato;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .fillstar-icon {
+                  display: none;
+                }
+                &.active {
+                  .star-icon {
+                    display: none;
+                  }
+                  .fillstar-icon {
+                    display: block;
+                  }
+                }
+              }
+              .btn-invest {
+                max-width: 12.7%;
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                button {
+                  padding: 8px 12px;
+                  margin: 0;
+                  background-color: $primary-blue;
+                  min-width: 67px;
+                  border: none;
+                  border-radius: 4px;
+                  @include font-style(
+                    14px,
+                    16px,
+                    $primary-white,
+                    500,
+                    $Poppins
+                  );
+                }
               }
             }
           }
