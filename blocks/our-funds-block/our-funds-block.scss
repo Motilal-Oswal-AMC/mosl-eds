@@ -209,7 +209,14 @@
     .left-container {
       max-width: 296px;
       width: 100%;
+      margin: 53px 0 0;
+      @include media(desktop-sm) {
+        max-width: 25%;
+      }
       @include media(tab) {
+        max-width: 30%;
+      }
+      @include media(mobile) {
         display: flex;
         justify-content: space-between;
         position: fixed;
@@ -221,6 +228,7 @@
         left: 0;
         right: 0;
         bottom: 0;
+        margin: 0;
       }
       .FundCategory-container {
         width: 100%;
@@ -228,26 +236,18 @@
         border-radius: 8px;
         .filter-sort-container {
           padding: 12px;
-          @include media(tab) {
-            // display: flex;
-            // justify-content: space-between;
-            // position: fixed;
-            // z-index: 10;
-            // background-color: red;
-            // max-width: 100%;
-            // left: 0;
-            // right: 0;
-            // bottom: 0;
+          @include media(mobile) {
             padding: 0;
             display: flex;
             justify-content: space-between;
+            box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.05);
           }
           .filter-wrapper,
           .sort-wrapper {
             display: flex;
             align-items: center;
             gap: 4px;
-            @include media(tab) {
+            @include media(mobile) {
               padding: 16px 16px 20px;
               gap: 8px;
               max-width: 50%;
@@ -255,25 +255,27 @@
               background-color: $primary-white;
               justify-content: center;
               cursor: pointer;
+              border-radius: 8px 0 0 0;
             }
             label {
               @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
-              @include media(tab) {
+              @include media(mobile) {
                 @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
               }
             }
           }
           .sort-wrapper {
             display: none;
-            @include media(tab) {
+            @include media(mobile) {
               display: flex;
               border-left: 1px solid $neutrals-300;
+              border-radius: 0 8px 0 0;
             }
           }
         }
         .filter-container {
           padding: 0 12px;
-          @include media(tab) {
+          @include media(mobile) {
             position: fixed;
             z-index: 12;
             background-color: $primary-white;
@@ -288,7 +290,7 @@
           .clearall-wrapper,
           .apply-wrapper {
             display: none;
-            @include media(tab) {
+            @include media(mobile) {
               display: flex;
               justify-content: space-between;
               padding: 16px;
@@ -307,7 +309,7 @@
             }
           }
           .apply-wrapper {
-            @include media(tab) {
+            @include media(mobile) {
               border: none;
               padding: 0;
               border-radius: 8px 8px 0 0;
@@ -323,7 +325,7 @@
             }
           }
           .filter-list-wrapper {
-            @include media(tab) {
+            @include media(mobile) {
               overflow: auto;
               //   height: 72vh;
               height: 437px;
@@ -342,7 +344,7 @@
               align-items: center;
               padding: 12px 0;
               -webkit-tap-highlight-color: transparent;
-              @include media(tab) {
+              @include media(mobile) {
                 padding: 16px 0;
               }
               .categorey-direct {
@@ -370,7 +372,7 @@
                 display: flex;
                 align-items: center;
                 width: 100%;
-                padding-left: 12px;
+                padding: 0 20px 0 12px;
                 cursor: pointer;
                 position: relative;
                 span {
@@ -389,7 +391,7 @@
                   top: 50%;
                   transform: translateY(-50%);
                   right: 0;
-                  @include media(tab) {
+                  @include media(mobile) {
                     width: 20px;
                     height: 20px;
                   }
@@ -400,14 +402,14 @@
               }
               .innerIndianEquity {
                 padding: 12px 0 12px 30px;
-                @include media(tab) {
+                @include media(mobile) {
                   padding: 12px 0 0 28px;
                 }
                 .Indian-Equity-container {
                   display: flex;
                   flex-direction: column;
                   gap: 14px;
-                  @include media(tab) {
+                  @include media(mobile) {
                     gap: 12px;
                   }
                   .checkbox-label-container {
@@ -426,7 +428,7 @@
         }
         .sort-container {
           display: none;
-          @include media(tab) {
+          @include media(mobile) {
             display: none;
             position: fixed;
             z-index: 12;
@@ -492,7 +494,9 @@
                     input:checked::before {
                       outline: 1.67px solid #2e2a94;
                       background: #2e2a94;
-                      border: 4px solid #fff;
+                      border: 3px solid #fff;
+                      min-width: 19.33px;
+                      height: 19.33px;
                     }
                     label {
                       @include font-style(
@@ -543,14 +547,23 @@
       max-width: calc(100% - 296px);
       width: 100%;
       background-color: $primary-white;
+      @include media(desktop-sm) {
+        max-width: (100% - 25%);
+      }
       @include media(tab) {
+        max-width: (100% - 30%);
+      }
+      @include media(mobile) {
         max-width: 100%;
       }
       .sort-pop-container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px 20px;
         margin: 0 0 20px;
-        @include media(tab) {
+        @include media(mbile) {
           margin: 0 0 32px;
         }
         .sort-popular,
@@ -559,6 +572,8 @@
           display: flex;
           align-items: center;
           gap: 12px;
+          height: max-content;
+          line-height: 0;
           .sort-container,
           .popular-container {
             position: relative;
@@ -568,8 +583,9 @@
             }
           }
         }
-        @include media(tab) {
-          .sort-popular {
+        .sort-popular {
+          min-width: max-content;
+          @include media(mobile) {
             display: none;
           }
         }
@@ -679,6 +695,11 @@
           }
           .compare-btn {
             @include media(tab) {
+              display: flex;
+              justify-content: end;
+              width: 100%;
+            }
+            @include media(mobile) {
               position: absolute;
               right: 0;
               top: -45px;
@@ -699,12 +720,24 @@
         display: flex;
         flex-wrap: wrap;
         gap: 16px;
-        display: none;
-        @include media(tab) {
+        // display: none;
+        @include media(mobile) {
           gap: 20px;
+        }
+        .card-container {
+          @include media(desktop-sm) {
+            max-width: 31.7%;
+          }
+          @include media(tab) {
+            max-width: 48.4%;
+          }
+          @media screen and (max-width: 660px) {
+            max-width: 100%;
+          }
         }
       }
       .list-view-header {
+        display: none;
         .list-header {
           .default-content-wrapper {
             background-color: thistle;
@@ -730,7 +763,7 @@
               display: flex;
               align-items: center;
               gap: 8px;
-              background-color: teal;
+              background-color: tan;
               &::after {
                 content: "";
                 background-image: url("../../icons/returns-icon.svg");
@@ -742,9 +775,9 @@
                 display: block;
               }
             }
-            p:nth-of-type(3){
-                max-width: 9%;
-                width: 100%;
+            p:nth-of-type(3) {
+              max-width: 9%;
+              width: 100%;
             }
           }
         }
@@ -829,19 +862,19 @@
                   @include font-style(12px, 16px, $neutrals-600, 400, $Poppins);
                 }
               }
-              .risk-star-icon{
+              .risk-star-icon {
                 max-width: 9%;
                 width: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                img{
-                    max-width: 20px;
-                    width: 100%;
-                    height: 20px;
+                img {
+                  max-width: 20px;
+                  width: 100%;
+                  height: 20px;
                 }
-                .star{
-                    display: none;
+                .star {
+                  display: none;
                 }
               }
             }
