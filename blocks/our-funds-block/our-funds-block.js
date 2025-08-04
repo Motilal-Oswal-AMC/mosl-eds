@@ -161,13 +161,14 @@ export default function decorate(block) {
                             .getAttribute("dataattr")
                             .split("-");
                           // viewFunction(block);
-                          Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el)=>{
-                                  if (el.querySelector(".innerIndianEquity")) {
-                                      el.querySelectorAll(".innerIndianEquity input").forEach((elemsub)=>{
-                                        elemsub.checked = el.querySelector("input").checked
-                                      })
-                                  } 
-                              })
+                          if (event.target.closest(".indaneqsub")) {
+                            let el =event.target.closest(".indaneqsub");
+                            if (el.querySelector(".innerIndianEquity")) {
+                                  el.querySelectorAll(".innerIndianEquity input").forEach((elemsub)=>{
+                                    elemsub.checked = el.querySelector("input").checked
+                                  })
+                            } 
+                          }
                           checkfilter(block)
                         },
                       }),
