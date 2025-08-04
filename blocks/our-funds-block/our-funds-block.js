@@ -258,27 +258,31 @@ export default function decorate(block) {
                     { class: "radio-label-container" },
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "popular" }),
+                      input({ type: "radio", id: "popular", name: "arrange" }),
                       label({ for: "popular" }, "Popular")
                     ),
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "lastnav" }),
+                      input({ type: "radio", id: "lastnav", name: "arrange" }),
                       label({ for: "lastnav" }, "Latest NAV")
                     ),
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "lastnavone" }),
+                      input({
+                        type: "radio",
+                        id: "lastnavone",
+                        name: "arrange",
+                      }),
                       label({ for: "lastnavone" }, "Latest by 1 day")
                     ),
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "oldnew" }),
+                      input({ type: "radio", id: "oldnew", name: "arrange" }),
                       label({ for: "oldnew" }, "Oldest to Newest")
                     ),
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "newold" }),
+                      input({ type: "radio", id: "newold", name: "arrange" }),
                       label({ for: "newold" }, "Newest to Oldest")
                     )
                   )
@@ -290,27 +294,31 @@ export default function decorate(block) {
                     { class: "radio-label-container" },
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "sinceinp" }),
+                      input({ type: "radio", id: "sinceinp", name: "returns" }),
                       label({ for: "sinceinp" }, "Since Inception")
                     ),
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "oneyear" }),
+                      input({ type: "radio", id: "oneyear", name: "returns" }),
                       label({ for: "oneyear" }, "1 year")
                     ),
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "threeyear" }),
+                      input({
+                        type: "radio",
+                        id: "threeyear",
+                        name: "returns",
+                      }),
                       label({ for: "threeyear" }, "3 years")
                     ),
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "fiveyear" }),
+                      input({ type: "radio", id: "fiveyear", name: "returns" }),
                       label({ for: "fiveyear" }, "5 years")
                     ),
                     div(
                       { class: "radio-label" },
-                      input({ type: "radio", id: "tenyear" }),
+                      input({ type: "radio", id: "tenyear", name: "returns" }),
                       label({ for: "tenyear" }, "10 years")
                     )
                   )
