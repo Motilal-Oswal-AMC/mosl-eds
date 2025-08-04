@@ -160,6 +160,10 @@
           {
             "name": "Freq Ask Ques",
             "value": "freq-ask-ques"
+          },
+          {
+            "name": "Table wrapper",
+            "value": "table-wrapper"
           }
         ]
       }

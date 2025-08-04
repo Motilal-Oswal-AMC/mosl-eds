@@ -1,0 +1,134 @@
+.section.fdp-card-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1266px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 50px;
+
+   @media (max-width: 768px) {
+       flex-direction: column;
+       gap: 50px
+      }
+
+  .item1 {
+    margin: 0;
+    // width: 30%;
+    max-width: 400px;
+    width: 100%;
+    .fdp-card {
+      position: fixed;
+      width: 30%;
+        @media (max-width: 768px) {
+      position:static;
+      }
+    }
+  }
+  .item2 {
+    margin: 0;
+    max-width: 800px;
+    width: 100%;
+    ul {
+      position: fixed;
+      //   width: 70%;
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      position: fixed;
+      display: flex;
+      list-style: none;
+      //   right: 149px;
+      padding: 0px;
+      margin: 0px;
+      border-bottom: 1px solid #b6bcc7;
+      //   top: 164px;
+      // right: 0px;
+
+      @media (max-width: 768px) {
+        position: static;
+        max-width: 300px;
+        width: 100%;
+        overflow-y: auto;
+      }
+      li {
+        font-family: "poppins";
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0%;
+        color: #2e2a94;
+        padding: 12px;
+        cursor: pointer;
+
+        @media (max-width: 768px) {
+          text-wrap: nowrap;
+        }
+      }
+    }
+  }
+}
+
+// .section.fdp-card-container {
+//   max-width: 1266px;
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 0 auto;
+//   position: relative;
+//   @media (max-width: 768px) {
+//     flex-direction: column;
+//     position:static;
+//   }
+
+//   .fdp-card-wrapper {
+//     // width: 28%;
+//     max-width: 400px;
+//     width: 100%;
+//     position: fixed;
+//     background-color: red;
+//     // left: 0px;
+
+//     @media (max-width: 768px) {
+//       position: static;
+//     }
+//   }
+//   .default-content-wrapper {
+//     // width: 28%;
+//     max-width: 800px;
+//     width: 100%;
+
+//     ul {
+//       position: fixed;
+//       display: flex;
+//       list-style: none;
+//       right: 149px;
+//       padding: 0px ;
+//       margin: 0px;
+//       border-bottom: 1px solid #B6BCC7;
+//     //   top: 164px;
+//       // right: 0px;
+
+//       @media (max-width: 768px) {
+//       position: static;
+//       max-width: 300px;
+//       width: 100%;
+//       overflow-y: auto;
+//     }
+//       li {
+//         font-family: "poppins";
+//         font-weight: 600;
+//         font-size: 14px;
+//         line-height: 16px;
+//         letter-spacing: 0%;
+//         color: #2e2a94;
+//        padding: 12px ;
+
+//           @media (max-width: 768px) {
+//             text-wrap: nowrap;
+//           }
+//       }
+//     }
+//   }
+// }
