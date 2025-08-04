@@ -399,7 +399,7 @@
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: rgba(17, 17, 17, 0.6);
     position: fixed;
     top: 0;
     align-items: end;
@@ -596,7 +596,7 @@
   .our-funds-block .filter-cards .left-container .FundCategory-container .sort-overlay {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: rgba(17, 17, 17, 0.6);
     position: fixed;
     top: 0;
     align-items: end;
@@ -929,18 +929,28 @@
   font-weight: 500;
 }
 .our-funds-block .filter-cards .right-container .applied-filter-list {
-  margin: 0 0 20px;
+  margin: 0;
+  padding: 0 0 20px;
   list-style: none;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
 }
+@media (max-width: 768px) {
+  .our-funds-block .filter-cards .right-container .applied-filter-list {
+    flex-wrap: unset;
+    overflow: auto;
+  }
+  .our-funds-block .filter-cards .right-container .applied-filter-list::-webkit-scrollbar {
+    display: none;
+  }
+}
 .our-funds-block .filter-cards .right-container .applied-filter-name {
   display: flex;
   align-items: center;
-  max-width: -moz-max-content;
-  max-width: max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   border: 1px solid #bdbdbd;
   border-radius: 1000px;
   padding: 4px 12px;

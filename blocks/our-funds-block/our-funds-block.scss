@@ -338,7 +338,7 @@
           @include media(mobile) {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background: rgba(17, 17, 17, 0.60);
             position: fixed;
             top: 0;
             // display: flex;
@@ -517,7 +517,7 @@
           @include media(mobile) {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background: rgba(17, 17, 17, 0.60);
             position: fixed;
             top: 0;
             // display: flex;
@@ -820,17 +820,25 @@
       }
       .applied-filter {
         &-list {
-          margin: 0 0 20px;
+          margin: 0;
+          padding: 0 0 20px;
           list-style: none;
           display: flex;
           align-items: center;
           flex-wrap: wrap;
           gap: 8px;
+          @include media(mobile) {
+            flex-wrap: unset;
+            overflow: auto;
+            &::-webkit-scrollbar {
+              display: none;
+            }
+          }
         }
         &-name {
           display: flex;
           align-items: center;
-          max-width: max-content;
+          min-width: max-content;
           border: 1px solid #bdbdbd;
           border-radius: 1000px;
           padding: 4px 12px;
