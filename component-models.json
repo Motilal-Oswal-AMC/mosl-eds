@@ -156,6 +156,10 @@
           {
             "name": "Cornerstones Advantage",
             "value": "cornerstones-advantage"
+          },
+          {
+            "name": "Freq Ask Ques",
+            "value": "freq-ask-ques"
           }
         ]
       }
@@ -273,6 +277,25 @@
         "component": "text",
         "name": "video_imageTitle",
         "label": "Video Image Title"
+      }
+    ]
+  },
+  {
+    "id": "accordion-item",
+    "type": "accordion/text",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "question",
+        "label": "Question"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "answer",
+        "label": "Answer",
+        "raw": true
       }
     ]
   },
@@ -625,6 +648,63 @@
         "name": "col4_other_calculators_url",
         "label": "Other Calculators URL",
         "value": "#"
+      }
+    ]
+  },
+  {
+    "id": "growth-now",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "fstimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "fstimageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "col2_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "name": "sndimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "sndimageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "reference",
+        "name": "trdimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "trdimageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "col3_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   }

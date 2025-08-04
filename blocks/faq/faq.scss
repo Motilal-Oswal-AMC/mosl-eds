@@ -1,0 +1,222 @@
+/* stylelint-disable alpha-value-notation */
+/* stylelint-disable media-feature-range-notation */
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.section.freq-ask-ques {
+    display: grid;
+    justify-content: space-between;
+    max-width: 1232px;
+    margin: 0 auto;
+    padding: 0 24px;
+    padding-top: 40px;
+    grid-template-columns: 25% 68.5%;
+
+    @include media(mobile) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 16px;
+        padding-top: 24px;
+    }
+
+    >div {
+        max-width: unset;
+        margin: unset;
+        padding: 0;
+    }
+
+    &>div:nth-child(1) {
+        width: 100%;
+
+        @include media(mobile) {
+            width: 100%;
+        }
+
+        p {
+            // color: $primary-blue;
+            // font-family: $ButlerPro;
+            // font-size: 36px;
+            // font-style: normal;
+            // font-weight: 700;
+            // line-height: 44px;
+            @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+            padding: 0;
+            margin: 0;
+
+            @include media(mobile) {
+                @include font-style(32px, 40px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+            }
+        }
+    }
+
+    .accordion-wrapper {
+        width: 100%;
+
+        @include media(mobile) {
+            width: 100%;
+        }
+
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 52px;
+            flex: 1 0 0;
+
+            @include media (mobile) {
+                gap: 36px;
+            }
+
+            details {
+                width: 100%;
+                border: none;
+
+                &+& {
+                    margin-top: 24px;
+                }
+
+                p {
+                    margin: 0;
+                    @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $Poppins);
+
+                    @include media (mobile) {
+                        @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $Poppins);
+                    }
+                }
+
+                summary {
+                    position: relative;
+                    padding: 0 46px 0 16px;
+                    cursor: pointer;
+                    list-style: none;
+                    overflow: hidden;
+                    transition: background-color 0.2s;
+                    padding-left: 0;
+
+                    &:focus,
+                    &:hover {
+                        background-color: var(--light-color);
+                    }
+
+                    &::-webkit-details-marker {
+                        display: none;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 2px;
+                        right: 16px;
+                        width: 24px;
+                        height: 24px;
+                        border: none;
+                        border-width: unset;
+                        transform: unset;
+                        background: url(../../icons/plus-blue.svg);
+                        transition: transform 0.2s;
+
+                        @include media(mobile) {
+                            top: -2px;
+                            right: 0px;
+                        }
+                    }
+                }
+
+                .accordion-item-body {
+                    padding: 0 16px;
+                }
+
+                &[open] {
+                    summary {
+                        color: #fff;
+                        background: #242177;
+                        border-radius: 8px 8px 0px 0px;
+                        padding: 16px;
+                        padding-bottom: 8px;
+
+                        &::after {
+                            top: 15px;
+                            right: 25px;
+                            background: url(../../icons/mins-white.svg);
+                            transform: unset;
+                        }
+
+                        p {
+                            color: #fff;
+
+                            @include media(mobile) {
+                                padding-right: 45px;
+                            }
+                        }
+                    }
+
+                    .accordion-item-body {
+                        color: #fff;
+                        border: none;
+                        outline: none;
+                        margin-top: -1px;
+                        padding: 16px;
+                        padding-top: 0;
+                        border-radius: 0px 0px 8px 8px;
+                        background: #242177;
+                        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+
+                        p {
+                            @include font-style(14px, 20px, $primary-white, map.get($font-weights, regular), $Poppins);
+
+                            @include media(mobile) {
+                                @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $Poppins);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .accordion-item {
+                &.hidden {
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+    &>div:nth-child(3) {
+        grid-column: 2 / 2;
+        grid-row: 2;
+        margin-top: 52px;
+
+        @include media(mobile) {
+            margin-top: 16px;
+        }
+
+        .button-container {
+            margin: 0;
+            padding: 0;
+
+            a {
+                margin: 0;
+                padding: 0;
+                background: transparent;
+                color: #4338F3;
+                font-family: $Poppins;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                -webkit-text-decoration-skip: ink;
+                text-decoration-skip-ink: auto;
+                text-decoration-thickness: auto;
+                text-underline-position: from-font;
+                text-decoration: underline;
+                border: none;
+                white-space: unset;
+                overflow: hidden;
+            }
+        }
+    }
+}

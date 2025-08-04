@@ -783,6 +783,9 @@ button.swiper-pagination-bullet {
 .section.home-banner-container ul li:first-of-type {
   background: #242177;
 }
+.section.home-banner-container ul li:last-of-type {
+  display: none;
+}
 
 .home-banner .sub-home-banner {
   position: relative;
@@ -837,6 +840,7 @@ button.swiper-pagination-bullet {
   color: #2e2a94;
   font-size: 16px;
   font-weight: 600;
+  font-family: "Poppins", sans-serif;
   line-height: 20px;
   padding: 12px;
   background-color: #fff;
@@ -875,6 +879,7 @@ button.swiper-pagination-bullet {
   color: #2e2a94;
   font-size: 14px;
   line-height: 16px;
+  font-family: "Poppins", sans-serif;
   background-color: #fff;
   padding: 8px 12px;
   border-radius: 8px;
