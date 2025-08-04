@@ -24,17 +24,17 @@ export default function decorate(block) {
   const tempReturns = [];
   block.returns.forEach((ret, jind) => {
     if (jind === 0) {
-      for (const key in ret) {
+      [...Object.keys(ret)].forEach((key)=>{
         if (dataMapMoObj.ObjTemp[key]) {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
         }
-      }
+      })
     }
     finPlangrp.push((ret.plancode + ret.optioncode));
   });
 
   const DirectPlanlistArr = block.planList.filter((el) => {
-    if (el.planName === 'Regular' && finPlangrp.includes(el.groupedCode)) {
+    if (el.planName === planFlow && finPlangrp.includes(el.groupedCode)) {
       return el
     }
   });
