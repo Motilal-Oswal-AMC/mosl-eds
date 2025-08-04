@@ -933,17 +933,30 @@
   list-style: none;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
 }
 .our-funds-block .filter-cards .right-container .applied-filter-name {
+  display: flex;
+  align-items: center;
+  max-width: -moz-max-content;
+  max-width: max-content;
   border: 1px solid #bdbdbd;
-  border-radius: 50%;
+  border-radius: 1000px;
   padding: 4px 12px;
+}
+.our-funds-block .filter-cards .right-container .applied-filter-name span {
   font-size: 12px;
   line-height: 16px;
   color: #616161;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+}
+.our-funds-block .filter-cards .right-container .applied-filter-name img {
+  max-width: 24px;
+  width: 100%;
+  height: 24px;
+  cursor: pointer;
 }
 .our-funds-block .filter-cards .right-container .cards-container {
   display: flex;
