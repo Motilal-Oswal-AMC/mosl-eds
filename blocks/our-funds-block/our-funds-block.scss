@@ -105,6 +105,9 @@
           overflow: auto;
           list-style: none;
           display: none;
+          @include media(mobile){
+            height: 372px;
+          }
           &::-webkit-scrollbar {
             width: 5px;
           }

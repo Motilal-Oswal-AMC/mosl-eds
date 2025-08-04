@@ -123,6 +123,11 @@
   list-style: none;
   display: none;
 }
+@media (max-width: 768px) {
+  .our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search {
+    height: 372px;
+  }
+}
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search::-webkit-scrollbar {
   width: 5px;
 }
