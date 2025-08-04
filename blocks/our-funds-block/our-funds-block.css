@@ -57,12 +57,13 @@
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input {
   max-width: 81.2%;
   width: 100%;
-  padding: 8px 12px;
+  padding: 12px 8px;
   border-radius: 6px;
   border: 1px solid #9E9E9E;
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
 }
 @media (max-width: 1299px) {
   .our-funds-block .fundcontainer .search-trending-wrapper .search-input {
@@ -94,12 +95,76 @@
   width: 100%;
   font-size: 14px;
   line-height: 20px;
-  color: #616161;
+  color: #111;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   border: none;
   outline: none;
   background-color: transparent;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::-moz-placeholder {
+  color: #616161;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
+  color: #616161;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #EEE;
+  border-radius: 6px;
+  width: 100%;
+  margin: 0;
+  height: 352px;
+  overflow: auto;
+  list-style: none;
+  display: none;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search::-webkit-scrollbar {
+  width: 5px;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search::-webkit-scrollbar-track {
+  width: 5px;
+  background-color: #fff;
+  border-radius: 0 6px 6px 0;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #2e2a94;
+  border-radius: 0 6px 6px 0;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search .list-fund-name {
+  font-size: 14px;
+  line-height: 20px;
+  color: #111;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  border-bottom: 1px solid #EEE;
+  padding: 12px 36px;
+  cursor: pointer;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active {
+  border: 1px solid #1887D2;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active::after {
+  content: "";
+  background-image: url("../../icons/input-cancel.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 24px;
+  height: 24px;
+  display: block;
+  cursor: pointer;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active .search {
+  caret-color: #1887D2;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active .list-search {
+  display: block;
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .watchlist {
   display: flex;

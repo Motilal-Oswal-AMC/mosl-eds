@@ -38,7 +38,7 @@ export default function decorate(block) {
                 .querySelector(".block-subitem2 .block-subitem-finelsub1")
                 .textContent.trim(),
             }),
-            ul({class:"list-search", style:"display:none"},
+            ul({class:"list-search"},
               ...dataMapMoObj["funddata"].map((el)=>{
                 return li({class:"list-fund-name",schcode:el.schcode},el.schDetail.schemeName)
               })

@@ -54,12 +54,13 @@
         // max-width: 81.8%;
         max-width: 81.2%;
         width: 100%;
-        padding: 8px 12px;
+        padding: 12px 8px;
         border-radius: 6px;
         border: 1px solid map.get($strokes, default);
         display: flex;
         align-items: center;
         gap: 8px;
+        position: relative;
         @include media(desktop-sm) {
           max-width: 76.8%;
         }
@@ -82,10 +83,67 @@
         }
         .search {
           width: 100%;
-          @include font-style(14px, 20px, $text-body-2, 400, $Poppins);
+          @include font-style(14px, 20px, $neutrals-black, 500, $Poppins);
           border: none;
           outline: none;
           background-color: transparent;
+          &::placeholder {
+            color: $text-body-2;
+          }
+        }
+        .list-search {
+          position: absolute;
+          top: 52px;
+          left: 0;
+          z-index: 10;
+          background-color: $primary-white;
+          border: 1px solid $neutrals-200;
+          border-radius: 6px;
+          width: 100%;
+          margin: 0;
+          height: 352px;
+          overflow: auto;
+          list-style: none;
+          display: none;
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+          &::-webkit-scrollbar-track {
+            width: 5px;
+            background-color: $primary-white;
+            border-radius: 0 6px 6px 0;
+          }
+          &::-webkit-scrollbar-thumb {
+            width: 5px;
+            background-color: $primary-blue;
+            border-radius: 0 6px 6px 0;
+          }
+          .list-fund-name {
+            @include font-style(14px, 20px, $neutrals-black, 400, $Poppins);
+            border-bottom: 1px solid $neutrals-200;
+            padding: 12px 36px;
+            cursor: pointer;
+          }
+        }
+        &.search-active {
+          border: 1px solid map.get($strokes, typing);
+          &::after{
+            content: '';
+            background-image: url('../../icons/input-cancel.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-width: 24px;
+            height: 24px;
+            display: block;
+            cursor: pointer;
+          }
+          .search {
+            caret-color: map.get($strokes, typing);
+          }
+          .list-search{
+            display: block;
+          }
         }
       }
       .watchlist {
@@ -778,8 +836,8 @@
         }
       }
       .list-view-header {
-          @include media(mobile){
-            display: none;
+        @include media(mobile) {
+          display: none;
         }
         .list-header {
           .default-content-wrapper {
@@ -798,7 +856,7 @@
               width: 100%;
               margin-right: 47px;
               background-color: teal;
-              @include media(tab){
+              @include media(tab) {
                 margin: 0;
               }
             }
@@ -810,7 +868,7 @@
               align-items: center;
               gap: 8px;
               background-color: tan;
-              @include media(tab){
+              @include media(tab) {
                 margin: 0;
                 max-width: max-content;
               }
