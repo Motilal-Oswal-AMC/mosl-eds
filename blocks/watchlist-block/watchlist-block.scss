@@ -11,20 +11,12 @@
     padding: 0;
   }
 
-
-  // .watchlist-block-wrapper {
-  //   max-width: 1200px;
-  //   margin: 0 auto;
-  // }
-
   .watchlist-block.block {
     .card-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      // background: #f7f8ff;
       border-radius: 1rem;
-      // box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
       padding: 32px 0;
       gap: 16px;
       position: relative;
@@ -206,37 +198,9 @@
           border-radius: 8px;
           border: 0.845px solid #B9BBFF;
           z-index: 3;
-          // max-width: 504px;
           width: 100%;
           padding: 24px;
           margin-top: 45px;
-
-          // // Stacked background cards
-          // &::before,
-          // &::after {
-          //   content: "";
-          //   position: absolute;
-          //   top: -17px;
-          //   left: 20px;
-          //   border-radius: 0.75rem;
-          //   background: #fff;
-          //   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
-          //   z-index: -1;
-
-          // }
-
-          // &::before {
-          //   width: 464px;
-          //   height: 170px;
-          // }
-
-          // &::after {
-          //   width: 422px;
-          //   height: 170px;
-          //   top: -33px;
-          //   left: 41px;
-          //   z-index: -2;
-          // }
 
           .upper-right {
             display: flex;

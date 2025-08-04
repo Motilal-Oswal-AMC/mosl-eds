@@ -713,8 +713,8 @@
     ]
   },
   {
-    "id":"watchlist-block",
-    "fields":[
+    "id": "watchlist-block",
+    "fields": [
       {
         "component": "richtext",
         "name": "left",
@@ -729,7 +729,23 @@
         "label": "Enter Icon Label View Container",
         "valueType": "string"
       }
-
+    ]
+  },
+  {
+    "id": "broaden-your-research",
+    "fields": [
+      {
+        "component": "text",
+        "name": "Col Name",
+        "label": "Brand name"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Icon Container",
+        "valueType": "string"
+      }
     ]
   }
 ]
