@@ -14,10 +14,11 @@ import {
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 export default function decorate(block) {
-  // if (block.querySelector(".fund-toggle-wrap [type='checkbox']")) {
-  //       let planFlow =  block.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct"
-  //       console.log(planFlow);
-  // }
+  let planFlow = 'Direct';
+  if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
+    planFlow =  document.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct";    
+  }
+  console.log(planFlow);
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
   let finPlangrp = [];
   const tempReturns = [];

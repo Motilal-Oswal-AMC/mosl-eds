@@ -164,9 +164,9 @@ export default function decorate(block) {
                           if (event.target.closest(".indaneqsub")) {
                             let el =event.target.closest(".indaneqsub");
                             if (el.querySelector(".innerIndianEquity")) {
-                                  el.querySelectorAll(".innerIndianEquity input").forEach((elemsub)=>{
-                                    elemsub.checked = el.querySelector("input").checked
-                                  })
+                                el.querySelectorAll(".innerIndianEquity input").forEach((elemsub)=>{
+                                  elemsub.checked = el.querySelector("input").checked
+                                })
                             } 
                           }
                           checkfilter(block)
