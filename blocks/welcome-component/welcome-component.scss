@@ -15,9 +15,6 @@
         @include media(mobile) {
             flex-direction: column;
             gap: 40px;
-            // position: relative;
-            // padding: 24px;
-            // overflow: hidden;
         }
 
         ul {

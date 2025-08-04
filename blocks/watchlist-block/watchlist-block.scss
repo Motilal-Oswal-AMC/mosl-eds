@@ -1,41 +1,58 @@
 @use '../../styles/common-theme/css/variables_mixins' as *;
 @use '../../styles/common-theme/css/fluid-typography' as *;
 @use 'sass:map';
+
 .section.watchlist-block-container {
   padding: 3rem 2rem;
   background: #fff;
   font-family: 'Inter', sans-serif;
 
-  .watchlist-block-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+  @include media(mobile) {
+    padding: 0;
   }
+
+
+  // .watchlist-block-wrapper {
+  //   max-width: 1200px;
+  //   margin: 0 auto;
+  // }
 
   .watchlist-block.block {
     .card-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      background: #f7f8ff;
+      // background: #f7f8ff;
       border-radius: 1rem;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-      padding: 2rem;
-      gap: 2rem;
+      // box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      padding: 32px 0;
+      gap: 16px;
       position: relative;
 
-      @media (max-width: 768px) {
+      @include media(mobile) {
         flex-direction: column;
+        gap: 24px;
+        padding: 0;
+        position: relative;
+        padding-bottom: 68px;
       }
 
       .card-left {
+        max-width: 504px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         flex: 1;
+        padding-top: 31px;
+
+        @include media(mobile) {
+          padding: 0;
+        }
 
         .card-left-title {
           display: flex;
-          align-items: center;
-          gap: 1.5rem;
+          align-items: flex-start;
+          gap: 16px;
 
           .watchlist-logo {
             width: 64px;
@@ -47,37 +64,63 @@
             flex-direction: column;
 
             h2 {
-              font-size: 1.75rem;
-              font-weight: 700;
-              color: $primary-blue;
+              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
               margin: 0;
-              line-height: 1.3;
+
+              @include media(mobile) {
+                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+              }
             }
 
             .card-title-1 {
-              margin-top: 0.25rem;
-              font-weight: 600;
-              color: $primary-blue;
+              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+
+              @include media(mobile) {
+                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+              }
             }
           }
         }
 
         .button-wrapper {
-          margin-top: 1.5rem;
+          margin-top: 40px;
+
+          @include media(mobile) {
+            width: 100%;
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+          }
 
           .button-container {
-            margin-left: 64px; // aligns with text start
+            margin: 0;
+            padding: 0;
+            margin-left: 90px; // aligns with text start
+
+            @include media(mobile) {
+              margin: 0;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
 
             .button {
-              background: $primary-blue;
-              color: #fff;
-              padding: 0.75rem 1.5rem;
-              border-radius: 8px;
-              font-size: 1rem;
-              font-weight: 500;
+              margin: 0;
               text-decoration: none;
               display: inline-block;
+              display: flex;
+              width: 176px;
+              padding: 12px 12px;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              border-radius: 4px;
+              background: $primary-blue;
               transition: background 0.3s ease;
+              border: none;
+              @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
 
               &:hover {
                 background: #1f1f47;
@@ -87,125 +130,210 @@
         }
       }
 
-      .card-right {
+      .card-coner {
+        max-width: 552px;
+        width: 100%;
         position: relative;
-        background: #fff;
-        border-radius: 0.75rem;
-        padding: 1.5rem;
         flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        min-width: 300px;
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
-        z-index: 3;
+        padding-right: 48px;
+
+        @include media(tab) {
+          padding: 0;
+        }
+
 
         // Stacked background cards
         &::before,
         &::after {
           content: "";
           position: absolute;
-          top: 12px;
-          left: 12px;
+          top: 28px;
+          left: 20px;
+          border-radius: 8px;
+          border: 0.783px solid #B9BBFF;
+          background: #FFF;
+          box-shadow: 0px 0px 12.523px 0px rgba(0, 0, 0, 0.06);
+          z-index: 2;
+
+          @include media(mobile) {
+            top: 30px;
+            left: 14px;
+            right: 14px;
+          }
+
+        }
+
+        &::before {
+          max-width: 464px;
           width: 100%;
-          height: 100%;
-          border-radius: 0.75rem;
-          background: #fff;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
-          z-index: -1;
+          height: 170px;
+
+          @include media(mobile) {
+            max-width: unset;
+            width: -webkit-fill-available;
+          }
         }
 
         &::after {
-          top: 24px;
-          left: 24px;
-          z-index: -2;
+          max-width: 422px;
+          width: 100%;
+          height: 170px;
+          top: 12px;
+          left: 41px;
+          border: 0.713px solid #B9BBFF;
+          box-shadow: 0px 0px 11.405px 0px rgba(0, 0, 0, 0.06);
+          z-index: 1;
+
+          @include media(mobile) {
+            // max-width: 275px;
+            max-width: unset;
+            width: -webkit-fill-available;
+            top: 15px;
+            left: 32px;
+            right: 30px;
+          }
         }
 
-        .upper-right {
+        .card-right {
+          position: relative;
+          background: #fff;
+          flex: 1;
           display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
+          flex-direction: column;
+          justify-content: flex-start;
+          min-width: 300px;
+          box-shadow: 0px 0px 13.514px 0px rgba(0, 0, 0, 0.06);
+          border-radius: 8px;
+          border: 0.845px solid #B9BBFF;
+          z-index: 3;
+          // max-width: 504px;
+          width: 100%;
+          padding: 24px;
+          margin-top: 45px;
 
-          .fund-logo {
-            width: 48px;
-            height: 48px;
-            background: #eef1ff;
-            border-radius: 50%;
+          // // Stacked background cards
+          // &::before,
+          // &::after {
+          //   content: "";
+          //   position: absolute;
+          //   top: -17px;
+          //   left: 20px;
+          //   border-radius: 0.75rem;
+          //   background: #fff;
+          //   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+          //   z-index: -1;
+
+          // }
+
+          // &::before {
+          //   width: 464px;
+          //   height: 170px;
+          // }
+
+          // &::after {
+          //   width: 422px;
+          //   height: 170px;
+          //   top: -33px;
+          //   left: 41px;
+          //   z-index: -2;
+          // }
+
+          .upper-right {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: flex-start;
 
-            img {
-              width: 24px;
-              height: 24px;
+            .fund-logo {
+              width: 60px;
+              height: 60px;
+              background: #eef1ff;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              @include media(moblie) {
+                width: 40px;
+                height: 40px;
+              }
+
+              img {
+                width: 45px;
+                height: auto;
+
+                @include media(moblie) {
+                  width: 30px;
+                  height: auto;
+                }
+              }
+            }
+
+            .wishlist-icon {
+              ul {
+                display: flex;
+                gap: 0.5rem;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li:first-child {
+                  .icon {
+                    width: 32px;
+                    height: 32px;
+
+                    img {
+                      width: 100%;
+                      height: auto;
+                    }
+                  }
+                }
+
+                li:nth-child(2) {
+                  display: none;
+                }
+              }
             }
           }
 
-          .wishlist-icon ul {
-            display: flex;
-            gap: 0.5rem;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+          .lower-right {
+            width: 70%;
+            margin-top: 1rem;
 
-            .icon img {
-              width: 28px;
-              height: 28px;
+            .fund-name-card {
+              p {
+                margin: 0;
+                @include font-style(16px, 20px, map-get($map: $blue-1, $key: b400), map.get($font-weights, medium), $Poppins);
+              }
+
+              .fund-name {
+                max-width: 240px;
+                @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $Poppins);
+              }
             }
           }
-        }
 
-        .lower-right {
-          margin-top: 1rem;
+          .fund-returns {
+            position: absolute;
+            right: rem(24px);
+            bottom: rem(40px);
+            text-align: left;
 
-          .fund-name-card {
             p {
               margin: 0;
-              font-size: 0.875rem;
-              font-weight: 600;
-              color: map-get($map: $blue-1, $key:b400 ); // lighter "Motilal Oswal"
+              @include font-style(12px, 16px, #111, map.get($font-weights, medium), $Poppins);
             }
 
-            .fund-name {
-              font-size: 1rem;
-              color: $primary-blue;
-              font-weight: 500;
-              margin-top: 0.25rem;
-            }
-          }
-        }
+            .returns {
+              display: flex;
+              flex-direction: row;
 
-        .fund-returns {
-          position: absolute;
-          right: 1.5rem;
-          bottom: 1.5rem;
-          text-align: right;  
+              .returns-percent {
+                @include font-style(24px, 32px, $primary-blue, map.get($font-weights, semibold), $Poppins);
+              }
 
-          p {
-            margin: 0;
-            font-size: 0.875rem;
-            color: #111111;
-          }
-
-          .returns {
-            display: flex;
-            flex-direction: row;
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #2b2c5c;
-            .returns-percent{
-              color: $primary-blue;
-              font-family: $Poppins;
-              font-size: 24px;
-              font-weight: 600;
-              line-height: 32px; /* 133.333% */
-            }
-            .returns-percentage {
-              color: #2E2A94;
-              font-family: $Poppins;
-              font-size:  24px;
-              font-weight: 300;
-              line-height: 32px;
+              .returns-percentage {
+                @include font-style(24px, 32px, $primary-blue, map.get($font-weights, light), $Poppins);
+              }
             }
           }
         }
