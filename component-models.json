@@ -707,5 +707,47 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "fdp-card",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col1_title",
+        "label": "Inter card description"
+      },
+      {
+        "component": "text",
+        "name": "col1_title",
+        "label": "Inter return text for card"
+      },
+      {
+        "component": "text",
+        "name": "col1_title",
+        "label": "Inter Tracking text for card"
+      },
+       {
+        "component": "text",
+        "name": "col2_title",
+        "label": "Inter NAV text for card"
+      },
+      {
+        "component": "text",
+        "name": "col2_title",
+        "label": "Inter AUM text for card"
+      },
+      {
+       "component": "aem-content",
+        "name": "col2_link",
+        "label": "Link"
+      },
+      {
+        "component": "richtext",
+        "name": "col2_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   }
 ]
