@@ -713,27 +713,27 @@
     "fields": [
       {
         "component": "text",
-        "name": "col1_title",
+        "name": "col1_title_description",
         "label": "Inter card description"
       },
       {
         "component": "text",
-        "name": "col1_title",
+        "name": "col1_title_return",
         "label": "Inter return text for card"
       },
       {
         "component": "text",
-        "name": "col1_title",
+        "name": "col1_title_Tracking",
         "label": "Inter Tracking text for card"
       },
        {
         "component": "text",
-        "name": "col2_title",
+        "name": "col2_title_NAV",
         "label": "Inter NAV text for card"
       },
       {
         "component": "text",
-        "name": "col2_title",
+        "name": "col2_title_AUM",
         "label": "Inter AUM text for card"
       },
       {
