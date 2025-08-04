@@ -449,6 +449,49 @@ export default function decorate(block) {
   let divinner = block.querySelector(".indaneqsub .innerIndianEquity");
   block.querySelector(".indaneqsub").innerHTML = "";
   block.querySelector(".indaneqsub").append(divmop,divinner)
+
+  // Search
+  let currentFocus = -1;
+  let searchInput = block.querySelector(".search-input .search");
+  const searchResults = block.querySelector('.search-input .list-search');
+  const schemeNames = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    searchResults.style.display = "block";
+    searchResults.innerHTML = '';
+    currentFocus = -1;
+    const filtered = query ? schemeNames.filter(name => name.toLowerCase().includes(query)) : schemeNames;
+    filtered.forEach(name => {
+      const li = document.createElement('li');
+      li.classList.add("list-fund-name")
+      li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
+      li.addEventListener('click', () => {
+        searchInput.value = name;
+        selectedFund = dataMapMoObj["funddata"].find(f => f.schDetail.schemeName === name);
+        searchResults.innerHTML = '';
+       searchResults.style.display = "none";
+      });
+      searchResults.appendChild(li);
+    });
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    const items = searchResults.querySelectorAll('li');
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); }
+    else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); }
+    else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click(); }
+    else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
+  });
+
+  function addActive(items) {
+    if (!items) return;
+    items.forEach(i => i.classList.remove('active'));
+    if (currentFocus >= items.length) currentFocus = items.length - 1;
+    if (currentFocus < 0) currentFocus = 0;
+    items[currentFocus].classList.add('active');
+    items[currentFocus].scrollIntoView({ block: 'nearest' });
+  }
   
 }
 
