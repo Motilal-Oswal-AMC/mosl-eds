@@ -1,6 +1,6 @@
 /* eslint-disable */
 import dataCfObj from "../../scripts/dataCfObj.js";
-import { div, input, label, span, p, button } from "../../scripts/dom-helpers.js";
+import { div, input, label, span, p, button, ul,li } from "../../scripts/dom-helpers.js";
 import dataMapMoObj from "../../scripts/constant.js";
 import fundcardblock from "../fund-card/fund-card.js";
 import listviewblock from '../list-view-card/list-view-card.js'
@@ -37,7 +37,12 @@ export default function decorate(block) {
               placeholder: block
                 .querySelector(".block-subitem2 .block-subitem-finelsub1")
                 .textContent.trim(),
-            })
+            }),
+            ul({class:"list-search", style:"display:none"},
+              ...dataMapMoObj["funddata"].map((el)=>{
+                return li({class:"list-fund-name",schcode:el.schcode},el.schDetail.schemeName)
+              })
+            )
           ),
           div(
             { class: "watchlist" },
