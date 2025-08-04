@@ -394,7 +394,13 @@ export default function decorate(block) {
               p("Direct"),
               div(
                 { class: "fund-toggle-wrap" },
-                input({ type: "checkbox", id: "toggle" }),
+                input({ 
+                  type: "checkbox", 
+                  id: "toggle",
+                  onclick:(event)=>{
+                    checkfilter(block);
+                  }
+                 }),
                 label({ class: "fund-toggle", for: "toggle" })
               ),
               p("Regular")
@@ -648,7 +654,6 @@ function checkfilter(block){
       })
      }
   })
-  console.log(tempData);
   dataMapMoObj["funddata"] = []
   dataMapMoObj["funddata"] = dataCfObj.filter((el,index)=>{
     if (tempData.length > 0) {
