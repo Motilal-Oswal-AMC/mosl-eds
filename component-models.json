@@ -166,6 +166,11 @@
             "value": "table-wrapper"
           }
         ]
+      },
+      {
+        "component": "text",
+        "name": "id",
+        "label": "Enter Section Id"
       }
     ]
   },

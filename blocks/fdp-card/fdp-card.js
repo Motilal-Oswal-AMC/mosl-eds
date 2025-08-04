@@ -115,5 +115,18 @@ export default function decorate(block) {
   );
 
     block.innerHTML = "";
-    block.append(cardContainer)
+    block.append(cardContainer);
+
+
+    document.querySelectorAll('.table-wrapper').forEach((el) => {
+    document.querySelector('.item2').append(el);
+  });
+  document.querySelectorAll('.section .item2 ul li a').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');// scrollMap[];
+      const target = document.querySelector(`.section[data-id="${targetId}"]`);
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 }
