@@ -128,7 +128,13 @@ export default function decorate(block) {
               class: "filter-sort-container"
             },
             div({
-                class: "filter-wrapper"
+                class: "filter-wrapper",
+                onclick:()=>{
+                  block.querySelector(".filter-overlay").classList.add('active')
+                  if (Array.from(block.querySelector(".sort-overlay").classList).includes('active')) {
+                    block.querySelector(".sort-overlay").classList.remove('active') 
+                  }
+                }
               },
               block.querySelector(".block-item2 .block-subitem-finelsub1 span"),
               label(
@@ -138,7 +144,13 @@ export default function decorate(block) {
               )
             ),
             div({
-                class: "sort-wrapper"
+                class: "sort-wrapper",
+                onclick:()=>{
+                  block.querySelector(".sort-overlay").classList.add('active')
+                  if (Array.from(block.querySelector(".filter-overlay").classList).includes('active')) {
+                    block.querySelector(".filter-overlay").classList.remove('active') 
+                  }
+                }
               },
               block.querySelector(".block-item2 .block-subitem-finelsub3 span"),
               label(
@@ -288,7 +300,13 @@ export default function decorate(block) {
                   class: "apply-wrapper"
                 },
                 button({
-                  class: "close-btn"
+                  class: "close-btn",
+                  onclick:(event)=>{
+                    console.log(event.target);
+                    
+                  block.querySelector(".filter-overlay").classList.remove('active')
+                  block.querySelector(".sort-overlay").classList.remove('active')
+                }
                 }, "Close"),
                 button({
                   class: "apply-btn"
@@ -459,8 +477,8 @@ export default function decorate(block) {
               div({
                   class: "close-apply-btn"
                 },
-                button("close"),
-                button("Apply")
+                button({class:"closebtn"},"close"),
+                button({class:"applybtn"},"Apply")
               )
             )
           )
@@ -678,6 +696,10 @@ export default function decorate(block) {
       searchInput.value = selectedFundName;
     }
   });
+
+  searchInput.addEventListener('focus:out',()=>{
+    searchResults.style.display = "none";
+  })
 
   function addActive(items) {
     if (!items) return;

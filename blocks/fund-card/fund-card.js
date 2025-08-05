@@ -39,6 +39,7 @@ export default function decorate(block) {
   });
   let classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : " not-provided"
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
+  let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
   if ([...block.fundsTaggingSection].includes("NFO")) {
     const NfocardContainer = div(
       { class: "nfo-card-container card-container" },
@@ -111,22 +112,14 @@ export default function decorate(block) {
           ),
           div(
             { class: "planlist-dropdown", style: "display:" + classdropdown },
-            select(
-              {
-                onchange: (event) => {
-                  planListEvent(event, block);
-                },
-                "aria-label": "Select Investment Plan",
-              },
-              ...DirectPlanlistArr.map((el) =>
-                option(
-                  {
-                    value: el.groupedCode,
-                  },
-                  el.optionName
-                )
+             p({class:"selectedtext"},optionName),
+             ul(
+              ...DirectPlanlistArr?.map((el,index) =>{
+                  return li({value: el.groupedCode},el.optionName)
+                }
               )
-            )
+             )
+            
           ),
           div(
             { class: "dis-investor" },
@@ -233,24 +226,17 @@ export default function decorate(block) {
             ...fundsTaggingSection.map((eloption) => li(toTitleCase(eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' ')))),
           ),
         ),
-        div({
-            class: 'planlist-dropdown',
-            style: "display:" + classdropdown
-          },
-          select({
-              onchange: (event) => {
-                // console.log(event.target.value);
-                // console.log(event.target.closest('.card-wrapper').querySelector('.cagr-container .cagr-dropdown'));
-                // console.log(block.returns, block.planList, block.schDetail.schemeName);
-                planListEvent(event, block);
-              },
-              "aria-label": "Select Investment Plan"
-            },
-            ...DirectPlanlistArr.map((el) => option({
-              value: el.groupedCode,
-            }, el.optionName)),
+         div(
+            { class: "planlist-dropdown", style: "display:" + classdropdown },
+             p({class:"selectedtext"},optionName),
+             ul(
+              ...DirectPlanlistArr?.map((el,index) =>{
+                  return li({value: el.groupedCode},el.optionName)
+                }
+              )
+             )
+            
           ),
-        ),
       ),
       div({
           class: 'cagr-container ' + classplan
