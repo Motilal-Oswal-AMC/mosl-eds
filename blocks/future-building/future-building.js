@@ -46,4 +46,10 @@ export default function decorate(block) {
             }
         },
     });
+
+    [...block.querySelectorAll("picture")].forEach((el)=>{
+        el.querySelector("img").addEventListener("click",()=>{
+            
+        })
+    })
 }

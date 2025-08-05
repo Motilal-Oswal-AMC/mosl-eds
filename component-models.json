@@ -333,6 +333,11 @@
         "label": "Alt Text"
       },
       {
+        "component": "aem-content",
+        "name": "youtube-link",
+        "label": "youtube-link"
+      },
+      {
         "component": "richtext",
         "name": "description",
         "label": "Future Building Item Description",
