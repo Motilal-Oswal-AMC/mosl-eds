@@ -334,8 +334,13 @@
       },
       {
         "component": "aem-content",
-        "name": "youtube-link",
-        "label": "youtube-link"
+        "name": "you_link",
+        "label": "Enter Link for Button"
+      },
+      {
+        "component": "text",
+        "name": "you_linkText",
+        "label": "Enter Text Button"
       },
       {
         "component": "richtext",
