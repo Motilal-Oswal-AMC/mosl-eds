@@ -928,6 +928,12 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
+.our-funds-block .filter-cards .right-container .applied-filter-wrap {
+  display: none;
+}
+.our-funds-block .filter-cards .right-container .applied-filter-wrap.filter-active {
+  display: block;
+}
 .our-funds-block .filter-cards .right-container .applied-filter-list {
   margin: 0;
   padding: 0 0 20px;
