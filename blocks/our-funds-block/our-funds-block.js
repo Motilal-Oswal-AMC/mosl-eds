@@ -155,8 +155,10 @@ export default function decorate(block) {
                             id: "ind" + (ind + 1),
                             dataattr: elme[Object.keys(elme)].join("-"),
                             onclick: (event) => {
-                              checkfilter(block);
-
+                              checkfilter(block); 
+                              console.log(block.querySelector(".applied-filter-list"));
+                              
+                              // <li class="applied-filter-name"><span>Large Cap</span><img src="../../icons/cross-icon.svg" alt="cross icon"></li>
                               // viewFunction(block);
                             },
                           }),
@@ -492,7 +494,7 @@ export default function decorate(block) {
       li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
       li.addEventListener('click', () => {
         searchInput.value = name;
-        selectedFund = dataMapMoObj["funddata"].find(f => f.schDetail.schemeName === name);
+        // selectedFund = dataMapMoObj["funddata"].find(f => f.schDetail.schemeName === name);
         searchResults.innerHTML = '';
        searchResults.style.display = "none";
       });
