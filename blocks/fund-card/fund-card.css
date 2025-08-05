@@ -99,7 +99,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
-.section .card-container .card-category .planlist-dropdown select {
+.section .card-container .card-category .planlist-dropdown p {
   font-size: 12px;
   line-height: 16px;
   color: #242177;
