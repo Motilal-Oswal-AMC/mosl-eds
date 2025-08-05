@@ -573,6 +573,16 @@ export default function decorate(block) {
                 block
                 .querySelector(".block-item3 .block-subitem-finelsub1")
                 .textContent.trim()
+              ),
+              div({class:"sort-select-container"},
+                p({class:"selectedtext"},'Popular'),
+                ul({ class: "dropdown-list" },
+                  li('Popular'),
+                  li('Latest NAV'),
+                  li('Lastest by 1 day'),
+                  li('Oldest to Newest'),
+                  li('Newest to Oldest'),
+                )
               )
             ),
             div({
@@ -582,6 +592,17 @@ export default function decorate(block) {
                 block
                 .querySelector(".block-item3 .block-subitem-finelsub2")
                 .textContent.trim()
+              ),
+              div({class:"return-select-container"},
+                p({class:"selectedtext"},'1 year'),
+                ul({ class: "dropdown-list" },
+                  li('1 year'),
+                  li('3 year'),
+                  li('5 year'),
+                  li('7 year'),
+                  li('10 year'),
+                  li('Since Inception')
+                )
               )
             )
           ),

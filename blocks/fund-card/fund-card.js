@@ -111,12 +111,27 @@ export default function decorate(block) {
             )
           ),
           div(
-            { class: "planlist-dropdown", style: "display:" + classdropdown },
-            p({ class: "selectedtext" }, optionName),
+            { class: "planlist-dropdown", 
+              style: "display:" + classdropdown,},
+            p({
+               class: "selectedtext",
+               onclick:(event)=>{
+                console.log(event.target);
+                 event.target.nextElementSibling.classList.add("dropdown-active");
+              }
+               }, optionName),
             ul(
               { class: "dropdown-list" },
               ...DirectPlanlistArr?.map((el, index) => {
-                return li({ value: el.groupedCode }, el.optionName);
+                return li({
+                   value: el.groupedCode,
+                   onclick:(event)=>{
+                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active")
+                      let name = event.currentTarget.textContent.trim();
+                      event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = "";
+                      event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = name;
+                    }
+                   }, el.optionName);
               })
             )
           ),
@@ -244,12 +259,27 @@ export default function decorate(block) {
           )
         ),
         div(
-          { class: "planlist-dropdown", style: "display:" + classdropdown },
-          p({ class: "selectedtext" }, optionName),
+          { class: "planlist-dropdown", 
+            style: "display:" + classdropdown,
+           },
+          p({ 
+            class: "selectedtext",
+            onclick:(event)=>{
+              console.log(event.target);
+               event.target.nextElementSibling.classList.add("dropdown-active");
+            }
+           }, optionName),
           ul(
             { class: "dropdown-list" },
             ...DirectPlanlistArr?.map((el, index) => {
-              return li({ value: el.groupedCode }, el.optionName);
+              return li({ 
+                value: el.groupedCode,
+                onclick:(event)=>{
+                  event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
+                  event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = "";
+                  event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = event.currentTarget.textContent.trim();
+                }
+               }, el.optionName);
             })
           )
         )
@@ -267,7 +297,12 @@ export default function decorate(block) {
             {
               class: "cagr-select-wrapper",
             },
-            p({ class: "selectedtext" }, tempReturns[0]),
+            p({ 
+              class: "selectedtext",
+              onclick:(event)=>{
+                event.target.nextElementSibling.classList.add("dropdown-active");
+              }
+             }, tempReturns[0]),
             ul(
               { class: "dropdown-list" },
               ...tempReturns.map((eloption) =>
@@ -275,6 +310,15 @@ export default function decorate(block) {
                   {
                     class: "returnyears",
                     value: dataMapMoObj.ObjTemp[eloption],
+                    onclick:(event)=>{
+                      const cgarValue = block.returns[0][event.target.getAttribute("value")];
+                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = "";
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = event.currentTarget.textContent.trim();
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
+                    }
                   },
                   eloption
                 )
@@ -394,12 +438,29 @@ function planListEvent(param, block) {
         {
           class: "cagr-select-wrapper",
         },
-        p({ class: "selectedtext" }, tempReturns[0]),
+        p({ 
+          class: "selectedtext",
+          onclick:(event)=>{
+                event.target.nextElementSibling.classList.add("dropdown-active");
+          }
+         }, tempReturns[0]),
         ul(
           { class: "dropdown-list" },
           ...tempReturns.map((eloption) =>
             li(
-              { class: "returnyears", value: dataMapMoObj.ObjTemp[eloption] },
+              { 
+                class: "returnyears", 
+                value: dataMapMoObj.ObjTemp[eloption],
+                onclick:(event)=>{
+                      const cgarValue = block.returns[0][event.target.getAttribute("value")];
+                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = "";
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = event.currentTarget.textContent.trim();
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
+                }
+              },
               eloption
             )
           )
