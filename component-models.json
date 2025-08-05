@@ -333,9 +333,9 @@
         "label": "Alt Text"
       },
       {
-        "component": "aem-content",
-        "name": "You-link",
-        "label": "You-link"
+        "component": "text",
+        "name": "image_link",
+        "label": "Image Link"
       },
       {
         "component": "text",

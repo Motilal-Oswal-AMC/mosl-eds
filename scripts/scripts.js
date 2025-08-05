@@ -135,6 +135,7 @@ async function loadLazy(doc) {
   autolinkModals(doc)
   const main = doc.querySelector('main');
   autolinkFragements(doc);
+  wrapImgsInLinks(doc);
   await loadSections(main);
 
   const { hash } = window.location;
@@ -222,6 +223,16 @@ window.addEventListener('load', () => {
 });
 
 // Fragment 15 Apr 25
+function wrapImgsInLinks(container) {
+  const pictures = container.querySelectorAll('picture');
+  pictures.forEach((pic) => {
+    const link = pic.nextElementSibling;
+    if (link && link.tagName === 'A' && link.href) {
+      link.innerHTML = pic.outerHTML;
+      pic.replaceWith(link);
+    }
+  });
+}
 
 function autolinkFragements(element) {
   element.querySelectorAll('a').forEach((origin) => {
