@@ -993,6 +993,12 @@
     max-width: 100%;
   }
 }
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container {
+  border-radius: 8px;
+  border: 1px solid #b9bbff;
+  background-color: #2e2a94;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
+}
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .right-container .list-view-header {
     display: none;

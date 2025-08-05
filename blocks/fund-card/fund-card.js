@@ -41,7 +41,7 @@ export default function decorate(block) {
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   if ([...block.fundsTaggingSection].includes("NFO")) {
     const NfocardContainer = div(
-      { class: "nfo-card-container" },
+      { class: "nfo-card-container card-container" },
       div(
         { class: "card-wrapper" },
         div(

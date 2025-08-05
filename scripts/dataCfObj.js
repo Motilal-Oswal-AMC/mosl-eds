@@ -49,6 +49,7 @@ const dataCfObj = [
     entryLoad: '<p>NIL</p>\n',
     typeOfScheme: 'An open ended equity scheme predominantly investing in mid cap stocks',
     fundsTaggingSection: [
+      "NFO",
       'motilal-oswal:indian-equity-',
       'motilal-oswal:large-and-mid-cap',
       'motilal-oswal:active',
