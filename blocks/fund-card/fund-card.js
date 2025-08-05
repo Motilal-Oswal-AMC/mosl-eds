@@ -112,14 +112,13 @@ export default function decorate(block) {
           ),
           div(
             { class: "planlist-dropdown", style: "display:" + classdropdown },
-             p({class:"selectedtext"},optionName),
-             ul(
-              ...DirectPlanlistArr?.map((el,index) =>{
-                  return li({value: el.groupedCode},el.optionName)
-                }
-              )
-             )
-            
+            p({ class: "selectedtext" }, optionName),
+            ul(
+              { class: "dropdown-list" },
+              ...DirectPlanlistArr?.map((el, index) => {
+                return li({ value: el.groupedCode }, el.optionName);
+              })
+            )
           ),
           div(
             { class: "dis-investor" },
@@ -143,10 +142,7 @@ export default function decorate(block) {
               { class: "nfo-container" },
               span({ class: "label-nfo" }, "NFO")
             ),
-            div(
-              { class: "timing-container" },
-              p("02 days 20 hrs 20 mins left")
-            )
+            div({ class: "timing-container" }, p("02 days 20 hrs 20 mins left"))
           )
         ),
         div(
@@ -158,163 +154,217 @@ export default function decorate(block) {
     );
     return NfocardContainer;
   }
-  const cardContainer = div({
-      class: 'card-container'
+  const cardContainer = div(
+    {
+      class: "card-container",
     },
-    div({
-        class: 'card-wrapper'
+    div(
+      {
+        class: "card-wrapper",
       },
-      div({
-          class: 'card-upper-title'
+      div(
+        {
+          class: "card-upper-title",
         },
-        div({
-            class: "title-headLogo"
+        div(
+          {
+            class: "title-headLogo",
           },
-          div({
-              class: 'title title-logo'
+          div(
+            {
+              class: "title title-logo",
             },
             img({
               class: "logoScheme",
               src: "../../icons/Group.svg",
-              alt: "BrandLogo"
+              alt: "BrandLogo",
             })
           ),
-          div({
-              class: 'star',
+          div(
+            {
+              class: "star",
               onclick: (event) => {
-                if (!Array.from(event.target.parentElement.classList).includes('star-filled')) {
-                  event.target.parentElement.classList.add('star-filled');
+                if (
+                  !Array.from(event.target.parentElement.classList).includes(
+                    "star-filled"
+                  )
+                ) {
+                  event.target.parentElement.classList.add("star-filled");
                 } else {
-                  event.target.parentElement.classList.remove('star-filled');
+                  event.target.parentElement.classList.remove("star-filled");
                 }
-                wishlist(block)
+                wishlist(block);
               },
-              schcode: block.schcode
+              schcode: block.schcode,
             },
             img({
-              class: 'star-icon',
-              src: '../../icons/star.svg',
-              alt: "star-icon"
+              class: "star-icon",
+              src: "../../icons/star.svg",
+              alt: "star-icon",
             }),
             img({
-              class: 'fillstar-icon',
-              src: '../../icons/star-filled.svg',
-              alt: "fillstar-icon"
-            }),
-          ),
+              class: "fillstar-icon",
+              src: "../../icons/star-filled.svg",
+              alt: "fillstar-icon",
+            })
+          )
         ),
-        div({
-            class: "title-subtitle"
+        div(
+          {
+            class: "title-subtitle",
           },
           p("Motilal Oswal"),
-          div({
-              class: 'title title-logo'
+          div(
+            {
+              class: "title title-logo",
             },
-            h2(block.schDetail.schemeName.replaceAll("Motilal Oswal","")),
-          ),
+            h2(block.schDetail.schemeName.replaceAll("Motilal Oswal", ""))
+          )
         )
       ),
-      div({
-          class: 'card-category'
+      div(
+        {
+          class: "card-category",
         },
-        div({
-            class: 'fund-tagging'
+        div(
+          {
+            class: "fund-tagging",
           },
-          ul({
-              class: 'fundtagging-list'
+          ul(
+            {
+              class: "fundtagging-list",
             },
-            ...fundsTaggingSection.map((eloption) => li(toTitleCase(eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' ')))),
-          ),
-        ),
-         div(
-            { class: "planlist-dropdown", style: "display:" + classdropdown },
-             p({class:"selectedtext"},optionName),
-             ul(
-              ...DirectPlanlistArr?.map((el,index) =>{
-                  return li({value: el.groupedCode},el.optionName)
-                }
+            ...fundsTaggingSection.map((eloption) =>
+              li(
+                toTitleCase(
+                  eloption.replaceAll("motilal-oswal:", "").replaceAll("-", " ")
+                )
               )
-             )
-            
-          ),
-      ),
-      div({
-          class: 'cagr-container ' + classplan
-        },
-        div({
-            class: 'cagr-dropdown'
-          },
-          label('Annualised'),
-          div({
-              class: 'cagr-select-wrapper'
-            },
-            p({class:"selectedtext"},tempReturns[0]),
-            ul(
-              ...tempReturns.map((eloption) => option({class:"returnyears",value: dataMapMoObj.ObjTemp[eloption]}, eloption)),
-            ),
-          ),
+            )
+          )
         ),
-        div({
-            class: 'cagr-value'
+        div(
+          { class: "planlist-dropdown", style: "display:" + classdropdown },
+          p({ class: "selectedtext" }, optionName),
+          ul(
+            { class: "dropdown-list" },
+            ...DirectPlanlistArr?.map((el, index) => {
+              return li({ value: el.groupedCode }, el.optionName);
+            })
+          )
+        )
+      ),
+      div(
+        {
+          class: "cagr-container " + classplan,
+        },
+        div(
+          {
+            class: "cagr-dropdown",
           },
-          h2(`${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+          label("Annualised"),
+          div(
+            {
+              class: "cagr-select-wrapper",
+            },
+            p({ class: "selectedtext" }, tempReturns[0]),
+            ul(
+              { class: "dropdown-list" },
+              ...tempReturns.map((eloption) =>
+                li(
+                  {
+                    class: "returnyears",
+                    value: dataMapMoObj.ObjTemp[eloption],
+                  },
+                  eloption
+                )
+              )
+            )
+          )
+        ),
+        div(
+          {
+            class: "cagr-value",
+          },
+          h2(
+            `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
             span("%")
           ),
-          p({
-            class: 'scheme-yet',
-            style: 'display:none'
-          }, 'Scheme is yet to complete 10 Years'),
-          p({
-            class: 'cagr-date'
-          }, '15th Mar 2020'),
+          p(
+            {
+              class: "scheme-yet",
+              style: "display:none",
+            },
+            "Scheme is yet to complete 10 Years"
+          ),
+          p(
+            {
+              class: "cagr-date",
+            },
+            "15th Mar 2020"
+          )
         ),
-        div({
-            class: 'cagr-desc'
+        div(
+          {
+            class: "cagr-desc",
           },
-          span('Return is not provided because thescheme has not completed 6 months'),
-        ),
+          span(
+            "Return is not provided because thescheme has not completed 6 months"
+          )
+        )
       ),
-      div({
-          class: 'risk-container',
-          style:"display:none"
+      div(
+        {
+          class: "risk-container",
+          style: "display:none",
         },
-        label('Risk Factor'),
-        span(block.risk.riskType),
+        label("Risk Factor"),
+        span(block.risk.riskType)
       ),
-      div({
-          class: 'discription'
+      div(
+        {
+          class: "discription",
         },
-        p({
-            class: 'dis-choosen'
+        p(
+          {
+            class: "dis-choosen",
           },
           // 'Chosen by ',
-          div({
-            class: 'dis-investor'
-          }, 
-          img({
-            class:"icon person",
-            src:"../../icons/Icon.svg"
-          }),
-          span('2.7 lakh investors')
+          div(
+            {
+              class: "dis-investor",
+            },
+            img({
+              class: "icon person",
+              src: "../../icons/Icon.svg",
+            }),
+            span("2.7 lakh investors")
           ),
           img({
-            class:"riskfactor-icon",
-            src:"../../icons/Risk-o-meter.svg",
-            alt:"risk icon"
+            class: "riskfactor-icon",
+            src: "../../icons/Risk-o-meter.svg",
+            alt: "risk icon",
           })
-        ),
+        )
       ),
-      div({
-          class: 'button-container'
+      div(
+        {
+          class: "button-container",
         },
-        button({
-          class: 'know-more'
-        }, 'Know More'),
-        button({
-          class: 'invest-now'
-        }, 'Invest'),
-      ),
-    ),
+        button(
+          {
+            class: "know-more",
+          },
+          "Know More"
+        ),
+        button(
+          {
+            class: "invest-now",
+          },
+          "Invest"
+        )
+      )
+    )
   );
   return cardContainer;
 }
@@ -335,19 +385,27 @@ function planListEvent(param, block) {
   param.target.closest('.card-wrapper').querySelector('.cagr-container').innerHTML = '';
   if (codeTempArr.includes(param.target.value) && tempReturns.length !== 0) {
     param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
-    let dropdown = div({
-        class: 'cagr-dropdown',
+    let dropdown = div(
+      {
+        class: "cagr-dropdown",
       },
-      label('Annualised'),
-      div({
-          class: "cagr-select-wrapper"
+      label("Annualised"),
+      div(
+        {
+          class: "cagr-select-wrapper",
         },
-        p({class:"selectedtext"},tempReturns[0]),
+        p({ class: "selectedtext" }, tempReturns[0]),
         ul(
-         ...tempReturns.map((eloption) => option({class:"returnyears",value: dataMapMoObj.ObjTemp[eloption]}, eloption)),
-        ),
+          { class: "dropdown-list" },
+          ...tempReturns.map((eloption) =>
+            li(
+              { class: "returnyears", value: dataMapMoObj.ObjTemp[eloption] },
+              eloption
+            )
+          )
+        )
       )
-    )
+    );
     let dropvalue = div({
         class: 'cagr-value',
       },
