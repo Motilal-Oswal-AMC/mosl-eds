@@ -1,3 +1,80 @@
 {
-  "extends": ["stylelint-config-standard"]
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+    "stylelint-config-recommended-scss"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "scss/at-extend-no-missing-placeholder": null,
+    "scss/at-function-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "scss/at-import-no-partial-leading-underscore": null,
+    "scss/at-import-partial-extension-blacklist": ["scss"],
+    "scss/at-mixin-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-colon-space-after": "always",
+    "scss/dollar-variable-colon-space-before": "never",
+    "scss/dollar-variable-pattern": "^_?[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "scss/percent-placeholder-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "scss/selector-no-redundant-nesting-selector": true,
+    
+    "at-rule-no-unknown": null,
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["stylelint-commands"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never",
+    "function-name-case": "lower",
+    "function-url-quotes": "always",
+    "length-zero-no-unit": true,
+    "max-nesting-depth": 4,
+    "no-duplicate-selectors": true,
+    "no-empty-source": true,
+    "number-leading-zero": "always",
+    "number-no-trailing-zeros": true,
+    "property-case": "lower",
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "selector-class-pattern": [
+      "^[a-z0-9]+(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+      {
+        "message": "Expected class selector to follow BEM naming pattern"
+      }
+    ],
+    "selector-id-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "selector-max-compound-selectors": 4,
+    "selector-max-id": 0,
+    "selector-no-qualifying-type": true,
+    "selector-pseudo-class-case": "lower",
+    "selector-pseudo-element-case": "lower",
+    "selector-pseudo-element-colon-notation": "double",
+    "shorthand-property-no-redundant-values": true,
+    "string-quotes": "single",
+    "unit-case": "lower",
+    "value-keyword-case": "lower",
+    "value-list-comma-space-after": "always-single-line",
+    "value-list-comma-space-before": "never"
+  },
+  "ignoreFiles": [
+    "**/*.css",
+    "**/*.min.css",
+    "**/*.map",
+    "dist/**/*",
+    "build/**/*",
+    "coverage/**/*",
+    "node_modules/**/*"
+  ]
 }

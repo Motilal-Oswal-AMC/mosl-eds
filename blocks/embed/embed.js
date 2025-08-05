@@ -92,7 +92,7 @@ export const loadEmbed = (block, link, autoplay) => {
 export default function decorate(block) {
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
-  block.textContent = '';
+  // block.textContent = '';
 
   if (placeholder) {
     const wrapper = document.createElement('div');
