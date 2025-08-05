@@ -575,8 +575,23 @@ export default function decorate(block) {
                 .textContent.trim()
               ),
               div({class:"sort-select-container"},
-                p({class:"selectedtext"},'Popular'),
-                ul({ class: "dropdown-list" },
+                p({
+                  class:"selectedtext",
+                  onclick:(event)=>{
+                    console.log(event.target);
+                    event.target.nextElementSibling.classList.add("dropdown-active");
+                  }
+                },'Popular'),
+                ul({ 
+                  class: "dropdown-list",
+                  onclick:(event)=>{
+                      event.target.closest(".dropdown-list").classList.remove("dropdown-active")
+                      let name = event.target.textContent.trim();
+                      event.target.closest(".sort-select-container").querySelector("p").innerText = "";
+                      event.target.closest(".sort-select-container").querySelector("p").innerText = name;
+                      // planListEvent(event,block)   
+                    }
+                 },
                   li('Popular'),
                   li('Latest NAV'),
                   li('Lastest by 1 day'),
@@ -594,14 +609,39 @@ export default function decorate(block) {
                 .textContent.trim()
               ),
               div({class:"return-select-container"},
-                p({class:"selectedtext"},'1 year'),
-                ul({ class: "dropdown-list" },
-                  li('1 year'),
-                  li('3 year'),
-                  li('5 year'),
-                  li('7 year'),
-                  li('10 year'),
-                  li('Since Inception')
+                p({
+                  class:"selectedtext",
+                  onclick:(event)=>{
+                    console.log(event.target);
+                    event.target.nextElementSibling.classList.add("dropdown-active");
+                  }
+                },'1 YEAR'),
+                ul({ 
+                  class: "dropdown-list",
+                  onclick:(event)=>{
+                      event.target.closest(".dropdown-list").classList.remove("dropdown-active")
+                      let name = event.target.textContent.trim();
+                      event.target.closest(".return-select-container").querySelector("p").innerText = "";
+                      event.target.closest(".return-select-container").querySelector("p").innerText = name;
+                      let dataattr = event.target.getAttribute("dataattr").split("-")
+                      let tempdata = dataCfObj.filter((el)=>{
+                        if (dataattr.includes(el.schcode)) {
+                          return el
+                        }
+                      })
+                      console.log(tempdata);
+                      dataMapMoObj["selectreturns"] = name;
+                      dataMapMoObj["funddata"] = [];
+                      dataMapMoObj["funddata"] = tempdata;
+                      viewFunction(block)
+                    }
+                 },
+                  li({dataattr:dataMapMoObj["data"].sort[0].oneYear_Ret.join("-")},'1 YEAR'),
+                  li({dataattr:dataMapMoObj["data"].sort[0].threeYear_Ret.join("-")},'3 YEARS'),
+                  li({dataattr:dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-")},'5 YEARS'),
+                  li({dataattr:dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-")},'7 YEARS'),
+                  li({dataattr:dataMapMoObj["data"].sort[0].tenYear_Ret.join("-")},'10 YEARS'),
+                  li({dataattr:dataMapMoObj["data"].sort[0].inception_Ret.join("-")},'SINCE INCEPTION')
                 )
               )
             )

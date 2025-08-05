@@ -41,7 +41,9 @@ export default function decorate(block) {
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
   let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
+  let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
   if ([...block.fundsTaggingSection].includes("NFO")) {
+    let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     const NfocardContainer = div(
       { class: "nfo-card-container card-container" },
       div(
@@ -141,7 +143,7 @@ export default function decorate(block) {
             { class: "dis-investor" },
             img({
               class: "riskfactor-icon",
-              src: "../../icons/Risk-o-meter.svg",
+              src: "../../icons/nfo-risk-icon/"+nfosvg,
               alt: "risk icon",
             })
           )
@@ -389,7 +391,7 @@ export default function decorate(block) {
           ),
           img({
             class: "riskfactor-icon",
-            src: "../../icons/Risk-o-meter.svg",
+            src: "../../icons/risk-icon/"+iconsvg,
             alt: "risk icon",
           })
         )
