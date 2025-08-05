@@ -13,6 +13,7 @@ import {
   img,
 } from "../../scripts/dom-helpers.js";
 import dataMapMoObj from "../../scripts/constant.js";
+import dataCfObj from '../../scripts/dataCfObj.js';
 export default function decorate(block) {
   console.log(block);
   Array.from(block.children).forEach((child, ind) => {
@@ -24,6 +25,12 @@ export default function decorate(block) {
       });
     });
   });
+
+  let data = dataCfObj.filter((el)=>{
+    if ([...el.fundsTaggingSection].includes('motilal-oswal:conservative')) {
+      return el
+    }
+  })
   const cardContainer =
     div({ class: 'card-wrapper' },
       div({ class: 'card-left' },
@@ -59,13 +66,13 @@ export default function decorate(block) {
           div({ class: 'lower-right' },
             div({ class: 'fund-name-card' },
               p(block.querySelector(".watchlist-items2 .watchlist-inneritems1").innerText),
-              div({ class: 'fund-name' }, "Asset Allocation Passive Fund Conservative")
+              div({ class: 'fund-name' }, data[0].schDetail.schemeName.replaceAll("Motilal Oswal",""))
             )
           ),
           div({ class: 'fund-returns' },
             p("Annualised"),
             div({ class: 'returns' },
-              p({ class: 'returns-percent' }, "24.02"),
+              p({ class: 'returns-percent' }, data[0].returns[0].oneYear_Ret),
               span({ class: 'returns-percentage' }, "%")
             )
           ),
