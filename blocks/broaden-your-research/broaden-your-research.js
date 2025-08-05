@@ -84,21 +84,21 @@ function initSwiper(block) {
         swiperWrapper.appendChild(card);
     });
 
-    // Add the wrapper and pagination to the main block
     block.append(swiperWrapper, swiperPagination);
 
     swiperInstance = new Swiper(block, {
         slidesPerView: 'auto',
         spaceBetween: 16,
-        loop: true,
-        centeredSlides: true,
+        // loop: true,
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: -1,
         pagination: {
             el: swiperPagination,
             clickable: true,
         },
         breakpoints: {
-            320: { slidesPerView: 1.2, spaceBetween: 16 },
-            768: { slidesPerView: 2.5, spaceBetween: 20 },
+            320: { slidesPerView: 'auto', spaceBetween: 16, slidesOffsetBefore: -1, slidesOffsetAfter: -1 },
+            768: { slidesPerView: 'auto', spaceBetween: 16, slidesOffsetBefore: -1, slidesOffsetAfter: -1 },
         },
     });
 
