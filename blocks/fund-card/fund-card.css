@@ -98,20 +98,55 @@
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
+  position: relative;
 }
-.section .card-container .card-category .planlist-dropdown select {
+.section .card-container .card-category .planlist-dropdown .selectedtext {
   font-size: 12px;
   line-height: 16px;
   color: #242177;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  margin: 0;
+  cursor: pointer;
+}
+.section .card-container .card-category .planlist-dropdown ul {
+  display: none;
+  position: absolute;
+  top: 18px;
+  z-index: 2;
+  width: 143px;
+  max-height: 200px;
+  margin: 0;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #EEE;
+  box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+}
+.section .card-container .card-category .planlist-dropdown ul::-webkit-scrollbar {
+  width: 3px;
+}
+.section .card-container .card-category .planlist-dropdown ul::-webkit-scrollbar-track {
+  width: 3px;
+  background-color: #fff;
+  border-radius: 0 6px 6px 0;
+}
+.section .card-container .card-category .planlist-dropdown ul::-webkit-scrollbar-thumb {
+  width: 3px;
+  background-color: #2e2a94;
+}
+.section .card-container .card-category .planlist-dropdown ul li {
+  font-size: 12px;
+  line-height: 16px;
+  color: #111;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding: 12px;
+  border-bottom: 1px solid #EEE;
+  cursor: pointer;
+}
+.section .card-container .card-category .planlist-dropdown ul li:last-of-type {
   border: none;
-  outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: transparent;
-  width: 100%;
 }
 .section .card-container .risk-container {
   display: flex;
