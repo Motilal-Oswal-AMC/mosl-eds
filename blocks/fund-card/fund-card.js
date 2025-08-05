@@ -40,6 +40,7 @@ export default function decorate(block) {
   let classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : " not-provided"
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
+  let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
   if ([...block.fundsTaggingSection].includes("NFO")) {
     const NfocardContainer = div(
       { class: "nfo-card-container card-container" },
@@ -75,12 +76,12 @@ export default function decorate(block) {
               },
               img({
                 class: "star-icon",
-                src: "../../icons/star.svg",
+                src: "../../icons/not-filled-star.svg",
                 alt: "star-icon",
               }),
               img({
                 class: "fillstar-icon",
-                src: "../../icons/star-filled.svg",
+                src: "../../icons/filled-star.svg",
                 alt: "fillstar-icon",
               })
             )
@@ -111,12 +112,28 @@ export default function decorate(block) {
             )
           ),
           div(
-            { class: "planlist-dropdown", style: "display:" + classdropdown },
-            p({ class: "selectedtext" }, optionName),
+            { class: "planlist-dropdown", 
+              style: "display:" + classdropdown,},
+            p({
+               class: "selectedtext",
+               onclick:(event)=>{
+                console.log(event.target);
+                 event.target.nextElementSibling.classList.add("dropdown-active");
+              }
+               }, optionName),
             ul(
               { class: "dropdown-list" },
               ...DirectPlanlistArr?.map((el, index) => {
-                return li({ value: el.groupedCode }, el.optionName);
+                return li({
+                   value: el.groupedCode,
+                   onclick:(event)=>{
+                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active")
+                      let name = event.currentTarget.textContent.trim();
+                      event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = "";
+                      event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = name;
+                      // planListEvent(event,block)   
+                    }
+                   }, el.optionName);
               })
             )
           ),
@@ -199,12 +216,12 @@ export default function decorate(block) {
             },
             img({
               class: "star-icon",
-              src: "../../icons/star.svg",
+              src: "../../icons/not-filled-star.svg",
               alt: "star-icon",
             }),
             img({
               class: "fillstar-icon",
-              src: "../../icons/star-filled.svg",
+              src: "../../icons/filled-star.svg",
               alt: "fillstar-icon",
             })
           )
@@ -244,12 +261,28 @@ export default function decorate(block) {
           )
         ),
         div(
-          { class: "planlist-dropdown", style: "display:" + classdropdown },
-          p({ class: "selectedtext" }, optionName),
+          { class: "planlist-dropdown", 
+            style: "display:" + classdropdown,
+           },
+          p({ 
+            class: "selectedtext",
+            onclick:(event)=>{
+              console.log(event.target);
+               event.target.nextElementSibling.classList.add("dropdown-active");
+            }
+           }, optionName),
           ul(
             { class: "dropdown-list" },
             ...DirectPlanlistArr?.map((el, index) => {
-              return li({ value: el.groupedCode }, el.optionName);
+              return li({ 
+                value: el.groupedCode,
+                onclick:(event)=>{
+                  event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
+                  event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = "";
+                  event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = event.currentTarget.textContent.trim();
+                  planListEvent(event,block)
+                }
+               }, el.optionName);
             })
           )
         )
@@ -267,7 +300,12 @@ export default function decorate(block) {
             {
               class: "cagr-select-wrapper",
             },
-            p({ class: "selectedtext" }, tempReturns[0]),
+            p({ 
+              class: "selectedtext",
+              onclick:(event)=>{
+                event.target.nextElementSibling.classList.add("dropdown-active");
+              }
+             }, returnYear),
             ul(
               { class: "dropdown-list" },
               ...tempReturns.map((eloption) =>
@@ -275,6 +313,15 @@ export default function decorate(block) {
                   {
                     class: "returnyears",
                     value: dataMapMoObj.ObjTemp[eloption],
+                    onclick:(event)=>{
+                      const cgarValue = block.returns[0][event.target.getAttribute("value")];
+                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = "";
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = event.currentTarget.textContent.trim();
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
+                    }
                   },
                   eloption
                 )
@@ -287,7 +334,7 @@ export default function decorate(block) {
             class: "cagr-value",
           },
           h2(
-            `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+            `${block.returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,
             span("%")
           ),
           p(
@@ -369,12 +416,12 @@ export default function decorate(block) {
   return cardContainer;
 }
 
-function planListEvent(param, block) {
+function planListEvent(param, block) { // Planlist onchange with changing cagr container
   const tempReturns = [];
   const codeTempArr = [];
   block.returns.forEach((el) => {
     codeTempArr.push((el.plancode + el.optioncode));
-    if (param.target.value === (el.plancode + el.optioncode)) {
+    if (param.target.getAttribute("value") === (el.plancode + el.optioncode)) {
       for (const key in el) {
         if (dataMapMoObj.ObjTemp[key]) {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
@@ -383,7 +430,7 @@ function planListEvent(param, block) {
     }
   });
   param.target.closest('.card-wrapper').querySelector('.cagr-container').innerHTML = '';
-  if (codeTempArr.includes(param.target.value) && tempReturns.length !== 0) {
+  if (codeTempArr.includes(param.target.getAttribute("value")) && tempReturns.length !== 0) {
     param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
     let dropdown = div(
       {
@@ -394,12 +441,29 @@ function planListEvent(param, block) {
         {
           class: "cagr-select-wrapper",
         },
-        p({ class: "selectedtext" }, tempReturns[0]),
+        p({ 
+          class: "selectedtext",
+          onclick:(event)=>{
+                event.target.nextElementSibling.classList.add("dropdown-active");
+          }
+         }, tempReturns[0]),
         ul(
           { class: "dropdown-list" },
           ...tempReturns.map((eloption) =>
             li(
-              { class: "returnyears", value: dataMapMoObj.ObjTemp[eloption] },
+              { 
+                class: "returnyears", 
+                value: dataMapMoObj.ObjTemp[eloption],
+                onclick:(event)=>{
+                      const cgarValue = block.returns[0][event.target.getAttribute("value")];
+                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = "";
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = event.currentTarget.textContent.trim();
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
+                }
+              },
               eloption
             )
           )

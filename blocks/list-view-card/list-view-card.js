@@ -5,9 +5,49 @@ export default function decorate(block){
     if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
         planFlow =  document.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct";    
     }
+    if ([...block.fundsTaggingSection].includes("NFO")) {
+        let listcontainer = div({class:"nfo-list-container list-view-container"},
+            div({class:"list-wrapper"},
+                div({class:"fund-name-wrapper", schcode :block.schcode},
+                    div({class:"fund-inner-wrapper"},
+                        div({class:"logo-container"},
+                        img({class: "logoScheme",src: "../../icons/Group.svg",alt: "BrandLogo"})
+                        ),
+                        div({class:"fund-name-container"},
+                            p("Motilal Oswal"),
+                            label(block.schDetail.schemeName.replaceAll("Motilal Oswal",""))
+                        ),
+                        img({class: "logoScheme",src: "../../icons/direction-right.svg",alt: "Direction Right"})
+                    ),
+                    div({ class: "timing-nfo-value" },
+                        div(
+                        { class: "nfo-container" },
+                        span({ class: "label-nfo" }, "NFO")
+                        ),
+                        div({ class: "timing-container" }, p("02 days 20 hrs 20 mins left"))
+                    )
+                ),
+                div({class:"cagr-return"},
+                    div({class:"cagr-value"},"N/A"),
+                    p("CAGR")
+                ),
+                div({class:"risk-star-icon"},
+                    img({class: "riskfactor-icon",src: "../../icons/Risk-o-meter.svg",alt: "risk icon"}),
+                ),
+                div({class: "star"},
+                        img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),
+                        img({class: "fillstar-icon",src: "../../icons/filled-star.svg",alt: "fillstar-icon"})
+                ),
+                div({class:"btn-invest"},
+                    button("Invest")
+                )
+            )
+        )
+        return listcontainer 
+    }
     let listcontainer = div({class:"list-view-container"},
         div({class:"list-wrapper"},
-            div({class:"fund-name-wrapper"},
+            div({class:"fund-name-wrapper", schcode :block.schcode},
                 div({class:"logo-container"},
                     img({class: "logoScheme",src: "../../icons/Group.svg",alt: "BrandLogo"})
                 ),
@@ -25,8 +65,8 @@ export default function decorate(block){
                 img({class: "riskfactor-icon",src: "../../icons/Risk-o-meter.svg",alt: "risk icon"}),
             ),
             div({class: "star"},
-                    img({class: "star-icon",src: "../../icons/star.svg",alt: "star-icon"}),
-                    img({class: "fillstar-icon",src: "../../icons/star-filled.svg",alt: "fillstar-icon"})
+                img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),
+                img({class: "fillstar-icon",src: "../../icons/filled-star.svg",alt: "fillstar-icon"})
             ),
             div({class:"btn-invest"},
                 button("Invest")
