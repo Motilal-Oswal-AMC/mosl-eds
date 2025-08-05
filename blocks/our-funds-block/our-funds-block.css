@@ -999,6 +999,123 @@
   background-color: #2e2a94;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
 }
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-upper-title .title-subtitle p {
+  color: #EDF1FF;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-upper-title .title-subtitle .title-logo h2 {
+  color: #fff;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category {
+  align-items: center;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .fundtagging-list li {
+  color: #fff;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .fundtagging-list li::after {
+  background-color: #7986fd;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown {
+  max-width: 88px;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown select {
+  color: #fff;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .dis-investor {
+  max-width: 20px;
+  width: 100%;
+  height: 20px;
+  margin-left: 2px;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container {
+  border-radius: 8px;
+  border: 0.5px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .banner-container {
+  width: 100%;
+  height: 118px;
+  position: relative;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .banner-container::before {
+  content: "";
+  background: linear-gradient(270deg, rgba(81, 101, 25, 0) 21.43%, rgba(48, 57, 23, 0.4) 100%);
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 0 0 0;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .banner-container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: right;
+     object-position: right;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .banner-container span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 19px 16px;
+  display: flex;
+  align-items: end;
+  max-width: 122px;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  font-family: "ButlerPro", sans-serif;
+  font-weight: 700;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .timing-nfo-value {
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 8px 16px;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .timing-nfo-value .nfo-container span {
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .timing-nfo-value .nfo-container span::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background-color: #FF0000;
+  display: block;
+  border-radius: 50%;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .timing-nfo-value .timing-container p {
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .button-container {
+  margin: 16px 0 0;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .button-container .know-more {
+  color: #fff;
+}
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .button-container .invest-now {
+  background-color: #fff;
+  color: #2e2a94;
+}
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .right-container .list-view-header {
     display: none;

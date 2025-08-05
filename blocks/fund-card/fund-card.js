@@ -141,28 +141,25 @@ export default function decorate(block) {
           { class: "banner-timing-container " },
           div(
             { class: "banner-container" },
-            img({ src: "", alt: "banner Image" })
+            img({ src: "../../icons/banner-desk.png", alt: "banner Image" }),
+            span("Grab Them All")
           ),
           div(
             { class: "timing-nfo-value" },
             div(
               { class: "nfo-container" },
-              div({ class: "dot-container" }),
-              div({ class: "label-nfo" }, "NFO")
+              span({ class: "label-nfo" }, "NFO")
             ),
             div(
               { class: "timing-container" },
-              span("02 days 20 hrs 20 mins left")
+              p("02 days 20 hrs 20 mins left")
             )
           )
         ),
         div(
-          { class: "discription" },
-          div(
-            { class: "button-container" },
-            button({ class: "know-more" }, "Know More"),
-            button({ class: "invest-now" }, "Invest")
-          )
+          { class: "button-container" },
+          button({ class: "know-more" }, "Know More"),
+          button({ class: "invest-now" }, "Invest")
         )
       )
     );
