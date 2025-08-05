@@ -65,8 +65,8 @@ export default function decorate(block){
                 img({class: "riskfactor-icon",src: "../../icons/Risk-o-meter.svg",alt: "risk icon"}),
             ),
             div({class: "star"},
-                    img({class: "star-icon",src: "../../icons/star.svg",alt: "star-icon"}),
-                    img({class: "fillstar-icon",src: "../../icons/star-filled.svg",alt: "fillstar-icon"})
+                img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),
+                img({class: "fillstar-icon",src: "../../icons/filled-star.svg",alt: "fillstar-icon"})
             ),
             div({class:"btn-invest"},
                 button("Invest")

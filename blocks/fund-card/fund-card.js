@@ -216,12 +216,12 @@ export default function decorate(block) {
             },
             img({
               class: "star-icon",
-              src: "../../icons/star.svg",
+              src: "../../icons/not-filled-star.svg",
               alt: "star-icon",
             }),
             img({
               class: "fillstar-icon",
-              src: "../../icons/star-filled.svg",
+              src: "../../icons/filled-star.svg",
               alt: "fillstar-icon",
             })
           )
