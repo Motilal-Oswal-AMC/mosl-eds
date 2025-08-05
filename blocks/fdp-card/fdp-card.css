@@ -17,6 +17,7 @@
   margin: 0;
   max-width: 400px;
   width: 100%;
+  /*fdp cards*/
 }
 .section.fdp-card-container .item1 .fdp-card {
   position: fixed;
@@ -32,6 +33,8 @@
   max-width: 816px;
   width: 100%;
   padding: 0px;
+  /*ul for second part */
+  /* why fund section*/
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .item2 {

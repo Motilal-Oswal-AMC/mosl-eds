@@ -14,14 +14,6 @@ import {
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 export default function decorate(block) {
-
-  Array.from(block.children).forEach((element) => {
-    element.classList.add('compound-item');
-    Array.from(element.children).forEach((subelement) => {
-      subelement.classList.add('compound-sub-item');
-    });
-  });
-
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
   let finPlangrp = [];
   const tempReturns = [];
