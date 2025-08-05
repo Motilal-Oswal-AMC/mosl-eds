@@ -110,7 +110,6 @@
     top: unset;
     left: unset;
     bottom: 0;
-    max-width: -moz-max-content;
     max-width: max-content;
     height: 2px;
     border-radius: 10px;
@@ -128,7 +127,6 @@
   }
 }
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination {
-  max-width: -moz-max-content;
   max-width: max-content;
   width: unset;
   height: unset;
@@ -192,7 +190,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  min-width: -moz-max-content;
   min-width: max-content;
   font-size: 16px;
   line-height: 20px;

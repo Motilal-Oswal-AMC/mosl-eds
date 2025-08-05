@@ -15,7 +15,7 @@ export default function decorate(block) {
 
   const schemeNames = dataCfObj.map((fund) => fund.schDetail.schemeName);
 
-  let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
+  let selectedFund = dataCfObj.find((fund) => fund.schcode === 'CP');
   let returnCAGR = 0;
   let mode = 'sip';
   let planType = 'Direct';
@@ -122,95 +122,17 @@ export default function decorate(block) {
   // -------------------------------
   // ✅ 4. UPDATE VALUES
   // -------------------------------
-  // function updateValues() {
-  //   const investedAmountSpan = block.querySelector('.invested-amount-value');
-  //   const currentValueSpan = block.querySelector('.current-value');
-  //   const returnCAGRSpan = block.querySelector('.return-cagr');
-  //   const tenureValue = block.querySelector('#investmentTenure').value;
-  //   const amount = parseFloat(amountInput.value) || 0;
-  //   let tenure = tenureValue === 'inception'
-  //     ? (new Date().getTime() - new Date(selectedFund.dateOfAllotment).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
-  //     : parseFloat(tenureValue) || 0;
-
-  //   // If no returns, hide & show fallback
-  //   const mainSections = ['.investment-wrapper', '.invested-amount', '.cal-discription'];
-  //   const noReturnsMsg = block.querySelector('.no-returns-msg');
-  //   if (!returnCAGR || isNaN(returnCAGR) || returnCAGR <= 0) {
-  //     investedAmountSpan.textContent = '—';
-  //     currentValueSpan.textContent = '—';
-  //     returnCAGRSpan.textContent = '—';
-  //     mainSections.forEach((sel) => { block.querySelector(sel).style.display = 'none'; });
-  //     if (!noReturnsMsg) {
-  //       calContainer.appendChild(div({ class: 'no-returns-msg' }, 'Returns are not available for the selected plan.'));
-  //     }
-  //     return;
-  //   }
-  //   if (noReturnsMsg) noReturnsMsg.remove();
-  //   mainSections.forEach((sel) => { block.querySelector(sel).style.display = ''; });
-
-  //   const r = returnCAGR / 100 / 12;
-  //   const n = tenure * 12;
-  //   let investedAmount = mode === 'sip' ? amount * n : amount;
-  //   let futureValue = mode === 'sip'
-  //     ? (isNaN(r) || r === 0 ? investedAmount : amount * (((1 + r) ** n - 1) / r))
-  //     : amount * ((1 + returnCAGR / 100) ** tenure);
-
-  //   investedAmountSpan.textContent = `₹${(investedAmount / 100000).toFixed(2)} Lac`;
-  //   currentValueSpan.textContent = `₹${(futureValue / 100000).toFixed(2)} Lac`;
-  //   returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
-  // }
-
-  // -------------------------------
-  // ✅ 4. UPDATE VALUES (FINAL)
-  // -------------------------------
   function updateValues() {
     const investedAmountSpan = block.querySelector('.invested-amount-value');
     const currentValueSpan = block.querySelector('.current-value');
     const returnCAGRSpan = block.querySelector('.return-cagr');
     const tenureValue = block.querySelector('#investmentTenure').value;
     const amount = parseFloat(amountInput.value) || 0;
+    let tenure = tenureValue === 'inception'
+      ? (new Date().getTime() - new Date(selectedFund.dateOfAllotment).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
+      : parseFloat(tenureValue) || 0;
 
-    let tenure = 0;
-
-    // ✅ Determine tenure in years
-    if (tenureValue === 'inception') {
-      if (selectedFund?.dateOfAllotment) {
-        const inceptionDate = new Date(selectedFund.dateOfAllotment);
-        const today = new Date();
-        tenure = (today - inceptionDate) / (1000 * 60 * 60 * 24 * 365.25);
-      }
-    } else {
-      tenure = parseFloat(tenureValue) || 0;
-    }
-
-    // ✅ Get the correct returnCAGR for selected tenure
-    let tenureField = '';
-    if (tenureValue === 'inception') {
-      tenureField = 'inception_Ret';
-    } else if (tenureValue === '1') {
-      tenureField = 'oneYear_Ret';
-    } else if (tenureValue === '3') {
-      tenureField = 'threeYear_Ret';
-    } else if (tenureValue === '5') {
-      tenureField = 'fiveYear_Ret';
-    } else if (tenureValue === '7') {
-      tenureField = 'sevenYear_Ret';
-    } else if (tenureValue === '10') {
-      tenureField = 'tenYear_Ret';
-    }
-
-    const targetPlan = selectedFund?.planList.find(
-      (p) => p.planName === planType && p.optionName === planOption
-    );
-    const targetReturns = selectedFund?.returns.find(
-      (r) => r.plancode === targetPlan?.planCode && r.optioncode === targetPlan?.optionCode
-    );
-
-    returnCAGR = targetReturns && tenureField && targetReturns[tenureField]
-      ? parseFloat(targetReturns[tenureField]) || 0
-      : 0;
-
-    // ✅ If no returns, show fallback
+    // If no returns, hide & show fallback
     const mainSections = ['.investment-wrapper', '.invested-amount', '.cal-discription'];
     const noReturnsMsg = block.querySelector('.no-returns-msg');
     if (!returnCAGR || isNaN(returnCAGR) || returnCAGR <= 0) {
@@ -226,7 +148,6 @@ export default function decorate(block) {
     if (noReturnsMsg) noReturnsMsg.remove();
     mainSections.forEach((sel) => { block.querySelector(sel).style.display = ''; });
 
-    // ✅ Calculate values
     const r = returnCAGR / 100 / 12;
     const n = tenure * 12;
     let investedAmount = mode === 'sip' ? amount * n : amount;
@@ -238,7 +159,6 @@ export default function decorate(block) {
     currentValueSpan.textContent = `₹${(futureValue / 100000).toFixed(2)} Lac`;
     returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
   }
-
 
   // -------------------------------
   // ✅ 5. TENURE & PLAN OPTIONS
