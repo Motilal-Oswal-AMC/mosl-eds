@@ -21,7 +21,7 @@
   height: 100%;
   width: 100%;
 }
-.section .card-container .card-wrapper p {
+.section .card-container .card-wrapper .selectedtext {
   font-size: 12px;
   line-height: 16px;
   color: #242177;
@@ -474,7 +474,7 @@
   height: 100%;
   width: 100%;
 }
-.section .card-container .card-wrapper p {
+.section .card-container .card-wrapper .selectedtext {
   font-size: 12px;
   line-height: 16px;
   color: #242177;

@@ -22,7 +22,7 @@
       width: 100%;
 
       // All dropdown in card
-      p {
+      .selectedtext {
         @include font-style(
           12px,
           16px,
@@ -559,7 +559,7 @@
       height: 100%;
       width: 100%;
       // All dropdown in card
-      p {
+      .selectedtext {
         @include font-style(
           12px,
           16px,

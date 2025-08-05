@@ -648,7 +648,7 @@
     .right-container {
       max-width: calc(100% - 296px);
       width: 100%;
-      background-color: $primary-white;
+      //   background-color: $primary-white;
       @include media(desktop-sm) {
         max-width: (100% - 25%);
       }
@@ -676,17 +676,99 @@
           gap: 12px;
           height: max-content;
           line-height: 0;
+        }
+        .sort-popular {
+          min-width: max-content;
           .sort-container,
           .popular-container {
             position: relative;
             display: flex;
+            align-items: center;
+            gap: 4px;
             label {
-              @include font-style(12px, 16px, $text-body-2, 400, $Poppins);
+              @include font-style(14px, 20px, $text-body-2, 400, $Poppins);
+            }
+            .sort-select-container,
+            .return-select-container {
+              .selectedtext {
+                @include font-style(
+                  14px,
+                  16px,
+                  $neutrals-black,
+                  map.get($font-weights, medium),
+                  $Poppins
+                );
+                margin: 0;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 1px;
+                &::after{
+                    content: '';
+                    background-image: url('../../icons/direction-right.svg');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 16px;
+                    height: 16px;
+                    display: block;
+                    transform: rotate(90deg);
+                }
+              }
+              .dropdown-list {
+                display: none;
+                list-style: none;
+                position: absolute;
+                top: 22px;
+                left: 36px;
+                z-index: 2;
+                width: 143px;
+                margin: 0;
+                background-color: $primary-white;
+                border-radius: 6px;
+                border: 1px solid $neutrals-200;
+                box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+                &::-webkit-scrollbar {
+                  width: 3px;
+                }
+                &::-webkit-scrollbar-track {
+                  width: 3px;
+                  background-color: $primary-white;
+                  border-radius: 0 6px 6px 0;
+                }
+                &::-webkit-scrollbar-thumb {
+                  width: 3px;
+                  background-color: $primary-blue;
+                }
+                &.dropdown-active {
+                  display: block;
+                }
+                @include media(mobile) {
+                  width: 168px;
+                }
+                li {
+                  @include font-style(
+                    12px,
+                    16px,
+                    $neutrals-black,
+                    map.get($font-weights, regular),
+                    $Poppins
+                  );
+                  padding: 12px;
+                  border-bottom: 1px solid $neutrals-200;
+                  cursor: pointer;
+                  &:last-of-type {
+                    border: none;
+                  }
+                }
+              }
+            }
+            .return-select-container{
+                .dropdown-list{
+                    left: 107px;
+                }
             }
           }
-        }
-        .sort-popular {
-          min-width: max-content;
           @include media(mobile) {
             display: none;
           }
@@ -1115,9 +1197,9 @@
                 margin-right: 47px;
                 display: flex;
                 gap: 8px;
-                @include media(desktop-sm){
-                    max-width: 40%;
-                    margin-right: 25px;
+                @include media(desktop-sm) {
+                  max-width: 40%;
+                  margin-right: 25px;
                 }
                 @include media(tab) {
                   margin: 0;
@@ -1178,9 +1260,9 @@
                 flex-direction: column;
                 gap: 4px;
                 align-items: end;
-                @include media(desktop-sm){
-                    max-width: 12%;
-                    margin-right: 15px;
+                @include media(desktop-sm) {
+                  max-width: 12%;
+                  margin-right: 15px;
                 }
                 .cagr-value {
                   @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
@@ -1211,8 +1293,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                @include media(desktop-sm){
-                    max-width: 10%;
+                @include media(desktop-sm) {
+                  max-width: 10%;
                 }
                 .fillstar-icon {
                   display: none;
@@ -1231,8 +1313,8 @@
                 width: 100%;
                 display: flex;
                 justify-content: end;
-                @include media(desktop-sm){
-                    max-width: 10.7%;
+                @include media(desktop-sm) {
+                  max-width: 10.7%;
                 }
                 button {
                   padding: 8px 12px;
@@ -1248,6 +1330,84 @@
                     500,
                     $Poppins
                   );
+                }
+              }
+            }
+            &.nfo-list-container {
+              background-color: $primary-blue;
+              .list-wrapper {
+                .fund-name-wrapper {
+                  flex-direction: column;
+                  gap: 12px;
+                  .fund-inner-wrapper {
+                    display: flex;
+                    gap: 10px;
+                    .fund-name-container {
+                      // max-width: 189px;
+                      max-width: 51.57%;
+                      width: 100%;
+                      p {
+                        color: map.get($blue-1, b50);
+                      }
+                      label {
+                        color: $primary-white;
+                      }
+                    }
+                    .logoScheme {
+                      margin-left: -3px;
+                    }
+                  }
+                  .timing-nfo-value {
+                    border-radius: 8px;
+                    background: rgba(255, 255, 255, 0.08);
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 4px 12px;
+                    margin-left: 34px;
+                    max-width: max-content;
+                    .nfo-container {
+                      line-height: 0;
+                      .label-nfo {
+                        @include font-style(
+                          12px,
+                          16px,
+                          $primary-white,
+                          600,
+                          $Poppins
+                        );
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        &::before {
+                          content: "";
+                          width: 9px;
+                          height: 9px;
+                          background-color: #ff0000;
+                          border-radius: 50%;
+                          display: block;
+                        }
+                      }
+                    }
+                    .timing-container {
+                      p {
+                        margin: 0;
+                        @include font-style(
+                          12px,
+                          16px,
+                          $primary-white,
+                          400,
+                          $Poppins
+                        );
+                      }
+                    }
+                  }
+                }
+                .btn-invest {
+                  button {
+                    background-color: $primary-white;
+                    color: $primary-blue;
+                  }
                 }
               }
             }
