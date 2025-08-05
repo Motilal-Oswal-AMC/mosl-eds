@@ -8,7 +8,7 @@ export default function decorate(block){
     if ([...block.fundsTaggingSection].includes("NFO")) {
         let listcontainer = div({class:"nfo-list-container list-view-container"},
             div({class:"list-wrapper"},
-                div({class:"fund-name-wrapper"},
+                div({class:"fund-name-wrapper", schcode :block.schcode},
                     div({class:"fund-inner-wrapper"},
                         div({class:"logo-container"},
                         img({class: "logoScheme",src: "../../icons/Group.svg",alt: "BrandLogo"})
@@ -47,7 +47,7 @@ export default function decorate(block){
     }
     let listcontainer = div({class:"list-view-container"},
         div({class:"list-wrapper"},
-            div({class:"fund-name-wrapper"},
+            div({class:"fund-name-wrapper", schcode :block.schcode},
                 div({class:"logo-container"},
                     img({class: "logoScheme",src: "../../icons/Group.svg",alt: "BrandLogo"})
                 ),

@@ -40,6 +40,7 @@ export default function decorate(block) {
   let classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : " not-provided"
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
+  let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
   if ([...block.fundsTaggingSection].includes("NFO")) {
     const NfocardContainer = div(
       { class: "nfo-card-container card-container" },
@@ -130,6 +131,7 @@ export default function decorate(block) {
                       let name = event.currentTarget.textContent.trim();
                       event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = "";
                       event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = name;
+                      // planListEvent(event,block)   
                     }
                    }, el.optionName);
               })
@@ -278,6 +280,7 @@ export default function decorate(block) {
                   event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
                   event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = "";
                   event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = event.currentTarget.textContent.trim();
+                  planListEvent(event,block)
                 }
                }, el.optionName);
             })
@@ -302,7 +305,7 @@ export default function decorate(block) {
               onclick:(event)=>{
                 event.target.nextElementSibling.classList.add("dropdown-active");
               }
-             }, tempReturns[0]),
+             }, returnYear),
             ul(
               { class: "dropdown-list" },
               ...tempReturns.map((eloption) =>
@@ -331,7 +334,7 @@ export default function decorate(block) {
             class: "cagr-value",
           },
           h2(
-            `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+            `${block.returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,
             span("%")
           ),
           p(
@@ -413,12 +416,12 @@ export default function decorate(block) {
   return cardContainer;
 }
 
-function planListEvent(param, block) {
+function planListEvent(param, block) { // Planlist onchange with changing cagr container
   const tempReturns = [];
   const codeTempArr = [];
   block.returns.forEach((el) => {
     codeTempArr.push((el.plancode + el.optioncode));
-    if (param.target.value === (el.plancode + el.optioncode)) {
+    if (param.target.getAttribute("value") === (el.plancode + el.optioncode)) {
       for (const key in el) {
         if (dataMapMoObj.ObjTemp[key]) {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
@@ -427,7 +430,7 @@ function planListEvent(param, block) {
     }
   });
   param.target.closest('.card-wrapper').querySelector('.cagr-container').innerHTML = '';
-  if (codeTempArr.includes(param.target.value) && tempReturns.length !== 0) {
+  if (codeTempArr.includes(param.target.getAttribute("value")) && tempReturns.length !== 0) {
     param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
     let dropdown = div(
       {
