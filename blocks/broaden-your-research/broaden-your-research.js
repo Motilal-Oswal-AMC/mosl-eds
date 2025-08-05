@@ -49,7 +49,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
         div({ class: 'title-subtitle' },
             p(brandName),
             div({ class: 'title title-logo' },
-                h2('schmene name'), // Or use dynamic data: h2(cardData.name || 'Scheme Name')
+                h2('scheme name'), // Or use dynamic data: h2(cardData.name || 'Scheme Name')
             ),
         ),
         // Create an empty container for the icons
