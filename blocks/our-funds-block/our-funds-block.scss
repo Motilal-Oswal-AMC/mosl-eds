@@ -819,12 +819,6 @@
         }
       }
       .applied-filter {
-        &-wrap{
-            display: none;
-            &.filter-active{
-                display: block;
-            }
-        }
         &-list {
           margin: 0;
           padding: 0 0 20px;
@@ -907,7 +901,7 @@
             }
             .planlist-dropdown {
               max-width: 88px;
-              p {
+              select {
                 color: $primary-white;
               }
             }

@@ -171,7 +171,18 @@ export default function decorate(block) {
                 },
                 span("Filters"),
                 button({
-                  class: "clearall-btn"
+                  class: "clearall-btn",
+                  onclick:()=>{
+                    Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
+                      if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
+                        el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+                          elemsub.checked = false;
+                        })
+                      }
+                      el.querySelector("input").checked = false;
+                    })
+                    dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
+                  }
                 }, "Clear All")
               ),
               div({
@@ -302,8 +313,6 @@ export default function decorate(block) {
                 button({
                   class: "close-btn",
                   onclick:(event)=>{
-                    console.log(event.target);
-                    
                   block.querySelector(".filter-overlay").classList.remove('active')
                   block.querySelector(".sort-overlay").classList.remove('active')
                 }
@@ -417,7 +426,8 @@ export default function decorate(block) {
                       input({
                         type: "radio",
                         id: "sinceinp",
-                        name: "returns"
+                        name: "returns",
+                        dataattr:dataMapMoObj["data"].sort[0].inception_Ret.join("-")
                       }),
                       label({
                         for: "sinceinp"
@@ -429,7 +439,8 @@ export default function decorate(block) {
                       input({
                         type: "radio",
                         id: "oneyear",
-                        name: "returns"
+                        name: "returns",
+                        dataattr:dataMapMoObj["data"].sort[0].oneYear_Ret.join("-")
                       }),
                       label({
                         for: "oneyear"
@@ -442,6 +453,7 @@ export default function decorate(block) {
                         type: "radio",
                         id: "threeyear",
                         name: "returns",
+                        dataattr:dataMapMoObj["data"].sort[0].threeYear_Ret.join("-")
                       }),
                       label({
                         for: "threeyear"
@@ -453,7 +465,8 @@ export default function decorate(block) {
                       input({
                         type: "radio",
                         id: "fiveyear",
-                        name: "returns"
+                        name: "returns",
+                        dataattr:dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-")
                       }),
                       label({
                         for: "fiveyear"
@@ -465,7 +478,21 @@ export default function decorate(block) {
                       input({
                         type: "radio",
                         id: "tenyear",
-                        name: "returns"
+                        name: "returns",
+                        dataattr:dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-")
+                      }),
+                      label({
+                        for: "tenyear"
+                      }, "7 years")
+                    ),
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "tenyear",
+                        name: "returns",
+                        dataattr:dataMapMoObj["data"].sort[0].tenYear_Ret.join("-")
                       }),
                       label({
                         for: "tenyear"
@@ -477,7 +504,12 @@ export default function decorate(block) {
               div({
                   class: "close-apply-btn"
                 },
-                button({class:"closebtn"},"close"),
+                button({class:"closebtn",
+                  onclick:(event)=>{ 
+                  block.querySelector(".filter-overlay").classList.remove('active')
+                  block.querySelector(".sort-overlay").classList.remove('active')
+                }
+                },"close"),
                 button({class:"applybtn"},"Apply")
               )
             )
@@ -711,6 +743,19 @@ export default function decorate(block) {
       block: 'nearest'
     });
   }
+
+  Array.from(block.querySelector(".return-container .radio-label-container").children).forEach((el)=>{
+    el.querySelector("input").addEventListener("click",(event)=>{
+      console.log(event.target.getAttribute("dataattr"));
+      let dataattr = event.target.getAttribute("dataattr").split("-")
+      let tempdata = dataCfObj.filter((el)=>{
+        if (dataattr.includes(el.schcode)) {
+          return el
+        }
+      })
+      console.log(tempdata);
+    })
+  })
 
 }
 

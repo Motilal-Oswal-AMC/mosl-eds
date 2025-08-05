@@ -98,9 +98,8 @@
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  position: relative;
 }
-.section .card-container .card-category .planlist-dropdown .selectedtext {
+.section .card-container .card-category .planlist-dropdown select {
   font-size: 12px;
   line-height: 16px;
   color: #242177;

@@ -928,12 +928,6 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-.our-funds-block .filter-cards .right-container .applied-filter-wrap {
-  display: none;
-}
-.our-funds-block .filter-cards .right-container .applied-filter-wrap.filter-active {
-  display: block;
-}
 .our-funds-block .filter-cards .right-container .applied-filter-list {
   margin: 0;
   padding: 0 0 20px;
@@ -1023,7 +1017,7 @@
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown {
   max-width: 88px;
 }
-.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown p {
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown select {
   color: #fff;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .dis-investor {
