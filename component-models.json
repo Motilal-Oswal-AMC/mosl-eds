@@ -168,6 +168,10 @@
           {
             "name": "why-fund",
             "value": "why-fund"
+          },
+          {
+            "name": "fund-philosophy-video",
+            "value": "fund-philosophy-video"
           }
         ]
       },
