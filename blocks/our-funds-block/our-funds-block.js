@@ -1,13 +1,23 @@
 /* eslint-disable */
 import dataCfObj from "../../scripts/dataCfObj.js";
-import { div, input, label, span, p, button, ul,li, img } from "../../scripts/dom-helpers.js";
+import {
+  div,
+  input,
+  label,
+  span,
+  p,
+  button,
+  ul,
+  li,
+  img
+} from "../../scripts/dom-helpers.js";
 import dataMapMoObj from "../../scripts/constant.js";
 import fundcardblock from "../fund-card/fund-card.js";
 import listviewblock from '../list-view-card/list-view-card.js'
 export default function decorate(block) {
 
   Array.from(block.closest('.section').children).forEach((el, index) => {
-    el.classList.add("item"+(index+1))
+    el.classList.add("item" + (index + 1))
   })
   Array.from(block.children).forEach((el, index) => {
     el.classList.add("block-item" + (index + 1));
@@ -20,38 +30,48 @@ export default function decorate(block) {
   });
 
   dataMapMoObj["data"] = dataFilterfun(dataCfObj);
-  dataMapMoObj["funddata"] = dataCfObj.slice(0,9);
-  let divfund = div(
-    { class: "blockwrapper" },
-    div(
-      { class: "upper-container" },
-      div(
-        { class: "fundcontainer" },
+  dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
+  let divfund = div({
+      class: "blockwrapper"
+    },
+    div({
+        class: "upper-container"
+      },
+      div({
+          class: "fundcontainer"
+        },
         block.querySelector(".block-subitem1"),
-        div(
-          { class: "search-trending-wrapper" },
-          div(
-            { class: "search-input" },
+        div({
+            class: "search-trending-wrapper"
+          },
+          div({
+              class: "search-input"
+            },
             input({
               class: "search",
               placeholder: block
                 .querySelector(".block-subitem2 .block-subitem-finelsub1")
                 .textContent.trim(),
             }),
-            ul(
-              { class: "list-search" },
+            ul({
+                class: "list-search"
+              },
               ...dataMapMoObj["funddata"].map((el) => {
-                return li(
-                  { class: "list-fund-name", schcode: el.schcode },
+                return li({
+                    class: "list-fund-name",
+                    schcode: el.schcode
+                  },
                   el.schDetail.schemeName
                 );
               })
             )
           ),
-          div(
-            { class: "watchlist" },
-            div(
-              { class: "staricon" },
+          div({
+              class: "watchlist"
+            },
+            div({
+                class: "staricon"
+              },
               block.querySelector(
                 ".block-subitem2 .block-subitem-finelsub2 span"
               ),
@@ -59,19 +79,22 @@ export default function decorate(block) {
                 ".block-subitem2 .block-subitem-finelsub3 span"
               )
             ),
-            div(
-              { class: "watchlisttext" },
+            div({
+                class: "watchlisttext"
+              },
               span(
                 block
-                  .querySelector(".block-subitem2 .block-subitem-finelsub3")
-                  .textContent.trim()
+                .querySelector(".block-subitem2 .block-subitem-finelsub3")
+                .textContent.trim()
               )
             )
           ),
-          div(
-            { class: "trending-container" },
-            div(
-              { class: "trendinglabel" },
+          div({
+              class: "trending-container"
+            },
+            div({
+                class: "trendinglabel"
+              },
               p(
                 block.querySelector(
                   ".block-subitem2 .block-subitem-finelsub4 span"
@@ -79,56 +102,69 @@ export default function decorate(block) {
               ),
               label(
                 block
-                  .querySelector(".block-subitem2 .block-subitem-finelsub5")
-                  .textContent.trim()
+                .querySelector(".block-subitem2 .block-subitem-finelsub5")
+                .textContent.trim()
               )
             ),
-            div(
-              { class: "trendingmostlist" },
+            div({
+                class: "trendingmostlist"
+              },
               block.querySelector(".block-subitem2 .block-subitem-finelsub6")
             )
           )
         )
       )
     ),
-    div(
-      { class: "filter-cards" },
-      div(
-        { class: "left-container" },
-        div(
-          { class: "FundCategory-container" },
-          div(
-            { class: "filter-sort-container" },
-            div(
-              { class: "filter-wrapper" },
+    div({
+        class: "filter-cards"
+      },
+      div({
+          class: "left-container"
+        },
+        div({
+            class: "FundCategory-container"
+          },
+          div({
+              class: "filter-sort-container"
+            },
+            div({
+                class: "filter-wrapper"
+              },
               block.querySelector(".block-item2 .block-subitem-finelsub1 span"),
               label(
                 block
-                  .querySelector(".block-item2 .block-subitem-finelsub2")
-                  .textContent.trim()
+                .querySelector(".block-item2 .block-subitem-finelsub2")
+                .textContent.trim()
               )
             ),
-            div(
-              { class: "sort-wrapper" },
+            div({
+                class: "sort-wrapper"
+              },
               block.querySelector(".block-item2 .block-subitem-finelsub3 span"),
               label(
                 block
-                  .querySelector(".block-item2 .block-subitem-finelsub4")
-                  .textContent.trim()
+                .querySelector(".block-item2 .block-subitem-finelsub4")
+                .textContent.trim()
               )
             )
           ),
-          div(
-            { class: "filter-overlay" },
-            div(
-              { class: "filter-container" },
-              div(
-                { class: "clearall-wrapper" },
+          div({
+              class: "filter-overlay"
+            },
+            div({
+                class: "filter-container"
+              },
+              div({
+                  class: "clearall-wrapper"
+                },
                 span("Filters"),
-                button({ class: "clearall-btn" }, "Clear All")
+                button({
+                  class: "clearall-btn"
+                }, "Clear All")
               ),
-              div(
-                { class: "filter-list-wrapper" },
+              div({
+                  class: "filter-list-wrapper"
+                },
                 // div({class:"fundcategory-label"},
                 //   span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
                 // ),
@@ -139,85 +175,94 @@ export default function decorate(block) {
                       Object.keys(element)[0].replaceAll("-", " ")
                     ) === "Indian Equity"
                   ) {
-                    dataMapMoObj[index + "ArrayDoc"] = div(
-                      { class: "Indian-Equity-container" },
+                    dataMapMoObj[index + "ArrayDoc"] = div({
+                        class: "Indian-Equity-container"
+                      },
                       ...dataMapMoObj.data.fundCategory[
                         dataMapMoObj.data.fundCategory.length - 1
                       ]["indianEquitySub"].map((elme, ind) => {
                         let sublabel = Object.keys(elme)[0]
                           .split("-")[1]
                           .trim();
-                        return div(
-                          { class: "checkbox-label-container" },
+                        return div({
+                            class: "checkbox-label-container"
+                          },
                           input({
                             class: "categorey-direct",
                             type: "checkbox",
                             id: "ind" + (ind + 1),
                             dataattr: elme[Object.keys(elme)].join("-"),
                             onclick: (event) => {
-                              checkfilter(block); 
+                              checkfilter(block);
                               console.log(block.querySelector(".applied-filter-list"));
-                              
+
                               // <li class="applied-filter-name"><span>Large Cap</span><img src="../../icons/cross-icon.svg" alt="cross icon"></li>
                               // viewFunction(block);
                             },
                           }),
-                          label({ for: "ind" + (ind + 1) }, sublabel)
+                          label({
+                            for: "ind" + (ind + 1)
+                          }, sublabel)
                         );
                       })
                     );
                   }
-                  return Object.keys(element)[0] !== "indianEquitySub"
-                    ? div(
-                        { class: "checkbox-label-container " + indexeq },
-                        input({
-                          class: "categorey-direct",
-                          type: "checkbox",
-                          id: "index" + (index + 1),
-                          dataattr: element[Object.keys(element)[0]].join("-"),
-                          onclick: (event) => {
-                            let fundScheme = event.target
-                              .getAttribute("dataattr")
-                              .split("-");
-                            // viewFunction(block);
-                            if (event.target.closest(".indaneqsub")) {
-                              let el = event.target.closest(".indaneqsub");
-                              if (el.querySelector(".innerIndianEquity")) {
-                                el.querySelectorAll(
-                                  ".innerIndianEquity input"
-                                ).forEach((elemsub) => {
-                                  elemsub.checked =
-                                    el.querySelector("input").checked;
-                                });
-                              }
+                  return Object.keys(element)[0] !== "indianEquitySub" ?
+                    div({
+                        class: "checkbox-label-container " + indexeq
+                      },
+                      input({
+                        class: "categorey-direct",
+                        type: "checkbox",
+                        id: "index" + (index + 1),
+                        dataattr: element[Object.keys(element)[0]].join("-"),
+                        onclick: (event) => {
+                          let fundScheme = event.target
+                            .getAttribute("dataattr")
+                            .split("-");
+                          // viewFunction(block);
+                          if (event.target.closest(".indaneqsub")) {
+                            let el = event.target.closest(".indaneqsub");
+                            if (el.querySelector(".innerIndianEquity")) {
+                              el.querySelectorAll(
+                                ".innerIndianEquity input"
+                              ).forEach((elemsub) => {
+                                elemsub.checked =
+                                  el.querySelector("input").checked;
+                              });
                             }
-                            checkfilter(block);
-                          },
-                        }),
-                        label(
-                          { for: "index" + (index + 1) },
-                          capitalizeEachWord(
-                            Object.keys(element)[0].replaceAll("-", " ")
-                          ),
-                          span(
-                            { class: "fund-length" },
-                            "(" + element[Object.keys(element)[0]].length + ")"
-                          )
-                        ),
+                          }
+                          checkfilter(block);
+                        },
+                      }),
+                      label({
+                          for: "index" + (index + 1)
+                        },
                         capitalizeEachWord(
                           Object.keys(element)[0].replaceAll("-", " ")
-                        ) === "Indian Equity"
-                          ? div(
-                              { class: "innerIndianEquity" },
-                              dataMapMoObj[index + "ArrayDoc"]
-                            )
-                          : ""
-                      )
-                    : "";
+                        ),
+                        span({
+                            class: "fund-length"
+                          },
+                          "(" + element[Object.keys(element)[0]].length + ")"
+                        )
+                      ),
+                      capitalizeEachWord(
+                        Object.keys(element)[0].replaceAll("-", " ")
+                      ) === "Indian Equity" ?
+                      div({
+                          class: "innerIndianEquity"
+                        },
+                        dataMapMoObj[index + "ArrayDoc"]
+                      ) :
+                      ""
+                    ) :
+                    "";
                 }),
                 ...dataMapMoObj.data.fundType.map((element, index) => {
-                  return div(
-                    { class: "checkbox-label-container" },
+                  return div({
+                      class: "checkbox-label-container"
+                    },
                     input({
                       class: "categorey-direct",
                       type: "checkbox",
@@ -228,8 +273,9 @@ export default function decorate(block) {
                         // viewFunction(block);
                       },
                     }),
-                    label(
-                      { for: "fundtype" + (index + 1) },
+                    label({
+                        for: "fundtype" + (index + 1)
+                      },
                       capitalizeEachWord(
                         Object.keys(element)[0].replaceAll("-", " ")
                       ),
@@ -238,105 +284,181 @@ export default function decorate(block) {
                   );
                 })
               ),
-              div(
-                { class: "apply-wrapper" },
-                button({ class: "close-btn" }, "Close"),
-                button({ class: "apply-btn" }, "Apply")
+              div({
+                  class: "apply-wrapper"
+                },
+                button({
+                  class: "close-btn"
+                }, "Close"),
+                button({
+                  class: "apply-btn"
+                }, "Apply")
               )
             )
           ),
-          div(
-            { class: "sort-overlay" },
-            div(
-              { class: "sort-container" },
-              div(
-                { class: "sort-label" },
+          div({
+              class: "sort-overlay"
+            },
+            div({
+                class: "sort-container"
+              },
+              div({
+                  class: "sort-label"
+                },
                 // span(label(
                 //   block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
                 // ))
                 span(
                   block
-                    .querySelector(".block-item3 .block-subitem-finelsub1")
-                    .textContent.trim()
+                  .querySelector(".block-item3 .block-subitem-finelsub1")
+                  .textContent.trim()
                 )
               ),
-              div(
-                { class: "arrange-returns" },
-                div(
-                  { class: "arrange-container" },
+              div({
+                  class: "arrange-returns"
+                },
+                div({
+                    class: "arrange-container"
+                  },
                   span("Arrange by"),
-                  div(
-                    { class: "radio-label-container" },
-                    div(
-                      { class: "radio-label" },
-                      input({ type: "radio", id: "popular", name: "arrange" }),
-                      label({ for: "popular" }, "Popular")
+                  div({
+                      class: "radio-label-container"
+                    },
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "popular",
+                        name: "arrange"
+                      }),
+                      label({
+                        for: "popular"
+                      }, "Popular")
                     ),
-                    div(
-                      { class: "radio-label" },
-                      input({ type: "radio", id: "lastnav", name: "arrange" }),
-                      label({ for: "lastnav" }, "Latest NAV")
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "lastnav",
+                        name: "arrange"
+                      }),
+                      label({
+                        for: "lastnav"
+                      }, "Latest NAV")
                     ),
-                    div(
-                      { class: "radio-label" },
+                    div({
+                        class: "radio-label"
+                      },
                       input({
                         type: "radio",
                         id: "lastnavone",
                         name: "arrange",
                       }),
-                      label({ for: "lastnavone" }, "Latest by 1 day")
+                      label({
+                        for: "lastnavone"
+                      }, "Latest by 1 day")
                     ),
-                    div(
-                      { class: "radio-label" },
-                      input({ type: "radio", id: "oldnew", name: "arrange" }),
-                      label({ for: "oldnew" }, "Oldest to Newest")
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "oldnew",
+                        name: "arrange"
+                      }),
+                      label({
+                        for: "oldnew"
+                      }, "Oldest to Newest")
                     ),
-                    div(
-                      { class: "radio-label" },
-                      input({ type: "radio", id: "newold", name: "arrange" }),
-                      label({ for: "newold" }, "Newest to Oldest")
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "newold",
+                        name: "arrange"
+                      }),
+                      label({
+                        for: "newold"
+                      }, "Newest to Oldest")
                     )
                   )
                 ),
-                div(
-                  { class: "return-container" },
+                div({
+                    class: "return-container"
+                  },
                   span("Returns Period"),
-                  div(
-                    { class: "radio-label-container" },
-                    div(
-                      { class: "radio-label" },
-                      input({ type: "radio", id: "sinceinp", name: "returns" }),
-                      label({ for: "sinceinp" }, "Since Inception")
+                  div({
+                      class: "radio-label-container"
+                    },
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "sinceinp",
+                        name: "returns"
+                      }),
+                      label({
+                        for: "sinceinp"
+                      }, "Since Inception")
                     ),
-                    div(
-                      { class: "radio-label" },
-                      input({ type: "radio", id: "oneyear", name: "returns" }),
-                      label({ for: "oneyear" }, "1 year")
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "oneyear",
+                        name: "returns"
+                      }),
+                      label({
+                        for: "oneyear"
+                      }, "1 year")
                     ),
-                    div(
-                      { class: "radio-label" },
+                    div({
+                        class: "radio-label"
+                      },
                       input({
                         type: "radio",
                         id: "threeyear",
                         name: "returns",
                       }),
-                      label({ for: "threeyear" }, "3 years")
+                      label({
+                        for: "threeyear"
+                      }, "3 years")
                     ),
-                    div(
-                      { class: "radio-label" },
-                      input({ type: "radio", id: "fiveyear", name: "returns" }),
-                      label({ for: "fiveyear" }, "5 years")
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "fiveyear",
+                        name: "returns"
+                      }),
+                      label({
+                        for: "fiveyear"
+                      }, "5 years")
                     ),
-                    div(
-                      { class: "radio-label" },
-                      input({ type: "radio", id: "tenyear", name: "returns" }),
-                      label({ for: "tenyear" }, "10 years")
+                    div({
+                        class: "radio-label"
+                      },
+                      input({
+                        type: "radio",
+                        id: "tenyear",
+                        name: "returns"
+                      }),
+                      label({
+                        for: "tenyear"
+                      }, "10 years")
                     )
                   )
                 )
               ),
-              div(
-                { class: "close-apply-btn" },
+              div({
+                  class: "close-apply-btn"
+                },
                 button("close"),
                 button("Apply")
               )
@@ -344,35 +466,41 @@ export default function decorate(block) {
           )
         )
       ),
-      div(
-        { class: "right-container" },
-        div(
-          { class: "sort-pop-container" },
-          div(
-            { class: "sort-popular" },
-            div(
-              { class: "sort-container" },
+      div({
+          class: "right-container"
+        },
+        div({
+            class: "sort-pop-container"
+          },
+          div({
+              class: "sort-popular"
+            },
+            div({
+                class: "sort-container"
+              },
               label(
                 block
-                  .querySelector(".block-item3 .block-subitem-finelsub1")
-                  .textContent.trim()
+                .querySelector(".block-item3 .block-subitem-finelsub1")
+                .textContent.trim()
               )
             ),
-            div(
-              { class: "popular-container" },
+            div({
+                class: "popular-container"
+              },
               label(
                 block
-                  .querySelector(".block-item3 .block-subitem-finelsub2")
-                  .textContent.trim()
+                .querySelector(".block-item3 .block-subitem-finelsub2")
+                .textContent.trim()
               )
             )
           ),
-          div(
-            { class: "group-view-container" },
-            div(
-              { class: "view-container" },
-              div(
-                {
+          div({
+              class: "group-view-container"
+            },
+            div({
+                class: "view-container"
+              },
+              div({
                   class: "squareby-container grid-view-active",
                   onclick: (event) => {
                     event.currentTarget.classList.add("grid-view-active");
@@ -389,8 +517,7 @@ export default function decorate(block) {
                 },
                 block.querySelector(".block-item3 .block-subitem-finelsub3")
               ),
-              div(
-                {
+              div({
                   class: "listby-container",
                   onclick: (event) => {
                     event.currentTarget.classList.add("list-view-active");
@@ -408,11 +535,13 @@ export default function decorate(block) {
                 block.querySelector(".block-item3 .block-subitem-finelsub4")
               )
             ),
-            div(
-              { class: "togglebtn" },
+            div({
+                class: "togglebtn"
+              },
               p("Direct"),
-              div(
-                { class: "fund-toggle-wrap" },
+              div({
+                  class: "fund-toggle-wrap"
+                },
                 input({
                   type: "checkbox",
                   id: "toggle",
@@ -420,62 +549,89 @@ export default function decorate(block) {
                     checkfilter(block);
                   },
                 }),
-                label({ class: "fund-toggle", for: "toggle" })
+                label({
+                  class: "fund-toggle",
+                  for: "toggle"
+                })
               ),
               p("Regular")
             ),
-            div({ class: "compare-btn" }, button("Compare"))
+            div({
+              class: "compare-btn"
+            }, button("Compare"))
           )
         ),
-        div(
-          { class: "applied-filter-wrap" },
-          ul(
-            { class: "applied-filter-list" },
-            li(
-              { class: "applied-filter-name" },
+        div({
+            class: "applied-filter-wrap"
+          },
+          ul({
+              class: "applied-filter-list"
+            },
+            li({
+                class: "applied-filter-name"
+              },
               span("Large Cap"),
-              img({ src: "../../icons/cross-icon.svg", alt: "cross icon" })
+              img({
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon"
+              })
             ),
-            li(
-              { class: "applied-filter-name" },
+            li({
+                class: "applied-filter-name"
+              },
               span("Tax saver (ELSS)"),
-              img({ src: "../../icons/cross-icon.svg", alt: "cross icon" })
+              img({
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon"
+              })
             ),
-            li(
-              { class: "applied-filter-name" },
+            li({
+                class: "applied-filter-name"
+              },
               span("Hybrid & Balanced"),
-              img({ src: "../../icons/cross-icon.svg", alt: "cross icon" })
+              img({
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon"
+              })
             )
           )
         ),
-        div(
-          { class: "cards-container" },
+        div({
+            class: "cards-container"
+          },
           ...dataMapMoObj["funddata"].map((el) => {
             return fundcardblock(el);
           })
         ),
-        div(
-          { class: "list-view-header", style: "display:none" },
-          div(
-            { class: "list-header" },
+        div({
+            class: "list-view-header",
+            style: "display:none"
+          },
+          div({
+              class: "list-header"
+            },
             block.closest(".section").querySelector(".item2")
           ),
-          div({ class: "list-container" })
+          div({
+            class: "list-container"
+          })
         )
       )
     )
   );
   block.innerHTML = "";
   block.append(divfund);
-  
+  block.querySelector(".applied-filter-list").innerHTML = "";
   //added wrapper
-  let divmop = div({class:"indanequity-wrapper"},
+  let divmop = div({
+      class: "indanequity-wrapper"
+    },
     block.querySelector(".indaneqsub #index1"),
     block.querySelector(".indaneqsub [for='index1']"),
   )
   let divinner = block.querySelector(".indaneqsub .innerIndianEquity");
   block.querySelector(".indaneqsub").innerHTML = "";
-  block.querySelector(".indaneqsub").append(divmop,divinner)
+  block.querySelector(".indaneqsub").append(divmop, divinner)
 
   // Search
   let currentFocus = -1;
@@ -496,7 +652,7 @@ export default function decorate(block) {
         searchInput.value = name;
         // selectedFund = dataMapMoObj["funddata"].find(f => f.schDetail.schemeName === name);
         searchResults.innerHTML = '';
-       searchResults.style.display = "none";
+        searchResults.style.display = "none";
       });
       searchResults.appendChild(li);
     });
@@ -505,10 +661,22 @@ export default function decorate(block) {
   searchInput.addEventListener('keydown', (e) => {
     const items = searchResults.querySelectorAll('li');
     if (!items.length) return;
-    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); }
-    else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); }
-    else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click(); }
-    else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
+    if (e.key === 'ArrowDown') {
+      currentFocus++;
+      addActive(items);
+      e.preventDefault();
+    } else if (e.key === 'ArrowUp') {
+      currentFocus--;
+      addActive(items);
+      e.preventDefault();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (currentFocus > -1) items[currentFocus].click();
+    } else if (e.key === 'Escape') {
+      searchResults.innerHTML = '';
+      currentFocus = -1;
+      searchInput.value = selectedFundName;
+    }
   });
 
   function addActive(items) {
@@ -517,53 +685,102 @@ export default function decorate(block) {
     if (currentFocus >= items.length) currentFocus = items.length - 1;
     if (currentFocus < 0) currentFocus = 0;
     items[currentFocus].classList.add('active');
-    items[currentFocus].scrollIntoView({ block: 'nearest' });
+    items[currentFocus].scrollIntoView({
+      block: 'nearest'
+    });
   }
-  
+
 }
 
 function dataFilterfun(param) {
   let dataMapObj = {};
   dataMapObj["schemeName"] = [];
-  dataMapObj["fundCategory"] = [
-    { "indian-equity": [] },
-    { "international-equity": [] },
-    { "hybrid-&-balanced": [] },
-    { "multi-asset": [] },
-    { commodity: [] },
-    { "debt-&-liquid": [] },
+  dataMapObj["fundCategory"] = [{
+      "indian-equity": []
+    },
     {
-      indianEquitySub: [
-        { "Indian Equity - Large and Mid Cap": [] },
-        { "Indian Equity - Large Cap": [] },
-        { "Indian Equity - Mid Cap": [] },
-        { "Indian Equity - Small Cap": [] },
-        { "Indian Equity - Sector": [] },
-        { "Indian Equity - Factor": [] },
-        { "Indian Equity - Tax Saver (ELSS)": [] },
-        { "Indian Equity - Multi Cap": [] },
+      "international-equity": []
+    },
+    {
+      "hybrid-&-balanced": []
+    },
+    {
+      "multi-asset": []
+    },
+    {
+      commodity: []
+    },
+    {
+      "debt-&-liquid": []
+    },
+    {
+      indianEquitySub: [{
+          "Indian Equity - Large and Mid Cap": []
+        },
+        {
+          "Indian Equity - Large Cap": []
+        },
+        {
+          "Indian Equity - Mid Cap": []
+        },
+        {
+          "Indian Equity - Small Cap": []
+        },
+        {
+          "Indian Equity - Sector": []
+        },
+        {
+          "Indian Equity - Factor": []
+        },
+        {
+          "Indian Equity - Tax Saver (ELSS)": []
+        },
+        {
+          "Indian Equity - Multi Cap": []
+        },
       ],
     },
   ];
-  dataMapObj["fundType"] = [{ active: [] }, { "index-funds": [] }, { etf: [] }];
-  dataMapObj["sort"] = [
-    {
-      ListDropdown: [
-        { text: "Popular", value: "inception_Ret" },
-        { text: "1 Year Returns", value: "oneYear_Ret" },
-        { text: "3 Year Returns", value: "threeYear_Ret" },
-        { text: "5 Year Returns", value: "fiveYear_Ret" },
-        { text: "7 Year Returns", value: "sevenYear_Ret" },
-        { text: "10 Year Returns", value: "tenYear_Ret" },
-      ],
-      inception_Ret: [],
-      oneYear_Ret: [],
-      threeYear_Ret: [],
-      fiveYear_Ret: [],
-      sevenYear_Ret: [],
-      tenYear_Ret: [],
-    },
-  ];
+  dataMapObj["fundType"] = [{
+    active: []
+  }, {
+    "index-funds": []
+  }, {
+    etf: []
+  }];
+  dataMapObj["sort"] = [{
+    ListDropdown: [{
+        text: "Popular",
+        value: "inception_Ret"
+      },
+      {
+        text: "1 Year Returns",
+        value: "oneYear_Ret"
+      },
+      {
+        text: "3 Year Returns",
+        value: "threeYear_Ret"
+      },
+      {
+        text: "5 Year Returns",
+        value: "fiveYear_Ret"
+      },
+      {
+        text: "7 Year Returns",
+        value: "sevenYear_Ret"
+      },
+      {
+        text: "10 Year Returns",
+        value: "tenYear_Ret"
+      },
+    ],
+    inception_Ret: [],
+    oneYear_Ret: [],
+    threeYear_Ret: [],
+    fiveYear_Ret: [],
+    sevenYear_Ret: [],
+    tenYear_Ret: [],
+  }, ];
 
   for (let name of param) {
     if (
@@ -692,6 +909,7 @@ function dataFilterfun(param) {
   }
   return dataMapObj;
 }
+
 function capitalizeEachWord(sentence) {
   if (sentence.includes("etf")) {
     return sentence.toUpperCase() + "'s";
@@ -705,49 +923,92 @@ function viewFunction(param) {
   param.querySelector(".list-container").innerHTML = ""
   param.querySelector(".cards-container").innerHTML = ""
   if (Array.from(param.querySelector(".listby-container").classList).includes("list-view-active")) {
-    dataMapMoObj["funddata"].forEach((el)=>{
+    dataMapMoObj["funddata"].forEach((el) => {
       param.querySelector(".list-container").append(listviewblock(el));
-    })    
-  }else{
-    dataMapMoObj["funddata"].forEach((el)=>{
+    })
+  } else {
+    dataMapMoObj["funddata"].forEach((el) => {
       param.querySelector(".cards-container").append(fundcardblock(el));
     })
   }
 }
 
-function checkfilter(block){
+function checkfilter(block) {
+  // el.querySelector("input").nextElementSibling.textContent.replace(/\d+/g, '').replaceAll("()","")
+  let filterTag = []; //5-8-25
   let tempData = [];
-  Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el)=>{
+  Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
     if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
-        el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub)=>{
-          if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
-            elemsub.getAttribute('dataattr').split("-").forEach((eldata)=>{
+      el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+        if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
+          filterTag.push(elemsub.nextElementSibling.textContent.trim()) //5-8-25
+          elemsub.getAttribute('dataattr').split("-").forEach((eldata) => {
             if (!tempData.includes(eldata)) {
-                  tempData.push(eldata)
-              }
-            })
-          }
-        })
-    }
-    if(el.querySelector("input").checked && el.querySelector("input").getAttribute("id") !== "index1"){
-      el.querySelector("input").getAttribute('dataattr').split("-").forEach((eldata)=>{
-      if (!tempData.includes(eldata)) {
-            tempData.push(eldata)
+              tempData.push(eldata)
+            }
+          })
         }
       })
-     }
+    }
+    if (el.querySelector("input").checked && el.querySelector("input").getAttribute("id") !== "index1") {
+      filterTag.push(el.querySelector("input").nextElementSibling.textContent.replace(/\d+/g, '').replaceAll("()", "")) //5-8-25
+      el.querySelector("input").getAttribute('dataattr').split("-").forEach((eldata) => {
+        if (!tempData.includes(eldata)) {
+          tempData.push(eldata)
+        }
+      })
+    }
   })
   dataMapMoObj["funddata"] = []
-  dataMapMoObj["funddata"] = dataCfObj.filter((el,index)=>{
+  dataMapMoObj["funddata"] = dataCfObj.filter((el, index) => {
     if (tempData.length > 0) {
       if (tempData.includes(el.schcode)) {
         return el
       }
-    }else{
+    } else {
       if (index < 9) {
         return el
       }
     }
   })
   viewFunction(block)
+
+  filterGroup(filterTag);
+
+  function filterGroup(filterTag) {
+    block.querySelector(".applied-filter-list").innerHTML = "";
+    filterTag.forEach((elli, index) => {
+      block.querySelector(".applied-filter-list").innerHTML += '<li class="applied-filter-name"><span>' + elli + '</span><img src="../../icons/cross-icon.svg" alt="cross icon"></li>';
+    })
+
+    //Add Filter Tag Logic
+    Array.from(block.querySelector(".applied-filter-list").children).forEach((el) => {
+      el.querySelector("img").addEventListener('click', (event) => {
+        // console.log(event.target.closest('.applied-filter-name').querySelector("span").textContent);
+        filterTag = [];
+        Array.from(block.querySelector(".applied-filter-list").children).forEach((el, index) => {
+          if (el.querySelector("span").textContent !== event.target.closest('.applied-filter-name').querySelector("span").textContent) {
+            filterTag.push(el.querySelector("span").textContent)
+          }
+        })
+        filterGroup(filterTag)
+        //unchecked logic
+        Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
+          if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
+            el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+              if (!filterTag.includes(elemsub.nextElementSibling.textContent.trim())) {
+                elemsub.checked = false
+              }
+            })
+          }
+          if (el.querySelector("input").getAttribute("id").includes("index") && !filterTag.includes(el.querySelector("input").nextElementSibling.textContent.replace(/\d+/g, '').replaceAll("()", ""))) {
+            el.querySelector("input").checked = false
+          } else if (el.querySelector("input").getAttribute("id").includes("fundtype") && !filterTag.includes(el.closest('.checkbox-label-container').querySelector('label').textContent.replace(/\d+/g, '').replaceAll("()", ""))) {
+            el.querySelector("input").checked = false
+          }
+          checkfilter(block)
+        })
+      })
+    })
+  }
 }
