@@ -334,13 +334,13 @@
       },
       {
         "component": "aem-content",
-        "name": "you_link",
-        "label": "Enter Link for Button"
+        "name": "You-link",
+        "label": "You-link"
       },
       {
         "component": "text",
-        "name": "you_linkText",
-        "label": "Enter Text Button"
+        "name": "linkText",
+        "label": "Text"
       },
       {
         "component": "richtext",
