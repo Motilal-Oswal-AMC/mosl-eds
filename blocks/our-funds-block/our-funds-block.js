@@ -216,11 +216,19 @@ export default function decorate(block) {
                             id: "ind" + (ind + 1),
                             dataattr: elme[Object.keys(elme)].join("-"),
                             onclick: (event) => {
-                              checkfilter(block);
-                              console.log(block.querySelector(".applied-filter-list"));
-
-                              // <li class="applied-filter-name"><span>Large Cap</span><img src="../../icons/cross-icon.svg" alt="cross icon"></li>
-                              // viewFunction(block);
+                              if (window.innerWidth < 786) {
+                                let dataattr = event.target.getAttribute("dataattr").split("-")
+                                let tempdata = dataCfObj.filter((el)=>{
+                                  if (dataattr.includes(el.schcode)) {
+                                    return el
+                                  }
+                                })
+                                console.log(tempdata);
+                                dataMapMoObj["tempMobReturn"] = [];
+                                dataMapMoObj["tempMobReturn"] = tempdata;
+                              }else{
+                                checkfilter(block);
+                              }
                             },
                           }),
                           label({
@@ -255,7 +263,19 @@ export default function decorate(block) {
                               });
                             }
                           }
-                          checkfilter(block);
+                          if (window.innerWidth < 786) {
+                                let dataattr = event.target.getAttribute("dataattr").split("-")
+                                let tempdata = dataCfObj.filter((el)=>{
+                                  if (dataattr.includes(el.schcode)) {
+                                    return el
+                                  }
+                                })
+                                console.log(tempdata);
+                                dataMapMoObj["tempMobReturn"] = [];
+                                dataMapMoObj["tempMobReturn"] = tempdata;
+                          }else{
+                            checkfilter(block);
+                          }
                         },
                       }),
                       label({
@@ -292,7 +312,20 @@ export default function decorate(block) {
                       id: "fundtype" + (index + 1),
                       dataattr: element[Object.keys(element)[0]].join("-"),
                       onclick: (event) => {
-                        checkfilter(block);
+                        // checkfilter(block);
+                        if (window.innerWidth < 786) {
+                                let dataattr = event.target.getAttribute("dataattr").split("-")
+                                let tempdata = dataCfObj.filter((el)=>{
+                                  if (dataattr.includes(el.schcode)) {
+                                    return el
+                                  }
+                                })
+                                console.log(tempdata);
+                                dataMapMoObj["tempMobReturn"] = [];
+                                dataMapMoObj["tempMobReturn"] = tempdata;
+                        }else{
+                         checkfilter(block);
+                        }
                         // viewFunction(block);
                       },
                     }),
@@ -318,7 +351,10 @@ export default function decorate(block) {
                 }
                 }, "Close"),
                 button({
-                  class: "apply-btn"
+                  class: "apply-btn",
+                  onclick:()=>{
+                    applyFunction(block)
+                  }
                 }, "Apply")
               )
             )
@@ -510,7 +546,12 @@ export default function decorate(block) {
                   block.querySelector(".sort-overlay").classList.remove('active')
                 }
                 },"close"),
-                button({class:"applybtn"},"Apply")
+                button({
+                  class:"applybtn",
+                  onclick:()=>{
+                    applyFunction(block)
+                  }
+                },"Apply")
               )
             )
           )
@@ -754,6 +795,9 @@ export default function decorate(block) {
         }
       })
       console.log(tempdata);
+      dataMapMoObj["tempMobReturn"] = [];
+      dataMapMoObj["tempMobReturn"] = tempdata;
+      // viewFunction(block);
     })
   })
 
@@ -1026,18 +1070,21 @@ function checkfilter(block) {
       })
     }
   })
-  dataMapMoObj["funddata"] = []
-  dataMapMoObj["funddata"] = dataCfObj.filter((el, index) => {
-    if (tempData.length > 0) {
-      if (tempData.includes(el.schcode)) {
-        return el
+  if (window.innerWidth > 786) {
+    dataMapMoObj["funddata"] = []
+    dataMapMoObj["funddata"] = dataCfObj.filter((el, index) => {
+      if (tempData.length > 0) {
+        if (tempData.includes(el.schcode)) {
+          return el
+        }
+      } else {
+        if (index < 9) {
+          return el
+        }
       }
-    } else {
-      if (index < 9) {
-        return el
-      }
-    }
-  })
+    })  
+  }
+  
   viewFunction(block)
 
   filterGroup(filterTag);
@@ -1078,4 +1125,21 @@ function checkfilter(block) {
       })
     })
   }
+}
+
+function applyFunction(block){
+    dataMapMoObj["tempMobReturn"] = dataMapMoObj["tempMobReturn"] === undefined ? [] : dataMapMoObj["tempMobReturn"];
+    dataMapMoObj["tempMobReturn"] = dataMapMoObj["tempMobReturn"].length !== 0 ? dataMapMoObj["tempMobReturn"] : dataCfObj.slice(0,9);
+    if (Array.from(block.querySelector(".filter-overlay").classList).includes("active")) {
+      dataMapMoObj["funddata"] = dataMapMoObj["tempMobReturn"];
+      dataMapMoObj["tempMobReturn"] = [];
+      block.querySelector(".filter-overlay").classList.remove("active")
+      checkfilter(block)
+    }else if (Array.from(block.querySelector(".sort-overlay").classList).includes("active")) {
+      dataMapMoObj["funddata"] = dataMapMoObj["tempMobReturn"];
+      dataMapMoObj["tempMobReturn"] = [];
+      block.querySelector(".sort-overlay").classList.remove("active")
+      viewFunction(block)
+    }
+    
 }
