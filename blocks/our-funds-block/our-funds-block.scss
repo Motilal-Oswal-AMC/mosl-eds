@@ -736,7 +736,7 @@
                 }
               }
             }
-            @include media(mobile) {
+            @include media(tab) {
               display: none;
             }
           }
@@ -819,6 +819,12 @@
         }
       }
       .applied-filter {
+        &-wrap {
+          display: none;
+          &.filter-active {
+            display: block;
+          }
+        }
         &-list {
           margin: 0;
           padding: 0 0 20px;
@@ -917,7 +923,7 @@
             border: 0.5px solid rgba(255, 255, 255, 0.22);
             box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
             .banner-container {
-            //   max-width: 264px;
+              //   max-width: 264px;
               width: 100%;
               height: 118px;
               position: relative;
@@ -981,19 +987,19 @@
                   display: flex;
                   gap: 4px;
                   align-items: center;
-                  &::before{
-                    content: '';
+                  &::before {
+                    content: "";
                     width: 9px;
                     height: 9px;
-                    background-color: #FF0000;
+                    background-color: #ff0000;
                     display: block;
                     border-radius: 50%;
                   }
                 }
               }
-              .timing-container{
-                p{
-                    @include font-style(
+              .timing-container {
+                p {
+                  @include font-style(
                     12px,
                     16px,
                     $primary-white,
@@ -1005,25 +1011,25 @@
               }
             }
           }
-          .button-container{
+          .button-container {
             margin: 16px 0 0;
-            .know-more{
-                color: $primary-white;
+            .know-more {
+              color: $primary-white;
             }
-            .invest-now{
-                background-color: $primary-white;
-                color: $primary-blue;
+            .invest-now {
+              background-color: $primary-white;
+              color: $primary-blue;
             }
           }
         }
       }
       .list-view-header {
-        @include media(mobile) {
-          display: none;
+        @include media(tab) {
+          display: none !important;
         }
         .list-header {
           .default-content-wrapper {
-            background-color: thistle;
+            background-color: $primary-white;
             display: flex;
             align-items: center;
             gap: 22px;
@@ -1037,7 +1043,6 @@
               max-width: 41.83%;
               width: 100%;
               margin-right: 47px;
-              background-color: teal;
               @include media(tab) {
                 margin: 0;
               }
@@ -1048,8 +1053,8 @@
               margin-right: 34px;
               display: flex;
               align-items: center;
+              justify-content: space-between;
               gap: 8px;
-              background-color: tan;
               @include media(tab) {
                 margin: 0;
                 max-width: max-content;
@@ -1066,21 +1071,34 @@
               }
             }
             p:nth-of-type(3) {
-              //   max-width: 9%;
-              //   width: 100%;
-              background-color: turquoise;
+              max-width: 9%;
+              width: 100%;
+              text-align: center;
             }
             p:nth-of-type(4) {
-              //   max-width: 9%;
-              //   width: 100%;
-              background-color: tomato;
+              max-width: 8%;
+              width: 100%;
+              text-align: center;
+            }
+            @include media(desktop-sm) {
+              p:nth-of-type(1) {
+                margin-right: 25px;
+                max-width: 40%;
+              }
+              p:nth-of-type(2) {
+                margin-right: 15px;
+                max-width: 12%;
+              }
+              p:nth-of-type(4) {
+                max-width: 10%;
+              }
             }
           }
         }
         .list-container {
           margin: 8px 0 0;
           .list-view-container {
-            background-color: thistle;
+            background-color: $primary-white;
             border-radius: 8px;
             .list-wrapper {
               display: flex;
@@ -1095,9 +1113,12 @@
                 max-width: 41.83%;
                 width: 100%;
                 margin-right: 47px;
-                background-color: teal;
                 display: flex;
                 gap: 8px;
+                @include media(desktop-sm){
+                    max-width: 40%;
+                    margin-right: 25px;
+                }
                 @include media(tab) {
                   margin: 0;
                 }
@@ -1113,6 +1134,7 @@
                   align-items: center;
                   border-radius: 50%;
                   padding: 5px;
+
                   img {
                     width: 100%;
                     height: 100%;
@@ -1152,11 +1174,14 @@
                 max-width: 9.44%;
                 width: 100%;
                 margin-right: 34px;
-                background-color: tan;
                 display: flex;
                 flex-direction: column;
                 gap: 4px;
                 align-items: end;
+                @include media(desktop-sm){
+                    max-width: 12%;
+                    margin-right: 15px;
+                }
                 .cagr-value {
                   @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
                 }
@@ -1171,7 +1196,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: turquoise;
                 img {
                   max-width: 20px;
                   width: 100%;
@@ -1182,12 +1206,14 @@
                 }
               }
               .star {
-                max-width: 7.74%;
+                max-width: 8%;
                 width: 100%;
-                background-color: tomato;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                @include media(desktop-sm){
+                    max-width: 10%;
+                }
                 .fillstar-icon {
                   display: none;
                 }
@@ -1205,6 +1231,9 @@
                 width: 100%;
                 display: flex;
                 justify-content: end;
+                @include media(desktop-sm){
+                    max-width: 10.7%;
+                }
                 button {
                   padding: 8px 12px;
                   margin: 0;

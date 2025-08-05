@@ -845,7 +845,7 @@
 .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container .listby-container:not(.list-view-active) ul li:first-of-type {
   display: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 1025px) {
   .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .view-container {
     display: none;
   }
@@ -927,6 +927,12 @@
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+.our-funds-block .filter-cards .right-container .applied-filter-wrap {
+  display: none;
+}
+.our-funds-block .filter-cards .right-container .applied-filter-wrap.filter-active {
+  display: block;
 }
 .our-funds-block .filter-cards .right-container .applied-filter-list {
   margin: 0;
@@ -1094,7 +1100,7 @@
   content: "";
   width: 9px;
   height: 9px;
-  background-color: #FF0000;
+  background-color: #ff0000;
   display: block;
   border-radius: 50%;
 }
@@ -1116,13 +1122,13 @@
   background-color: #fff;
   color: #2e2a94;
 }
-@media (max-width: 768px) {
+@media (max-width: 1025px) {
   .our-funds-block .filter-cards .right-container .list-view-header {
-    display: none;
+    display: none !important;
   }
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper {
-  background-color: thistle;
+  background-color: #fff;
   display: flex;
   align-items: center;
   gap: 22px;
@@ -1141,7 +1147,6 @@
   max-width: 41.83%;
   width: 100%;
   margin-right: 47px;
-  background-color: teal;
 }
 @media (max-width: 1025px) {
   .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(1) {
@@ -1154,8 +1159,8 @@
   margin-right: 34px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
-  background-color: tan;
 }
 @media (max-width: 1025px) {
   .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(2) {
@@ -1175,16 +1180,33 @@
   display: block;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(3) {
-  background-color: turquoise;
+  max-width: 9%;
+  width: 100%;
+  text-align: center;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(4) {
-  background-color: tomato;
+  max-width: 8%;
+  width: 100%;
+  text-align: center;
+}
+@media (max-width: 1299px) {
+  .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(1) {
+    margin-right: 25px;
+    max-width: 40%;
+  }
+  .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(2) {
+    margin-right: 15px;
+    max-width: 12%;
+  }
+  .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(4) {
+    max-width: 10%;
+  }
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container {
   margin: 8px 0 0;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container {
-  background-color: thistle;
+  background-color: #fff;
   border-radius: 8px;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper {
@@ -1202,9 +1224,14 @@
   max-width: 41.83%;
   width: 100%;
   margin-right: 47px;
-  background-color: teal;
   display: flex;
   gap: 8px;
+}
+@media (max-width: 1299px) {
+  .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper {
+    max-width: 40%;
+    margin-right: 25px;
+  }
 }
 @media (max-width: 1025px) {
   .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper {
@@ -1257,11 +1284,16 @@
   max-width: 9.44%;
   width: 100%;
   margin-right: 34px;
-  background-color: tan;
   display: flex;
   flex-direction: column;
   gap: 4px;
   align-items: end;
+}
+@media (max-width: 1299px) {
+  .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .cagr-return {
+    max-width: 12%;
+    margin-right: 15px;
+  }
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .cagr-return .cagr-value {
   font-size: 14px;
@@ -1284,7 +1316,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: turquoise;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon img {
   max-width: 20px;
@@ -1295,12 +1326,16 @@
   display: none;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star {
-  max-width: 7.74%;
+  max-width: 8%;
   width: 100%;
-  background-color: tomato;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 1299px) {
+  .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star {
+    max-width: 10%;
+  }
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star .fillstar-icon {
   display: none;
@@ -1316,6 +1351,11 @@
   width: 100%;
   display: flex;
   justify-content: end;
+}
+@media (max-width: 1299px) {
+  .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .btn-invest {
+    max-width: 10.7%;
+  }
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .btn-invest button {
   padding: 8px 12px;
