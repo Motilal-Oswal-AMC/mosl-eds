@@ -248,19 +248,9 @@ export default function decorate(block) {
           div({
               class: 'cagr-select-wrapper'
             },
-            select({
-                schemeCode: block.schcode,
-                value: tempReturns[0],
-                onchange: (event) => {
-                  const cgarValue = block.returns[0][event.target.value];
-                  event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
-                  event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
-                  event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
-                },
-              },
-              ...tempReturns.map((eloption) => option({
-                value: dataMapMoObj.ObjTemp[eloption],
-              }, eloption)),
+            p({class:"selectedtext"},tempReturns[0]),
+            ul(
+              ...tempReturns.map((eloption) => option({class:"returnyears",value: dataMapMoObj.ObjTemp[eloption]}, eloption)),
             ),
           ),
         ),
@@ -352,19 +342,9 @@ function planListEvent(param, block) {
       div({
           class: "cagr-select-wrapper"
         },
-        select({
-            schemeCode: block.schcode,
-            value: tempReturns[0],
-            onchange: (event) => {
-              const cgarValue = block.returns[0][event.target.value];
-              event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
-              event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
-              event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
-            },
-          },
-          ...tempReturns.map((eloption) => option({
-            value: dataMapMoObj.ObjTemp[eloption],
-          }, eloption)),
+        p({class:"selectedtext"},tempReturns[0]),
+        ul(
+         ...tempReturns.map((eloption) => option({class:"returnyears",value: dataMapMoObj.ObjTemp[eloption]}, eloption)),
         ),
       )
     )
