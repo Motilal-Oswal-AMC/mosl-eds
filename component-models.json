@@ -792,13 +792,6 @@
     "id": "key-item",
     "fields": [
       {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
         "component": "text",
         "name": "col1_title_Investment",
         "label": "Inter Investment Objective"
