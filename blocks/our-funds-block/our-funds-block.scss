@@ -2,12 +2,13 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
-@import url("../fund-card/fund-card.css");
+@import "../fund-card/fund-card.css";
 
 .our-funds-block {
   &-wrapper {
     width: 100%;
   }
+
   .fundcontainer {
     // background-color: red;
     display: flex;
@@ -16,19 +17,23 @@
     .block-subitem1 {
       h1 {
         margin: 0;
+
         @include font-style(40px, 48px, $primary-blue, 700, $ButlerPro);
       }
     }
+
     .search-trending-wrapper {
       display: flex;
       flex-direction: column;
       gap: 12px;
       max-width: 74.68%;
       width: 100%;
+
       .search-watch {
         display: flex;
         justify-content: space-between;
         gap: 20px;
+
         .search-input {
           width: 100%;
           padding: 8px 12px;
@@ -37,6 +42,7 @@
           display: flex;
           align-items: center;
           gap: 8px;
+
           &::before {
             content: "";
             background-image: url("../../icons/search-icon-black.svg");
@@ -47,53 +53,67 @@
             height: 20px;
             display: block;
           }
+
           .search {
             width: 100%;
+
             @include font-style(14px, 20px, $text-body-2, 400, $Poppins);
+
             border: none;
             outline: none;
             background-color: transparent;
           }
         }
+
         .watchlist {
           display: flex;
           align-items: center;
           gap: 4px;
+
           .staricon {
             .icon {
               width: 30px;
               height: 30px;
               display: block;
             }
+
             .icon-star-filled {
               display: none;
             }
+
             &.watchlist-active {
               .icon {
                 display: none;
               }
+
               .icon-star-filled {
                 display: block;
               }
             }
           }
+
           &text {
             width: max-content;
+
             span {
               @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+
               text-decoration-line: underline;
               text-underline-offset: 20%;
             }
           }
         }
       }
+
       .trending-container,
       .trendinglabel {
         display: flex;
         align-items: center;
         gap: 16px;
+
         .trendinglabel {
           gap: 4px;
+
           p,
           span {
             margin: 0;
@@ -101,6 +121,7 @@
             height: 16px;
             display: flex;
           }
+
           label {
             @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
           }

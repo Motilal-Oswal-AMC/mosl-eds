@@ -8,14 +8,14 @@
     // max-width: 1264px;
     width: 100%;
     margin: 0 auto;
-    padding: 40px 0px;
+    padding: 40px 0;
+
     // @include media(mobile) {
     //   max-width: 100%;
     // }
   }
 
   .cornerstones-advantage {
-
     &-title-wrapper,
     // &-cards-wrapper {
     //   padding: 0;
@@ -23,7 +23,6 @@
     // }
 
     &-title {
-
       h1,
       h2,
       h3,
@@ -32,6 +31,7 @@
       h6 {
         margin: 0 0 4px;
         text-align: center;
+
         @include font-style(48px, 56px, $primary-blue, 700, $ButlerPro);
 
         @include media(mobile) {
@@ -43,6 +43,7 @@
 
       p {
         @include font-style(18px, 24px, $primary-blue, 500, $Poppins);
+
         text-align: center;
         margin: 0;
 
@@ -65,6 +66,7 @@
       @include media(mobile) {
         flex-wrap: unset;
         flex-direction: column;
+
         // gap: 40px;
         gap: 24px;
       }
@@ -72,6 +74,7 @@
       & .cards-item {
         max-width: 296px;
         width: 100%;
+
         // padding-right: 26px;
         min-height: 300px;
 
@@ -100,8 +103,10 @@
           display: flex;
           flex-direction: column;
           padding-right: 26px;
+
           @include media(mobile) {
             padding-right: 0;
+
             // border-bottom: 1px solid $neutrals-400;
             padding-bottom: 16px;
             display: grid;
@@ -112,6 +117,7 @@
             grid-template-columns: 64px 1fr;
             gap: 0 8px;
             align-items: start;
+
             // min-height: 176px;
             min-height: 168px;
           }
@@ -134,6 +140,7 @@
         h5,
         h6 {
           margin: 24px 0 8px;
+
           @include font-style(18px, 24px, $primary-blue, 600, $Poppins);
 
           @include media(mobile) {
@@ -147,6 +154,7 @@
         p {
           &:not(:first-of-type, :last-of-type) {
             @include font-style(16px, 24px, $color-text-body, 400, $Poppins);
+
             // padding-right: 20px;
             @include media(mobile) {
               font-size: 14px;
@@ -181,6 +189,7 @@
             text-decoration-line: underline;
             text-underline-offset: 20%;
             border-radius: 0;
+
             @include font-style(14px, 20px, $primary-blue, 500, $Poppins);
           }
         }

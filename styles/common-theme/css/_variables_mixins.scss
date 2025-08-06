@@ -34,9 +34,8 @@ $button-primary: (
   active: #262a84,
   disabled: #969696,
 );
-
 $button-secondary: (
-  default: #ffffff,
+  default: #fff,
   hover: #f3f3f3,
   active: #e6e6e6,
   disabled: #b0b0b0,
@@ -61,7 +60,7 @@ $color-text-body: #424242;
 $old-silver: (
   00: #efefef,
   50: #f3f3f3,
-  75: #cccccc,
+  75: #ccc,
   100: #b7b7b7,
   200: #989898,
   300: #838383,
@@ -93,7 +92,7 @@ $dark-liver: (
   500: #2e312f,
 );
 
-//strokes
+// strokes
 $strokes: (
   default:#9E9E9E,
 );
@@ -152,7 +151,6 @@ $neutrals-black: #111;
 // ----------------------------------------
 $Poppins: "Poppins", sans-serif;
 $ButlerPro: "ButlerPro", sans-serif;
-
 $font-weights: (
   light: 300,
   regular: 400,

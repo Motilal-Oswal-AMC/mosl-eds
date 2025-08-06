@@ -202,6 +202,7 @@
     height: unset;
     flex-wrap: wrap;
     gap: 24px 10px;
+    justify-content: space-between;
   }
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {

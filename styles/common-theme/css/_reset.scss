@@ -10,6 +10,7 @@ html {
   font-size: rem(16px);
   font-family: $ButlerPro;
   font-weight: map-get($font-weights, regular);
+
   // scroll-behavior: smooth;
 }
 
@@ -20,11 +21,11 @@ html {
   padding: 0;
   box-sizing: inherit;
   outline: none;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  appearance: none;
+  appearance: none;
   appearance: none;
 }
 
@@ -89,6 +90,7 @@ a {
 
 button {
   cursor: pointer;
+
   // font-family:$ButlerPro;
   background: none;
   border: none;
@@ -105,6 +107,7 @@ select {
   outline: 0;
   resize: none;
   border-radius: 0;
+
   // font-family:$ButlerPro;
   font-size: inherit;
   box-sizing: border-box;
