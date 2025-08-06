@@ -166,7 +166,8 @@
       }
 
       .planlist-dropdown {
-        max-width: 70px;
+        // max-width: 70px;
+        max-width: max-content;
         width: 100%;
         @include flex-center($align: center, $justify: flex-start);
         gap: 8px;
@@ -746,7 +747,8 @@
       }
 
       .planlist-dropdown {
-        max-width: 70px;
+        // max-width: 70px;
+        max-width: max-content;
         width: 100%;
         @include flex-center($align: center, $justify: flex-start);
         gap: 8px;

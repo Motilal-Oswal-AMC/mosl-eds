@@ -769,6 +769,17 @@
                 }
             }
           }
+          .sort-container{
+            &::after{
+                content: '';
+                height: 16px;
+                width: 1px;
+                background-color: map.get($old-silver, 500);
+                display: block;
+                opacity: 0.45;
+                margin-left: 8px;
+            }
+          }
           @include media(mobile) {
             display: none;
           }
@@ -1137,6 +1148,7 @@
               align-items: center;
               justify-content: space-between;
               gap: 8px;
+              text-align: center;
               @include media(tab) {
                 margin: 0;
                 max-width: max-content;
