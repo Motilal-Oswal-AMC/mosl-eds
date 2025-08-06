@@ -157,6 +157,9 @@
   gap: 8px;
   position: relative;
 }
+.section .card-container .card-category.no-planlist .fundtagging-list li:last-of-type::after {
+  content: unset;
+}
 .section .card-container .risk-container {
   display: flex;
   align-items: stretch;
