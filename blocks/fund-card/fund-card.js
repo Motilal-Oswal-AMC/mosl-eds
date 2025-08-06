@@ -58,7 +58,7 @@ export default function decorate(block) {
             div(
               { class: "title title-logo" },
               img({
-                class: "logoScheme",
+                class: "logoscheme",
                 src: "../../icons/Group.svg",
                 alt: "BrandLogo",
               })
@@ -197,7 +197,7 @@ export default function decorate(block) {
               class: "title title-logo",
             },
             img({
-              class: "logoScheme",
+              class: "logoscheme",
               src: "../../icons/Group.svg",
               alt: "BrandLogo",
             })

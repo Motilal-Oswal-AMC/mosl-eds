@@ -146,7 +146,7 @@ export default function decorate(block) {
         },
         div(
           {
-            class: "FundCategory-container",
+            class: "fundcategory-container",
           },
           div(
             {
@@ -230,10 +230,10 @@ export default function decorate(block) {
                         if (
                           el
                             .closest(".checkbox-label-container")
-                            .querySelector(".innerIndianEquity")
+                            .querySelector(".innerindianequity")
                         ) {
                           el.closest(".checkbox-label-container")
-                            .querySelectorAll(".innerIndianEquity input")
+                            .querySelectorAll(".innerindianequity input")
                             .forEach((elemsub) => {
                               elemsub.checked = false;
                             });
@@ -262,7 +262,7 @@ export default function decorate(block) {
                   ) {
                     dataMapMoObj[index + "ArrayDoc"] = div(
                       {
-                        class: "Indian-Equity-container",
+                        class: "indian-equity-container",
                       },
                       ...dataMapMoObj.data.fundCategory[
                         dataMapMoObj.data.fundCategory.length - 1
@@ -324,9 +324,9 @@ export default function decorate(block) {
                             // viewFunction(block);
                             if (event.target.closest(".indaneqsub")) {
                               let el = event.target.closest(".indaneqsub");
-                              if (el.querySelector(".innerIndianEquity")) {
+                              if (el.querySelector(".innerindianequity")) {
                                 el.querySelectorAll(
-                                  ".innerIndianEquity input"
+                                  ".innerindianequity input"
                                 ).forEach((elemsub) => {
                                   elemsub.checked =
                                     el.querySelector("input").checked;
@@ -377,7 +377,7 @@ export default function decorate(block) {
                         ) === "Indian Equity"
                           ? div(
                               {
-                                class: "innerIndianEquity",
+                                class: "innerindianequity",
                               },
                               dataMapMoObj[index + "ArrayDoc"]
                             )
@@ -1052,7 +1052,7 @@ export default function decorate(block) {
       )
     )
   );
-  let divinner = block.querySelector(".indaneqsub .innerIndianEquity");
+  let divinner = block.querySelector(".indaneqsub .innerindianequity");
   block.querySelector(".indaneqsub").innerHTML = "";
   block.querySelector(".indaneqsub").append(divmop, divinner)
 
@@ -1322,8 +1322,8 @@ function checkfilter(block) {
  let filterTag = []; //5-8-25
   let tempData = [];
   Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
-    if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
-      el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+    if (el.closest(".checkbox-label-container").querySelector(".innerindianequity")) {
+      el.closest(".checkbox-label-container").querySelectorAll(".innerindianequity input").forEach((elemsub) => {
         if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
           filterTag.push(elemsub.nextElementSibling.textContent.trim()) //5-8-25
           elemsub.getAttribute('dataattr').split("-").forEach((eldata) => {
@@ -1381,8 +1381,8 @@ function checkfilter(block) {
         filterGroup(filterTag)
         //unchecked logic
         Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
-          if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
-            el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+          if (el.closest(".checkbox-label-container").querySelector(".innerindianequity")) {
+            el.closest(".checkbox-label-container").querySelectorAll(".innerindianequity input").forEach((elemsub) => {
               if (!filterTag.includes(elemsub.nextElementSibling.textContent.trim())) {
                 elemsub.checked = false
               }
