@@ -789,7 +789,7 @@
     ]
   },
   {
-    "id": "key-facts-item",
+    "id": "key-item",
     "fields": [
       {
         "component": "richtext",

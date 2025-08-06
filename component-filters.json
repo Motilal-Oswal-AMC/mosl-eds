@@ -75,6 +75,6 @@
   },
   {
     "id": "key-facts",
-    "components": ["key-facts-item"]
+    "components": ["key-item"]
   }
 ]

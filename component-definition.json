@@ -447,14 +447,14 @@
         },
         {
           "title": "Key Facts Item",
-          "id": "key-facts-item",
+          "id": "key-item",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "name": "Key Facts Item",
-                  "model": "key-facts-item"
+                  "model": "key-item"
                 }
               }
             }
