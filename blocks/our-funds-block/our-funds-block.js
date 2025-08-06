@@ -724,7 +724,7 @@ export default function decorate(block) {
                   type: "checkbox",
                   id: "toggle",
                   onclick: (event) => {
-                    checkfilter(block);
+                    viewFunction(block);
                   },
                 }),
                 label({
@@ -826,9 +826,10 @@ export default function decorate(block) {
   const searchResults = block.querySelector('.search-input .list-search');
   const schemeNames = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
   const schcode = dataMapMoObj["funddata"].map((fund) => fund.schcode);
+  let selectedFundName = "";
   searchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase().trim();
-    searchResults.style.display = "block";
+    searchResults.closest(".search-input").classList.add("search-active");
     searchResults.innerHTML = '';
     currentFocus = -1;
     const filtered = query ? schemeNames.filter(name => name.toLowerCase().includes(query)) : schemeNames;
@@ -838,32 +839,59 @@ export default function decorate(block) {
       li.setAttribute("schcode",schcode[index])
       li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
       li.addEventListener('click', (event) => {
-        let schcode = event.target.getAttribute("schcode")
-        searchResults
-        searchInput.value = name;
+        const selectedLi = event.currentTarget;
+        const selectedSchcode = selectedLi.getAttribute("schcode");
+        const selectedName = selectedLi.textContent.trim();
+
         searchResults.innerHTML = '';
-        searchResults.style.display = "none";
-        // cARD hIDE lOGIC ON SEARCH
-        if (block.querySelector(".filter-cards .cards-container").checkVisibility()) {
-          Array.from(block.querySelector(".filter-cards .cards-container").children).forEach((elment)=>{
-            if (schcode !==  elment.querySelector(".star").getAttribute("schcode")) {
-              elment.style.display = "none"
+
+        const newLi = document.createElement('li');
+        newLi.classList.add("list-fund-name");
+        newLi.setAttribute("schcode", selectedSchcode);
+        newLi.textContent = selectedName;
+
+        searchResults.appendChild(newLi);
+        searchInput.value = selectedName;
+        selectedFundName = selectedName
+        searchResults.closest(".search-input").classList.remove("search-active");
+
+        // CARD HIDE LOGIC ON SEARCH
+        const cardsContainer = block.querySelector(".filter-cards .cards-container");
+        if (cardsContainer && cardsContainer.checkVisibility()) {
+          Array.from(cardsContainer.children).forEach((elment) => {
+            if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
+              elment.style.display = "none";
             }
-          })
+          });
         }
-        if (block.querySelector(".filter-cards .list-view-header").checkVisibility()) {
-          Array.from(block.querySelector(".filter-cards .list-view-header").children).forEach((elment)=>{
-            if (schcode !==  elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
-              elment.style.display = "none"
+
+        const listHeader = block.querySelector(".filter-cards .list-view-header");
+        if (listHeader && listHeader.checkVisibility()) {
+          Array.from(listHeader.children).forEach((elment) => {
+            if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
+              elment.style.display = "none";
             }
-          })
+          });
         }
       });
+
       searchResults.appendChild(li);
     });
+    if (filtered.length === 0) {
+      const newLi = document.createElement('li');
+        newLi.classList.add("list-fund-name");
+        newLi.textContent = "No results found.";
+        searchResults.appendChild(newLi);
+    }
   });
 
+  Array.from(searchResults.children).forEach((el)=>{
+    el.addEventListener("click",(event)=>{
+      console.log(event.target.textContent.trim());
+    })
+  })
   searchInput.addEventListener('keydown', (e) => {
+    searchResults.closest(".search-input").classList.remove("search-active");
     const items = searchResults.querySelectorAll('li');
     if (!items.length) return;
     if (e.key === 'ArrowDown') {
@@ -881,15 +909,9 @@ export default function decorate(block) {
       searchResults.innerHTML = '';
       currentFocus = -1;
       searchInput.value = selectedFundName;
+      searchResults.closest(".search-input").classList.remove("search-active");
     }
   });
-
-  // searchInput.addEventListener('focusin',()=>{
-  //   searchResults.style.display = "block";
-  // }) 
-  // searchInput.addEventListener('focusout',(event)=>{
-  //   searchResults.style.display = "none";
-  // })
 
   function addActive(items) {
     if (!items) return;
@@ -902,6 +924,19 @@ export default function decorate(block) {
     });
   }
 
+  searchInput.addEventListener("focusin",()=>{
+      searchResults.closest(".search-input").classList.add("search-active");
+  })
+  // block.addEventListener("click",()=>{
+    // searchResults.closest(".search-input").classList.remove("search-active");
+    // if (block.querySelector(".cards-container").checkVisibility()) {
+    //   block.querySelectorAll(".cards-container .dropdown-list").forEach((el)=>{
+    //     if(Array.from(el.classList).includes("dropdown-active")){
+    //       el.classList.remove("dropdown-active")  
+    //     }
+    //   })
+    // }
+  // })
   Array.from(block.querySelector(".return-container .radio-label-container").children).forEach((el)=>{
     el.querySelector("input").addEventListener("click",(event)=>{
       console.log(event.target.getAttribute("dataattr"));

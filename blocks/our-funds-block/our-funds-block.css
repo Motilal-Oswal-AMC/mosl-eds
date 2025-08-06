@@ -955,15 +955,6 @@
 .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container .return-select-container .dropdown-list {
   left: 107px;
 }
-.our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container::after {
-  content: "";
-  height: 16px;
-  width: 1px;
-  background-color: #505050;
-  display: block;
-  opacity: 0.45;
-  margin-left: 8px;
-}
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular {
     display: none;
@@ -1326,7 +1317,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  text-align: center;
 }
 @media (max-width: 1025px) {
   .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper p:nth-of-type(2) {

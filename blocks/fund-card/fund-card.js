@@ -13,7 +13,7 @@ import {
   img,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
-import {getTimeLeft} from "../../scripts/scripts.js"
+import {getTimeLeft, evaluateByDays} from "../../scripts/scripts.js"
 export default function decorate(block) {
   let planFlow = 'Direct';
   if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
@@ -38,6 +38,8 @@ export default function decorate(block) {
       return el
     }
   });
+
+  let labelcagr = evaluateByDays(block.dateOfAllotment)  
   let classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : " not-provided"
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
@@ -298,7 +300,7 @@ export default function decorate(block) {
           {
             class: "cagr-dropdown",
           },
-          label("Annualised"),
+          label(labelcagr),
           div(
             {
               class: "cagr-select-wrapper",
@@ -528,7 +530,3 @@ function toTitleCase(str) {
     .toLowerCase()
     .replace(/\b\w/g, char => char.toUpperCase());
 }
-
-
-
-// console.log(getTimeLeft("2025-08-09"));
