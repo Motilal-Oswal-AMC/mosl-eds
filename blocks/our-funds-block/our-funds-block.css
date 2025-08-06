@@ -108,6 +108,17 @@
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
   color: #616161;
 }
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .cancel-search {
+  max-width: 24px;
+  width: 100%;
+  height: 24px;
+  cursor: pointer;
+  display: none;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .cancel-search img {
+  width: 100%;
+  height: 100%;
+}
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search {
   position: absolute;
   top: 52px;
@@ -157,19 +168,11 @@
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active {
   border: 1px solid #1887D2;
 }
-.our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active::after {
-  content: "";
-  background-image: url("../../icons/input-cancel.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-width: 24px;
-  height: 24px;
-  display: block;
-  cursor: pointer;
-}
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active .search {
   caret-color: #1887D2;
+}
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active .cancel-search {
+  display: block;
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active .list-search {
   display: block;
