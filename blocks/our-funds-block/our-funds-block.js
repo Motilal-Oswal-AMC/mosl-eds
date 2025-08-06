@@ -1244,6 +1244,7 @@ function searchFunctionality(block){
     if (filtered.length === 0) {
       const newLi = document.createElement('li');
         newLi.classList.add("list-fund-name");
+        searchResults.classList.add("no-search-list")
         newLi.textContent = "No results found.";
         searchResults.appendChild(newLi);
     }
