@@ -105,6 +105,9 @@
           overflow: auto;
           list-style: none;
           display: none;
+          &.no-search-list{
+            height: auto;
+          }
           @include media(mobile) {
             height: 372px;
           }

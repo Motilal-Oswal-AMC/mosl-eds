@@ -123,6 +123,9 @@
   list-style: none;
   display: none;
 }
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search.no-search-list {
+  height: auto;
+}
 @media (max-width: 768px) {
   .our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search {
     height: 372px;
