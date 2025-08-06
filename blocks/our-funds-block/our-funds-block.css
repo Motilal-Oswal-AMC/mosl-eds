@@ -1,6 +1,6 @@
 /* Reset */
 @import "../../../styles/fonts.css";
-@import url("../fund-card/fund-card.css");
+@import "../fund-card/fund-card.css";
 .our-funds-block-wrapper {
   width: 100%;
 }
