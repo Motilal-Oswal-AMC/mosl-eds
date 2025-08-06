@@ -14,6 +14,20 @@ const dataMapMoObj = {
     '7 YEARS': 'sevenYear_Ret',
     '10 YEARS': 'tenYear_Ret',
   },
+  icons:{
+    "very-high":"very-high-risk",
+    "low-to-moderate":"moderately-low-risk",
+    "high":"high-risk",
+    "moderate":"moderate-risk",
+    "low":"low-risk"
+  },
+  "icons-nfo":{
+    "very-high":"very-high-risk",
+    "low-to-moderate":"moderately-low-risk",
+    "high":"high-risk",
+    "moderate":"moderate-risk",
+    "low":"low-risk"
+  }
 };
 
 export default dataMapMoObj;

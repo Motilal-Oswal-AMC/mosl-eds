@@ -13,6 +13,7 @@ import {
   img,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
+import {getTimeLeft} from "../../scripts/scripts.js"
 export default function decorate(block) {
   let planFlow = 'Direct';
   if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
@@ -41,7 +42,9 @@ export default function decorate(block) {
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
   let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
+  let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
   if ([...block.fundsTaggingSection].includes("NFO")) {
+    let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     const NfocardContainer = div(
       { class: "nfo-card-container card-container" },
       div(
@@ -141,7 +144,7 @@ export default function decorate(block) {
             { class: "dis-investor" },
             img({
               class: "riskfactor-icon",
-              src: "../../icons/Risk-o-meter.svg",
+              src: "../../icons/nfo-risk-icon/"+nfosvg,
               alt: "risk icon",
             })
           )
@@ -159,7 +162,7 @@ export default function decorate(block) {
               { class: "nfo-container" },
               span({ class: "label-nfo" }, "NFO")
             ),
-            div({ class: "timing-container" }, p("02 days 20 hrs 20 mins left"))
+            div({ class: "timing-container" }, p(getTimeLeft(block.dateOfAllotment)))
           )
         ),
         div(
@@ -389,7 +392,7 @@ export default function decorate(block) {
           ),
           img({
             class: "riskfactor-icon",
-            src: "../../icons/Risk-o-meter.svg",
+            src: "../../icons/risk-icon/"+iconsvg,
             alt: "risk icon",
           })
         )
@@ -525,3 +528,7 @@ function toTitleCase(str) {
     .toLowerCase()
     .replace(/\b\w/g, char => char.toUpperCase());
 }
+
+
+
+// console.log(getTimeLeft("2025-08-09"));
