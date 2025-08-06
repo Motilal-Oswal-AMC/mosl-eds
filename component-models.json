@@ -156,6 +156,14 @@
           {
             "name": "Cornerstones Advantage",
             "value": "cornerstones-advantage"
+          },
+          {
+            "name": "Welcome Component",
+            "value": "welcome-component"
+          },
+          {
+            "name": "Freq Ask Ques",
+            "value": "freq-ask-ques"
           }
         ]
       }
@@ -273,6 +281,25 @@
         "component": "text",
         "name": "video_imageTitle",
         "label": "Video Image Title"
+      }
+    ]
+  },
+  {
+    "id": "accordion-item",
+    "type": "accordion/text",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "question",
+        "label": "Question"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "answer",
+        "label": "Answer",
+        "raw": true
       }
     ]
   },
@@ -629,95 +656,94 @@
     ]
   },
   {
-    "id":"our-fund-block-item",
-    "fields":[
+    "id": "growth-now",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "fstimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "fstimageAlt",
+        "label": "Alt Text"
+      },
       {
         "component": "text",
         "name": "title",
-        "label": "Enter Text For Title"
-      },
-      {
-        "component": "select",
-        "name": "titleType",
-        "label": "Title Type",
-        "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
-        ]
-      },
-      {
-        "component": "text",
-        "name": "col_titlePlaceHolder",
-        "label": "Enter Text For Input PlaceHolder"
+        "label": "Title"
       },
       {
         "component": "richtext",
-        "name": "col_text",
+        "name": "col2_text",
         "value": "",
-        "label": "Enter Context For Watchlist",
+        "label": "Text",
         "valueType": "string"
       },
       {
+        "component": "reference",
+        "name": "sndimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "sndimageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "reference",
+        "name": "trdimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "trdimageAlt",
+        "label": "Alt Text"
+      },
+      {
         "component": "richtext",
-        "name": "col_trending",
+        "name": "col3_text",
         "value": "",
-        "label": "Enter Context For Trending",
+        "label": "Text",
         "valueType": "string"
       }
     ]
   },
   {
-    "id":"left-filter-item",
-    "fields":[
+    "id": "watchlist-block",
+    "fields": [
       {
         "component": "richtext",
-        "name": "col_leftfilter",
+        "name": "left",
         "value": "",
-        "label": "Enter Context for Icon Label Filter Container",
+        "label": "Enter Icon Label View Container",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "right_card",
+        "value": "",
+        "label": "Enter Icon Label View Container",
         "valueType": "string"
       }
     ]
   },
   {
-    "id":"right-block-item",
-    "fields":[
+    "id": "broaden-your-research",
+    "fields": [
       {
         "component": "text",
-        "name": "col_sort",
-        "label": "Enter Label For Sort Dropdown"
-      },
-      {
-        "component": "text",
-        "name": "col_return",
-        "label": "Enter Label For Returns Dropdown"
+        "name": "Col Name",
+        "label": "Brand name"
       },
       {
         "component": "richtext",
-        "name": "col_leftfilter",
+        "name": "text",
         "value": "",
-        "label": "Enter Context for Icon Label View Container",
+        "label": "Enter Icon Container",
         "valueType": "string"
       }
     ]

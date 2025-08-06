@@ -20,7 +20,7 @@
         }
 
         >p:first-child {
-            @include font-style(28px, 32px, $primary-Blue-1-900, map.get($font-weights, medium), $ButlerPro);
+            @include font-style(28px, 32px, $primary-blue-1-900, map.get($font-weights, medium), $ButlerPro);
             grid-column: 1 / 2;
 
             @include media(mobile) {
@@ -30,7 +30,7 @@
         }
 
         >p:nth-child(2) {
-            @include font-style(28px, 32px, $primary-Blue-1-900, map.get($font-weights, medium), $ButlerPro);
+            @include font-style(28px, 32px, $primary-blue-1-900, map.get($font-weights, medium), $ButlerPro);
             grid-column: 1 / 2;
             margin: 0;
             padding: 0;
@@ -53,7 +53,7 @@
                 align-items: center;
                 gap: 8px;
                 border-radius: map.get($radius, r8);
-                background: $primary-Blue-1-900;
+                background: $primary-blue-1-900;
             }
         }
 

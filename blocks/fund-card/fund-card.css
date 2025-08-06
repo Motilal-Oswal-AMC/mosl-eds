@@ -431,7 +431,6 @@
   justify-content: flex-start;
   gap: 0;
   border-bottom: 1px solid #b7b7b7;
-  max-width: -moz-max-content;
   max-width: max-content;
 }
 .section.tabs-container .tabs-list .tabs-tab {
@@ -649,9 +648,7 @@
   font-weight: 400;
   border: none;
   outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: transparent;
   width: 100%;
 }
@@ -900,7 +897,6 @@
   max-width: 49.53%;
   width: 100%;
   min-height: 180px;
-  height: -moz-max-content;
   height: max-content;
 }
 .section.index-fund .compound-item .compound-sub-item h2 {

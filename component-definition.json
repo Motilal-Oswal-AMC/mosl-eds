@@ -354,60 +354,90 @@
           }
         },
         {
-          "title": "Our Funds Block",
-          "id": "our-fund-block",
+          "title": "Growth now",
+          "id": "growth-now",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
-                  "name": "Our Funds Block",
-                  "filter": "our-fund-block"
+                  "name": "Growth now",
+                  "model": "growth-now"
                 }
               }
             }
           }
         },
         {
-          "title": "Our Funds Block Item",
-          "id": "our-fund-block-item",
+          "title": "accordion",
+          "id": "accordion",
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
+                "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
-                  "name": "Our Funds Block Item",
-                  "model": "our-fund-block-item"
+                  "name": "accordion",
+                  "filter": "accordion"
                 }
               }
             }
           }
         },
         {
-          "title": "Left filter Item",
-          "id": "left-filter-item",
+          "title": "accordion item",
+          "id": "accordion-item",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "Left filter Item",
-                  "model": "left-filter-item"
+                  "name": "accordion item",
+                  "model": "accordion-item"
                 }
               }
             }
           }
         },
         {
-          "title": "Right block Item",
-          "id": "right-block-item",
+          "title": "Watchlist Block",
+          "id": "watchlist-block",
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
+                "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
-                  "name": "Right block Item",
-                  "model": "right-block-item"
+                  "name": "Watchlist Block",
+                  "model": "watchlist-block"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Welcome Component",
+          "id": "welcome-component",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Welcome Component",
+                  "model": "welcome-component"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Broaden Your Research",
+          "id": "broaden-your-research",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Broaden Your Research",
+                  "model": "broaden-your-research"
                 }
               }
             }

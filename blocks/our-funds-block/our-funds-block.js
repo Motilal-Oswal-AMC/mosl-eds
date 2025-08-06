@@ -1528,4 +1528,39 @@ function searchFunctionality(block){
   searchInput.addEventListener("focusin",()=>{
       searchResults.closest(".search-input").classList.add("search-active");
   })
+  Array.from(searchResults.children).forEach((el)=>{
+    el.addEventListener("click",(event)=>{
+      console.log(event.target.textContent.trim());
+      searchInput.value =event.target.textContent.trim();
+      searchResults.closest(".search-input").classList.remove("search-active");
+      const selectedSchcode = event.target.getAttribute("schcode");
+      // CARD HIDE LOGIC ON SEARCH
+        const cardsContainer = block.querySelector(".filter-cards .cards-container");
+        if (cardsContainer && cardsContainer.checkVisibility()) {
+          Array.from(cardsContainer.children).forEach((elment) => {
+            if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
+              elment.style.display = "none";
+            }
+          });
+        }
+
+        const listHeader = block.querySelector(".filter-cards .list-view-header");
+        if (listHeader && listHeader.checkVisibility()) {
+          Array.from(listHeader.children).forEach((elment) => {
+            if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
+              elment.style.display = "none";
+            }
+          });
+        }
+    })
+  })
+
+  block.querySelector(".cancel-search img").addEventListener("click",()=>{
+      searchInput.value = "";
+      searchResults.closest(".search-input").classList.remove("search-active");
+      dataMapMoObj["funddata"] = dataCfObj.slice(0,9)
+      viewFunction(block)
+      
+  })
+  
 }

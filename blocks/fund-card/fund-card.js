@@ -41,6 +41,7 @@ export default function decorate(block) {
 
   let labelcagr = evaluateByDays(block.dateOfAllotment)  
   let classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : " not-provided"
+  let dropdowndot = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : "no-planlist"
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
   let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
@@ -101,7 +102,7 @@ export default function decorate(block) {
           )
         ),
         div(
-          { class: "card-category" },
+          { class: "card-category "+dropdowndot },
           div(
             { class: "fund-tagging" },
             ul(
