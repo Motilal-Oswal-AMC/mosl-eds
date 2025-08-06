@@ -155,7 +155,24 @@
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
+<<<<<<< HEAD
+}
+.section .card-container .card-category .planlist-dropdown select {
+  font-size: 12px;
+  line-height: 16px;
+  color: #242177;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  width: 100%;
+=======
   position: relative;
+>>>>>>> 462af56c99b748225440e494726e4117ac3c2fb4
 }
 .section .card-container .risk-container {
   display: flex;
@@ -294,6 +311,7 @@
   height: 12px;
   display: block;
 }
+<<<<<<< HEAD
 .section .card-container .cagr-container .cagr-select-wrapper select {
   font-size: 12px;
   line-height: 16px;
@@ -304,9 +322,13 @@
   border: none;
   outline: none;
   background-color: transparent;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   padding: 4px 4px 4px 0;
 }
+=======
+>>>>>>> 462af56c99b748225440e494726e4117ac3c2fb4
 .section .card-container .discription {
   margin: 10px 0 0;
   padding: 8px 12px;
@@ -734,6 +756,7 @@
   height: 12px;
   display: block;
 }
+<<<<<<< HEAD
 .section .card-container .cagr-container .cagr-select-wrapper select {
   font-size: 12px;
   line-height: 16px;
@@ -744,9 +767,13 @@
   border: none;
   outline: none;
   background-color: transparent;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   padding: 4px 4px 4px 0;
 }
+=======
+>>>>>>> 462af56c99b748225440e494726e4117ac3c2fb4
 .section .card-container .cagr-container .cagr-value {
   max-width: 46%;
   width: 100%;

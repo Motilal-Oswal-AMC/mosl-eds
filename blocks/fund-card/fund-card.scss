@@ -4,7 +4,6 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-
 /* stylelint-disable */
 .section {
   .card-container {
@@ -21,6 +20,67 @@
       flex-direction: column;
       height: 100%;
       width: 100%;
+
+      // All dropdown in card
+      .selectedtext {
+        @include font-style(
+          12px,
+          16px,
+          $primary-blue-1-900,
+          map.get($font-weights, regular),
+          $Poppins
+        );
+        margin: 0;
+        cursor: pointer;
+      }
+      .dropdown-list {
+        // display: none;
+        position: absolute;
+        top: 18px;
+        left: 0;
+        z-index: 2;
+        width: 143px;
+        max-height: 200px;
+        margin: 0;
+        overflow: auto;
+        background-color: $primary-white;
+        border-radius: 6px;
+        border: 1px solid $neutrals-200;
+        box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+        &::-webkit-scrollbar {
+          width: 3px;
+        }
+        &::-webkit-scrollbar-track {
+          width: 3px;
+          background-color: $primary-white;
+          border-radius: 0 6px 6px 0;
+        }
+        &::-webkit-scrollbar-thumb {
+          width: 3px;
+          background-color: $primary-blue;
+        }
+        &.dropdown-active {
+          display: block;
+        }
+        @include media(mobile) {
+          width: 168px;
+        }
+        li {
+          @include font-style(
+            12px,
+            16px,
+            $neutrals-black,
+            map.get($font-weights, regular),
+            $Poppins
+          );
+          padding: 12px;
+          border-bottom: 1px solid $neutrals-200;
+          cursor: pointer;
+          &:last-of-type {
+            border: none;
+          }
+        }
+      }
     }
 
     .card-upper-title {
@@ -106,11 +166,12 @@
       }
 
       .planlist-dropdown {
-        max-width: 70px;
+        // max-width: 70px;
+        max-width: max-content;
         width: 100%;
         @include flex-center($align: center, $justify: flex-start);
         gap: 8px;
-
+        position: relative;
         // &::before {
         //   content: "";
         //   min-width: 3px;
@@ -119,21 +180,6 @@
         //   background-color: $primary-blue;
         //   border-radius: 50%;
         // }
-
-        select {
-          @include font-style(
-            $size: 12px,
-            $line-height: 16px,
-            $color: $primary-blue-1-900,
-            $weight: map.get($font-weights, regular),
-            $family: $Poppins
-          );
-          border: none;
-          outline: none;
-          appearance: none;
-          background-color: transparent;
-          width: 100%;
-        }
       }
     }
     .risk-container {
@@ -262,9 +308,22 @@
       }
 
       .cagr-select-wrapper {
-        @include flex-center($align: center, $justify: flex-start);
-        width: 80px;
-
+        @include flex-center($align: center, $justify: start);
+        // width: 80px;
+        width: 115px;
+        position: relative;
+        @media screen and (max-width: 900px) {
+          width: 80px;
+          .dropdown-list {
+            top: 35px;
+          }
+        }
+        @include media(mobile) {
+          width: 115px;
+          .dropdown-list {
+            top: 18px;
+          }
+        }
         &::after {
           content: "";
           background: url("../../icons/down-arrow-small.svg") center/cover
@@ -272,22 +331,6 @@
           width: 12px;
           height: 12px;
           display: block;
-        }
-
-        select {
-          @include font-style(
-            $size: 12px,
-            $line-height: 16px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $Poppins
-          );
-          width: 100%;
-          border: none;
-          outline: none;
-          background-color: transparent;
-          appearance: none;
-          padding: 4px 4px 4px 0;
         }
       }
     }
@@ -516,6 +559,66 @@
       flex-direction: column;
       height: 100%;
       width: 100%;
+      // All dropdown in card
+      .selectedtext {
+        @include font-style(
+          12px,
+          16px,
+          $primary-blue-1-900,
+          map.get($font-weights, regular),
+          $Poppins
+        );
+        margin: 0;
+        cursor: pointer;
+      }
+      .dropdown-list {
+        display: none;
+        position: absolute;
+        top: 18px;
+        left: 0;
+        z-index: 2;
+        width: 143px;
+        max-height: 200px;
+        margin: 0;
+        overflow: auto;
+        background-color: $primary-white;
+        border-radius: 6px;
+        border: 1px solid $neutrals-200;
+        box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+        &::-webkit-scrollbar {
+          width: 3px;
+        }
+        &::-webkit-scrollbar-track {
+          width: 3px;
+          background-color: $primary-white;
+          border-radius: 0 6px 6px 0;
+        }
+        &::-webkit-scrollbar-thumb {
+          width: 3px;
+          background-color: $primary-blue;
+        }
+        &.dropdown-active {
+          display: block;
+        }
+        @include media(mobile) {
+          width: 168px;
+        }
+        li {
+          @include font-style(
+            12px,
+            16px,
+            $neutrals-black,
+            map.get($font-weights, regular),
+            $Poppins
+          );
+          padding: 12px;
+          border-bottom: 1px solid $neutrals-200;
+          cursor: pointer;
+          &:last-of-type {
+            border: none;
+          }
+        }
+      }
     }
 
     .card-upper-title {
@@ -573,11 +676,11 @@
         p {
           margin: 0;
           @include font-style(
-            $size: 12px,
-            $line-height: 16px,
-            $color: #5659fa,
-            $weight: map.get($font-weights, medium),
-            $family: $Poppins
+            12px,
+            16px,
+            map.get($blue-1, b400),
+            map.get($font-weights, regular),
+            $Poppins
           );
         }
 
@@ -604,7 +707,7 @@
       gap: 4px 8px;
       padding: 4px 0;
       // margin: 0 0 16px;
-      margin: 0 0 20px;
+      margin: 0 0 24px;
       flex-wrap: wrap;
       margin-top: auto;
       // min-height: 40px;
@@ -644,7 +747,8 @@
       }
 
       .planlist-dropdown {
-        max-width: 70px;
+        // max-width: 70px;
+        max-width: max-content;
         width: 100%;
         @include flex-center($align: center, $justify: flex-start);
         gap: 8px;
@@ -727,10 +831,23 @@
       }
 
       .cagr-select-wrapper {
-        @include flex-center($align: center, $justify: center);
+        @include flex-center($align: center, $justify: start);
         gap: 4px;
-        width: 80px;
-
+        // width: 80px;
+        width: 115px;
+        position: relative;
+        @media screen and (max-width: 900px) {
+          width: 80px;
+          .dropdown-list {
+            top: 35px;
+          }
+        }
+        @include media(mobile) {
+          width: 115px;
+          .dropdown-list {
+            top: 18px;
+          }
+        }
         &::after {
           content: "";
           background: url("../../icons/down-arrow-small.svg") center/cover
@@ -738,22 +855,6 @@
           width: 12px;
           height: 12px;
           display: block;
-        }
-
-        select {
-          @include font-style(
-            $size: 12px,
-            $line-height: 16px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $Poppins
-          );
-          width: 100%;
-          border: none;
-          outline: none;
-          background-color: transparent;
-          appearance: none;
-          padding: 4px 4px 4px 0;
         }
       }
 
@@ -911,7 +1012,8 @@
       }
 
       .invest-now {
-        max-width: 132px;
+        // max-width: 132px;
+        max-width: 120px;
         width: 100%;
         border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
@@ -1124,10 +1226,6 @@
 
         .cagr-dropdown {
           max-width: 39.75%;
-        }
-
-        .cagr-select-wrapper select {
-          padding: 2px 8px 2px 0;
         }
 
         .cagr-value h2 {
