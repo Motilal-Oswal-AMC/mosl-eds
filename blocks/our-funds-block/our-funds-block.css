@@ -1619,6 +1619,9 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .cagr-return .cagr-value {
+  color: #fff;
+}
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .btn-invest button {
   background-color: #fff;
   color: #2e2a94;
