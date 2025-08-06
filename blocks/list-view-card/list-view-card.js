@@ -1,13 +1,14 @@
 /* eslint-disable */ 
 import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
 import dataMapMoObj from '../../scripts/constant.js';
-import {getTimeLeft} from "../../scripts/scripts.js"
+import {getTimeLeft,evaluateByDays} from "../../scripts/scripts.js"
 export default function decorate(block){
     let planFlow = 'Direct';
     if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
         planFlow =  document.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct";    
     }
     let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
+    let labelcagr = evaluateByDays(block.dateOfAllotment)
     if ([...block.fundsTaggingSection].includes("NFO")) {
         let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
         let listcontainer = div({class:"nfo-list-container list-view-container"},
@@ -63,7 +64,7 @@ export default function decorate(block){
             ),
             div({class:"cagr-return"},
                 div({class:"cagr-value"},"24.02",span("%")),
-                p("CAGR")
+                p(labelcagr)
             ),
             div({class:"risk-star-icon"},
                 img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),

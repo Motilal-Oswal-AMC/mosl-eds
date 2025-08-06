@@ -807,7 +807,7 @@ export default function decorate(block) {
         searchResults
         searchInput.value = name;
         searchResults.innerHTML = '';
-        searchResults.style.display = "none";
+        searchResults.closest(".search-input").classList.add("search-active");
         // cARD hIDE lOGIC ON SEARCH
         if (block.querySelector(".filter-cards .cards-container").checkVisibility()) {
           Array.from(block.querySelector(".filter-cards .cards-container").children).forEach((elment)=>{
@@ -849,12 +849,12 @@ export default function decorate(block) {
     }
   });
 
-  // searchInput.addEventListener('focusin',()=>{
-  //   searchResults.style.display = "block";
-  // }) 
-  // searchInput.addEventListener('focusout',(event)=>{
-  //   searchResults.style.display = "none";
-  // })
+  searchInput.addEventListener('focusin',()=>{
+    searchResults.closest(".search-input").classList.add("search-active");
+  }) 
+  searchInput.addEventListener('mouseout',(event)=>{
+    searchResults.closest(".search-input").classList.remove("search-active");
+  })
 
   function addActive(items) {
     if (!items) return;
