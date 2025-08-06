@@ -114,6 +114,9 @@ export default function decorate(block) {
     )
   );
 
+  
+  document.querySelector(".item2 ul").classList.add("item2-ul");
+
     block.innerHTML = "";
     block.append(cardContainer);
 
@@ -129,4 +132,7 @@ export default function decorate(block) {
       target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+
+
 }

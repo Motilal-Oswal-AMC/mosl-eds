@@ -38,8 +38,9 @@
     //   padding-right: 16px;
     // }
     /*ul for second part */
-    ul {
+    .item2-ul{
       position: fixed;
+      z-index: 1;
       max-width: 816px;
       width: 100%;
       display: flex;
