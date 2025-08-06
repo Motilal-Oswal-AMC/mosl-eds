@@ -983,6 +983,14 @@
 .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container .return-select-container .dropdown-list {
   left: 107px;
 }
+.our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container::after {
+  content: "";
+  width: 1px;
+  height: 16px;
+  background-color: #505050;
+  margin-left: 8px;
+  opacity: 0.45;
+}
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular {
     display: none;
@@ -1239,13 +1247,9 @@
   border-radius: 10px 0 0 0;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .banner-container img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: right;
-     object-position: right;
   width: 100%;
   height: 100%;
-  border-radius: 10px 10px 0 0;
+  border-radius: 8px 8px 0 0;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .banner-container span {
   position: absolute;
@@ -1270,6 +1274,7 @@
   justify-content: space-between;
   gap: 20px;
   padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .timing-nfo-value .nfo-container span {
   font-size: 12px;
@@ -1448,7 +1453,7 @@
   margin: 0;
   font-size: 12px;
   line-height: 16px;
-  color: #5659fa;
+  color: #5659FA;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
