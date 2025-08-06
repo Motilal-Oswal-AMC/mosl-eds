@@ -156,7 +156,7 @@ export default function decorate(block) {
           { class: "banner-timing-container " },
           div(
             { class: "banner-container" },
-            img({ src: "../../icons/banner-desk.png", alt: "banner Image" }),
+            img({ src: "../../icons/nfo-img.png", alt: "banner Image" }),
             span("Grab Them All")
           ),
           div(
