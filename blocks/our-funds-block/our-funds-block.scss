@@ -1093,7 +1093,8 @@
               }
             }
             .planlist-dropdown {
-              max-width: 88px;
+            //   max-width: 88px;
+              max-width: max-content;
               p {
                 color: $primary-white;
               }
@@ -1190,7 +1191,7 @@
                     12px,
                     16px,
                     $primary-white,
-                    600,
+                    400,
                     $Poppins
                   );
                   margin: 0;

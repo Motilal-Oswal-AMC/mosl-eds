@@ -1205,7 +1205,8 @@
   background-color: #7986fd;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown {
-  max-width: 88px;
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown p {
   color: #fff;
@@ -1293,7 +1294,7 @@
   line-height: 16px;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .button-container {

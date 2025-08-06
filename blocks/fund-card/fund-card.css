@@ -148,7 +148,8 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
-  max-width: 70px;
+  max-width: -moz-max-content;
+  max-width: max-content;
   width: 100%;
   display: flex;
   align-items: center;
@@ -628,7 +629,8 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
-  max-width: 70px;
+  max-width: -moz-max-content;
+  max-width: max-content;
   width: 100%;
   display: flex;
   align-items: center;
