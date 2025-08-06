@@ -3,14 +3,14 @@
 @import "../../../styles/fonts.css";
 /* MAIN WRAPPER */
 .compounding {
-  background-color: aliceblue;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   align-self: stretch;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 40px 24px;
 }
 .compounding .default-content-wrapper p,
 .compounding .default-content-wrapper ul,
@@ -29,16 +29,16 @@
   padding-left: 16px;
 }
 .compounding .compounding-two-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  gap: 16px;
-  border-radius: 16px;
+  max-width: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 24px;
 }
 .compounding .compounding-two-inner .default-content-wrapper {
+  width: 100%;
   flex: 1 1 37%;
   text-align: left;
   flex-shrink: 0;
@@ -94,15 +94,16 @@
   }
 }
 .compounding .calculator-sip-wrapper {
+  max-width: 100%;
+  width: 100%;
   flex: 1 1 53%;
-  max-width: 608px;
 }
 .compounding .calculator-sip-wrapper .cal-container {
-  background: #fff;
   border-radius: 8px;
-  padding: 24px;
+  padding: 24px 0px;
   align-self: stretch;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+  width: 100%;
 }
 .compounding .calculator-sip-wrapper .cal-container .search-bar-wrapper {
   display: flex;
@@ -234,12 +235,131 @@
   line-height: 16px;
   margin-left: 4px;
 }
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 16px 0;
+  padding-bottom: 16px;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-type-toggle {
+  display: flex;
+  flex: 1 1 45%;
+  align-items: center;
+  gap: 12px;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-type-toggle .toggle-label {
+  font-size: 14px;
+  line-height: 20px;
+  color: #424242;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-type-toggle .toggle-label.active {
+  color: #2E2A94;
+  font-weight: 500;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch input:checked + .slider::before {
+  transform: translateX(26px);
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-option-select {
+  position: relative;
+  flex: 1 1 45%;
+  min-width: 200px;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-option-select .select-selected-plan {
+  color: #2E2A94;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  padding-bottom: 4px;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-option-select .select-selected-plan::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url("../../icons/Frame.svg") no-repeat center;
+  background-size: contain;
+  transition: transform 0.2s ease;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-option-select .select-options-plan {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  overflow: hidden;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-option-select .select-options-plan.open {
+  display: block;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-option-select .select-option-plan {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 16px;
+  line-height: 20px;
+  color: #424242;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  border-bottom: 1px solid #EEE;
+}
+.compounding .calculator-sip-wrapper .cal-container .plan-options-wrapper .plan-option-select .select-option-plan:hover {
+  background-color: #f0f0f0;
+}
 .compounding .calculator-sip-wrapper .cal-container .investment-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   margin: 16px 0;
-  border-bottom: 1px solid #9E9E9E;
+  padding-bottom: 16px;
 }
 .compounding .calculator-sip-wrapper .cal-container .investment-wrapper .sip-wrapper,
 .compounding .calculator-sip-wrapper .cal-container .investment-wrapper .tenure-wrapper {
