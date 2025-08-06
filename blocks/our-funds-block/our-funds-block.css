@@ -434,9 +434,9 @@
     align-items: end;
     display: none;
   }
-}
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay.active {
-  display: flex;
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay.active {
+    display: flex;
+  }
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container {
   padding: 0 12px;

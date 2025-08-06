@@ -369,9 +369,9 @@
             // display: flex;
             align-items: end;
             display: none;
-          }
-          &.active {
-            display: flex;
+            &.active {
+              display: flex;
+            }
           }
           .filter-container {
             padding: 0 12px;
