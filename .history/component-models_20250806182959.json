@@ -338,6 +338,11 @@
         "label": "Image Link"
       },
       {
+        "component": "text",
+        "name": "linkText",
+        "label": "Text"
+      },
+      {
         "component": "richtext",
         "name": "description",
         "label": "Future Building Item Description",

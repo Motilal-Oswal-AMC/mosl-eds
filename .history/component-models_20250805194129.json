@@ -334,8 +334,13 @@
       },
       {
         "component": "text",
-        "name": "col_link",
+        "name": "image_link",
         "label": "Image Link"
+      },
+      {
+        "component": "text",
+        "name": "linkText",
+        "label": "Text"
       },
       {
         "component": "richtext",
