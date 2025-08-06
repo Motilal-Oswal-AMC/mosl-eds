@@ -1,11 +1,15 @@
 /* eslint-disable */ 
 import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
+import dataMapMoObj from '../../scripts/constant.js';
+import {getTimeLeft} from "../../scripts/scripts.js"
 export default function decorate(block){
     let planFlow = 'Direct';
     if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
         planFlow =  document.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct";    
     }
+    let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     if ([...block.fundsTaggingSection].includes("NFO")) {
+        let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
         let listcontainer = div({class:"nfo-list-container list-view-container"},
             div({class:"list-wrapper"},
                 div({class:"fund-name-wrapper", schcode :block.schcode},
@@ -24,7 +28,7 @@ export default function decorate(block){
                         { class: "nfo-container" },
                         span({ class: "label-nfo" }, "NFO")
                         ),
-                        div({ class: "timing-container" }, p("02 days 20 hrs 20 mins left"))
+                        div({ class: "timing-container" }, p(getTimeLeft(block.dateOfAllotment)))
                     )
                 ),
                 div({class:"cagr-return"},
@@ -32,7 +36,7 @@ export default function decorate(block){
                     p("CAGR")
                 ),
                 div({class:"risk-star-icon"},
-                    img({class: "riskfactor-icon",src: "../../icons/Risk-o-meter.svg",alt: "risk icon"}),
+                    img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"}),
                 ),
                 div({class: "star"},
                         img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),
@@ -62,7 +66,7 @@ export default function decorate(block){
                 p("CAGR")
             ),
             div({class:"risk-star-icon"},
-                img({class: "riskfactor-icon",src: "../../icons/Risk-o-meter.svg",alt: "risk icon"}),
+                img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),
             ),
             div({class: "star"},
                 img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),

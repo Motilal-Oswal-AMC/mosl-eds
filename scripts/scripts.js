@@ -234,3 +234,25 @@ function autolinkFragements(element) {
     }
   })
 }
+
+export function getTimeLeft(targetDateStr) {
+  const now = new Date();
+  const targetDate = new Date(targetDateStr);
+
+  // Calculate the time difference in milliseconds
+  const diffMs = targetDate - now;
+
+  if (diffMs <= 0) {
+    return "Time's up!";
+  }
+
+  const totalMinutes = Math.floor(diffMs / (1000 * 60));
+  const days = Math.floor(totalMinutes / (60 * 24));
+  const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+  const minutes = totalMinutes % 60;
+
+  // Pad with leading zeros if needed
+  const pad = (num) => String(num).padStart(2, '0');
+
+  return `${pad(days)} days ${pad(hours)} hrs ${pad(minutes)} mins left`;
+}

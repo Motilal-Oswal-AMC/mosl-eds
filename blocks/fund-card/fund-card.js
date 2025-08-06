@@ -13,6 +13,7 @@ import {
   img,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
+import {getTimeLeft} from "../../scripts/scripts.js"
 export default function decorate(block) {
   let planFlow = 'Direct';
   if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
@@ -161,7 +162,7 @@ export default function decorate(block) {
               { class: "nfo-container" },
               span({ class: "label-nfo" }, "NFO")
             ),
-            div({ class: "timing-container" }, p("02 days 20 hrs 20 mins left"))
+            div({ class: "timing-container" }, p(getTimeLeft(block.dateOfAllotment)))
           )
         ),
         div(
@@ -527,3 +528,7 @@ function toTitleCase(str) {
     .toLowerCase()
     .replace(/\b\w/g, char => char.toUpperCase());
 }
+
+
+
+// console.log(getTimeLeft("2025-08-09"));
