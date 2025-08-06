@@ -181,6 +181,15 @@
         //   border-radius: 50%;
         // }
       }
+      &.no-planlist{
+        .fundtagging-list{
+          li{
+            &:last-of-type::after{
+              content: unset;
+            }
+          }
+        }
+      }
     }
     .risk-container {
       @include flex-center($align: stretch, $justify: flex-start);
