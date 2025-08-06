@@ -60,7 +60,11 @@ export default function decorate(block) {
             }),
             div(
               { class: "cancel-search" },
-              img({class:'cancel-btn', src: "../../icons/input-cancel.svg", alt:'cancel button'})
+              img({
+                class: "cancel-btn",
+                src: "../../icons/input-cancel.svg",
+                alt: "cancel button",
+              })
             ),
             ul(
               {
@@ -166,12 +170,18 @@ export default function decorate(block) {
                   }
                 },
               },
-              block.querySelector(".block-item2 .block-subitem-finelsub1 span"),
-              label(
-                block
-                  .querySelector(".block-item2 .block-subitem-finelsub2")
-                  .textContent.trim()
-              )
+              div(
+                { class: "filter-text" },
+                block.querySelector(
+                  ".block-item2 .block-subitem-finelsub1 span"
+                ),
+                label(
+                  block
+                    .querySelector(".block-item2 .block-subitem-finelsub2")
+                    .textContent.trim()
+                )
+              ),
+              button({ class: "clearall-btn" }, "Clear All")
             ),
             div(
               {
