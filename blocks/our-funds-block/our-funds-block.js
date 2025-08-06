@@ -130,8 +130,9 @@ export default function decorate(block) {
       div({
           class: "left-container",
         },
-        div({
-            class: "FundCategory-container",
+        div(
+          {
+            class: "fundcategory-container",
           },
           div({
               class: "filter-sort-container",
@@ -210,11 +211,11 @@ export default function decorate(block) {
                       ).forEach((el) => {
                         if (
                           el
-                          .closest(".checkbox-label-container")
-                          .querySelector(".innerIndianEquity")
+                            .closest(".checkbox-label-container")
+                            .querySelector(".innerindianequity")
                         ) {
                           el.closest(".checkbox-label-container")
-                            .querySelectorAll(".innerIndianEquity input")
+                            .querySelectorAll(".innerindianequity input")
                             .forEach((elemsub) => {
                               elemsub.checked = false;
                             });
@@ -240,8 +241,9 @@ export default function decorate(block) {
                       Object.keys(element)[0].replaceAll("-", " ")
                     ) === "Indian Equity"
                   ) {
-                    dataMapMoObj[index + "ArrayDoc"] = div({
-                        class: "Indian-Equity-container",
+                    dataMapMoObj[index + "ArrayDoc"] = div(
+                      {
+                        class: "indian-equity-container",
                       },
                       ...dataMapMoObj.data.fundCategory[
                         dataMapMoObj.data.fundCategory.length - 1
@@ -284,83 +286,83 @@ export default function decorate(block) {
                       })
                     );
                   }
-                  return Object.keys(element)[0] !== "indianEquitySub" ?
-                    div({
-                        class: "checkbox-label-container " + indexeq,
-                      },
-                      input({
-                        class: "categorey-direct",
-                        type: "checkbox",
-                        id: "index" + (index + 1),
-                        dataattr: element[Object.keys(element)[0]].join("-"),
-                        onclick: (event) => {
-                          let fundScheme = event.target
-                            .getAttribute("dataattr")
-                            .split("-");
-                          // viewFunction(block);
-                          if (event.target.closest(".indaneqsub")) {
-                            let el = event.target.closest(".indaneqsub");
-                            if (el.querySelector(".innerIndianEquity")) {
-                              el.querySelectorAll(
-                                ".innerIndianEquity input"
-                              ).forEach((elemsub) => {
-                                elemsub.checked =
-                                  el.querySelector("input").checked;
-                              });
-                            }
-                          }
-                          if (window.innerWidth < 786) {
-                            let dataattr = event.target
+                  return Object.keys(element)[0] !== "indianEquitySub"
+                    ? div(
+                        {
+                          class: "checkbox-label-container " + indexeq,
+                        },
+                        input({
+                          class: "categorey-direct",
+                          type: "checkbox",
+                          id: "index" + (index + 1),
+                          dataattr: element[Object.keys(element)[0]].join("-"),
+                          onclick: (event) => {
+                            let fundScheme = event.target
                               .getAttribute("dataattr")
                               .split("-");
-                            let tempdata = dataCfObj.filter((el) => {
-                              if (dataattr.includes(el.schcode)) {
-                                return el;
+                            // viewFunction(block);
+                            if (event.target.closest(".indaneqsub")) {
+                              let el = event.target.closest(".indaneqsub");
+                              if (el.querySelector(".innerindianequity")) {
+                                el.querySelectorAll(
+                                  ".innerindianequity input"
+                                ).forEach((elemsub) => {
+                                  elemsub.checked =
+                                    el.querySelector("input").checked;
+                                });
                               }
-                            });
-                            console.log(tempdata);
-                            dataMapMoObj["tempMobReturn"] = [];
-                            dataMapMoObj["tempMobReturn"] = tempdata;
-                          } else {
-                            checkfilter(block);
-                          }
-                        },
-                      }),
-                      label({
-                          for: "index" + (index + 1),
-                        },
+                            }
+                            if (window.innerWidth < 786) {
+                              let dataattr = event.target
+                                .getAttribute("dataattr")
+                                .split("-");
+                              let tempdata = dataCfObj.filter((el) => {
+                                if (dataattr.includes(el.schcode)) {
+                                  return el;
+                                }
+                              });
+                              console.log(tempdata);
+                              dataMapMoObj["tempMobReturn"] = [];
+                              dataMapMoObj["tempMobReturn"] = tempdata;
+                            } else {
+                              checkfilter(block);
+                            }
+                          },
+                        }),
+                        label(
+                          {
+                            for: "index" + (index + 1),
+                          },
+                          capitalizeEachWord(
+                            Object.keys(element)[0].replaceAll("-", " ")
+                          ),
+                          span(
+                            {
+                              class: "fund-length",
+                            },
+                            "(" + element[Object.keys(element)[0]].length + ")"
+                          )
+                        ),
+                        div(
+                          { class: "tooltip-wrap" },
+                          img({ src: "../../icons/filter-info.svg" }),
+                          p(
+                            { class: "tooltip-text" },
+                            "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                          )
+                        ),
                         capitalizeEachWord(
                           Object.keys(element)[0].replaceAll("-", " ")
-                        ),
-                        span({
-                            class: "fund-length",
-                          },
-                          "(" + element[Object.keys(element)[0]].length + ")"
-                        )
-                      ),
-                      div({
-                          class: "tooltip-wrap"
-                        },
-                        img({
-                          src: "../../icons/filter-info.svg"
-                        }),
-                        p({
-                            class: "tooltip-text"
-                          },
-                          "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
-                        )
-                      ),
-                      capitalizeEachWord(
-                        Object.keys(element)[0].replaceAll("-", " ")
-                      ) === "Indian Equity" ?
-                      div({
-                          class: "innerIndianEquity",
-                        },
-                        dataMapMoObj[index + "ArrayDoc"]
-                      ) :
-                      ""
-                    ) :
-                    "";
+                        ) === "Indian Equity"
+                          ? div(
+                              {
+                                class: "innerindianequity",
+                              },
+                              dataMapMoObj[index + "ArrayDoc"]
+                            )
+                          : ""
+                      )
+                    : "";
                 }),
                 ...dataMapMoObj.data.fundType.map((element, index) => {
                   return div({
@@ -958,7 +960,7 @@ export default function decorate(block) {
       )
     )
   );
-  let divinner = block.querySelector(".indaneqsub .innerIndianEquity");
+  let divinner = block.querySelector(".indaneqsub .innerindianequity");
   block.querySelector(".indaneqsub").innerHTML = "";
   block.querySelector(".indaneqsub").append(divmop, divinner)
 
@@ -1228,8 +1230,8 @@ function checkfilter(block) {
   let filterTag = []; //5-8-25
   let tempData = [];
   Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
-    if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
-      el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+    if (el.closest(".checkbox-label-container").querySelector(".innerindianequity")) {
+      el.closest(".checkbox-label-container").querySelectorAll(".innerindianequity input").forEach((elemsub) => {
         if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
           filterTag.push(elemsub.nextElementSibling.textContent.trim()) //5-8-25
           elemsub.getAttribute('dataattr').split("-").forEach((eldata) => {
@@ -1287,8 +1289,8 @@ function checkfilter(block) {
         filterGroup(filterTag)
         //unchecked logic
         Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
-          if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
-            el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+          if (el.closest(".checkbox-label-container").querySelector(".innerindianequity")) {
+            el.closest(".checkbox-label-container").querySelectorAll(".innerindianequity input").forEach((elemsub) => {
               if (!filterTag.includes(elemsub.nextElementSibling.textContent.trim())) {
                 elemsub.checked = false
               }
