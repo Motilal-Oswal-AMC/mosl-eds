@@ -238,73 +238,88 @@ export default function decorate(block) {
                       })
                     );
                   }
-                  return Object.keys(element)[0] !== "indianEquitySub" ?
-                    div({
-                        class: "checkbox-label-container " + indexeq
-                      },
-                      input({
-                        class: "categorey-direct",
-                        type: "checkbox",
-                        id: "index" + (index + 1),
-                        dataattr: element[Object.keys(element)[0]].join("-"),
-                        onclick: (event) => {
-                          let fundScheme = event.target
-                            .getAttribute("dataattr")
-                            .split("-");
-                          // viewFunction(block);
-                          if (event.target.closest(".indaneqsub")) {
-                            let el = event.target.closest(".indaneqsub");
-                            if (el.querySelector(".innerIndianEquity")) {
-                              el.querySelectorAll(
-                                ".innerIndianEquity input"
-                              ).forEach((elemsub) => {
-                                elemsub.checked =
-                                  el.querySelector("input").checked;
-                              });
+                  return Object.keys(element)[0] !== "indianEquitySub"
+                    ? div(
+                        {
+                          class: "checkbox-label-container " + indexeq,
+                        },
+                        input({
+                          class: "categorey-direct",
+                          type: "checkbox",
+                          id: "index" + (index + 1),
+                          dataattr: element[Object.keys(element)[0]].join("-"),
+                          onclick: (event) => {
+                            let fundScheme = event.target
+                              .getAttribute("dataattr")
+                              .split("-");
+                            // viewFunction(block);
+                            if (event.target.closest(".indaneqsub")) {
+                              let el = event.target.closest(".indaneqsub");
+                              if (el.querySelector(".innerIndianEquity")) {
+                                el.querySelectorAll(
+                                  ".innerIndianEquity input"
+                                ).forEach((elemsub) => {
+                                  elemsub.checked =
+                                    el.querySelector("input").checked;
+                                });
+                              }
                             }
-                          }
-                          if (window.innerWidth < 786) {
-                                let dataattr = event.target.getAttribute("dataattr").split("-")
-                                let tempdata = dataCfObj.filter((el)=>{
-                                  if (dataattr.includes(el.schcode)) {
-                                    return el
-                                  }
-                                })
-                                console.log(tempdata);
-                                dataMapMoObj["tempMobReturn"] = [];
-                                dataMapMoObj["tempMobReturn"] = tempdata;
-                          }else{
-                            checkfilter(block);
-                          }
-                        },
-                      }),
-                      label({
-                          for: "index" + (index + 1)
-                        },
+                            if (window.innerWidth < 786) {
+                              let dataattr = event.target
+                                .getAttribute("dataattr")
+                                .split("-");
+                              let tempdata = dataCfObj.filter((el) => {
+                                if (dataattr.includes(el.schcode)) {
+                                  return el;
+                                }
+                              });
+                              console.log(tempdata);
+                              dataMapMoObj["tempMobReturn"] = [];
+                              dataMapMoObj["tempMobReturn"] = tempdata;
+                            } else {
+                              checkfilter(block);
+                            }
+                          },
+                        }),
+                        label(
+                          {
+                            for: "index" + (index + 1),
+                          },
+                          capitalizeEachWord(
+                            Object.keys(element)[0].replaceAll("-", " ")
+                          ),
+                          span(
+                            {
+                              class: "fund-length",
+                            },
+                            "(" + element[Object.keys(element)[0]].length + ")"
+                          )
+                        ),
+                        div(
+                          { class: "tooltip-wrap" },
+                          img({ src: "../../icons/filter-info.svg" }),
+                          p(
+                            { class: "tooltip-text" },
+                            "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                          )
+                        ),
                         capitalizeEachWord(
                           Object.keys(element)[0].replaceAll("-", " ")
-                        ),
-                        span({
-                            class: "fund-length"
-                          },
-                          "(" + element[Object.keys(element)[0]].length + ")"
-                        )
-                      ),
-                      capitalizeEachWord(
-                        Object.keys(element)[0].replaceAll("-", " ")
-                      ) === "Indian Equity" ?
-                      div({
-                          class: "innerIndianEquity"
-                        },
-                        dataMapMoObj[index + "ArrayDoc"]
-                      ) :
-                      ""
-                    ) :
-                    "";
+                        ) === "Indian Equity"
+                          ? div(
+                              {
+                                class: "innerIndianEquity",
+                              },
+                              dataMapMoObj[index + "ArrayDoc"]
+                            )
+                          : ""
+                      )
+                    : "";
                 }),
                 ...dataMapMoObj.data.fundType.map((element, index) => {
-                  return div({
-                      class: "checkbox-label-container"
+                  return div(
+                    {
+                      class: "checkbox-label-container",
                     },
                     input({
                       class: "categorey-direct",
@@ -314,28 +329,39 @@ export default function decorate(block) {
                       onclick: (event) => {
                         // checkfilter(block);
                         if (window.innerWidth < 786) {
-                                let dataattr = event.target.getAttribute("dataattr").split("-")
-                                let tempdata = dataCfObj.filter((el)=>{
-                                  if (dataattr.includes(el.schcode)) {
-                                    return el
-                                  }
-                                })
-                                console.log(tempdata);
-                                dataMapMoObj["tempMobReturn"] = [];
-                                dataMapMoObj["tempMobReturn"] = tempdata;
-                        }else{
-                         checkfilter(block);
+                          let dataattr = event.target
+                            .getAttribute("dataattr")
+                            .split("-");
+                          let tempdata = dataCfObj.filter((el) => {
+                            if (dataattr.includes(el.schcode)) {
+                              return el;
+                            }
+                          });
+                          console.log(tempdata);
+                          dataMapMoObj["tempMobReturn"] = [];
+                          dataMapMoObj["tempMobReturn"] = tempdata;
+                        } else {
+                          checkfilter(block);
                         }
                         // viewFunction(block);
                       },
                     }),
-                    label({
-                        for: "fundtype" + (index + 1)
+                    label(
+                      {
+                        for: "fundtype" + (index + 1),
                       },
                       capitalizeEachWord(
                         Object.keys(element)[0].replaceAll("-", " ")
                       ),
                       span("(" + element[Object.keys(element)[0]].length + ")")
+                    ),
+                    div(
+                      { class: "tooltip-wrap" },
+                      img({ src: "../../icons/filter-info.svg" }),
+                      p(
+                        { class: "tooltip-text" },
+                        "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                      )
                     )
                   );
                 })
@@ -775,12 +801,21 @@ export default function decorate(block) {
   block.append(divfund);
   block.querySelector(".applied-filter-list").innerHTML = "";
   //added wrapper
-  let divmop = div({
-      class: "indanequity-wrapper"
+  let divmop = div(
+    {
+      class: "indanequity-wrapper",
     },
     block.querySelector(".indaneqsub #index1"),
     block.querySelector(".indaneqsub [for='index1']"),
-  )
+    div(
+      { class: "tooltip-wrap" },
+      img({ src: "../../icons/filter-info.svg" }),
+      p(
+        { class: "tooltip-text" },
+        "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+      )
+    )
+  );
   let divinner = block.querySelector(".indaneqsub .innerIndianEquity");
   block.querySelector(".indaneqsub").innerHTML = "";
   block.querySelector(".indaneqsub").append(divmop, divinner)

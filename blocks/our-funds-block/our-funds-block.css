@@ -374,6 +374,7 @@
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-sort-container .filter-wrapper label,
@@ -479,7 +480,8 @@
   .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper {
     overflow: auto;
     height: 437px;
-    margin: 10px 16px 0;
+    padding: 0 16px;
+    margin-top: 10px;
   }
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper::-webkit-scrollbar {
@@ -492,7 +494,6 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  cursor: pointer;
   display: flex;
   align-items: center;
   padding: 12px 0;
@@ -507,6 +508,7 @@
   visibility: hidden;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct::before, .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct:checked::before {
   content: "";
@@ -535,35 +537,89 @@
   cursor: pointer;
   position: relative;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container label span {
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container label .fund-length {
   font-size: 14px;
   line-height: 20px;
   color: #757575;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
-.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container label::after {
-  content: "";
-  background-image: url("../../icons/filter-info.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 12px;
-  height: 12px;
-  display: block;
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap {
   position: absolute;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
-  right: 0;
+  z-index: 10;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  display: flex;
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap img {
+  width: 100%;
+  height: 100%;
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 33px;
+  transform: translateX(-50%);
+  margin: 0;
+  width: 418px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #EEE;
+  background-color: #FAFAFA;
+  padding: 12px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  color: #616161;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: solid #EEE;
+  border-width: 0 1px 1px 0;
+  border-radius: 0 0 8px 0;
+  display: block;
+  position: absolute;
+  left: 49.5%;
+  transform: rotate(45deg) translateX(-50%);
+  bottom: -17px;
+  background-color: #fff;
 }
 @media (max-width: 768px) {
-  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container label::after {
-    width: 20px;
-    height: 20px;
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text {
+    right: -8px;
+    left: unset;
+    transform: unset;
+    bottom: unset;
+    top: 25.5px;
+    width: 292px;
+    padding: 8px;
+    text-align: right;
   }
+  .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text::after {
+    transform: rotate(-135deg) translateX(-50%);
+    bottom: unset;
+    top: -13px;
+    left: unset;
+    right: 15px;
+    width: 15px;
+    height: 15px;
+  }
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap:hover .tooltip-text {
+  display: block;
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .indanequity-wrapper {
   display: flex;
+  position: relative;
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .innerIndianEquity {
   padding: 12px 0 12px 30px;
@@ -591,6 +647,9 @@
 }
 .our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container.indaneqsub {
   display: block;
+}
+.our-funds-block .filter-cards .left-container .FundCategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) {
+  position: relative;
 }
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .left-container .FundCategory-container .sort-overlay {
