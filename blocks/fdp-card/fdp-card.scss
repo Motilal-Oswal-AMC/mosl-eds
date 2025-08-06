@@ -60,6 +60,7 @@
         overflow-y: auto;
       }
       li {
+        a{
         @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
         // font-family: "poppins";
         // font-weight: 600;
@@ -73,6 +74,7 @@
         @media (max-width: 768px) {
           text-wrap: nowrap;
         }
+      }
       }
     }
     /* why fund section*/

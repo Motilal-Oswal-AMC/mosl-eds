@@ -60,7 +60,7 @@
     overflow-y: auto;
   }
 }
-.section.fdp-card-container .item2 .item2-ul li {
+.section.fdp-card-container .item2 .item2-ul li a {
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 @media (max-width: 768px) {
-  .section.fdp-card-container .item2 .item2-ul li {
+  .section.fdp-card-container .item2 .item2-ul li a {
     text-wrap: nowrap;
   }
 }

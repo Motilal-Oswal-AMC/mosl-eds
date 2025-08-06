@@ -134,5 +134,14 @@ export default function decorate(block) {
   });
 
 
+  document.querySelectorAll('.section .navlinks ul li a').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');// scrollMap[];
+      const target = document.querySelector(`.section[data-id="${targetId}"]`);
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
 
 }
