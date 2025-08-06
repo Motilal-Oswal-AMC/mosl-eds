@@ -785,123 +785,7 @@ export default function decorate(block) {
   block.querySelector(".indaneqsub").innerHTML = "";
   block.querySelector(".indaneqsub").append(divmop, divinner)
 
-  // Search
-  let currentFocus = -1;
-  let searchInput = block.querySelector(".search-input .search");
-  const searchResults = block.querySelector('.search-input .list-search');
-  const schemeNames = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
-  const schcode = dataMapMoObj["funddata"].map((fund) => fund.schcode);
-  let selectedFundName = "";
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
-    searchResults.closest(".search-input").classList.add("search-active");
-    searchResults.innerHTML = '';
-    currentFocus = -1;
-    const filtered = query ? schemeNames.filter(name => name.toLowerCase().includes(query)) : schemeNames;
-    filtered.forEach((name,index) => {
-      const li = document.createElement('li');
-      li.classList.add("list-fund-name")
-      li.setAttribute("schcode",schcode[index])
-      li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
-      li.addEventListener('click', (event) => {
-        const selectedLi = event.currentTarget;
-        const selectedSchcode = selectedLi.getAttribute("schcode");
-        const selectedName = selectedLi.textContent.trim();
-
-        searchResults.innerHTML = '';
-
-        const newLi = document.createElement('li');
-        newLi.classList.add("list-fund-name");
-        newLi.setAttribute("schcode", selectedSchcode);
-        newLi.textContent = selectedName;
-
-        searchResults.appendChild(newLi);
-        searchInput.value = selectedName;
-        selectedFundName = selectedName
-        searchResults.closest(".search-input").classList.remove("search-active");
-
-        // CARD HIDE LOGIC ON SEARCH
-        const cardsContainer = block.querySelector(".filter-cards .cards-container");
-        if (cardsContainer && cardsContainer.checkVisibility()) {
-          Array.from(cardsContainer.children).forEach((elment) => {
-            if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
-              elment.style.display = "none";
-            }
-          });
-        }
-
-        const listHeader = block.querySelector(".filter-cards .list-view-header");
-        if (listHeader && listHeader.checkVisibility()) {
-          Array.from(listHeader.children).forEach((elment) => {
-            if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
-              elment.style.display = "none";
-            }
-          });
-        }
-      });
-
-      searchResults.appendChild(li);
-    });
-    if (filtered.length === 0) {
-      const newLi = document.createElement('li');
-        newLi.classList.add("list-fund-name");
-        newLi.textContent = "No results found.";
-        searchResults.appendChild(newLi);
-    }
-  });
-
-  Array.from(searchResults.children).forEach((el)=>{
-    el.addEventListener("click",(event)=>{
-      console.log(event.target.textContent.trim());
-    })
-  })
-  searchInput.addEventListener('keydown', (e) => {
-    searchResults.closest(".search-input").classList.remove("search-active");
-    const items = searchResults.querySelectorAll('li');
-    if (!items.length) return;
-    if (e.key === 'ArrowDown') {
-      currentFocus++;
-      addActive(items);
-      e.preventDefault();
-    } else if (e.key === 'ArrowUp') {
-      currentFocus--;
-      addActive(items);
-      e.preventDefault();
-    } else if (e.key === 'Enter') {
-      e.preventDefault();
-      if (currentFocus > -1) items[currentFocus].click();
-    } else if (e.key === 'Escape') {
-      searchResults.innerHTML = '';
-      currentFocus = -1;
-      searchInput.value = selectedFundName;
-      searchResults.closest(".search-input").classList.remove("search-active");
-    }
-  });
-
-  function addActive(items) {
-    if (!items) return;
-    items.forEach(i => i.classList.remove('active'));
-    if (currentFocus >= items.length) currentFocus = items.length - 1;
-    if (currentFocus < 0) currentFocus = 0;
-    items[currentFocus].classList.add('active');
-    items[currentFocus].scrollIntoView({
-      block: 'nearest'
-    });
-  }
-
-  searchInput.addEventListener("focusin",()=>{
-      searchResults.closest(".search-input").classList.add("search-active");
-  })
-  // block.addEventListener("click",()=>{
-    // searchResults.closest(".search-input").classList.remove("search-active");
-    // if (block.querySelector(".cards-container").checkVisibility()) {
-    //   block.querySelectorAll(".cards-container .dropdown-list").forEach((el)=>{
-    //     if(Array.from(el.classList).includes("dropdown-active")){
-    //       el.classList.remove("dropdown-active")  
-    //     }
-    //   })
-    // }
-  // })
+ searchFunctionality(block);
   Array.from(block.querySelector(".return-container .radio-label-container").children).forEach((el)=>{
     el.querySelector("input").addEventListener("click",(event)=>{
       console.log(event.target.getAttribute("dataattr"));
@@ -1160,6 +1044,7 @@ function viewFunction(param) {
       param.querySelector(".cards-container").append(fundcardblock(el));
     })
   }
+  searchFunctionality(param);
 }
 
 function checkfilter(block) {
@@ -1260,4 +1145,115 @@ function applyFunction(block){
       viewFunction(block)
     }
     
+}
+
+function searchFunctionality(block){
+  // Search
+  let currentFocus = -1;
+  let searchInput = block.querySelector(".search-input .search");
+  const searchResults = block.querySelector('.search-input .list-search');
+  
+  const schemeNames = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
+  const schcode = dataMapMoObj["funddata"].map((fund) => fund.schcode);
+  let selectedFundName = "";
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    searchResults.closest(".search-input").classList.add("search-active");
+    searchResults.innerHTML = '';
+    currentFocus = -1;
+    const filtered = query ? schemeNames.filter(name => name.toLowerCase().includes(query)) : schemeNames;
+    filtered.forEach((name,index) => {
+      const li = document.createElement('li');
+      li.classList.add("list-fund-name")
+      li.setAttribute("schcode",schcode[index])
+      li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
+      li.addEventListener('click', (event) => {
+        const selectedLi = event.currentTarget;
+        const selectedSchcode = selectedLi.getAttribute("schcode");
+        const selectedName = selectedLi.textContent.trim();
+
+        searchResults.innerHTML = '';
+
+        const newLi = document.createElement('li');
+        newLi.classList.add("list-fund-name");
+        newLi.setAttribute("schcode", selectedSchcode);
+        newLi.textContent = selectedName;
+
+        searchResults.appendChild(newLi);
+        searchInput.value = selectedName;
+        selectedFundName = selectedName
+        searchResults.closest(".search-input").classList.remove("search-active");
+
+        // CARD HIDE LOGIC ON SEARCH
+        const cardsContainer = block.querySelector(".filter-cards .cards-container");
+        if (cardsContainer && cardsContainer.checkVisibility()) {
+          Array.from(cardsContainer.children).forEach((elment) => {
+            if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
+              elment.style.display = "none";
+            }
+          });
+        }
+
+        const listHeader = block.querySelector(".filter-cards .list-view-header");
+        if (listHeader && listHeader.checkVisibility()) {
+          Array.from(listHeader.children).forEach((elment) => {
+            if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
+              elment.style.display = "none";
+            }
+          });
+        }
+      });
+
+      searchResults.appendChild(li);
+    });
+    if (filtered.length === 0) {
+      const newLi = document.createElement('li');
+        newLi.classList.add("list-fund-name");
+        newLi.textContent = "No results found.";
+        searchResults.appendChild(newLi);
+    }
+  });
+
+  Array.from(searchResults.children).forEach((el)=>{
+    el.addEventListener("click",(event)=>{
+      console.log(event.target.textContent.trim());
+    })
+  })
+  searchInput.addEventListener('keydown', (e) => {
+    searchResults.closest(".search-input").classList.remove("search-active");
+    const items = searchResults.querySelectorAll('li');
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') {
+      currentFocus++;
+      addActive(items);
+      e.preventDefault();
+    } else if (e.key === 'ArrowUp') {
+      currentFocus--;
+      addActive(items);
+      e.preventDefault();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (currentFocus > -1) items[currentFocus].click();
+    } else if (e.key === 'Escape') {
+      searchResults.innerHTML = '';
+      currentFocus = -1;
+      searchInput.value = selectedFundName;
+      searchResults.closest(".search-input").classList.remove("search-active");
+    }
+  });
+
+  function addActive(items) {
+    if (!items) return;
+    items.forEach(i => i.classList.remove('active'));
+    if (currentFocus >= items.length) currentFocus = items.length - 1;
+    if (currentFocus < 0) currentFocus = 0;
+    items[currentFocus].classList.add('active');
+    items[currentFocus].scrollIntoView({
+      block: 'nearest'
+    });
+  }
+
+  searchInput.addEventListener("focusin",()=>{
+      searchResults.closest(".search-input").classList.add("search-active");
+  })
 }
