@@ -1,9 +1,24 @@
 /* eslint-disable */
 import dataCfObj from "../../scripts/dataCfObj.js";
-import { div, input, label, span, p } from "../../scripts/dom-helpers.js";
+import {
+  div,
+  input,
+  label,
+  span,
+  p,
+  button,
+  ul,
+  li,
+  img
+} from "../../scripts/dom-helpers.js";
 import dataMapMoObj from "../../scripts/constant.js";
 import fundcardblock from "../fund-card/fund-card.js";
+import listviewblock from '../list-view-card/list-view-card.js'
 export default function decorate(block) {
+
+  Array.from(block.closest('.section').children).forEach((el, index) => {
+    el.classList.add("item" + (index + 1))
+  })
   Array.from(block.children).forEach((el, index) => {
     el.classList.add("block-item" + (index + 1));
     Array.from(el.children).forEach((elsub, index) => {
@@ -13,58 +28,93 @@ export default function decorate(block) {
       });
     });
   });
-
+  dataMapMoObj["selectreturns"] = "";
   dataMapMoObj["data"] = dataFilterfun(dataCfObj);
-  console.log(dataMapMoObj["data"]);
-
-  // block.querySelector(".block-item2 span"); //filter
-  // block.querySelector(".block-item3 block-subitem-finelsub1"); //filter
-
+  dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
   let divfund = div(
-    { class: "blockwrapper" },
+    {
+      class: "blockwrapper",
+    },
     div(
-      { class: "upper-container" },
+      {
+        class: "upper-container",
+      },
       div(
-        { class: "fundcontainer" },
+        {
+          class: "fundcontainer",
+        },
         block.querySelector(".block-subitem1"),
         div(
-          { class: "search-trending-wrapper" },
+          {
+            class: "search-trending-wrapper",
+          },
           div(
-            { class: "search-watch" },
+            {
+              class: "search-input",
+            },
+            input({
+              class: "search",
+              placeholder: block
+                .querySelector(".block-subitem2 .block-subitem-finelsub1")
+                .textContent.trim(),
+            }),
             div(
-              { class: "search-input" },
-              input({
-                class: "search",
-                placeholder: block
-                  .querySelector(".block-subitem2 .block-subitem-finelsub1")
-                  .textContent.trim(),
+              { class: "cancel-search" },
+              img({
+                class: "cancel-btn",
+                src: "../../icons/input-cancel.svg",
+                alt: "cancel button",
               })
             ),
+            ul(
+              {
+                class: "list-search",
+              },
+              ...dataMapMoObj["funddata"].map((el) => {
+                return li(
+                  {
+                    class: "list-fund-name",
+                    schcode: el.schcode,
+                  },
+                  el.schDetail.schemeName
+                );
+              })
+            )
+          ),
+          div(
+            {
+              class: "watchlist",
+            },
             div(
-              { class: "watchlist" },
-              div(
-                { class: "staricon" },
-                block.querySelector(
-                  ".block-subitem2 .block-subitem-finelsub2 span"
-                ),
-                block.querySelector(
-                  ".block-subitem2 .block-subitem-finelsub3 span"
-                )
+              {
+                class: "staricon",
+              },
+              block.querySelector(
+                ".block-subitem2 .block-subitem-finelsub2 span"
               ),
-              div(
-                { class: "watchlisttext" },
-                span(
-                  block
-                    .querySelector(".block-subitem2 .block-subitem-finelsub3")
-                    .textContent.trim()
-                )
+              block.querySelector(
+                ".block-subitem2 .block-subitem-finelsub3 span"
+              )
+            ),
+            div(
+              {
+                class: "watchlisttext",
+              },
+              span(
+                block
+                  .querySelector(".block-subitem2 .block-subitem-finelsub3")
+                  .textContent.trim()
               )
             )
           ),
           div(
-            { class: "trending-container" },
+            {
+              class: "trending-container",
+            },
             div(
-              { class: "trendinglabel" },
+              {
+                class: "trendinglabel",
+              },
               p(
                 block.querySelector(
                   ".block-subitem2 .block-subitem-finelsub4 span"
@@ -77,7 +127,9 @@ export default function decorate(block) {
               )
             ),
             div(
-              { class: "trendingmostlist" },
+              {
+                class: "trendingmostlist",
+              },
               block.querySelector(".block-subitem2 .block-subitem-finelsub6")
             )
           )
@@ -85,24 +137,68 @@ export default function decorate(block) {
       )
     ),
     div(
-      { class: "filter-cards" },
+      {
+        class: "filter-cards",
+      },
       div(
-        { class: "left-container" },
+        {
+          class: "left-container",
+        },
         div(
-          { class: "FundCategory-container" },
+          {
+            class: "FundCategory-container",
+          },
           div(
-            { class: "filter-sort-container" },
+            {
+              class: "filter-sort-container",
+            },
             div(
-              { class: "filter-wrapper" },
-              block.querySelector(".block-item2 .block-subitem-finelsub1 span"),
-              label(
-                block
-                  .querySelector(".block-item2 .block-subitem-finelsub2")
-                  .textContent.trim()
-              )
+              {
+                class: "filter-wrapper",
+                onclick: () => {
+                  block
+                    .querySelector(".filter-overlay")
+                    .classList.add("active");
+                  if (
+                    Array.from(
+                      block.querySelector(".sort-overlay").classList
+                    ).includes("active")
+                  ) {
+                    block
+                      .querySelector(".sort-overlay")
+                      .classList.remove("active");
+                  }
+                },
+              },
+              div(
+                { class: "filter-text" },
+                block.querySelector(
+                  ".block-item2 .block-subitem-finelsub1 span"
+                ),
+                label(
+                  block
+                    .querySelector(".block-item2 .block-subitem-finelsub2")
+                    .textContent.trim()
+                )
+              ),
+              button({ class: "clearall-btn" }, "Clear All")
             ),
             div(
-              { class: "sort-wrapper" },
+              {
+                class: "sort-wrapper",
+                onclick: () => {
+                  block.querySelector(".sort-overlay").classList.add("active");
+                  if (
+                    Array.from(
+                      block.querySelector(".filter-overlay").classList
+                    ).includes("active")
+                  ) {
+                    block
+                      .querySelector(".filter-overlay")
+                      .classList.remove("active");
+                  }
+                },
+              },
               block.querySelector(".block-item2 .block-subitem-finelsub3 span"),
               label(
                 block
@@ -112,317 +208,826 @@ export default function decorate(block) {
             )
           ),
           div(
-            { class: "filter-container" },
-            ...dataMapMoObj.data.fundCategory.map((element, index) => {
-              if (
-                capitalizeEachWord(
-                  Object.keys(element)[0].replaceAll("-", " ")
-                ) === "Indian Equity"
-              ) {
-                dataMapMoObj[index + "ArrayDoc"] = div(
+            {
+              class: "filter-overlay",
+            },
+            div(
+              {
+                class: "filter-container",
+              },
+              div(
+                {
+                  class: "clearall-wrapper",
+                },
+                span("Filters"),
+                button(
                   {
-                    class: "Indian-Equity-container",
+                    class: "clearall-btn",
+                    onclick: () => {
+                      Array.from(
+                        block.querySelector(".filter-list-wrapper").children
+                      ).forEach((el) => {
+                        if (
+                          el
+                            .closest(".checkbox-label-container")
+                            .querySelector(".innerIndianEquity")
+                        ) {
+                          el.closest(".checkbox-label-container")
+                            .querySelectorAll(".innerIndianEquity input")
+                            .forEach((elemsub) => {
+                              elemsub.checked = false;
+                            });
+                        }
+                        el.querySelector("input").checked = false;
+                      });
+                      dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
+                    },
                   },
-                  ...dataMapMoObj.data.fundCategory[
-                    dataMapMoObj.data.fundCategory.length - 1
-                  ]["indianEquitySub"].map((elme, ind) => {
-                    let sublabel = Object.keys(elme)[0].split("-")[1].trim();
-                    return label(
+                  "Clear All"
+                )
+              ),
+              div(
+                {
+                  class: "filter-list-wrapper",
+                },
+                // div({class:"fundcategory-label"},
+                //   span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
+                // ),
+                ...dataMapMoObj.data.fundCategory.map((element, index) => {
+                  let indexeq = index === 0 ? "indaneqsub" : "";
+                  if (
+                    capitalizeEachWord(
+                      Object.keys(element)[0].replaceAll("-", " ")
+                    ) === "Indian Equity"
+                  ) {
+                    dataMapMoObj[index + "ArrayDoc"] = div(
                       {
-                        class: "checkbox-label-container",
+                        class: "Indian-Equity-container",
                       },
-                      span(
+                      ...dataMapMoObj.data.fundCategory[
+                        dataMapMoObj.data.fundCategory.length - 1
+                      ]["indianEquitySub"].map((elme, ind) => {
+                        let sublabel = Object.keys(elme)[0]
+                          .split("-")[1]
+                          .trim();
+                        return div(
+                          {
+                            class: "checkbox-label-container",
+                          },
+                          input({
+                            class: "categorey-direct",
+                            type: "checkbox",
+                            id: "ind" + (ind + 1),
+                            dataattr: elme[Object.keys(elme)].join("-"),
+                            onclick: (event) => {
+                              if (window.innerWidth < 786) {
+                                let dataattr = event.target
+                                  .getAttribute("dataattr")
+                                  .split("-");
+                                let tempdata = dataCfObj.filter((el) => {
+                                  if (dataattr.includes(el.schcode)) {
+                                    return el;
+                                  }
+                                });
+                                console.log(tempdata);
+                                dataMapMoObj["tempMobReturn"] = [];
+                                dataMapMoObj["tempMobReturn"] = tempdata;
+                              } else {
+                                checkfilter(block);
+                              }
+                            },
+                          }),
+                          label(
+                            {
+                              for: "ind" + (ind + 1),
+                            },
+                            sublabel
+                          )
+                        );
+                      })
+                    );
+                  }
+                  return Object.keys(element)[0] !== "indianEquitySub"
+                    ? div(
                         {
-                          class: "square-shape",
+                          class: "checkbox-label-container " + indexeq,
                         },
                         input({
                           class: "categorey-direct",
                           type: "checkbox",
-                          dataattr: elme[Object.keys(elme)].join("-"),
-                          onclick: function (ele) {
-                            let tempSchCode = [];
-                            block
-                              .querySelectorAll(
-                                ".innerIndianEquity .categorey-direct"
-                              )
-                              .forEach((el) => {
-                                if (el.checked) {
-                                  tempSchCode.push(
-                                    el.getAttribute("dataattr").split("-")
-                                  );
+                          id: "index" + (index + 1),
+                          dataattr: element[Object.keys(element)[0]].join("-"),
+                          onclick: (event) => {
+                            let fundScheme = event.target
+                              .getAttribute("dataattr")
+                              .split("-");
+                            // viewFunction(block);
+                            if (event.target.closest(".indaneqsub")) {
+                              let el = event.target.closest(".indaneqsub");
+                              if (el.querySelector(".innerIndianEquity")) {
+                                el.querySelectorAll(
+                                  ".innerIndianEquity input"
+                                ).forEach((elemsub) => {
+                                  elemsub.checked =
+                                    el.querySelector("input").checked;
+                                });
+                              }
+                            }
+                            if (window.innerWidth < 786) {
+                              let dataattr = event.target
+                                .getAttribute("dataattr")
+                                .split("-");
+                              let tempdata = dataCfObj.filter((el) => {
+                                if (dataattr.includes(el.schcode)) {
+                                  return el;
                                 }
                               });
-                            tempSchCode = tempSchCode.flat(2);
-                            let tempScheme = dataCfObj.filter((item) => {
-                              if (tempSchCode.includes(item.schcode)) {
-                                return item;
-                              }
-                            });
-                            //Search Input
-                            Array.from(
-                              block.querySelector(
-                                ".searchBarContainer .searchModal ul"
-                              ).children
-                            ).forEach((elre) => {
-                              elre.style.display = "none";
-                              if (
-                                tempSchCode.includes(
-                                  elre.getAttribute("dataattr")
-                                )
-                              ) {
-                                elre.style.display = "block";
-                              }
-                            });
-                            rightBottomcardRender(
-                              block,
-                              tempScheme,
-                              dataMapMoObj
-                            );
+                              console.log(tempdata);
+                              dataMapMoObj["tempMobReturn"] = [];
+                              dataMapMoObj["tempMobReturn"] = tempdata;
+                            } else {
+                              checkfilter(block);
+                            }
                           },
-                        })
-                      ),
-                      span(sublabel)
-                    );
-                  })
-                );
-              }
-              return Object.keys(element)[0] !== "indianEquitySub"
-                ? label(
+                        }),
+                        label(
+                          {
+                            for: "index" + (index + 1),
+                          },
+                          capitalizeEachWord(
+                            Object.keys(element)[0].replaceAll("-", " ")
+                          ),
+                          span(
+                            {
+                              class: "fund-length",
+                            },
+                            "(" + element[Object.keys(element)[0]].length + ")"
+                          )
+                        ),
+                        div(
+                          { class: "tooltip-wrap" },
+                          img({ src: "../../icons/filter-info.svg" }),
+                          p(
+                            { class: "tooltip-text" },
+                            "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                          )
+                        ),
+                        capitalizeEachWord(
+                          Object.keys(element)[0].replaceAll("-", " ")
+                        ) === "Indian Equity"
+                          ? div(
+                              {
+                                class: "innerIndianEquity",
+                              },
+                              dataMapMoObj[index + "ArrayDoc"]
+                            )
+                          : ""
+                      )
+                    : "";
+                }),
+                ...dataMapMoObj.data.fundType.map((element, index) => {
+                  return div(
                     {
                       class: "checkbox-label-container",
                     },
-                    span(
-                      {
-                        class: "square-shape",
+                    input({
+                      class: "categorey-direct",
+                      type: "checkbox",
+                      id: "fundtype" + (index + 1),
+                      dataattr: element[Object.keys(element)[0]].join("-"),
+                      onclick: (event) => {
+                        // checkfilter(block);
+                        if (window.innerWidth < 786) {
+                          let dataattr = event.target
+                            .getAttribute("dataattr")
+                            .split("-");
+                          let tempdata = dataCfObj.filter((el) => {
+                            if (dataattr.includes(el.schcode)) {
+                              return el;
+                            }
+                          });
+                          console.log(tempdata);
+                          dataMapMoObj["tempMobReturn"] = [];
+                          dataMapMoObj["tempMobReturn"] = tempdata;
+                        } else {
+                          checkfilter(block);
+                        }
+                        // viewFunction(block);
                       },
-                      input({
-                        class: "categorey-direct",
-                        type: "checkbox",
-                        dataattr: element[Object.keys(element)[0]].join("-"),
-                        onclick: function (ele) {
-                          let tempSchCode = [];
-                          Array.from(
-                            block.querySelector(".filter-container").children
-                          ).forEach((el) => {
-                            if (el.querySelector(".categorey-direct").checked) {
-                              if (el.querySelector(".innerIndianEquity")) {
-                                block
-                                  .querySelectorAll(
-                                    ".innerIndianEquity .categorey-direct"
-                                  )
-                                  .forEach((elm) => {
-                                    if (elm.checked) {
-                                      tempSchCode.push(
-                                        elm.getAttribute("dataattr").split("-")
-                                      );
-                                    }
-                                  });
-                                if (tempSchCode.length == 0) {
-                                  block
-                                    .querySelectorAll(
-                                      ".innerIndianEquity .categorey-direct"
-                                    )
-                                    .forEach((elsm) => {
-                                      elsm.checked = true;
-                                    });
-                                  tempSchCode.push(
-                                    el
-                                      .querySelector(".categorey-direct")
-                                      .getAttribute("dataattr")
-                                      .split("-")
-                                  );
-                                }
-                              } else {
-                                tempSchCode.push(
-                                  el
-                                    .querySelector(".categorey-direct")
-                                    .getAttribute("dataattr")
-                                    .split("-")
-                                );
-                              }
-                            } else {
-                              if (el.querySelector(".innerIndianEquity")) {
-                                block
-                                  .querySelectorAll(
-                                    ".innerIndianEquity .categorey-direct"
-                                  )
-                                  .forEach((elm) => {
-                                    elm.checked = false;
-                                  });
-                              }
-                            }
-                          });
-                          if (ele.target.checked) {
-                            ele.target.checked = true;
-                          } else {
-                            ele.target.checked = false;
-                          }
-                          //Cards
-                          tempSchCode = tempSchCode.flat(2);
-                          let tempScheme = dataCfObj.filter((item) => {
-                            if (tempSchCode.includes(item.schcode)) {
-                              return item;
-                            }
-                          });
-                          //Search Input
-                          Array.from(
-                            block.querySelector(
-                              ".searchBarContainer .searchModal ul"
-                            ).children
-                          ).forEach((elre) => {
-                            elre.style.display = "none";
-                            if (
-                              tempSchCode.includes(
-                                elre.getAttribute("dataattr")
-                              )
-                            ) {
-                              elre.style.display = "block";
-                            }
-                          });
-                          rightBottomcardRender(
-                            block,
-                            tempScheme,
-                            dataMapMoObj
-                          );
-                        },
-                      })
-                    ),
-                    span(
+                    }),
+                    label(
+                      {
+                        for: "fundtype" + (index + 1),
+                      },
                       capitalizeEachWord(
                         Object.keys(element)[0].replaceAll("-", " ")
-                      ) +
-                        "(" +
-                        element[Object.keys(element)[0]].length +
-                        ")"
+                      ),
+                      span("(" + element[Object.keys(element)[0]].length + ")")
                     ),
-                    capitalizeEachWord(
-                      Object.keys(element)[0].replaceAll("-", " ")
-                    ) === "Indian Equity"
-                      ? div(
-                          {
-                            class: "innerIndianEquity",
-                          },
-                          dataMapMoObj[index + "ArrayDoc"]
-                        )
-                      : ""
-                  )
-                : "";
-            })
-          )
-        ),
-        div(
-          { class: "FundTye-container" },
-          div(
-            { class: "title-container" },
-            label(
-              block
-                .querySelector(".block-item2 .block-subitem-finelsub3")
-                .textContent.trim()
+                    div(
+                      { class: "tooltip-wrap" },
+                      img({ src: "../../icons/filter-info.svg" }),
+                      p(
+                        { class: "tooltip-text" },
+                        "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                      )
+                    )
+                  );
+                })
+              ),
+              div(
+                {
+                  class: "apply-wrapper",
+                },
+                button(
+                  {
+                    class: "close-btn",
+                    onclick: (event) => {
+                      block
+                        .querySelector(".filter-overlay")
+                        .classList.remove("active");
+                      block
+                        .querySelector(".sort-overlay")
+                        .classList.remove("active");
+                    },
+                  },
+                  "Close"
+                ),
+                button(
+                  {
+                    class: "apply-btn",
+                    onclick: () => {
+                      applyFunction(block);
+                    },
+                  },
+                  "Apply"
+                )
+              )
             )
           ),
           div(
             {
-              class: "fund-container",
+              class: "sort-overlay",
             },
-            ...dataMapMoObj.data.fundType.map((element) => {
-              return label(
-                { class: "checkbox-label-container" },
+            div(
+              {
+                class: "sort-container",
+              },
+              div(
+                {
+                  class: "sort-label",
+                },
+                // span(label(
+                //   block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
+                // ))
                 span(
-                  { class: "square-shape" },
-                  input({
-                    class: "categorey-direct",
-                    type: "checkbox",
-                    dataattr: element[Object.keys(element)[0]].join("-"),
-                    onclick: function (ele) {
-                      let tempSchCode = [];
-                      block
-                        .querySelectorAll(".fund-container .categorey-direct")
-                        .forEach((elm) => {
-                          if (elm.checked) {
-                            tempSchCode.push(
-                              elm.getAttribute("dataattr").split("-")
-                            );
-                          }
-                        });
-                      //Cards
-                      tempSchCode = tempSchCode.flat(2);
-                      let tempScheme = dataCfObj.filter((item) => {
-                        if (tempSchCode.includes(item.schcode)) {
-                          return item;
-                        }
-                      });
-                      Array.from(
-                        block.querySelector(
-                          ".searchBarContainer .searchModal ul"
-                        ).children
-                      ).forEach((elre) => {
-                        elre.style.display = "none";
-                        if (
-                          tempSchCode.includes(elre.getAttribute("dataattr"))
-                        ) {
-                          elre.style.display = "block";
-                        }
-                      });
-                      rightBottomcardRender(block, tempScheme, dataMapMoObj);
-                    },
-                  })
-                ),
-                span(
-                  capitalizeEachWord(
-                    Object.keys(element)[0].replaceAll("-", " ")
-                  ) +
-                    "(" +
-                    element[Object.keys(element)[0]].length +
-                    ")"
+                  block
+                    .querySelector(".block-item3 .block-subitem-finelsub1")
+                    .textContent.trim()
                 )
-              );
-            })
+              ),
+              div(
+                {
+                  class: "arrange-returns",
+                },
+                div(
+                  {
+                    class: "arrange-container",
+                  },
+                  span("Arrange by"),
+                  div(
+                    {
+                      class: "radio-label-container",
+                    },
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "popular",
+                        name: "arrange",
+                      }),
+                      label(
+                        {
+                          for: "popular",
+                        },
+                        "Popular"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "lastnav",
+                        name: "arrange",
+                      }),
+                      label(
+                        {
+                          for: "lastnav",
+                        },
+                        "Latest NAV"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "lastnavone",
+                        name: "arrange",
+                      }),
+                      label(
+                        {
+                          for: "lastnavone",
+                        },
+                        "Latest by 1 day"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "oldnew",
+                        name: "arrange",
+                      }),
+                      label(
+                        {
+                          for: "oldnew",
+                        },
+                        "Oldest to Newest"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "newold",
+                        name: "arrange",
+                      }),
+                      label(
+                        {
+                          for: "newold",
+                        },
+                        "Newest to Oldest"
+                      )
+                    )
+                  )
+                ),
+                div(
+                  {
+                    class: "return-container",
+                  },
+                  span("Returns Period"),
+                  div(
+                    {
+                      class: "radio-label-container",
+                    },
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "sinceinp",
+                        name: "returns",
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].inception_Ret.join("-"),
+                      }),
+                      label(
+                        {
+                          for: "sinceinp",
+                        },
+                        "Since Inception"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "oneyear",
+                        name: "returns",
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].oneYear_Ret.join("-"),
+                      }),
+                      label(
+                        {
+                          for: "oneyear",
+                        },
+                        "1 year"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "threeyear",
+                        name: "returns",
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].threeYear_Ret.join("-"),
+                      }),
+                      label(
+                        {
+                          for: "threeyear",
+                        },
+                        "3 years"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "fiveyear",
+                        name: "returns",
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-"),
+                      }),
+                      label(
+                        {
+                          for: "fiveyear",
+                        },
+                        "5 years"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "tenyear",
+                        name: "returns",
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-"),
+                      }),
+                      label(
+                        {
+                          for: "tenyear",
+                        },
+                        "7 years"
+                      )
+                    ),
+                    div(
+                      {
+                        class: "radio-label",
+                      },
+                      input({
+                        type: "radio",
+                        id: "tenyear",
+                        name: "returns",
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].tenYear_Ret.join("-"),
+                      }),
+                      label(
+                        {
+                          for: "tenyear",
+                        },
+                        "10 years"
+                      )
+                    )
+                  )
+                )
+              ),
+              div(
+                {
+                  class: "close-apply-btn",
+                },
+                button(
+                  {
+                    class: "closebtn",
+                    onclick: (event) => {
+                      block
+                        .querySelector(".filter-overlay")
+                        .classList.remove("active");
+                      block
+                        .querySelector(".sort-overlay")
+                        .classList.remove("active");
+                    },
+                  },
+                  "close"
+                ),
+                button(
+                  {
+                    class: "applybtn",
+                    onclick: () => {
+                      applyFunction(block);
+                    },
+                  },
+                  "Apply"
+                )
+              )
+            )
           )
         )
       ),
       div(
-        { class: "right-container" },
+        {
+          class: "right-container",
+        },
         div(
-          { class: "sort-pop-container" },
+          {
+            class: "sort-pop-container",
+          },
           div(
-            { class: "sort-popular" },
+            {
+              class: "sort-popular",
+            },
             div(
-              { class: "sort-container" },
+              {
+                class: "sort-container",
+              },
               label(
                 block
                   .querySelector(".block-item3 .block-subitem-finelsub1")
                   .textContent.trim()
+              ),
+              div(
+                { class: "sort-select-container" },
+                p(
+                  {
+                    class: "selectedtext",
+                    onclick: (event) => {
+                      console.log(event.target);
+                      event.target.nextElementSibling.classList.add(
+                        "dropdown-active"
+                      );
+                    },
+                  },
+                  "Popular"
+                ),
+                ul(
+                  {
+                    class: "dropdown-list",
+                    onclick: (event) => {
+                      event.target
+                        .closest(".dropdown-list")
+                        .classList.remove("dropdown-active");
+                      let name = event.target.textContent.trim();
+                      event.target
+                        .closest(".sort-select-container")
+                        .querySelector("p").innerText = "";
+                      event.target
+                        .closest(".sort-select-container")
+                        .querySelector("p").innerText = name;
+                      // planListEvent(event,block)
+                    },
+                  },
+                  li("Popular"),
+                  li("Latest NAV"),
+                  li("Lastest by 1 day"),
+                  li("Oldest to Newest"),
+                  li("Newest to Oldest")
+                )
               )
             ),
             div(
-              { class: "popular-container" },
+              {
+                class: "popular-container",
+              },
               label(
                 block
                   .querySelector(".block-item3 .block-subitem-finelsub2")
                   .textContent.trim()
+              ),
+              div(
+                { class: "return-select-container" },
+                p(
+                  {
+                    class: "selectedtext",
+                    onclick: (event) => {
+                      console.log(event.target);
+                      event.target.nextElementSibling.classList.add(
+                        "dropdown-active"
+                      );
+                    },
+                  },
+                  "1 YEAR"
+                ),
+                ul(
+                  {
+                    class: "dropdown-list",
+                    onclick: (event) => {
+                      event.target
+                        .closest(".dropdown-list")
+                        .classList.remove("dropdown-active");
+                      let name = event.target.textContent.trim();
+                      event.target
+                        .closest(".return-select-container")
+                        .querySelector("p").innerText = "";
+                      event.target
+                        .closest(".return-select-container")
+                        .querySelector("p").innerText = name;
+                      let dataattr = event.target
+                        .getAttribute("dataattr")
+                        .split("-");
+                      let tempdata = dataCfObj.filter((el) => {
+                        if (dataattr.includes(el.schcode)) {
+                          return el;
+                        }
+                      });
+                      console.log(tempdata);
+                      dataMapMoObj["selectreturns"] = name;
+                      dataMapMoObj["funddata"] = [];
+                      dataMapMoObj["funddata"] = tempdata;
+                      viewFunction(block);
+                    },
+                  },
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].oneYear_Ret.join("-"),
+                    },
+                    "1 YEAR"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].threeYear_Ret.join("-"),
+                    },
+                    "3 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-"),
+                    },
+                    "5 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-"),
+                    },
+                    "7 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].tenYear_Ret.join("-"),
+                    },
+                    "10 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].inception_Ret.join("-"),
+                    },
+                    "SINCE INCEPTION"
+                  )
+                )
               )
             )
           ),
           div(
-            { class: "group-view-container" },
-            div({ class: "togglebtn" }, p("Direct"), p("Regular")),
+            {
+              class: "group-view-container",
+            },
             div(
-              { class: "view-container" },
+              {
+                class: "view-container",
+              },
               div(
-                { class: "squareby-container" },
+                {
+                  class: "squareby-container grid-view-active",
+                  onclick: (event) => {
+                    event.currentTarget.classList.add("grid-view-active");
+                    event.currentTarget
+                      .closest(".view-container")
+                      .querySelector(".listby-container")
+                      .classList.remove("list-view-active");
+                    event.currentTarget
+                      .closest(".right-container")
+                      .querySelector(".list-view-header").style.display =
+                      "none";
+                    viewFunction(block);
+                  },
+                },
                 block.querySelector(".block-item3 .block-subitem-finelsub3")
               ),
               div(
-                { class: "listby-container" },
+                {
+                  class: "listby-container",
+                  onclick: (event) => {
+                    event.currentTarget.classList.add("list-view-active");
+                    event.currentTarget
+                      .closest(".view-container")
+                      .querySelector(".squareby-container")
+                      .classList.remove("grid-view-active");
+                    event.currentTarget
+                      .closest(".right-container")
+                      .querySelector(".list-view-header").style.display =
+                      "block";
+                    viewFunction(block);
+                  },
+                },
                 block.querySelector(".block-item3 .block-subitem-finelsub4")
               )
+            ),
+            div(
+              {
+                class: "togglebtn",
+              },
+              p("Direct"),
+              div(
+                {
+                  class: "fund-toggle-wrap",
+                },
+                input({
+                  type: "checkbox",
+                  id: "toggle",
+                  onclick: (event) => {
+                    viewFunction(block);
+                  },
+                }),
+                label({
+                  class: "fund-toggle",
+                  for: "toggle",
+                })
+              ),
+              p("Regular")
+            ),
+            div(
+              {
+                class: "compare-btn",
+              },
+              button("Compare")
             )
           )
         ),
         div(
-          { class: "cards-container" },
-          ...dataCfObj.map((el) => {
+          {
+            class: "applied-filter-wrap",
+          },
+          ul(
+            {
+              class: "applied-filter-list",
+            },
+            li(
+              {
+                class: "applied-filter-name",
+              },
+              span("Large Cap"),
+              img({
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon",
+              })
+            ),
+            li(
+              {
+                class: "applied-filter-name",
+              },
+              span("Tax saver (ELSS)"),
+              img({
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon",
+              })
+            ),
+            li(
+              {
+                class: "applied-filter-name",
+              },
+              span("Hybrid & Balanced"),
+              img({
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon",
+              })
+            )
+          )
+        ),
+        div(
+          {
+            class: "cards-container",
+          },
+          ...dataMapMoObj["funddata"].map((el) => {
             return fundcardblock(el);
+          })
+        ),
+        div(
+          {
+            class: "list-view-header",
+            style: "display:none",
+          },
+          div(
+            {
+              class: "list-header",
+            },
+            block.closest(".section").querySelector(".item2")
+          ),
+          div({
+            class: "list-container",
           })
         )
       )
@@ -430,50 +1035,136 @@ export default function decorate(block) {
   );
   block.innerHTML = "";
   block.append(divfund);
+  block.querySelector(".applied-filter-list").innerHTML = "";
+  //added wrapper
+  let divmop = div(
+    {
+      class: "indanequity-wrapper",
+    },
+    block.querySelector(".indaneqsub #index1"),
+    block.querySelector(".indaneqsub [for='index1']"),
+    div(
+      { class: "tooltip-wrap" },
+      img({ src: "../../icons/filter-info.svg" }),
+      p(
+        { class: "tooltip-text" },
+        "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+      )
+    )
+  );
+  let divinner = block.querySelector(".indaneqsub .innerIndianEquity");
+  block.querySelector(".indaneqsub").innerHTML = "";
+  block.querySelector(".indaneqsub").append(divmop, divinner)
+
+ searchFunctionality(block);
+  Array.from(block.querySelector(".return-container .radio-label-container").children).forEach((el)=>{
+    el.querySelector("input").addEventListener("click",(event)=>{
+      console.log(event.target.getAttribute("dataattr"));
+      let dataattr = event.target.getAttribute("dataattr").split("-")
+      let tempdata = dataCfObj.filter((el)=>{
+        if (dataattr.includes(el.schcode)) {
+          return el
+        }
+      })
+      console.log(tempdata);
+      dataMapMoObj["tempMobReturn"] = [];
+      dataMapMoObj["tempMobReturn"] = tempdata;
+      dataMapMoObj["selectreturnstemp"] = event.target.nextSibling.textContent.toUpperCase();
+      // viewFunction(block);
+    })
+  })
+
 }
 
 function dataFilterfun(param) {
   let dataMapObj = {};
   dataMapObj["schemeName"] = [];
-  dataMapObj["fundCategory"] = [
-    { "indian-equity": [] },
-    { "international-equity": [] },
-    { "hybrid-&-balanced": [] },
-    { "multi-asset": [] },
-    { commodity: [] },
-    { "debt-&-liquid": [] },
+  dataMapObj["fundCategory"] = [{
+      "indian-equity": []
+    },
     {
-      indianEquitySub: [
-        { "Indian Equity - Large and Mid Cap": [] },
-        { "Indian Equity - Large Cap": [] },
-        { "Indian Equity - Mid Cap": [] },
-        { "Indian Equity - Small Cap": [] },
-        { "Indian Equity - Sector": [] },
-        { "Indian Equity - Factor": [] },
-        { "Indian Equity - Tax Saver (ELSS)": [] },
-        { "Indian Equity - Multi Cap": [] },
+      "international-equity": []
+    },
+    {
+      "hybrid-&-balanced": []
+    },
+    {
+      "multi-asset": []
+    },
+    {
+      commodity: []
+    },
+    {
+      "debt-&-liquid": []
+    },
+    {
+      indianEquitySub: [{
+          "Indian Equity - Large and Mid Cap": []
+        },
+        {
+          "Indian Equity - Large Cap": []
+        },
+        {
+          "Indian Equity - Mid Cap": []
+        },
+        {
+          "Indian Equity - Small Cap": []
+        },
+        {
+          "Indian Equity - Sector": []
+        },
+        {
+          "Indian Equity - Factor": []
+        },
+        {
+          "Indian Equity - Tax Saver (ELSS)": []
+        },
+        {
+          "Indian Equity - Multi Cap": []
+        },
       ],
     },
   ];
-  dataMapObj["fundType"] = [{ active: [] }, { "index-funds": [] }, { etf: [] }];
-  dataMapObj["sort"] = [
-    {
-      ListDropdown: [
-        { text: "Popular", value: "inception_Ret" },
-        { text: "1 Year Returns", value: "oneYear_Ret" },
-        { text: "3 Year Returns", value: "threeYear_Ret" },
-        { text: "5 Year Returns", value: "fiveYear_Ret" },
-        { text: "7 Year Returns", value: "sevenYear_Ret" },
-        { text: "10 Year Returns", value: "tenYear_Ret" },
-      ],
-      inception_Ret: [],
-      oneYear_Ret: [],
-      threeYear_Ret: [],
-      fiveYear_Ret: [],
-      sevenYear_Ret: [],
-      tenYear_Ret: [],
-    },
-  ];
+  dataMapObj["fundType"] = [{
+    active: []
+  }, {
+    "index-funds": []
+  }, {
+    etf: []
+  }];
+  dataMapObj["sort"] = [{
+    ListDropdown: [{
+        text: "Popular",
+        value: "inception_Ret"
+      },
+      {
+        text: "1 Year Returns",
+        value: "oneYear_Ret"
+      },
+      {
+        text: "3 Year Returns",
+        value: "threeYear_Ret"
+      },
+      {
+        text: "5 Year Returns",
+        value: "fiveYear_Ret"
+      },
+      {
+        text: "7 Year Returns",
+        value: "sevenYear_Ret"
+      },
+      {
+        text: "10 Year Returns",
+        value: "tenYear_Ret"
+      },
+    ],
+    inception_Ret: [],
+    oneYear_Ret: [],
+    threeYear_Ret: [],
+    fiveYear_Ret: [],
+    sevenYear_Ret: [],
+    tenYear_Ret: [],
+  }, ];
 
   for (let name of param) {
     if (
@@ -602,6 +1293,7 @@ function dataFilterfun(param) {
   }
   return dataMapObj;
 }
+
 function capitalizeEachWord(sentence) {
   if (sentence.includes("etf")) {
     return sentence.toUpperCase() + "'s";
@@ -609,4 +1301,231 @@ function capitalizeEachWord(sentence) {
   return sentence.replace(/\b\w/g, function (char) {
     return char.toUpperCase();
   });
+}
+
+function viewFunction(param) {
+  param.querySelector(".list-container").innerHTML = ""
+  param.querySelector(".cards-container").innerHTML = ""
+  if (Array.from(param.querySelector(".listby-container").classList).includes("list-view-active")) {
+    dataMapMoObj["funddata"].forEach((el) => {
+      param.querySelector(".list-container").append(listviewblock(el));
+    })
+  } else {
+    dataMapMoObj["funddata"].forEach((el) => {
+      param.querySelector(".cards-container").append(fundcardblock(el));
+    })
+  }
+  searchFunctionality(param);
+}
+
+function checkfilter(block) {
+ let filterTag = []; //5-8-25
+  let tempData = [];
+  Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
+    if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
+      el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+        if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
+          filterTag.push(elemsub.nextElementSibling.textContent.trim()) //5-8-25
+          elemsub.getAttribute('dataattr').split("-").forEach((eldata) => {
+            if (!tempData.includes(eldata)) {
+              tempData.push(eldata)
+            }
+          })
+        }
+      })
+    }
+    if (el.querySelector("input").checked && el.querySelector("input").getAttribute("id") !== "index1") {
+      filterTag.push(el.querySelector("input").nextElementSibling.textContent.replace(/\d+/g, '').replaceAll("()", "")) //5-8-25
+      el.querySelector("input").getAttribute('dataattr').split("-").forEach((eldata) => {
+        if (!tempData.includes(eldata)) {
+          tempData.push(eldata)
+        }
+      })
+    }
+  })
+  if (window.innerWidth > 786) {
+    dataMapMoObj["funddata"] = []
+    dataMapMoObj["funddata"] = dataCfObj.filter((el, index) => {
+      if (tempData.length > 0) {
+        if (tempData.includes(el.schcode)) {
+          return el
+        }
+      } else {
+        if (index < 9) {
+          return el
+        }
+      }
+    })  
+  }
+  
+  viewFunction(block)
+
+  filterGroup(filterTag);
+
+  function filterGroup(filterTag) {
+    block.querySelector(".applied-filter-list").innerHTML = "";
+    filterTag.forEach((elli, index) => {
+      block.querySelector(".applied-filter-list").innerHTML += '<li class="applied-filter-name"><span>' + elli + '</span><img src="../../icons/cross-icon.svg" alt="cross icon"></li>';
+    })
+
+    //Add Filter Tag Logic
+    Array.from(block.querySelector(".applied-filter-list").children).forEach((el) => {
+      el.querySelector("img").addEventListener('click', (event) => {
+        // console.log(event.target.closest('.applied-filter-name').querySelector("span").textContent);
+        filterTag = [];
+        Array.from(block.querySelector(".applied-filter-list").children).forEach((el, index) => {
+          if (el.querySelector("span").textContent !== event.target.closest('.applied-filter-name').querySelector("span").textContent) {
+            filterTag.push(el.querySelector("span").textContent)
+          }
+        })
+        filterGroup(filterTag)
+        //unchecked logic
+        Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
+          if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
+            el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
+              if (!filterTag.includes(elemsub.nextElementSibling.textContent.trim())) {
+                elemsub.checked = false
+              }
+            })
+          }
+          if (el.querySelector("input").getAttribute("id").includes("index") && !filterTag.includes(el.querySelector("input").nextElementSibling.textContent.replace(/\d+/g, '').replaceAll("()", ""))) {
+            el.querySelector("input").checked = false
+          } else if (el.querySelector("input").getAttribute("id").includes("fundtype") && !filterTag.includes(el.closest('.checkbox-label-container').querySelector('label').textContent.replace(/\d+/g, '').replaceAll("()", ""))) {
+            el.querySelector("input").checked = false
+          }
+          checkfilter(block)
+        })
+      })
+    })
+  }
+}
+
+function applyFunction(block){
+    dataMapMoObj["tempMobReturn"] = dataMapMoObj["tempMobReturn"] === undefined ? [] : dataMapMoObj["tempMobReturn"];
+    dataMapMoObj["tempMobReturn"] = dataMapMoObj["tempMobReturn"].length !== 0 ? dataMapMoObj["tempMobReturn"] : dataCfObj.slice(0,9);
+    if (Array.from(block.querySelector(".filter-overlay").classList).includes("active")) {
+      dataMapMoObj["funddata"] = dataMapMoObj["tempMobReturn"];
+      dataMapMoObj["tempMobReturn"] = [];
+      block.querySelector(".filter-overlay").classList.remove("active")
+      checkfilter(block)
+    }else if (Array.from(block.querySelector(".sort-overlay").classList).includes("active")) {
+      dataMapMoObj["funddata"] = dataMapMoObj["tempMobReturn"];
+      dataMapMoObj["tempMobReturn"] = [];
+      block.querySelector(".sort-overlay").classList.remove("active")
+      dataMapMoObj["selectreturns"] = dataMapMoObj["selectreturnstemp"]
+      viewFunction(block)
+    }
+    
+}
+
+function searchFunctionality(block){
+  // Search
+  let currentFocus = -1;
+  let searchInput = block.querySelector(".search-input .search");
+  const searchResults = block.querySelector('.search-input .list-search');
+  
+  const schemeNames = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
+  const schcode = dataMapMoObj["funddata"].map((fund) => fund.schcode);
+  let selectedFundName = "";
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    searchResults.closest(".search-input").classList.add("search-active");
+    searchResults.innerHTML = '';
+    currentFocus = -1;
+    const filtered = query ? schemeNames.filter(name => name.toLowerCase().includes(query)) : schemeNames;
+    filtered.forEach((name,index) => {
+      const li = document.createElement('li');
+      li.classList.add("list-fund-name")
+      li.setAttribute("schcode",schcode[index])
+      li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
+      li.addEventListener('click', (event) => {
+        const selectedLi = event.currentTarget;
+        const selectedSchcode = selectedLi.getAttribute("schcode");
+        const selectedName = selectedLi.textContent.trim();
+
+        searchResults.innerHTML = '';
+
+        const newLi = document.createElement('li');
+        newLi.classList.add("list-fund-name");
+        newLi.setAttribute("schcode", selectedSchcode);
+        newLi.textContent = selectedName;
+
+        searchResults.appendChild(newLi);
+        searchInput.value = selectedName;
+        selectedFundName = selectedName
+        searchResults.closest(".search-input").classList.remove("search-active");
+
+        // CARD HIDE LOGIC ON SEARCH
+        const cardsContainer = block.querySelector(".filter-cards .cards-container");
+        if (cardsContainer && cardsContainer.checkVisibility()) {
+          Array.from(cardsContainer.children).forEach((elment) => {
+            if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
+              elment.style.display = "none";
+            }
+          });
+        }
+
+        const listHeader = block.querySelector(".filter-cards .list-view-header");
+        if (listHeader && listHeader.checkVisibility()) {
+          Array.from(listHeader.children).forEach((elment) => {
+            if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
+              elment.style.display = "none";
+            }
+          });
+        }
+      });
+
+      searchResults.appendChild(li);
+    });
+    if (filtered.length === 0) {
+      const newLi = document.createElement('li');
+        newLi.classList.add("list-fund-name");
+        searchResults.classList.add("no-search-list")
+        newLi.textContent = "No results found.";
+        searchResults.appendChild(newLi);
+    }
+  });
+
+  Array.from(searchResults.children).forEach((el)=>{
+    el.addEventListener("click",(event)=>{
+      console.log(event.target.textContent.trim());
+    })
+  })
+  searchInput.addEventListener('keydown', (e) => {
+    searchResults.closest(".search-input").classList.remove("search-active");
+    const items = searchResults.querySelectorAll('li');
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') {
+      currentFocus++;
+      addActive(items);
+      e.preventDefault();
+    } else if (e.key === 'ArrowUp') {
+      currentFocus--;
+      addActive(items);
+      e.preventDefault();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (currentFocus > -1) items[currentFocus].click();
+    } else if (e.key === 'Escape') {
+      searchResults.innerHTML = '';
+      currentFocus = -1;
+      searchInput.value = selectedFundName;
+      searchResults.closest(".search-input").classList.remove("search-active");
+    }
+  });
+
+  function addActive(items) {
+    if (!items) return;
+    items.forEach(i => i.classList.remove('active'));
+    if (currentFocus >= items.length) currentFocus = items.length - 1;
+    if (currentFocus < 0) currentFocus = 0;
+    items[currentFocus].classList.add('active');
+    items[currentFocus].scrollIntoView({
+      block: 'nearest'
+    });
+  }
+
+  searchInput.addEventListener("focusin",()=>{
+      searchResults.closest(".search-input").classList.add("search-active");
+  })
 }
