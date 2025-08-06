@@ -1414,25 +1414,25 @@ function searchFunctionality(block) {
     listContainer.addEventListener('click', (event) => {
         if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
             searchInput.value = event.target.dataset.originalText;
-            let selectedSchcode = event.target.getAttribute("schcode")
             deactivateSearch();
-             // CARD HIDE LOGIC ON SEARCH
-             
+             // CARD HIDE LOGIC ON SEARCH    
             const cardsContainer = block.querySelector(".filter-cards .cards-container");
             if (cardsContainer && cardsContainer.checkVisibility()) {
               Array.from(cardsContainer.children).forEach((elment) => {
+                let schname = elment.querySelector(".title-subtitle p").textContent +elment.querySelector(".title-subtitle h2").textContent
                 elment.style.display = "block";
-                if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
+                if (searchInput.value !== schname) {
                   elment.style.display = "none";
                 }
               });
             }
 
-            const listHeader = block.querySelector(".filter-cards .list-view-header");
+            const listHeader = block.querySelector(".filter-cards .list-container");
             if (listHeader && listHeader.checkVisibility()) {
               Array.from(listHeader.children).forEach((elment) => {
+                let schname = elment.querySelector(".fund-name-container").textContent;
                 elment.style.display = "block";
-                if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
+                if (searchInput.value !== schname) {
                   elment.style.display = "none";
                 }
               });
