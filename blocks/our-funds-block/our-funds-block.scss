@@ -91,6 +91,17 @@
             color: $text-body-2;
           }
         }
+        .cancel-search {
+          max-width: 24px;
+          width: 100%;
+          height: 24px;
+          cursor: pointer;
+          display: none;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
         .list-search {
           position: absolute;
           top: 52px;
@@ -105,7 +116,7 @@
           overflow: auto;
           list-style: none;
           display: none;
-          &.no-search-list{
+          &.no-search-list {
             height: auto;
           }
           @include media(mobile) {
@@ -133,19 +144,11 @@
         }
         &.search-active {
           border: 1px solid map.get($strokes, typing);
-          &::after {
-            content: "";
-            background-image: url("../../icons/input-cancel.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            min-width: 24px;
-            height: 24px;
-            display: block;
-            cursor: pointer;
-          }
           .search {
             caret-color: map.get($strokes, typing);
+          }
+          .cancel-search {
+            display: block;
           }
           .list-search {
             display: block;
@@ -310,6 +313,7 @@
           .sort-wrapper {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 4px;
             @include media(mobile) {
               padding: 16px 16px 20px;
@@ -326,6 +330,23 @@
               cursor: pointer;
               @include media(mobile) {
                 @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
+              }
+            }
+          }
+          .filter-wrapper {
+            .filter-text {
+              display: flex;
+              align-items: center;
+              gap: 4px;
+            }
+            .clearall-btn {
+              @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
+              margin: 0;
+              padding: 0;
+              background: transparent;
+              border-radius: 0;
+              @include media(mobile) {
+                display: none;
               }
             }
           }
@@ -546,7 +567,7 @@
                       width: 292px;
                       padding: 8px;
                       text-align: right;
-                      &::after{
+                      &::after {
                         transform: rotate(-135deg) translateX(-50%);
                         bottom: unset;
                         top: -13px;
@@ -787,16 +808,16 @@
                 display: flex;
                 align-items: center;
                 gap: 1px;
-                &::after{
-                    content: '';
-                    background-image: url('../../icons/direction-right.svg');
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    width: 16px;
-                    height: 16px;
-                    display: block;
-                    transform: rotate(90deg);
+                &::after {
+                  content: "";
+                  background-image: url("../../icons/direction-right.svg");
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  width: 16px;
+                  height: 16px;
+                  display: block;
+                  transform: rotate(90deg);
                 }
               }
               .dropdown-list {
@@ -847,10 +868,10 @@
                 }
               }
             }
-            .return-select-container{
-                .dropdown-list{
-                    left: 107px;
-                }
+            .return-select-container {
+              .dropdown-list {
+                left: 107px;
+              }
             }
           }
           @include media(mobile) {

@@ -31,21 +31,26 @@ export default function decorate(block) {
   dataMapMoObj["selectreturns"] = "";
   dataMapMoObj["data"] = dataFilterfun(dataCfObj);
   dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
-  let divfund = div({
-      class: "blockwrapper"
+  let divfund = div(
+    {
+      class: "blockwrapper",
     },
-    div({
-        class: "upper-container"
+    div(
+      {
+        class: "upper-container",
       },
-      div({
-          class: "fundcontainer"
+      div(
+        {
+          class: "fundcontainer",
         },
         block.querySelector(".block-subitem1"),
-        div({
-            class: "search-trending-wrapper"
+        div(
+          {
+            class: "search-trending-wrapper",
           },
-          div({
-              class: "search-input"
+          div(
+            {
+              class: "search-input",
             },
             input({
               class: "search",
@@ -53,24 +58,36 @@ export default function decorate(block) {
                 .querySelector(".block-subitem2 .block-subitem-finelsub1")
                 .textContent.trim(),
             }),
-            ul({
-                class: "list-search"
+            div(
+              { class: "cancel-search" },
+              img({
+                class: "cancel-btn",
+                src: "../../icons/input-cancel.svg",
+                alt: "cancel button",
+              })
+            ),
+            ul(
+              {
+                class: "list-search",
               },
               ...dataMapMoObj["funddata"].map((el) => {
-                return li({
+                return li(
+                  {
                     class: "list-fund-name",
-                    schcode: el.schcode
+                    schcode: el.schcode,
                   },
                   el.schDetail.schemeName
                 );
               })
             )
           ),
-          div({
-              class: "watchlist"
+          div(
+            {
+              class: "watchlist",
             },
-            div({
-                class: "staricon"
+            div(
+              {
+                class: "staricon",
               },
               block.querySelector(
                 ".block-subitem2 .block-subitem-finelsub2 span"
@@ -79,21 +96,24 @@ export default function decorate(block) {
                 ".block-subitem2 .block-subitem-finelsub3 span"
               )
             ),
-            div({
-                class: "watchlisttext"
+            div(
+              {
+                class: "watchlisttext",
               },
               span(
                 block
-                .querySelector(".block-subitem2 .block-subitem-finelsub3")
-                .textContent.trim()
+                  .querySelector(".block-subitem2 .block-subitem-finelsub3")
+                  .textContent.trim()
               )
             )
           ),
-          div({
-              class: "trending-container"
+          div(
+            {
+              class: "trending-container",
             },
-            div({
-                class: "trendinglabel"
+            div(
+              {
+                class: "trendinglabel",
               },
               p(
                 block.querySelector(
@@ -102,12 +122,13 @@ export default function decorate(block) {
               ),
               label(
                 block
-                .querySelector(".block-subitem2 .block-subitem-finelsub5")
-                .textContent.trim()
+                  .querySelector(".block-subitem2 .block-subitem-finelsub5")
+                  .textContent.trim()
               )
             ),
-            div({
-                class: "trendingmostlist"
+            div(
+              {
+                class: "trendingmostlist",
               },
               block.querySelector(".block-subitem2 .block-subitem-finelsub6")
             )
@@ -115,78 +136,119 @@ export default function decorate(block) {
         )
       )
     ),
-    div({
-        class: "filter-cards"
+    div(
+      {
+        class: "filter-cards",
       },
-      div({
-          class: "left-container"
+      div(
+        {
+          class: "left-container",
         },
-        div({
-            class: "FundCategory-container"
+        div(
+          {
+            class: "FundCategory-container",
           },
-          div({
-              class: "filter-sort-container"
+          div(
+            {
+              class: "filter-sort-container",
             },
-            div({
+            div(
+              {
                 class: "filter-wrapper",
-                onclick:()=>{
-                  block.querySelector(".filter-overlay").classList.add('active')
-                  if (Array.from(block.querySelector(".sort-overlay").classList).includes('active')) {
-                    block.querySelector(".sort-overlay").classList.remove('active') 
+                onclick: () => {
+                  block
+                    .querySelector(".filter-overlay")
+                    .classList.add("active");
+                  if (
+                    Array.from(
+                      block.querySelector(".sort-overlay").classList
+                    ).includes("active")
+                  ) {
+                    block
+                      .querySelector(".sort-overlay")
+                      .classList.remove("active");
                   }
-                }
+                },
               },
-              block.querySelector(".block-item2 .block-subitem-finelsub1 span"),
-              label(
-                block
-                .querySelector(".block-item2 .block-subitem-finelsub2")
-                .textContent.trim()
-              )
+              div(
+                { class: "filter-text" },
+                block.querySelector(
+                  ".block-item2 .block-subitem-finelsub1 span"
+                ),
+                label(
+                  block
+                    .querySelector(".block-item2 .block-subitem-finelsub2")
+                    .textContent.trim()
+                )
+              ),
+              button({ class: "clearall-btn" }, "Clear All")
             ),
-            div({
+            div(
+              {
                 class: "sort-wrapper",
-                onclick:()=>{
-                  block.querySelector(".sort-overlay").classList.add('active')
-                  if (Array.from(block.querySelector(".filter-overlay").classList).includes('active')) {
-                    block.querySelector(".filter-overlay").classList.remove('active') 
+                onclick: () => {
+                  block.querySelector(".sort-overlay").classList.add("active");
+                  if (
+                    Array.from(
+                      block.querySelector(".filter-overlay").classList
+                    ).includes("active")
+                  ) {
+                    block
+                      .querySelector(".filter-overlay")
+                      .classList.remove("active");
                   }
-                }
+                },
               },
               block.querySelector(".block-item2 .block-subitem-finelsub3 span"),
               label(
                 block
-                .querySelector(".block-item2 .block-subitem-finelsub4")
-                .textContent.trim()
+                  .querySelector(".block-item2 .block-subitem-finelsub4")
+                  .textContent.trim()
               )
             )
           ),
-          div({
-              class: "filter-overlay"
+          div(
+            {
+              class: "filter-overlay",
             },
-            div({
-                class: "filter-container"
+            div(
+              {
+                class: "filter-container",
               },
-              div({
-                  class: "clearall-wrapper"
+              div(
+                {
+                  class: "clearall-wrapper",
                 },
                 span("Filters"),
-                button({
-                  class: "clearall-btn",
-                  onclick:()=>{
-                    Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
-                      if (el.closest(".checkbox-label-container").querySelector(".innerIndianEquity")) {
-                        el.closest(".checkbox-label-container").querySelectorAll(".innerIndianEquity input").forEach((elemsub) => {
-                          elemsub.checked = false;
-                        })
-                      }
-                      el.querySelector("input").checked = false;
-                    })
-                    dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
-                  }
-                }, "Clear All")
+                button(
+                  {
+                    class: "clearall-btn",
+                    onclick: () => {
+                      Array.from(
+                        block.querySelector(".filter-list-wrapper").children
+                      ).forEach((el) => {
+                        if (
+                          el
+                            .closest(".checkbox-label-container")
+                            .querySelector(".innerIndianEquity")
+                        ) {
+                          el.closest(".checkbox-label-container")
+                            .querySelectorAll(".innerIndianEquity input")
+                            .forEach((elemsub) => {
+                              elemsub.checked = false;
+                            });
+                        }
+                        el.querySelector("input").checked = false;
+                      });
+                      dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
+                    },
+                  },
+                  "Clear All"
+                )
               ),
-              div({
-                  class: "filter-list-wrapper"
+              div(
+                {
+                  class: "filter-list-wrapper",
                 },
                 // div({class:"fundcategory-label"},
                 //   span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
@@ -198,8 +260,9 @@ export default function decorate(block) {
                       Object.keys(element)[0].replaceAll("-", " ")
                     ) === "Indian Equity"
                   ) {
-                    dataMapMoObj[index + "ArrayDoc"] = div({
-                        class: "Indian-Equity-container"
+                    dataMapMoObj[index + "ArrayDoc"] = div(
+                      {
+                        class: "Indian-Equity-container",
                       },
                       ...dataMapMoObj.data.fundCategory[
                         dataMapMoObj.data.fundCategory.length - 1
@@ -207,8 +270,9 @@ export default function decorate(block) {
                         let sublabel = Object.keys(elme)[0]
                           .split("-")[1]
                           .trim();
-                        return div({
-                            class: "checkbox-label-container"
+                        return div(
+                          {
+                            class: "checkbox-label-container",
                           },
                           input({
                             class: "categorey-direct",
@@ -217,23 +281,28 @@ export default function decorate(block) {
                             dataattr: elme[Object.keys(elme)].join("-"),
                             onclick: (event) => {
                               if (window.innerWidth < 786) {
-                                let dataattr = event.target.getAttribute("dataattr").split("-")
-                                let tempdata = dataCfObj.filter((el)=>{
+                                let dataattr = event.target
+                                  .getAttribute("dataattr")
+                                  .split("-");
+                                let tempdata = dataCfObj.filter((el) => {
                                   if (dataattr.includes(el.schcode)) {
-                                    return el
+                                    return el;
                                   }
-                                })
+                                });
                                 console.log(tempdata);
                                 dataMapMoObj["tempMobReturn"] = [];
                                 dataMapMoObj["tempMobReturn"] = tempdata;
-                              }else{
+                              } else {
                                 checkfilter(block);
                               }
                             },
                           }),
-                          label({
-                            for: "ind" + (ind + 1)
-                          }, sublabel)
+                          label(
+                            {
+                              for: "ind" + (ind + 1),
+                            },
+                            sublabel
+                          )
                         );
                       })
                     );
@@ -366,319 +435,472 @@ export default function decorate(block) {
                   );
                 })
               ),
-              div({
-                  class: "apply-wrapper"
+              div(
+                {
+                  class: "apply-wrapper",
                 },
-                button({
-                  class: "close-btn",
-                  onclick:(event)=>{
-                  block.querySelector(".filter-overlay").classList.remove('active')
-                  block.querySelector(".sort-overlay").classList.remove('active')
-                }
-                }, "Close"),
-                button({
-                  class: "apply-btn",
-                  onclick:()=>{
-                    applyFunction(block)
-                  }
-                }, "Apply")
+                button(
+                  {
+                    class: "close-btn",
+                    onclick: (event) => {
+                      block
+                        .querySelector(".filter-overlay")
+                        .classList.remove("active");
+                      block
+                        .querySelector(".sort-overlay")
+                        .classList.remove("active");
+                    },
+                  },
+                  "Close"
+                ),
+                button(
+                  {
+                    class: "apply-btn",
+                    onclick: () => {
+                      applyFunction(block);
+                    },
+                  },
+                  "Apply"
+                )
               )
             )
           ),
-          div({
-              class: "sort-overlay"
+          div(
+            {
+              class: "sort-overlay",
             },
-            div({
-                class: "sort-container"
+            div(
+              {
+                class: "sort-container",
               },
-              div({
-                  class: "sort-label"
+              div(
+                {
+                  class: "sort-label",
                 },
                 // span(label(
                 //   block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
                 // ))
                 span(
                   block
-                  .querySelector(".block-item3 .block-subitem-finelsub1")
-                  .textContent.trim()
+                    .querySelector(".block-item3 .block-subitem-finelsub1")
+                    .textContent.trim()
                 )
               ),
-              div({
-                  class: "arrange-returns"
+              div(
+                {
+                  class: "arrange-returns",
                 },
-                div({
-                    class: "arrange-container"
+                div(
+                  {
+                    class: "arrange-container",
                   },
                   span("Arrange by"),
-                  div({
-                      class: "radio-label-container"
+                  div(
+                    {
+                      class: "radio-label-container",
                     },
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "popular",
-                        name: "arrange"
+                        name: "arrange",
                       }),
-                      label({
-                        for: "popular"
-                      }, "Popular")
+                      label(
+                        {
+                          for: "popular",
+                        },
+                        "Popular"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "lastnav",
-                        name: "arrange"
+                        name: "arrange",
                       }),
-                      label({
-                        for: "lastnav"
-                      }, "Latest NAV")
+                      label(
+                        {
+                          for: "lastnav",
+                        },
+                        "Latest NAV"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "lastnavone",
                         name: "arrange",
                       }),
-                      label({
-                        for: "lastnavone"
-                      }, "Latest by 1 day")
+                      label(
+                        {
+                          for: "lastnavone",
+                        },
+                        "Latest by 1 day"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "oldnew",
-                        name: "arrange"
+                        name: "arrange",
                       }),
-                      label({
-                        for: "oldnew"
-                      }, "Oldest to Newest")
+                      label(
+                        {
+                          for: "oldnew",
+                        },
+                        "Oldest to Newest"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "newold",
-                        name: "arrange"
+                        name: "arrange",
                       }),
-                      label({
-                        for: "newold"
-                      }, "Newest to Oldest")
+                      label(
+                        {
+                          for: "newold",
+                        },
+                        "Newest to Oldest"
+                      )
                     )
                   )
                 ),
-                div({
-                    class: "return-container"
+                div(
+                  {
+                    class: "return-container",
                   },
                   span("Returns Period"),
-                  div({
-                      class: "radio-label-container"
+                  div(
+                    {
+                      class: "radio-label-container",
                     },
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "sinceinp",
                         name: "returns",
-                        dataattr:dataMapMoObj["data"].sort[0].inception_Ret.join("-")
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].inception_Ret.join("-"),
                       }),
-                      label({
-                        for: "sinceinp"
-                      }, "Since Inception")
+                      label(
+                        {
+                          for: "sinceinp",
+                        },
+                        "Since Inception"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "oneyear",
                         name: "returns",
-                        dataattr:dataMapMoObj["data"].sort[0].oneYear_Ret.join("-")
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].oneYear_Ret.join("-"),
                       }),
-                      label({
-                        for: "oneyear"
-                      }, "1 year")
+                      label(
+                        {
+                          for: "oneyear",
+                        },
+                        "1 year"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "threeyear",
                         name: "returns",
-                        dataattr:dataMapMoObj["data"].sort[0].threeYear_Ret.join("-")
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].threeYear_Ret.join("-"),
                       }),
-                      label({
-                        for: "threeyear"
-                      }, "3 years")
+                      label(
+                        {
+                          for: "threeyear",
+                        },
+                        "3 years"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "fiveyear",
                         name: "returns",
-                        dataattr:dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-")
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-"),
                       }),
-                      label({
-                        for: "fiveyear"
-                      }, "5 years")
+                      label(
+                        {
+                          for: "fiveyear",
+                        },
+                        "5 years"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "tenyear",
                         name: "returns",
-                        dataattr:dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-")
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-"),
                       }),
-                      label({
-                        for: "tenyear"
-                      }, "7 years")
+                      label(
+                        {
+                          for: "tenyear",
+                        },
+                        "7 years"
+                      )
                     ),
-                    div({
-                        class: "radio-label"
+                    div(
+                      {
+                        class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "tenyear",
                         name: "returns",
-                        dataattr:dataMapMoObj["data"].sort[0].tenYear_Ret.join("-")
+                        dataattr:
+                          dataMapMoObj["data"].sort[0].tenYear_Ret.join("-"),
                       }),
-                      label({
-                        for: "tenyear"
-                      }, "10 years")
+                      label(
+                        {
+                          for: "tenyear",
+                        },
+                        "10 years"
+                      )
                     )
                   )
                 )
               ),
-              div({
-                  class: "close-apply-btn"
+              div(
+                {
+                  class: "close-apply-btn",
                 },
-                button({class:"closebtn",
-                  onclick:(event)=>{ 
-                  block.querySelector(".filter-overlay").classList.remove('active')
-                  block.querySelector(".sort-overlay").classList.remove('active')
-                }
-                },"close"),
-                button({
-                  class:"applybtn",
-                  onclick:()=>{
-                    applyFunction(block)
-                  }
-                },"Apply")
+                button(
+                  {
+                    class: "closebtn",
+                    onclick: (event) => {
+                      block
+                        .querySelector(".filter-overlay")
+                        .classList.remove("active");
+                      block
+                        .querySelector(".sort-overlay")
+                        .classList.remove("active");
+                    },
+                  },
+                  "close"
+                ),
+                button(
+                  {
+                    class: "applybtn",
+                    onclick: () => {
+                      applyFunction(block);
+                    },
+                  },
+                  "Apply"
+                )
               )
             )
           )
         )
       ),
-      div({
-          class: "right-container"
+      div(
+        {
+          class: "right-container",
         },
-        div({
-            class: "sort-pop-container"
+        div(
+          {
+            class: "sort-pop-container",
           },
-          div({
-              class: "sort-popular"
+          div(
+            {
+              class: "sort-popular",
             },
-            div({
-                class: "sort-container"
+            div(
+              {
+                class: "sort-container",
               },
               label(
                 block
-                .querySelector(".block-item3 .block-subitem-finelsub1")
-                .textContent.trim()
+                  .querySelector(".block-item3 .block-subitem-finelsub1")
+                  .textContent.trim()
               ),
-              div({class:"sort-select-container"},
-                p({
-                  class:"selectedtext",
-                  onclick:(event)=>{
-                    console.log(event.target);
-                    event.target.nextElementSibling.classList.add("dropdown-active");
-                  }
-                },'Popular'),
-                ul({ 
-                  class: "dropdown-list",
-                  onclick:(event)=>{
-                      event.target.closest(".dropdown-list").classList.remove("dropdown-active")
+              div(
+                { class: "sort-select-container" },
+                p(
+                  {
+                    class: "selectedtext",
+                    onclick: (event) => {
+                      console.log(event.target);
+                      event.target.nextElementSibling.classList.add(
+                        "dropdown-active"
+                      );
+                    },
+                  },
+                  "Popular"
+                ),
+                ul(
+                  {
+                    class: "dropdown-list",
+                    onclick: (event) => {
+                      event.target
+                        .closest(".dropdown-list")
+                        .classList.remove("dropdown-active");
                       let name = event.target.textContent.trim();
-                      event.target.closest(".sort-select-container").querySelector("p").innerText = "";
-                      event.target.closest(".sort-select-container").querySelector("p").innerText = name;
-                      // planListEvent(event,block)   
-                    }
-                 },
-                  li('Popular'),
-                  li('Latest NAV'),
-                  li('Lastest by 1 day'),
-                  li('Oldest to Newest'),
-                  li('Newest to Oldest'),
+                      event.target
+                        .closest(".sort-select-container")
+                        .querySelector("p").innerText = "";
+                      event.target
+                        .closest(".sort-select-container")
+                        .querySelector("p").innerText = name;
+                      // planListEvent(event,block)
+                    },
+                  },
+                  li("Popular"),
+                  li("Latest NAV"),
+                  li("Lastest by 1 day"),
+                  li("Oldest to Newest"),
+                  li("Newest to Oldest")
                 )
               )
             ),
-            div({
-                class: "popular-container"
+            div(
+              {
+                class: "popular-container",
               },
               label(
                 block
-                .querySelector(".block-item3 .block-subitem-finelsub2")
-                .textContent.trim()
+                  .querySelector(".block-item3 .block-subitem-finelsub2")
+                  .textContent.trim()
               ),
-              div({class:"return-select-container"},
-                p({
-                  class:"selectedtext",
-                  onclick:(event)=>{
-                    console.log(event.target);
-                    event.target.nextElementSibling.classList.add("dropdown-active");
-                  }
-                },'1 YEAR'),
-                ul({ 
-                  class: "dropdown-list",
-                  onclick:(event)=>{
-                      event.target.closest(".dropdown-list").classList.remove("dropdown-active")
+              div(
+                { class: "return-select-container" },
+                p(
+                  {
+                    class: "selectedtext",
+                    onclick: (event) => {
+                      console.log(event.target);
+                      event.target.nextElementSibling.classList.add(
+                        "dropdown-active"
+                      );
+                    },
+                  },
+                  "1 YEAR"
+                ),
+                ul(
+                  {
+                    class: "dropdown-list",
+                    onclick: (event) => {
+                      event.target
+                        .closest(".dropdown-list")
+                        .classList.remove("dropdown-active");
                       let name = event.target.textContent.trim();
-                      event.target.closest(".return-select-container").querySelector("p").innerText = "";
-                      event.target.closest(".return-select-container").querySelector("p").innerText = name;
-                      let dataattr = event.target.getAttribute("dataattr").split("-")
-                      let tempdata = dataCfObj.filter((el)=>{
+                      event.target
+                        .closest(".return-select-container")
+                        .querySelector("p").innerText = "";
+                      event.target
+                        .closest(".return-select-container")
+                        .querySelector("p").innerText = name;
+                      let dataattr = event.target
+                        .getAttribute("dataattr")
+                        .split("-");
+                      let tempdata = dataCfObj.filter((el) => {
                         if (dataattr.includes(el.schcode)) {
-                          return el
+                          return el;
                         }
-                      })
+                      });
                       console.log(tempdata);
                       dataMapMoObj["selectreturns"] = name;
                       dataMapMoObj["funddata"] = [];
                       dataMapMoObj["funddata"] = tempdata;
-                      viewFunction(block)
-                    }
-                 },
-                  li({dataattr:dataMapMoObj["data"].sort[0].oneYear_Ret.join("-")},'1 YEAR'),
-                  li({dataattr:dataMapMoObj["data"].sort[0].threeYear_Ret.join("-")},'3 YEARS'),
-                  li({dataattr:dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-")},'5 YEARS'),
-                  li({dataattr:dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-")},'7 YEARS'),
-                  li({dataattr:dataMapMoObj["data"].sort[0].tenYear_Ret.join("-")},'10 YEARS'),
-                  li({dataattr:dataMapMoObj["data"].sort[0].inception_Ret.join("-")},'SINCE INCEPTION')
+                      viewFunction(block);
+                    },
+                  },
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].oneYear_Ret.join("-"),
+                    },
+                    "1 YEAR"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].threeYear_Ret.join("-"),
+                    },
+                    "3 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-"),
+                    },
+                    "5 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-"),
+                    },
+                    "7 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].tenYear_Ret.join("-"),
+                    },
+                    "10 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr:
+                        dataMapMoObj["data"].sort[0].inception_Ret.join("-"),
+                    },
+                    "SINCE INCEPTION"
+                  )
                 )
               )
             )
           ),
-          div({
-              class: "group-view-container"
+          div(
+            {
+              class: "group-view-container",
             },
-            div({
-                class: "view-container"
+            div(
+              {
+                class: "view-container",
               },
-              div({
+              div(
+                {
                   class: "squareby-container grid-view-active",
                   onclick: (event) => {
                     event.currentTarget.classList.add("grid-view-active");
@@ -695,7 +917,8 @@ export default function decorate(block) {
                 },
                 block.querySelector(".block-item3 .block-subitem-finelsub3")
               ),
-              div({
+              div(
+                {
                   class: "listby-container",
                   onclick: (event) => {
                     event.currentTarget.classList.add("list-view-active");
@@ -713,12 +936,14 @@ export default function decorate(block) {
                 block.querySelector(".block-item3 .block-subitem-finelsub4")
               )
             ),
-            div({
-                class: "togglebtn"
+            div(
+              {
+                class: "togglebtn",
               },
               p("Direct"),
-              div({
-                  class: "fund-toggle-wrap"
+              div(
+                {
+                  class: "fund-toggle-wrap",
                 },
                 input({
                   type: "checkbox",
@@ -729,69 +954,80 @@ export default function decorate(block) {
                 }),
                 label({
                   class: "fund-toggle",
-                  for: "toggle"
+                  for: "toggle",
                 })
               ),
               p("Regular")
             ),
-            div({
-              class: "compare-btn"
-            }, button("Compare"))
+            div(
+              {
+                class: "compare-btn",
+              },
+              button("Compare")
+            )
           )
         ),
-        div({
-            class: "applied-filter-wrap"
+        div(
+          {
+            class: "applied-filter-wrap",
           },
-          ul({
-              class: "applied-filter-list"
+          ul(
+            {
+              class: "applied-filter-list",
             },
-            li({
-                class: "applied-filter-name"
+            li(
+              {
+                class: "applied-filter-name",
               },
               span("Large Cap"),
               img({
                 src: "../../icons/cross-icon.svg",
-                alt: "cross icon"
+                alt: "cross icon",
               })
             ),
-            li({
-                class: "applied-filter-name"
+            li(
+              {
+                class: "applied-filter-name",
               },
               span("Tax saver (ELSS)"),
               img({
                 src: "../../icons/cross-icon.svg",
-                alt: "cross icon"
+                alt: "cross icon",
               })
             ),
-            li({
-                class: "applied-filter-name"
+            li(
+              {
+                class: "applied-filter-name",
               },
               span("Hybrid & Balanced"),
               img({
                 src: "../../icons/cross-icon.svg",
-                alt: "cross icon"
+                alt: "cross icon",
               })
             )
           )
         ),
-        div({
-            class: "cards-container"
+        div(
+          {
+            class: "cards-container",
           },
           ...dataMapMoObj["funddata"].map((el) => {
             return fundcardblock(el);
           })
         ),
-        div({
+        div(
+          {
             class: "list-view-header",
-            style: "display:none"
+            style: "display:none",
           },
-          div({
-              class: "list-header"
+          div(
+            {
+              class: "list-header",
             },
             block.closest(".section").querySelector(".item2")
           ),
           div({
-            class: "list-container"
+            class: "list-container",
           })
         )
       )
