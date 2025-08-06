@@ -172,6 +172,10 @@
           {
             "name": "fund-philosophy-video",
             "value": "fund-philosophy-video"
+          },
+          {
+            "name": "key-facts-Investment",
+            "value": "key-facts-Investment"
           }
         ]
       },
@@ -781,6 +785,78 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "key-facts-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Investment",
+        "label": "Inter Investment Objective"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Minimum_Application_Amount",
+        "label": "Inter Minimum Application Amount"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Minimum_Redemption_Amount",
+        "label": "Inter Minimum Redemption Amount"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Latest_AUM",
+        "label": "Inter Latest AUM"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Portfolio_Turnover_Ratio",
+        "label": "Inter Portfolio Turnover Ratio"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Plans",
+        "label": "Inter Plans"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Options",
+        "label": "Inter Options (Under each plan)"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Benchmark",
+        "label": "Inter Benchmark"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Total_Expense_Ratio",
+        "label": "Inter Total Expense Ratio"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Inception date",
+        "label": "Inter Inception date"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Entry Load",
+        "label": "Inter Entry Load"
+      },
+       {
+        "component": "text",
+        "name": "col3_title_Exit_Load_Policy",
+        "label": "Inter Exit Load Policy"
       }
     ]
   }
