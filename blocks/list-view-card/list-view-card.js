@@ -22,7 +22,7 @@ export default function decorate(block){
                             p("Motilal Oswal"),
                             label(block.schDetail.schemeName.replaceAll("Motilal Oswal",""))
                         ),
-                        img({class: "logoScheme",src: "../../icons/direction-right.svg",alt: "Direction Right"})
+                        img({class: "logoScheme",src: "../../icons/nfo-righticon.svg",alt: "Direction Right"})
                     ),
                     div({ class: "timing-nfo-value" },
                         div(
