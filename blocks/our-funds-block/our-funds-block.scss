@@ -320,6 +320,7 @@
             }
             label {
               @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+              cursor: pointer;
               @include media(mobile) {
                 @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
               }
@@ -403,7 +404,8 @@
                 overflow: auto;
                 //   height: 72vh;
                 height: 437px;
-                margin: 10px 16px 0;
+                padding: 0 16px;
+                margin-top: 10px;
               }
               &::-webkit-scrollbar {
                 display: none;
@@ -413,7 +415,6 @@
               }
               .checkbox-label-container {
                 user-select: none;
-                cursor: pointer;
                 display: flex;
                 align-items: center;
                 padding: 12px 0;
@@ -425,6 +426,7 @@
                   visibility: hidden;
                   width: 20px;
                   height: 20px;
+                  cursor: pointer;
                   &::before,
                   &:checked::before {
                     content: "";
@@ -455,7 +457,7 @@
                   padding: 0 20px 0 12px;
                   cursor: pointer;
                   position: relative;
-                  span {
+                  .fund-length {
                     @include font-style(
                       14px,
                       20px,
@@ -464,27 +466,103 @@
                       $Poppins
                     );
                   }
-                  &::after {
-                    content: "";
-                    background-image: url("../../icons/filter-info.svg");
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    width: 12px;
-                    height: 12px;
-                    display: block;
+                  //   &::after {
+                  //     content: "";
+                  //     background-image: url("../../icons/filter-info.svg");
+                  //     background-position: center;
+                  //     background-repeat: no-repeat;
+                  //     background-size: cover;
+                  //     width: 12px;
+                  //     height: 12px;
+                  //     display: block;
+                  //     position: absolute;
+                  //     top: 50%;
+                  //     transform: translateY(-50%);
+                  //     right: 0;
+                  //     @include media(mobile) {
+                  //       width: 20px;
+                  //       height: 20px;
+                  //     }
+                  //   }
+                }
+                .tooltip-wrap {
+                  position: absolute;
+                  right: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  z-index: 10;
+                  cursor: pointer;
+                  width: 12px;
+                  height: 12px;
+                  display: flex;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                  .tooltip-text {
+                    display: none;
                     position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: 0;
-                    @include media(mobile) {
+                    left: 50%;
+                    bottom: 33px;
+                    transform: translateX(-50%);
+                    margin: 0;
+                    width: 418px;
+                    background-color: $primary-white;
+                    border-radius: 8px;
+                    border: 1px solid $neutrals-200;
+                    background-color: $neutrals-50;
+                    padding: 12px;
+                    text-align: center;
+                    @include font-style(
+                      12px,
+                      16px,
+                      $text-body-2,
+                      400,
+                      $Poppins
+                    );
+                    &::after {
+                      content: "";
                       width: 20px;
                       height: 20px;
+                      border: solid $neutrals-200;
+                      border-width: 0 1px 1px 0;
+                      border-radius: 0 0 8px 0;
+                      display: block;
+                      position: absolute;
+                      left: 49.5%;
+                      transform: rotate(45deg) translateX(-50%);
+                      bottom: -17px;
+                      background-color: $primary-white;
+                    }
+                    @include media(mobile) {
+                      right: -8px;
+                      left: unset;
+                      transform: unset;
+                      bottom: unset;
+                      top: 25.5px;
+                      width: 292px;
+                      padding: 8px;
+                      text-align: right;
+                      &::after{
+                        transform: rotate(-135deg) translateX(-50%);
+                        bottom: unset;
+                        top: -13px;
+                        left: unset;
+                        right: 15px;
+                        width: 15px;
+                        height: 15px;
+                      }
+                    }
+                  }
+                  &:hover {
+                    .tooltip-text {
+                      display: block;
                     }
                   }
                 }
                 .indanequity-wrapper {
                   display: flex;
+                  position: relative;
                 }
                 .innerIndianEquity {
                   padding: 12px 0 12px 30px;
@@ -509,6 +587,9 @@
               }
               .checkbox-label-container.indaneqsub {
                 display: block;
+              }
+              .checkbox-label-container:not(.indaneqsub) {
+                position: relative;
               }
             }
           }
