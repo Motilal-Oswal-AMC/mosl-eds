@@ -154,7 +154,7 @@ export default function decorate(block) {
     }
 
     // 2. Create the card elements in memory
-    const cardData = dataCfObj.slice(0, 3);
+    const cardData = dataCfObj.slice(0, 5);
     const cardElements = cardData.map((data) => createCardElement(data, brandName, iconsTemplate));
 
     // 3. Set up the block with the static (desktop) view first
