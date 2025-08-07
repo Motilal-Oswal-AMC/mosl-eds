@@ -478,7 +478,7 @@
                   display: flex;
                   align-items: center;
                   width: 100%;
-                  padding: 0 20px 0 12px;
+                  padding: 0 0 0 12px;
                   cursor: pointer;
                   position: relative;
                   .fund-length {
@@ -510,11 +510,12 @@
                   //   }
                 }
                 .tooltip-wrap {
-                  position: absolute;
-                  right: 0;
-                  top: 50%;
-                  transform: translateY(-50%);
-                  z-index: 10;
+                  // position: absolute;
+                  // right: 0;
+                  // top: 50%;
+                  // transform: translateY(-50%);
+                  position: relative;
+                  // z-index: 10;
                   cursor: pointer;
                   width: 12px;
                   height: 12px;
@@ -528,6 +529,7 @@
                     position: absolute;
                     left: 50%;
                     bottom: 33px;
+                    z-index: 10;
                     transform: translateX(-50%);
                     margin: 0;
                     width: 418px;
@@ -563,18 +565,19 @@
                       left: unset;
                       transform: unset;
                       bottom: unset;
-                      top: 25.5px;
+                      top: 22.5px;
                       width: 292px;
                       padding: 8px;
                       text-align: right;
                       &::after {
                         transform: rotate(-135deg) translateX(-50%);
                         bottom: unset;
-                        top: -13px;
+                        top: -8.5px;
                         left: unset;
-                        right: 15px;
-                        width: 15px;
-                        height: 15px;
+                        right: 12px;
+                        width: 9.5px;
+                        height: 9.5px;
+                        border-radius: 0 0 4px 0;
                       }
                     }
                   }
@@ -583,6 +586,13 @@
                       display: block;
                     }
                   }
+                }
+                .label-tooltip-wrap{
+                  display: flex;
+                  align-items: center;
+                  gap: 20px;
+                  justify-content: space-between;
+                  width: 100%;
                 }
                 .indanequity-wrapper {
                   display: flex;

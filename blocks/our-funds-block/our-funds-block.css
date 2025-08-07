@@ -561,7 +561,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 0 20px 0 12px;
+  padding: 0 0 0 12px;
   cursor: pointer;
   position: relative;
 }
@@ -573,11 +573,7 @@
   font-weight: 400;
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  position: relative;
   cursor: pointer;
   width: 12px;
   height: 12px;
@@ -592,6 +588,7 @@
   position: absolute;
   left: 50%;
   bottom: 33px;
+  z-index: 10;
   transform: translateX(-50%);
   margin: 0;
   width: 418px;
@@ -627,7 +624,7 @@
     left: unset;
     transform: unset;
     bottom: unset;
-    top: 25.5px;
+    top: 22.5px;
     width: 292px;
     padding: 8px;
     text-align: right;
@@ -635,15 +632,23 @@
   .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text::after {
     transform: rotate(-135deg) translateX(-50%);
     bottom: unset;
-    top: -13px;
+    top: -8.5px;
     left: unset;
-    right: 15px;
-    width: 15px;
-    height: 15px;
+    right: 12px;
+    width: 9.5px;
+    height: 9.5px;
+    border-radius: 0 0 4px 0;
   }
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap:hover .tooltip-text {
   display: block;
+}
+.our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .label-tooltip-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .indanequity-wrapper {
   display: flex;
