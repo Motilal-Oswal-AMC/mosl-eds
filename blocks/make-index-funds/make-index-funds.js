@@ -40,7 +40,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
             div({ class: 'imgelogo' },
                 img({
                     class: 'logoScheme',
-                    src: '../../icons/Group.svg',
+                    src: '../../icons/nift-fund-icons.svg',
                     alt: 'BrandLogo',
                     loading: 'lazy',
                 }),
