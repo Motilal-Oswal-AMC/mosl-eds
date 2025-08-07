@@ -1402,21 +1402,17 @@ function searchFunctionality(block) {
         }
     };
     
-    // All event listeners and UI state handlers remain the same
-    const activateSearch = () => searchContainer.classList.add('search-active');
-    const deactivateSearch = () => searchContainer.classList.remove('search-active');
-
-    searchInput.addEventListener('focus', activateSearch);
+    searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));//activateSearch);
     searchInput.addEventListener('input', (event) => {
         filterListItems(event.target.value);
-        activateSearch();
+        searchContainer.classList.add('search-active');
         cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
     });
 
     listContainer.addEventListener('click', (event) => {
         if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
             searchInput.value = event.target.dataset.originalText;
-            deactivateSearch();
+            searchContainer.classList.remove('search-active')
              // CARD HIDE LOGIC ON SEARCH    
             const cardsContainer = block.querySelector(".filter-cards .cards-container");
             if (cardsContainer && cardsContainer.checkVisibility()) {
@@ -1446,12 +1442,12 @@ function searchFunctionality(block) {
         searchInput.value = '';
         filterListItems('');
         cancelButton.style.display = 'none';
-        deactivateSearch();
+        searchContainer.classList.remove('search-active')
     });
 
     block.addEventListener('click', (event) => {
         if (!searchContainer.contains(event.target)) {
-            deactivateSearch();
+            searchContainer.classList.remove('search-active')
             searchInput.value = ""
         }
     });
