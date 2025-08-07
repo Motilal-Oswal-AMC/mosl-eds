@@ -455,7 +455,7 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
           }
          }, tempReturns[0]),
         ul(
-          { class: "dropdown-list" },
+          { class: "dropdown-list",schcode:block.schcode},
           ...tempReturns.map((eloption) =>
             li(
               { 
