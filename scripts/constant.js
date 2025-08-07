@@ -27,7 +27,8 @@ const dataMapMoObj = {
     "high":"high-risk",
     "moderate":"moderate-risk",
     "low":"low-risk"
-  }
+  },
+  "selectreturns":""
 };
 
 export default dataMapMoObj;
