@@ -752,5 +752,22 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "Make Index Funds",
+    "fields": [
+      {
+        "component": "text",
+        "name": "Col Name",
+        "label": "Brand name"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Icon Container",
+        "valueType": "string"
+      }
+    ]
   }
 ]
