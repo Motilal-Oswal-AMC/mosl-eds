@@ -1418,114 +1418,142 @@ function applyFunction(block){
     
 }
 
-function searchFunctionality(block){
-  // Search
-  let currentFocus = -1;
-  let searchInput = block.querySelector(".search-input .search");
-  const searchResults = block.querySelector('.search-input .list-search');
-  
-  const schemeNames = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
-  const schcode = dataMapMoObj["funddata"].map((fund) => fund.schcode);
-  let selectedFundName = "";
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
-    searchResults.closest(".search-input").classList.add("search-active");
-    searchResults.innerHTML = '';
-    currentFocus = -1;
-    const filtered = query ? schemeNames.filter(name => name.toLowerCase().includes(query)) : schemeNames;
-    filtered.forEach((name,index) => {
-      const li = document.createElement('li');
-      li.classList.add("list-fund-name")
-      li.setAttribute("schcode",schcode[index])
-      li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
-      li.addEventListener('click', (event) => {
-        const selectedLi = event.currentTarget;
-        const selectedSchcode = selectedLi.getAttribute("schcode");
-        const selectedName = selectedLi.textContent.trim();
+function searchFunctionality(block) {
 
-        searchResults.innerHTML = '';
+  // 1. Cache all necessary DOM element references
+    const searchContainer = document.querySelector('.search-input');
+    const searchInput = searchContainer.querySelector('.search');
+    const listContainer = searchContainer.querySelector('.list-search');
+    // const listItems = searchContainer.querySelectorAll('.list-fund-name');
+    const cancelButton = searchContainer.querySelector('.cancel-search');
+    const FUND_DATA = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
 
-        const newLi = document.createElement('li');
-        newLi.classList.add("list-fund-name");
-        newLi.setAttribute("schcode", selectedSchcode);
-        newLi.textContent = selectedName;
+    const populateList = () => {
+        listContainer.innerHTML = ''; // Clear list before populating
+        FUND_DATA.forEach(fundName => {
+            const item = document.createElement('li');
+            item.className = 'list-fund-name';
+            item.textContent = fundName;
+            listContainer.appendChild(item);
+        });
+    };
 
-        searchResults.appendChild(newLi);
-        searchInput.value = selectedName;
-        selectedFundName = selectedName
-        searchResults.closest(".search-input").classList.remove("search-active");
+    // --- SCRIPT INITIALIZATION ---
+    populateList(); // Create the list on page load
 
-        // CARD HIDE LOGIC ON SEARCH
-        const cardsContainer = block.querySelector(".filter-cards .cards-container");
-        if (cardsContainer && cardsContainer.checkVisibility()) {
-          Array.from(cardsContainer.children).forEach((elment) => {
-            if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
-              elment.style.display = "none";
-            }
-          });
+    // --- IMPORTANT: Select listItems AFTER they have been created ---
+    const listItems = searchContainer.querySelectorAll('.list-fund-name');
+    listItems.forEach(item => {
+        item.dataset.originalText = item.textContent;
+    });
+    // --- End of Initialization ---
+
+    const escapeRegExp = (str) => {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    };
+    
+    // The filter function remains the same
+    const filterListItems = (searchTerm) => {
+        const term = searchTerm.trim();
+        const existingNoResultsMessage = listContainer.querySelector('.no-results-message');
+        if (existingNoResultsMessage) existingNoResultsMessage.remove();
+        listContainer.classList.remove('no-search-list');
+
+        if (!term) {
+            listItems.forEach(item => {
+                item.innerHTML = item.dataset.originalText;
+                item.style.display = 'list-item';
+            });
+            return;
         }
 
-        const listHeader = block.querySelector(".filter-cards .list-view-header");
-        if (listHeader && listHeader.checkVisibility()) {
-          Array.from(listHeader.children).forEach((elment) => {
-            if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
-              elment.style.display = "none";
+        const searchRegex = new RegExp(escapeRegExp(term), 'gi');
+        let matchesFound = false;
+
+        listItems.forEach(item => {
+            const originalText = item.dataset.originalText;
+            const match = originalText.match(searchRegex);
+            if (match) {
+                matchesFound = true;
+                const highlightedText = originalText.replace(searchRegex, (match) => `<strong>${match}</strong>`);
+                item.innerHTML = highlightedText;
+                item.style.display = 'list-item';
+            } else {
+                item.style.display = 'none';
             }
-          });
+        });
+
+        if (!matchesFound) {
+            listContainer.classList.add('no-search-list');
+            const messageItem = document.createElement('li');
+            messageItem.className = 'list-fund-name no-results-message';
+            messageItem.textContent = 'No results found';
+            listContainer.appendChild(messageItem);
         }
-      });
-
-      searchResults.appendChild(li);
+    };
+    
+    searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));//activateSearch);
+    searchContainer.classList.remove('search-active')
+    searchInput.addEventListener('input', (event) => {
+        filterListItems(event.target.value);
+        searchContainer.classList.add('search-active');
+        cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
     });
-    if (filtered.length === 0) {
-      const newLi = document.createElement('li');
-        newLi.classList.add("list-fund-name");
-        searchResults.classList.add("no-search-list")
-        newLi.textContent = "No results found.";
-        searchResults.appendChild(newLi);
-    }
-  });
 
-  Array.from(searchResults.children).forEach((el)=>{
-    el.addEventListener("click",(event)=>{
-      console.log(event.target.textContent.trim());
-    })
-  })
-  searchInput.addEventListener('keydown', (e) => {
-    searchResults.closest(".search-input").classList.remove("search-active");
-    const items = searchResults.querySelectorAll('li');
-    if (!items.length) return;
-    if (e.key === 'ArrowDown') {
-      currentFocus++;
-      addActive(items);
-      e.preventDefault();
-    } else if (e.key === 'ArrowUp') {
-      currentFocus--;
-      addActive(items);
-      e.preventDefault();
-    } else if (e.key === 'Enter') {
-      e.preventDefault();
-      if (currentFocus > -1) items[currentFocus].click();
-    } else if (e.key === 'Escape') {
-      searchResults.innerHTML = '';
-      currentFocus = -1;
-      searchInput.value = selectedFundName;
-      searchResults.closest(".search-input").classList.remove("search-active");
-    }
-  });
+    listContainer.addEventListener('click', (event) => {
+        if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
+            searchInput.value = event.target.dataset.originalText;
+            searchContainer.classList.remove('search-active')
+             // CARD HIDE LOGIC ON SEARCH    
+            const cardsContainer = block.querySelector(".filter-cards .cards-container");
+            if (cardsContainer && cardsContainer.checkVisibility()) {
+              Array.from(cardsContainer.children).forEach((elment) => {
+                let schname = elment.querySelector(".title-subtitle p").textContent +elment.querySelector(".title-subtitle h2").textContent
+                elment.style.display = "block";
+                if (searchInput.value !== schname) {
+                  elment.style.display = "none";
+                }
+              });
+            }
 
-  function addActive(items) {
-    if (!items) return;
-    items.forEach(i => i.classList.remove('active'));
-    if (currentFocus >= items.length) currentFocus = items.length - 1;
-    if (currentFocus < 0) currentFocus = 0;
-    items[currentFocus].classList.add('active');
-    items[currentFocus].scrollIntoView({
-      block: 'nearest'
+            const listHeader = block.querySelector(".filter-cards .list-container");
+            if (listHeader && listHeader.checkVisibility()) {
+              Array.from(listHeader.children).forEach((elment) => {
+                let schname = elment.querySelector(".fund-name-container").textContent;
+                elment.style.display = "block";
+                if (searchInput.value !== schname) {
+                  elment.style.display = "none";
+                }
+              });
+            }
+        }
     });
-  }
 
-  searchInput.addEventListener("focusin",()=>{
-      searchResults.closest(".search-input").classList.add("search-active");
-  })
+    cancelButton.addEventListener('click', () => {
+        searchInput.value = '';
+        filterListItems('');
+        cancelButton.style.display = 'none';
+        searchContainer.classList.remove('search-active')
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!searchContainer.contains(event.target)) {
+            searchContainer.classList.remove('search-active')
+            // searchInput.value = ""
+        }
+        document.querySelectorAll(".cagr-container").forEach((el)=>{
+          if (!el.contains(event.target)) {
+            el.querySelector(".dropdown-list").classList.remove("dropdown-active")
+          }
+        })
+        document.querySelectorAll(".card-category").forEach((el)=>{
+          if (!el.contains(event.target)) {
+            el.querySelector(".dropdown-list").classList.remove("dropdown-active")
+          }
+        })
+    });
+
+    if (searchInput.value.length === 0) {
+        cancelButton.style.display = 'none';
+    }
 }
