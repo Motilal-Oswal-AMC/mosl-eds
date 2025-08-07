@@ -15,6 +15,17 @@ import {
 } from "../../scripts/dom-helpers.js";
 
 export default function decorate(block) {
+
+  Array.from(block.children).forEach((el, index) => {
+    el.classList.add("block-item" + (index + 1));
+    Array.from(el.children).forEach((elsub, index) => {
+      elsub.classList.add("block-subitem" + (index + 1));
+      Array.from(elsub.children).forEach((finelsub, index) => {
+        finelsub.classList.add("block-subitem-finelsub" + (index + 1));
+      });
+    });
+  });
+
    let data =  dataCfObj.filter((element)=>{
         if(element.schcode === "US"){
             return element;
@@ -44,7 +55,7 @@ function dateFormat(date) {
     { class: "key-facts-section" },
 
     div({ class: "Investment-Objective" },
-      p("Investment"),
+      p(block.querySelector(".block-subitem-finelsub1")),
       p({class : "investment-discripstion"},
         "The fund aims for medium to long-term capital appreciation by primarily investing in Large and Midcap stocks, though this objective... "
       )
@@ -56,12 +67,12 @@ function dateFormat(date) {
         { class: "minimum-amount" },
         div(
           { class: "Application-Amount" },
-          p("Minimum Application Amount"),
+          p(block.querySelector(".block-subitem-finelsub2")),
           p("₹500/- and in multiples of ₹1/- thereafter")
         ),
         div(
           { class: "Redemption-Amount" },
-          p("Minimum Redemption-Amount"),
+          p(block.querySelector(".block-subitem-finelsub3")),
           p("₹500/- then ₹1/- increments, up to account balance")
         )
       ),
@@ -73,18 +84,18 @@ function dateFormat(date) {
             { class: "aum-groups" },
             div(
               { class: "aum" },
-              p("Latest AUM"),
+              p(block.querySelector(".block-subitem-finelsub4")),
               p(`₹${data[0].aum[0].latestAum}`, span(`(as on ${dateFormat(data[0].aum[0].latestAumAsOnDt)})`))
             ),
             div(
               { class: "portfolio" },
-              p("Portfolio Turnover Ratio"),
+              p(block.querySelector(".block-subitem-finelsub1")),
               p(data[0].portfolioTurnoverRatio)
             ),
-            div({ class: "Plans" }, p("Plans"), p(data[0].planList[0].planName)),
+            div({ class: "Plans" }, p(block.querySelector(".block-subitem2 .block-subitem-finelsub2")), p(data[0].planList[0].planName)),
             div(
               { class: "options" },
-              p("Options (Under each plan)"),
+              p(block.querySelector(".block-subitem2 .block-subitem-finelsub3")),
               p(data[0].planList[0].optionName)
             )
           ),
@@ -92,21 +103,21 @@ function dateFormat(date) {
             { class: "benchmark-groups" },
             div(
               { class: "Benchmark" },
-              p("Benchmark"),
+              p(block.querySelector(".block-subitem2 .block-subitem-finelsub4")),
               p(data[0].benchmark)
             ),
             div(
               { class: "expense-ratio" },
-              p("Total Expense Ratio"),
+              p(block.querySelector(".block-subitem3 .block-subitem-finelsub1")),
               p("Nil")// not found
             ),
-            div({ class: "Inception-date" }, p("Inception date"), p(data[0].benchmarkreturns[0].latNavDate)),
-            div({ class: "entry-load" }, p("Entry Load"), p({class :"entry-load-detail"},"Nil"))
+            div({ class: "Inception-date" }, p(block.querySelector(".block-subitem3 .block-subitem-finelsub2")), p(data[0].benchmarkreturns[0].latNavDate)),
+            div({ class: "entry-load" }, p(block.querySelector(".block-subitem3 .block-subitem-finelsub3")), p({class :"entry-load-detail"},"Nil"))
           )
         ),
         div(
           { class: "load-policy" },  // not found
-          p("Exit Load Policy"),
+          p(block.querySelector(".block-subitem3 .block-subitem-finelsub4")),
           div({class : "load-policy-list"},
           li("1% exit load applies if redeemed within 365 days of allotment."),
           li("No exit load applies if redeemed after 365 days."),
@@ -121,7 +132,7 @@ function dateFormat(date) {
       )
     )
   );
-  block.innerHTML = "";
+  // block.innerHTML = "";
   block.appendChild(keyFactsSection);
 
   block.querySelector(".investment-discripstion").innerHTML = "";

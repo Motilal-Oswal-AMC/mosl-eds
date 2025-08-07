@@ -1,7 +1,7 @@
 /* Reset */
-@use 'sass:map';
-@use '../../styles/common-theme/css/variables_mixins' as *;
-@use '../../styles/common-theme/css/fluid-typography' as *;
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 /* MAIN WRAPPER */
 .compounding {
@@ -9,23 +9,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: map.get($spacing, xs);
+  gap: 24px;
   align-self: stretch;
   // box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   box-shadow: $box-shadow-soft;
- padding: 40px 24px;
+  padding: 40px 24px;
 
   .default-content-wrapper {
-
+    p:nth-child(1) {
+      margin-bottom: 20px;
+      strong {
+        font-weight: map.get($font-weights, semibold);
+        color: $primary-blue;
+      }
+    }
     p,
     ul,
     li {
-      margin-bottom: map.get($spacing, xs);
-      @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
-    }
-
-    strong {
-      font-weight: map.get($font-weights, semibold);
+      // margin-bottom: map.get($spacing, xs);
+      margin-bottom: 1px;
+      @include font-style(
+        12px,
+        16px,
+        $color-text-body,
+        map.get($font-weights, regular),
+        $Poppins
+      );
     }
 
     ul {
@@ -58,8 +67,8 @@
 
       .icon {
         flex: 0 0 auto;
-        width: 56px;
-        height: 56px;
+        width: 48px;
+        height: 48px;
         flex-shrink: 0;
       }
 
@@ -74,13 +83,26 @@
         }
       }
 
-      h3 {
-        @include font-style(36px, 48px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+      h3,
+      h4 {
+        @include font-style(
+          32px,
+          40px,
+          $primary-blue,
+          map.get($font-weights, bold),
+          $ButlerPro
+        );
         // margin: 0 0 map.get($spacing, md);
         margin: 0px;
 
         @include media(mobile) {
-          @include font-style(32px, 40px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+          @include font-style(
+            32px,
+            40px,
+            $primary-blue,
+            map.get($font-weights, bold),
+            $ButlerPro
+          );
           margin-bottom: 0;
         }
       }
@@ -110,10 +132,10 @@
       // background: $primary-white;
       border-radius: map.get($radius, r8);
       // padding: map.get($spacing, lg);
-      padding: 24px 0px;
+      // padding: 24px 0px;
       align-self: stretch;
-          max-width: 100%;
-    width: 100%;
+      max-width: 100%;
+      width: 100%;
       // box-shadow: $box-shadow-soft;
 
       .search-bar-wrapper {
@@ -122,23 +144,36 @@
         gap: map.get($spacing, xs);
 
         span {
-          @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+          @include font-style(
+            12px,
+            16px,
+            $color-text-body,
+            map.get($font-weights, regular),
+            $Poppins
+          );
           text-align: left;
         }
 
         label {
-          @include font-style(14px, normal, var(--text-color), map.get($font-weights, semibold), $Poppins);
+          @include font-style(
+            14px,
+            normal,
+            var(--text-color),
+            map.get($font-weights, semibold),
+            $Poppins
+          );
         }
 
         input {
           width: 100%;
-          color: #2E2A94;
+          color: #2e2a94;
           font-family: $Poppins;
           font-size: 16px;
           font-weight: 500;
           line-height: 20px;
           border-radius: 4px;
-          background: url('../../icons/search-icon.svg') no-repeat right 12px center;
+          background: url("../../icons/search-icon.svg") no-repeat right 12px
+            center;
           background-size: 20px 20px;
           border: none;
           outline: none;
@@ -153,7 +188,7 @@
         position: relative;
 
         ul {
-          font-family: 'Poppins', sans-serif;
+          font-family: "Poppins", sans-serif;
           list-style: none;
           margin: 0;
           padding: 0;
@@ -167,7 +202,7 @@
           text-align: left;
 
           border-radius: 6px;
-          border: 1px solid var(--Neutrals-200, #EEE);
+          border: 1px solid var(--Neutrals-200, #eee);
           box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 
           @include media(mobile) {
@@ -186,7 +221,7 @@
             &.active {
               // background: map.get($blue-1, b25);
               // border-left: 3px solid $primary-blue;
-              background: var(--Neutrals-200, #EEE);
+              background: var(--Neutrals-200, #eee);
             }
           }
         }
@@ -195,7 +230,8 @@
       .scheme-btns-wrapper {
         display: flex;
         gap: map.get($spacing, sm);
-        margin-top: map.get($spacing, md);
+
+        // margin-top: map.get($spacing, md);
 
         button {
           display: flex;
@@ -205,8 +241,8 @@
           justify-content: center;
           align-items: center;
           border-radius: 1000px;
-          border: 1px solid #BDBDBD;
-          background: #FAFAFA;
+          border: 1px solid #bdbdbd;
+          background: #fafafa;
           color: #424242;
           font-family: $Poppins;
           font-size: 14px;
@@ -221,31 +257,37 @@
           }
 
           &.active {
-            background: #EDF1FF;
-            color: #2E2A94;
-            border: 1px solid #382AD7;
+            background: #edf1ff;
+            color: #2e2a94;
+            border: 1px solid #382ad7;
           }
         }
       }
 
-
       .invested-amount {
         display: flex;
-        margin: map.get($spacing, md) 0;
+        // margin: map.get($spacing, md) 0;
         align-items: flex-start;
         gap: map.get($spacing, xxs);
         align-self: stretch;
+        padding-bottom: 24px;
 
         @include media(mobile) {
           margin: 32px 0 24px;
         }
 
         label {
-          @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+          @include font-style(
+            12px,
+            16px,
+            $color-text-body,
+            map.get($font-weights, regular),
+            $Poppins
+          );
         }
 
         span {
-          color: #2B2E8C;
+          color: #2b2e8c;
           font-family: $Poppins;
           font-size: 12px;
           font-weight: 600;
@@ -254,145 +296,154 @@
         }
       }
 
-
       .plan-options-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: map.get($spacing, xxl);
-  margin: map.get($spacing, md) 0;
-  // border-bottom: 1px solid map.get($strokes, default);
-  padding-bottom: map.get($spacing, md);
+        display: flex;
+        flex-wrap: wrap;
+        gap: map.get($spacing, xxl);
+        // margin: map.get($spacing, md) 0;
+        // border-bottom: 1px solid map.get($strokes, default);
+        padding-bottom: 24px;
 
-  .plan-type-toggle {
-    display: flex;
-    flex: 1 1 45%;
-    align-items: center;
-    gap: map.get($spacing, sm);
-  
+        .plan-type-toggle {
+          display: flex;
+          flex: 1 1 45%;
+          align-items: center;
+          gap: map.get($spacing, sm);
 
-    .toggle-label {
-      @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
-      cursor: pointer;
-      &.active {
-        color: #2E2A94; // Or your theme primary color
-        font-weight: map.get($font-weights, medium);
-      }
-    }
+          .toggle-label {
+            @include font-style(
+              14px,
+              20px,
+              $color-text-body,
+              map.get($font-weights, regular),
+              $Poppins
+            );
+            cursor: pointer;
+            &.active {
+              color: #2e2a94; // Or your theme primary color
+              font-weight: map.get($font-weights, medium);
+            }
+          }
 
-    .toggle-switch {
-      position: relative;
-      display: inline-block;
-      width: 50px;
-      height: 24px;
+          .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
 
-      input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
+            input {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
 
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
+            .slider {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: #ccc;
+              transition: 0.4s;
+              border-radius: 34px;
 
-        &::before {
-          position: absolute;
-          content: "";
-          height: 18px;
-          width: 18px;
-          left: 4px;
-          bottom: 3px;
-          background-color: white;
-          transition: .4s;
-          border-radius: 50%;
+              &::before {
+                position: absolute;
+                content: "";
+                height: 18px;
+                width: 18px;
+                left: 4px;
+                bottom: 3px;
+                background-color: white;
+                transition: 0.4s;
+                border-radius: 50%;
+              }
+            }
+
+            // input:checked + .slider {
+            //   // background-color: #2E2A94; // Theme color
+            // }
+
+            input:checked + .slider::before {
+              transform: translateX(26px);
+            }
+          }
+        }
+
+        .plan-option-select {
+          position: relative;
+          flex: 1 1 45%;
+          min-width: 200px;
+
+          .select-selected-plan {
+            color: #2e2a94;
+            font-family: $Poppins;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+            padding-bottom: 4px;
+
+            &::after {
+              content: "";
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 20px;
+              height: 20px;
+              background: url("../../icons/Frame.svg") no-repeat center;
+              background-size: contain;
+              transition: transform 0.2s ease;
+            }
+          }
+
+          .select-options-plan {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            right: 0;
+            background: $primary-white;
+            border-radius: map.get($radius, r8);
+            box-shadow: $box-shadow-soft;
+            z-index: 10;
+            overflow: hidden;
+
+            &.open {
+              display: block;
+            }
+          }
+
+          .select-option-plan {
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            @include font-style(
+              16px,
+              20px,
+              $color-text-body,
+              map.get($font-weights, regular),
+              $Poppins
+            );
+            border-bottom: 1px solid #eee;
+
+            &:hover {
+              background-color: #f0f0f0;
+            }
+          }
         }
       }
-
-      // input:checked + .slider {
-      //   // background-color: #2E2A94; // Theme color
-      // }
-
-      input:checked + .slider::before {
-        transform: translateX(26px);
-      }
-    }
-  }
-
-  .plan-option-select {
-    position: relative;
-    flex: 1 1 45%;
-    min-width: 200px;
-
-    .select-selected-plan {
-      color: #2E2A94;
-      font-family: $Poppins;
-      font-size: 20px;
-      font-weight: 500;
-      cursor: pointer;
-      position: relative;
-      user-select: none;
-      padding-bottom: 4px;
-
-      &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 20px;
-        height: 20px;
-        background: url('../../icons/Frame.svg') no-repeat center;
-        background-size: contain;
-        transition: transform 0.2s ease;
-      }
-    }
-
-    .select-options-plan {
-      display: none;
-      position: absolute;
-      top: 110%;
-      left: 0;
-      right: 0;
-      background: $primary-white;
-      border-radius: map.get($radius, r8);
-      box-shadow: $box-shadow-soft;
-      z-index: 10;
-      overflow: hidden;
-
-      &.open {
-        display: block;
-      }
-    }
-
-    .select-option-plan {
-      padding: 12px 16px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      @include font-style(16px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
-      border-bottom: 1px solid #EEE;
-
-      &:hover {
-        background-color: #f0f0f0;
-      }
-    }
-  }
-}
-
 
       .investment-wrapper {
         display: flex;
         flex-wrap: wrap;
         gap: map.get($spacing, xxl);
-        margin: map.get($spacing, md) 0;
+        // margin: map.get($spacing, md) 0;
         // border-bottom: 1px solid map.get($strokes, default);
-        padding-bottom: map.get($spacing, md); // Add some padding
+        padding-bottom: 10px; // Add some padding
 
         .sip-wrapper,
         .tenure-wrapper {
@@ -405,7 +456,13 @@
         }
 
         label {
-          @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+          @include font-style(
+            12px,
+            16px,
+            $color-text-body,
+            map.get($font-weights, regular),
+            $Poppins
+          );
         }
 
         // --- Base styles for BOTH input and select ---
@@ -413,7 +470,7 @@
         select {
           border: none;
           background-color: transparent;
-          color: #2E2A94;
+          color: #2e2a94;
           font-family: $Poppins;
           font-size: 20px;
           font-weight: 500;
@@ -434,7 +491,7 @@
 
         // --- Specific style for the amount input ---
         .sip-wrapper input {
-          padding-left: 24px; // Make space for the Rupee symbol
+          padding-left: 13px; // Make space for the Rupee symbol
         }
 
         // --- Specific style for the tenure select ---
@@ -445,25 +502,23 @@
 
         // --- Icon Positioning ---
         .sip-wrapper::before {
-          content: '₹';
+          content: "₹";
           position: absolute;
           left: 0;
           bottom: 4px; // Position relative to the bottom
           pointer-events: none;
-          color: #2E2A94;
+          color: #2e2a94;
           font-family: $Poppins;
           font-size: 20px;
           font-weight: 500;
         }
 
-
-        //new css 
+        //new css
         .custom-select {
           position: relative; // Parent for the absolute positioned options
 
-
           .select-selected {
-            color: #2E2A94;
+            color: #2e2a94;
             font-family: $Poppins;
             font-size: 20px;
             font-weight: 500;
@@ -473,14 +528,14 @@
             padding-bottom: 4px; // Add some space for the bottom border of the wrapper
 
             &::after {
-              content: '';
+              content: "";
               position: absolute;
               right: 0;
               top: 50%;
               transform: translateY(-50%);
               width: 20px;
               height: 20px;
-              background: url('../../icons/Frame.svg') no-repeat center;
+              background: url("../../icons/Frame.svg") no-repeat center;
               background-size: contain;
               transition: transform 0.2s ease;
             }
@@ -509,9 +564,14 @@
             padding: 12px 16px;
             cursor: pointer;
             transition: background-color 0.2s ease;
-            @include font-style(16px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
-            border-bottom: 1px solid #EEE;
-
+            @include font-style(
+              16px,
+              20px,
+              $color-text-body,
+              map.get($font-weights, regular),
+              $Poppins
+            );
+            border-bottom: 1px solid #eee;
 
             &:hover {
               background-color: #f0f0f0; // Or your theme's hover color
@@ -520,12 +580,12 @@
         }
       }
 
-
       .cal-discription {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-        gap: map.get($spacing, lg);
+        // justify-content: space-between;
+        gap: 32px;
+        position: relative;
 
         .current-value-wrapper,
         .return-cagr-wrapper {
@@ -534,7 +594,13 @@
           gap: map.get($spacing, xxs);
 
           label {
-            @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+            @include font-style(
+              12px,
+              16px,
+              $color-text-body,
+              map.get($font-weights, regular),
+              $Poppins
+            );
 
             @include media(mobile) {
               white-space: nowrap;
@@ -542,7 +608,7 @@
           }
 
           span {
-            color: #2E2A94;
+            color: #2e2a94;
             font-family: $Poppins;
             font-size: 24px;
             font-weight: 600;
@@ -552,8 +618,10 @@
         }
 
         .start-sip-btn button {
+          position: absolute;
+          right: 0px;
           display: flex;
-          // width: 132px;
+          width: 132px;
           // width: 100%;
           padding: map.get($spacing, sm);
           justify-content: center;
@@ -570,7 +638,7 @@
           cursor: pointer;
           transition: background-color 0.2s ease;
           //
-          width: 176px;
+          // width: 176px;
           // padding: 12px var(--Spacing-12, 12px);
           // gap: var(--Spacing-8, 8px);
           // border-radius: var(--Border-Radius-4, 4px);
@@ -580,6 +648,9 @@
           &:hover {
             background: $primary-blue-dark;
           }
+           @include media(mobile) {
+            position:static;
+           }
         }
       }
 
@@ -594,16 +665,26 @@
     }
 
     .view-btn-cal {
-      padding-top: map.get($spacing, xs);
-      text-align: left;
+      display: none;
 
-      a {
-        @include font-style(14px, 20px, $primary-blue, map.get($font-weights, regular), $Poppins);
-        text-decoration: underline;
+      @include media(mobile) {
+        display: block;
+        //  text-align: center;
+        font-size: 16px;
+        line-height: 24px;
 
-        @include media(mobile) {
-          font-size: 16px;
-          line-height: 24px;
+        padding-top: map.get($spacing, xs);
+        text-align: left;
+
+        a {
+          @include font-style(
+            14px,
+            20px,
+            $primary-blue,
+            map.get($font-weights, regular),
+            $Poppins
+          );
+          text-decoration: underline;
         }
       }
     }
@@ -688,15 +769,13 @@
 
             button {
               width: 100%;
-              ;
             }
           }
-
         }
       }
 
       .view-btn-cal {
-        text-align: left;
+        text-align: center;
       }
     }
   }

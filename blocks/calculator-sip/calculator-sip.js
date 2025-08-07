@@ -95,7 +95,7 @@ export default function decorate(block) {
       ),
       div({ class: 'return-cagr-wrapper' },
         label(col4[1].textContent.trim()),
-        span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}%`),
+        span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)} khjh%`),
       ),
       div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
     ),
@@ -109,6 +109,7 @@ export default function decorate(block) {
 
   block.innerHTML = '';
   block.append(calContainer, viewOthCalBtn);
+  // block.append(calContainer);
 
   // -------------------------------
   // ✅ 3. DOM REFS
@@ -402,7 +403,7 @@ export default function decorate(block) {
     const hero = sectionHero.querySelector('.default-content-wrapper');
     if (hero && !hero.querySelector('.hero-image')) {
       const iconPara = hero.querySelector('p:has(img)');
-      const heading = hero.querySelector('h3');
+      const heading = hero.querySelector('h4');
       const paras = hero.querySelectorAll('p');
       hero.innerHTML = '';
       const heroImage = div({ class: 'hero-image' }, iconPara);
