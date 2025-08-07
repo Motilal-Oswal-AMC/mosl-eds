@@ -31,25 +31,20 @@ export default function decorate(block) {
   dataMapMoObj["selectreturns"] = "";
   dataMapMoObj["data"] = dataFilterfun(dataCfObj);
   dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
-  let divfund = div(
-    {
+  let divfund = div({
       class: "blockwrapper",
     },
-    div(
-      {
+    div({
         class: "upper-container",
       },
-      div(
-        {
+      div({
           class: "fundcontainer",
         },
         block.querySelector(".block-subitem1"),
-        div(
-          {
+        div({
             class: "search-trending-wrapper",
           },
-          div(
-            {
+          div({
               class: "search-input",
             },
             input({
@@ -58,21 +53,20 @@ export default function decorate(block) {
                 .querySelector(".block-subitem2 .block-subitem-finelsub1")
                 .textContent.trim(),
             }),
-            div(
-              { class: "cancel-search" },
+            div({
+                class: "cancel-search"
+              },
               img({
                 class: "cancel-btn",
                 src: "../../icons/input-cancel.svg",
                 alt: "cancel button",
               })
             ),
-            ul(
-              {
+            ul({
                 class: "list-search",
               },
               ...dataMapMoObj["funddata"].map((el) => {
-                return li(
-                  {
+                return li({
                     class: "list-fund-name",
                     schcode: el.schcode,
                   },
@@ -81,12 +75,10 @@ export default function decorate(block) {
               })
             )
           ),
-          div(
-            {
+          div({
               class: "watchlist",
             },
-            div(
-              {
+            div({
                 class: "staricon",
               },
               block.querySelector(
@@ -96,23 +88,20 @@ export default function decorate(block) {
                 ".block-subitem2 .block-subitem-finelsub3 span"
               )
             ),
-            div(
-              {
+            div({
                 class: "watchlisttext",
               },
               span(
                 block
-                  .querySelector(".block-subitem2 .block-subitem-finelsub3")
-                  .textContent.trim()
+                .querySelector(".block-subitem2 .block-subitem-finelsub3")
+                .textContent.trim()
               )
             )
           ),
-          div(
-            {
+          div({
               class: "trending-container",
             },
-            div(
-              {
+            div({
                 class: "trendinglabel",
               },
               p(
@@ -122,12 +111,11 @@ export default function decorate(block) {
               ),
               label(
                 block
-                  .querySelector(".block-subitem2 .block-subitem-finelsub5")
-                  .textContent.trim()
+                .querySelector(".block-subitem2 .block-subitem-finelsub5")
+                .textContent.trim()
               )
             ),
-            div(
-              {
+            div({
                 class: "trendingmostlist",
               },
               block.querySelector(".block-subitem2 .block-subitem-finelsub6")
@@ -136,24 +124,20 @@ export default function decorate(block) {
         )
       )
     ),
-    div(
-      {
+    div({
         class: "filter-cards",
       },
-      div(
-        {
+      div({
           class: "left-container",
         },
         div(
           {
             class: "fundcategory-container",
           },
-          div(
-            {
+          div({
               class: "filter-sort-container",
             },
-            div(
-              {
+            div({
                 class: "filter-wrapper",
                 onclick: () => {
                   block
@@ -170,21 +154,23 @@ export default function decorate(block) {
                   }
                 },
               },
-              div(
-                { class: "filter-text" },
+              div({
+                  class: "filter-text"
+                },
                 block.querySelector(
                   ".block-item2 .block-subitem-finelsub1 span"
                 ),
                 label(
                   block
-                    .querySelector(".block-item2 .block-subitem-finelsub2")
-                    .textContent.trim()
+                  .querySelector(".block-item2 .block-subitem-finelsub2")
+                  .textContent.trim()
                 )
               ),
-              button({ class: "clearall-btn" }, "Clear All")
+              button({
+                class: "clearall-btn"
+              }, "Clear All")
             ),
-            div(
-              {
+            div({
                 class: "sort-wrapper",
                 onclick: () => {
                   block.querySelector(".sort-overlay").classList.add("active");
@@ -202,26 +188,22 @@ export default function decorate(block) {
               block.querySelector(".block-item2 .block-subitem-finelsub3 span"),
               label(
                 block
-                  .querySelector(".block-item2 .block-subitem-finelsub4")
-                  .textContent.trim()
+                .querySelector(".block-item2 .block-subitem-finelsub4")
+                .textContent.trim()
               )
             )
           ),
-          div(
-            {
+          div({
               class: "filter-overlay",
             },
-            div(
-              {
+            div({
                 class: "filter-container",
               },
-              div(
-                {
+              div({
                   class: "clearall-wrapper",
                 },
                 span("Filters"),
-                button(
-                  {
+                button({
                     class: "clearall-btn",
                     onclick: () => {
                       Array.from(
@@ -246,8 +228,7 @@ export default function decorate(block) {
                   "Clear All"
                 )
               ),
-              div(
-                {
+              div({
                   class: "filter-list-wrapper",
                 },
                 // div({class:"fundcategory-label"},
@@ -270,8 +251,7 @@ export default function decorate(block) {
                         let sublabel = Object.keys(elme)[0]
                           .split("-")[1]
                           .trim();
-                        return div(
-                          {
+                        return div({
                             class: "checkbox-label-container",
                           },
                           input({
@@ -297,8 +277,7 @@ export default function decorate(block) {
                               }
                             },
                           }),
-                          label(
-                            {
+                          label({
                               for: "ind" + (ind + 1),
                             },
                             sublabel
@@ -391,8 +370,7 @@ export default function decorate(block) {
                     : "";
                 }),
                 ...dataMapMoObj.data.fundType.map((element, index) => {
-                  return div(
-                    {
+                  return div({
                       class: "checkbox-label-container",
                     },
                     input({
@@ -445,12 +423,10 @@ export default function decorate(block) {
                   );
                 })
               ),
-              div(
-                {
+              div({
                   class: "apply-wrapper",
                 },
-                button(
-                  {
+                button({
                     class: "close-btn",
                     onclick: (event) => {
                       block
@@ -463,8 +439,7 @@ export default function decorate(block) {
                   },
                   "Close"
                 ),
-                button(
-                  {
+                button({
                     class: "apply-btn",
                     onclick: () => {
                       applyFunction(block);
@@ -475,16 +450,13 @@ export default function decorate(block) {
               )
             )
           ),
-          div(
-            {
+          div({
               class: "sort-overlay",
             },
-            div(
-              {
+            div({
                 class: "sort-container",
               },
-              div(
-                {
+              div({
                   class: "sort-label",
                 },
                 // span(label(
@@ -492,25 +464,21 @@ export default function decorate(block) {
                 // ))
                 span(
                   block
-                    .querySelector(".block-item3 .block-subitem-finelsub1")
-                    .textContent.trim()
+                  .querySelector(".block-item3 .block-subitem-finelsub1")
+                  .textContent.trim()
                 )
               ),
-              div(
-                {
+              div({
                   class: "arrange-returns",
                 },
-                div(
-                  {
+                div({
                     class: "arrange-container",
                   },
                   span("Arrange by"),
-                  div(
-                    {
+                  div({
                       class: "radio-label-container",
                     },
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
@@ -518,15 +486,13 @@ export default function decorate(block) {
                         id: "popular",
                         name: "arrange",
                       }),
-                      label(
-                        {
+                      label({
                           for: "popular",
                         },
                         "Popular"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
@@ -534,15 +500,13 @@ export default function decorate(block) {
                         id: "lastnav",
                         name: "arrange",
                       }),
-                      label(
-                        {
+                      label({
                           for: "lastnav",
                         },
                         "Latest NAV"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
@@ -550,15 +514,13 @@ export default function decorate(block) {
                         id: "lastnavone",
                         name: "arrange",
                       }),
-                      label(
-                        {
+                      label({
                           for: "lastnavone",
                         },
                         "Latest by 1 day"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
@@ -566,15 +528,13 @@ export default function decorate(block) {
                         id: "oldnew",
                         name: "arrange",
                       }),
-                      label(
-                        {
+                      label({
                           for: "oldnew",
                         },
                         "Oldest to Newest"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
@@ -582,8 +542,7 @@ export default function decorate(block) {
                         id: "newold",
                         name: "arrange",
                       }),
-                      label(
-                        {
+                      label({
                           for: "newold",
                         },
                         "Newest to Oldest"
@@ -591,118 +550,98 @@ export default function decorate(block) {
                     )
                   )
                 ),
-                div(
-                  {
+                div({
                     class: "return-container",
                   },
                   span("Returns Period"),
-                  div(
-                    {
+                  div({
                       class: "radio-label-container",
                     },
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "sinceinp",
                         name: "returns",
-                        dataattr:
-                          dataMapMoObj["data"].sort[0].inception_Ret.join("-"),
+                        dataattr: dataMapMoObj["data"].sort[0].inception_Ret.join("-"),
                       }),
-                      label(
-                        {
+                      label({
                           for: "sinceinp",
                         },
                         "Since Inception"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "oneyear",
                         name: "returns",
-                        dataattr:
-                          dataMapMoObj["data"].sort[0].oneYear_Ret.join("-"),
+                        dataattr: dataMapMoObj["data"].sort[0].oneYear_Ret.join("-"),
                       }),
-                      label(
-                        {
+                      label({
                           for: "oneyear",
                         },
                         "1 year"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "threeyear",
                         name: "returns",
-                        dataattr:
-                          dataMapMoObj["data"].sort[0].threeYear_Ret.join("-"),
+                        dataattr: dataMapMoObj["data"].sort[0].threeYear_Ret.join("-"),
                       }),
-                      label(
-                        {
+                      label({
                           for: "threeyear",
                         },
                         "3 years"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "fiveyear",
                         name: "returns",
-                        dataattr:
-                          dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-"),
+                        dataattr: dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-"),
                       }),
-                      label(
-                        {
+                      label({
                           for: "fiveyear",
                         },
                         "5 years"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "tenyear",
                         name: "returns",
-                        dataattr:
-                          dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-"),
+                        dataattr: dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-"),
                       }),
-                      label(
-                        {
+                      label({
                           for: "tenyear",
                         },
                         "7 years"
                       )
                     ),
-                    div(
-                      {
+                    div({
                         class: "radio-label",
                       },
                       input({
                         type: "radio",
                         id: "tenyear",
                         name: "returns",
-                        dataattr:
-                          dataMapMoObj["data"].sort[0].tenYear_Ret.join("-"),
+                        dataattr: dataMapMoObj["data"].sort[0].tenYear_Ret.join("-"),
                       }),
-                      label(
-                        {
+                      label({
                           for: "tenyear",
                         },
                         "10 years"
@@ -711,12 +650,10 @@ export default function decorate(block) {
                   )
                 )
               ),
-              div(
-                {
+              div({
                   class: "close-apply-btn",
                 },
-                button(
-                  {
+                button({
                     class: "closebtn",
                     onclick: (event) => {
                       block
@@ -729,8 +666,7 @@ export default function decorate(block) {
                   },
                   "close"
                 ),
-                button(
-                  {
+                button({
                     class: "applybtn",
                     onclick: () => {
                       applyFunction(block);
@@ -743,31 +679,27 @@ export default function decorate(block) {
           )
         )
       ),
-      div(
-        {
+      div({
           class: "right-container",
         },
-        div(
-          {
+        div({
             class: "sort-pop-container",
           },
-          div(
-            {
+          div({
               class: "sort-popular",
             },
-            div(
-              {
+            div({
                 class: "sort-container",
               },
               label(
                 block
-                  .querySelector(".block-item3 .block-subitem-finelsub1")
-                  .textContent.trim()
+                .querySelector(".block-item3 .block-subitem-finelsub1")
+                .textContent.trim()
               ),
-              div(
-                { class: "sort-select-container" },
-                p(
-                  {
+              div({
+                  class: "sort-select-container"
+                },
+                p({
                     class: "selectedtext",
                     onclick: (event) => {
                       console.log(event.target);
@@ -778,8 +710,7 @@ export default function decorate(block) {
                   },
                   "Popular"
                 ),
-                ul(
-                  {
+                ul({
                     class: "dropdown-list",
                     onclick: (event) => {
                       event.target
@@ -803,19 +734,18 @@ export default function decorate(block) {
                 )
               )
             ),
-            div(
-              {
+            div({
                 class: "popular-container",
               },
               label(
                 block
-                  .querySelector(".block-item3 .block-subitem-finelsub2")
-                  .textContent.trim()
+                .querySelector(".block-item3 .block-subitem-finelsub2")
+                .textContent.trim()
               ),
-              div(
-                { class: "return-select-container" },
-                p(
-                  {
+              div({
+                  class: "return-select-container"
+                },
+                p({
                     class: "selectedtext",
                     onclick: (event) => {
                       console.log(event.target);
@@ -826,8 +756,7 @@ export default function decorate(block) {
                   },
                   "1 YEAR"
                 ),
-                ul(
-                  {
+                ul({
                     class: "dropdown-list",
                     onclick: (event) => {
                       event.target
@@ -855,45 +784,33 @@ export default function decorate(block) {
                       viewFunction(block);
                     },
                   },
-                  li(
-                    {
-                      dataattr:
-                        dataMapMoObj["data"].sort[0].oneYear_Ret.join("-"),
+                  li({
+                      dataattr: dataMapMoObj["data"].sort[0].oneYear_Ret.join("-"),
                     },
                     "1 YEAR"
                   ),
-                  li(
-                    {
-                      dataattr:
-                        dataMapMoObj["data"].sort[0].threeYear_Ret.join("-"),
+                  li({
+                      dataattr: dataMapMoObj["data"].sort[0].threeYear_Ret.join("-"),
                     },
                     "3 YEARS"
                   ),
-                  li(
-                    {
-                      dataattr:
-                        dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-"),
+                  li({
+                      dataattr: dataMapMoObj["data"].sort[0].fiveYear_Ret.join("-"),
                     },
                     "5 YEARS"
                   ),
-                  li(
-                    {
-                      dataattr:
-                        dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-"),
+                  li({
+                      dataattr: dataMapMoObj["data"].sort[0].sevenYear_Ret.join("-"),
                     },
                     "7 YEARS"
                   ),
-                  li(
-                    {
-                      dataattr:
-                        dataMapMoObj["data"].sort[0].tenYear_Ret.join("-"),
+                  li({
+                      dataattr: dataMapMoObj["data"].sort[0].tenYear_Ret.join("-"),
                     },
                     "10 YEARS"
                   ),
-                  li(
-                    {
-                      dataattr:
-                        dataMapMoObj["data"].sort[0].inception_Ret.join("-"),
+                  li({
+                      dataattr: dataMapMoObj["data"].sort[0].inception_Ret.join("-"),
                     },
                     "SINCE INCEPTION"
                   )
@@ -901,16 +818,13 @@ export default function decorate(block) {
               )
             )
           ),
-          div(
-            {
+          div({
               class: "group-view-container",
             },
-            div(
-              {
+            div({
                 class: "view-container",
               },
-              div(
-                {
+              div({
                   class: "squareby-container grid-view-active",
                   onclick: (event) => {
                     event.currentTarget.classList.add("grid-view-active");
@@ -927,8 +841,7 @@ export default function decorate(block) {
                 },
                 block.querySelector(".block-item3 .block-subitem-finelsub3")
               ),
-              div(
-                {
+              div({
                   class: "listby-container",
                   onclick: (event) => {
                     event.currentTarget.classList.add("list-view-active");
@@ -946,13 +859,11 @@ export default function decorate(block) {
                 block.querySelector(".block-item3 .block-subitem-finelsub4")
               )
             ),
-            div(
-              {
+            div({
                 class: "togglebtn",
               },
               p("Direct"),
-              div(
-                {
+              div({
                   class: "fund-toggle-wrap",
                 },
                 input({
@@ -969,24 +880,20 @@ export default function decorate(block) {
               ),
               p("Regular")
             ),
-            div(
-              {
+            div({
                 class: "compare-btn",
               },
               button("Compare")
             )
           )
         ),
-        div(
-          {
+        div({
             class: "applied-filter-wrap",
           },
-          ul(
-            {
+          ul({
               class: "applied-filter-list",
             },
-            li(
-              {
+            li({
                 class: "applied-filter-name",
               },
               span("Large Cap"),
@@ -995,8 +902,7 @@ export default function decorate(block) {
                 alt: "cross icon",
               })
             ),
-            li(
-              {
+            li({
                 class: "applied-filter-name",
               },
               span("Tax saver (ELSS)"),
@@ -1005,8 +911,7 @@ export default function decorate(block) {
                 alt: "cross icon",
               })
             ),
-            li(
-              {
+            li({
                 class: "applied-filter-name",
               },
               span("Hybrid & Balanced"),
@@ -1017,21 +922,18 @@ export default function decorate(block) {
             )
           )
         ),
-        div(
-          {
+        div({
             class: "cards-container",
           },
           ...dataMapMoObj["funddata"].map((el) => {
             return fundcardblock(el);
           })
         ),
-        div(
-          {
+        div({
             class: "list-view-header",
             style: "display:none",
           },
-          div(
-            {
+          div({
               class: "list-header",
             },
             block.closest(".section").querySelector(".item2")
@@ -1047,8 +949,7 @@ export default function decorate(block) {
   block.append(divfund);
   block.querySelector(".applied-filter-list").innerHTML = "";
   //added wrapper
-  let divmop = div(
-    {
+  let divmop = div({
       class: "indanequity-wrapper",
     },
     block.querySelector(".indaneqsub #index1"),
@@ -1069,12 +970,12 @@ export default function decorate(block) {
   block.querySelector(".indaneqsub").innerHTML = "";
   block.querySelector(".indaneqsub").append(divmop, divinner)
 
- searchFunctionality(block);
-  Array.from(block.querySelector(".return-container .radio-label-container").children).forEach((el)=>{
-    el.querySelector("input").addEventListener("click",(event)=>{
+  searchFunctionality(block);
+  Array.from(block.querySelector(".return-container .radio-label-container").children).forEach((el) => {
+    el.querySelector("input").addEventListener("click", (event) => {
       console.log(event.target.getAttribute("dataattr"));
       let dataattr = event.target.getAttribute("dataattr").split("-")
-      let tempdata = dataCfObj.filter((el)=>{
+      let tempdata = dataCfObj.filter((el) => {
         if (dataattr.includes(el.schcode)) {
           return el
         }
@@ -1332,7 +1233,7 @@ function viewFunction(param) {
 }
 
 function checkfilter(block) {
- let filterTag = []; //5-8-25
+  let filterTag = []; //5-8-25
   let tempData = [];
   Array.from(block.querySelector(".filter-list-wrapper").children).forEach((el) => {
     if (el.closest(".checkbox-label-container").querySelector(".innerindianequity")) {
@@ -1368,9 +1269,9 @@ function checkfilter(block) {
           return el
         }
       }
-    })  
+    })
   }
-  
+
   viewFunction(block)
 
   filterGroup(filterTag);
@@ -1413,167 +1314,149 @@ function checkfilter(block) {
   }
 }
 
-function applyFunction(block){
-    dataMapMoObj["tempMobReturn"] = dataMapMoObj["tempMobReturn"] === undefined ? [] : dataMapMoObj["tempMobReturn"];
-    dataMapMoObj["tempMobReturn"] = dataMapMoObj["tempMobReturn"].length !== 0 ? dataMapMoObj["tempMobReturn"] : dataCfObj.slice(0,9);
-    if (Array.from(block.querySelector(".filter-overlay").classList).includes("active")) {
-      dataMapMoObj["funddata"] = dataMapMoObj["tempMobReturn"];
-      dataMapMoObj["tempMobReturn"] = [];
-      block.querySelector(".filter-overlay").classList.remove("active")
-      checkfilter(block)
-    }else if (Array.from(block.querySelector(".sort-overlay").classList).includes("active")) {
-      dataMapMoObj["funddata"] = dataMapMoObj["tempMobReturn"];
-      dataMapMoObj["tempMobReturn"] = [];
-      block.querySelector(".sort-overlay").classList.remove("active")
-      dataMapMoObj["selectreturns"] = dataMapMoObj["selectreturnstemp"]
-      viewFunction(block)
-    }
-    
-}
-
-function searchFunctionality(block){
-  // Search
-  let currentFocus = -1;
-  let searchInput = block.querySelector(".search-input .search");
-  const searchResults = block.querySelector('.search-input .list-search');
-  
-  const schemeNames = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
-  const schcode = dataMapMoObj["funddata"].map((fund) => fund.schcode);
-  let selectedFundName = "";
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
-    searchResults.closest(".search-input").classList.add("search-active");
-    searchResults.innerHTML = '';
-    currentFocus = -1;
-    const filtered = query ? schemeNames.filter(name => name.toLowerCase().includes(query)) : schemeNames;
-    filtered.forEach((name,index) => {
-      const li = document.createElement('li');
-      li.classList.add("list-fund-name")
-      li.setAttribute("schcode",schcode[index])
-      li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
-      li.addEventListener('click', (event) => {
-        const selectedLi = event.currentTarget;
-        const selectedSchcode = selectedLi.getAttribute("schcode");
-        const selectedName = selectedLi.textContent.trim();
-
-        searchResults.innerHTML = '';
-
-        const newLi = document.createElement('li');
-        newLi.classList.add("list-fund-name");
-        newLi.setAttribute("schcode", selectedSchcode);
-        newLi.textContent = selectedName;
-
-        searchResults.appendChild(newLi);
-        searchInput.value = selectedName;
-        selectedFundName = selectedName
-        searchResults.closest(".search-input").classList.remove("search-active");
-
-        // CARD HIDE LOGIC ON SEARCH
-        const cardsContainer = block.querySelector(".filter-cards .cards-container");
-        if (cardsContainer && cardsContainer.checkVisibility()) {
-          Array.from(cardsContainer.children).forEach((elment) => {
-            if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
-              elment.style.display = "none";
-            }
-          });
-        }
-
-        const listHeader = block.querySelector(".filter-cards .list-view-header");
-        if (listHeader && listHeader.checkVisibility()) {
-          Array.from(listHeader.children).forEach((elment) => {
-            if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
-              elment.style.display = "none";
-            }
-          });
-        }
-      });
-
-      searchResults.appendChild(li);
-    });
-    if (filtered.length === 0) {
-      const newLi = document.createElement('li');
-        newLi.classList.add("list-fund-name");
-        searchResults.classList.add("no-search-list")
-        newLi.textContent = "No results found.";
-        searchResults.appendChild(newLi);
-    }
-  });
-
-  Array.from(searchResults.children).forEach((el)=>{
-    el.addEventListener("click",(event)=>{
-      console.log(event.target.textContent.trim());
-    })
-  })
-  searchInput.addEventListener('keydown', (e) => {
-    searchResults.closest(".search-input").classList.remove("search-active");
-    const items = searchResults.querySelectorAll('li');
-    if (!items.length) return;
-    if (e.key === 'ArrowDown') {
-      currentFocus++;
-      addActive(items);
-      e.preventDefault();
-    } else if (e.key === 'ArrowUp') {
-      currentFocus--;
-      addActive(items);
-      e.preventDefault();
-    } else if (e.key === 'Enter') {
-      e.preventDefault();
-      if (currentFocus > -1) items[currentFocus].click();
-    } else if (e.key === 'Escape') {
-      searchResults.innerHTML = '';
-      currentFocus = -1;
-      searchInput.value = selectedFundName;
-      searchResults.closest(".search-input").classList.remove("search-active");
-    }
-  });
-
-  function addActive(items) {
-    if (!items) return;
-    items.forEach(i => i.classList.remove('active'));
-    if (currentFocus >= items.length) currentFocus = items.length - 1;
-    if (currentFocus < 0) currentFocus = 0;
-    items[currentFocus].classList.add('active');
-    items[currentFocus].scrollIntoView({
-      block: 'nearest'
-    });
+function applyFunction(block) {
+  dataMapMoObj["tempMobReturn"] = dataMapMoObj["tempMobReturn"] === undefined ? [] : dataMapMoObj["tempMobReturn"];
+  dataMapMoObj["tempMobReturn"] = dataMapMoObj["tempMobReturn"].length !== 0 ? dataMapMoObj["tempMobReturn"] : dataCfObj.slice(0, 9);
+  if (Array.from(block.querySelector(".filter-overlay").classList).includes("active")) {
+    dataMapMoObj["funddata"] = dataMapMoObj["tempMobReturn"];
+    dataMapMoObj["tempMobReturn"] = [];
+    block.querySelector(".filter-overlay").classList.remove("active")
+    checkfilter(block)
+  } else if (Array.from(block.querySelector(".sort-overlay").classList).includes("active")) {
+    dataMapMoObj["funddata"] = dataMapMoObj["tempMobReturn"];
+    dataMapMoObj["tempMobReturn"] = [];
+    block.querySelector(".sort-overlay").classList.remove("active")
+    dataMapMoObj["selectreturns"] = dataMapMoObj["selectreturnstemp"]
+    viewFunction(block)
   }
 
-  searchInput.addEventListener("focusin",()=>{
-      searchResults.closest(".search-input").classList.add("search-active");
-  })
-  Array.from(searchResults.children).forEach((el)=>{
-    el.addEventListener("click",(event)=>{
-      console.log(event.target.textContent.trim());
-      searchInput.value =event.target.textContent.trim();
-      searchResults.closest(".search-input").classList.remove("search-active");
-      const selectedSchcode = event.target.getAttribute("schcode");
-      // CARD HIDE LOGIC ON SEARCH
-        const cardsContainer = block.querySelector(".filter-cards .cards-container");
-        if (cardsContainer && cardsContainer.checkVisibility()) {
-          Array.from(cardsContainer.children).forEach((elment) => {
-            if (selectedSchcode !== elment.querySelector(".star").getAttribute("schcode")) {
-              elment.style.display = "none";
-            }
-          });
+}
+
+function searchFunctionality(block) {
+
+  // 1. Cache all necessary DOM element references
+    const searchContainer = document.querySelector('.search-input');
+    const searchInput = searchContainer.querySelector('.search');
+    const listContainer = searchContainer.querySelector('.list-search');
+    // const listItems = searchContainer.querySelectorAll('.list-fund-name');
+    const cancelButton = searchContainer.querySelector('.cancel-search');
+    const FUND_DATA = dataMapMoObj["funddata"].map((fund) => fund.schDetail.schemeName);
+
+    const populateList = () => {
+        listContainer.innerHTML = ''; // Clear list before populating
+        FUND_DATA.forEach(fundName => {
+            const item = document.createElement('li');
+            item.className = 'list-fund-name';
+            item.textContent = fundName;
+            listContainer.appendChild(item);
+        });
+    };
+
+    // --- SCRIPT INITIALIZATION ---
+    populateList(); // Create the list on page load
+
+    // --- IMPORTANT: Select listItems AFTER they have been created ---
+    const listItems = searchContainer.querySelectorAll('.list-fund-name');
+    listItems.forEach(item => {
+        item.dataset.originalText = item.textContent;
+    });
+    // --- End of Initialization ---
+
+    const escapeRegExp = (str) => {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    };
+    
+    // The filter function remains the same
+    const filterListItems = (searchTerm) => {
+        const term = searchTerm.trim();
+        const existingNoResultsMessage = listContainer.querySelector('.no-results-message');
+        if (existingNoResultsMessage) existingNoResultsMessage.remove();
+        listContainer.classList.remove('no-search-list');
+
+        if (!term) {
+            listItems.forEach(item => {
+                item.innerHTML = item.dataset.originalText;
+                item.style.display = 'list-item';
+            });
+            return;
         }
 
-        const listHeader = block.querySelector(".filter-cards .list-view-header");
-        if (listHeader && listHeader.checkVisibility()) {
-          Array.from(listHeader.children).forEach((elment) => {
-            if (selectedSchcode !== elment.querySelector(".fund-name-wrapper").getAttribute("schcode")) {
-              elment.style.display = "none";
-            }
-          });
-        }
-    })
-  })
+        const searchRegex = new RegExp(escapeRegExp(term), 'gi');
+        let matchesFound = false;
 
-  block.querySelector(".cancel-search img").addEventListener("click",()=>{
-      searchInput.value = "";
-      searchResults.closest(".search-input").classList.remove("search-active");
-      dataMapMoObj["funddata"] = dataCfObj.slice(0,9)
-      viewFunction(block)
-      
-  })
-  
+        listItems.forEach(item => {
+            const originalText = item.dataset.originalText;
+            const match = originalText.match(searchRegex);
+            if (match) {
+                matchesFound = true;
+                const highlightedText = originalText.replace(searchRegex, (match) => `<strong>${match}</strong>`);
+                item.innerHTML = highlightedText;
+                item.style.display = 'list-item';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        if (!matchesFound) {
+            listContainer.classList.add('no-search-list');
+            const messageItem = document.createElement('li');
+            messageItem.className = 'list-fund-name no-results-message';
+            messageItem.textContent = 'No results found';
+            listContainer.appendChild(messageItem);
+        }
+    };
+    
+    searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));//activateSearch);
+    searchInput.addEventListener('input', (event) => {
+        filterListItems(event.target.value);
+        searchContainer.classList.add('search-active');
+        cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
+    });
+
+    listContainer.addEventListener('click', (event) => {
+        if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
+            searchInput.value = event.target.dataset.originalText;
+            searchContainer.classList.remove('search-active')
+             // CARD HIDE LOGIC ON SEARCH    
+            const cardsContainer = block.querySelector(".filter-cards .cards-container");
+            if (cardsContainer && cardsContainer.checkVisibility()) {
+              Array.from(cardsContainer.children).forEach((elment) => {
+                let schname = elment.querySelector(".title-subtitle p").textContent +elment.querySelector(".title-subtitle h2").textContent
+                elment.style.display = "block";
+                if (searchInput.value !== schname) {
+                  elment.style.display = "none";
+                }
+              });
+            }
+
+            const listHeader = block.querySelector(".filter-cards .list-container");
+            if (listHeader && listHeader.checkVisibility()) {
+              Array.from(listHeader.children).forEach((elment) => {
+                let schname = elment.querySelector(".fund-name-container").textContent;
+                elment.style.display = "block";
+                if (searchInput.value !== schname) {
+                  elment.style.display = "none";
+                }
+              });
+            }
+        }
+    });
+
+    cancelButton.addEventListener('click', () => {
+        searchInput.value = '';
+        filterListItems('');
+        cancelButton.style.display = 'none';
+        searchContainer.classList.remove('search-active')
+    });
+
+    block.addEventListener('click', (event) => {
+        if (!searchContainer.contains(event.target)) {
+            searchContainer.classList.remove('search-active')
+            searchInput.value = ""
+        }
+    });
+
+    if (searchInput.value.length === 0) {
+        cancelButton.style.display = 'none';
+    }
 }
