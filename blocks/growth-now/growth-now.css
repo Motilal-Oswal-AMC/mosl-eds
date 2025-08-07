@@ -64,9 +64,7 @@
     width: 142px;
     height: 173px;
     margin-bottom: -10px;
-    object-fit: cover;
        object-fit: cover;
-    object-position: bottom;
        object-position: bottom;
   }
 }
@@ -190,8 +188,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  appearance: auto;
-     appearance: auto;
           appearance: auto;
   padding-right: 4px;
 }

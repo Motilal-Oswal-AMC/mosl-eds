@@ -24,6 +24,7 @@
 
         h3 {
             @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold));
+
             margin: 0;
             padding: 0;
             padding-bottom: 8px;
@@ -37,6 +38,7 @@
 
         p {
             @include font-style(16px, 20px, $primary-blue, map.get($font-weights, regular), $Poppins);
+
             margin: 0;
             padding: 0;
             max-width: 600px;
@@ -50,7 +52,6 @@
     }
 
     .future-building {
-
         .swiper-wrapper {
             display: flex;
             align-items: stretch;
@@ -80,7 +81,7 @@
 
                             a {
                                 display: inline-flex;
-                                padding: 0px 8px;
+                                padding: 0 8px;
                                 align-items: center;
                                 gap: 8px;
                                 border-radius: map.get($radius, r40);
@@ -106,10 +107,12 @@
 
                         &>li:nth-child(2) {
                             @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $Poppins);
+
                             margin-bottom: 8px;
 
                             @include media(mobile) {
                                 @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $Poppins);
+
                                 // margin-bottom: 8px;
                             }
                         }
@@ -127,6 +130,7 @@
 
                             a {
                                 @include font-style(14px, 20px, $primary-blue, map.get($font-weights, regular), $Poppins);
+
                                 text-decoration-line: underline;
                                 text-decoration-style: solid;
                                 text-decoration-skip-ink: auto;
@@ -182,7 +186,6 @@
 
             a {
                 margin: 0;
-                padding: 0;
                 display: inline-flex;
                 padding: 12px;
                 justify-content: center;
@@ -190,6 +193,7 @@
                 gap: 8px;
                 border-radius: map.get($radius, r8);
                 background: map.get($button-primary, default);
+
                 @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
 
                 @include media(mobile) {

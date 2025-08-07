@@ -163,7 +163,7 @@
                         padding-top: 0;
                         border-radius: 0 0 8px 8px;
                         background: #242177;
-                        box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.05);
+                        box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
 
                         p {
                             @include font-style(14px, 20px, $primary-white, map.get($font-weights, regular), $Poppins);
