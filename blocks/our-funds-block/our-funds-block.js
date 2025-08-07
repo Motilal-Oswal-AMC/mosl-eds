@@ -167,7 +167,27 @@ export default function decorate(block) {
                 )
               ),
               button({
-                class: "clearall-btn"
+                class: "clearall-btn",
+                onclick: () => {
+                      Array.from(
+                        block.querySelector(".filter-list-wrapper").children
+                      ).forEach((el) => {
+                        if (
+                          el
+                            .closest(".checkbox-label-container")
+                            .querySelector(".innerindianequity")
+                        ) {
+                          el.closest(".checkbox-label-container")
+                            .querySelectorAll(".innerindianequity input")
+                            .forEach((elemsub) => {
+                              elemsub.checked = false;
+                            });
+                        }
+                        el.querySelector("input").checked = false;
+                      });
+                      dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
+                      viewFunction(block)
+                    }
               }, "Clear All")
             ),
             div({
