@@ -167,7 +167,27 @@ export default function decorate(block) {
                 )
               ),
               button({
-                class: "clearall-btn"
+                class: "clearall-btn",
+                onclick: () => {
+                      Array.from(
+                        block.querySelector(".filter-list-wrapper").children
+                      ).forEach((el) => {
+                        if (
+                          el
+                            .closest(".checkbox-label-container")
+                            .querySelector(".innerindianequity")
+                        ) {
+                          el.closest(".checkbox-label-container")
+                            .querySelectorAll(".innerindianequity input")
+                            .forEach((elemsub) => {
+                              elemsub.checked = false;
+                            });
+                        }
+                        el.querySelector("input").checked = false;
+                      });
+                      dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
+                      viewFunction(block)
+                    }
               }, "Clear All")
             ),
             div({
@@ -1407,6 +1427,7 @@ function searchFunctionality(block) {
     };
     
     searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));//activateSearch);
+    searchContainer.classList.remove('search-active')
     searchInput.addEventListener('input', (event) => {
         filterListItems(event.target.value);
         searchContainer.classList.add('search-active');
@@ -1449,11 +1470,21 @@ function searchFunctionality(block) {
         searchContainer.classList.remove('search-active')
     });
 
-    block.addEventListener('click', (event) => {
+    document.addEventListener('click', (event) => {
         if (!searchContainer.contains(event.target)) {
             searchContainer.classList.remove('search-active')
-            searchInput.value = ""
+            // searchInput.value = ""
         }
+        document.querySelectorAll(".cagr-container").forEach((el)=>{
+          if (!el.contains(event.target)) {
+            el.querySelector(".dropdown-list").classList.remove("dropdown-active")
+          }
+        })
+        document.querySelectorAll(".card-category").forEach((el)=>{
+          if (!el.contains(event.target)) {
+            el.querySelector(".dropdown-list").classList.remove("dropdown-active")
+          }
+        })
     });
 
     if (searchInput.value.length === 0) {
