@@ -39,7 +39,16 @@ export default function decorate(block){
                 div({class:"risk-star-icon"},
                     img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"}),
                 ),
-                div({class: "star"},
+                div({class: "star",
+                    onclick: (event) => {
+                        if (!Array.from(event.target.parentElement.classList).includes("star-filled")) {
+                        event.target.parentElement.classList.add("star-filled");
+                        } else {
+                        event.target.parentElement.classList.remove("star-filled");
+                        }
+                    wishlist();
+                    }
+                },
                         img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),
                         img({class: "fillstar-icon",src: "../../icons/filled-star.svg",alt: "fillstar-icon"})
                 ),
@@ -69,7 +78,16 @@ export default function decorate(block){
             div({class:"risk-star-icon"},
                 img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),
             ),
-            div({class: "star"},
+            div({class: "star",
+                onclick: (event) => {
+                        if (!Array.from(event.target.parentElement.classList).includes("star-filled")) {
+                        event.target.parentElement.classList.add("star-filled");
+                        } else {
+                        event.target.parentElement.classList.remove("star-filled");
+                        }
+                    wishlist();
+                    }
+            },
                 img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),
                 img({class: "fillstar-icon",src: "../../icons/filled-star.svg",alt: "fillstar-icon"})
             ),
@@ -79,4 +97,14 @@ export default function decorate(block){
         )
     )
     return listcontainer
+}
+
+function wishlist(){
+  let paramCount = document.querySelectorAll(".star-filled");
+   document.querySelector(".watchlisttext span").textContent ="";
+  if (paramCount.length < 10) {
+    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"(0"+paramCount.length+")";
+  }else{
+    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
+  }  
 }

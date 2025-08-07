@@ -60,7 +60,7 @@ export default function decorate(block) {
               { class: "title title-logo" },
               img({
                 class: "logoscheme",
-                src: "../../icons/Group.svg",
+                src: block.fundIcon,//"../../icons/Group.svg",
                 alt: "BrandLogo",
               })
             ),
@@ -77,6 +77,7 @@ export default function decorate(block) {
                   } else {
                     event.target.parentElement.classList.remove("star-filled");
                   }
+                  wishlist()
                 },
                 schcode: block.schcode,
               },
@@ -199,7 +200,7 @@ export default function decorate(block) {
             },
             img({
               class: "logoscheme",
-              src: "../../icons/Group.svg",
+              src: block.fundIcon,//"../../icons/Group.svg",
               alt: "BrandLogo",
             })
           ),
@@ -216,7 +217,7 @@ export default function decorate(block) {
                 } else {
                   event.target.parentElement.classList.remove("star-filled");
                 }
-                wishlist(block);
+                wishlist();
               },
               schcode: block.schcode,
             },
