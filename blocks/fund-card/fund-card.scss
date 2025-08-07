@@ -32,6 +32,17 @@
         );
         margin: 0;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        &::after {
+          content: "";
+          background: url("../../icons/down-arrow-small.svg") center/cover
+            no-repeat;
+          width: 12px;
+          height: 12px;
+          display: block;
+        }
       }
       .dropdown-list {
         // display: none;
@@ -317,12 +328,15 @@
       }
 
       .cagr-select-wrapper {
-        @include flex-center($align: center, $justify: start);
+        // @include flex-center($align: center, $justify: start);
         // width: 80px;
         width: 115px;
         position: relative;
-        @media screen and (max-width: 900px) {
+        @include media(desktop-sm){
           width: 80px;
+        }
+        @media screen and (max-width: 900px) {
+          // width: 80px;
           .dropdown-list {
             top: 35px;
           }
@@ -332,14 +346,6 @@
           .dropdown-list {
             top: 18px;
           }
-        }
-        &::after {
-          content: "";
-          background: url("../../icons/down-arrow-small.svg") center/cover
-            no-repeat;
-          width: 12px;
-          height: 12px;
-          display: block;
         }
       }
     }
@@ -579,6 +585,17 @@
         );
         margin: 0;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        &::after {
+          content: "";
+          background: url("../../icons/down-arrow-small.svg") center/cover
+            no-repeat;
+          width: 12px;
+          height: 12px;
+          display: block;
+        }
       }
       .dropdown-list {
         display: none;
@@ -840,13 +857,16 @@
       }
 
       .cagr-select-wrapper {
-        @include flex-center($align: center, $justify: start);
-        gap: 4px;
+        // @include flex-center($align: center, $justify: start);
+        // gap: 4px;
         // width: 80px;
         width: 115px;
         position: relative;
-        @media screen and (max-width: 900px) {
+        @include media(desktop-sm){
           width: 80px;
+        }
+        @media screen and (max-width: 900px) {
+          // width: 80px;
           .dropdown-list {
             top: 35px;
           }
@@ -856,14 +876,6 @@
           .dropdown-list {
             top: 18px;
           }
-        }
-        &::after {
-          content: "";
-          background: url("../../icons/down-arrow-small.svg") center/cover
-            no-repeat;
-          width: 12px;
-          height: 12px;
-          display: block;
         }
       }
 
