@@ -37,11 +37,11 @@ export default function decorate(block) {
   const tempReturns = [];
   block.returns.forEach((ret, jind) => {
     if (jind === 0) {
-      [...Object.keys(ret)].forEach((key)=>{
+      [...Object.keys(ret)].forEach((key) => {
         if (dataMapMoObj.ObjTemp[key]) {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
         }
-      })
+      });
     }
     finPlangrp.push((ret.plancode + ret.optioncode));
   });

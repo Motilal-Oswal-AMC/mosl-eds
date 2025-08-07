@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Swiper from '../swiper/swiper-bundle.min.js';
 
 export default function decorate(block) {
@@ -59,7 +58,7 @@ export default function decorate(block) {
 
   // 5. Initialize Swiper
   Swiper(block, {
-    slidesPerView: "auto",
+    slidesPerView: 'auto',
     spaceBetween: 16,
     slidesOffsetBefore: 0,
     slidesOffsetAfter: 0,
@@ -72,7 +71,7 @@ export default function decorate(block) {
         spaceBetween: 16,
         slidesOffsetBefore: 0,
         slidesOffsetAfter: 0,
-      }
+      },
     },
   });
 }

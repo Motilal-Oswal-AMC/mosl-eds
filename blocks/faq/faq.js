@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 /**
  * Transforms a content block into an accessible accordion.
  * - Only one item can be open (expanded) at a time.
@@ -52,7 +50,7 @@ export default function decorate(block) {
 
   // If there are not enough items to hide or no button is found, do nothing.
   if (allItems.length <= itemsToShowInitially || !loadMoreButton) {
-    if(loadMoreButton) loadMoreButton.parentElement.remove(); // Remove button if not needed
+    if (loadMoreButton) loadMoreButton.parentElement.remove(); // Remove button if not needed
     return;
   }
 
