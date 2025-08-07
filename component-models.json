@@ -752,5 +752,22 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "make-index-funds",
+    "fields": [
+      {
+        "component": "text",
+        "name": "Col1 Name",
+        "label": "Brands name"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Icons Container",
+        "valueType": "string"
+      }
+    ]
   }
 ]
