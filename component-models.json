@@ -176,6 +176,10 @@
           {
             "name": "key-facts-Investment",
             "value": "key-facts-Investment"
+          },
+          {
+            "name": "fdp-calculator",
+            "value": "fdp-calculator"
           }
         ]
       },
