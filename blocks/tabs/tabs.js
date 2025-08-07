@@ -68,13 +68,13 @@ export default async function decorate(block) {
                         return [...elem.fundsTaggingSection].includes("motilal-oswal:active") ? elem : ""
                     })
                     dataCf = dataCf.filter((el)=> el)
-                    dataCf = dataCf.slice(0,4)
+                    dataCf = dataCf.slice(1,5)
                 }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-most-bought-funds") {
                     dataCf = dataCfObj.map((elem)=>{
                         return elem.fundCategorisation ==='Passive Funds' ? elem : ""
                     })
                     dataCf = dataCf.filter((el)=> el)
-                    dataCf = dataCf.slice(0,4)
+                    dataCf = dataCf.slice(1,5)
                 }
                 block.querySelector("#"+event.currentTarget.getAttribute("aria-controls")).innerHTML = ""
                 dataCf.map((element)=>{
@@ -118,31 +118,31 @@ export default async function decorate(block) {
                         return [...elem.fundsTaggingSection].includes("motilal-oswal:international-equity") ? elem : ""
                     })
                     dataCf = dataCf.filter((el)=> el)
-                    dataCf = dataCf.slice(0,4)
+                    dataCf = dataCf.slice(1,5)
                 }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-hybrid-balanced") { //tabpanel-index 
                     dataCf = dataCfObj.map((elem)=>{
                         return [...elem.fundsTaggingSection].includes("motilal-oswal:hybrid-&-balanced") ? elem : ""
                     })
                     dataCf = dataCf.filter((el)=> el)
-                    dataCf = dataCf.slice(0,4)
+                    dataCf = dataCf.slice(1,5)
                 }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-index") {  
                     dataCf = dataCfObj.map((elem)=>{
                         return [...elem.fundsTaggingSection].includes("motilal-oswal:index-funds") ? elem : ""
                     })
                     dataCf = dataCf.filter((el)=> el)
-                    dataCf = dataCf.slice(0,4)
+                    dataCf = dataCf.slice(1,5)
                 }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-etfs") { 
                     dataCf = dataCfObj.map((elem)=>{
                         return [...elem.fundsTaggingSection].includes("motilal-oswal:etf") ? elem : ""
                     })
                     dataCf = dataCf.filter((el)=> el)
-                    dataCf = dataCf.slice(0,4)
+                    dataCf = dataCf.slice(1,5)
                 }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-others") {
                     dataCf = dataCfObj.map((elem)=>{
                         return elem.sebiSubCategory ==='Other ETF' ? elem : ""
                     })
                     dataCf = dataCf.filter((el)=> el)
-                    dataCf = dataCf.slice(0,4)
+                    dataCf = dataCf.slice(1,5)
                 } 
                 block.querySelector("#"+event.currentTarget.getAttribute("aria-controls")).innerHTML = ""
                 dataCf.map((element)=>{
