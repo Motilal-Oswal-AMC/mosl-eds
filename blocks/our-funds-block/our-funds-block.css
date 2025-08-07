@@ -1526,6 +1526,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 @media (max-width: 1299px) {
   .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star {
@@ -1535,11 +1536,12 @@
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star .fillstar-icon {
   display: none;
 }
-.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star.active .star-icon {
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star.star-filled .star-icon {
   display: none;
 }
-.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star.active .fillstar-icon {
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star.star-filled .fillstar-icon {
   display: block;
+  cursor: pointer;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .btn-invest {
   max-width: 12.7%;

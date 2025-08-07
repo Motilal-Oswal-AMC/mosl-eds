@@ -1420,18 +1420,20 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                cursor: pointer;
                 @include media(desktop-sm) {
                   max-width: 10%;
                 }
                 .fillstar-icon {
                   display: none;
                 }
-                &.active {
+                &.star-filled {
                   .star-icon {
                     display: none;
                   }
                   .fillstar-icon {
                     display: block;
+                    cursor: pointer;
                   }
                 }
               }
