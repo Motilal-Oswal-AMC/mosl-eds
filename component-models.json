@@ -333,6 +333,11 @@
         "label": "Alt Text"
       },
       {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
+      },
+      {
         "component": "richtext",
         "name": "description",
         "label": "Future Building Item Description",
