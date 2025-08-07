@@ -47,11 +47,13 @@ $button-secondary: (
 // Neutral colors blue-1-25
 $blue-1: (
   b25: #EDF1FF,
+  b50: #D5DEFF,
   b200: #9DADFE,
   b300: #7986fd,
   b400: #5659FA,
   b900: #242177,
-  b500: #4338f3
+  b500: #4338f3,
+  b700: #332ab5,
 );
 
 // body-Color
@@ -97,6 +99,8 @@ $dark-liver: (
 //strokes
 $strokes: (
   default:#9E9E9E,
+  typing: #1887D2,
+  disabled: #BDBDBD,
 );
 
 
@@ -144,9 +148,13 @@ $text-header: #382ad7;
 $neutrals-50: #FAFAFA;
 $neutrals-400: #bdbdbd;
 $neutrals-300: #E0E0E0;
+$neutrals-200: #EEE;
 $neutrals-600: #757575;
 $text-body-2: #616161;
 $neutrals-black: #111;
+$neutrals-500: #99A1B0;
+$neutrals-100: #F5F5F5;
+$fund-icon-bg: #BDCBFF;
 
 // ----------------------------------------
 // FONTS

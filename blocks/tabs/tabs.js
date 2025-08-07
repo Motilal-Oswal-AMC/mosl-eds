@@ -52,7 +52,7 @@ export default async function decorate(block) {
         el.classList.add("tabpanel"+(index+1))
     })
     if (block.closest(".our-popular-funds")) {
-        let dataCf = dataCfObj.slice(0,4);
+        let dataCf = dataCfObj.slice(1,5);
 
         Array.from(tablist.children).forEach(element=>{
             element.addEventListener("click",(event)=>{
@@ -61,7 +61,7 @@ export default async function decorate(block) {
                 })
 
                 if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-trending-funds") {
-                    dataCf = dataCfObj.slice(0,4)
+                    dataCf = dataCfObj.slice(1,5)
                     
                 }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-most-searched-funds") {
                     dataCf = dataCfObj.map((elem)=>{
@@ -103,7 +103,7 @@ export default async function decorate(block) {
         tablist.children[0].click();
     }
     if (block.closest(".known-our-funds")) {    
-        let dataCf = dataCfObj.slice(0,4);
+        let dataCf = dataCfObj.slice(1,5);
 
         Array.from(tablist.children).forEach(element=>{
             element.addEventListener("click",(event)=>{
@@ -112,7 +112,7 @@ export default async function decorate(block) {
                 })
 
                 if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-trending-funds") {
-                    dataCf = dataCfObj.slice(0,4)
+                    dataCf = dataCfObj.slice(1,5)
                 } else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-international-equity") {
                     dataCf = dataCfObj.map((elem)=>{
                         return [...elem.fundsTaggingSection].includes("motilal-oswal:international-equity") ? elem : ""

@@ -63,6 +63,22 @@
     width: 252px !important;
   }
 }
+.section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-1 {
+  line-height: normal;
+}
+.section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-1 a {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: inherit;
+  font-family: inherit;
+  line-height: unset;
+  text-align: unset;
+  max-width: unset;
+  color: unset;
+  white-space: unset;
+}
 .section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 {
   padding-top: 24px;
 }

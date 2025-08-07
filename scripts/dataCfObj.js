@@ -3,7 +3,7 @@ const dataCfObj = [
   {
     sebiCategory: 'Equity Fund',
     nfoFaceValue: '10',
-    dateOfAllotment: '2014-02-24',
+    dateOfAllotment: '2025-08-09', //Temp
     objective: 'Wealth Creation',
     fundSubCategorisation: 'Indian Equity - Mid Cap',
     portfolioTurnoverRatio: '1.33',
@@ -49,6 +49,7 @@ const dataCfObj = [
     entryLoad: '<p>NIL</p>\n',
     typeOfScheme: 'An open ended equity scheme predominantly investing in mid cap stocks',
     fundsTaggingSection: [
+      "NFO",
       'motilal-oswal:indian-equity-',
       'motilal-oswal:large-and-mid-cap',
       'motilal-oswal:active',
