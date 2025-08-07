@@ -390,6 +390,7 @@ export default function decorate(block) {
             img({
               class: "icon person",
               src: "../../icons/Icon.svg",
+              alt:"person"
             }),
             span("2.7 lakh investors")
           ),

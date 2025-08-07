@@ -345,7 +345,7 @@ export default function decorate(block) {
                         ),
                         div(
                           { class: "tooltip-wrap" },
-                          img({ src: "../../icons/filter-info.svg" }),
+                          img({ src: "../../icons/filter-info.svg",alt:"filter-info" }),
                           p(
                             { class: "tooltip-text" },
                             "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
@@ -405,7 +405,8 @@ export default function decorate(block) {
                         class: "tooltip-wrap"
                       },
                       img({
-                        src: "../../icons/filter-info.svg"
+                        src: "../../icons/filter-info.svg",
+                        alt:"filter-info"
                       }),
                       p({
                           class: "tooltip-text"
@@ -951,7 +952,8 @@ export default function decorate(block) {
         class: "tooltip-wrap"
       },
       img({
-        src: "../../icons/filter-info.svg"
+        src: "../../icons/filter-info.svg",
+        alt:"filter-info"
       }),
       p({
           class: "tooltip-text"
