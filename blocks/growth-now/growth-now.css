@@ -1,7 +1,6 @@
 /*   alpha-value-notation */
 /*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
-
 .growth-now-container .growth-now {
   display: flex;
   padding: 32px;
@@ -10,21 +9,18 @@
   background: #2E2A94;
   height: 160px;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .growth-now-container .growth-now {
     justify-content: space-between;
   }
 }
-
-@media (width <= 1025px) {
+@media (max-width: 1025px) {
   .growth-now-container .growth-now {
     height: 100%;
     align-items: flex-start;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now {
     flex-direction: column;
     position: relative;
@@ -32,18 +28,15 @@
     overflow: hidden;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-1 {
   padding-right: 21px;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .growth-now-container .growth-now .fund-sec-1 {
     padding: 0;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-1 {
     padding: 0;
     order: 3;
@@ -51,75 +44,67 @@
     bottom: -1px;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-1 div img {
   width: 109px;
   height: 160px;
   flex-shrink: 0;
   margin-bottom: -13px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-1 div img {
     width: 142px;
     height: 173px;
     margin-bottom: -10px;
+    -o-object-fit: cover;
        object-fit: cover;
+    -o-object-position: bottom;
        object-position: bottom;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-2 {
   padding-right: 54px;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .growth-now-container .growth-now .fund-sec-2 {
     padding: 0;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-2 {
     padding: 0;
     padding-bottom: 16px;
     order: 1;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-2 div p {
   font-size: 32px;
   line-height: 40px;
   color: #fff;
-  font-family: ButlerPro, sans-serif;
+  font-family: "ButlerPro", sans-serif;
   font-weight: 700;
   max-inline-size: 11ch;
   text-wrap: balance;
   margin: 0;
   padding: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-2 div p {
     font-size: 28px;
     line-height: 32px;
     color: #fff;
-    font-family: ButlerPro, sans-serif;
+    font-family: "ButlerPro", sans-serif;
     font-weight: 700;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-3 {
   padding-right: 40px;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .growth-now-container .growth-now .fund-sec-3 {
     padding: 0;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-3 {
     padding: 0;
     order: 2;
@@ -127,30 +112,25 @@
     padding-bottom: 40px;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container {
   margin: 0;
   padding: 0;
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container form {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-3 div .button-container form {
     flex-direction: column;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-3 div .button-container form .fieldset-wrapper {
     width: 100%;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset {
   width: 228px;
   height: 40px;
@@ -161,23 +141,19 @@
   border-radius: 6px;
   border: 1px solid var(--Neutrals-500, #9E9E9E);
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset {
     width: 100%;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .field-wrapper {
   line-height: normal;
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .select-wrapper {
   border-radius: 3px 0 0 3px;
   border-right: 1px solid #6D798E;
   padding-right: 4px;
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset select {
   background: transparent;
   border: none;
@@ -188,10 +164,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
           appearance: auto;
   padding-right: 4px;
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input {
   width: 100%;
   min-width: 111px;
@@ -210,7 +187,6 @@
   text-align: left;
   padding-left: 10px;
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input::input-placeholder {
   color: #fff;
   font-family: Poppins;
@@ -219,13 +195,11 @@
   font-weight: 400;
   line-height: 20px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper {
     width: 100%;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper .button {
   display: flex;
   padding: 12px;
@@ -243,25 +217,21 @@
   margin: 0;
   height: 40px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper .button {
     width: 100%;
   }
 }
-
 .growth-now-container .growth-now .fund-sec-4 {
   padding-right: 44px;
   margin-bottom: -35px;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .growth-now-container .growth-now .fund-sec-4 {
     padding: 0;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .growth-now .fund-sec-4 {
     padding: 0;
     margin: 0;
@@ -270,36 +240,30 @@
     right: 24px;
     overflow: hidden;
   }
-
   .growth-now-container .growth-now .fund-sec-4 img {
     width: 45px;
     height: 120px;
   }
 }
-
 .growth-now-container .fund-sec-5 {
   padding-right: 18px;
   height: 100%;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .growth-now-container .fund-sec-5 {
     padding: 0;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .fund-sec-5 {
     padding: 0;
     display: none;
   }
 }
-
 .growth-now-container .fund-sec-5 img {
   height: 100%;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .growth-now-container .fund-sec-6 {
     display: flex;
     justify-content: end;
@@ -308,7 +272,6 @@
     padding-top: 68px;
   }
 }
-
 .growth-now-container .fund-sec-6 div > ul {
   list-style: none;
   margin: 0;
@@ -317,24 +280,20 @@
   flex-direction: column;
   gap: 9px;
 }
-
 .growth-now-container .fund-sec-6 div > ul > li {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .growth-now-container .fund-sec-6 div > ul > li p {
   margin: 0;
   padding: 0;
 }
-
 .growth-now-container .fund-sec-6 div > ul > li ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
 .growth-now-container .fund-sec-6 div > ul > li ul li:first-child {
   color: #FFF;
   font-family: Poppins;
@@ -343,7 +302,6 @@
   font-weight: 400;
   line-height: 16px;
 }
-
 .growth-now-container .fund-sec-6 div > ul > li ul li:nth-child(2) {
   color: #FFF;
   font-family: Poppins;
@@ -351,4 +309,4 @@
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
-}
+}/*# sourceMappingURL=growth-now.css.map */
