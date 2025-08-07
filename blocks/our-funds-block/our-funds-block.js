@@ -350,26 +350,31 @@ export default function decorate(block) {
                             }
                           },
                         }),
-                        label(
-                          {
-                            for: "index" + (index + 1),
-                          },
-                          capitalizeEachWord(
-                            Object.keys(element)[0].replaceAll("-", " ")
-                          ),
-                          span(
-                            {
-                              class: "fund-length",
-                            },
-                            "(" + element[Object.keys(element)[0]].length + ")"
-                          )
-                        ),
                         div(
-                          { class: "tooltip-wrap" },
-                          img({ src: "../../icons/filter-info.svg" }),
-                          p(
-                            { class: "tooltip-text" },
-                            "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                          { class: "label-tooltip-wrap" },
+                          label(
+                            {
+                              for: "index" + (index + 1),
+                            },
+                            capitalizeEachWord(
+                              Object.keys(element)[0].replaceAll("-", " ")
+                            ),
+                            span(
+                              {
+                                class: "fund-length",
+                              },
+                              "(" +
+                                element[Object.keys(element)[0]].length +
+                                ")"
+                            )
+                          ),
+                          div(
+                            { class: "tooltip-wrap" },
+                            img({ src: "../../icons/filter-info.svg" }),
+                            p(
+                              { class: "tooltip-text" },
+                              "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                            )
                           )
                         ),
                         capitalizeEachWord(
@@ -415,23 +420,28 @@ export default function decorate(block) {
                         // viewFunction(block);
                       },
                     }),
-                    label(
-                      {
-                        for: "fundtype" + (index + 1),
-                      },
-                      capitalizeEachWord(
-                        Object.keys(element)[0].replaceAll("-", " ")
-                      ),
-                      span("(" + element[Object.keys(element)[0]].length + ")")
-                    ),
                     div(
-                      { class: "tooltip-wrap" },
-                      img({ src: "../../icons/filter-info.svg" }),
-                      p(
-                        { class: "tooltip-text" },
-                        "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                      { class: "label-tooltip-wrap" },
+                      label(
+                        {
+                          for: "fundtype" + (index + 1),
+                        },
+                        capitalizeEachWord(
+                          Object.keys(element)[0].replaceAll("-", " ")
+                        ),
+                        span(
+                          "(" + element[Object.keys(element)[0]].length + ")"
+                        )
+                      ),
+                      div(
+                        { class: "tooltip-wrap" },
+                        img({ src: "../../icons/filter-info.svg" }),
+                        p(
+                          { class: "tooltip-text" },
+                          "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                        )
                       )
-                    )
+                    ),
                   );
                 })
               ),
@@ -1042,15 +1052,18 @@ export default function decorate(block) {
       class: "indanequity-wrapper",
     },
     block.querySelector(".indaneqsub #index1"),
-    block.querySelector(".indaneqsub [for='index1']"),
     div(
-      { class: "tooltip-wrap" },
-      img({ src: "../../icons/filter-info.svg" }),
-      p(
-        { class: "tooltip-text" },
-        "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+      { class: "label-tooltip-wrap" },
+      block.querySelector(".indaneqsub [for='index1']"),
+      div(
+        { class: "tooltip-wrap" },
+        img({ src: "../../icons/filter-info.svg" }),
+        p(
+          { class: "tooltip-text" },
+          "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+        )
       )
-    )
+    ),
   );
   let divinner = block.querySelector(".indaneqsub .innerindianequity");
   block.querySelector(".indaneqsub").innerHTML = "";
