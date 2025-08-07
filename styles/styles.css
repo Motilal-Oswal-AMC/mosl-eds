@@ -9,9 +9,9 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-@import url("./quick-actions.css");
-@import url("../blocks/complete-the-investment/complete-the-investment.css");
-@import url("../blocks/faq/faq.css");
+@import "./quick-actions.css";
+@import "../blocks/complete-the-investment/complete-the-investment.css";
+@import "../blocks/faq/faq.css";
 
 /* ------------------------------------------------------------------
  * GLOBAL RESET
@@ -58,7 +58,7 @@
 
   /* header height */
   --nav-height: 64px;
-  --header-height: 0px;
+  --header-height: 0;
 
   /* fallback for JS-controlled layout */
 }

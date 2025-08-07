@@ -1,4 +1,5 @@
-@import url("../../../styles/fonts.css");
+@import "../../../styles/fonts.css";
+
 .newsletter-subscription-container {
   display: none;
   padding: 0;

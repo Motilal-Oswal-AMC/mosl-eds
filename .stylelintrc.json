@@ -19,7 +19,6 @@
     "scss/dollar-variable-pattern": "^_?[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
     "scss/percent-placeholder-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
     "scss/selector-no-redundant-nesting-selector": true,
-    
     "at-rule-no-unknown": null,
     "block-no-empty": true,
     "color-no-invalid-hex": true,
@@ -69,7 +68,6 @@
     "value-list-comma-space-before": "never"
   },
   "ignoreFiles": [
-    "**/*.css",
     "**/*.min.css",
     "**/*.map",
     "dist/**/*",

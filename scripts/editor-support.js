@@ -36,7 +36,7 @@ async function applyChanges(event) {
       await loadSections(newMain);
       element.remove();
       newMain.style.display = null;
-      // eslint-disable-next-line no-use-before-define
+      //   -next-line no-use-before-define
       attachEventListners(newMain);
       return true;
     }

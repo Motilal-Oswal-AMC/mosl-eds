@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
+
 .section.fdp-card-container {
   display: flex;
   flex-direction: row;
@@ -9,78 +10,85 @@
   margin: 0 auto;
   gap: 50px;
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     flex-direction: column;
     gap: 50px;
   }
 
   .item1 {
     margin: 0;
+
     // width: 30%;
     max-width: 400px;
     width: 100%;
-    /*fdp cards*/
+    /* fdp cards */
     .fdp-card {
       position: fixed;
       width: 30%;
-      @media (max-width: 768px) {
+
+      @media (width <= 768px) {
         position: static;
       }
     }
   }
+
   .item2 {
     margin: 0;
     max-width: 816px;
     width: 100%;
-    padding: 0px;
+    padding: 0;
+
     // @media (max-width: 768px) {
     //   padding-left: 16px;
     //   padding-right: 16px;
     // }
-    /*ul for second part */
+    /* ul for second part */
     .item2-ul{
-      position: fixed;
       z-index: 1;
       max-width: 816px;
       width: 100%;
-      display: flex;
-      list-style: none;
       justify-content: space-between;
       position: fixed;
       display: flex;
       list-style: none;
-      padding: 0px;
-      margin: 0px;
+      padding: 0;
+      margin: 0;
       border-bottom: 1px solid #b6bcc7;
       background-color: #fff;
-      @media (max-width: 768px) {
+
+      @media (width <= 768px) {
         position: static;
         max-width: 300px;
         width: 100%;
         overflow-y: auto;
       }
+
       li {
         a{
         @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+
         padding: 12px;
         cursor: pointer;
 
-        @media (max-width: 768px) {
+        @media (width <= 768px) {
           text-wrap: nowrap;
         }
       }
       }
     }
-    /* why fund section*/
+    /* why fund section */
     .why-fund {
-      margin: 80px 0px;
+      margin: 80px 0;
+
       .default-content-wrapper {
         display: flex;
         flex-direction: column;
         gap: 28px;
-        padding: 0px 16px;
+        padding: 0 16px;
+
         h5 {
           @include font-style(28px, 32px, $primary-blue, 500, $ButlerPro);
+
           //   font-family: "ButlerPro";
           //   font-weight: 500;
           //   font-size: 28px;
@@ -88,32 +96,39 @@
           //   letter-spacing: 0%;
           //   color: #2e2a94;
         }
+
         ol {
           list-style: none;
-          padding: 0px;
-          margin: 0px;
+          padding: 0;
+          margin: 0;
           display: flex;
           flex-direction: column;
           gap: 8px;
+
           li {
             display: flex;
             gap: 24px;
             padding-top: 16px;
             padding-bottom: 16px;
+
             ol {
               display: flex;
               flex-direction: column;
               gap: 8px;
+
               li:nth-child(1) {
                 @include font-style(18px, 24px, $primary-blue, 500, $Poppins);
+
                 // font-family: "Poppins";
                 // font-weight: 500;
                 // font-size: 18px;
                 // line-height: 24px;
                 letter-spacing: 0%;
+
                 // color: #2e2a94;
-                padding: 0px;
+                padding: 0;
               }
+
               li:nth-child(2) {
                 @include font-style(
                   16px,
@@ -122,21 +137,26 @@
                   400,
                   $Poppins
                 );
+
                 line-height: 24px;
                 letter-spacing: 0%;
+
                 // color: #424242;
-                padding: 0px;
+                padding: 0;
               }
+
               li:nth-child(3) {
                 @include font-style(12px, 16px, $neutrals-600, 400, $Poppins);
+
                 display: flex;
                 gap: 1px;
                 align-items: center;
-                padding: 0px;
+                padding: 0;
+
                 strong {
                   color: #2e2a94;
-                  padding: 0px;
-                  margin: 0px;
+                  padding: 0;
+                  margin: 0;
                   font-size: 12px;
                   line-height: 16px;
                   letter-spacing: 0%;
@@ -146,9 +166,11 @@
             }
           }
         }
+
         p {
           @include font-style(12px, 16px, $color-text-body, 400, $Poppins);
-          margin: 0px;
+
+          margin: 0;
           display: flex;
           flex-direction: column;
           gap: 10px;

@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 const dataCfObj = [
   {
     sebiCategory: 'Equity Fund',

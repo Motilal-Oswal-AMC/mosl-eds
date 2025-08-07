@@ -11,6 +11,7 @@
   align-items: center;
   gap: 24px;
   align-self: stretch;
+
   // box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   box-shadow: $box-shadow-soft;
   padding: 40px 24px;
@@ -18,16 +19,19 @@
   .default-content-wrapper {
     p:nth-child(1) {
       margin-bottom: 20px;
+
       strong {
         font-weight: map.get($font-weights, semibold);
         color: $primary-blue;
       }
     }
+
     p,
     ul,
     li {
       // margin-bottom: map.get($spacing, xs);
       margin-bottom: 1px;
+
       @include font-style(
         12px,
         16px,
@@ -47,11 +51,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+
     // flex-wrap: wrap;
     align-items: center;
+
     // justify-content: space-between;
     margin: 0 auto;
     gap: 24px;
+
     // border-radius: map.get($radius, r16);
     // width: 100%;
 
@@ -62,6 +69,7 @@
       flex-shrink: 0; // ✅ Add this line
       display: flex;
       flex-direction: row;
+
       // align-items: center;
       gap: map.get($spacing, md);
 
@@ -75,6 +83,7 @@
       .hero-text {
         display: flex;
         flex-direction: column;
+
         // gap: map.get($spacing, sm);
         text-align: left;
 
@@ -92,8 +101,9 @@
           map.get($font-weights, bold),
           $ButlerPro
         );
+
         // margin: 0 0 map.get($spacing, md);
-        margin: 0px;
+        margin: 0;
 
         @include media(mobile) {
           @include font-style(
@@ -103,6 +113,7 @@
             map.get($font-weights, bold),
             $ButlerPro
           );
+
           margin-bottom: 0;
         }
       }
@@ -126,16 +137,19 @@
     max-width: 100%;
     width: 100%;
     flex: 1 1 53%;
+
     // max-width: 608px
 
     .cal-container {
       // background: $primary-white;
       border-radius: map.get($radius, r8);
+
       // padding: map.get($spacing, lg);
       // padding: 24px 0px;
       align-self: stretch;
       max-width: 100%;
       width: 100%;
+
       // box-shadow: $box-shadow-soft;
 
       .search-bar-wrapper {
@@ -151,6 +165,7 @@
             map.get($font-weights, regular),
             $Poppins
           );
+
           text-align: left;
         }
 
@@ -188,7 +203,7 @@
         position: relative;
 
         ul {
-          font-family: "Poppins", sans-serif;
+          font-family: Poppins, sans-serif;
           list-style: none;
           margin: 0;
           padding: 0;
@@ -200,10 +215,9 @@
           z-index: 99;
           font-size: 18px;
           text-align: left;
-
           border-radius: 6px;
           border: 1px solid var(--Neutrals-200, #eee);
-          box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+          box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
 
           @include media(mobile) {
             border: 1px solid map.get($strokes, default);
@@ -266,6 +280,7 @@
 
       .invested-amount {
         display: flex;
+
         // margin: map.get($spacing, md) 0;
         align-items: flex-start;
         gap: map.get($spacing, xxs);
@@ -300,6 +315,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: map.get($spacing, xxl);
+
         // margin: map.get($spacing, md) 0;
         // border-bottom: 1px solid map.get($strokes, default);
         padding-bottom: 24px;
@@ -318,7 +334,9 @@
               map.get($font-weights, regular),
               $Poppins
             );
+
             cursor: pointer;
+
             &.active {
               color: #2e2a94; // Or your theme primary color
               font-weight: map.get($font-weights, medium);
@@ -340,10 +358,7 @@
             .slider {
               position: absolute;
               cursor: pointer;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
+              inset: 0;
               background-color: #ccc;
               transition: 0.4s;
               border-radius: 34px;
@@ -421,6 +436,7 @@
             padding: 12px 16px;
             cursor: pointer;
             transition: background-color 0.2s ease;
+
             @include font-style(
               16px,
               20px,
@@ -428,6 +444,7 @@
               map.get($font-weights, regular),
               $Poppins
             );
+
             border-bottom: 1px solid #eee;
 
             &:hover {
@@ -441,6 +458,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: map.get($spacing, xxl);
+
         // margin: map.get($spacing, md) 0;
         // border-bottom: 1px solid map.get($strokes, default);
         padding-bottom: 10px; // Add some padding
@@ -475,16 +493,15 @@
           font-size: 20px;
           font-weight: 500;
           width: 100%;
+
           // Remove default browser appearance
-          -webkit-appearance: none;
-          -moz-appearance: none;
           appearance: none;
           outline: none;
 
           // Remove number input spinners
           &::-webkit-outer-spin-button,
           &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
+            appearance: none;
             margin: 0;
           }
         }
@@ -513,7 +530,7 @@
           font-weight: 500;
         }
 
-        //new css
+        // new css
         .custom-select {
           position: relative; // Parent for the absolute positioned options
 
@@ -564,6 +581,7 @@
             padding: 12px 16px;
             cursor: pointer;
             transition: background-color 0.2s ease;
+
             @include font-style(
               16px,
               20px,
@@ -571,6 +589,7 @@
               map.get($font-weights, regular),
               $Poppins
             );
+
             border-bottom: 1px solid #eee;
 
             &:hover {
@@ -583,6 +602,7 @@
       .cal-discription {
         display: flex;
         flex-wrap: wrap;
+
         // justify-content: space-between;
         gap: 32px;
         position: relative;
@@ -619,9 +639,10 @@
 
         .start-sip-btn button {
           position: absolute;
-          right: 0px;
+          right: 0;
           display: flex;
           width: 132px;
+
           // width: 100%;
           padding: map.get($spacing, sm);
           justify-content: center;
@@ -637,6 +658,7 @@
           line-height: 16px;
           cursor: pointer;
           transition: background-color 0.2s ease;
+
           //
           // width: 176px;
           // padding: 12px var(--Spacing-12, 12px);
@@ -648,6 +670,7 @@
           &:hover {
             background: $primary-blue-dark;
           }
+
            @include media(mobile) {
             position:static;
            }
@@ -669,10 +692,10 @@
 
       @include media(mobile) {
         display: block;
+
         //  text-align: center;
         font-size: 16px;
         line-height: 24px;
-
         padding-top: map.get($spacing, xs);
         text-align: left;
 
@@ -684,6 +707,7 @@
             map.get($font-weights, regular),
             $Poppins
           );
+
           text-decoration: underline;
         }
       }
@@ -694,7 +718,7 @@
 /* Responsive */
 @include media(mobile) {
   .compounding {
-    padding: 0px;
+    padding: 0;
 
     .compounding-two-inner {
       flex-direction: column;

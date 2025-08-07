@@ -1,5 +1,5 @@
-/* stylelint-disable alpha-value-notation */
-/* stylelint-disable media-feature-range-notation */
+/*   alpha-value-notation */
+/*   media-feature-range-notation */
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
@@ -166,7 +166,7 @@
                                 font-style: normal;
                                 font-weight: 400;
                                 line-height: 20px;
-                                appearance: menulist;
+                                appearance: auto;
                                 padding-right: 4px;
                             }
 

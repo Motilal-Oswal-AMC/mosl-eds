@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 import {
   button,
   div,
@@ -13,9 +13,10 @@ import {
   img,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
+
 export default function decorate(block) {
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
-  let finPlangrp = [];
+  const finPlangrp = [];
   const tempReturns = [];
   block.returns.forEach((ret, jind) => {
     if (jind === 0) {
@@ -30,33 +31,39 @@ export default function decorate(block) {
 
   const DirectPlanlistArr = block.planList.filter((el) => {
     if (el.planName === 'Regular' && finPlangrp.includes(el.groupedCode)) {
-      return el
+      return el;
     }
   });
-  let classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : " not-provided"
-  let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
-  const cardContainer = div({
-      class: 'card-container'
+  const classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? '' : ' not-provided';
+  const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
+  const cardContainer = div(
+    {
+      class: 'card-container',
     },
-    div({
-        class: 'card-wrapper'
+    div(
+      {
+        class: 'card-wrapper',
       },
-      div({
-          class: 'card-upper-title'
+      div(
+        {
+          class: 'card-upper-title',
         },
-        div({
-            class: "title-headLogo"
+        div(
+          {
+            class: 'title-headLogo',
           },
-          div({
-              class: 'title title-logo'
+          div(
+            {
+              class: 'title title-logo',
             },
             img({
-              class: "logoScheme",
-              src: "../../icons/Group.svg",
-              alt: "BrandLogo"
-            })
+              class: 'logoScheme',
+              src: '../../icons/Group.svg',
+              alt: 'BrandLogo',
+            }),
           ),
-          div({
+          div(
+            {
               class: 'star',
               onclick: (event) => {
                 if (!Array.from(event.target.parentElement.classList).includes('star-filled')) {
@@ -65,53 +72,60 @@ export default function decorate(block) {
                   event.target.parentElement.classList.remove('star-filled');
                 }
               },
-              schcode: block.schcode
+              schcode: block.schcode,
             },
             img({
               class: 'star-icon',
               src: '../../icons/star.svg',
-              alt: "star-icon"
+              alt: 'star-icon',
             }),
             img({
               class: 'fillstar-icon',
               src: '../../icons/star-filled.svg',
-              alt: "fillstar-icon"
+              alt: 'fillstar-icon',
             }),
           ),
         ),
-        div({
-            class: "title-subtitle"
+        div(
+          {
+            class: 'title-subtitle',
           },
-          p("Motilal Oswal"),
-          div({
-              class: 'title title-logo'
+          p('Motilal Oswal'),
+          div(
+            {
+              class: 'title title-logo',
             },
             h2(block.schDetail.schemeName),
           ),
-        )
+        ),
       ),
-      div({
-          class: 'card-category'
+      div(
+        {
+          class: 'card-category',
         },
-        div({class: 'fund-tagging'},
-          ul({
-              class: 'fundtagging-list'
+        div(
+          { class: 'fund-tagging' },
+          ul(
+            {
+              class: 'fundtagging-list',
             },
             ...fundsTaggingSection.map((eloption) => li(eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' ').toUpperCase())),
           ),
         ),
-        div({
+        div(
+          {
             class: 'planlist-dropdown',
-            style: "display:" + classdropdown
+            style: `display:${classdropdown}`,
           },
-          select({
+          select(
+            {
               onchange: (event) => {
                 // console.log(event.target.value);
                 // console.log(event.target.closest('.card-wrapper').querySelector('.cagr-container .cagr-dropdown'));
                 // console.log(block.returns, block.planList, block.schDetail.schemeName);
                 planListEvent(event, block);
               },
-              "aria-label": "Select Investment Plan"
+              'aria-label': 'Select Investment Plan',
             },
             ...DirectPlanlistArr.map((el) => option({
               value: el.groupedCode,
@@ -119,24 +133,28 @@ export default function decorate(block) {
           ),
         ),
       ),
-      div({
-          class: 'cagr-container ' + classplan
+      div(
+        {
+          class: `cagr-container ${classplan}`,
         },
-        div({
-            class: 'cagr-dropdown'
+        div(
+          {
+            class: 'cagr-dropdown',
           },
           label('Annualised'),
-          div({
-              class: 'cagr-select-wrapper'
+          div(
+            {
+              class: 'cagr-select-wrapper',
             },
-            select({
+            select(
+              {
                 schemeCode: block.schcode,
                 value: tempReturns[0],
                 onchange: (event) => {
                   const cgarValue = block.returns[0][event.target.value];
                   event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
                   event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
-                  event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
+                  event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span('%'));
                 },
               },
               ...tempReturns.map((eloption) => option({
@@ -145,64 +163,72 @@ export default function decorate(block) {
             ),
           ),
         ),
-        div({
-            class: 'cagr-value'
+        div(
+          {
+            class: 'cagr-value',
           },
-          h2(`${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
-            span("%")
+          h2(
+            `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+            span('%'),
           ),
           p({
             class: 'scheme-yet',
-            style: 'display:none'
+            style: 'display:none',
           }, 'Scheme is yet to complete 10 Years'),
           p({
-            class: 'cagr-date'
+            class: 'cagr-date',
           }, '15th Mar 2020'),
         ),
-        div({
-            class: 'cagr-desc'
+        div(
+          {
+            class: 'cagr-desc',
           },
           span('Return is not provided because thescheme has not completed 6 months'),
         ),
       ),
-      div({
+      div(
+        {
           class: 'risk-container',
-          style:"display:none"
+          style: 'display:none',
         },
         label('Risk Factor'),
         span(block.risk.riskType),
       ),
-      div({
-          class: 'discription'
+      div(
+        {
+          class: 'discription',
         },
-        p({
-            class: 'dis-choosen'
+        p(
+          {
+            class: 'dis-choosen',
           },
           // 'Chosen by ',
-          div({
-            class: 'dis-investor'
-          }, 
-          img({
-            class:"icon person",
-            src:"../../icons/Icon.svg"
-          }),
-          span('2.7 lakh investors')
+          div(
+            {
+              class: 'dis-investor',
+            },
+            img({
+              class: 'icon person',
+              src: '../../icons/Icon.svg',
+            }),
+            span('2.7 lakh investors'),
           ),
           img({
-            class:"riskfactor-icon",
-            src:"../../icons/Risk-o-meter.svg",
-            alt:"risk icon"
-          })
+            class: 'riskfactor-icon',
+            src: '../../icons/Risk-o-meter.svg',
+            alt: 'risk icon',
+          }),
         ),
       ),
-      div({
-          class: 'button-container'
+      div(
+        {
+          class: 'button-container',
         },
         button({
-          class: 'know-more'
+          class: 'know-more',
         }, 'Know More'),
         button({
-          class: 'invest-now'
+          class: 'invest-now',
         }, 'Invest'),
       ),
     ),
@@ -225,35 +251,40 @@ function planListEvent(param, block) {
   });
   param.target.closest('.card-wrapper').querySelector('.cagr-container').innerHTML = '';
   if (codeTempArr.includes(param.target.value) && tempReturns.length !== 0) {
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
-    let dropdown = div({
+    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove('not-provided');
+    const dropdown = div(
+      {
         class: 'cagr-dropdown',
       },
       label('Annualised'),
-      div({
-          class: "cagr-select-wrapper"
+      div(
+        {
+          class: 'cagr-select-wrapper',
         },
-        select({
+        select(
+          {
             schemeCode: block.schcode,
             value: tempReturns[0],
             onchange: (event) => {
               const cgarValue = block.returns[0][event.target.value];
               event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
               event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
-              event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
+              event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span('%'));
             },
           },
           ...tempReturns.map((eloption) => option({
             value: dataMapMoObj.ObjTemp[eloption],
           }, eloption)),
         ),
-      )
-    )
-    let dropvalue = div({
+      ),
+    );
+    const dropvalue = div(
+      {
         class: 'cagr-value',
       },
-      h2(`${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
-        span("%")
+      h2(
+        `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+        span('%'),
       ),
       p({
         class: 'scheme-yet',
@@ -262,30 +293,34 @@ function planListEvent(param, block) {
       p({
         class: 'cagr-date',
       }, '15th Mar 2020'),
-    )
-    let droplessthan = div({
-        class: 'cagr-desc'
+    );
+    const droplessthan = div(
+      {
+        class: 'cagr-desc',
       },
       span('Return is not provided because thescheme has not completed 6 months'),
-    )
+    );
     param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
   } else {
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
-    let dropdown = div({
+    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove('not-provided');
+    const dropdown = div(
+      {
         class: 'cagr-dropdown',
       },
       label('Return (Absolute)'),
-    )
-    let dropvalue = div({
+    );
+    const dropvalue = div(
+      {
         class: 'cagr-value',
       },
-      h2(`NA`)
-    )
-    let droplessthan = div({
-        class: 'cagr-desc'
+      h2('NA'),
+    );
+    const droplessthan = div(
+      {
+        class: 'cagr-desc',
       },
       span('Return is not provided because thescheme has not completed 6 months'),
-    )
+    );
     param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
   }
 }

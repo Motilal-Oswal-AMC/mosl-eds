@@ -6,7 +6,7 @@
     details {
         border: 1px solid #dadada;
 
-        /* stylelint-disable-next-line no-descending-specificity */
+        /*  -next-line no-descending-specificity */
         // Use the parent selector `&` to target an adjacent sibling
         &+& {
             margin-top: 24px;

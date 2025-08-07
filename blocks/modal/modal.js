@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 import { loadFragment } from '../fragment/fragment.js';
 import {
   buildBlock, decorateBlock, loadBlock, loadCSS,
