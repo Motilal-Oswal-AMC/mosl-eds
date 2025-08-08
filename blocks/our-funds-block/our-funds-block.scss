@@ -23,6 +23,7 @@
     @include media(mobile) {
       flex-direction: column;
       gap: 36px;
+      padding: 56px 0 0;
     }
     .block-subitem1 {
       h1 {
@@ -85,7 +86,7 @@
         }
         .search {
           width: 100%;
-          @include font-style(14px, 20px, $neutrals-black, 500, $Poppins);
+          @include font-style(14px, 20px, $neutrals-black, 400, $Poppins);
           border: none;
           outline: none;
           background-color: transparent;
@@ -167,6 +168,7 @@
         @include media(mobile) {
           grid-area: watchlist;
           margin-top: 20px;
+          padding: 8px 0;
         }
         .staricon {
           .icon {
@@ -202,7 +204,7 @@
         align-items: center;
         gap: 16px;
         @include media(tab) {
-          gap: 6px;
+          gap: 0;
         }
         @include media(mobile) {
           grid-area: trending;
@@ -221,11 +223,11 @@
           @include media(mobile) {
             position: sticky;
             left: 0;
-            background: #fff;
-            padding: 4px 10px 4px 4px;
+            background: #f5f5f5;
+            padding: 2px 8px 2px 0;
           }
           p,
-          .icon {
+          span.icon {
             margin: 0;
             width: 16px;
             height: 16px;
@@ -274,7 +276,7 @@
   .filter-cards {
     display: flex;
     gap: 16px;
-    margin: 55px 0 0;
+    margin: 56px 0 0;
     @include media(mobile) {
       //   display: none;
       margin: 12px 0 0;
@@ -1017,7 +1019,8 @@
             @include media(mobile) {
               position: absolute;
               right: 0;
-              top: -45px;
+              top: -49px;
+              margin: 2px 0;
             }
             button {
               margin: 0 0 0 12px;
