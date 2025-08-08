@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 import {
   button,
   div,
@@ -21,7 +21,7 @@ export default function decorate(block) {
     planFlow =  document.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct";    
   }
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
-  let finPlangrp = [];
+  const finPlangrp = [];
   const tempReturns = [];
   block.returns.forEach((ret, jind) => {
     if (jind === 0) {
@@ -487,8 +487,9 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
     let dropvalue = div({
         class: 'cagr-value',
       },
-      h2(`${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
-        span("%")
+      h2(
+        `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+        span('%'),
       ),
       p({
         class: 'scheme-yet',
@@ -497,30 +498,34 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
       p({
         class: 'cagr-date',
       }, '15th Mar 2020'),
-    )
-    let droplessthan = div({
-        class: 'cagr-desc'
+    );
+    const droplessthan = div(
+      {
+        class: 'cagr-desc',
       },
       span('Return is not provided because thescheme has not completed 6 months'),
-    )
+    );
     param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
   } else {
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
-    let dropdown = div({
+    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove('not-provided');
+    const dropdown = div(
+      {
         class: 'cagr-dropdown',
       },
       label('Return (Absolute)'),
-    )
-    let dropvalue = div({
+    );
+    const dropvalue = div(
+      {
         class: 'cagr-value',
       },
-      h2(`NA`)
-    )
-    let droplessthan = div({
-        class: 'cagr-desc'
+      h2('NA'),
+    );
+    const droplessthan = div(
+      {
+        class: 'cagr-desc',
       },
       span('Return is not provided because thescheme has not completed 6 months'),
-    )
+    );
     param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
   }
 }

@@ -1,4 +1,4 @@
-@import url("../fund-card/fund-card.css");
+@import "../fund-card/fund-card.css";
 
 .tabs .tabs-list {
     display: flex;

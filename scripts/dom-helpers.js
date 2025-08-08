@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 /*
  * Copyright 2023 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -11,7 +11,7 @@
  * governing permissions and limitations under the License.
  */
 
-/* eslint-disable no-param-reassign */
+/*    no-param-reassign */
 
 /**
  * Example Usage:

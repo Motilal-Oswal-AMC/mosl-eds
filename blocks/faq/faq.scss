@@ -1,5 +1,5 @@
-/* stylelint-disable alpha-value-notation */
-/* stylelint-disable media-feature-range-notation */
+/*   alpha-value-notation */
+/*   media-feature-range-notation */
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
@@ -42,6 +42,7 @@
             // font-weight: 700;
             // line-height: 44px;
             @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+
             padding: 0;
             margin: 0;
 
@@ -79,6 +80,7 @@
 
                 p {
                     margin: 0;
+
                     @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $Poppins);
 
                     @include media (mobile) {
@@ -116,12 +118,12 @@
                         border: none;
                         border-width: unset;
                         transform: unset;
-                        background: url(../../icons/plus-blue.svg);
+                        background: url("../../icons/plus-blue.svg");
                         transition: transform 0.2s;
 
                         @include media(mobile) {
                             top: -2px;
-                            right: 0px;
+                            right: 0;
                         }
                     }
                 }
@@ -134,14 +136,14 @@
                     summary {
                         color: #fff;
                         background: #242177;
-                        border-radius: 8px 8px 0px 0px;
+                        border-radius: 8px 8px 0 0;
                         padding: 16px;
                         padding-bottom: 8px;
 
                         &::after {
                             top: 15px;
                             right: 25px;
-                            background: url(../../icons/mins-white.svg);
+                            background: url("../../icons/mins-white.svg");
                             transform: unset;
                         }
 
@@ -161,9 +163,9 @@
                         margin-top: -1px;
                         padding: 16px;
                         padding-top: 0;
-                        border-radius: 0px 0px 8px 8px;
+                        border-radius: 0 0 8px 8px;
                         background: #242177;
-                        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+                        box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
 
                         p {
                             @include font-style(14px, 20px, $primary-white, map.get($font-weights, regular), $Poppins);
@@ -224,7 +226,7 @@
                 line-height: 20px;
                 text-decoration-line: underline;
                 text-decoration-style: solid;
-                -webkit-text-decoration-skip: ink;
+                text-decoration-skip: ink;
                 text-decoration-skip-ink: auto;
                 text-decoration-thickness: auto;
                 text-underline-position: from-font;

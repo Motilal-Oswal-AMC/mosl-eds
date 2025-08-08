@@ -1,0 +1,167 @@
+@import "../../../styles/fonts.css";
+.section.fdp-card-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1266px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 50px;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+.section.fdp-card-container .item1 {
+  margin: 0;
+  max-width: 400px;
+  width: 100%;
+  /* fdp cards */
+}
+.section.fdp-card-container .item1 .fdp-card {
+  position: fixed;
+  width: 30%;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item1 .fdp-card {
+    position: static;
+  }
+}
+.section.fdp-card-container .item2 {
+  margin: 0;
+  max-width: 816px;
+  width: 100%;
+  padding: 0;
+  /* ul for second part */
+  /* why fund section */
+}
+.section.fdp-card-container .item2 .item2-ul {
+  z-index: 1;
+  max-width: 816px;
+  width: 100%;
+  justify-content: space-between;
+  position: fixed;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #b6bcc7;
+  background-color: #fff;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .item2-ul {
+    position: static;
+    max-width: 300px;
+    width: 100%;
+    overflow-y: auto;
+  }
+}
+.section.fdp-card-container .item2 .item2-ul li a {
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  padding: 12px;
+  cursor: pointer;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .item2-ul li a {
+    text-wrap: nowrap;
+  }
+}
+.section.fdp-card-container .item2 .why-fund {
+  margin: 80px 0;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 0 16px;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper h5 {
+  font-size: 28px;
+  line-height: 32px;
+  color: #2e2a94;
+  font-family: "ButlerPro", sans-serif;
+  font-weight: 500;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li {
+  display: flex;
+  gap: 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(1) {
+  font-size: 18px;
+  line-height: 24px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0%;
+  padding: 0;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(2) {
+  font-size: 16px;
+  line-height: 24px;
+  color: #424242;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0%;
+  padding: 0;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(3) {
+  font-size: 12px;
+  line-height: 16px;
+  color: #757575;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  display: flex;
+  gap: 1px;
+  align-items: center;
+  padding: 0;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(3) strong {
+  color: #2e2a94;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  font-weight: 400;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper p {
+  font-size: 12px;
+  line-height: 16px;
+  color: #424242;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper p span {
+  width: 48px;
+  height: 48px;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper p strong {
+  color: #2e2a94;
+  font-weight: 600;
+  font-size: 14px;
+}/*# sourceMappingURL=fdp-card.css.map */

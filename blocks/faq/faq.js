@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 
 /**
  * Transforms a content block into an accessible accordion.
