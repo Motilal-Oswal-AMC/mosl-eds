@@ -9,6 +9,19 @@ export default function decorate(block){
     }
     let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     let labelcagr = evaluateByDays(block.dateOfAllotment)
+    let finPlangrp = [];
+    const tempReturns = [];
+    block.returns.forEach((ret, jind) => {
+        if (jind === 0) {
+        [...Object.keys(ret)].forEach((key)=>{
+            if (dataMapMoObj.ObjTemp[key]) {
+            tempReturns.push(dataMapMoObj.ObjTemp[key]);
+            }
+        })
+        }
+        finPlangrp.push((ret.plancode + ret.optioncode));
+    });
+    let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
     if ([...block.fundsTaggingSection].includes("NFO")) {
         let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
         let listcontainer = div({class:"nfo-list-container list-view-container"},
@@ -72,7 +85,7 @@ export default function decorate(block){
                 img({class: "logoScheme",src: "../../icons/direction-right.svg",alt: "Direction Right"})
             ),
             div({class:"cagr-return"},
-                div({class:"cagr-value"},"24.02",span("%")),
+                div({class:"cagr-value"},`${block.returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,span("%")),
                 p(labelcagr)
             ),
             div({class:"risk-star-icon"},
