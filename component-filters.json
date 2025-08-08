@@ -29,7 +29,8 @@
       "investment-block",
       "growth-now",
       "broaden-your-research",
-      "make-index-funds"
+      "make-index-funds",
+      "risk-o-meter"
     ]
   },
   {
@@ -71,5 +72,9 @@
   {
     "id": "live-streaming",
     "components": ["live-streaming-content"]
+  },
+  {
+    "id": "risk-o-meter",
+    "components": ["risk-o-meter-item"]
   }
 ]

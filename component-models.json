@@ -769,5 +769,27 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "risk-o-meter-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Scheme Risk- O-Meter",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      }
+    ]
   }
 ]
