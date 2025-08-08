@@ -54,6 +54,7 @@ export default function decorate(block){
                     img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"}),
                 ),
                 div({class: "star "+starClass,
+                    schcode:block.schcode,
                     onclick: (event) => {
                         if (!Array.from(event.target.parentElement.classList).includes("star-filled")) {
                         event.target.parentElement.classList.add("star-filled");
@@ -93,6 +94,7 @@ export default function decorate(block){
                 img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),
             ),
             div({class: "star "+starClass,
+                schcode:block.schcode,
                 onclick: (event) => {
                         if (!Array.from(event.target.parentElement.classList).includes("star-filled")) {
                         event.target.parentElement.classList.add("star-filled");
