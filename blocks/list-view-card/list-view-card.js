@@ -16,7 +16,7 @@ export default function decorate(block){
                 div({class:"fund-name-wrapper", schcode :block.schcode},
                     div({class:"fund-inner-wrapper"},
                         div({class:"logo-container"},
-                        img({class: "logoScheme",src: "../../icons/Group.svg",alt: "BrandLogo"})
+                        img({class: "logoScheme",src: block.fundIcon,alt: "BrandLogo"})
                         ),
                         div({class:"fund-name-container"},
                             p("Motilal Oswal"),
@@ -63,7 +63,7 @@ export default function decorate(block){
         div({class:"list-wrapper"},
             div({class:"fund-name-wrapper", schcode :block.schcode},
                 div({class:"logo-container"},
-                    img({class: "logoScheme",src: "../../icons/Group.svg",alt: "BrandLogo"})
+                    img({class: "logoScheme",src: block.fundIcon,alt: "BrandLogo"})
                 ),
                 div({class:"fund-name-container"},
                     p("Motilal Oswal"),
