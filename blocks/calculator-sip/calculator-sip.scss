@@ -4,760 +4,13 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 /* MAIN WRAPPER */
-// .fdp-calculator{
-//   background: $primary-white;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 24px;
-//   align-self: stretch;
-//   box-shadow: $box-shadow-soft;
-//   padding: 40px 24px;
-//   @include media(mobile) {
-//     padding: 40px 16px;
-//     background-color: #edf1ff;
-//   }
-
-//   .default-content-wrapper {
-//     p:nth-child(1) {
-//       margin-bottom: 20px;
-
-//       strong {
-//         font-weight: map.get($font-weights, semibold);
-//         color: $primary-blue;
-//       }
-//     }
-
-//     p,
-//     ul,
-//     li {
-//       // margin-bottom: map.get($spacing, xs);
-//       margin-bottom: 1px;
-
-//       @include font-style(
-//         12px,
-//         16px,
-//         $color-text-body,
-//         map.get($font-weights, regular),
-//         $Poppins
-//       );
-//     }
-
-//     ul {
-//       padding-left: map.get($spacing, md);
-//     }
-//   }
-
-//   .compounding-two-inner {
-//     max-width: 100%;
-//     width: 100%;
-//     display: flex;
-//     flex-direction: column;
-
-//     // flex-wrap: wrap;
-//     align-items: center;
-
-//     // justify-content: space-between;
-//     margin: 0 auto;
-//     gap: 24px;
-
-//     @include media(mobile) {
-//       flex-direction: column;
-//       text-align: center;
-//       gap: 40px;
-//     }
-
-//     .default-content-wrapper {
-//       width: 100%;
-//       flex: 1 1 37%;
-//       text-align: left;
-//       flex-shrink: 0; // ✅ Add this line
-//       display: flex;
-//       flex-direction: row;
-//       gap: map.get($spacing, md);
-
-//       @include media(mobile) {
-//         align-items: flex-start;
-//         padding-top: 40px;
-//       }
-
-//       .icon {
-//         flex: 0 0 auto;
-//         width: 48px;
-//         height: 48px;
-//         flex-shrink: 0;
-//       }
-
-//       .hero-image {
-//         width: 48px;
-//         height: 48px;
-//         p {
-//           margin: 0px;
-//         }
-//       }
-
-//       .hero-text {
-//         display: flex;
-//         flex-direction: column;
-
-//         // gap: map.get($spacing, sm);
-//         text-align: left;
-
-//         @include media(mobile) {
-//           gap: 4px;
-//         }
-
-//         p {
-//           display: none;
-//           @include media(mobile) {
-//             display: block;
-//             color: $primary-blue;
-//             font-family: $Poppins;
-//             font-size: 1rem;
-//             line-height: 1.5;
-//             margin: 0;
-//             max-width: 450px;
-
-//             font-size: 14px;
-//           }
-//         }
-//       }
-
-//       h3,
-//       h4 {
-//         @include font-style(
-//           32px,
-//           40px,
-//           $primary-blue,
-//           map.get($font-weights, bold),
-//           $ButlerPro
-//         );
-
-//         // margin: 0 0 map.get($spacing, md);
-//         margin: 0;
-
-//         @include media(mobile) {
-//           @include font-style(
-//             32px,
-//             40px,
-//             $primary-blue,
-//             map.get($font-weights, bold),
-//             $ButlerPro
-//           );
-
-//           margin-bottom: 0;
-//         }
-//       }
-//     }
-//   }
-
-//   .calculator-sip-wrapper {
-//     max-width: 100%;
-//     width: 100%;
-//     flex: 1 1 53%;
-
-//     // max-width: 608px
-//     @include media(mobile) {}
-//       .calculator-sip {
-//         background-color: #ffffff;
-//         padding: 24px;
-//         border-radius: 8px;
-//         width: 100%;
-//       }
-
-//       .cal-container {
-//         border-radius: map.get($radius, r8);
-//         align-self: stretch;
-//         max-width: 100%;
-//         width: 100%;
-
-//         // box-shadow: $box-shadow-soft;
-
-//         .search-bar-wrapper {
-//           margin-bottom: 10px;
-//           display: flex;
-//           flex-direction: column;
-//           gap: map.get($spacing, xs);
-
-//           span {
-//             @include font-style(
-//               12px,
-//               16px,
-//               $color-text-body,
-//               map.get($font-weights, regular),
-//               $Poppins
-//             );
-
-//             text-align: left;
-//           }
-
-//           label {
-//             @include font-style(
-//               14px,
-//               normal,
-//               var(--text-color),
-//               map.get($font-weights, semibold),
-//               $Poppins
-//             );
-//           }
-
-//           input {
-//             width: 100%;
-//             color: #2e2a94;
-//             font-family: $Poppins;
-//             font-size: 16px;
-//             font-weight: 500;
-//             line-height: 20px;
-//             border-radius: 4px;
-//             background: url("../../icons/search-icon.svg") no-repeat right 12px
-//               center;
-//             background-size: 20px 20px;
-//             border: none;
-//             outline: none;
-
-//             &:active {
-//               border: none;
-//             }
-//             @include media(mobile) {
-//               background: url("../../icons/search-icon-white.svg") no-repeat
-//                 right 12px center;
-//             }
-//           }
-//         }
-
-//         .search-results-wrapper {
-//           position: relative;
-
-//           ul {
-//             font-family: Poppins, sans-serif;
-//             list-style: none;
-//             margin: 0;
-//             padding: 0;
-//             max-height: 200px;
-//             overflow-y: auto;
-//             background: $primary-white;
-//             position: absolute;
-//             width: 100%;
-//             z-index: 99;
-//             font-size: 18px;
-//             text-align: left;
-//             border-radius: 6px;
-//             border: 1px solid var(--Neutrals-200, #eee);
-//             box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
-
-//             @include media(mobile) {
-//               border: 1px solid map.get($strokes, default);
-//             }
-
-//             li {
-//               // padding: 10px;
-//               padding: 12px 16px;
-//               cursor: pointer;
-
-//               &:hover {
-//                 background: map.get($old-silver, 50);
-//               }
-
-//               &.active {
-//                 // background: map.get($blue-1, b25);
-//                 // border-left: 3px solid $primary-blue;
-//                 background: var(--Neutrals-200, #eee);
-//               }
-//             }
-//           }
-//         }
-
-//         .scheme-btns-wrapper {
-//           display: flex;
-//           gap: map.get($spacing, sm);
-
-//           @include media(mobile) {
-//             padding-bottom: 10px;
-//           }
-//           // margin-top: map.get($spacing, md);
-
-//           button {
-//             display: flex;
-//             width: 104px;
-//             height: 32px;
-//             padding: map.get($spacing, xs) map.get($spacing, sm);
-//             justify-content: center;
-//             align-items: center;
-//             border-radius: 1000px;
-//             border: 1px solid #bdbdbd;
-//             background: #fafafa;
-//             color: #424242;
-//             font-family: $Poppins;
-//             font-size: 14px;
-//             font-weight: 600;
-//             line-height: 22px;
-//             cursor: pointer;
-//             transition: all 0.2s ease;
-
-//             &:hover {
-//               background: $primary-blue;
-//               color: $primary-white;
-//             }
-
-//             &.active {
-//               background: #edf1ff;
-//               color: #2e2a94;
-//               border: 1px solid #382ad7;
-//             }
-//           }
-//         }
-
-//         .invested-amount {
-//           display: flex;
-
-//           // margin: map.get($spacing, md) 0;
-//           align-items: flex-start;
-//           gap: map.get($spacing, xxs);
-//           align-self: stretch;
-//           padding-bottom: 24px;
-
-//           // @include media(mobile) {
-//           //   // margin: 32px 0 24px;
-//           //   // padding-bottom: 24px;
-
-//           // }
-
-//           label {
-//             @include font-style(
-//               12px,
-//               16px,
-//               $color-text-body,
-//               map.get($font-weights, regular),
-//               $Poppins
-//             );
-//           }
-
-//           span {
-//             color: #2b2e8c;
-//             font-family: $Poppins;
-//             font-size: 12px;
-//             font-weight: 600;
-//             line-height: 16px;
-//             margin-left: 4px;
-//           }
-//         }
-
-//         .plan-options-wrapper {
-//           display: flex;
-//           flex-wrap: wrap;
-//           gap: map.get($spacing, xxl);
-
-//           // margin: map.get($spacing, md) 0;
-//           // border-bottom: 1px solid map.get($strokes, default);
-//           padding-bottom: 24px;
-
-//           .plan-type-toggle {
-//             display: flex;
-//             flex: 1 1 45%;
-//             align-items: center;
-//             gap: map.get($spacing, sm);
-
-//             .toggle-label {
-//               @include font-style(14px, 20px, $neutrals-black, 500, $Poppins);
-
-//               cursor: pointer;
-
-//               &.active {
-//                 color: #2e2a94; // Or your theme primary color
-//                 font-weight: map.get($font-weights, medium);
-//               }
-//             }
-
-//             .toggle-switch {
-//               position: relative;
-//               display: inline-block;
-//               width: 50px;
-//               height: 24px;
-
-//               input {
-//                 opacity: 0;
-//                 width: 0;
-//                 height: 0;
-//               }
-
-//               .slider {
-//                 position: absolute;
-//                 cursor: pointer;
-//                 inset: 0;
-//                 background-color: #ccc;
-//                 transition: 0.4s;
-//                 border-radius: 34px;
-
-//                 &::before {
-//                   position: absolute;
-//                   content: "";
-//                   height: 18px;
-//                   width: 18px;
-//                   left: 4px;
-//                   bottom: 3px;
-//                   background-color: white;
-//                   transition: 0.4s;
-//                   border-radius: 50%;
-//                 }
-//               }
-
-//               // input:checked + .slider {
-//               //   // background-color: #2E2A94; // Theme color
-//               // }
-
-//               input:checked + .slider::before {
-//                 transform: translateX(26px);
-//               }
-//             }
-//           }
-
-//           .plan-option-select {
-//             position: relative;
-//             flex: 1 1 45%;
-//             min-width: 200px;
-
-//             .select-selected-plan {
-//               color: #2e2a94;
-//               font-family: $Poppins;
-//               font-size: 20px;
-//               font-weight: 500;
-//               cursor: pointer;
-//               position: relative;
-//               user-select: none;
-//               padding-bottom: 4px;
-
-//               @include media(mobile) {
-//                 text-align: start;
-//               }
-//               &::after {
-//                 content: "";
-//                 position: absolute;
-//                 right: 0;
-//                 top: 50%;
-//                 transform: translateY(-50%);
-//                 width: 20px;
-//                 height: 20px;
-//                 background: url("../../icons/Frame.svg") no-repeat center;
-//                 background-size: contain;
-//                 transition: transform 0.2s ease;
-//               }
-//             }
-
-//             .select-options-plan {
-//               display: none;
-//               position: absolute;
-//               top: 110%;
-//               left: 0;
-//               right: 0;
-//               background: $primary-white;
-//               border-radius: map.get($radius, r8);
-//               box-shadow: $box-shadow-soft;
-//               z-index: 10;
-//               overflow: hidden;
-
-//               &.open {
-//                 display: block;
-//               }
-//             }
-
-//             .select-option-plan {
-//               padding: 12px 16px;
-//               cursor: pointer;
-//               transition: background-color 0.2s ease;
-//               text-align: start;
-
-//               @include font-style(
-//                 16px,
-//                 20px,
-//                 $color-text-body,
-//                 map.get($font-weights, regular),
-//                 $Poppins
-//               );
-
-//               border-bottom: 1px solid #eee;
-
-//               &:hover {
-//                 background-color: #f0f0f0;
-//               }
-//             }
-//           }
-//         }
-
-//         .investment-wrapper {
-//           display: flex;
-//           flex-wrap: wrap;
-//           gap: map.get($spacing, xxl);
-//           padding-bottom: 10px; // Add some padding
-//           @include media(mobile) {
-//             flex-direction: column;
-//             gap: map.get($spacing, md);
-//             text-align: left;
-//           }
-//           .sip-wrapper,
-//           .tenure-wrapper {
-//             position: relative; // Crucial for icon positioning
-//             flex: 1 1 45%; // Allows wrapping
-//             display: flex;
-//             flex-direction: column;
-//             gap: map.get($spacing, xs);
-//             min-width: 200px; // Prevents items from getting too squished
-//           }
-
-//           label {
-//             @include font-style(
-//               12px,
-//               16px,
-//               $color-text-body,
-//               map.get($font-weights, regular),
-//               $Poppins
-//             );
-//           }
-
-//           // --- Base styles for BOTH input and select ---
-//           input,
-//           select {
-//             border: none;
-//             background-color: transparent;
-//             color: #2e2a94;
-//             font-family: $Poppins;
-//             font-size: 20px;
-//             font-weight: 500;
-//             width: 100%;
-
-//             // Remove default browser appearance
-//             appearance: none;
-//             outline: none;
-
-//             // Remove number input spinners
-//             &::-webkit-outer-spin-button,
-//             &::-webkit-inner-spin-button {
-//               appearance: none;
-//               margin: 0;
-//             }
-//           }
-
-//           // --- Specific style for the amount input ---
-//           .sip-wrapper input {
-//             padding-left: 13px; // Make space for the Rupee symbol
-//           }
-
-//           // --- Specific style for the tenure select ---
-//           .tenure-wrapper select {
-//             padding-right: 32px; // Make space for the dropdown arrow
-//             cursor: pointer;
-//           }
-
-//           // --- Icon Positioning ---
-//           .sip-wrapper::before {
-//             content: "₹";
-//             position: absolute;
-//             left: 0;
-//             bottom: 4px; // Position relative to the bottom
-//             pointer-events: none;
-//             color: #2e2a94;
-//             font-family: $Poppins;
-//             font-size: 20px;
-//             font-weight: 500;
-//           }
-
-//           // new css
-//           .custom-select {
-//             position: relative; // Parent for the absolute positioned options
-
-//             .select-selected {
-//               color: #2e2a94;
-//               font-family: $Poppins;
-//               font-size: 20px;
-//               font-weight: 500;
-//               cursor: pointer;
-//               position: relative;
-//               user-select: none;
-//               padding-bottom: 4px; // Add some space for the bottom border of the wrapper
-
-//               &::after {
-//                 content: "";
-//                 position: absolute;
-//                 right: 0;
-//                 top: 50%;
-//                 transform: translateY(-50%);
-//                 width: 20px;
-//                 height: 20px;
-//                 background: url("../../icons/Frame.svg") no-repeat center;
-//                 background-size: contain;
-//                 transition: transform 0.2s ease;
-//               }
-//             }
-
-//             // The container for all options, hidden by default
-//             .select-options {
-//               display: none; // Hidden by default
-//               position: absolute;
-//               top: 110%;
-//               left: 0;
-//               right: 0;
-//               background: $primary-white;
-//               border-radius: map.get($radius, r8);
-//               box-shadow: $box-shadow-soft;
-//               z-index: 10;
-//               overflow: hidden;
-
-//               &.open {
-//                 display: block; // Show when the 'open' class is added
-//               }
-//             }
-
-//             // Individual option styles
-//             .select-option {
-//               padding: 12px 16px;
-//               cursor: pointer;
-//               transition: background-color 0.2s ease;
-
-//               @include font-style(
-//                 16px,
-//                 20px,
-//                 $color-text-body,
-//                 map.get($font-weights, regular),
-//                 $Poppins
-//               );
-
-//               border-bottom: 1px solid #eee;
-
-//               &:hover {
-//                 background-color: #f0f0f0; // Or your theme's hover color
-//               }
-//             }
-//           }
-//         }
-
-//         .cal-discription {
-//           display: flex;
-//           flex-wrap: wrap;
-//           gap: 32px;
-//           position: relative;
-
-//           @include media(mobile) {
-//             display: flex;
-//             flex-wrap: wrap;
-//             justify-content: space-between;
-//             align-items: flex-start;
-//             gap: map.get($spacing, md);
-//             text-align: left;
-//           }
-
-//           .current-value-wrapper,
-//           .return-cagr-wrapper {
-//             display: flex;
-//             flex-direction: column;
-//             gap: map.get($spacing, xxs);
-
-//             label {
-//               @include font-style(
-//                 12px,
-//                 16px,
-//                 $color-text-body,
-//                 map.get($font-weights, regular),
-//                 $Poppins
-//               );
-
-//               @include media(mobile) {
-//                 white-space: nowrap;
-//               }
-//             }
-
-//             span {
-//               color: #2e2a94;
-//               font-family: $Poppins;
-//               font-size: 24px;
-//               font-weight: 600;
-//               line-height: 32px;
-//               text-align: left;
-//             }
-//           }
-//           .start-sip-btn {
-//             @include media(mobile) {
-//               position: static;
-//               width: 100%;
-//             }
-//             button {
-//               position: absolute;
-//               right: 0;
-//               display: flex;
-//               width: 132px;
-
-//               // width: 100%;
-//               padding: map.get($spacing, sm);
-//               justify-content: center;
-//               align-items: center;
-//               gap: map.get($spacing, xs);
-//               border-radius: map.get($radius, r8);
-//               background: $primary-blue;
-//               border: none;
-//               color: #fff;
-//               font-family: $Poppins;
-//               font-size: 14px;
-//               font-weight: 600;
-//               line-height: 16px;
-//               cursor: pointer;
-//               transition: background-color 0.2s ease;
-
-//               &:hover {
-//                 background: $primary-blue-dark;
-//               }
-
-//               @include media(mobile) {
-//                 position: static;
-//                 width: 100%;
-//               }
-//             }
-//           }
-//         }
-
-//         .no-returns-msg {
-//           margin-top: map.get($spacing, xs);
-//           color: rgb(113 113 113);
-//           font-size: 0.875rem;
-//           line-height: 1.25rem;
-//           background-color: rgb(251 238 221);
-//           padding: map.get($spacing, xxs);
-//         }
-//       }
-
-//       .view-btn-cal {
-//         display: none;
-
-//         @include media(mobile) {
-//           display: block;
-//           text-align: center;
-//           font-size: 16px;
-//           line-height: 24px;
-//           padding-top: map.get($spacing, xs);
-//           // text-align: left;
-
-//           a {
-//             @include font-style(
-//               14px,
-//               20px,
-//               $primary-blue,
-//               map.get($font-weights, regular),
-//               $Poppins
-//             );
-
-//             text-decoration: underline;
-//           }
-//         }
-//       }
-
-//   }
-// }
-
-/* MAIN WRAPPER */
 .compounding,
 .fdp-calculator {
   background: $primary-white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: map.get($spacing, xs);
+  gap: 24px;
   align-self: stretch;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -765,6 +18,7 @@
   @include media(mobile) {
     padding: 40px 16px;
     background-color: #edf1ff;
+    gap: 40px;
   }
 
   .default-content-wrapper {
@@ -772,6 +26,7 @@
     ul,
     li {
       margin-bottom: map.get($spacing, xs);
+
       @include font-style(
         12px,
         16px,
@@ -806,7 +61,7 @@
       gap: 40px;
 
       @include media(mobile) {
-        padding: 0px;
+        padding: 0;
       }
     }
 
@@ -848,7 +103,8 @@
           map.get($font-weights, bold),
           $ButlerPro
         );
-        margin: 0px;
+
+        margin: 0;
 
         @include media(mobile) {
           @include font-style(
@@ -858,6 +114,7 @@
             map.get($font-weights, bold),
             $ButlerPro
           );
+
           margin-bottom: 0;
         }
       }
@@ -883,9 +140,9 @@
 
     .calculator-sip {
       @include media(mobile) {
-        background: #ffffff;
+        background: #fff;
         border-radius: map.get($radius, r8);
-        padding: map.get($spacing, lg);
+        padding: 24px 16px;
         align-self: stretch;
         box-shadow: $box-shadow-soft;
       }
@@ -893,12 +150,23 @@
       .cal-container {
         background: $primary-white;
         border-radius: map.get($radius, r8);
-        // padding: map.get($spacing, lg);
         align-self: stretch;
-        // box-shadow: $box-shadow-soft;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
 
         @include media(mobile) {
-          padding: 0px;
+          gap: 24px;
+        }
+
+        .spi-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        @include media(mobile) {
+          padding: 0;
           background-color: transparent;
           box-shadow: none;
         }
@@ -916,6 +184,7 @@
               map.get($font-weights, regular),
               $Poppins
             );
+
             text-align: left;
           }
 
@@ -953,7 +222,7 @@
           position: relative;
 
           ul {
-            font-family: "Poppins", sans-serif;
+            font-family: Poppins, sans-serif;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -965,10 +234,9 @@
             z-index: 99;
             font-size: 18px;
             text-align: left;
-
             border-radius: 6px;
             border: 1px solid var(--Neutrals-200, #eee);
-            box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+            box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
 
             @include media(mobile) {
               border: 1px solid map.get($strokes, default);
@@ -992,7 +260,6 @@
         .scheme-btns-wrapper {
           display: flex;
           gap: map.get($spacing, sm);
-          margin-top: map.get($spacing, md);
 
           button {
             display: flex;
@@ -1025,34 +292,135 @@
           }
         }
 
-        .invested-amount {
+        .incal-wrapper {
           display: flex;
-          padding: 32px 0px 24px 0px;
-          align-items: flex-start;
-          gap: map.get($spacing, xxs);
-          align-self: stretch;
+          flex-direction: column;
+          gap: 24px;
 
-          @include media(mobile) {
-            // margin: 32px 0 24px;
+          .invested-amount {
+            display: flex;
+            align-items: flex-start;
+            gap: map.get($spacing, xxs);
+            align-self: stretch;
+
+            label {
+              @include font-style(
+                12px,
+                16px,
+                $color-text-body,
+                map.get($font-weights, regular),
+                $Poppins
+              );
+            }
+
+            span {
+              color: #2b2e8c;
+              font-family: $Poppins;
+              font-size: 12px;
+              font-weight: 600;
+              line-height: 16px;
+              margin-left: 4px;
+            }
           }
 
-          label {
-            @include font-style(
-              12px,
-              16px,
-              $color-text-body,
-              map.get($font-weights, regular),
-              $Poppins
-            );
-          }
+          .cal-discription {
+            display: flex;
+            flex-wrap: wrap;
 
-          span {
-            color: #2b2e8c;
-            font-family: $Poppins;
-            font-size: 12px;
-            font-weight: 600;
-            line-height: 16px;
-            margin-left: 4px;
+            //   justify-content: space-between;
+            gap: 32px;
+            position: relative;
+
+            @include media(mobile) {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: map.get($spacing, md);
+              text-align: left;
+            }
+
+            .current-value-wrapper,
+            .return-cagr-wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: map.get($spacing, xxs);
+
+              label {
+                @include font-style(
+                  12px,
+                  16px,
+                  $color-text-body,
+                  map.get($font-weights, regular),
+                  $Poppins
+                );
+
+                @include media(mobile) {
+                  white-space: nowrap;
+                }
+              }
+
+              span {
+                color: #2e2a94;
+                font-family: $Poppins;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 32px;
+                text-align: left;
+                position: relative;
+                padding-left: 18px;
+              }
+
+              span::before {
+                content: "₹";
+                position: absolute;
+                left: 3px;
+                bottom: 0;
+                pointer-events: none;
+                color: #2e2a94;
+                font-family: $Poppins;
+                font-size: 20px;
+                font-weight: 500;
+              }
+            }
+
+            .start-sip-btn {
+              position: absolute;
+              right: 0;
+
+              @include media(mobile) {
+                position: static;
+                width: 100%;
+                padding-top: 8px;
+              }
+
+              button {
+                display: flex;
+                padding: map.get($spacing, sm);
+                justify-content: center;
+                align-items: center;
+                gap: map.get($spacing, xs);
+                border-radius: map.get($radius, r8);
+                background: $primary-blue;
+                border: none;
+                color: #fff;
+                font-family: $Poppins;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 16px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+                width: 176px;
+
+                @include media(mobile) {
+                  width: 100%;
+                }
+
+                &:hover {
+                  background: $primary-blue-dark;
+                }
+              }
+            }
           }
         }
 
@@ -1060,8 +428,6 @@
           display: flex;
           flex-wrap: wrap;
           gap: 24px;
-          //   margin: map.get($spacing, md) 0;
-          padding-bottom: map.get($spacing, md);
 
           .plan-type-toggle {
             display: flex;
@@ -1071,6 +437,7 @@
 
             .toggle-label {
               @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
+
               cursor: pointer;
 
               &.active {
@@ -1094,10 +461,7 @@
               .slider {
                 position: absolute;
                 cursor: pointer;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                inset: 0;
                 background-color: #ccc;
                 transition: 0.4s;
                 border-radius: 34px;
@@ -1134,7 +498,6 @@
               cursor: pointer;
               position: relative;
               user-select: none;
-              padding-bottom: 4px;
 
               @include media(mobile) {
                 text-align: start;
@@ -1176,6 +539,7 @@
               text-align: left;
               cursor: pointer;
               transition: background-color 0.2s ease;
+
               @include font-style(
                 16px,
                 20px,
@@ -1183,6 +547,7 @@
                 map.get($font-weights, regular),
                 $Poppins
               );
+
               border-bottom: 1px solid #eee;
 
               &:hover {
@@ -1196,6 +561,7 @@
           display: flex;
           flex-wrap: wrap;
           gap: 24px;
+
           //   margin: map.get($spacing, md) 0;
 
           .sip-wrapper,
@@ -1207,6 +573,7 @@
             gap: map.get($spacing, xs);
             min-width: 200px;
           }
+
           .sip-wrapper {
             .input-with-symbol {
               position: relative;
@@ -1236,40 +603,43 @@
             font-size: 20px;
             font-weight: 500;
             width: 100%;
-            -webkit-appearance: none;
-            -moz-appearance: none;
+            appearance: none;
+            appearance: none;
             appearance: none;
             outline: none;
 
             &::-webkit-outer-spin-button,
             &::-webkit-inner-spin-button {
-              -webkit-appearance: none;
+              appearance: none;
               margin: 0;
             }
           }
 
-          .sip-wrapper input {
-            padding-left: 24px;
-            // position: absolute;
-            // left: 0px;
-          }
           .sip-wrapper {
             .input-with-symbol {
-             position: relative;
+              position: relative;
 
-            }
-            .input-with-symbol::before {
-                content: "₹";
-                position: absolute;
-                left: 3px;
-                // bottom: 0px;
-                pointer-events: none;
-                color: #2e2a94;
-                font-family: $Poppins;
-                font-size: 20px;
-                font-weight: 500;
+              input{
+                    padding-left: 18px;
               }
+            }
+
+            .input-with-symbol::before {
+              content: "₹";
+              position: absolute;
+              left: 3px;
+              pointer-events: none;
+              color: #2e2a94;
+              font-family: $Poppins;
+              font-size: 20px;
+              font-weight: 500;
+            }
+
+            // .sip-wrapper input {
+            //   padding-left: 24px;
+            // }
           }
+
           .tenure-wrapper select {
             padding-right: 32px;
             cursor: pointer;
@@ -1339,6 +709,7 @@
               padding: 12px 16px;
               cursor: pointer;
               transition: background-color 0.2s ease;
+
               @include font-style(
                 16px,
                 20px,
@@ -1346,107 +717,11 @@
                 map.get($font-weights, regular),
                 $Poppins
               );
+
               border-bottom: 1px solid #eee;
 
               &:hover {
                 background-color: #f0f0f0;
-              }
-            }
-          }
-        }
-
-        .cal-discription {
-          display: flex;
-          flex-wrap: wrap;
-          //   justify-content: space-between;
-          gap: 32px;
-          position: relative;
-
-          @include media(mobile) {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: map.get($spacing, md);
-            text-align: left;
-          }
-
-          .current-value-wrapper,
-          .return-cagr-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: map.get($spacing, xxs);
-
-            label {
-              @include font-style(
-                12px,
-                16px,
-                $color-text-body,
-                map.get($font-weights, regular),
-                $Poppins
-              );
-
-              @include media(mobile) {
-                white-space: nowrap;
-              }
-            }
-            span {
-              color: #2e2a94;
-              font-family: $Poppins;
-              font-size: 24px;
-              font-weight: 600;
-              line-height: 32px;
-              text-align: left;
-              position: relative;
-              padding-left: 18px;
-            }
-
-            span::before {
-              content: "₹";
-              position: absolute;
-              left: 3px;
-              bottom: 0px;
-              pointer-events: none;
-              color: #2e2a94;
-              font-family: $Poppins;
-              font-size: 20px;
-              font-weight: 500;
-            }
-          }
-
-          .start-sip-btn {
-            position: absolute;
-            right: 0px;
-            @include media(mobile) {
-              position: static;
-              width: 100%;
-              padding-top: 8px;
-            }
-
-            button {
-              display: flex;
-              padding: map.get($spacing, sm);
-              justify-content: center;
-              align-items: center;
-              gap: map.get($spacing, xs);
-              border-radius: map.get($radius, r8);
-              background: $primary-blue;
-              border: none;
-              color: #fff;
-              font-family: $Poppins;
-              font-size: 14px;
-              font-weight: 600;
-              line-height: 16px;
-              cursor: pointer;
-              transition: background-color 0.2s ease;
-              width: 176px;
-
-              @include media(mobile) {
-                width: 100%;
-              }
-
-              &:hover {
-                background: $primary-blue-dark;
               }
             }
           }
@@ -1478,6 +753,7 @@
             map.get($font-weights, regular),
             $Poppins
           );
+
           text-decoration: underline;
 
           @include media(mobile) {
@@ -1497,12 +773,20 @@
   box-shadow: $box-shadow-soft;
   padding: 40px 24px;
 
+  @include media(mobile) {
+    padding: 40px 16px;
+  }
+
   .compounding-two-inner {
     max-width: 100%;
     width: 100%;
     flex-direction: column;
     margin: 0 auto;
     gap: 24px;
+
+    @include media(mobile) {
+      gap: 40px;
+    }
 
     .default-content-wrapper {
       width: 100%;
@@ -1517,7 +801,7 @@
         height: 48px;
 
         p {
-          margin: 0px;
+          margin: 0;
           display: block;
         }
       }
@@ -1532,6 +816,7 @@
             map.get($font-weights, bold),
             $ButlerPro
           );
+
           margin: 0;
 
           @include media(mobile) {
@@ -1542,6 +827,7 @@
               map.get($font-weights, bold),
               $ButlerPro
             );
+
             margin-bottom: 0;
           }
         }
@@ -1552,7 +838,9 @@
 
         @include media(mobile) {
           display: block;
+
           @include font-style(16px, 24px, $primary-blue, 400, $Poppins);
+
           margin: 0;
           max-width: 450px;
         }
@@ -1564,8 +852,7 @@
       width: 100%;
 
       .calculator-sip {
-        background-color: #ffffff;
-        padding: 24px;
+        background-color: #fff;
         border-radius: 8px;
         width: 100%;
       }
@@ -1575,11 +862,11 @@
         width: 100%;
 
         .search-bar-wrapper {
-          margin-bottom: 10px;
           input {
             color: #2e2a94;
             background: url("../../icons/search-icon.svg") no-repeat right 12px
               center;
+
             @include media(mobile) {
               background: url("../../icons/search-icon-white.svg") no-repeat
                 right 12px center;
@@ -1590,7 +877,6 @@
         .search-results-wrapper {
           ul {
             font-family: Poppins, sans-serif;
-
             border: 1px solid var(--Neutrals-200, #eee);
             box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
           }
@@ -1599,10 +885,6 @@
         .scheme-btns-wrapper {
           display: flex;
           gap: map.get($spacing, sm);
-
-          @include media(mobile) {
-            padding-bottom: 10px;
-          }
 
           button {
             border: 1px solid #bdbdbd;
@@ -1617,18 +899,17 @@
         }
 
         .invested-amount {
-          //   padding-bottom: 24px;
-
           span {
             color: #2b2e8c;
             position: relative;
             padding-left: 10px;
           }
+
           span::before {
             content: "₹";
             position: absolute;
             left: 3px;
-            bottom: 0px;
+            bottom: 0;
             pointer-events: none;
             color: #2e2a94;
             font-family: $Poppins;
@@ -1638,13 +919,10 @@
         }
 
         .plan-options-wrapper {
-          padding-bottom: 24px;
-
           .plan-type-toggle {
             .toggle-switch {
               .slider {
                 inset: 0;
-
                 transition: 0.4s;
               }
             }
@@ -1652,18 +930,11 @@
         }
 
         .investment-wrapper {
-          padding-bottom: 8px;
-
           @include media(mobile) {
             flex-direction: column;
             gap: map.get($spacing, md);
             text-align: left;
           }
-
-          //   .sip-wrapper,
-          //   .sip-wrapper input {
-          //     padding-left: 13px;
-          //   }
 
           .tenure-wrapper select {
             padding-right: 32px;
@@ -1710,8 +981,6 @@
                 display: flex;
                 width: 132px;
 
-                // width: 100%;
-
                 @include media(mobile) {
                   position: static;
                   width: 100%;
@@ -1736,6 +1005,10 @@
   }
 
   .default-content-wrapper {
+    @include media(mobile) {
+      padding-top: 16px;
+    }
+
     p:nth-child(1) {
       margin-bottom: 20px;
 

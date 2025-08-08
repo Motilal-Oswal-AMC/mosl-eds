@@ -1,4 +1,4 @@
-/*    */
+/*  eslint-disable   */
 import {
   div, a, label, input, span, button, ul, h3, p as pTag,
 } from '../../scripts/dom-helpers.js';
@@ -43,6 +43,7 @@ export default function decorate(block) {
       div({ class: 'search-results-wrapper' }, ul({ id: 'searchResults', role: 'listbox' })),
     ),
 
+    div({class : 'spi-wrapper'}, 
     // 🔄 SIP & Lumpsum toggle
     div(
       { class: 'scheme-btns-wrapper' },
@@ -92,7 +93,9 @@ export default function decorate(block) {
         input({ type: 'hidden', id: 'investmentTenure', value: col3[0].textContent.trim() }),
       ),
     ),
+  ),
 
+    div({class : 'incal-wrapper'}, 
     // 📈 Invested amount & calculation
     div(
       { class: 'invested-amount' },
@@ -112,7 +115,7 @@ export default function decorate(block) {
         span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}  %`),
       ),
       div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
-    ),
+    )),
   );
 
   // 🔗 View other calculators
