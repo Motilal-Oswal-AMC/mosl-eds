@@ -369,7 +369,10 @@ export default function decorate(block) {
                           ),
                           div(
                             { class: "tooltip-wrap" },
-                            img({ src: "../../icons/filter-info.svg" }),
+                            img({
+                              src: "../../icons/filter-info.svg",
+                              alt: "Filter Info Icon",
+                            }),
                             p(
                               { class: "tooltip-text" },
                               "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
@@ -390,7 +393,8 @@ export default function decorate(block) {
                     : "";
                 }),
                 ...dataMapMoObj.data.fundType.map((element, index) => {
-                  return div({
+                  return div(
+                    {
                       class: "checkbox-label-container",
                     },
                     input({
@@ -433,13 +437,16 @@ export default function decorate(block) {
                       ),
                       div(
                         { class: "tooltip-wrap" },
-                        img({ src: "../../icons/filter-info.svg" }),
+                        img({
+                          src: "../../icons/filter-info.svg",
+                          alt: "Filter Info Icon",
+                        }),
                         p(
                           { class: "tooltip-text" },
                           "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
                         )
                       )
-                    ),
+                    )
                   );
                 })
               ),
@@ -886,9 +893,7 @@ export default function decorate(block) {
               div({
                   class: "fund-toggle-wrap",
                 },
-                input({
-                  type: "checkbox",
-                  id: "toggle",
+                input({type: "checkbox", id: "toggle", 'aria-label':'Switch between Direct and Regular mode',
                   onclick: (event) => {
                     viewFunction(block);
                   },
@@ -978,7 +983,7 @@ export default function decorate(block) {
       block.querySelector(".indaneqsub [for='index1']"),
       div(
         { class: "tooltip-wrap" },
-        img({ src: "../../icons/filter-info.svg" }),
+        img({ src: "../../icons/filter-info.svg", alt:'Filter Info Icon' }),
         p(
           { class: "tooltip-text" },
           "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
