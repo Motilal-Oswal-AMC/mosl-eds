@@ -46,7 +46,7 @@ export default function decorate(block) {
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
   let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
   let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
-  let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : ""
+  let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : "";
   if ([...block.fundsTaggingSection].includes("NFO")) {
     let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     const NfocardContainer = div(
