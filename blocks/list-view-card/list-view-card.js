@@ -1,7 +1,7 @@
 /* eslint-disable */ 
 import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
 import dataMapMoObj from '../../scripts/constant.js';
-import {getTimeLeft,evaluateByDays} from "../../scripts/scripts.js"
+import {getTimeLeft,evaluateByDays,wishlist} from "../../scripts/scripts.js"
 export default function decorate(block){
     let planFlow = 'Direct';
     if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
@@ -9,6 +9,20 @@ export default function decorate(block){
     }
     let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     let labelcagr = evaluateByDays(block.dateOfAllotment)
+    let finPlangrp = [];
+    const tempReturns = [];
+    block.returns.forEach((ret, jind) => {
+        if (jind === 0) {
+        [...Object.keys(ret)].forEach((key)=>{
+            if (dataMapMoObj.ObjTemp[key]) {
+            tempReturns.push(dataMapMoObj.ObjTemp[key]);
+            }
+        })
+        }
+        finPlangrp.push((ret.plancode + ret.optioncode));
+    });
+    let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
+    let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : "";
     if ([...block.fundsTaggingSection].includes("NFO")) {
         let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
         let listcontainer = div({class:"nfo-list-container list-view-container"},
@@ -16,7 +30,7 @@ export default function decorate(block){
                 div({class:"fund-name-wrapper", schcode :block.schcode},
                     div({class:"fund-inner-wrapper"},
                         div({class:"logo-container"},
-                        img({class: "logoScheme",src: "../../icons/Group.svg",alt: "BrandLogo"})
+                        img({class: "logoScheme",src: block.fundIcon,alt: "BrandLogo"})
                         ),
                         div({class:"fund-name-container"},
                             p("Motilal Oswal"),
@@ -39,7 +53,16 @@ export default function decorate(block){
                 div({class:"risk-star-icon"},
                     img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"}),
                 ),
-                div({class: "star"},
+                div({class: "star "+starClass,
+                    onclick: (event) => {
+                        if (!Array.from(event.target.parentElement.classList).includes("star-filled")) {
+                        event.target.parentElement.classList.add("star-filled");
+                        } else {
+                        event.target.parentElement.classList.remove("star-filled");
+                        }
+                    wishlist();
+                    }
+                },
                         img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),
                         img({class: "fillstar-icon",src: "../../icons/filled-star.svg",alt: "fillstar-icon"})
                 ),
@@ -54,7 +77,7 @@ export default function decorate(block){
         div({class:"list-wrapper"},
             div({class:"fund-name-wrapper", schcode :block.schcode},
                 div({class:"logo-container"},
-                    img({class: "logoScheme",src: "../../icons/Group.svg",alt: "BrandLogo"})
+                    img({class: "logoScheme",src: block.fundIcon,alt: "BrandLogo"})
                 ),
                 div({class:"fund-name-container"},
                     p("Motilal Oswal"),
@@ -63,13 +86,22 @@ export default function decorate(block){
                 img({class: "logoScheme",src: "../../icons/direction-right.svg",alt: "Direction Right"})
             ),
             div({class:"cagr-return"},
-                div({class:"cagr-value"},"24.02",span("%")),
+                div({class:"cagr-value"},`${block.returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,span("%")),
                 p(labelcagr)
             ),
             div({class:"risk-star-icon"},
                 img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),
             ),
-            div({class: "star"},
+            div({class: "star "+starClass,
+                onclick: (event) => {
+                        if (!Array.from(event.target.parentElement.classList).includes("star-filled")) {
+                        event.target.parentElement.classList.add("star-filled");
+                        } else {
+                        event.target.parentElement.classList.remove("star-filled");
+                        }
+                    wishlist();
+                    }
+            },
                 img({class: "star-icon",src: "../../icons/not-filled-star.svg",alt: "star-icon"}),
                 img({class: "fillstar-icon",src: "../../icons/filled-star.svg",alt: "fillstar-icon"})
             ),

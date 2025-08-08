@@ -13,7 +13,7 @@ import {
   img,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
-import {getTimeLeft, evaluateByDays} from "../../scripts/scripts.js"
+import {getTimeLeft, evaluateByDays,wishlist} from "../../scripts/scripts.js"
 export default function decorate(block) {
   let planFlow = 'Direct';
   if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
@@ -46,6 +46,7 @@ export default function decorate(block) {
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
   let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
   let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
+  let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : ""
   if ([...block.fundsTaggingSection].includes("NFO")) {
     let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     const NfocardContainer = div(
@@ -60,13 +61,13 @@ export default function decorate(block) {
               { class: "title title-logo" },
               img({
                 class: "logoscheme",
-                src: "../../icons/Group.svg",
+                src: block.fundIcon,//"../../icons/Group.svg",
                 alt: "BrandLogo",
               })
             ),
             div(
               {
-                class: "star",
+                class: "star "+starClass,
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
@@ -77,6 +78,7 @@ export default function decorate(block) {
                   } else {
                     event.target.parentElement.classList.remove("star-filled");
                   }
+                  wishlist()
                 },
                 schcode: block.schcode,
               },
@@ -199,13 +201,13 @@ export default function decorate(block) {
             },
             img({
               class: "logoscheme",
-              src: "../../icons/Group.svg",
+              src: block.fundIcon,//"../../icons/Group.svg",
               alt: "BrandLogo",
             })
           ),
           div(
             {
-              class: "star",
+              class: "star "+starClass,
               onclick: (event) => {
                 if (
                   !Array.from(event.target.parentElement.classList).includes(
@@ -216,7 +218,7 @@ export default function decorate(block) {
                 } else {
                   event.target.parentElement.classList.remove("star-filled");
                 }
-                wishlist(block);
+                wishlist();
               },
               schcode: block.schcode,
             },
@@ -518,15 +520,6 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
   }
 }
 
-function wishlist(){
-  let paramCount = document.querySelectorAll(".star-filled");
-   document.querySelector(".watchlisttext span").textContent ="";
-  if (paramCount.length < 10) {
-    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"(0"+paramCount.length+")";
-  }else{
-    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
-  }  
-}
 function toTitleCase(str) {
   return str
     .toLowerCase()
