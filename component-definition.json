@@ -487,6 +487,21 @@
               }
             }
           }
+        },
+        {
+          "title": "Risk Meter",
+          "id": "risk-meter",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Risk Meter",
+                  "model": "risk-meter"
+                }
+              }
+            }
+          }
         }
       ]
     }
