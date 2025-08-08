@@ -326,8 +326,6 @@
           .cal-discription {
             display: flex;
             flex-wrap: wrap;
-
-            //   justify-content: space-between;
             gap: 32px;
             position: relative;
 
@@ -562,11 +560,8 @@
           flex-wrap: wrap;
           gap: 24px;
 
-          //   margin: map.get($spacing, md) 0;
-
           .sip-wrapper,
           .tenure-wrapper {
-            // position: relative;
             flex: 1 1 45%;
             display: flex;
             flex-direction: column;
@@ -619,8 +614,8 @@
             .input-with-symbol {
               position: relative;
 
-              input{
-                    padding-left: 18px;
+              input {
+                padding-left: 18px;
               }
             }
 
@@ -634,28 +629,12 @@
               font-size: 20px;
               font-weight: 500;
             }
-
-            // .sip-wrapper input {
-            //   padding-left: 24px;
-            // }
           }
 
           .tenure-wrapper select {
             padding-right: 32px;
             cursor: pointer;
           }
-
-          //   .sip-wrapper::before {
-          //     content: "₹";
-          //     position: absolute;
-          //     left: 3px;
-          //     bottom: 0px;
-          //     pointer-events: none;
-          //     color: #2e2a94;
-          //     font-family: $Poppins;
-          //     font-size: 20px;
-          //     font-weight: 500;
-          //   }
 
           .custom-select {
             position: relative;
@@ -989,16 +968,16 @@
             }
           }
         }
+      }
 
-        .view-btn-cal {
-          display: none;
+      .view-btn-cal {
+        display: none;
 
-          @include media(mobile) {
-            display: block;
-            text-align: center;
-            font-size: 16px;
-            line-height: 24px;
-          }
+        @include media(mobile) {
+          display: block;
+          text-align: center;
+          font-size: 16px;
+          line-height: 24px;
         }
       }
     }

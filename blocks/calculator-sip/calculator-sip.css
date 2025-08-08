@@ -956,11 +956,11 @@
     width: 100%;
   }
 }
-.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .cal-container .view-btn-cal {
+.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .view-btn-cal {
   display: none;
 }
 @media (max-width: 768px) {
-  .fdp-calculator .compounding-two-inner .calculator-sip-wrapper .cal-container .view-btn-cal {
+  .fdp-calculator .compounding-two-inner .calculator-sip-wrapper .view-btn-cal {
     display: block;
     text-align: center;
     font-size: 16px;

@@ -416,7 +416,7 @@ export default function decorate(block) {
     const hero = sectionHero.querySelector('.default-content-wrapper');
     if (hero && !hero.querySelector('.hero-image')) {
       const iconPara = hero.querySelector('p:has(img)');
-      const heading = hero.querySelector('h4');
+      const heading = hero.querySelector('h3') || hero.querySelector('h4');
       const paras = hero.querySelectorAll('p');
       hero.innerHTML = '';
       const heroImage = div({ class: 'hero-image' }, iconPara);
