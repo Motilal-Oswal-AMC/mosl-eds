@@ -11,6 +11,7 @@ import {
   h2,
   p,
   img,
+  a
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import {getTimeLeft, evaluateByDays,wishlist} from "../../scripts/scripts.js"
@@ -415,12 +416,9 @@ export default function decorate(block) {
           },
           "Know More"
         ),
-        button(
-          {
-            class: "invest-now",
-          },
-          "Invest"
-        )
+        a({href:"/motilalfigma/modals/invest-now-homepage"},
+              button({ class: "invest-now" }, "Invest")
+          )
       )
     )
   );
