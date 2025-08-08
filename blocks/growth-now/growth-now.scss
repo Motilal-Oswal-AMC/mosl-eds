@@ -1,8 +1,8 @@
 /* stylelint-disable alpha-value-notation */
 /* stylelint-disable media-feature-range-notation */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .growth-now-container {
     .growth-now {
@@ -136,7 +136,7 @@
                             align-items: center;
                             align-self: stretch;
                             border-radius: 6px;
-                            border: 1px solid var(--Neutrals-500, #9E9E9E);
+                            border: 1px solid $neutrals-500;
 
                             @include media(mobile) {
                                 width: 100%;
@@ -159,7 +159,7 @@
                                 border: none;
                                 color: #FFF;
                                 text-align: center;
-                                font-family: 'Poppins';
+                                font-family: $Poppins;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 400;
@@ -190,7 +190,7 @@
 
                                     &::-webkit-input-placeholder {
                                         color: #fff;
-                                        font-family: "Poppins";
+                                        font-family: $Poppins;
                                         font-size: 14px;
                                         font-style: normal;
                                         font-weight: 400;
@@ -226,7 +226,7 @@
                                 border-radius: 4px;
                                 background: #FFF;
                                 color: #2E2A94;
-                                font-family: Poppins;
+                                font-family: $Poppins;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 500;
@@ -321,7 +321,7 @@
 
                         li:first-child {
                             color: #FFF;
-                            font-family: Poppins;
+                            font-family: $Poppins;
                             font-size: 12px;
                             font-style: normal;
                             font-weight: 400;
@@ -330,7 +330,7 @@
 
                         li:nth-child(2) {
                             color: #FFF;
-                            font-family: Poppins;
+                            font-family: $Poppins;
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 600;

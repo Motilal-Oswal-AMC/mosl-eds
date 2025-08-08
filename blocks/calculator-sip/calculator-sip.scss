@@ -1,7 +1,7 @@
 /* Reset */
 @use 'sass:map';
-@use '../../styles/common-theme/css/variables_mixins' as *;
-@use '../../styles/common-theme/css/fluid-typography' as *;
+@use '../../styles/common-theme/css/variables_mixins'as *;
+@use '../../styles/common-theme/css/fluid-typography'as *;
 
 /* MAIN WRAPPER */
 .compounding {
@@ -106,38 +106,46 @@
       align-self: stretch;
       box-shadow: $box-shadow-soft;
 
+
+
       .search-bar-wrapper {
         display: flex;
         flex-direction: column;
         gap: map.get($spacing, xs);
 
         span {
-          @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+          @include font-style(12px,16px, $color-text-body, map.get($font-weights, regular), $Poppins);
           text-align: left;
         }
 
         label {
-          @include font-style(14px, normal, var(--text-color), map.get($font-weights, semibold), $Poppins);
+          @include font-style(14px,
+            normal,
+            var(--text-color),
+            map.get($font-weights, semibold),
+            $Poppins);
+        }
+
+        input:active {
+          border: none;
         }
 
         input {
           width: 100%;
-          color: #2E2A94;
+          color: #2e2a94;
           font-family: $Poppins;
           font-size: 16px;
           font-weight: 500;
           line-height: 20px;
           border-radius: 4px;
-          background: url('../../icons/search-icon.svg') no-repeat right 12px center;
+          background: url("../../icons/search-icon.svg") no-repeat right 12px center;
           background-size: 20px 20px;
           border: none;
           outline: none;
-
-          &:active {
-            border: none;
-          }
         }
+
       }
+
 
       .search-results-wrapper {
         position: relative;
@@ -157,7 +165,7 @@
           text-align: left;
 
           border-radius: 6px;
-          border: 1px solid var(--Neutrals-200, #EEE);
+          border: 1px solid $neutrals-200;
           box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 
           @include media(mobile) {
@@ -176,7 +184,7 @@
             &.active {
               // background: map.get($blue-1, b25);
               // border-left: 3px solid $primary-blue;
-              background: var(--Neutrals-200, #EEE);
+              background: $neutrals-200;
             }
           }
         }
@@ -367,7 +375,7 @@
             cursor: pointer;
             transition: background-color 0.2s ease;
             @include font-style(16px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
-            border-bottom: 1px solid #EEE;
+            border-bottom: 1px solid $neutrals-200;
 
             &:hover {
               background-color: #f0f0f0;
@@ -501,7 +509,7 @@
             cursor: pointer;
             transition: background-color 0.2s ease;
             @include font-style(16px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
-            border-bottom: 1px solid #EEE;
+            border-bottom: 1px solid $neutrals-200;
 
 
             &:hover {

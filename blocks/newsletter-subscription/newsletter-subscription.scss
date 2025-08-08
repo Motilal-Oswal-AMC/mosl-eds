@@ -1,5 +1,5 @@
-@use '../../styles/common-theme/css/variables_mixins' as *;
-@use '../../styles/common-theme/css/fluid-typography' as *;
+@use '../../styles/common-theme/css/variables_mixins'as *;
+@use '../../styles/common-theme/css/fluid-typography'as *;
 @use 'sass:map';
 
 
@@ -161,6 +161,14 @@
                         text-transform: uppercase;
                     }
 
+                    input::placeholder {
+                        color: #616161;
+                        font-family: $Poppins;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 20px;
+                    }
+
                     input {
                         // color: map.get($blue-1, btxt);
                         display: flex;
@@ -171,14 +179,6 @@
                         border: 1px solid map.get($strokes, default);
                         padding: 8px 12px;
                         border-radius: 6px;
-
-                        &::placeholder {
-                            color: #616161;
-                            font-family: $Poppins;
-                            font-size: 16px;
-                            font-weight: 500;
-                            line-height: 20px;
-                        }
                     }
 
                     .error {
