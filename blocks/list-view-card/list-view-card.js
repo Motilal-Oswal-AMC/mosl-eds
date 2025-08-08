@@ -1,7 +1,7 @@
 /* eslint-disable */ 
 import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
 import dataMapMoObj from '../../scripts/constant.js';
-import {getTimeLeft,evaluateByDays} from "../../scripts/scripts.js"
+import {getTimeLeft,evaluateByDays,wishlist} from "../../scripts/scripts.js"
 export default function decorate(block){
     let planFlow = 'Direct';
     if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
@@ -22,6 +22,7 @@ export default function decorate(block){
         finPlangrp.push((ret.plancode + ret.optioncode));
     });
     let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
+    let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : "";
     if ([...block.fundsTaggingSection].includes("NFO")) {
         let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
         let listcontainer = div({class:"nfo-list-container list-view-container"},
@@ -52,7 +53,7 @@ export default function decorate(block){
                 div({class:"risk-star-icon"},
                     img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"}),
                 ),
-                div({class: "star",
+                div({class: "star "+starClass,
                     onclick: (event) => {
                         if (!Array.from(event.target.parentElement.classList).includes("star-filled")) {
                         event.target.parentElement.classList.add("star-filled");
@@ -91,7 +92,7 @@ export default function decorate(block){
             div({class:"risk-star-icon"},
                 img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),
             ),
-            div({class: "star",
+            div({class: "star "+starClass,
                 onclick: (event) => {
                         if (!Array.from(event.target.parentElement.classList).includes("star-filled")) {
                         event.target.parentElement.classList.add("star-filled");
@@ -110,14 +111,4 @@ export default function decorate(block){
         )
     )
     return listcontainer
-}
-
-function wishlist(){
-  let paramCount = document.querySelectorAll(".star-filled");
-   document.querySelector(".watchlisttext span").textContent ="";
-  if (paramCount.length < 10) {
-    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"(0"+paramCount.length+")";
-  }else{
-    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
-  }  
 }
