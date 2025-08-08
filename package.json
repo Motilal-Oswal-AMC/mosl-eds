@@ -6,6 +6,8 @@
   "scripts": {
     "lint:js": "eslint . --ext .json,.js,.mjs",
     "lint:css": "stylelint blocks/**/*.css styles/*.css",
+    "lint:styles": "stylelint \"**/*.{css,scss}\"",
+    "lint:styles:fix": "stylelint \"**/*.{css,scss}\" --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "build:json": "npm-run-all -p build:json:models build:json:definitions build:json:filters",
     "build:json:models": "merge-json-cli -i \"models/_component-models.json\" -o \"component-models.json\"",
@@ -13,6 +15,7 @@
     "build:json:filters": "merge-json-cli -i \"models/_component-filters.json\" -o \"component-filters.json\"",
     "prepare": "husky",
     "fix-css": "stylelint --fix **/**/*.css",
+    "fix-scss": "stylelint --fix **/**/*.scss",
     "fix-js": "eslint --fix **/**/*.js"
   },
   "repository": {
@@ -36,8 +39,9 @@
     "merge-json-cli": "1.0.4",
     "npm-run-all": "4.1.5",
     "sass": "^1.89.2",
-    "stylelint": "16.12.0",
-    "stylelint-config-standard": "36.0.1"
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard": "36.0.1",
+    "stylelint-config-standard-scss": "^15.0.1"
   },
   "dependencies": {
     "@sentry/browser": "^9.12.0",
