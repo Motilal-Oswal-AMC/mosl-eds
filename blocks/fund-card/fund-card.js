@@ -1,4 +1,4 @@
-/*    */
+/* eslint-disable   */
 import {
   button,
   div,
@@ -48,6 +48,9 @@ export default function decorate(block) {
   let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
   let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
   let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : "";
+  let mop = block.fundIcon !== undefined ? block.fundIcon.split("/").at(-1) : "MO_Midcap_Fund.png"
+  let mopsec = mop.split(".")
+  let mopthree = mopsec[0]+".svg"
   if ([...block.fundsTaggingSection].includes("NFO")) {
     let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     const NfocardContainer = div(
@@ -62,7 +65,7 @@ export default function decorate(block) {
               { class: "title title-logo" },
               img({
                 class: "logoscheme",
-                src: block.fundIcon, //"../../icons/Group.svg",
+                src: "../../icons/fundicon/"+mopthree,
                 alt: "BrandLogo",
               })
             ),
@@ -226,7 +229,7 @@ export default function decorate(block) {
             },
             img({
               class: "logoscheme",
-              src: block.fundIcon,//"../../icons/Group.svg",
+              src: "../../icons/fundicon/"+mopthree,
               alt: "BrandLogo",
             })
           ),
@@ -421,11 +424,13 @@ export default function decorate(block) {
             }),
             span("2.7 lakh investors")
           ),
-          img({
-            class: "riskfactor-icon",
-            src: "../../icons/risk-icon/"+iconsvg,
-            alt: "risk icon",
-          })
+          a({href:"/motilalfigma/modals/risk-o-meter"},
+            img({
+              class: "riskfactor-icon",
+              src: "../../icons/risk-icon/"+iconsvg,
+              alt: "risk icon",
+            })
+          ),
         )
       ),
       div(

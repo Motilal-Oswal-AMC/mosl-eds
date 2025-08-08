@@ -32,7 +32,9 @@
       "make-index-funds",
       "fdp-card",
       "fund-video",
-      "key-facts"
+      "key-facts",
+      "risk-o-meter",
+      "risk-meter"
     ]
   },
   {
@@ -78,5 +80,11 @@
   {
     "id": "key-facts",
     "components": ["key-item"]
+  },
+  {
+    "id": "risk-o-meter",
+    "components": [
+      "risk-o-meter-item"
+    ]
   }
 ]
