@@ -19,6 +19,7 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    padding: 0 2px;
     @include media(mobile) {
       flex-direction: column;
       gap: 36px;
@@ -36,10 +37,11 @@
     .search-trending-wrapper {
       display: flex;
       //   flex-direction: column;
-      justify-content: space-between;
+      // justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      max-width: 74.68%;
+      // max-width: 74.68%;
+      max-width: 74.6%;
       width: 100%;
       @include media(mobile) {
         max-width: 100%;
@@ -52,7 +54,7 @@
       }
       .search-input {
         // max-width: 81.8%;
-        max-width: 81.2%;
+        max-width: 82.2%;
         width: 100%;
         padding: 12px 8px;
         border-radius: 6px;
@@ -159,14 +161,17 @@
         display: flex;
         align-items: center;
         gap: 4px;
+        padding: 8px 0;
+        line-height: 0;
+        cursor: pointer;
         @include media(mobile) {
           grid-area: watchlist;
           margin-top: 20px;
         }
         .staricon {
           .icon {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             display: block;
             cursor: pointer;
           }
@@ -184,8 +189,9 @@
         }
         &text {
           width: max-content;
+          line-height: 0;
           span {
-            @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+            @include font-style(14px, 20px, $primary-blue, 400, $Poppins);
             text-decoration-line: underline;
             text-underline-offset: 20%;
           }
@@ -193,7 +199,7 @@
       }
       .trending-container {
         display: flex;
-        align-items: start;
+        align-items: center;
         gap: 16px;
         @include media(tab) {
           gap: 6px;
@@ -211,7 +217,7 @@
           display: flex;
           align-items: center;
           gap: 4px;
-          padding-top: 10px;
+          // padding-top: 10px;
           @include media(mobile) {
             position: sticky;
             left: 0;
@@ -219,23 +225,23 @@
             padding: 4px 10px 4px 4px;
           }
           p,
-          span {
+          .icon {
             margin: 0;
             width: 16px;
             height: 16px;
             display: flex;
           }
-          label {
+          .trending-text {
             @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
           }
         }
         .trendingmostlist {
-          line-height: unset;
+          line-height: 0;
           ul {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2px 24px;
+            gap: 2px 16px;
             list-style: none;
             margin: 0;
             @include media(mobile) {
