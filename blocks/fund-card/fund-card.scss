@@ -393,10 +393,11 @@
         text-underline-offset: 20%;
         border-radius: 0;
       }
-
-      .invest-now {
-        max-width: 132px;
+      a{
+        max-width: 120px;
         width: 100%;
+        .invest-now {
+          width: 100%;
         border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
         // padding: 12px;
@@ -411,6 +412,8 @@
           $family: $Poppins
         );
       }
+      }
+      
     }
   }
   &.tabs-container {
@@ -1032,9 +1035,11 @@
         border-radius: 0;
       }
 
-      .invest-now {
-        // max-width: 132px;
+      a{
         max-width: 120px;
+        width: 100%;
+        .invest-now {
+        // max-width: 132px;
         width: 100%;
         border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
@@ -1049,6 +1054,7 @@
           $weight: map.get($font-weights, medium),
           $family: $Poppins
         );
+      }
       }
     }
   }
