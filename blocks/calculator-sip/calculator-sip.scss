@@ -728,7 +728,7 @@
           @include font-style(
             14px,
             20px,
-            $primary-blue,
+            map.get($blue-1, b500),
             map.get($font-weights, regular),
             $Poppins
           );
