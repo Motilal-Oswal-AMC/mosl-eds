@@ -28,7 +28,8 @@ const dataMapMoObj = {
     "moderate":"moderate-risk",
     "low":"low-risk"
   },
-  "selectreturns":""
+  "selectreturns":"",
+  "schstar":[],
 };
 
 export default dataMapMoObj;

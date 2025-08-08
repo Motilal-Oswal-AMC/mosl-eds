@@ -11,9 +11,10 @@ import {
   h2,
   p,
   img,
+  a
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
-import {getTimeLeft, evaluateByDays} from "../../scripts/scripts.js"
+import {getTimeLeft, evaluateByDays,wishlist} from "../../scripts/scripts.js"
 export default function decorate(block) {
   let planFlow = 'Direct';
   if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
@@ -41,10 +42,12 @@ export default function decorate(block) {
 
   let labelcagr = evaluateByDays(block.dateOfAllotment)  
   let classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : " not-provided"
+  let dropdowndot = DirectPlanlistArr.length !== 0  ? "" : "no-planlist"
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
   let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
   let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
+  let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : "";
   if ([...block.fundsTaggingSection].includes("NFO")) {
     let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     const NfocardContainer = div(
@@ -58,14 +61,14 @@ export default function decorate(block) {
             div(
               { class: "title title-logo" },
               img({
-                class: "logoScheme",
-                src: "../../icons/Group.svg",
+                class: "logoscheme",
+                src: block.fundIcon,//"../../icons/Group.svg",
                 alt: "BrandLogo",
               })
             ),
             div(
               {
-                class: "star",
+                class: "star "+starClass,
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
@@ -76,6 +79,7 @@ export default function decorate(block) {
                   } else {
                     event.target.parentElement.classList.remove("star-filled");
                   }
+                  wishlist()
                 },
                 schcode: block.schcode,
               },
@@ -101,7 +105,7 @@ export default function decorate(block) {
           )
         ),
         div(
-          { class: "card-category" },
+          { class: "card-category "+dropdowndot },
           div(
             { class: "fund-tagging" },
             ul(
@@ -155,7 +159,7 @@ export default function decorate(block) {
           { class: "banner-timing-container " },
           div(
             { class: "banner-container" },
-            img({ src: "../../icons/banner-desk.png", alt: "banner Image" }),
+            img({ src: "../../icons/nfo-img.png", alt: "banner Image" }),
             span("Grab Them All")
           ),
           div(
@@ -169,8 +173,10 @@ export default function decorate(block) {
         ),
         div(
           { class: "button-container" },
-          button({ class: "know-more" }, "Know More"),
-          button({ class: "invest-now" }, "Invest")
+            button({ class: "know-more" }, "Know More"),
+          a({href:"/motilalfigma/modals/invest-now-homepage"},
+              button({ class: "invest-now" }, "Invest")
+          )
         )
       )
     );
@@ -197,14 +203,14 @@ export default function decorate(block) {
               class: "title title-logo",
             },
             img({
-              class: "logoScheme",
-              src: "../../icons/Group.svg",
+              class: "logoscheme",
+              src: block.fundIcon,//"../../icons/Group.svg",
               alt: "BrandLogo",
             })
           ),
           div(
             {
-              class: "star",
+              class: "star "+starClass,
               onclick: (event) => {
                 if (
                   !Array.from(event.target.parentElement.classList).includes(
@@ -215,7 +221,7 @@ export default function decorate(block) {
                 } else {
                   event.target.parentElement.classList.remove("star-filled");
                 }
-                wishlist(block);
+                wishlist();
               },
               schcode: block.schcode,
             },
@@ -246,7 +252,7 @@ export default function decorate(block) {
       ),
       div(
         {
-          class: "card-category",
+          class: "card-category "+dropdowndot,
         },
         div(
           {
@@ -389,6 +395,7 @@ export default function decorate(block) {
             img({
               class: "icon person",
               src: "../../icons/Icon.svg",
+              alt:"person"
             }),
             span("2.7 lakh investors")
           ),
@@ -409,12 +416,9 @@ export default function decorate(block) {
           },
           "Know More"
         ),
-        button(
-          {
-            class: "invest-now",
-          },
-          "Invest"
-        )
+        a({href:"/motilalfigma/modals/invest-now-homepage"},
+              button({ class: "invest-now" }, "Invest")
+          )
       )
     )
   );
@@ -453,7 +457,7 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
           }
          }, tempReturns[0]),
         ul(
-          { class: "dropdown-list" },
+          { class: "dropdown-list",schcode:block.schcode},
           ...tempReturns.map((eloption) =>
             li(
               { 
@@ -516,15 +520,6 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
   }
 }
 
-function wishlist(){
-  let paramCount = document.querySelectorAll(".star-filled");
-   document.querySelector(".watchlisttext span").textContent ="";
-  if (paramCount.length < 10) {
-    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"(0"+paramCount.length+")";
-  }else{
-    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
-  }  
-}
 function toTitleCase(str) {
   return str
     .toLowerCase()
