@@ -40,6 +40,9 @@ body.modal-open {
         max-height: calc(100dvh - (2 * var(--header-height)) - 64px);
         padding: 32px;
         padding-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -73,8 +76,8 @@ body.modal-open {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    width: 24px;
-    height: 2px;
+    width: 13px;
+    height: 1px;
     border-radius: 2px;
     background-color: currentcolor;
 }
@@ -84,6 +87,6 @@ body.modal-open {
 }
 
 .modal dialog .section {
-    padding: 0;
-    height: 100%;
+    padding: 24px;
+    height: auto;
 }
