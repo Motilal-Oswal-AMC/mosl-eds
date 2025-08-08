@@ -62,13 +62,13 @@ export default function decorate(block) {
               { class: "title title-logo" },
               img({
                 class: "logoscheme",
-                src: block.fundIcon,//"../../icons/Group.svg",
+                src: block.fundIcon, //"../../icons/Group.svg",
                 alt: "BrandLogo",
               })
             ),
             div(
               {
-                class: "star "+starClass,
+                class: "star " + starClass,
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
@@ -79,7 +79,7 @@ export default function decorate(block) {
                   } else {
                     event.target.parentElement.classList.remove("star-filled");
                   }
-                  wishlist()
+                  wishlist();
                 },
                 schcode: block.schcode,
               },
@@ -105,13 +105,14 @@ export default function decorate(block) {
           )
         ),
         div(
-          { class: "card-category "+dropdowndot },
+          { class: "card-category " + dropdowndot },
           div(
             { class: "fund-tagging" },
             ul(
               { class: "fundtagging-list" },
               ...fundsTaggingSection.map((eloption) =>
                 li(
+                  { class: "fundtagging-list-name" },
                   eloption
                     .replaceAll("motilal-oswal:", "")
                     .replaceAll("-", " ")
@@ -121,28 +122,41 @@ export default function decorate(block) {
             )
           ),
           div(
-            { class: "planlist-dropdown", 
-              style: "display:" + classdropdown,},
-            p({
-               class: "selectedtext",
-               onclick:(event)=>{
-                console.log(event.target);
-                 event.target.nextElementSibling.classList.add("dropdown-active");
-              }
-               }, optionName),
+            { class: "planlist-dropdown", style: "display:" + classdropdown },
+            p(
+              {
+                class: "selectedtext",
+                onclick: (event) => {
+                  console.log(event.target);
+                  event.target.nextElementSibling.classList.add(
+                    "dropdown-active"
+                  );
+                },
+              },
+              optionName
+            ),
             ul(
               { class: "dropdown-list" },
               ...DirectPlanlistArr?.map((el, index) => {
-                return li({
-                   value: el.groupedCode,
-                   onclick:(event)=>{
-                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active")
+                return li(
+                  {
+                    value: el.groupedCode,
+                    onclick: (event) => {
+                      event.currentTarget
+                        .closest(".dropdown-list")
+                        .classList.remove("dropdown-active");
                       let name = event.currentTarget.textContent.trim();
-                      event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = "";
-                      event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = name;
-                      // planListEvent(event,block)   
-                    }
-                   }, el.optionName);
+                      event.currentTarget
+                        .closest(".planlist-dropdown")
+                        .querySelector("p").innerText = "";
+                      event.currentTarget
+                        .closest(".planlist-dropdown")
+                        .querySelector("p").innerText = name;
+                      // planListEvent(event,block)
+                    },
+                  },
+                  el.optionName
+                );
               })
             )
           ),
@@ -150,7 +164,7 @@ export default function decorate(block) {
             { class: "dis-investor" },
             img({
               class: "riskfactor-icon",
-              src: "../../icons/nfo-risk-icon/"+nfosvg,
+              src: "../../icons/nfo-risk-icon/" + nfosvg,
               alt: "risk icon",
             })
           )
@@ -159,7 +173,7 @@ export default function decorate(block) {
           { class: "banner-timing-container " },
           div(
             { class: "banner-container" },
-            img({ src: "../../icons/nfo-img.png", alt: "banner Image" }),
+            img({class:'nfo-img', src: "../../icons/nfo-img.png", alt: "NFO Image" }),
             span("Grab Them All")
           ),
           div(
@@ -168,14 +182,18 @@ export default function decorate(block) {
               { class: "nfo-container" },
               span({ class: "label-nfo" }, "NFO")
             ),
-            div({ class: "timing-container" }, p(getTimeLeft(block.dateOfAllotment)))
+            div(
+              { class: "timing-container" },
+              p({class:'timing-text'},getTimeLeft(block.dateOfAllotment))
+            )
           )
         ),
         div(
           { class: "button-container" },
-            button({ class: "know-more" }, "Know More"),
-          a({href:"/motilalfigma/modals/invest-now-homepage"},
-              button({ class: "invest-now" }, "Invest")
+          button({ class: "know-more" }, "Know More"),
+          a(
+            { href: "/motilalfigma/modals/invest-now-homepage" },
+            button({ class: "invest-now" }, "Invest")
           )
         )
       )
@@ -263,7 +281,7 @@ export default function decorate(block) {
               class: "fundtagging-list",
             },
             ...fundsTaggingSection.map((eloption) =>
-              li(
+              li({class:'fundtagging-list-name'},
                 toTitleCase(
                   eloption.replaceAll("motilal-oswal:", "").replaceAll("-", " ")
                 )

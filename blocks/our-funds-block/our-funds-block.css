@@ -1,6 +1,6 @@
 /* Reset */
 @import "../../../styles/fonts.css";
-@import url("../fund-card/fund-card.css");
+@import "../fund-card/fund-card.css";
 .our-funds-block-container {
   background-color: #F5F5F5;
 }
@@ -116,7 +116,7 @@
   cursor: pointer;
   display: none;
 }
-.our-funds-block .fundcontainer .search-trending-wrapper .search-input .cancel-search img {
+.our-funds-block .fundcontainer .search-trending-wrapper .search-input .cancel-search .cancel-btn {
   width: 100%;
   height: 100%;
 }
@@ -376,7 +376,7 @@
     background-color: #fff;
     justify-content: center;
     cursor: pointer;
-    border-radius: 8px 0 0 0;
+    border-radius: 8px 0 0;
   }
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper label,
@@ -584,7 +584,7 @@
   height: 12px;
   display: flex;
 }
-.our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap img {
+.our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .filter-info-icon {
   width: 100%;
   height: 100%;
 }
@@ -597,7 +597,6 @@
   transform: translateX(-50%);
   margin: 0;
   width: 418px;
-  background-color: #fff;
   border-radius: 8px;
   border: 1px solid #EEE;
   background-color: #FAFAFA;
@@ -615,7 +614,7 @@
   height: 20px;
   border: solid #EEE;
   border-width: 0 1px 1px 0;
-  border-radius: 0 0 8px 0;
+  border-radius: 0 0 8px;
   display: block;
   position: absolute;
   left: 49.5%;
@@ -642,7 +641,7 @@
     right: 12px;
     width: 9.5px;
     height: 9.5px;
-    border-radius: 0 0 4px 0;
+    border-radius: 0 0 4px;
   }
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap:hover .tooltip-text {
@@ -685,9 +684,6 @@
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container.indaneqsub {
   display: block;
-}
-.our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container:not(.indaneqsub) {
-  position: relative;
 }
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay {
@@ -1057,7 +1053,7 @@
   align-items: center;
   gap: 8px;
 }
-.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn p {
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .toggle-text {
   margin: 0;
   font-size: 14px;
   line-height: 16px;
@@ -1065,7 +1061,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn p:last-of-type {
+.our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .toggle-text:last-of-type {
   color: #111;
   font-size: 14px;
   line-height: 20px;
@@ -1171,7 +1167,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
-.our-funds-block .filter-cards .right-container .applied-filter-name img {
+.our-funds-block .filter-cards .right-container .applied-filter-name .filter-cross-icon {
   max-width: 24px;
   width: 100%;
   height: 24px;
@@ -1197,7 +1193,7 @@
     max-width: 48.4%;
   }
 }
-@media (max-width: 660px) {
+@media (width <= 660px) {
   .our-funds-block .filter-cards .right-container .cards-container .card-container {
     max-width: 100%;
   }
@@ -1217,10 +1213,10 @@
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category {
   align-items: center;
 }
-.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .fundtagging-list li {
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .fundtagging-list-name {
   color: #fff;
 }
-.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .fundtagging-list li::after {
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .fundtagging-list-name::after {
   background-color: #7986fd;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown {
@@ -1255,9 +1251,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 10px 0 0 0;
+  border-radius: 10px 0 0;
 }
-.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .banner-container img {
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .banner-container .nfo-img {
   width: 100%;
   height: 100%;
   border-radius: 8px 8px 0 0;
@@ -1301,11 +1297,11 @@
   content: "";
   width: 9px;
   height: 9px;
-  background-color: #ff0000;
+  background-color: #f00;
   display: block;
   border-radius: 50%;
 }
-.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .timing-nfo-value .timing-container p {
+.our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .banner-timing-container .timing-nfo-value .timing-container .timing-text {
   font-size: 12px;
   line-height: 16px;
   color: #fff;
@@ -1518,13 +1514,10 @@
   justify-content: center;
   align-items: center;
 }
-.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon img {
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon .riskfactor-icon {
   max-width: 20px;
   width: 100%;
   height: 20px;
-}
-.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon .star {
-  display: none;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star {
   max-width: 8%;
@@ -1625,7 +1618,7 @@
   content: "";
   width: 9px;
   height: 9px;
-  background-color: #ff0000;
+  background-color: #f00;
   border-radius: 50%;
   display: block;
 }

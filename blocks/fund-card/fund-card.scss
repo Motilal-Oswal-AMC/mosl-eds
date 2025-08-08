@@ -150,7 +150,7 @@
         list-style: none;
         margin: 0;
         flex-wrap: wrap;
-        li {
+        &-name {
           @include font-style(
             $size: 12px,
             $line-height: 16px,
@@ -194,7 +194,7 @@
       }
       &.no-planlist{
         .fundtagging-list{
-          li{
+          &-name{
             &:last-of-type::after{
               content: unset;
             }
@@ -748,7 +748,7 @@
         list-style: none;
         margin: 0;
         flex-wrap: wrap;
-        li {
+        &-name {
           @include font-style(
             $size: 12px,
             $line-height: 16px,
