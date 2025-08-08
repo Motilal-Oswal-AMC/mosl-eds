@@ -1096,6 +1096,25 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.append(divfund);
   block.querySelector(".applied-filter-list").innerHTML = "";
+  [...block.querySelectorAll(".sort-container .dropdown-list")].forEach(
+    (el) => {
+      el.addEventListener("click", (event) => {
+        if ("Oldest to Newest" === event.target.textContent.trim()) {
+          let tempa = dataCfObj.sort(
+            (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment)
+          );
+          dataMapMoObj.funddata = tempa;
+        }
+        if ("Newest to Oldest" === event.target.textContent.trim()) {
+          let tempa = dataCfObj.sort(
+            (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment)
+          );
+          dataMapMoObj.funddata = tempa;
+        }
+        viewFunction(block);
+      });
+    }
+  );
   //added wrapper
   let divmop = div({
       class: "indanequity-wrapper",
