@@ -1115,6 +1115,26 @@ export default function decorate(block) {
       });
     }
   );
+  //Mobile Sorting
+  [...block.querySelectorAll('.arrange-container .radio-label')].forEach((mobel)=>{
+    mobel.addEventListener("click", (event) => {
+      const sortText = event.target
+        .closest(".radio-label")
+        .querySelector("label").textContent;
+      if ("Oldest to Newest" === sortText.trim()) {
+        let tempa = dataCfObj.sort(
+          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment)
+        );
+        dataMapMoObj.tempMobReturn = tempa;
+      }
+      if ("Newest to Oldest" === sortText.trim()) {
+        let tempa = dataCfObj.sort(
+          (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment)
+        );
+        dataMapMoObj.tempMobReturn = tempa;
+      }
+    });
+  })
   //added wrapper
   let divmop = div({
       class: "indanequity-wrapper",
