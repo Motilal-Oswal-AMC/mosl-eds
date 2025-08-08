@@ -14,6 +14,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import dataMapMoObj from './constant.js';
 
 import delayed from './delayed.js';
 
@@ -291,4 +292,19 @@ export function evaluateByDays(pastDateStr) {
   } else {
     return 'Annualised'//`${diffDays} days`;
   }
+}
+
+export function wishlist(){
+  dataMapMoObj.schstar = [];
+  let paramCount = document.querySelectorAll(".star-filled");
+  paramCount.forEach((el)=>{
+    dataMapMoObj.schstar.push(el.getAttribute("schcode"))
+  })
+   document.querySelector(".watchlisttext span").textContent ="";
+  if (paramCount.length < 10) {
+    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"(0"+paramCount.length+")";
+  }else{
+    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
+  } 
+   
 }

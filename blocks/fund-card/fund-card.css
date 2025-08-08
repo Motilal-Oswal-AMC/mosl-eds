@@ -29,6 +29,16 @@
   font-weight: 400;
   margin: 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.section .card-container .card-wrapper .selectedtext::after {
+  content: "";
+  background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
+  width: 12px;
+  height: 12px;
+  display: block;
 }
 .section .card-container .card-wrapper .dropdown-list {
   position: absolute;
@@ -128,7 +138,7 @@
   margin: 0;
   flex-wrap: wrap;
 }
-.section .card-container .card-category .fundtagging-list li {
+.section .card-container .card-category .fundtagging-list-name {
   font-size: 12px;
   line-height: 16px;
   color: #2e312f;
@@ -139,7 +149,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
-.section .card-container .card-category .fundtagging-list li::after {
+.section .card-container .card-category .fundtagging-list-name::after {
   content: "";
   min-width: 3px;
   height: 3px;
@@ -156,6 +166,9 @@
   justify-content: flex-start;
   gap: 8px;
   position: relative;
+}
+.section .card-container .card-category.no-planlist .fundtagging-list-name:last-of-type::after {
+  content: unset;
 }
 .section .card-container .risk-container {
   display: flex;
@@ -265,16 +278,15 @@
   display: none;
 }
 .section .card-container .cagr-container .cagr-select-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: start;
   width: 115px;
   position: relative;
 }
-@media screen and (max-width: 900px) {
+@media (max-width: 1299px) {
   .section .card-container .cagr-container .cagr-select-wrapper {
     width: 80px;
   }
+}
+@media screen and (max-width: 900px) {
   .section .card-container .cagr-container .cagr-select-wrapper .dropdown-list {
     top: 35px;
   }
@@ -343,8 +355,11 @@
   text-underline-offset: 20%;
   border-radius: 0;
 }
-.section .card-container .button-container .invest-now {
-  max-width: 132px;
+.section .card-container .button-container a {
+  max-width: 120px;
+  width: 100%;
+}
+.section .card-container .button-container a .invest-now {
   width: 100%;
   border-radius: 8px;
   background: #2e2a94;
@@ -496,6 +511,16 @@
   font-weight: 400;
   margin: 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.section .card-container .card-wrapper .selectedtext::after {
+  content: "";
+  background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
+  width: 12px;
+  height: 12px;
+  display: block;
 }
 .section .card-container .card-wrapper .dropdown-list {
   display: none;
@@ -564,7 +589,7 @@
   border-radius: 50%;
   background: #bdcbff;
 }
-.section .card-container .card-upper-title .title-headLogo .title-logo .logoScheme {
+.section .card-container .card-upper-title .title-headLogo .title-logo .logoscheme {
   position: absolute;
   top: 20%;
   left: 15%;
@@ -589,7 +614,7 @@
   margin: 0;
   font-size: 12px;
   line-height: 16px;
-  color: #5659fa;
+  color: #5659FA;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
@@ -623,7 +648,7 @@
   margin: 0;
   flex-wrap: wrap;
 }
-.section .card-container .card-category .fundtagging-list li {
+.section .card-container .card-category .fundtagging-list-name {
   font-size: 12px;
   line-height: 16px;
   color: #242177;
@@ -634,7 +659,7 @@
   justify-content: flex-start;
   gap: 8px;
 }
-.section .card-container .card-category .fundtagging-list li::after {
+.section .card-container .card-category .fundtagging-list-name::after {
   content: "";
   min-width: 3px;
   height: 3px;
@@ -704,17 +729,15 @@
   font-weight: 500;
 }
 .section .card-container .cagr-container .cagr-select-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 4px;
   width: 115px;
   position: relative;
 }
-@media screen and (max-width: 900px) {
+@media (max-width: 1299px) {
   .section .card-container .cagr-container .cagr-select-wrapper {
     width: 80px;
   }
+}
+@media screen and (max-width: 900px) {
   .section .card-container .cagr-container .cagr-select-wrapper .dropdown-list {
     top: 35px;
   }
@@ -726,26 +749,6 @@
   .section .card-container .cagr-container .cagr-select-wrapper .dropdown-list {
     top: 18px;
   }
-}
-.section .card-container .cagr-container .cagr-select-wrapper::after {
-  content: "";
-  background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
-  width: 12px;
-  height: 12px;
-  display: block;
-}
-.section .card-container .cagr-container .cagr-select-wrapper select {
-  font-size: 12px;
-  line-height: 16px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  appearance: none;
-  padding: 4px 4px 4px 0;
 }
 .section .card-container .cagr-container .cagr-value {
   max-width: 46%;
@@ -871,8 +874,11 @@
   text-underline-offset: 20%;
   border-radius: 0;
 }
-.section .card-container .button-container .invest-now {
+.section .card-container .button-container a {
   max-width: 120px;
+  width: 100%;
+}
+.section .card-container .button-container a .invest-now {
   width: 100%;
   border-radius: 8px;
   background: #2e2a94;

@@ -32,6 +32,17 @@
         );
         margin: 0;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        &::after {
+          content: "";
+          background: url("../../icons/down-arrow-small.svg") center/cover
+            no-repeat;
+          width: 12px;
+          height: 12px;
+          display: block;
+        }
       }
       .dropdown-list {
         // display: none;
@@ -139,7 +150,7 @@
         list-style: none;
         margin: 0;
         flex-wrap: wrap;
-        li {
+        &-name {
           @include font-style(
             $size: 12px,
             $line-height: 16px,
@@ -180,6 +191,15 @@
         //   background-color: $primary-blue;
         //   border-radius: 50%;
         // }
+      }
+      &.no-planlist{
+        .fundtagging-list{
+          &-name{
+            &:last-of-type::after{
+              content: unset;
+            }
+          }
+        }
       }
     }
     .risk-container {
@@ -308,12 +328,15 @@
       }
 
       .cagr-select-wrapper {
-        @include flex-center($align: center, $justify: start);
+        // @include flex-center($align: center, $justify: start);
         // width: 80px;
         width: 115px;
         position: relative;
-        @media screen and (max-width: 900px) {
+        @include media(desktop-sm){
           width: 80px;
+        }
+        @media screen and (max-width: 900px) {
+          // width: 80px;
           .dropdown-list {
             top: 35px;
           }
@@ -323,14 +346,6 @@
           .dropdown-list {
             top: 18px;
           }
-        }
-        &::after {
-          content: "";
-          background: url("../../icons/down-arrow-small.svg") center/cover
-            no-repeat;
-          width: 12px;
-          height: 12px;
-          display: block;
         }
       }
     }
@@ -378,10 +393,11 @@
         text-underline-offset: 20%;
         border-radius: 0;
       }
-
-      .invest-now {
-        max-width: 132px;
+      a{
+        max-width: 120px;
         width: 100%;
+        .invest-now {
+          width: 100%;
         border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
         // padding: 12px;
@@ -396,6 +412,8 @@
           $family: $Poppins
         );
       }
+      }
+      
     }
   }
   &.tabs-container {
@@ -570,6 +588,17 @@
         );
         margin: 0;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        &::after {
+          content: "";
+          background: url("../../icons/down-arrow-small.svg") center/cover
+            no-repeat;
+          width: 12px;
+          height: 12px;
+          display: block;
+        }
       }
       .dropdown-list {
         display: none;
@@ -644,7 +673,7 @@
           box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
           border-radius: 50%;
           background: #bdcbff;
-          .logoScheme {
+          .logoscheme {
             position: absolute;
             top: 20%;
             left: 15%;
@@ -719,7 +748,7 @@
         list-style: none;
         margin: 0;
         flex-wrap: wrap;
-        li {
+        &-name {
           @include font-style(
             $size: 12px,
             $line-height: 16px,
@@ -831,13 +860,16 @@
       }
 
       .cagr-select-wrapper {
-        @include flex-center($align: center, $justify: start);
-        gap: 4px;
+        // @include flex-center($align: center, $justify: start);
+        // gap: 4px;
         // width: 80px;
         width: 115px;
         position: relative;
-        @media screen and (max-width: 900px) {
+        @include media(desktop-sm){
           width: 80px;
+        }
+        @media screen and (max-width: 900px) {
+          // width: 80px;
           .dropdown-list {
             top: 35px;
           }
@@ -847,14 +879,6 @@
           .dropdown-list {
             top: 18px;
           }
-        }
-        &::after {
-          content: "";
-          background: url("../../icons/down-arrow-small.svg") center/cover
-            no-repeat;
-          width: 12px;
-          height: 12px;
-          display: block;
         }
       }
 
@@ -1011,9 +1035,11 @@
         border-radius: 0;
       }
 
-      .invest-now {
-        // max-width: 132px;
+      a{
         max-width: 120px;
+        width: 100%;
+        .invest-now {
+        // max-width: 132px;
         width: 100%;
         border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
@@ -1028,6 +1054,7 @@
           $weight: map.get($font-weights, medium),
           $family: $Poppins
         );
+      }
       }
     }
   }
