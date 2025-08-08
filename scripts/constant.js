@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 const dataMapMoObj = {
   ObjTemp: {
     inception_Ret: 'SINCE INCEPTION',

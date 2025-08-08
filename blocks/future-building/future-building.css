@@ -1,6 +1,6 @@
 @import "../../../styles/fonts.css";
 @import '../swiper/swiper-bundle.min.css';
-/* stylelint-disable */
+/*   */
 .section.future-building-container {
   max-width: 1232px;
   margin: 0 auto;
@@ -94,7 +94,7 @@
 }
 .section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 > ul > li a {
   display: inline-flex;
-  padding: 0px 8px;
+  padding: 0 8px;
   align-items: center;
   gap: 8px;
   border-radius: 40px;
@@ -192,7 +192,6 @@
 }
 .section.future-building-container > div:nth-child(3) p a {
   margin: 0;
-  padding: 0;
   display: inline-flex;
   padding: 12px;
   justify-content: center;

@@ -20,11 +20,11 @@ export default function decorate(block) {
     el.classList.add("item" + (index + 1))
   })
   Array.from(block.children).forEach((el, index) => {
-    el.classList.add("block-item" + (index + 1));
+    el.classList.add(`block-item${index + 1}`);
     Array.from(el.children).forEach((elsub, index) => {
-      elsub.classList.add("block-subitem" + (index + 1));
+      elsub.classList.add(`block-subitem${index + 1}`);
       Array.from(elsub.children).forEach((finelsub, index) => {
-        finelsub.classList.add("block-subitem-finelsub" + (index + 1));
+        finelsub.classList.add(`block-subitem-finelsub${index + 1}`);
       });
     });
   });
@@ -134,8 +134,7 @@ export default function decorate(block) {
                   ".block-subitem2 .block-subitem-finelsub4 span"
                 )
               ),
-              span(
-                { class: "trending-text" },
+              span({class:'trending-text'},
                 block
                   .querySelector(".block-subitem2 .block-subitem-finelsub5")
                   .textContent.trim()
@@ -198,7 +197,8 @@ export default function decorate(block) {
                     .textContent.trim()
                 )
               ),
-              button({ class: "clearall-btn",
+              button({
+                class: "clearall-btn",
                 onclick: () => {
                       Array.from(
                         block.querySelector(".filter-list-wrapper").children
@@ -206,10 +206,10 @@ export default function decorate(block) {
                         if (
                           el
                             .closest(".checkbox-label-container")
-                            .querySelector(".innerIndianEquity")
+                            .querySelector(".innerindianequity")
                         ) {
                           el.closest(".checkbox-label-container")
-                            .querySelectorAll(".innerIndianEquity input")
+                            .querySelectorAll(".innerindianequity input")
                             .forEach((elemsub) => {
                               elemsub.checked = false;
                             });
@@ -219,7 +219,7 @@ export default function decorate(block) {
                       dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
                       viewFunction(block)
                     }
-               }, "Clear All")
+              }, "Clear All")
             ),
             div(
               {
@@ -1093,7 +1093,7 @@ export default function decorate(block) {
       )
     )
   );
-  block.innerHTML = "";
+  block.innerHTML = '';
   block.append(divfund);
   block.querySelector(".applied-filter-list").innerHTML = "";
   //added wrapper
@@ -1228,127 +1228,125 @@ function dataFilterfun(param) {
     tenYear_Ret: [],
   }, ];
 
-  for (let name of param) {
+  for (const name of param) {
     if (
-      [...name.fundsTaggingSection].includes("motilal-oswal:indian-equity-")
+      [...name.fundsTaggingSection].includes('motilal-oswal:indian-equity-')
     ) {
-      dataMapObj["fundCategory"].forEach((element) => {
-        if (element["indian-equity"]) {
-          element["indian-equity"].push(name.schcode);
+      dataMapObj.fundCategory.forEach((element) => {
+        if (element['indian-equity']) {
+          element['indian-equity'].push(name.schcode);
         }
       });
     }
     if (
-      [...name.fundsTaggingSection].includes("motilal-oswal:hybrid-&-balanced")
+      [...name.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced')
     ) {
-      dataMapObj["fundCategory"].forEach((element) => {
-        if (element["hybrid-&-balanced"]) {
-          element["hybrid-&-balanced"].push(name.schcode);
+      dataMapObj.fundCategory.forEach((element) => {
+        if (element['hybrid-&-balanced']) {
+          element['hybrid-&-balanced'].push(name.schcode);
         }
       });
     }
-    if ([...name.fundsTaggingSection].includes("motilal-oswal:debt-&-liquid")) {
-      dataMapObj["fundCategory"].forEach((element) => {
-        if (element["debt-&-liquid"]) {
-          element["debt-&-liquid"].push(name.schcode);
+    if ([...name.fundsTaggingSection].includes('motilal-oswal:debt-&-liquid')) {
+      dataMapObj.fundCategory.forEach((element) => {
+        if (element['debt-&-liquid']) {
+          element['debt-&-liquid'].push(name.schcode);
         }
       });
     }
     if (
       [...name.fundsTaggingSection].includes(
-        "motilal-oswal:international-equity"
+        'motilal-oswal:international-equity',
       )
     ) {
-      dataMapObj["fundCategory"].forEach((element) => {
-        if (element["international-equity"]) {
-          element["international-equity"].push(name.schcode);
+      dataMapObj.fundCategory.forEach((element) => {
+        if (element['international-equity']) {
+          element['international-equity'].push(name.schcode);
         }
       });
     }
-    if ([...name.fundsTaggingSection].includes("motilal-oswal:multi-asset")) {
-      dataMapObj["fundCategory"].forEach((element) => {
-        if (element["multi-asset"]) {
-          element["multi-asset"].push(name.schcode);
+    if ([...name.fundsTaggingSection].includes('motilal-oswal:multi-asset')) {
+      dataMapObj.fundCategory.forEach((element) => {
+        if (element['multi-asset']) {
+          element['multi-asset'].push(name.schcode);
         }
       });
     }
-    if ([...name.fundsTaggingSection].includes("motilal-oswal:commodity")) {
-      dataMapObj["fundCategory"].forEach((element) => {
-        if (element["commodity"]) {
-          element["commodity"].push(name.schcode);
+    if ([...name.fundsTaggingSection].includes('motilal-oswal:commodity')) {
+      dataMapObj.fundCategory.forEach((element) => {
+        if (element.commodity) {
+          element.commodity.push(name.schcode);
         }
       });
     }
-    if ([...name.fundsTaggingSection].includes("motilal-oswal:index-funds")) {
-      dataMapObj["fundType"].forEach((element) => {
-        if (element["index-funds"]) {
-          element["index-funds"].push(name.schcode);
+    if ([...name.fundsTaggingSection].includes('motilal-oswal:index-funds')) {
+      dataMapObj.fundType.forEach((element) => {
+        if (element['index-funds']) {
+          element['index-funds'].push(name.schcode);
         }
       });
     }
-    if ([...name.fundsTaggingSection].includes("motilal-oswal:active")) {
-      dataMapObj["fundType"].forEach((element) => {
-        if (element["active"]) {
-          element["active"].push(name.schcode);
+    if ([...name.fundsTaggingSection].includes('motilal-oswal:active')) {
+      dataMapObj.fundType.forEach((element) => {
+        if (element.active) {
+          element.active.push(name.schcode);
         }
       });
     }
-    if ([...name.fundsTaggingSection].includes("motilal-oswal:etf")) {
-      dataMapObj["fundType"].forEach((element) => {
-        if (element["etf"]) {
-          element["etf"].push(name.schcode);
+    if ([...name.fundsTaggingSection].includes('motilal-oswal:etf')) {
+      dataMapObj.fundType.forEach((element) => {
+        if (element.etf) {
+          element.etf.push(name.schcode);
         }
       });
     }
     if (name.fundSubCategorisation) {
-      dataMapObj["fundCategory"][dataMapObj["fundCategory"].length - 1][
-        "indianEquitySub"
-      ].forEach((elementsub, index) => {
+      dataMapObj.fundCategory[dataMapObj.fundCategory.length - 1].indianEquitySub.forEach((elementsub, index) => {
         if (elementsub[name.fundSubCategorisation]) {
           elementsub[name.fundSubCategorisation].push(name.schcode);
         }
       });
     }
     for (const element of name.returns) {
-      let key = Object.keys(element);
+      const key = Object.keys(element);
       if (
-        [...key].includes("inception_Ret") &&
-        !dataMapObj["sort"][0]["inception_Ret"].includes(name.schcode)
+        [...key].includes('inception_Ret')
+        && !dataMapObj.sort[0].inception_Ret.includes(name.schcode)
       ) {
-        dataMapObj["sort"][0]["inception_Ret"].push(name.schcode);
+        dataMapObj.sort[0].inception_Ret.push(name.schcode);
       }
       if (
-        [...key].includes("oneYear_Ret") &&
-        !dataMapObj["sort"][0]["oneYear_Ret"].includes(name.schcode)
+        [...key].includes('oneYear_Ret')
+        && !dataMapObj.sort[0].oneYear_Ret.includes(name.schcode)
       ) {
-        dataMapObj["sort"][0]["oneYear_Ret"].push(name.schcode);
+        dataMapObj.sort[0].oneYear_Ret.push(name.schcode);
       }
       if (
-        [...key].includes("threeYear_Ret") &&
-        !dataMapObj["sort"][0]["threeYear_Ret"].includes(name.schcode)
+        [...key].includes('threeYear_Ret')
+        && !dataMapObj.sort[0].threeYear_Ret.includes(name.schcode)
       ) {
-        dataMapObj["sort"][0]["threeYear_Ret"].push(name.schcode);
+        dataMapObj.sort[0].threeYear_Ret.push(name.schcode);
       }
       if (
-        [...key].includes("fiveYear_Ret") &&
-        !dataMapObj["sort"][0]["fiveYear_Ret"].includes(name.schcode)
+        [...key].includes('fiveYear_Ret')
+        && !dataMapObj.sort[0].fiveYear_Ret.includes(name.schcode)
       ) {
-        dataMapObj["sort"][0]["fiveYear_Ret"].push(name.schcode);
+        dataMapObj.sort[0].fiveYear_Ret.push(name.schcode);
       }
       if (
-        [...key].includes("sevenYear_Ret") &&
-        !dataMapObj["sort"][0]["sevenYear_Ret"].includes(name.schcode)
+        [...key].includes('sevenYear_Ret')
+        && !dataMapObj.sort[0].sevenYear_Ret.includes(name.schcode)
       ) {
-        dataMapObj["sort"][0]["sevenYear_Ret"].push(name.schcode);
+        dataMapObj.sort[0].sevenYear_Ret.push(name.schcode);
       }
       if (
-        [...key].includes("tenYear_Ret") &&
-        !dataMapObj["sort"][0]["tenYear_Ret"].includes(name.schcode)
+        [...key].includes('tenYear_Ret')
+        && !dataMapObj.sort[0].tenYear_Ret.includes(name.schcode)
       ) {
-        dataMapObj["sort"][0]["tenYear_Ret"].push(name.schcode);
+        dataMapObj.sort[0].tenYear_Ret.push(name.schcode);
       }
     }
-    dataMapObj["schemeName"].push({
+    dataMapObj.schemeName.push({
       schemeName: name.schDetail.schemeName,
       schcode: name.schcode,
     });

@@ -1,0 +1,96 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.fund-video-container {
+  width: 100%;
+  background-color: #2e2a94;
+  padding: 40px 16px;
+  border-radius: 8px;
+
+  @media (width <= 768px) {
+    border-radius: 0;
+  }
+
+  //   height: 170px;
+
+  .fund-video-wrapper {
+    .fund-video {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media (width <= 768px) {
+        flex-direction: column;
+        gap: 50px;
+        align-items: baseline;
+      }
+
+      div:nth-child(1) {
+        max-width: 288px;
+
+        div {
+          p {
+            @include font-style(
+              24px,
+              32px,
+              map.get($button-secondary, default),
+              600,
+              $Poppins
+            );
+
+            margin: 0;
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        div {
+          max-width: 100%;
+          display: flex;
+          gap: 24px;
+
+          p:nth-child(1) {
+            width: 160px;
+            height: 90px;
+
+            iframe {
+              border-radius: 3.33px;
+              opacity: 0.6;
+            }
+          }
+
+          p:nth-child(2) {
+            max-width: 255px;
+
+            @include font-style(
+              16px,
+              24px,
+              map.get($blue-1, b150),
+              400,
+              $Poppins
+            );
+
+            display: flex;
+            flex-direction: column;
+
+            strong {
+              @include font-style(
+                16px,
+                20px,
+                map.get($button-secondary, default),
+                600,
+                $Poppins
+              );
+            }
+
+            @media (width <= 768px) {
+              font-size: 14px;
+              width: 156px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
-/* eslint-disable */
+/*    */
 
+import { loadEmbed } from '../blocks/embed/embed.js';
 import loadFragment from '../blocks/fragment/fragment.js';
 import {
   loadHeader,
@@ -25,7 +26,7 @@ import delayed from './delayed.js';
  */
 export function moveAttributes(from, to, attributes) {
   if (!attributes) {
-    // eslint-disable-next-line no-param-reassign
+    //   -next-line no-param-reassign
     attributes = [...from.attributes].map(({ nodeName }) => nodeName);
   }
   attributes.forEach((attr) => {
@@ -48,7 +49,9 @@ export function moveInstrumentation(from, to) {
     to,
     [...from.attributes]
       .map(({ nodeName }) => nodeName)
-      .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
+      .filter(
+        (attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'),
+      ),
   );
 }
 
@@ -58,7 +61,7 @@ export function moveInstrumentation(from, to) {
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
+    if (!window.location.hostname.includes('localhost')) { sessionStorage.setItem('fonts-loaded', 'true'); }
   } catch (e) {
     // do nothing
   }
@@ -69,11 +72,27 @@ function autolinkModals(element) {
 
     if (origin && origin.href && origin.href.includes('/modals/')) {
       e.preventDefault();
-      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+      const { openModal } = await import(
+        `${window.hlx.codeBasePath}/blocks/modal/modal.js`
+      );
       openModal(origin.href);
     }
   });
 }
+
+function autolinkVideo(element) {
+  const origin = element.querySelector('a');
+
+  if (origin && origin.href && origin.href.includes('/www.youtube.com/')) {
+    // e.preventDefault();
+    // const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+    // openModal(origin.href);
+    loadEmbed(origin, origin.href);
+  }
+  // });
+}
+
+// loadEmbed(block,link)
 
 /**
  * Builds all synthetic blocks in a container element.
@@ -83,7 +102,7 @@ function buildAutoBlocks() {
   try {
     // TODO: add auto block, if needed
   } catch (error) {
-    // eslint-disable-next-line no-console
+    //   -next-line no-console
     console.error('Auto Blocking failed', error);
   }
 }
@@ -92,7 +111,7 @@ function buildAutoBlocks() {
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
+//   -next-line import/prefer-default-export
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
@@ -126,14 +145,13 @@ async function loadEager(doc) {
   }
 }
 
-
-
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  autolinkModals(doc)
+  autolinkVideo(doc);
+  autolinkModals(doc);
   const main = doc.querySelector('main');
   autolinkFragements(doc);
   wrapImgsInLinks(doc);
@@ -150,13 +168,12 @@ async function loadLazy(doc) {
   loadFonts();
 }
 
-
 /**
  * Loads everything that happens a lot later,
  * without impacting the user experience.
  */
 function loadDelayed() {
-  // eslint-disable-next-line import/no-cycle
+  //   -next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
@@ -168,8 +185,6 @@ async function loadPage() {
 }
 
 loadPage();
-
-
 
 /// API ///
 export function fetchAPI(method, url, data) {
@@ -185,7 +200,6 @@ export function fetchAPI(method, url, data) {
       //   });
       // });
 
-
       if (method === 'GET') {
         const resp = await fetch(url);
         resolve(resp);
@@ -196,7 +210,9 @@ export function fetchAPI(method, url, data) {
         if (data.headerJson['Content-Type'] == 'remove') {
           data.headerJson['Content-Type'] = '';
         } else {
-          data.headerJson['Content-Type'] = data.headerJson['Content-Type'] ? data.headerJson['Content-Type'] : 'application/json';
+          data.headerJson['Content-Type'] = data.headerJson['Content-Type']
+            ? data.headerJson['Content-Type']
+            : 'application/json';
         }
         /* Optimzie Code */
         /* data.headerJson = data.headerJson || {};
@@ -204,7 +220,7 @@ export function fetchAPI(method, url, data) {
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify(data.requestJson),
-          headers: data.headerJson
+          headers: data.headerJson,
           // mode: 'no-cors'
         });
         const response = await fetch(request);
@@ -217,7 +233,6 @@ export function fetchAPI(method, url, data) {
     }
   });
 }
-
 
 window.addEventListener('load', () => {
   delayed(); // ✅ this must be here!
@@ -239,12 +254,12 @@ function autolinkFragements(element) {
   element.querySelectorAll('a').forEach((origin) => {
     if (origin && origin.href && origin.href.includes('/fragment/')) {
       const parent = origin.parentElement;
-      const div = document.createElement("div");
+      const div = document.createElement('div');
       div.append(origin);
       parent.append(div);
       loadFragment(div);
     }
-  })
+  });
 }
 
 export function getTimeLeft(targetDateStr) {

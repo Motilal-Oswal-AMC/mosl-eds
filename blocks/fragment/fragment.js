@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 /*
  * Fragment Block
  * Include content on a page as a fragment.
@@ -20,7 +20,7 @@ import {
  */
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
-    // eslint-disable-next-line no-param-reassign
+    //   -next-line no-param-reassign
     path = path.replace(/(\.plain)?\.html/, '');
     const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
@@ -57,5 +57,3 @@ export default async function decorate(block) {
     }
   }
 }
-
-

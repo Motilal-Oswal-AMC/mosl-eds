@@ -7,7 +7,6 @@
         // display: grid;
         display: none; // RM11
         grid-template-columns: 1fr 1fr;
-        align-items: start;
         padding: 20px 16px;
         align-items: flex-start;
         flex-shrink: 0;
@@ -21,6 +20,7 @@
 
         >p:first-child {
             @include font-style(28px, 32px, $primary-blue-1-900, map.get($font-weights, medium), $ButlerPro);
+
             grid-column: 1 / 2;
 
             @include media(mobile) {
@@ -31,6 +31,7 @@
 
         >p:nth-child(2) {
             @include font-style(28px, 32px, $primary-blue-1-900, map.get($font-weights, medium), $ButlerPro);
+
             grid-column: 1 / 2;
             margin: 0;
             padding: 0;
@@ -44,8 +45,8 @@
 
             a {
                 @include font-style(14px, 16px, $primary-white, map.get($font-weights, semi-bold), $Poppins);
+
                 margin: 0;
-                padding: 0;
                 display: flex;
                 width: 143px;
                 padding: 12px;

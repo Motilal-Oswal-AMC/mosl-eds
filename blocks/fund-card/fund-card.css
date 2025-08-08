@@ -1,5 +1,5 @@
-/* stylelint-disable alpha-value-notation */
-/* stylelint-disable media-feature-range-notation */
+/*   alpha-value-notation */
+/*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
 /* stylelint-disable */
 .section .card-container {
@@ -299,26 +299,6 @@
     top: 18px;
   }
 }
-.section .card-container .cagr-container .cagr-select-wrapper::after {
-  content: "";
-  background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
-  width: 12px;
-  height: 12px;
-  display: block;
-}
-.section .card-container .cagr-container .cagr-select-wrapper select {
-  font-size: 12px;
-  line-height: 16px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  appearance: none;
-  padding: 4px 4px 4px 0;
-}
 .section .card-container .discription {
   margin: 10px 0 0;
   padding: 8px 12px;
@@ -375,7 +355,7 @@
 .section.tabs-container {
   width: 100%;
   margin: 0 auto;
-  padding: 40px 0px;
+  padding: 40px 0;
 }
 .section.tabs-container.our-popular-funds {
   background: #2e2a94;
@@ -487,7 +467,7 @@
 .section .card-container {
   max-width: 296px;
   width: 100%;
-  padding: 16px 16px;
+  padding: 16px;
   border-radius: 8px;
   border: 1px solid #b7b7b7;
   display: flex;
@@ -695,7 +675,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 4px 0;
   min-height: 88px;
   height: 88px;
   padding: 12px;
@@ -894,7 +873,7 @@
 .section.index-fund {
   margin: 40px auto;
   width: 100%;
-  padding: 12px 0px;
+  padding: 12px 0;
 }
 .section.index-fund .compound-item {
   display: flex;
@@ -990,7 +969,7 @@
 }
 @media (max-width: 768px) {
   .section.tabs-container {
-    padding: 40px 0px;
+    padding: 40px 0;
   }
   .section.tabs-container .default-content-wrapper h1 {
     font-size: 32px;

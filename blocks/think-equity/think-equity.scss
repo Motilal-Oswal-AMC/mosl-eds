@@ -2,16 +2,17 @@
 @use '../../styles/common-theme/css/variables_mixins' as *;
 @use '../../styles/common-theme/css/fluid-typography' as *;
 
-/* stylelint-disable */
+/*   */
 
 .section.think-equity-container {
-    padding: 48px 0px;
+    padding: 48px 0;
+
     // max-width: 1264px;
     margin: 0 auto;
     font-family: $ButlerPro;
 
     @include media(tab) {
-        padding: 40px 0px;
+        padding: 40px 0;
     }
 
     @include media(mobile) {
@@ -130,6 +131,7 @@
                 margin: 0;
                 max-inline-size: 30ch;
                 text-wrap: balance;
+
                 @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
             }
 
@@ -146,7 +148,7 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 24px;
-        border: 1px solid #dee2e6;
+
         // padding: 24px;
         padding: 24px 0;
         border-radius: 8px;
