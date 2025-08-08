@@ -17,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  padding: 0 2px;
 }
 @media (max-width: 768px) {
   .our-funds-block .fundcontainer {
@@ -40,10 +41,9 @@
 }
 .our-funds-block .fundcontainer .search-trending-wrapper {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
-  max-width: 74.68%;
+  max-width: 74.6%;
   width: 100%;
 }
 @media (max-width: 768px) {
@@ -55,7 +55,7 @@
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input {
-  max-width: 81.2%;
+  max-width: 82.2%;
   width: 100%;
   padding: 12px 8px;
   border-radius: 6px;
@@ -181,6 +181,9 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  padding: 8px 0;
+  line-height: 0;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .our-funds-block .fundcontainer .search-trending-wrapper .watchlist {
@@ -189,8 +192,8 @@
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .watchlist .staricon .icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   display: block;
   cursor: pointer;
 }
@@ -206,19 +209,20 @@
 .our-funds-block .fundcontainer .search-trending-wrapper .watchlisttext {
   width: -moz-max-content;
   width: max-content;
+  line-height: 0;
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .watchlisttext span {
   font-size: 14px;
-  line-height: 16px;
+  line-height: 20px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   text-decoration-line: underline;
   text-underline-offset: 20%;
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .trending-container {
   display: flex;
-  align-items: start;
+  align-items: center;
   gap: 16px;
 }
 @media (max-width: 1025px) {
@@ -241,7 +245,6 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  padding-top: 10px;
 }
 @media (max-width: 768px) {
   .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel {
@@ -252,13 +255,13 @@
   }
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel p,
-.our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel span {
+.our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel .icon {
   margin: 0;
   width: 16px;
   height: 16px;
   display: flex;
 }
-.our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel label {
+.our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendinglabel .trending-text {
   font-size: 14px;
   line-height: 16px;
   color: #111;
@@ -266,13 +269,13 @@
   font-weight: 500;
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist {
-  line-height: unset;
+  line-height: 0;
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2px 24px;
+  gap: 2px 16px;
   list-style: none;
   margin: 0;
 }

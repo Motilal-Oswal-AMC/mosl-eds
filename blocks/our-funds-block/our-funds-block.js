@@ -109,7 +109,7 @@ export default function decorate(block) {
                   ".block-subitem2 .block-subitem-finelsub4 span"
                 )
               ),
-              label(
+              span({class:'trending-text'},
                 block
                 .querySelector(".block-subitem2 .block-subitem-finelsub5")
                 .textContent.trim()
