@@ -109,7 +109,7 @@ export default function decorate(block) {
       div(
         { class: 'return-cagr-wrapper' },
         label(col4[1].textContent.trim()),
-        span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)} khjh%`),
+        span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}  %`),
       ),
       div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
     ),
@@ -249,9 +249,9 @@ export default function decorate(block) {
       ? (isNaN(r) || r === 0 ? investedAmount : amount * (((1 + r) ** n - 1) / r))
       : amount * ((1 + returnCAGR / 100) ** tenure);
 
-    investedAmountSpan.textContent = `₹${(investedAmount / 100000).toFixed(2)} Lac`;
-    currentValueSpan.textContent = `₹${(futureValue / 100000).toFixed(2)} Lac`;
-    returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
+    investedAmountSpan.textContent = `${(investedAmount / 100000).toFixed(2)} Lac`;
+    currentValueSpan.textContent = `${(futureValue / 100000).toFixed(2)} Lac`;
+    returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)} %`;
   }
 
   // -------------------------------
