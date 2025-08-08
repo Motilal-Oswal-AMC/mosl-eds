@@ -48,7 +48,7 @@ export default function decorate(block){
                 ),
                 div({class:"cagr-return"},
                     div({class:"cagr-value"},"N/A"),
-                    p("CAGR")
+                    p({class:'cagr-text'},"CAGR")
                 ),
                 div({class:"risk-star-icon"},
                     img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"}),
@@ -88,7 +88,7 @@ export default function decorate(block){
             ),
             div({class:"cagr-return"},
                 div({class:"cagr-value"},`${block.returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,span("%")),
-                p(labelcagr)
+                p({class:'cagr-text'},labelcagr)
             ),
             div({class:"risk-star-icon"},
                 img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),

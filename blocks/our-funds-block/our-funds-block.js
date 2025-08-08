@@ -28,6 +28,18 @@ export default function decorate(block) {
       });
     });
   });
+  Array.from(block.closest(".section").querySelector(".item2").children).forEach((el)=>{
+    el.classList.add('list-header-text')
+  })
+  Array.from(block.querySelector(".block-item3 .block-subitem-finelsub3").children).forEach((el) => {
+    el.classList.add("viewlist-btn");
+  });
+  Array.from(
+    block.querySelector(".block-item3 .block-subitem-finelsub4").children
+  ).forEach((el) => {
+    el.classList.add("viewlist-btn");
+  });
+
   dataMapMoObj["selectreturns"] = "";
   dataMapMoObj["data"] = dataFilterfun(dataCfObj);
   dataMapMoObj["funddata"] = dataCfObj.slice(0, 9);
