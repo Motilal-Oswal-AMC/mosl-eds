@@ -21,7 +21,7 @@ const dataMapMoObj = {
     moderate: 'moderate-risk',
     low: 'low-risk',
   },
-  'icons-nfo': {
+  "icons-nfo": {
     'very-high': 'very-high-risk',
     'low-to-moderate': 'moderately-low-risk',
     high: 'high-risk',
