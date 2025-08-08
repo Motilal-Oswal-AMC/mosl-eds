@@ -173,7 +173,12 @@ export default function decorate(block) {
         ),
         div(
           { class: "button-container" },
-            button({ class: "know-more" }, "Know More"),
+           button(
+          {
+            class: "know-more",
+          },
+          a({href:"https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund"},"Know More"),
+        ),
           a({href:"/motilalfigma/modals/invest-now-homepage"},
               button({ class: "invest-now" }, "Invest")
           )
@@ -414,7 +419,7 @@ export default function decorate(block) {
           {
             class: "know-more",
           },
-          "Know More"
+          a({href:"https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund"},"Know More"),
         ),
         a({href:"/motilalfigma/modals/invest-now-homepage"},
               button({ class: "invest-now" }, "Invest")
