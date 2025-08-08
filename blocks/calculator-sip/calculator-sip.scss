@@ -4,15 +4,22 @@
 @use '../../styles/common-theme/css/fluid-typography'as *;
 
 /* MAIN WRAPPER */
-.compounding {
-  background-color: aliceblue;
+.compounding,
+.fdp-calculator {
+  background: $primary-white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: map.get($spacing, xs);
+  gap: 24px;
   align-self: stretch;
   padding-top: 40px;
   padding-bottom: 40px;
+
+  @include media(mobile) {
+    padding: 40px 16px;
+    background-color: #edf1ff;
+    gap: 40px;
+  }
 
   .default-content-wrapper {
 
@@ -20,7 +27,14 @@
     ul,
     li {
       margin-bottom: map.get($spacing, xs);
-      @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+
+      @include font-style(
+        12px,
+        16px,
+        $color-text-body,
+        map.get($font-weights, regular),
+        $Poppins
+      );
     }
 
     strong {
@@ -42,14 +56,28 @@
     border-radius: map.get($radius, r16);
     width: 100%;
 
+    @include media(mobile) {
+      flex-direction: column;
+      text-align: center;
+      gap: 40px;
+
+      @include media(mobile) {
+        padding: 0;
+      }
+    }
+
     .default-content-wrapper {
       flex: 1 1 37%;
       text-align: left;
-      flex-shrink: 0; // ✅ Add this line
+      flex-shrink: 0;
       display: flex;
       flex-direction: row;
-      // align-items: center;
       gap: map.get($spacing, md);
+
+      @include media(mobile) {
+        align-items: flex-start;
+        padding-top: 40px;
+      }
 
       .icon {
         flex: 0 0 auto;
@@ -61,7 +89,6 @@
       .hero-text {
         display: flex;
         flex-direction: column;
-        // gap: map.get($spacing, sm);
         text-align: left;
 
         @include media(mobile) {
@@ -70,12 +97,25 @@
       }
 
       h3 {
-        @include font-style(36px, 48px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
-        // margin: 0 0 map.get($spacing, md);
-        margin: 0px;
+        @include font-style(
+          36px,
+          48px,
+          $primary-blue,
+          map.get($font-weights, bold),
+          $ButlerPro
+        );
+
+        margin: 0;
 
         @include media(mobile) {
-          @include font-style(32px, 40px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+          @include font-style(
+            32px,
+            40px,
+            $primary-blue,
+            map.get($font-weights, bold),
+            $ButlerPro
+          );
+
           margin-bottom: 0;
         }
       }
@@ -99,15 +139,14 @@
     flex: 1 1 53%;
     max-width: 608px;
 
-    .cal-container {
-      background: $primary-white;
-      border-radius: map.get($radius, r8);
-      padding: map.get($spacing, lg);
-      align-self: stretch;
-      box-shadow: $box-shadow-soft;
-
-
-
+    .calculator-sip {
+      @include media(mobile) {
+        background: #fff;
+        border-radius: map.get($radius, r8);
+        padding: 24px 16px;
+        align-self: stretch;
+        box-shadow: $box-shadow-soft;
+      }
       .search-bar-wrapper {
         display: flex;
         flex-direction: column;
@@ -235,140 +274,259 @@
         align-self: stretch;
 
         @include media(mobile) {
-          margin: 32px 0 24px;
+          gap: 24px;
         }
 
-        label {
-          @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
-        }
-
-        span {
-          color: #2B2E8C;
-          font-family: $Poppins;
-          font-size: 12px;
-          font-weight: 600;
-          line-height: 16px;
-          margin-left: 4px;
-        }
-      }
-
-
-      .plan-options-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: map.get($spacing, xxl);
-        margin: map.get($spacing, md) 0;
-        // border-bottom: 1px solid map.get($strokes, default);
-        padding-bottom: map.get($spacing, md);
-
-        .plan-type-toggle {
+        .spi-wrapper {
           display: flex;
-          flex: 1 1 45%;
-          align-items: center;
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        @include media(mobile) {
+          padding: 0;
+          background-color: transparent;
+          box-shadow: none;
+        }
+
+        .search-bar-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: map.get($spacing, xs);
+
+          span {
+            @include font-style(
+              12px,
+              16px,
+              $color-text-body,
+              map.get($font-weights, regular),
+              $Poppins
+            );
+
+            text-align: left;
+          }
+
+          label {
+            @include font-style(
+              14px,
+              normal,
+              var(--text-color),
+              map.get($font-weights, semibold),
+              $Poppins
+            );
+          }
+
+          input {
+            width: 100%;
+            color: #2e2a94;
+            font-family: $Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            border-radius: 4px;
+            background: url("../../icons/search-icon.svg") no-repeat right 12px
+              center;
+            background-size: 20px 20px;
+            border: none;
+            outline: none;
+
+            &:active {
+              border: none;
+            }
+          }
+        }
+
+        .search-results-wrapper {
+          position: relative;
+
+          ul {
+            font-family: Poppins, sans-serif;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            background: $primary-white;
+            position: absolute;
+            width: 100%;
+            z-index: 99;
+            font-size: 18px;
+            text-align: left;
+            border-radius: 6px;
+            border: 1px solid var(--Neutrals-200, #eee);
+            box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+
+            @include media(mobile) {
+              border: 1px solid map.get($strokes, default);
+            }
+
+            li {
+              padding: 12px 16px;
+              cursor: pointer;
+
+              &:hover {
+                background: map.get($old-silver, 50);
+              }
+
+              &.active {
+                background: var(--Neutrals-200, #eee);
+              }
+            }
+          }
+        }
+
+        .scheme-btns-wrapper {
+          display: flex;
           gap: map.get($spacing, sm);
 
-
-          .toggle-label {
-            @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
+          button {
+            display: flex;
+            width: 104px;
+            height: 32px;
+            padding: map.get($spacing, xs) map.get($spacing, sm);
+            justify-content: center;
+            align-items: center;
+            border-radius: 1000px;
+            border: 1px solid #bdbdbd;
+            background: #fafafa;
+            color: #424242;
+            font-family: $Poppins;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 22px;
             cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+              background: $primary-blue;
+              color: $primary-white;
+            }
 
             &.active {
-              color: #2E2A94; // Or your theme primary color
-              font-weight: map.get($font-weights, medium);
+              background: #edf1ff;
+              color: #2e2a94;
+              border: 1px solid #382ad7;
+            }
+          }
+        }
+
+        .incal-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+
+          .invested-amount {
+            display: flex;
+            align-items: flex-start;
+            gap: map.get($spacing, xxs);
+            align-self: stretch;
+
+            label {
+              @include font-style(
+                12px,
+                16px,
+                $color-text-body,
+                map.get($font-weights, regular),
+                $Poppins
+              );
+            }
+
+            span {
+              color: #2b2e8c;
+              font-family: $Poppins;
+              font-size: 12px;
+              font-weight: 600;
+              line-height: 16px;
+              margin-left: 4px;
             }
           }
 
-          .toggle-switch {
+          .cal-discription {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
             position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
 
-            input {
-              opacity: 0;
-              width: 0;
-              height: 0;
+            @include media(mobile) {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: map.get($spacing, md);
+              text-align: left;
             }
 
-            .slider {
-              position: absolute;
-              cursor: pointer;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background-color: #ccc;
-              transition: .4s;
-              border-radius: 34px;
+            .current-value-wrapper,
+            .return-cagr-wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: map.get($spacing, xxs);
 
-              &::before {
+              label {
+                @include font-style(
+                  12px,
+                  16px,
+                  $color-text-body,
+                  map.get($font-weights, regular),
+                  $Poppins
+                );
+
+                @include media(mobile) {
+                  white-space: nowrap;
+                }
+              }
+
+              span {
+                color: #2e2a94;
+                font-family: $Poppins;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 32px;
+                text-align: left;
+                position: relative;
+                padding-left: 18px;
+              }
+
+              span::before {
+                content: "₹";
                 position: absolute;
-                content: "";
-                height: 18px;
-                width: 18px;
-                left: 4px;
-                bottom: 3px;
-                background-color: white;
-                transition: .4s;
-                border-radius: 50%;
+                left: 3px;
+                bottom: 0;
+                pointer-events: none;
+                color: #2e2a94;
+                font-family: $Poppins;
+                font-size: 20px;
+                font-weight: 500;
               }
             }
 
-            // input:checked + .slider {
-            //   // background-color: #2E2A94; // Theme color
-            // }
-
-            input:checked+.slider::before {
-              transform: translateX(26px);
-            }
-          }
-        }
-
-        .plan-option-select {
-          position: relative;
-          flex: 1 1 45%;
-          min-width: 200px;
-
-          .select-selected-plan {
-            color: #2E2A94;
-            font-family: $Poppins;
-            font-size: 20px;
-            font-weight: 500;
-            cursor: pointer;
-            position: relative;
-            user-select: none;
-            padding-bottom: 4px;
-
-            &::after {
-              content: '';
+            .start-sip-btn {
               position: absolute;
               right: 0;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 20px;
-              height: 20px;
-              background: url('../../icons/Frame.svg') no-repeat center;
-              background-size: contain;
-              transition: transform 0.2s ease;
-            }
-          }
 
-          .select-options-plan {
-            display: none;
-            position: absolute;
-            top: 110%;
-            left: 0;
-            right: 0;
-            background: $primary-white;
-            border-radius: map.get($radius, r8);
-            box-shadow: $box-shadow-soft;
-            z-index: 10;
-            overflow: hidden;
+              @include media(mobile) {
+                position: static;
+                width: 100%;
+                padding-top: 8px;
+              }
 
-            &.open {
-              display: block;
-            }
-          }
+              button {
+                display: flex;
+                padding: map.get($spacing, sm);
+                justify-content: center;
+                align-items: center;
+                gap: map.get($spacing, xs);
+                border-radius: map.get($radius, r8);
+                background: $primary-blue;
+                border: none;
+                color: #fff;
+                font-family: $Poppins;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 16px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+                width: 176px;
 
           .select-option-plan {
             padding: 12px 16px;
@@ -377,131 +535,137 @@
             @include font-style(16px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
             border-bottom: 1px solid $neutrals-200;
 
-            &:hover {
-              background-color: #f0f0f0;
+                &:hover {
+                  background: $primary-blue-dark;
+                }
+              }
             }
           }
         }
-      }
 
-
-      .investment-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: map.get($spacing, xxl);
-        margin: map.get($spacing, md) 0;
-        // border-bottom: 1px solid map.get($strokes, default);
-        // padding-bottom: map.get($spacing, md); // Add some padding
-
-        .sip-wrapper,
-        .tenure-wrapper {
-          position: relative; // Crucial for icon positioning
-          flex: 1 1 45%; // Allows wrapping
+        .plan-options-wrapper {
           display: flex;
-          flex-direction: column;
-          gap: map.get($spacing, xs);
-          min-width: 200px; // Prevents items from getting too squished
-        }
+          flex-wrap: wrap;
+          gap: 24px;
 
-        label {
-          @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
-        }
+          .plan-type-toggle {
+            display: flex;
+            flex: 1 1 45%;
+            align-items: center;
+            gap: map.get($spacing, sm);
 
-        // --- Base styles for BOTH input and select ---
-        input,
-        select {
-          border: none;
-          background-color: transparent;
-          color: #2E2A94;
-          font-family: $Poppins;
-          font-size: 20px;
-          font-weight: 500;
-          width: 100%;
-          // Remove default browser appearance
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          outline: none;
+            .toggle-label {
+              @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
 
-          // Remove number input spinners
-          &::-webkit-outer-spin-button,
-          &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
+              cursor: pointer;
+
+              &.active {
+                color: #2e2a94;
+                font-weight: map.get($font-weights, medium);
+              }
+            }
+
+            .toggle-switch {
+              position: relative;
+              display: inline-block;
+              width: 50px;
+              height: 24px;
+
+              input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+              }
+
+              .slider {
+                position: absolute;
+                cursor: pointer;
+                inset: 0;
+                background-color: #ccc;
+                transition: 0.4s;
+                border-radius: 34px;
+
+                &::before {
+                  position: absolute;
+                  content: "";
+                  height: 18px;
+                  width: 18px;
+                  left: 4px;
+                  bottom: 3px;
+                  background-color: white;
+                  transition: 0.4s;
+                  border-radius: 50%;
+                }
+              }
+
+              input:checked + .slider::before {
+                transform: translateX(26px);
+              }
+            }
           }
-        }
 
-        // --- Specific style for the amount input ---
-        .sip-wrapper input {
-          padding-left: 24px; // Make space for the Rupee symbol
-        }
-
-        // --- Specific style for the tenure select ---
-        .tenure-wrapper select {
-          padding-right: 32px; // Make space for the dropdown arrow
-          cursor: pointer;
-        }
-
-        // --- Icon Positioning ---
-        .sip-wrapper::before {
-          content: '₹';
-          position: absolute;
-          left: 0;
-          bottom: 4px; // Position relative to the bottom
-          pointer-events: none;
-          color: #2E2A94;
-          font-family: $Poppins;
-          font-size: 20px;
-          font-weight: 500;
-        }
-
-
-        //new css 
-        .custom-select {
-          position: relative; // Parent for the absolute positioned options
-
-
-          .select-selected {
-            color: #2E2A94;
-            font-family: $Poppins;
-            font-size: 20px;
-            font-weight: 500;
-            cursor: pointer;
+          .plan-option-select {
             position: relative;
-            user-select: none;
-            padding-bottom: 4px; // Add some space for the bottom border of the wrapper
+            flex: 1 1 45%;
+            min-width: 200px;
 
-            &::after {
-              content: '';
+            .select-selected-plan {
+              color: #2e2a94;
+              font-family: $Poppins;
+              font-size: 20px;
+              font-weight: 500;
+              cursor: pointer;
+              position: relative;
+              user-select: none;
+
+              @include media(mobile) {
+                text-align: start;
+              }
+
+              &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 20px;
+                height: 20px;
+                background: url("../../icons/Frame.svg") no-repeat center;
+                background-size: contain;
+                transition: transform 0.2s ease;
+              }
+            }
+
+            .select-options-plan {
+              display: none;
               position: absolute;
+              top: 110%;
+              left: 0;
               right: 0;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 20px;
-              height: 20px;
-              background: url('../../icons/Frame.svg') no-repeat center;
-              background-size: contain;
-              transition: transform 0.2s ease;
-            }
-          }
+              background: $primary-white;
+              border-radius: map.get($radius, r8);
+              box-shadow: $box-shadow-soft;
+              z-index: 10;
+              overflow: hidden;
 
-          // The container for all options, hidden by default
-          .select-options {
-            display: none; // Hidden by default
-            position: absolute;
-            top: 110%;
-            left: 0;
-            right: 0;
-            background: $primary-white;
-            border-radius: map.get($radius, r8);
-            box-shadow: $box-shadow-soft;
-            z-index: 10;
-            overflow: hidden;
-
-            &.open {
-              display: block; // Show when the 'open' class is added
+              &.open {
+                display: block;
+              }
             }
-          }
+
+            .select-option-plan {
+              padding: 12px 16px;
+              text-align: left;
+              cursor: pointer;
+              transition: background-color 0.2s ease;
+
+              @include font-style(
+                16px,
+                20px,
+                $color-text-body,
+                map.get($font-weights, regular),
+                $Poppins
+              );
 
           // Individual option styles
           .select-option {
@@ -511,192 +675,469 @@
             @include font-style(16px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
             border-bottom: 1px solid $neutrals-200;
 
-
-            &:hover {
-              background-color: #f0f0f0; // Or your theme's hover color
+              &:hover {
+                background-color: #f0f0f0;
+              }
             }
           }
         }
-      }
 
-
-      .cal-discription {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: map.get($spacing, lg);
-
-        .current-value-wrapper,
-        .return-cagr-wrapper {
+        .investment-wrapper {
           display: flex;
-          flex-direction: column;
-          gap: map.get($spacing, xxs);
+          flex-wrap: wrap;
+          gap: 24px;
+
+          .sip-wrapper,
+          .tenure-wrapper {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+            gap: map.get($spacing, xs);
+            min-width: 200px;
+          }
+
+          .sip-wrapper {
+            .input-with-symbol {
+              position: relative;
+            }
+          }
 
           label {
-            @include font-style(12px, 16px, $color-text-body, map.get($font-weights, regular), $Poppins);
+            @include font-style(
+              12px,
+              16px,
+              $color-text-body,
+              map.get($font-weights, regular),
+              $Poppins
+            );
 
             @include media(mobile) {
-              white-space: nowrap;
+              text-align: start;
             }
           }
 
-          span {
-            color: #2E2A94;
+          input,
+          select {
+            border: none;
+            background-color: transparent;
+            color: #2e2a94;
             font-family: $Poppins;
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 32px;
-            text-align: left;
+            font-size: 20px;
+            font-weight: 500;
+            width: 100%;
+            appearance: none;
+            appearance: none;
+            appearance: none;
+            outline: none;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              appearance: none;
+              margin: 0;
+            }
+          }
+
+          .sip-wrapper {
+            .input-with-symbol {
+              position: relative;
+
+              input {
+                padding-left: 18px;
+              }
+            }
+
+            .input-with-symbol::before {
+              content: "₹";
+              position: absolute;
+              left: 3px;
+              pointer-events: none;
+              color: #2e2a94;
+              font-family: $Poppins;
+              font-size: 20px;
+              font-weight: 500;
+            }
+          }
+
+          .tenure-wrapper select {
+            padding-right: 32px;
+            cursor: pointer;
+          }
+
+          .custom-select {
+            position: relative;
+
+            .select-selected {
+              color: #2e2a94;
+              font-family: $Poppins;
+              font-size: 20px;
+              font-weight: 500;
+              cursor: pointer;
+              position: relative;
+              user-select: none;
+              padding-bottom: 4px;
+
+              @include media(mobile) {
+                text-align: start;
+              }
+
+              &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 20px;
+                height: 20px;
+                background: url("../../icons/Frame.svg") no-repeat center;
+                background-size: contain;
+                transition: transform 0.2s ease;
+              }
+            }
+
+            .select-options {
+              display: none;
+              position: absolute;
+              top: 110%;
+              left: 0;
+              right: 0;
+              background: $primary-white;
+              border-radius: map.get($radius, r8);
+              box-shadow: $box-shadow-soft;
+              z-index: 10;
+              overflow: hidden;
+
+              &.open {
+                display: block;
+              }
+            }
+
+            .select-option {
+              padding: 12px 16px;
+              cursor: pointer;
+              transition: background-color 0.2s ease;
+
+              @include font-style(
+                16px,
+                20px,
+                $color-text-body,
+                map.get($font-weights, regular),
+                $Poppins
+              );
+
+              border-bottom: 1px solid #eee;
+
+              &:hover {
+                background-color: #f0f0f0;
+              }
+            }
           }
         }
 
-        .start-sip-btn button {
-          display: flex;
-          // width: 132px;
-          // width: 100%;
-          padding: map.get($spacing, sm);
-          justify-content: center;
-          align-items: center;
-          gap: map.get($spacing, xs);
-          border-radius: map.get($radius, r8);
-          background: $primary-blue;
-          border: none;
-          color: #fff;
-          font-family: $Poppins;
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 16px;
-          cursor: pointer;
-          transition: background-color 0.2s ease;
-          //
-          width: 176px;
-          // padding: 12px var(--Spacing-12, 12px);
-          // gap: var(--Spacing-8, 8px);
-          // border-radius: var(--Border-Radius-4, 4px);
-          // background: var(--Button-Primary-Default, #2E2A94);
-          //
-
-          &:hover {
-            background: $primary-blue-dark;
-          }
+        .no-returns-msg {
+          margin-top: map.get($spacing, xs);
+          color: rgb(113 113 113);
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          background-color: rgb(251 238 221);
+          padding: map.get($spacing, xxs);
         }
       }
 
-      .no-returns-msg {
-        margin-top: map.get($spacing, xs);
-        color: rgb(113 113 113);
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-        background-color: rgb(251 238 221);
-        padding: map.get($spacing, xxs);
-      }
-    }
-
-    .view-btn-cal {
-      padding-top: map.get($spacing, xs);
-      text-align: left;
-
-      a {
-        @include font-style(14px, 20px, $primary-blue, map.get($font-weights, regular), $Poppins);
-        text-decoration: underline;
+      .view-btn-cal {
+        padding-top: map.get($spacing, xs);
+        text-align: left;
 
         @include media(mobile) {
-          font-size: 16px;
-          line-height: 24px;
+          text-align: center;
+        }
+
+        a {
+          @include font-style(
+            14px,
+            20px,
+            map.get($blue-1, b500),
+            map.get($font-weights, regular),
+            $Poppins
+          );
+
+          text-decoration: underline;
+
+          @include media(mobile) {
+            font-size: 16px;
+            line-height: 24px;
+          }
         }
       }
     }
   }
 }
 
-/* Responsive */
-@include media(mobile) {
-  .compounding {
-    padding: 0px;
+// v2
+.fdp-calculator {
+  gap: 24px;
+  align-self: stretch;
+  box-shadow: $box-shadow-soft;
+  padding: 40px 24px;
 
-    .compounding-two-inner {
-      flex-direction: column;
-      text-align: center;
+  @include media(mobile) {
+    padding: 40px 16px;
+  }
+
+  .compounding-two-inner {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 24px;
+
+    @include media(mobile) {
       gap: 40px;
+    }
 
-      .default-content-wrapper {
-        align-items: flex-start;
-        padding-top: 40px;
+    .default-content-wrapper {
+      width: 100%;
+
+      .icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .hero-image {
+        width: 48px;
+        height: 48px;
+
+        p {
+          margin: 0;
+          display: block;
+        }
+      }
+
+      .hero-text {
+        h3,
+        h4 {
+          @include font-style(
+            32px,
+            40px,
+            $primary-blue,
+            map.get($font-weights, bold),
+            $ButlerPro
+          );
+
+          margin: 0;
+
+          @include media(mobile) {
+            @include font-style(
+              24px,
+              28px,
+              $primary-blue,
+              map.get($font-weights, bold),
+              $ButlerPro
+            );
+
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      p {
+        display: none;
+
+        @include media(mobile) {
+          display: block;
+
+          @include font-style(16px, 24px, $primary-blue, 400, $Poppins);
+
+          margin: 0;
+          max-width: 450px;
+        }
       }
     }
 
     .calculator-sip-wrapper {
+      max-width: 100%;
       width: 100%;
 
+      .calculator-sip {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 100%;
+      }
+
       .cal-container {
-        padding: 20px;
+        max-width: 100%;
+        width: 100%;
 
-        .investment-wrapper {
-          flex-direction: column;
-          gap: map.get($spacing, md);
-          text-align: left;
+        .search-bar-wrapper {
+          input {
+            color: #2e2a94;
+            background: url("../../icons/search-icon.svg") no-repeat right 12px
+              center;
 
-          .sip-wrapper {
-            //           .tenure-wrapper
-            width: 100%;
-            position: relative;
-            border-bottom: 1px solid map.get($strokes, default);
-
-            input {
-              width: 100%;
-              line-height: 28px;
+            @include media(mobile) {
+              background: url("../../icons/search-icon-white.svg") no-repeat
+                right 12px center;
             }
-
-            &::after {
-              right: 10px;
-              transform: translateY(-50%);
-            }
-          }
-
-          .sip-wrapper::before {
-            top: 42%;
-          }
-
-          .tenure-wrapper select {
-            width: 100%;
-            line-height: 28px;
-          }
-
-          .tenure-wrapper::after {
-            right: 10px;
-            transform: translateY(-50%);
           }
         }
 
-        .cal-discription {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          align-items: flex-start;
-          gap: map.get($spacing, md);
-          text-align: left;
-
-          .current-value-wrapper,
-          .return-cagr-wrapper {
-            flex: 1 1 36%;
-            align-items: flex-start;
+        .search-results-wrapper {
+          ul {
+            font-family: Poppins, sans-serif;
+            border: 1px solid var(--Neutrals-200, #eee);
+            box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
           }
+        }
 
-          .start-sip-btn {
-            flex: 1 1 100%;
+        .scheme-btns-wrapper {
+          display: flex;
+          gap: map.get($spacing, sm);
 
-            button {
-              width: 100%;
-              ;
+          button {
+            border: 1px solid #bdbdbd;
+            background: #fafafa;
+
+            &.active {
+              background: #edf1ff;
+              color: #2e2a94;
+              border: 1px solid #382ad7;
             }
           }
+        }
 
+        .invested-amount {
+          span {
+            color: #2b2e8c;
+            position: relative;
+            padding-left: 10px;
+          }
+
+          span::before {
+            content: "₹";
+            position: absolute;
+            left: 3px;
+            bottom: 0;
+            pointer-events: none;
+            color: #2e2a94;
+            font-family: $Poppins;
+            font-size: 12px;
+            font-weight: 500;
+          }
+        }
+
+        .plan-options-wrapper {
+          .plan-type-toggle {
+            .toggle-switch {
+              .slider {
+                inset: 0;
+                transition: 0.4s;
+              }
+            }
+          }
+        }
+
+        .investment-wrapper {
+          @include media(mobile) {
+            flex-direction: column;
+            gap: map.get($spacing, md);
+            text-align: left;
+          }
+
+          .tenure-wrapper select {
+            padding-right: 32px;
+            cursor: pointer;
+          }
+
+          .cal-discription {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            position: relative;
+
+            @include media(mobile) {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: map.get($spacing, md);
+              text-align: left;
+            }
+
+            .current-value-wrapper,
+            .return-cagr-wrapper {
+              label {
+                @include font-style(
+                  12px,
+                  16px,
+                  $color-text-body,
+                  map.get($font-weights, regular),
+                  $Poppins
+                );
+              }
+            }
+
+            .start-sip-btn {
+              @include media(mobile) {
+                position: static;
+                width: 100%;
+              }
+
+              button {
+                position: absolute;
+                right: 0;
+                display: flex;
+                width: 132px;
+
+                @include media(mobile) {
+                  position: static;
+                  width: 100%;
+                }
+              }
+            }
+          }
         }
       }
 
       .view-btn-cal {
-        text-align: left;
+        display: none;
+
+        @include media(mobile) {
+          display: block;
+          text-align: center;
+          font-size: 16px;
+          line-height: 24px;
+        }
       }
+    }
+  }
+
+  .default-content-wrapper {
+    @include media(mobile) {
+      padding-top: 16px;
+    }
+
+    p:nth-child(1) {
+      margin-bottom: 20px;
+
+      strong {
+        font-weight: map.get($font-weights, semibold);
+        color: $primary-blue;
+      }
+    }
+
+    p,
+    ul,
+    li {
+      @include font-style(
+        12px,
+        16px,
+        $color-text-body,
+        map.get($font-weights, regular),
+        $Poppins
+      );
+    }
+
+    ul {
+      padding-left: map.get($spacing, md);
     }
   }
 }

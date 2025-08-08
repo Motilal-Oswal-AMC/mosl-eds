@@ -34,8 +34,8 @@ $button-primary: (default: #2e2a94,
   active: #262a84,
   disabled: #969696,
 );
-
-$button-secondary: (default: #ffffff,
+$button-secondary: (
+  default: #fff,
   hover: #f3f3f3,
   active: #e6e6e6,
   disabled: #b0b0b0,
@@ -51,6 +51,7 @@ $blue-1: (b25: #EDF1FF,
   b900: #242177,
   b500: #4338f3,
   b700: #332ab5,
+  b150:#D5DEFF
 );
 
 // Neutral colors
@@ -65,7 +66,7 @@ $color-text-body: #424242;
 // Old Silver
 $old-silver: (00: #efefef,
   50: #f3f3f3,
-  75: #cccccc,
+  75: #ccc,
   100: #b7b7b7,
   200: #989898,
   300: #838383,
@@ -95,8 +96,9 @@ $dark-liver: (50: #edeeed,
   500: #2e312f,
 );
 
-//strokes
-$strokes: (default:#9E9E9E,
+// strokes
+$strokes: (
+  default:#9E9E9E,
   typing: #1887D2,
   disabled: #BDBDBD,
 );
@@ -154,12 +156,10 @@ $fund-icon-bg: #BDCBFF;
 // ----------------------------------------
 // FONTS
 // ----------------------------------------
-$Poppins: "Poppins",
-sans-serif;
-$ButlerPro: "ButlerPro",
-sans-serif;
-
-$font-weights: (light: 300,
+$Poppins: "Poppins", sans-serif;
+$ButlerPro: "ButlerPro", sans-serif;
+$font-weights: (
+  light: 300,
   regular: 400,
   medium: 500,
   semibold: 600,
@@ -269,23 +269,23 @@ $breakpoints: (mobile-sm: 361px,
 // TRANSITIONS & HOVER EFFECTS
 // ----------------------------------------
 
-@mixin transitionTransform {
+@mixin transitiontransform {
   transition: transform 0.5s ease;
 }
 
-@mixin hoverAfterEffect($translateX: 5px) {
+@mixin hoveraftereffect($translateX: 5px) {
   &:hover::after {
     transform: translateX($translateX);
   }
 }
 
-@mixin hoverBeforeEffect($translateX: 5px) {
+@mixin hoverbeforeeffect($translateX: 5px) {
   &:hover::before {
     transform: translateX($translateX);
   }
 }
 
-@mixin hoverImageEffect($translateX: 5px) {
+@mixin hoverimageeffect($translateX: 5px) {
   &:hover img {
     transform: translateX($translateX);
   }

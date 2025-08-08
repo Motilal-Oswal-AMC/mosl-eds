@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 import Swiper from '../swiper/swiper-bundle.min.js';
 
 export default function decorate(block) {

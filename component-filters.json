@@ -1,7 +1,9 @@
 [
   {
     "id": "main",
-    "components": ["section"]
+    "components": [
+      "section"
+    ]
   },
   {
     "id": "section",
@@ -31,51 +33,85 @@
       "broaden-your-research",
       "make-index-funds",
       "risk-o-meter",
-      "risk-meter"
+      "risk-meter",
+      "fdp-card",
+      "fund-video",
+      "key-facts"
     ]
   },
   {
     "id": "tabs",
-    "components": ["tabsitem"]
+    "components": [
+      "tabsitem"
+    ]
   },
   {
     "id": "cards",
-    "components": ["card"]
+    "components": [
+      "card"
+    ]
   },
   {
     "id": "columns",
-    "components": ["column"]
+    "components": [
+      "column"
+    ]
   },
   {
     "id": "column",
-    "components": ["text", "image", "button", "title"]
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
+    ]
   },
   {
     "id": "accordion",
-    "components": ["accordion-item"]
+    "components": [
+      "accordion-item"
+    ]
   },
   {
     "id": "future-building",
-    "components": ["future-building-item"]
+    "components": [
+      "future-building-item"
+    ]
   },
   {
     "id": "home-banner",
-    "components": ["banner-item"]
+    "components": [
+      "banner-item"
+    ]
   },
   {
     "id": "cornerstones-advantage-title",
-    "components": ["cornerstones-advantage-title-richtext"]
+    "components": [
+      "cornerstones-advantage-title-richtext"
+    ]
   },
   {
     "id": "cornerstones-advantage-cards",
-    "components": ["cornerstones-advantage-cards-item"]
+    "components": [
+      "cornerstones-advantage-cards-item"
+    ]
   },
   {
     "id": "live-streaming",
-    "components": ["live-streaming-content"]
+    "components": [
+      "live-streaming-content"
+    ]
   },
   {
     "id": "risk-o-meter",
-    "components": ["risk-o-meter-item"]
+    "components": [
+      "risk-o-meter-item"
+    ]
+  },
+  {
+    "id": "key-facts",
+    "components": [
+      "key-item"
+    ]
   }
 ]

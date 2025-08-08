@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 const dataMapMoObj = {
   ObjTemp: {
     inception_Ret: 'SINCE INCEPTION',
@@ -28,7 +28,8 @@ const dataMapMoObj = {
     "moderate":"moderate-risk",
     "low":"low-risk"
   },
-  "selectreturns":""
+  "selectreturns":"",
+  "schstar":[],
 };
 
 export default dataMapMoObj;

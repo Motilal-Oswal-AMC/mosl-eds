@@ -1,13 +1,13 @@
 @import "../../../styles/fonts.css";
-/* stylelint-disable */
+/*   */
 .section.think-equity-container {
-  padding: 48px 0px;
+  padding: 48px 0;
   margin: 0 auto;
   font-family: "ButlerPro", sans-serif;
 }
 @media (max-width: 1025px) {
   .section.think-equity-container {
-    padding: 40px 0px;
+    padding: 40px 0;
   }
 }
 @media (max-width: 768px) {
@@ -133,7 +133,6 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
-  border: 1px solid #dee2e6;
   padding: 24px 0;
   border-radius: 8px;
   border: 0;

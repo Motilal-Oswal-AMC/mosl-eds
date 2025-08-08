@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*    */
 import {
   button,
   div,
@@ -11,16 +11,17 @@ import {
   h2,
   p,
   img,
+  a
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
-import {getTimeLeft, evaluateByDays} from "../../scripts/scripts.js"
+import {getTimeLeft, evaluateByDays,wishlist} from "../../scripts/scripts.js"
 export default function decorate(block) {
   let planFlow = 'Direct';
   if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
     planFlow =  document.querySelector(".fund-toggle-wrap [type='checkbox']").checked  ? 'Regular' : "Direct";    
   }
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
-  let finPlangrp = [];
+  const finPlangrp = [];
   const tempReturns = [];
   block.returns.forEach((ret, jind) => {
     if (jind === 0) {
@@ -41,10 +42,12 @@ export default function decorate(block) {
 
   let labelcagr = evaluateByDays(block.dateOfAllotment)  
   let classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? "" : " not-provided"
+  let dropdowndot = DirectPlanlistArr.length !== 0  ? "" : "no-planlist"
   let classdropdown = DirectPlanlistArr.length !== 0 ? "flex" : "none";
   let optionName = DirectPlanlistArr.length !== 0 ?   DirectPlanlistArr[0].optionName : ''
   let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
   let iconsvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
+  let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : "";
   if ([...block.fundsTaggingSection].includes("NFO")) {
     let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
     const NfocardContainer = div(
@@ -58,14 +61,14 @@ export default function decorate(block) {
             div(
               { class: "title title-logo" },
               img({
-                class: "logoScheme",
-                src: "../../icons/Group.svg",
+                class: "logoscheme",
+                src: block.fundIcon, //"../../icons/Group.svg",
                 alt: "BrandLogo",
               })
             ),
             div(
               {
-                class: "star",
+                class: "star " + starClass,
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
@@ -76,6 +79,7 @@ export default function decorate(block) {
                   } else {
                     event.target.parentElement.classList.remove("star-filled");
                   }
+                  wishlist();
                 },
                 schcode: block.schcode,
               },
@@ -101,13 +105,14 @@ export default function decorate(block) {
           )
         ),
         div(
-          { class: "card-category" },
+          { class: "card-category " + dropdowndot },
           div(
             { class: "fund-tagging" },
             ul(
               { class: "fundtagging-list" },
               ...fundsTaggingSection.map((eloption) =>
                 li(
+                  { class: "fundtagging-list-name" },
                   eloption
                     .replaceAll("motilal-oswal:", "")
                     .replaceAll("-", " ")
@@ -117,28 +122,41 @@ export default function decorate(block) {
             )
           ),
           div(
-            { class: "planlist-dropdown", 
-              style: "display:" + classdropdown,},
-            p({
-               class: "selectedtext",
-               onclick:(event)=>{
-                console.log(event.target);
-                 event.target.nextElementSibling.classList.add("dropdown-active");
-              }
-               }, optionName),
+            { class: "planlist-dropdown", style: "display:" + classdropdown },
+            p(
+              {
+                class: "selectedtext",
+                onclick: (event) => {
+                  console.log(event.target);
+                  event.target.nextElementSibling.classList.add(
+                    "dropdown-active"
+                  );
+                },
+              },
+              optionName
+            ),
             ul(
               { class: "dropdown-list" },
               ...DirectPlanlistArr?.map((el, index) => {
-                return li({
-                   value: el.groupedCode,
-                   onclick:(event)=>{
-                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active")
+                return li(
+                  {
+                    value: el.groupedCode,
+                    onclick: (event) => {
+                      event.currentTarget
+                        .closest(".dropdown-list")
+                        .classList.remove("dropdown-active");
                       let name = event.currentTarget.textContent.trim();
-                      event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = "";
-                      event.currentTarget.closest(".planlist-dropdown").querySelector("p").innerText = name;
-                      // planListEvent(event,block)   
-                    }
-                   }, el.optionName);
+                      event.currentTarget
+                        .closest(".planlist-dropdown")
+                        .querySelector("p").innerText = "";
+                      event.currentTarget
+                        .closest(".planlist-dropdown")
+                        .querySelector("p").innerText = name;
+                      // planListEvent(event,block)
+                    },
+                  },
+                  el.optionName
+                );
               })
             )
           ),
@@ -146,7 +164,7 @@ export default function decorate(block) {
             { class: "dis-investor" },
             img({
               class: "riskfactor-icon",
-              src: "../../icons/nfo-risk-icon/"+nfosvg,
+              src: "../../icons/nfo-risk-icon/" + nfosvg,
               alt: "risk icon",
             })
           )
@@ -155,7 +173,7 @@ export default function decorate(block) {
           { class: "banner-timing-container " },
           div(
             { class: "banner-container" },
-            img({ src: "../../icons/banner-desk.png", alt: "banner Image" }),
+            img({class:'nfo-img', src: "../../icons/nfo-img.png", alt: "NFO Image" }),
             span("Grab Them All")
           ),
           div(
@@ -164,13 +182,23 @@ export default function decorate(block) {
               { class: "nfo-container" },
               span({ class: "label-nfo" }, "NFO")
             ),
-            div({ class: "timing-container" }, p(getTimeLeft(block.dateOfAllotment)))
+            div(
+              { class: "timing-container" },
+              p({class:'timing-text'},getTimeLeft(block.dateOfAllotment))
+            )
           )
         ),
         div(
           { class: "button-container" },
-          button({ class: "know-more" }, "Know More"),
-          button({ class: "invest-now" }, "Invest")
+           button(
+          {
+            class: "know-more",
+          },
+          a({href:"https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund"},"Know More"),
+        ),
+          a({href:"/motilalfigma/modals/invest-now-homepage"},
+              button({ class: "invest-now" }, "Invest")
+          )
         )
       )
     );
@@ -197,14 +225,14 @@ export default function decorate(block) {
               class: "title title-logo",
             },
             img({
-              class: "logoScheme",
-              src: "../../icons/Group.svg",
+              class: "logoscheme",
+              src: block.fundIcon,//"../../icons/Group.svg",
               alt: "BrandLogo",
             })
           ),
           div(
             {
-              class: "star",
+              class: "star "+starClass,
               onclick: (event) => {
                 if (
                   !Array.from(event.target.parentElement.classList).includes(
@@ -215,7 +243,7 @@ export default function decorate(block) {
                 } else {
                   event.target.parentElement.classList.remove("star-filled");
                 }
-                wishlist(block);
+                wishlist();
               },
               schcode: block.schcode,
             },
@@ -246,7 +274,7 @@ export default function decorate(block) {
       ),
       div(
         {
-          class: "card-category",
+          class: "card-category "+dropdowndot,
         },
         div(
           {
@@ -257,7 +285,7 @@ export default function decorate(block) {
               class: "fundtagging-list",
             },
             ...fundsTaggingSection.map((eloption) =>
-              li(
+              li({class:'fundtagging-list-name'},
                 toTitleCase(
                   eloption.replaceAll("motilal-oswal:", "").replaceAll("-", " ")
                 )
@@ -389,6 +417,7 @@ export default function decorate(block) {
             img({
               class: "icon person",
               src: "../../icons/Icon.svg",
+              alt:"person"
             }),
             span("2.7 lakh investors")
           ),
@@ -407,14 +436,11 @@ export default function decorate(block) {
           {
             class: "know-more",
           },
-          "Know More"
+          a({href:"https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund"},"Know More"),
         ),
-        button(
-          {
-            class: "invest-now",
-          },
-          "Invest"
-        )
+        a({href:"/motilalfigma/modals/invest-now-homepage"},
+              button({ class: "invest-now" }, "Invest")
+          )
       )
     )
   );
@@ -453,7 +479,7 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
           }
          }, tempReturns[0]),
         ul(
-          { class: "dropdown-list" },
+          { class: "dropdown-list",schcode:block.schcode},
           ...tempReturns.map((eloption) =>
             li(
               { 
@@ -478,8 +504,9 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
     let dropvalue = div({
         class: 'cagr-value',
       },
-      h2(`${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
-        span("%")
+      h2(
+        `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+        span('%'),
       ),
       p({
         class: 'scheme-yet',
@@ -488,43 +515,38 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
       p({
         class: 'cagr-date',
       }, '15th Mar 2020'),
-    )
-    let droplessthan = div({
-        class: 'cagr-desc'
+    );
+    const droplessthan = div(
+      {
+        class: 'cagr-desc',
       },
       span('Return is not provided because thescheme has not completed 6 months'),
-    )
+    );
     param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
   } else {
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
-    let dropdown = div({
+    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove('not-provided');
+    const dropdown = div(
+      {
         class: 'cagr-dropdown',
       },
       label('Return (Absolute)'),
-    )
-    let dropvalue = div({
+    );
+    const dropvalue = div(
+      {
         class: 'cagr-value',
       },
-      h2(`NA`)
-    )
-    let droplessthan = div({
-        class: 'cagr-desc'
+      h2('NA'),
+    );
+    const droplessthan = div(
+      {
+        class: 'cagr-desc',
       },
       span('Return is not provided because thescheme has not completed 6 months'),
-    )
+    );
     param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
   }
 }
 
-function wishlist(){
-  let paramCount = document.querySelectorAll(".star-filled");
-   document.querySelector(".watchlisttext span").textContent ="";
-  if (paramCount.length < 10) {
-    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"(0"+paramCount.length+")";
-  }else{
-    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
-  }  
-}
 function toTitleCase(str) {
   return str
     .toLowerCase()
