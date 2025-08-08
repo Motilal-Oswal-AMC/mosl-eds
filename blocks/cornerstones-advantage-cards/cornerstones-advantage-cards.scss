@@ -123,11 +123,7 @@
           }
         }
 
-        p {
-          margin: 0;
-        }
-
-        p:first-of-type,
+        .item-child-1:first-of-type,
         .icon {
           width: 64px;
           height: 64px;
@@ -151,7 +147,9 @@
           }
         }
 
-        p {
+        .item-child {
+          margin: 0;
+          
           &:not(:first-of-type, :last-of-type) {
             @include font-style(16px, 24px, $color-text-body, 400, $Poppins);
 
