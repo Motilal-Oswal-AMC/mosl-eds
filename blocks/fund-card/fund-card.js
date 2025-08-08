@@ -172,9 +172,9 @@ export default function decorate(block) {
         ),
         div(
           { class: "button-container" },
-          button({ class: "know-more" }, "Know More"),
+            button({ class: "know-more" }, "Know More"),
           a({href:"/motilalfigma/modals/invest-now-homepage"},
-            button({ class: "invest-now" }, "Invest")
+              button({ class: "invest-now" }, "Invest")
           )
         )
       )
