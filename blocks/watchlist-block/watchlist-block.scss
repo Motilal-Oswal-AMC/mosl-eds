@@ -1,0 +1,307 @@
+@use '../../styles/common-theme/css/variables_mixins' as *;
+@use '../../styles/common-theme/css/fluid-typography' as *;
+@use 'sass:map';
+
+.section.watchlist-block-container {
+  padding: 3rem 2rem;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+
+  @include media(mobile) {
+    padding: 0;
+  }
+
+  .watchlist-block.block {
+    .card-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-radius: 1rem;
+      padding: 32px 0;
+      gap: 16px;
+      position: relative;
+
+      @include media(mobile) {
+        flex-direction: column;
+        gap: 24px;
+        padding: 0;
+        position: relative;
+        padding-bottom: 68px;
+      }
+
+      .card-left {
+        max-width: 504px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding-top: 31px;
+
+        @include media(mobile) {
+          padding: 0;
+        }
+
+        .card-left-title {
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
+
+          .watchlist-logo {
+            width: 64px;
+            height: 64px;
+          }
+
+          .titlewrapper {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+              margin: 0;
+
+              @include media(mobile) {
+                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+              }
+            }
+
+            .card-title-1 {
+              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+
+              @include media(mobile) {
+                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+              }
+            }
+          }
+        }
+
+        .button-wrapper {
+          margin-top: 40px;
+
+          @include media(mobile) {
+            width: 100%;
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+          }
+
+          .button-container {
+            margin: 0;
+            padding: 0;
+            margin-left: 90px; // aligns with text start
+
+            @include media(mobile) {
+              margin: 0;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+
+            .button {
+              margin: 0;
+              text-decoration: none;
+              display: inline-block;
+              display: flex;
+              width: 176px;
+              padding: 12px 12px;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              border-radius: 4px;
+              background: $primary-blue;
+              transition: background 0.3s ease;
+              border: none;
+              @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
+
+              &:hover {
+                background: #1f1f47;
+              }
+            }
+          }
+        }
+      }
+
+      .card-coner {
+        max-width: 552px;
+        width: 100%;
+        position: relative;
+        flex: 1;
+        padding-right: 48px;
+
+        @include media(tab) {
+          padding: 0;
+        }
+
+
+        // Stacked background cards
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 28px;
+          left: 20px;
+          border-radius: 8px;
+          border: 0.783px solid #B9BBFF;
+          background: #FFF;
+          box-shadow: 0px 0px 12.523px 0px rgba(0, 0, 0, 0.06);
+          z-index: 2;
+
+          @include media(mobile) {
+            top: 30px;
+            left: 14px;
+            right: 14px;
+          }
+
+        }
+
+        &::before {
+          max-width: 464px;
+          width: 100%;
+          height: 170px;
+
+          @include media(mobile) {
+            max-width: unset;
+            width: -webkit-fill-available;
+          }
+        }
+
+        &::after {
+          max-width: 422px;
+          width: 100%;
+          height: 170px;
+          top: 12px;
+          left: 41px;
+          border: 0.713px solid #B9BBFF;
+          box-shadow: 0px 0px 11.405px 0px rgba(0, 0, 0, 0.06);
+          z-index: 1;
+
+          @include media(mobile) {
+            // max-width: 275px;
+            max-width: unset;
+            width: -webkit-fill-available;
+            top: 15px;
+            left: 32px;
+            right: 30px;
+          }
+        }
+
+        .card-right {
+          position: relative;
+          background: #fff;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          min-width: 300px;
+          box-shadow: 0px 0px 13.514px 0px rgba(0, 0, 0, 0.06);
+          border-radius: 8px;
+          border: 0.845px solid #B9BBFF;
+          z-index: 3;
+          width: 100%;
+          padding: 24px;
+          margin-top: 45px;
+
+          .upper-right {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .fund-logo {
+              width: 60px;
+              height: 60px;
+              background: #eef1ff;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              @include media(moblie) {
+                width: 40px;
+                height: 40px;
+              }
+
+              img {
+                width: 45px;
+                height: auto;
+
+                @include media(moblie) {
+                  width: 30px;
+                  height: auto;
+                }
+              }
+            }
+
+            .wishlist-icon {
+              ul {
+                display: flex;
+                gap: 0.5rem;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li:first-child {
+                  .icon {
+                    width: 32px;
+                    height: 32px;
+
+                    img {
+                      width: 100%;
+                      height: auto;
+                    }
+                  }
+                }
+
+                li:nth-child(2) {
+                  display: none;
+                }
+              }
+            }
+          }
+
+          .lower-right {
+            width: 70%;
+            margin-top: 1rem;
+
+            .fund-name-card {
+              p {
+                margin: 0;
+                @include font-style(16px, 20px, map-get($map: $blue-1, $key: b400), map.get($font-weights, medium), $Poppins);
+              }
+
+              .fund-name {
+                max-width: 240px;
+                @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $Poppins);
+              }
+            }
+          }
+
+          .fund-returns {
+            position: absolute;
+            right: rem(24px);
+            bottom: rem(40px);
+            text-align: left;
+
+            p {
+              margin: 0;
+              @include font-style(12px, 16px, #111, map.get($font-weights, medium), $Poppins);
+            }
+
+            .returns {
+              display: flex;
+              flex-direction: row;
+
+              .returns-percent {
+                @include font-style(24px, 32px, $primary-blue, map.get($font-weights, semibold), $Poppins);
+              }
+
+              .returns-percentage {
+                @include font-style(24px, 32px, $primary-blue, map.get($font-weights, light), $Poppins);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

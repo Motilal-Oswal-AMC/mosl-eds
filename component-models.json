@@ -158,6 +158,10 @@
             "value": "cornerstones-advantage"
           },
           {
+            "name": "Welcome Component",
+            "value": "welcome-component"
+          },
+          {
             "name": "Freq Ask Ques",
             "value": "freq-ask-ques"
           },
@@ -352,6 +356,11 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
       },
       {
         "component": "richtext",
@@ -729,6 +738,59 @@
         "name": "col3_text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "watchlist-block",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "left",
+        "value": "",
+        "label": "Enter Icon Label View Container",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "right_card",
+        "value": "",
+        "label": "Enter Icon Label View Container",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "broaden-your-research",
+    "fields": [
+      {
+        "component": "text",
+        "name": "Col Name",
+        "label": "Brand name"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Icon Container",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "make-index-funds",
+    "fields": [
+      {
+        "component": "text",
+        "name": "Col1 Name",
+        "label": "Brands name"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Icons Container",
         "valueType": "string"
       }
     ]

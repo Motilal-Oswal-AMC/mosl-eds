@@ -48,114 +48,126 @@ export default async function decorate(block) {
     tab.remove();
   });
 
-  block.prepend(tablist);
-  Array.from(block.querySelectorAll('.tabs-panel')).forEach((el, index) => {
-    el.classList.add(`tabpanel${index + 1}`);
-  });
-  if (block.closest('.our-popular-funds')) {
-    let dataCf = dataCfObj.slice(0, 4);
+    block.prepend(tablist);
+    Array.from(block.querySelectorAll(".tabs-panel")).forEach((el,index)=>{
+        el.classList.add("tabpanel"+(index+1))
+    })
+    if (block.closest(".our-popular-funds")) {
+        let dataCf = dataCfObj.slice(1,5);
 
-    Array.from(tablist.children).forEach((element) => {
-      element.addEventListener('click', (event) => {
-        block.querySelectorAll('.tabs-panel').forEach((el) => {
-          el.style.display = 'none';
-        });
+        Array.from(tablist.children).forEach(element=>{
+            element.addEventListener("click",(event)=>{
+                block.querySelectorAll(".tabs-panel").forEach((el)=>{
+                    el.style.display = "none";
+                })
 
-        if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-trending-funds') {
-          dataCf = dataCfObj.slice(0, 4);
-        } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-most-searched-funds') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:active') ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(0, 4);
-        } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-most-bought-funds') {
-          dataCf = dataCfObj.map((elem) => (elem.fundCategorisation === 'Passive Funds' ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(0, 4);
-        }
-        block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).innerHTML = '';
-        dataCf.map((element) => block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).append(fundCardblock(element)));
-        block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).style.display = 'flex';
-      });
-    });
+                if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-trending-funds") {
+                    dataCf = dataCfObj.slice(1,5)
+                    
+                }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-most-searched-funds") {
+                    dataCf = dataCfObj.map((elem)=>{
+                        return [...elem.fundsTaggingSection].includes("motilal-oswal:active") ? elem : ""
+                    })
+                    dataCf = dataCf.filter((el)=> el)
+                    dataCf = dataCf.slice(1,5)
+                }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-most-bought-funds") {
+                    dataCf = dataCfObj.map((elem)=>{
+                        return elem.fundCategorisation ==='Passive Funds' ? elem : ""
+                    })
+                    dataCf = dataCf.filter((el)=> el)
+                    dataCf = dataCf.slice(1,5)
+                }
+                block.querySelector("#"+event.currentTarget.getAttribute("aria-controls")).innerHTML = ""
+                dataCf.map((element)=>{
+                    return block.querySelector("#"+event.currentTarget.getAttribute("aria-controls")).append(fundCardblock(element))
+                });    
+                block.querySelector("#"+event.currentTarget.getAttribute("aria-controls")).style.display = "flex"
+            })
+        })
 
-    const wrapperTablist = document.createElement('div');
-    wrapperTablist.classList.add('wrappertablist');
-    wrapperTablist.append(block.querySelector('.tabs-list'));
-    wrapperTablist.append(
-      button(
-        { class: 'btndesk' },
-        a(
-          { href: block.closest('.section').querySelector('.button-container a').getAttribute('href') },
-          block.closest('.section').querySelector('.button-container a').textContent.trim(),
-        ),
-      ),
-    );
-    block.closest('.section').querySelector('.button-container').classList.add('btnmob');
-    const tabspanel = block.querySelectorAll('.tabs-panel');
-    block.innerHTML = '';
-    block.append(wrapperTablist);
-    tabspanel.forEach((el) => {
-      block.append(el);
-    });
-    tablist.children[0].click();
-  }
-  if (block.closest('.known-our-funds')) {
-    let dataCf = dataCfObj.slice(0, 4);
+        const wrapperTablist = document.createElement("div");
+        wrapperTablist.classList.add("wrappertablist");
+        wrapperTablist.append(block.querySelector(".tabs-list"))
+        wrapperTablist.append(
+            button({class:"btndesk"},
+                a({href:block.closest('.section').querySelector(".button-container a").getAttribute("href")},
+                block.closest('.section').querySelector(".button-container a").textContent.trim()),
+            )
+        )
+        block.closest('.section').querySelector(".button-container").classList.add("btnmob");
+        let tabspanel = block.querySelectorAll(".tabs-panel");
+        block.innerHTML = "";
+        block.append(wrapperTablist);
+        tabspanel.forEach((el)=>{
+            block.append(el); 
+        })
+        tablist.children[0].click();
+    }
+    if (block.closest(".known-our-funds")) {    
+        let dataCf = dataCfObj.slice(1,5);
 
-    Array.from(tablist.children).forEach((element) => {
-      element.addEventListener('click', (event) => {
-        block.querySelectorAll('.tabs-panel').forEach((el) => {
-          el.style.display = 'none';
-        });
+        Array.from(tablist.children).forEach(element=>{
+            element.addEventListener("click",(event)=>{
+                block.querySelectorAll(".tabs-panel").forEach((el)=>{
+                    el.style.display = "none";
+                })
 
-        if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-trending-funds') {
-          dataCf = dataCfObj.slice(0, 4);
-        } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-international-equity') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:international-equity') ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(0, 4);
-        } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-hybrid-balanced') { // tabpanel-index
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced') ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(0, 4);
-        } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-index') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:index-funds') ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(0, 4);
-        } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-etfs') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:etf') ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(0, 4);
-        } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-others') {
-          dataCf = dataCfObj.map((elem) => (elem.sebiSubCategory === 'Other ETF' ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(0, 4);
-        }
-        block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).innerHTML = '';
-        dataCf.map((element) => block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).append(fundCardblock(element)));
-        block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).style.display = 'flex';
-      });
-    });
+                if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-trending-funds") {
+                    dataCf = dataCfObj.slice(1,5)
+                } else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-international-equity") {
+                    dataCf = dataCfObj.map((elem)=>{
+                        return [...elem.fundsTaggingSection].includes("motilal-oswal:international-equity") ? elem : ""
+                    })
+                    dataCf = dataCf.filter((el)=> el)
+                    dataCf = dataCf.slice(1,5)
+                }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-hybrid-balanced") { //tabpanel-index 
+                    dataCf = dataCfObj.map((elem)=>{
+                        return [...elem.fundsTaggingSection].includes("motilal-oswal:hybrid-&-balanced") ? elem : ""
+                    })
+                    dataCf = dataCf.filter((el)=> el)
+                    dataCf = dataCf.slice(1,5)
+                }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-index") {  
+                    dataCf = dataCfObj.map((elem)=>{
+                        return [...elem.fundsTaggingSection].includes("motilal-oswal:index-funds") ? elem : ""
+                    })
+                    dataCf = dataCf.filter((el)=> el)
+                    dataCf = dataCf.slice(1,5)
+                }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-etfs") { 
+                    dataCf = dataCfObj.map((elem)=>{
+                        return [...elem.fundsTaggingSection].includes("motilal-oswal:etf") ? elem : ""
+                    })
+                    dataCf = dataCf.filter((el)=> el)
+                    dataCf = dataCf.slice(1,5)
+                }else if (event.currentTarget.getAttribute("aria-controls") === "tabpanel-others") {
+                    dataCf = dataCfObj.map((elem)=>{
+                        return elem.sebiSubCategory ==='Other ETF' ? elem : ""
+                    })
+                    dataCf = dataCf.filter((el)=> el)
+                    dataCf = dataCf.slice(1,5)
+                } 
+                block.querySelector("#"+event.currentTarget.getAttribute("aria-controls")).innerHTML = ""
+                dataCf.map((element)=>{
+                    return block.querySelector("#"+event.currentTarget.getAttribute("aria-controls")).append(fundCardblock(element))
+                });    
+                block.querySelector("#"+event.currentTarget.getAttribute("aria-controls")).style.display = "flex"
+            })
+        })
 
-    const wrapperTablist = document.createElement('div');
-    wrapperTablist.classList.add('wrappertablist');
-    wrapperTablist.append(block.querySelector('.tabs-list'));
-    wrapperTablist.append(
-      button(
-        { class: 'btndesk' },
-        a(
-          { href: block.closest('.section').querySelector('.button-container a').getAttribute('href') },
-          block.closest('.section').querySelector('.button-container a').textContent.trim(),
-        ),
-      ),
-    );
-    block.closest('.section').querySelector('.button-container').classList.add('btnmob');
-    const tabspanel = block.querySelectorAll('.tabs-panel');
-    block.innerHTML = '';
-    block.append(wrapperTablist);
-    tabspanel.forEach((el) => {
-      block.append(el);
-    });
+        const wrapperTablist = document.createElement("div");
+        wrapperTablist.classList.add("wrappertablist");
+        wrapperTablist.append(block.querySelector(".tabs-list"))
+        wrapperTablist.append(
+            button({class:"btndesk"},
+                a({href:block.closest('.section').querySelector(".button-container a").getAttribute("href")},
+                block.closest('.section').querySelector(".button-container a").textContent.trim())),
+            )
+        block.closest('.section').querySelector(".button-container").classList.add("btnmob");
+        let tabspanel = block.querySelectorAll(".tabs-panel");
+        block.innerHTML = "";
+        block.append(wrapperTablist);
+        tabspanel.forEach((el)=>{
+            block.append(el); 
+        })
 
     tablist.children[0].click();
   }

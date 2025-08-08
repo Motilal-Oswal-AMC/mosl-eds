@@ -15,6 +15,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import dataMapMoObj from './constant.js';
 
 import delayed from './delayed.js';
 
@@ -153,6 +154,7 @@ async function loadLazy(doc) {
   autolinkModals(doc);
   const main = doc.querySelector('main');
   autolinkFragements(doc);
+  wrapImgsInLinks(doc);
   await loadSections(main);
 
   const { hash } = window.location;
@@ -237,6 +239,16 @@ window.addEventListener('load', () => {
 });
 
 // Fragment 15 Apr 25
+function wrapImgsInLinks(container) {
+  const pictures = container.querySelectorAll('picture');
+  pictures.forEach((pic) => {
+    const link = pic.nextElementSibling;
+    if (link && link.tagName === 'A' && link.href) {
+      link.innerHTML = pic.outerHTML;
+      pic.replaceWith(link);
+    }
+  });
+}
 
 function autolinkFragements(element) {
   element.querySelectorAll('a').forEach((origin) => {
@@ -248,4 +260,66 @@ function autolinkFragements(element) {
       loadFragment(div);
     }
   });
+}
+
+export function getTimeLeft(targetDateStr) {
+  const now = new Date();
+  const targetDate = new Date(targetDateStr);
+
+  // Calculate the time difference in milliseconds
+  const diffMs = targetDate - now;
+
+  if (diffMs <= 0) {
+    return "Time's up!";
+  }
+
+  const totalMinutes = Math.floor(diffMs / (1000 * 60));
+  const days = Math.floor(totalMinutes / (60 * 24));
+  const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+  const minutes = totalMinutes % 60;
+
+  // Pad with leading zeros if needed
+  const pad = (num) => String(num).padStart(2, '0');
+
+  return `${pad(days)} days ${pad(hours)} hrs ${pad(minutes)} mins left`;
+}
+
+export function evaluateByDays(pastDateStr) {
+  const now = new Date();
+  const pastDate = new Date(pastDateStr);
+
+  // Check for future dates
+  if (now < pastDate) {
+    return "Date is in the future";
+  }
+
+  // Calculate difference in milliseconds and convert to days
+  const diffMs = now - pastDate;
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  // Apply logic based on days
+  if (diffDays === 365) {
+    return "Annualised";
+  } else if (diffDays > 365) {
+    return "CAGR";
+  } else if (diffDays >= 180 && diffDays < 365) {
+    return "Annualised";
+  } else {
+    return 'Annualised'//`${diffDays} days`;
+  }
+}
+
+export function wishlist(){
+  dataMapMoObj.schstar = [];
+  let paramCount = document.querySelectorAll(".star-filled");
+  paramCount.forEach((el)=>{
+    dataMapMoObj.schstar.push(el.getAttribute("schcode"))
+  })
+   document.querySelector(".watchlisttext span").textContent ="";
+  if (paramCount.length < 10) {
+    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"(0"+paramCount.length+")";
+  }else{
+    document.querySelector(".watchlisttext span").textContent ="My Watchlist " +"("+paramCount.length+")";
+  } 
+   
 }

@@ -399,6 +399,66 @@
           }
         },
         {
+          "title": "Watchlist Block",
+          "id": "watchlist-block",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Watchlist Block",
+                  "model": "watchlist-block"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Welcome Component",
+          "id": "welcome-component",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Welcome Component",
+                  "model": "welcome-component"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Broaden Your Research",
+          "id": "broaden-your-research",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Broaden Your Research",
+                  "model": "broaden-your-research"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Make Index Funds",
+          "id": "make-index-funds",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Make Index Funds",
+                  "model": "make-index-funds"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "FDP Card",
           "id": "fdp-card",
           "plugins": {

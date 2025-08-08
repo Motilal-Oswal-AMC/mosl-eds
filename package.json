@@ -6,6 +6,8 @@
   "scripts": {
     "lint:js": "eslint . --ext .json,.js,.mjs",
     "lint:css": "stylelint blocks/**/*.css styles/*.css",
+    "lint:styles": "stylelint \"**/*.{css,scss}\"",
+    "lint:styles:fix": "stylelint \"**/*.{css,scss}\" --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:scss": "stylelint '**/**/*.scss'",
     "lint:scss:fix": "stylelint '**/*.scss' --fix",
@@ -16,6 +18,7 @@
     "prepare": "husky",
     "fix-scss": "stylelint --fix **/**/*.scss",
     "fix-css": "stylelint --fix **/**/*.css",
+    "fix-scss": "stylelint --fix **/**/*.scss",
     "fix-js": "eslint --fix **/**/*.js"
   },
   "repository": {
@@ -40,10 +43,8 @@
     "npm-run-all": "4.1.5",
     "sass": "^1.89.2",
     "stylelint": "^16.12.0",
-    "stylelint-config-recommended-scss": "^15.0.1",
     "stylelint-config-standard": "36.0.1",
-    "stylelint-config-standard-scss": "^15.0.1",
-    "stylelint-scss": "^6.12.1"
+    "stylelint-config-standard-scss": "^15.0.1"
   },
   "dependencies": {
     "@sentry/browser": "^9.12.0",
