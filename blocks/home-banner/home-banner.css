@@ -833,7 +833,7 @@ button.swiper-pagination-bullet {
   height: 100%;
   padding: 48px 67px 71px;
 }
-.home-banner .sub-home-banner .sub-banner-item-2 p {
+.home-banner .sub-home-banner .sub-banner-item-2 .item-child {
   margin: 0;
 }
 .home-banner .sub-home-banner .sub-banner-item-2 .button-container {
@@ -862,7 +862,7 @@ button.swiper-pagination-bullet {
   display: none;
   position: relative;
 }
-.home-banner .sub-home-banner .sub-banner-item-3 p {
+.home-banner .sub-home-banner .sub-banner-item-3 .item-child {
   margin: 0;
 }
 .home-banner .sub-home-banner .sub-banner-item-3 picture {
