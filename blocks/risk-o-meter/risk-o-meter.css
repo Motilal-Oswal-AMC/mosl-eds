@@ -9,7 +9,8 @@
 }
 
 .modal.block dialog .close-button {
-  top: 92px;
+  top: 25px;
+  right: 25px;
   display: flex;
   width: 36px;
   height: 36px;
@@ -21,6 +22,7 @@
 }
 
 .modal.block dialog > .modal-content {
+  position: relative;
   padding: 0;
   max-width: 816px;
   padding-top: 0;
@@ -29,7 +31,7 @@
   justify-content: center;
   border-radius: 8px;
   background: #FFF;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.0509803922);
   height: auto;
 }
 
@@ -39,7 +41,7 @@
   width: 100%;
   border-radius: 8px;
   background: #FFF;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.0509803922);
 }
 .section.risk-o-meter-container .risk-o-meter {
   width: 100%;
