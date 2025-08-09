@@ -1,10 +1,15 @@
 /*   alpha-value-notation */
+
 /*   media-feature-range-notation */
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 .growth-now-container {
+    img{
+        height: 100%;
+    }
+
     .growth-now {
         display: flex;
         padding: 32px;
@@ -78,7 +83,7 @@
 
             div {
                 p {
-                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $ButlerPro);
+                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $butlerpro);
 
                     max-inline-size: 11ch;
                     text-wrap: balance;
@@ -86,7 +91,7 @@
                     padding: 0;
 
                     @include media(mobile) {
-                        @include font-style(28px, 32px, $primary-white, map.get($font-weights, bold), $ButlerPro);
+                        @include font-style(28px, 32px, $primary-white, map.get($font-weights, bold), $butlerpro);
                     }
                 }
             }
@@ -161,7 +166,7 @@
                                 border: none;
                                 color: #FFF;
                                 text-align: center;
-                                font-family: $Poppins;
+                                font-family: $poppins;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 400;
@@ -177,7 +182,7 @@
                                     background: transparent;
                                     box-shadow: none;
                                     color: #fff;
-                                    font-family: Poppins;
+                                    font-family: $poppins;
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 400;
@@ -189,9 +194,9 @@
                                     text-align: left;
                                     padding-left: 10px;
 
-                                    &::input-placeholder {
+                                    &::placeholder {
                                         color: #fff;
-                                        font-family: $Poppins;
+                                        font-family: $poppins;
                                         font-size: 14px;
                                         font-style: normal;
                                         font-weight: 400;
@@ -227,7 +232,7 @@
                                 border-radius: 4px;
                                 background: #FFF;
                                 color: #2E2A94;
-                                font-family: $Poppins;
+                                font-family: $poppins;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 500;
@@ -282,9 +287,9 @@
             display: none;
         }
 
-        img {
-            height: 100%;
-        }
+        // img {
+        //     height: 100%;
+        // }
     }
 
     .fund-sec-6 {
@@ -310,10 +315,10 @@
                     align-items: center;
                     gap: 8px;
 
-                    p {
-                        margin: 0;
-                        padding: 0;
-                    }
+                    // p {
+                    //     margin: 0;
+                    //     padding: 0;
+                    // }
 
                     ul {
                         margin: 0;
@@ -322,7 +327,7 @@
 
                         li:first-child {
                             color: #FFF;
-                            font-family: $Poppins;
+                            font-family: $poppins;
                             font-size: 12px;
                             font-style: normal;
                             font-weight: 400;
@@ -331,7 +336,7 @@
 
                         li:nth-child(2) {
                             color: #FFF;
-                            font-family: $Poppins;
+                            font-family: $poppins;
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 600;

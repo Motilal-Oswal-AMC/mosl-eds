@@ -739,6 +739,9 @@ button.swiper-pagination-bullet {
   max-width: 100%;
   margin: 0;
 }
+.section.home-banner-container p {
+  margin: 0;
+}
 .section.home-banner-container .home-banner-wrapper {
   padding: 0;
   max-width: 100%;
@@ -783,9 +786,6 @@ button.swiper-pagination-bullet {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
-.section.home-banner-container ul li:first-of-type {
-  background: #242177;
 }
 .section.home-banner-container ul li:last-of-type {
   display: none;
@@ -833,9 +833,6 @@ button.swiper-pagination-bullet {
   height: 100%;
   padding: 48px 67px 71px;
 }
-.home-banner .sub-home-banner .sub-banner-item-2 p {
-  margin: 0;
-}
 .home-banner .sub-home-banner .sub-banner-item-2 .button-container {
   margin: 0;
 }
@@ -861,9 +858,6 @@ button.swiper-pagination-bullet {
 .home-banner .sub-home-banner .sub-banner-item-3 {
   display: none;
   position: relative;
-}
-.home-banner .sub-home-banner .sub-banner-item-3 p {
-  margin: 0;
 }
 .home-banner .sub-home-banner .sub-banner-item-3 picture {
   line-height: 0;

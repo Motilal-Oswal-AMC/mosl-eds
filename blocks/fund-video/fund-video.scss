@@ -36,7 +36,7 @@
               32px,
               map.get($button-secondary, default),
               600,
-              $Poppins
+              $poppins
             );
 
             margin: 0;
@@ -68,7 +68,7 @@
               24px,
               map.get($blue-1, b150),
               400,
-              $Poppins
+              $poppins
             );
 
             display: flex;
@@ -80,7 +80,7 @@
                 20px,
                 map.get($button-secondary, default),
                 600,
-                $Poppins
+                $poppins
               );
             }
 

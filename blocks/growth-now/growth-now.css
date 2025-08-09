@@ -1,6 +1,9 @@
 /*   alpha-value-notation */
 /*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
+.growth-now-container img {
+  height: 100%;
+}
 .growth-now-container .growth-now {
   display: flex;
   padding: 32px;
@@ -80,7 +83,7 @@
   font-size: 32px;
   line-height: 40px;
   color: #fff;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 700;
   max-inline-size: 11ch;
   text-wrap: balance;
@@ -92,7 +95,7 @@
     font-size: 28px;
     line-height: 32px;
     color: #fff;
-    font-family: "ButlerPro", sans-serif;
+    font-family: "butlerPro", sans-serif;
     font-weight: 700;
   }
 }
@@ -175,7 +178,7 @@
   background: transparent;
   box-shadow: none;
   color: #fff;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -187,7 +190,15 @@
   text-align: left;
   padding-left: 10px;
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input::input-placeholder {
+.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input::-moz-placeholder {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input::placeholder {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -260,9 +271,6 @@
     display: none;
   }
 }
-.growth-now-container .fund-sec-5 img {
-  height: 100%;
-}
 @media (max-width: 768px) {
   .growth-now-container .fund-sec-6 {
     display: flex;
@@ -284,10 +292,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-}
-.growth-now-container .fund-sec-6 div > ul > li p {
-  margin: 0;
-  padding: 0;
 }
 .growth-now-container .fund-sec-6 div > ul > li ul {
   margin: 0;

@@ -2,8 +2,6 @@
 @use '../../styles/common-theme/css/fluid-typography'as *;
 @use 'sass:map';
 
-
-/*   */
 .newsletter-subscription-container {
     // display: flex;
     display: none; // RM11
@@ -28,9 +26,9 @@
         }
 
         p:nth-child(1) {
-            color: $primary-Blue-1-900;
+            color: #242177;
             text-align: center;
-            font-family: $ButlerPro;
+            font-family: $butlerpro;
             font-size: 44px;
             font-style: normal;
             font-weight: 600;
@@ -63,7 +61,7 @@
                 flex-shrink: 0;
                 color: $primary-white;
                 text-align: center;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 500;
@@ -95,9 +93,9 @@
 
             .newssubitem .newsinneritem1 {
                 margin: 0;
-                color: $primary-Blue-1-900;
+                color: #242177;
                 text-align: center;
-                font-family: $ButlerPro;
+                font-family: $butlerpro;
                 font-size: 44px;
                 font-style: normal;
                 font-weight: 600;
@@ -107,8 +105,8 @@
 
             .newssubitem .newsinneritem2 {
                 margin: 0;
-                color: $primary-Blue-1-900;
-                font-family: $Poppins;
+                color: #242177;
+                font-family: $poppins;
                 font-size: 24px;
                 font-style: normal;
                 font-weight: 500;
@@ -151,8 +149,8 @@
                     flex-shrink: 0;
 
                     label {
-                        color: $primary-Blue-1-900;
-                        font-family: $Poppins;
+                        color: #242177;
+                        font-family: $poppins;
                         font-size: 14px;
                         font-style: normal;
                         font-weight: 600;
@@ -163,7 +161,7 @@
 
                     input::placeholder {
                         color: #616161;
-                        font-family: $Poppins;
+                        font-family: $poppins;
                         font-size: 16px;
                         font-weight: 500;
                         line-height: 20px;
@@ -206,7 +204,7 @@
                         background: $primary-blue;
                         text-align: center;
 
-                        @include font-style(16px, 21px, $primary-white, map.get($font-weights, medium), $Poppins);
+                        @include font-style(16px, 21px, $primary-white, map.get($font-weights, medium), $poppins);
 
                         text-transform: capitalize;
                     }

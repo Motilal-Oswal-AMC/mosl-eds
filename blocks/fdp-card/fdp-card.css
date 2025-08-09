@@ -80,11 +80,31 @@
   gap: 28px;
   padding: 0 16px;
 }
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper p {
+  font-size: 12px;
+  line-height: 16px;
+  color: #424242;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper p span {
+  width: 48px;
+  height: 48px;
+}
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper p strong {
+  color: #2e2a94;
+  font-weight: 600;
+  font-size: 14px;
+}
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper h5 {
   font-size: 28px;
   line-height: 32px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 500;
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol {
@@ -144,24 +164,4 @@
   line-height: 16px;
   letter-spacing: 0%;
   font-weight: 400;
-}
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper p {
-  font-size: 12px;
-  line-height: 16px;
-  color: #424242;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper p span {
-  width: 48px;
-  height: 48px;
-}
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper p strong {
-  color: #2e2a94;
-  font-weight: 600;
-  font-size: 14px;
 }/*# sourceMappingURL=fdp-card.css.map */

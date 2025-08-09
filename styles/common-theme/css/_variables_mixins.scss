@@ -29,7 +29,8 @@ $primary-blue-1-900: #242177;
 
 
 // Brand buttons
-$button-primary: (default: #2e2a94,
+$button-primary: (
+  default: #2e2a94,
   hover: #2b2e8c,
   active: #262a84,
   disabled: #969696,
@@ -43,12 +44,12 @@ $button-secondary: (
 );
 
 // Neutral colors blue-1-25
-$blue-1: (b25: #EDF1FF,
+$blue-1: (
+  b25: #EDF1FF,
   b50: #D5DEFF,
   b200: #9DADFE,
   b300: #7986fd,
   b400: #5659FA,
-  b900: #242177,
   b500: #4338f3,
   b700: #332ab5,
   b150:#D5DEFF
@@ -56,7 +57,7 @@ $blue-1: (b25: #EDF1FF,
 
 // Neutral colors
 $neutrals-200: #EEE;
-$neutrals-500:#9E9E9E;
+$neutrals-500: #9E9E9E;
 
 
 // body-Color
@@ -64,7 +65,8 @@ $neutrals-500:#9E9E9E;
 $color-text-body: #424242;
 
 // Old Silver
-$old-silver: (00: #efefef,
+$old-silver: (
+  00: #efefef,
   50: #f3f3f3,
   75: #ccc,
   100: #b7b7b7,
@@ -77,7 +79,8 @@ $old-silver: (00: #efefef,
 );
 
 // Olive Drab
-$olive-drab: (50: #ededec,
+$olive-drab: (
+  50: #ededec,
   75: #b6b3b1,
   100: #989490,
   200: #6c6560,
@@ -87,7 +90,8 @@ $olive-drab: (50: #ededec,
 );
 
 // Dark Liver
-$dark-liver: (50: #edeeed,
+$dark-liver: (
+  50: #edeeed,
   75: #b6b8b6,
   100: #979a98,
   200: #6a6f6b,
@@ -105,7 +109,8 @@ $strokes: (
 
 
 // Success
-$success: (50: #e9fdec,
+$success: (
+  50: #e9fdec,
   75: #a4f8b2,
   100: #7ef591,
   200: #46f062,
@@ -115,7 +120,8 @@ $success: (50: #e9fdec,
 );
 
 // Alarm
-$alarm: (50: #fdf6e9,
+$alarm: (
+  50: #fdf6e9,
   75: #f8dca4,
   100: #f5cd7e,
   200: #f0b846,
@@ -125,7 +131,8 @@ $alarm: (50: #fdf6e9,
 );
 
 // Danger
-$danger: (50: #fde9e9,
+$danger: (
+  50: #fde9e9,
   75: #f8a4a4,
   100: #f57e7e,
   200: #f04646,
@@ -156,8 +163,8 @@ $fund-icon-bg: #BDCBFF;
 // ----------------------------------------
 // FONTS
 // ----------------------------------------
-$Poppins: "Poppins", sans-serif;
-$ButlerPro: "ButlerPro", sans-serif;
+$poppins: "Poppins", sans-serif;
+$butlerpro: "butlerPro", sans-serif;
 $font-weights: (
   light: 300,
   regular: 400,
@@ -165,16 +172,17 @@ $font-weights: (
   semibold: 600,
   bold: 700,
   extrabold: 800,
-  heavy: 900);
+  heavy: 900,
+);
 
 // Font mixin
-@mixin font-style($size, $line-height, $color, $weight: null, $family: $ButlerPro) {
+@mixin font-style($size, $line-height, $color, $weight: null, $family: $butlerpro) {
   font-size: $size;
   line-height: $line-height;
   color: $color;
   font-family: $family;
 
-  @if $weight !=null {
+  @if $weight != "null" {
     font-weight: $weight;
   }
 }
@@ -185,7 +193,7 @@ $font-weights: (
 // ----------------------------------------
 
 @mixin typography-h2 {
-  font-family: $ButlerPro;
+  font-family: $butlerpro;
   color: $primary-blue;
   font-weight: map.get($font-weights, bold);
   line-height: $line-height-h2;
@@ -196,7 +204,8 @@ $font-weights: (
 // BORDER RADIUS
 // ----------------------------------------
 
-$radius: (r4: 4px,
+$radius: (
+  r4: 4px,
   r8: 8px,
   r12: 12px,
   r14: 14px,
@@ -210,13 +219,15 @@ $radius: (r4: 4px,
   r52: 52px,
   r83: 83px,
   r100: 100px,
-  r50: 50%);
+  r50: 50%
+);
 
 // ----------------------------------------
 // SPACING
 // ----------------------------------------
 
-$spacing: (xxs: 4px,
+$spacing: (
+  xxs: 4px,
   xs: 8px,
   sm: 12px,
   md: 16px,
@@ -235,14 +246,16 @@ $box-shadow-soft: 0 8px 24px rgba($primary-black, 0.08);
 // BREAKPOINTS
 // ----------------------------------------
 
-$breakpoints: (mobile-sm: 361px,
+$breakpoints: (
+  mobile-sm: 361px,
   mobile-md: 391px,
   mobile: 768px,
   tab: 1025px,
   desktop-sm: 1299px,
   desktop-md: 1367px,
   desktop-lg: 1681px,
-  desktop-xl: 1921px);
+  desktop-xl: 1921px
+);
 
 
 // // Media query mixin using map.get

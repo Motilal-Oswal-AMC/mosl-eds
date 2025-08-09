@@ -28,7 +28,7 @@
   font-size: 36px;
   line-height: 44px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 700;
   margin-bottom: 16px;
 }
@@ -37,7 +37,7 @@
     font-size: 24px;
     line-height: 28px;
     color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
+    font-family: "butlerPro", sans-serif;
     font-weight: 700;
   }
 }
@@ -54,7 +54,7 @@
     font-size: 20px;
     line-height: 28px;
     color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
+    font-family: "butlerPro", sans-serif;
     font-weight: 700;
   }
 }
@@ -69,7 +69,7 @@
 .section.welcome-component div ul li a {
   display: flex;
   width: 176px;
-  padding: 12px 12px;
+  padding: 12px;
   justify-content: center;
   align-items: center;
   gap: 8px;
