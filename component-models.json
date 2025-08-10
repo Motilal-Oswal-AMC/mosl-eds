@@ -686,7 +686,7 @@
     ]
   },
   {
-    "id": "growth-now",
+    "id": "growth-now-item",
     "fields": [
       {
         "component": "reference",

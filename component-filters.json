@@ -97,6 +97,12 @@
     ]
   },
   {
+    "id": "growth-now",
+    "components": [
+      "growth-now-item"
+    ]
+  },
+  {
     "id": "live-streaming",
     "components": [
       "live-streaming-content"
