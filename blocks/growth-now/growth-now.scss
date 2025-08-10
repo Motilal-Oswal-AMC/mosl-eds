@@ -6,16 +6,14 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 .growth-now-container {
-    img{
+    img {
         height: 100%;
     }
 
-    .growth-now {
+    .fund-us-container {
         display: flex;
         padding: 32px;
         align-items: center;
-
-        // justify-content: space-between;
         border-radius: 16px;
         background: #2E2A94;
         height: 160px;
@@ -35,7 +33,9 @@
             padding: 24px;
             overflow: hidden;
         }
+    }
 
+    .growth-now {
         .fund-sec-1 {
             padding-right: 21px;
 
@@ -50,22 +50,22 @@
                 bottom: -1px;
             }
 
-            div {
-                img {
-                    width: 109px;
-                    height: 160px;
-                    flex-shrink: 0;
-                    margin-bottom: -13px;
 
-                    @include media(mobile) {
-                        width: 142px;
-                        height: 173px;
-                        margin-bottom: -10px;
-                        object-fit: cover;
-                        object-position: bottom;
-                    }
+            img {
+                width: 109px;
+                height: 160px;
+                flex-shrink: 0;
+                margin-bottom: -13px;
+
+                @include media(mobile) {
+                    width: 142px;
+                    height: 173px;
+                    margin-bottom: -10px;
+                    object-fit: cover;
+                    object-position: bottom;
                 }
             }
+
         }
 
         .fund-sec-2 {
@@ -81,20 +81,20 @@
                 order: 1;
             }
 
-            div {
-                p {
-                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $butlerpro);
 
-                    max-inline-size: 11ch;
-                    text-wrap: balance;
-                    margin: 0;
-                    padding: 0;
+            p {
+                @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $butlerpro);
 
-                    @include media(mobile) {
-                        @include font-style(28px, 32px, $primary-white, map.get($font-weights, bold), $butlerpro);
-                    }
+                max-inline-size: 11ch;
+                text-wrap: balance;
+                margin: 0;
+                padding: 0;
+
+                @include media(mobile) {
+                    @include font-style(28px, 32px, $primary-white, map.get($font-weights, bold), $butlerpro);
                 }
             }
+
         }
 
         .fund-sec-3 {
@@ -111,143 +111,133 @@
                 padding-bottom: 40px;
             }
 
-            div {
-                .button-container {
-                    margin: 0;
-                    padding: 0;
 
-                    form {
+            .button-container {
+                margin: 0;
+                padding: 0;
+
+                form {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    @include media(mobile) {
+                        flex-direction: column;
+                    }
+
+                    // .field-wrapper {
+                    //     width: 228px;
+                    // }
+
+                    .fieldset-wrapper {
+                        @include media(mobile) {
+                            width: 100%;
+                        }
+                    }
+
+                    fieldset {
+                        width: 228px;
+                        height: 40px;
                         display: flex;
+                        padding: 8px 12px;
                         align-items: center;
-                        gap: 5px;
+                        align-self: stretch;
+                        border-radius: 6px;
+                        border: 1px solid $neutrals-500;
 
                         @include media(mobile) {
-                            flex-direction: column;
+                            width: 100%;
                         }
 
-                        // .field-wrapper {
-                        //     width: 228px;
-                        // }
 
-                        .fieldset-wrapper {
-                            @include media(mobile) {
-                                width: 100%;
-                            }
+                        .field-wrapper {
+                            line-height: normal;
                         }
 
-                        fieldset {
-                            width: 228px;
-                            height: 40px;
-                            display: flex;
-                            padding: 8px 12px;
-                            align-items: center;
-                            align-self: stretch;
-                            border-radius: 6px;
-                            border: 1px solid $neutrals-500;
+                        .select-wrapper {
+                            border-radius: 3px 0 0 3px;
+                            border-right: 1px solid #6D798E;
+                            padding-right: 4px;
 
-                            @include media(mobile) {
+                        }
+
+                        select {
+                            background: transparent;
+                            border: none;
+                            color: #FFF;
+                            text-align: center;
+                            font-family: $poppins;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 20px;
+                            appearance: auto;
+                            padding-right: 4px;
+                        }
+
+                        .text-wrapper {
+                            input {
                                 width: 100%;
-                            }
-
-
-                            .field-wrapper {
-                                line-height: normal;
-                            }
-
-                            .select-wrapper {
-                                border-radius: 3px 0 0 3px;
-                                border-right: 1px solid #6D798E;
-                                padding-right: 4px;
-
-                            }
-
-                            select {
+                                min-width: 111px;
                                 background: transparent;
-                                border: none;
-                                color: #FFF;
-                                text-align: center;
+                                box-shadow: none;
+                                color: #fff;
                                 font-family: $poppins;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 400;
                                 line-height: 20px;
-                                appearance: auto;
-                                padding-right: 4px;
-                            }
+                                padding: 0;
+                                padding-inline: unset;
+                                padding-block: unset;
+                                border: none;
+                                text-align: left;
+                                padding-left: 10px;
 
-                            .text-wrapper {
-                                input {
-                                    width: 100%;
-                                    min-width: 111px;
-                                    background: transparent;
-                                    box-shadow: none;
+                                &::placeholder {
                                     color: #fff;
                                     font-family: $poppins;
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 400;
                                     line-height: 20px;
-                                    padding: 0;
-                                    padding-inline: unset;
-                                    padding-block: unset;
-                                    border: none;
-                                    text-align: left;
-                                    padding-left: 10px;
-
-                                    &::placeholder {
-                                        color: #fff;
-                                        font-family: $poppins;
-                                        font-size: 14px;
-                                        font-style: normal;
-                                        font-weight: 400;
-                                        line-height: 20px;
-                                    }
-
                                 }
 
-                                // &::after {
-                                //     content: '';
-                                //     background: url(../../icons/close-blue.png);
-                                //     display: flex;
-                                //     width: 24px;
-                                //     height: 24px;
-                                //     padding: 2px;
-                                //     justify-content: center;
-                                //     align-items: center;
-                                // }
                             }
+
+                        }
+                    }
+
+                    .submit-wrapper {
+                        @include media(mobile) {
+                            width: 100%;
                         }
 
-                        .submit-wrapper {
+                        .button {
+                            display: flex;
+                            padding: 12px;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 8px;
+                            border-radius: 4px;
+                            background: #FFF;
+                            color: #2E2A94;
+                            font-family: $poppins;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 16px;
+                            margin: 0;
+                            height: 40px;
+
                             @include media(mobile) {
                                 width: 100%;
-                            }
-
-                            .button {
-                                display: flex;
-                                padding: 12px;
-                                justify-content: center;
-                                align-items: center;
-                                gap: 8px;
-                                border-radius: 4px;
-                                background: #FFF;
-                                color: #2E2A94;
-                                font-family: $poppins;
-                                font-size: 14px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 16px;
-                                margin: 0;
-                                height: 40px;
-
-                                @include media(mobile) {
-                                    width: 100%;
-                                }
                             }
                         }
                     }
                 }
             }
+
         }
 
         .fund-sec-4 {
@@ -287,9 +277,6 @@
             display: none;
         }
 
-        // img {
-        //     height: 100%;
-        // }
     }
 
     .fund-sec-6 {
@@ -301,50 +288,44 @@
             padding-top: 68px;
         }
 
-        div {
-            >ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+
+            >li {
                 display: flex;
-                flex-direction: column;
-                gap: 9px;
+                align-items: center;
+                gap: 8px;
 
-                >li {
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
 
-                    // p {
-                    //     margin: 0;
-                    //     padding: 0;
-                    // }
+                    li:first-child {
+                        color: #FFF;
+                        font-family: $poppins;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 16px;
+                    }
 
-                    ul {
-                        margin: 0;
-                        padding: 0;
-                        list-style: none;
-
-                        li:first-child {
-                            color: #FFF;
-                            font-family: $poppins;
-                            font-size: 12px;
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: 16px;
-                        }
-
-                        li:nth-child(2) {
-                            color: #FFF;
-                            font-family: $poppins;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 600;
-                            line-height: 16px;
-                        }
+                    li:nth-child(2) {
+                        color: #FFF;
+                        font-family: $poppins;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 16px;
                     }
                 }
             }
         }
+
     }
 }
