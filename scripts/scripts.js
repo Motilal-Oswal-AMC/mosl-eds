@@ -1,5 +1,4 @@
-/* eslint-disable */
-
+import { loadEmbed } from '../blocks/embed/embed.js';
 import loadFragment from '../blocks/fragment/fragment.js';
 import {
   loadHeader,
@@ -14,6 +13,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import dataMapMoObj from './constant.js';
 
 import delayed from './delayed.js';
 
@@ -22,12 +22,33 @@ import delayed from './delayed.js';
  * @param {Element} from the element to copy attributes from
  * @param {Element} to the element to copy attributes to
  */
+function wrapImgsInLinks(container) {
+  const pictures = container.querySelectorAll('picture');
+  pictures.forEach((pic) => {
+    const link = pic.nextElementSibling;
+    if (link && link.tagName === 'A' && link.href) {
+      link.innerHTML = pic.outerHTML;
+      pic.replaceWith(link);
+    }
+  });
+}
+function autolinkFragements(element) {
+  element.querySelectorAll('a').forEach((origin) => {
+    if (origin && origin.href && origin.href.includes('/fragment/')) {
+      const parent = origin.parentElement;
+      const div = document.createElement('div');
+      div.append(origin);
+      parent.append(div);
+      loadFragment(div);
+    }
+  });
+}
 export function moveAttributes(from, to, attributes) {
-  if (!attributes) {
-    // eslint-disable-next-line no-param-reassign
-    attributes = [...from.attributes].map(({ nodeName }) => nodeName);
+  let attrs = attributes;
+  if (!attrs) {
+    attrs = [...from.attributes].map(({ nodeName }) => nodeName);
   }
-  attributes.forEach((attr) => {
+  attrs.forEach((attr) => {
     const value = from.getAttribute(attr);
     if (value) {
       to.setAttribute(attr, value);
@@ -47,7 +68,9 @@ export function moveInstrumentation(from, to) {
     to,
     [...from.attributes]
       .map(({ nodeName }) => nodeName)
-      .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
+      .filter(
+        (attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'),
+      ),
   );
 }
 
@@ -57,7 +80,7 @@ export function moveInstrumentation(from, to) {
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
+    if (!window.location.hostname.includes('localhost')) { sessionStorage.setItem('fonts-loaded', 'true'); }
   } catch (e) {
     // do nothing
   }
@@ -68,11 +91,27 @@ function autolinkModals(element) {
 
     if (origin && origin.href && origin.href.includes('/modals/')) {
       e.preventDefault();
-      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+      const { openModal } = await import(
+        `${window.hlx.codeBasePath}/blocks/modal/modal.js`
+      );
       openModal(origin.href);
     }
   });
 }
+
+function autolinkVideo(element) {
+  const origin = element.querySelector('a');
+
+  if (origin && origin.href && origin.href.includes('/www.youtube.com/')) {
+    // e.preventDefault();
+    // const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+    // openModal(origin.href);
+    loadEmbed(origin, origin.href);
+  }
+  // });
+}
+
+// loadEmbed(block,link)
 
 /**
  * Builds all synthetic blocks in a container element.
@@ -82,8 +121,7 @@ function buildAutoBlocks() {
   try {
     // TODO: add auto block, if needed
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Auto Blocking failed', error);
+    //   -next-line no-console
   }
 }
 
@@ -91,7 +129,7 @@ function buildAutoBlocks() {
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
+//   -next-line import/prefer-default-export
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
@@ -125,14 +163,13 @@ async function loadEager(doc) {
   }
 }
 
-
-
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  autolinkModals(doc)
+  autolinkVideo(doc);
+  autolinkModals(doc);
   const main = doc.querySelector('main');
   autolinkFragements(doc);
   wrapImgsInLinks(doc);
@@ -149,13 +186,12 @@ async function loadLazy(doc) {
   loadFonts();
 }
 
-
 /**
  * Loads everything that happens a lot later,
  * without impacting the user experience.
  */
 function loadDelayed() {
-  // eslint-disable-next-line import/no-cycle
+  //   -next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
@@ -168,83 +204,58 @@ async function loadPage() {
 
 loadPage();
 
-
-
 /// API ///
 export function fetchAPI(method, url, data) {
-  return new Promise(async (resolve, reject) => {
-    try {
-      // Optional: tag which API endpoint was called
-      // Sentry.configureScope(function (scope) {
-      //   scope.setTag("api-url", url); // Add a tag
-      //   scope.setContext("api-request", {
-      //     method,
-      //     url,
-      //     data
-      //   });
-      // });
+  return new Promise((resolve, reject) => {
+    (async () => {
+      try {
+        // Optional: tag which API endpoint was called
+        // Sentry.configureScope(function (scope) {
+        //   scope.setTag("api-url", url); // Add a tag
+        //   scope.setContext("api-request", {
+        //     method,
+        //     url,
+        //     data
+        //   });
+        // });
 
-
-      if (method === 'GET') {
-        const resp = await fetch(url);
-        resolve(resp);
-      } else if (method === 'POST') {
-        data.headerJson = data.headerJson || {
-          'Content-Type': 'application/json',
-        };
-        if (data.headerJson['Content-Type'] == 'remove') {
-          data.headerJson['Content-Type'] = '';
-        } else {
-          data.headerJson['Content-Type'] = data.headerJson['Content-Type'] ? data.headerJson['Content-Type'] : 'application/json';
+        if (method === 'GET') {
+          const resp = await fetch(url);
+          resolve(resp);
+        } else if (method === 'POST') {
+          data.headerJson = data.headerJson || {
+            'Content-Type': 'application/json',
+          };
+          if (data.headerJson['Content-Type'] === 'remove') {
+            data.headerJson['Content-Type'] = '';
+          } else {
+            data.headerJson['Content-Type'] = data.headerJson['Content-Type']
+              ? data.headerJson['Content-Type']
+              : 'application/json';
+          }
+          /* Optimzie Code */
+          const request = new Request(url, {
+            method: 'POST',
+            body: JSON.stringify(data.requestJson),
+            headers: data.headerJson,
+            // mode: 'no-cors'
+          });
+          const response = await fetch(request);
+          const json = await response.json();
+          resolve({ responseJson: json });
         }
-        /* Optimzie Code */
-        /* data.headerJson = data.headerJson || {};
-        data.headerJson["Content-Type"] = data.headerJson["Content-Type"] === 'remove' ? '' : data.headerJson["Content-Type"] || "application/json"; */
-        const request = new Request(url, {
-          method: 'POST',
-          body: JSON.stringify(data.requestJson),
-          headers: data.headerJson
-          // mode: 'no-cors'
-        });
-        const response = await fetch(request);
-        const json = await response.json();
-        resolve({ responseJson: json });
+      } catch (error) {
+        reject(error);
       }
-    } catch (error) {
-      console.warn(error);
-      reject(error);
-    }
+    })();
   });
 }
-
 
 window.addEventListener('load', () => {
   delayed(); // ✅ this must be here!
 });
 
 // Fragment 15 Apr 25
-function wrapImgsInLinks(container) {
-  const pictures = container.querySelectorAll('picture');
-  pictures.forEach((pic) => {
-    const link = pic.nextElementSibling;
-    if (link && link.tagName === 'A' && link.href) {
-      link.innerHTML = pic.outerHTML;
-      pic.replaceWith(link);
-    }
-  });
-}
-
-function autolinkFragements(element) {
-  element.querySelectorAll('a').forEach((origin) => {
-    if (origin && origin.href && origin.href.includes('/fragment/')) {
-      const parent = origin.parentElement;
-      const div = document.createElement("div");
-      div.append(origin);
-      parent.append(div);
-      loadFragment(div);
-    }
-  })
-}
 
 export function getTimeLeft(targetDateStr) {
   const now = new Date();
@@ -274,7 +285,7 @@ export function evaluateByDays(pastDateStr) {
 
   // Check for future dates
   if (now < pastDate) {
-    return "Date is in the future";
+    return 'Date is in the future';
   }
 
   // Calculate difference in milliseconds and convert to days
@@ -283,12 +294,31 @@ export function evaluateByDays(pastDateStr) {
 
   // Apply logic based on days
   if (diffDays === 365) {
-    return "Annualised";
-  } else if (diffDays > 365) {
-    return "CAGR";
-  } else if (diffDays >= 180 && diffDays < 365) {
-    return "Annualised";
+    return 'Annualised';
+  } if (diffDays > 365) {
+    return 'CAGR';
+  } if (diffDays >= 180 && diffDays < 365) {
+    return 'Annualised';
+  }
+  return 'Annualised';// `${diffDays} days`;
+}
+
+export function wishlist() {
+  dataMapMoObj.schstar = [];
+  const paramCount = document.querySelectorAll('.star-filled');
+  paramCount.forEach((el) => {
+    dataMapMoObj.schstar.push(el.getAttribute('schcode'));
+  });
+  document.querySelector('.watchlisttext span').textContent = '';
+  if (paramCount.length < 10) {
+    document.querySelector('.watchlisttext span').textContent = `My Watchlist (0${paramCount.length})`;
   } else {
-    return 'Annualised'//`${diffDays} days`;
+    document.querySelector('.watchlisttext span').textContent = `My Watchlist (${paramCount.length})`;
   }
 }
+window.hlx = window.hlx || {};
+window.hlx.utils = {
+  getTimeLeft,
+  evaluateByDays,
+  wishlist,
+};

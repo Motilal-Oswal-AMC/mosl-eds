@@ -12,8 +12,12 @@
 
 /* eslint-env browser */
 function sampleRUM(checkpoint, data) {
-  // eslint-disable-next-line max-len
-  const timeShift = () => (window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime);
+  //   -next-line max-len
+  const timeShift = () => (
+    window.performance
+      ? window.performance.now()
+      : Date.now() - window.hlx.rum.firstReadTime
+  );
   try {
     window.hlx = window.hlx || {};
     sampleRUM.enhance = () => { };
@@ -25,7 +29,7 @@ function sampleRUM(checkpoint, data) {
         || 100;
       const id = Math.random().toString(36).slice(-4);
       const isSelected = param !== 'off' && Math.random() * weight < 1;
-      // eslint-disable-next-line object-curly-newline, max-len
+      //   -next-line object-curly-newline, max-len
       window.hlx.rum = {
         weight,
         id,
@@ -72,7 +76,7 @@ function sampleRUM(checkpoint, data) {
         sampleRUM.baseURL = sampleRUM.baseURL || new URL(window.RUM_BASE || '/', new URL('https://rum.hlx.page'));
         sampleRUM.collectBaseURL = sampleRUM.collectBaseURL || sampleRUM.baseURL;
         sampleRUM.sendPing = (ck, time, pingData = {}) => {
-          // eslint-disable-next-line max-len, object-curly-newline
+          //   -next-line max-len, object-curly-newline
           const rumData = JSON.stringify({
             weight,
             id,
@@ -92,8 +96,7 @@ function sampleRUM(checkpoint, data) {
             ? new Blob([rumData], { type: 'application/json' })
             : rumData;
           navigator.sendBeacon(url, body);
-          // eslint-disable-next-line no-console
-          console.debug(`ping:${ck}`, pingData);
+          //   -next-line no-console
         };
         sampleRUM.sendPing('top', timeShift());
 
@@ -146,8 +149,8 @@ function setup() {
         [window.hlx.codeBasePath] = scriptURL.href.split('/scripts/scripts.js');
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
+      console.log('ERROR', error);
+      //   -next-line no-console
     }
   }
 }
@@ -190,7 +193,7 @@ function toCamelCase(name) {
  * @param {Element} block The block element
  * @returns {object} The block config
  */
-// eslint-disable-next-line import/prefer-default-export
+//   -next-line import/prefer-default-export
 function readBlockConfig(block) {
   const config = {};
   block.querySelectorAll(':scope > div').forEach((row) => {
@@ -259,9 +262,10 @@ async function loadScript(src, attrs) {
       const script = document.createElement('script');
       script.src = src;
       if (attrs) {
-        // eslint-disable-next-line no-restricted-syntax, guard-for-in
-        for (const attr in attrs) {
-          script.setAttribute(attr, attrs[attr]);
+        //   -next-line no-restricted-syntax, guard-for-in
+        const keys = Object.keys(attrs);
+        for (let i = 0; i < keys.length; i += 1) {
+          script.setAttribute(keys[i], attrs[keys[i]]);
         }
       }
       script.onload = resolve;
@@ -516,7 +520,7 @@ function decorateSections(main) {
  * @param {string} [prefix] Location of placeholders
  * @returns {object} Window placeholders object
  */
-// eslint-disable-next-line import/prefer-default-export
+//   -next-line import/prefer-default-export
 async function fetchPlaceholders(prefix = 'default') {
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
@@ -600,16 +604,15 @@ async function loadBlock(block) {
               await mod.default(block);
             }
           } catch (error) {
-            // eslint-disable-next-line no-console
-            console.log(`failed to load module for ${blockName}`, error);
+            console.log(`Error loading block ${blockName}`, error);
+            //   -next-line no-console
           }
           resolve();
         })();
       });
       await Promise.all([cssLoaded, decorationComplete]);
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(`failed to load block ${blockName}`, error);
+      //   -next-line no-console
     }
     block.dataset.blockStatus = 'loaded';
   }
@@ -631,7 +634,7 @@ function decorateBlock(block) {
     blockWrapper.classList.add(`${shortBlockName}-wrapper`);
     const section = block.closest('.section');
     if (section) section.classList.add(`${shortBlockName}-container`);
-    // eslint-disable-next-line no-use-before-define
+    //   -next-line no-use-before-define
     decorateButtons(block);
   }
 }
@@ -690,34 +693,72 @@ async function waitForFirstImage(section) {
  * @param {Element} section The section element
  */
 
+// async function loadSection(section, loadCallback) {
+//   const status = section.dataset.sectionStatus;
+//   if (!status || status === 'initialized') {
+//     section.dataset.sectionStatus = 'loading';
+//     const blocks = [...section.querySelectorAll('div.block')];
+//     for (let i = 0; i < blocks.length; i += 1) {
+//       //   -next-line no-await-in-loop
+//       await loadBlock(blocks[i]);
+//     }
+//     if (loadCallback) await loadCallback(section);
+//     section.dataset.sectionStatus = 'loaded';
+//     section.style.display = null;
+//   }
+// }
 async function loadSection(section, loadCallback) {
   const status = section.dataset.sectionStatus;
   if (!status || status === 'initialized') {
     section.dataset.sectionStatus = 'loading';
+
+    // Get all the blocks
     const blocks = [...section.querySelectorAll('div.block')];
-    for (let i = 0; i < blocks.length; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      await loadBlock(blocks[i]);
-    }
+    // Create an array of promises by calling loadBlock on each block,
+    // but WITHOUT await. This starts all the loading operations.
+    const promises = blocks.map((block) => loadBlock(block));
+
+    // Now, wait for ALL of the loading promises to complete in parallel.
+    await Promise.all(promises);
+
+    // The rest of your function remains the same
     if (loadCallback) await loadCallback(section);
     section.dataset.sectionStatus = 'loaded';
     section.style.display = null;
   }
 }
-
 /**
  * Loads all sections.
  * @param {Element} element The parent element of sections to load
  */
 
+// async function loadSections(element) {
+//   const sections = [...element.querySelectorAll('div.section')];
+//   for (let i = 0; i < sections.length; i += 1) {
+//     //   -next-line no-await-in-loop
+//     await loadSection(sections[i]);
+//     if (i === 0 && sampleRUM.enhance) {
+//       sampleRUM.enhance();
+//     }
+//   }
+// }
+
 async function loadSections(element) {
   const sections = [...element.querySelectorAll('div.section')];
-  for (let i = 0; i < sections.length; i += 1) {
-    // eslint-disable-next-line no-await-in-loop
-    await loadSection(sections[i]);
-    if (i === 0 && sampleRUM.enhance) {
-      sampleRUM.enhance();
-    }
+  if (sections.length === 0) return; // Exit if there are no sections
+
+  // 1. Load the first section by itself and wait for it.
+  await loadSection(sections[0]);
+  // 2. Now that the first section is loaded, run the specific logic for it.
+  if (sampleRUM.enhance) {
+    sampleRUM.enhance();
+  }
+
+  // 3. Load all REMAINING sections in parallel.
+  const remainingSections = sections.slice(1);
+  if (remainingSections.length > 0) {
+    const promises = remainingSections.map((section) => loadSection(section));
+    await Promise.all(promises);
   }
 }
 

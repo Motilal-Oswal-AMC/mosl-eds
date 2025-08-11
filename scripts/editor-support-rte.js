@@ -1,6 +1,6 @@
-/* eslint-disable no-console */
-/* eslint-disable no-cond-assign */
-/* eslint-disable import/prefer-default-export */
+/*    no-console */
+/*    no-cond-assign */
+/*    import/prefer-default-export */
 
 // group editable texts in single wrappers if applicable.
 // this script should execute after script.js but before the the universal editor cors script
@@ -41,14 +41,12 @@ export function decorateRichtext(container = document) {
       if (editable) {
         orphanElements = editable.querySelectorAll(`:scope > :not([data-aue-resource]) [data-richtext-prop="${richtextProp}"]`);
       } else {
-        console.warn(`Editable parent not found or richtext property ${richtextProp}`);
         return;
       }
     }
 
     if (orphanElements.length) {
-      console.warn('Found orphan elements of a richtext, that were not consecutive siblings of '
-        + 'the first paragraph', orphanElements);
+           + 'the first paragraph', orphanElements);
       orphanElements.forEach((orphanElement) => deleteInstrumentation(orphanElement));
     } else {
       const group = document.createElement('div');

@@ -6,7 +6,7 @@
     details {
         border: 1px solid #dadada;
 
-        /* stylelint-disable-next-line no-descending-specificity */
+        /*  -next-line no-descending-specificity */
         // Use the parent selector `&` to target an adjacent sibling
         &+& {
             margin-top: 24px;
@@ -18,6 +18,7 @@
 
         summary {
             position: relative;
+
             // The original CSS was `padding: 0 16px;` followed by `padding-right: 46px;`.
             // This is the simplified version of that.
             padding: 0 46px 0 16px;

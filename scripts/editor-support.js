@@ -10,6 +10,22 @@ import {
 import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
+function attachEventListners(main) {
+  [
+    'aue:content-patch',
+    'aue:content-update',
+    'aue:content-add',
+    'aue:content-move',
+    'aue:content-remove',
+    'aue:content-copy',
+  ].forEach((eventType) => main?.addEventListener(eventType, async (event) => {
+    event.stopPropagation();
+    // eslint-disable-next-line no-use-before-define
+    const applied = await applyChanges(event);
+    if (!applied) window.location.reload();
+  }));
+}
+
 async function applyChanges(event) {
   // redecorate default content and blocks on patches (in the properties rail)
   const { detail } = event;
@@ -19,7 +35,7 @@ async function applyChanges(event) {
     || detail?.request?.to?.container?.resource; // move in sections
   if (!resource) return false;
   const updates = detail?.response?.updates;
-  if (!updates.length) return false;
+  if (!updates || updates.length === 0) return false;
   const { content } = updates[0];
   if (!content) return false;
 
@@ -36,12 +52,11 @@ async function applyChanges(event) {
       await loadSections(newMain);
       element.remove();
       newMain.style.display = null;
-      // eslint-disable-next-line no-use-before-define
       attachEventListners(newMain);
       return true;
     }
 
-    const block = element.parentElement?.closest('.block[data-aue-resource]') || element?.closest('.block[data-aue-resource]');
+    const block = element.closest('.block[data-aue-resource]');
     if (block) {
       const blockResource = block.getAttribute('data-aue-resource');
       const newBlock = parsedUpdate.querySelector(`[data-aue-resource="${blockResource}"]`);
@@ -86,21 +101,6 @@ async function applyChanges(event) {
   }
 
   return false;
-}
-
-function attachEventListners(main) {
-  [
-    'aue:content-patch',
-    'aue:content-update',
-    'aue:content-add',
-    'aue:content-move',
-    'aue:content-remove',
-    'aue:content-copy',
-  ].forEach((eventType) => main?.addEventListener(eventType, async (event) => {
-    event.stopPropagation();
-    const applied = await applyChanges(event);
-    if (!applied) window.location.reload();
-  }));
 }
 
 attachEventListners(document.querySelector('main'));

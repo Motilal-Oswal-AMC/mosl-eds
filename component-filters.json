@@ -28,7 +28,11 @@
       "fund-card",
       "investment-block",
       "growth-now",
-      "broaden-your-research"
+      "broaden-your-research",
+      "make-index-funds",
+      "fdp-card",
+      "fund-video",
+      "key-facts"
     ]
   },
   {
@@ -70,5 +74,9 @@
   {
     "id": "live-streaming",
     "components": ["live-streaming-content"]
+  },
+  {
+    "id": "key-facts",
+    "components": ["key-item"]
   }
 ]

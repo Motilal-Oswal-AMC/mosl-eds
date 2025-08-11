@@ -6,31 +6,31 @@
  * @param {HTMLElement} block The accordion block element.
  */
 export default function decorate(block) {
-  // Part 1: Convert the initial HTML structure into semantic <details> elements.
-  // This part assumes the source HTML is made of DIVs, as in the original problem.
+  // Convert the initial HTML structure into semantic <details> elements
   [...block.children].forEach((row) => {
     const [label, body] = row.children;
+
     if (!label || !body || !body.textContent.trim()) {
       row.remove(); // Remove malformed or empty rows
       return;
     }
 
-    const summary = document.createElement('/.freq-ask-ques summary');
+    const summary = document.createElement('summary');
     summary.className = 'accordion-item-label';
     summary.append(...label.childNodes);
 
     body.className = 'accordion-item-body';
 
-    const details = document.createElement('.freq-ask-ques details');
+    const details = document.createElement('details');
     details.className = 'accordion-item';
     details.append(summary, body);
     row.replaceWith(details);
   });
 
-  const allItems = block.querySelectorAll('.freq-ask-ques .accordion-item');
+  const allItems = block.querySelectorAll('.accordion-item');
   if (!allItems.length) return;
 
-  // Part 2: Add the "one-at-a-time" expand/collapse functionality.
+  // One-at-a-time expand/collapse functionality
   allItems.forEach((item) => {
     item.addEventListener('toggle', () => {
       if (item.open) {
@@ -43,43 +43,42 @@ export default function decorate(block) {
     });
   });
 
-  // Part 3: Implement the "Load More" / "Show Less" functionality.
+  // Load More / Show Less functionality
   const itemsToShowInitially = 3;
   const section = block.closest('.section.freq-ask-ques');
   const loadMoreButton = section?.querySelector('.freq-ask-ques .button-container a.button');
 
-  // If there are not enough items to hide or no button is found, do nothing.
   if (allItems.length <= itemsToShowInitially || !loadMoreButton) {
     if (loadMoreButton) loadMoreButton.parentElement.remove(); // Remove button if not needed
     return;
   }
 
-  // Initially hide all items beyond the initial limit.
+  // Initially collapse items beyond the limit
   allItems.forEach((item, index) => {
     if (index >= itemsToShowInitially) {
-      item.classList.add('hidden');
+      item.classList.add('collapsed');
+      item.open = false;
     }
   });
 
   loadMoreButton.addEventListener('click', (event) => {
     event.preventDefault();
-    const isShowingAll = block.querySelector('.freq-ask-ques .accordion-item.hidden') === null;
+
+    const isShowingAll = [...allItems].every((item, index) => index < itemsToShowInitially || !item.classList.contains('collapsed'));
 
     if (isShowingAll) {
-      // If all are showing, HIDE the extra items.
+      // Collapse extra items
       allItems.forEach((item, index) => {
         if (index >= itemsToShowInitially) {
-          item.classList.add('hidden');
-          item.open = false; // Also close the item when hiding it
+          item.classList.add('collapsed');
+          item.open = false;
         }
       });
       loadMoreButton.textContent = 'Load More';
-      block.scrollIntoView({ behavior: 'smooth' }); // Scroll up for better UX
+      block.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // If some are hidden, SHOW all items.
-      block.querySelectorAll('.freq-ask-ques .accordion-item.hidden').forEach((hiddenItem) => {
-        hiddenItem.classList.remove('hidden');
-      });
+      // Expand all items
+      allItems.forEach((item) => item.classList.remove('collapsed'));
       loadMoreButton.textContent = 'Show Less';
     }
   });

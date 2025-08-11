@@ -4,8 +4,6 @@ import fundCardblock from '../fund-card/fund-card.js';
 import { button, a } from '../../scripts/dom-helpers.js';
 
 export default async function decorate(block) {
-  // build tablist
-  // console.log(dataCfObj);
   const tablist = document.createElement('div');
   tablist.className = 'tabs-list';
   tablist.setAttribute('role', 'tablist');

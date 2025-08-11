@@ -164,8 +164,33 @@
           {
             "name": "Freq Ask Ques",
             "value": "freq-ask-ques"
+          },
+          {
+            "name": "Table wrapper",
+            "value": "table-wrapper"
+          },
+          {
+            "name": "why-fund",
+            "value": "why-fund"
+          },
+          {
+            "name": "fund-philosophy-video",
+            "value": "fund-philosophy-video"
+          },
+          {
+            "name": "key-facts-Investment",
+            "value": "key-facts-Investment"
+          },
+          {
+            "name": "fdp-calculator",
+            "value": "fdp-calculator"
           }
         ]
+      },
+      {
+        "component": "text",
+        "name": "id",
+        "label": "Enter Section Id"
       }
     ]
   },
@@ -750,6 +775,147 @@
         "value": "",
         "label": "Enter Icon Container",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "make-index-funds",
+    "fields": [
+      {
+        "component": "text",
+        "name": "Col1 Name",
+        "label": "Brands name"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Icons Container",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "fdp-card",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col1_title_description",
+        "label": "Inter card description"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_return",
+        "label": "Inter return text for card"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Tracking",
+        "label": "Inter Tracking text for card"
+      },
+       {
+        "component": "text",
+        "name": "col2_title_NAV",
+        "label": "Inter NAV text for card"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_AUM",
+        "label": "Inter AUM text for card"
+      },
+      {
+       "component": "aem-content",
+        "name": "col2_link",
+        "label": "Link"
+      },
+      {
+        "component": "richtext",
+        "name": "col2_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+   {
+    "id": "fund-video",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "key-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col1_title_Investment",
+        "label": "Inter Investment Objective"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Minimum_Application_Amount",
+        "label": "Inter Minimum Application Amount"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Minimum_Redemption_Amount",
+        "label": "Inter Minimum Redemption Amount"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Latest_AUM",
+        "label": "Inter Latest AUM"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Portfolio_Turnover_Ratio",
+        "label": "Inter Portfolio Turnover Ratio"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Plans",
+        "label": "Inter Plans"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Options",
+        "label": "Inter Options (Under each plan)"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Benchmark",
+        "label": "Inter Benchmark"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Total_Expense_Ratio",
+        "label": "Inter Total Expense Ratio"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Inception date",
+        "label": "Inter Inception date"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Entry Load",
+        "label": "Inter Entry Load"
+      },
+       {
+        "component": "text",
+        "name": "col3_title_Exit_Load_Policy",
+        "label": "Inter Exit Load Policy"
       }
     ]
   }

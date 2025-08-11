@@ -8,6 +8,7 @@ import {
   h2,
   p,
   img,
+  a,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import {
@@ -156,10 +157,12 @@ export default function decorate(block) {
 
   const labelcagr = evaluateByDays(block.dateOfAllotment);
   const classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? '' : ' not-provided';
+  const dropdowndot = DirectPlanlistArr.length !== 0 ? '' : 'no-planlist';
   const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
   const optionName = DirectPlanlistArr.length !== 0 ? DirectPlanlistArr[0].optionName : '';
   const returnYear = dataMapMoObj.selectreturns === '' ? tempReturns[0] : dataMapMoObj.selectreturns;
   const iconsvg = `${dataMapMoObj['icons-nfo'][block.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
+  const starClass = dataMapMoObj.schstar.includes(block.schcode) ? 'star-filled' : '';
   if ([...block.fundsTaggingSection].includes('NFO')) {
     const nfosvg = `${dataMapMoObj['icons-nfo'][block.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
     const NfocardContainer = div(
@@ -190,7 +193,7 @@ export default function decorate(block) {
             ),
             div(
               {
-                class: 'star',
+                class: `star ${starClass}`,
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
@@ -201,6 +204,7 @@ export default function decorate(block) {
                   } else {
                     event.target.parentElement.classList.remove('star-filled');
                   }
+                  wishlist();
                 },
                 schcode: block.schcode,
               },
@@ -230,18 +234,15 @@ export default function decorate(block) {
           ),
         ),
         div(
-          {
-            class: 'card-category',
-          },
+          { class: `card-category ${dropdowndot}` },
           div(
             {
               class: 'fund-tagging',
             },
             ul(
-              {
-                class: 'fundtagging-list',
-              },
+              { class: 'fundtagging-list' },
               ...fundsTaggingSection.map((eloption) => li(
+                { class: 'fundtagging-list-name' },
                 eloption
                   .replaceAll('motilal-oswal:', '')
                   .replaceAll('-', ' ')
@@ -326,15 +327,17 @@ export default function decorate(block) {
           ),
         ),
         div(
-          {
-            class: 'button-container',
-          },
-          button({
-            class: 'know-more',
-          }, 'Know More'),
-          button({
-            class: 'invest-now',
-          }, 'Invest'),
+          { class: 'button-container' },
+          button(
+            {
+              class: 'know-more',
+            },
+            a({ href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund' }, 'Know More'),
+          ),
+          a(
+            { href: '/motilalfigma/modals/invest-now-homepage' },
+            button({ class: 'invest-now' }, 'Invest'),
+          ),
         ),
       ),
     );
@@ -368,7 +371,7 @@ export default function decorate(block) {
           ),
           div(
             {
-              class: 'star',
+              class: `star ${starClass}`,
               onclick: (event) => {
                 if (
                   !Array.from(event.target.parentElement.classList).includes(
@@ -379,7 +382,7 @@ export default function decorate(block) {
                 } else {
                   event.target.parentElement.classList.remove('star-filled');
                 }
-                wishlist(block);
+                wishlist();
               },
               schcode: block.schcode,
             },
@@ -410,7 +413,7 @@ export default function decorate(block) {
       ),
       div(
         {
-          class: 'card-category',
+          class: `card-category ${dropdowndot}`,
         },
         div(
           {
@@ -557,6 +560,7 @@ export default function decorate(block) {
             img({
               class: 'icon person',
               src: '../../icons/Icon.svg',
+              alt: 'person',
             }),
             span('2.7 lakh investors'),
           ),
@@ -575,13 +579,11 @@ export default function decorate(block) {
           {
             class: 'know-more',
           },
-          'Know More',
+          a({ href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund' }, 'Know More'),
         ),
-        button(
-          {
-            class: 'invest-now',
-          },
-          'Invest',
+        a(
+          { href: '/motilalfigma/modals/invest-now-homepage' },
+          button({ class: 'invest-now' }, 'Invest'),
         ),
       ),
     ),

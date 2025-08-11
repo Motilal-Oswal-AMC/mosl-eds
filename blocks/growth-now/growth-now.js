@@ -1,7 +1,7 @@
-import formblock from '../form/form.js';
+// import formblock from '../form/form.js';
 
 export default function decorate(block) {
-  formblock(block.querySelector('.button-container'));
+  // formblock(block.querySelector('.button-container'));
   Array.from(block.children).forEach((row, rowIndex) => {
     // row.classList.add("fund-us-container");
     row.classList.add(`fund-sec-${rowIndex + 1}`);

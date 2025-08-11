@@ -22,6 +22,7 @@
     h5,
     h6 {
       margin: 0 0 8px;
+
       @include font-style(14px, 16px, $primary-blue, 500, $Poppins);
 
       @include media(mobile) {
@@ -78,6 +79,7 @@
           height: 20px;
           display: block;
         }
+
         &.swiper-button-disabled {
           &::after {
             background: url("../../icons/arrow-left-disabled.svg");
@@ -97,11 +99,14 @@
       .swiper-button-prev {
         right: 105px;
       }
+
       .swiper-pagination{
         display: none;
+
         &::after{
           content: unset;
         }
+
         @include media(mobile){
           display: flex;
           position: absolute;
@@ -113,6 +118,7 @@
           height: 2px;
           border-radius: 10px;
           background-color: $neutrals-300;
+
           &-bullet{
             background-color: transparent;
             opacity: unset;
@@ -120,6 +126,7 @@
             height: 2px;
             border-radius: 10px;
           }
+
           &-bullet-active{
             background-color: map.get($button-primary, default);
           }
@@ -130,23 +137,27 @@
         max-width: max-content;
         width: unset;
         height: unset;
-        display: flex;
         gap: 4px;
         position: absolute;
         right: 36px;
         display: flex;
+
         &::after{
           content: unset;
         }
+
         @include media(mobile){
           right: 0;
           bottom: 8px;
         }
+
         & .current-slide,
         & .total-slide{
           margin: 0;
+
           @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
         }
+
         & .total-slide {
           color: $neutrals-600;
         }
@@ -164,6 +175,7 @@
       @include media(mobile) {
         flex-direction: column-reverse;
         align-items: start;
+
         // max-width: 75.53%;
         width: 100%;
         gap: 8px;
@@ -184,7 +196,9 @@
         align-items: center;
         gap: 8px;
         min-width: max-content;
+
         @include font-style(16px, 20px, $color-text-body, 500, $Poppins);
+
         color: $text-header;
 
         @include media(mobile) {
@@ -200,6 +214,7 @@
           background-color: #f00;
           border-radius: map.get($radius, r50);
         }
+
         a{
           color: unset;
         }

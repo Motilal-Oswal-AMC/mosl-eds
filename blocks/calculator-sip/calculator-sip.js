@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*  eslint-disable   */
 import {
   div, a, label, input, span, button, ul, h3, p as pTag,
 } from '../../scripts/dom-helpers.js';
@@ -20,14 +20,16 @@ export default function decorate(block) {
   let mode = 'sip';
   let planType = 'Direct';
   let planOption = 'Growth';
-  let selectedFundName = selectedFund.schDetail.schemeName;
+  const selectedFundName = selectedFund.schDetail.schemeName;
 
   // -------------------------------
   // ✅ 2. BUILD MAIN CALCULATOR UI
   // -------------------------------
-  const calContainer = div({ class: 'cal-container' },
+  const calContainer = div(
+    { class: 'cal-container' },
     // 🔍 Fund search input
-    div({ class: 'search-bar-wrapper' },
+    div(
+      { class: 'search-bar-wrapper' },
       span(col1[0].textContent.trim()),
       input({
         value: selectedFund.schDetail.schemeName,
@@ -41,20 +43,25 @@ export default function decorate(block) {
       div({ class: 'search-results-wrapper' }, ul({ id: 'searchResults', role: 'listbox' })),
     ),
 
+    div({class : 'spi-wrapper'}, 
     // 🔄 SIP & Lumpsum toggle
-    div({ class: 'scheme-btns-wrapper' },
+    div(
+      { class: 'scheme-btns-wrapper' },
       button({ class: 'sip-btn active' }, col1[2].textContent.trim()),
       button({ class: 'lumpsum-btn' }, col1[3].textContent.trim()),
     ),
 
     // 🔀 Direct/Regular toggle & plan options
-    div({ class: 'plan-options-wrapper' },
-      div({ class: 'plan-type-toggle' },
+    div(
+      { class: 'plan-options-wrapper' },
+      div(
+        { class: 'plan-type-toggle' },
         span({ class: 'toggle-label active' }, 'Direct'),
         label({ class: 'toggle-switch' }, input({ type: 'checkbox', id: 'planToggle' }), span({ class: 'slider' })),
         span({ class: 'toggle-label' }, 'Regular'),
       ),
-      div({ class: 'plan-option-select custom-select-plan' },
+      div(
+        { class: 'plan-option-select custom-select-plan' },
         div({ class: 'select-selected-plan' }, 'Growth'),
         div({ class: 'select-options-plan' }),
         input({ type: 'hidden', id: 'planOption', value: 'Growth' }),
@@ -62,11 +69,14 @@ export default function decorate(block) {
     ),
 
     // 💰 Amount input & tenure dropdown
-    div({ class: 'investment-wrapper' },
-      div({ class: 'sip-wrapper' },
+    div(
+      { class: 'investment-wrapper' },
+      div(
+        { class: 'sip-wrapper' },
         label({ class: 'labelforsip' }, col2[0].textContent.trim()),
         label({ class: 'labelforlumsum', style: 'display:none' }, col2[1].textContent.trim()),
-        div({ class: 'input-with-symbol' },
+        div(
+          { class: 'input-with-symbol' },
           input({
             type: 'number',
             value: col2[2].textContent.trim(),
@@ -75,30 +85,37 @@ export default function decorate(block) {
           }),
         ),
       ),
-      div({ class: 'tenure-wrapper custom-select' },
+      div(
+        { class: 'tenure-wrapper custom-select' },
         label(col2[3].textContent.trim()),
         div({ class: 'select-selected' }, `${col3[0].textContent.trim()} Years`),
         div({ class: 'select-options', role: 'listbox' }),
         input({ type: 'hidden', id: 'investmentTenure', value: col3[0].textContent.trim() }),
       ),
     ),
+  ),
 
+    div({class : 'incal-wrapper'}, 
     // 📈 Invested amount & calculation
-    div({ class: 'invested-amount' },
+    div(
+      { class: 'invested-amount' },
       label(col3[1].textContent.trim()),
       span({ class: 'invested-amount-value' }, col3[2].textContent.trim()),
     ),
-    div({ class: 'cal-discription' },
-      div({ class: 'current-value-wrapper' },
+    div(
+      { class: 'cal-discription' },
+      div(
+        { class: 'current-value-wrapper' },
         label(col3[3].textContent.trim()),
         span({ class: 'current-value' }, '0'),
       ),
-      div({ class: 'return-cagr-wrapper' },
+      div(
+        { class: 'return-cagr-wrapper' },
         label(col4[1].textContent.trim()),
-        span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}%`),
+        span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}  %`),
       ),
       div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
-    ),
+    )),
   );
 
   // 🔗 View other calculators
@@ -109,6 +126,7 @@ export default function decorate(block) {
 
   block.innerHTML = '';
   block.append(calContainer, viewOthCalBtn);
+  // block.append(calContainer);
 
   // -------------------------------
   // ✅ 3. DOM REFS
@@ -200,10 +218,10 @@ export default function decorate(block) {
     }
 
     const targetPlan = selectedFund?.planList.find(
-      (p) => p.planName === planType && p.optionName === planOption
+      (p) => p.planName === planType && p.optionName === planOption,
     );
     const targetReturns = selectedFund?.returns.find(
-      (r) => r.plancode === targetPlan?.planCode && r.optioncode === targetPlan?.optionCode
+      (r) => r.plancode === targetPlan?.planCode && r.optioncode === targetPlan?.optionCode,
     );
 
     returnCAGR = targetReturns && tenureField && targetReturns[tenureField]
@@ -229,16 +247,15 @@ export default function decorate(block) {
     // ✅ Calculate values
     const r = returnCAGR / 100 / 12;
     const n = tenure * 12;
-    let investedAmount = mode === 'sip' ? amount * n : amount;
-    let futureValue = mode === 'sip'
+    const investedAmount = mode === 'sip' ? amount * n : amount;
+    const futureValue = mode === 'sip'
       ? (isNaN(r) || r === 0 ? investedAmount : amount * (((1 + r) ** n - 1) / r))
       : amount * ((1 + returnCAGR / 100) ** tenure);
 
-    investedAmountSpan.textContent = `₹${(investedAmount / 100000).toFixed(2)} Lac`;
-    currentValueSpan.textContent = `₹${(futureValue / 100000).toFixed(2)} Lac`;
-    returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
+    investedAmountSpan.textContent = `${(investedAmount / 100000).toFixed(2)} Lac`;
+    currentValueSpan.textContent = `${(futureValue / 100000).toFixed(2)} Lac`;
+    returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)} %`;
   }
-
 
   // -------------------------------
   // ✅ 5. TENURE & PLAN OPTIONS
@@ -288,8 +305,8 @@ export default function decorate(block) {
 
     if (!fund?.planList) return;
 
-    const filteredPlans = fund.planList.filter(p => p.planName === planType);
-    const uniqueOptions = [...new Set(filteredPlans.map(p => p.optionName))];
+    const filteredPlans = fund.planList.filter((p) => p.planName === planType);
+    const uniqueOptions = [...new Set(filteredPlans.map((p) => p.optionName))];
 
     uniqueOptions.forEach((name) => {
       const optionEl = div({ class: 'select-option-plan', 'data-value': name }, name);
@@ -313,9 +330,9 @@ export default function decorate(block) {
 
   function updateReturnRate() {
     if (!selectedFund) return;
-    const targetPlan = selectedFund.planList.find(p => p.planName === planType && p.optionName === planOption);
+    const targetPlan = selectedFund.planList.find((p) => p.planName === planType && p.optionName === planOption);
     const targetReturns = targetPlan
-      ? selectedFund.returns.find(r => r.plancode === targetPlan.planCode && r.optioncode === targetPlan.optionCode)
+      ? selectedFund.returns.find((r) => r.plancode === targetPlan.planCode && r.optioncode === targetPlan.optionCode)
       : null;
 
     returnCAGR = targetReturns?.inception_Ret ? parseFloat(targetReturns.inception_Ret) : 0;
@@ -331,7 +348,7 @@ export default function decorate(block) {
 
   block.querySelector('#planToggle').addEventListener('change', () => {
     planType = block.querySelector('#planToggle').checked ? 'Regular' : 'Direct';
-    block.querySelectorAll('.toggle-label').forEach(l => l.classList.toggle('active'));
+    block.querySelectorAll('.toggle-label').forEach((l) => l.classList.toggle('active'));
     updatePlanOptions(selectedFund);
     updateReturnRate();
   });
@@ -352,7 +369,7 @@ export default function decorate(block) {
   });
 
   document.addEventListener('click', () => {
-    block.querySelectorAll('.select-options.open, .select-options-plan.open').forEach(el => el.classList.remove('open'));
+    block.querySelectorAll('.select-options.open, .select-options-plan.open').forEach((el) => el.classList.remove('open'));
   });
 
   // Search
@@ -361,13 +378,13 @@ export default function decorate(block) {
     const query = e.target.value.toLowerCase().trim();
     searchResults.innerHTML = '';
     currentFocus = -1;
-    const filtered = query ? schemeNames.filter(name => name.toLowerCase().includes(query)) : schemeNames;
-    filtered.forEach(name => {
+    const filtered = query ? schemeNames.filter((name) => name.toLowerCase().includes(query)) : schemeNames;
+    filtered.forEach((name) => {
       const li = document.createElement('li');
       li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
       li.addEventListener('click', () => {
         searchInput.value = name;
-        selectedFund = dataCfObj.find(f => f.schDetail.schemeName === name);
+        selectedFund = dataCfObj.find((f) => f.schDetail.schemeName === name);
         searchResults.innerHTML = '';
         updatePlanOptions(selectedFund);
         updateReturnRate();
@@ -379,15 +396,12 @@ export default function decorate(block) {
   searchInput.addEventListener('keydown', (e) => {
     const items = searchResults.querySelectorAll('li');
     if (!items.length) return;
-    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); }
-    else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); }
-    else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click(); }
-    else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
+    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); } else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); } else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click(); } else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
   });
 
   function addActive(items) {
     if (!items) return;
-    items.forEach(i => i.classList.remove('active'));
+    items.forEach((i) => i.classList.remove('active'));
     if (currentFocus >= items.length) currentFocus = items.length - 1;
     if (currentFocus < 0) currentFocus = 0;
     items[currentFocus].classList.add('active');
@@ -402,11 +416,11 @@ export default function decorate(block) {
     const hero = sectionHero.querySelector('.default-content-wrapper');
     if (hero && !hero.querySelector('.hero-image')) {
       const iconPara = hero.querySelector('p:has(img)');
-      const heading = hero.querySelector('h3');
+      const heading = hero.querySelector('h3') || hero.querySelector('h4');
       const paras = hero.querySelectorAll('p');
       hero.innerHTML = '';
       const heroImage = div({ class: 'hero-image' }, iconPara);
-      const heroText = div({ class: 'hero-text' }, heading, ...[...paras].filter(p => p !== iconPara));
+      const heroText = div({ class: 'hero-text' }, heading, ...[...paras].filter((p) => p !== iconPara));
       hero.append(heroImage, heroText);
     }
   }
