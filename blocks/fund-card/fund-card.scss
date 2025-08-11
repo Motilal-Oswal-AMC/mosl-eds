@@ -1,4 +1,5 @@
 /*   alpha-value-notation */
+
 /*   media-feature-range-notation */
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
@@ -722,14 +723,16 @@
           height: 40px;
           box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
           border-radius: 50%;
-          background: #bdcbff;
+          // background: #bdcbff;
           .logoscheme {
-            position: absolute;
-            top: 20%;
-            left: 15%;
-            width: 29.977px;
-            height: 20.855px;
-            flex-shrink: 0;
+            // position: absolute;
+            // top: 20%;
+            // left: 15%;
+            // width: 29.977px;
+            // height: 20.855px;
+            // flex-shrink: 0;
+            width: 100%;
+            height: 100%;
           }
         }
 

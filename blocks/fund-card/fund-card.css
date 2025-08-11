@@ -567,15 +567,10 @@
   height: 40px;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
   border-radius: 50%;
-  background: #bdcbff;
 }
 .section .card-container .card-upper-title .title-headLogo .title-logo .logoscheme {
-  position: absolute;
-  top: 20%;
-  left: 15%;
-  width: 29.977px;
-  height: 20.855px;
-  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
 }
 .section .card-container .card-upper-title .title-headLogo .star {
   min-width: 40px;
