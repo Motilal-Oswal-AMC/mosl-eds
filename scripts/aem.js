@@ -149,7 +149,6 @@ function setup() {
         [window.hlx.codeBasePath] = scriptURL.href.split('/scripts/scripts.js');
       }
     } catch (error) {
-      console.log('ERROR', error); // eslint-disable
 
       //   -next-line no-console
     }
@@ -605,7 +604,6 @@ async function loadBlock(block) {
               await mod.default(block);
             }
           } catch (error) {
-            console.log(`Error loading block ${blockName}`, error);
             //   -next-line no-console
           }
           resolve();
