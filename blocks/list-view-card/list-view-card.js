@@ -1,5 +1,5 @@
 /* eslint-disable */ 
-import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
+import {button, div, span, p, img, label,a} from "../../scripts/dom-helpers.js"
 import dataMapMoObj from '../../scripts/constant.js';
 import {getTimeLeft,evaluateByDays,wishlist} from "../../scripts/scripts.js"
 export default function decorate(block){
@@ -11,6 +11,7 @@ export default function decorate(block){
     let labelcagr = evaluateByDays(block.dateOfAllotment)
     let finPlangrp = [];
     const tempReturns = [];
+    //initallize 
     block.returns.forEach((ret, jind) => {
         if (jind === 0) {
         [...Object.keys(ret)].forEach((key)=>{
@@ -21,7 +22,22 @@ export default function decorate(block){
         }
         finPlangrp.push((ret.plancode + ret.optioncode));
     });
-    let returnYear = dataMapMoObj["selectreturns"] === "" ? tempReturns[0] : dataMapMoObj["selectreturns"];
+
+    const DirectPlanlistArr = block.planList.filter((el) => {
+        if (el.planName === planFlow && finPlangrp.includes(el.groupedCode)) {
+        return el;
+        }
+    });
+
+    const cagrValve = block.returns.filter((el) => {
+        if (DirectPlanlistArr.length !== 0 && DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode)) {
+            return el
+        }
+    })
+    console.log(cagrValve);
+    let cagrval = cagrValve.length !== 0 ? cagrValve[0].inception_Ret :'N/A'
+    let stylecagrval = cagrval === 'N/A' ? 'none' :'flex'
+
     let starClass = dataMapMoObj.schstar.includes(block.schcode) ? "star-filled" : "";
     if ([...block.fundsTaggingSection].includes("NFO")) {
         let nfosvg = dataMapMoObj["icons-nfo"][block.risk.riskType.toLowerCase().replaceAll(" ","-")]+ ".svg"
@@ -51,7 +67,9 @@ export default function decorate(block){
                     p({class:'cagr-text'},"CAGR")
                 ),
                 div({class:"risk-star-icon"},
-                    img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"}),
+                    a({href:"/motilalfigma/modals/risk-o-meter"},
+                        img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"})
+                    ),
                 ),
                 div({class: "star "+starClass,
                     schcode:block.schcode,
@@ -87,11 +105,14 @@ export default function decorate(block){
                 img({class: "logoScheme",src: "../../icons/direction-right.svg",alt: "Direction Right"})
             ),
             div({class:"cagr-return"},
-                div({class:"cagr-value"},`${block.returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,span("%")),
+                div({class:"cagr-value"},`${cagrval}`,span({style:"display:"+stylecagrval},"%")),
+                
                 p({class:'cagr-text'},labelcagr)
             ),
             div({class:"risk-star-icon"},
-                img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),
+                a({href:"/motilalfigma/modals/risk-o-meter"},
+                    img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"})
+                ),
             ),
             div({class: "star "+starClass,
                 schcode:block.schcode,
