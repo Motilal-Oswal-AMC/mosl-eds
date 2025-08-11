@@ -109,6 +109,7 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .section .card-container .card-upper-title .star.star-filled .star-icon, .section .card-container .card-upper-title .star:not(.star-filled) .fillstar-icon {
   display: none;
@@ -579,6 +580,7 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .section .card-container .card-upper-title .title-headLogo .star.star-filled .star-icon, .section .card-container .card-upper-title .title-headLogo .star:not(.star-filled) .fillstar-icon {
   display: none;

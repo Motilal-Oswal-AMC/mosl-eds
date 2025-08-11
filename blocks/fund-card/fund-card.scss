@@ -127,7 +127,7 @@
         width: 40px;
         height: 40px;
         cursor: pointer;
-
+        -webkit-tap-highlight-color: transparent;
         &.star-filled .star-icon,
         &:not(.star-filled) .fillstar-icon {
           display: none;
@@ -735,7 +735,7 @@
           width: 40px;
           height: 40px;
           cursor: pointer;
-
+          -webkit-tap-highlight-color: transparent;
           &.star-filled .star-icon,
           &:not(.star-filled) .fillstar-icon {
             display: none;

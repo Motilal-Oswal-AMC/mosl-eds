@@ -661,7 +661,7 @@ export default function decorate(block) {
                 block.querySelector(
                   '.block-item2 .block-subitem-finelsub1 span',
                 ),
-                label(
+                p(
                   block
                     .querySelector('.block-item2 .block-subitem-finelsub2')
                     .textContent.trim(),
@@ -708,7 +708,7 @@ export default function decorate(block) {
                 },
               },
               block.querySelector('.block-item2 .block-subitem-finelsub3 span'),
-              label(
+              p(
                 block
                   .querySelector('.block-item2 .block-subitem-finelsub4')
                   .textContent.trim(),

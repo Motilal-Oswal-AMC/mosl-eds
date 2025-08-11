@@ -60,7 +60,7 @@
   width: 100%;
   padding: 12px 8px;
   border-radius: 6px;
-  border: 1px solid #9E9E9E;
+  outline: 1px solid #9E9E9E;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -379,18 +379,18 @@
     border-radius: 8px 0 0;
   }
 }
-.our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper label,
-.our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .sort-wrapper label {
+.our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper p,
+.our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .sort-wrapper p {
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  cursor: pointer;
+  margin: 0;
 }
 @media (max-width: 768px) {
-  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper label,
-  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .sort-wrapper label {
+  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper p,
+  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .sort-wrapper p {
     font-size: 16px;
     line-height: 20px;
     color: #2e2a94;
@@ -403,6 +403,11 @@
   align-items: center;
   gap: 4px;
 }
+@media (max-width: 768px) {
+  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper .filter-text {
+    gap: 8px;
+  }
+}
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper .clearall-btn {
   font-size: 14px;
   line-height: 20px;
@@ -413,6 +418,7 @@
   padding: 0;
   background: transparent;
   border-radius: 0;
+  border: none;
 }
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper .clearall-btn {
@@ -444,7 +450,7 @@
   }
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container {
-  padding: 0 12px;
+  padding: 0 12px 36px;
 }
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container {
@@ -463,6 +469,7 @@
   .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .clearall-wrapper,
   .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .apply-wrapper {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 16px;
     border-bottom: 1px solid #E0E0E0;
@@ -539,9 +546,10 @@
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct {
   visibility: hidden;
-  width: 20px;
+  min-width: 20px;
   height: 20px;
   cursor: pointer;
+  margin: 1.67px;
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct::before, .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct:checked::before {
   content: "";
@@ -566,7 +574,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 8px;
   cursor: pointer;
   position: relative;
 }
@@ -580,7 +588,7 @@
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap {
   position: relative;
   cursor: pointer;
-  width: 12px;
+  min-width: 12px;
   height: 12px;
   display: flex;
 }
@@ -620,7 +628,7 @@
   left: 49.5%;
   transform: rotate(45deg) translateX(-50%);
   bottom: -17px;
-  background-color: #fff;
+  background-color: #FAFAFA;
 }
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text {
@@ -650,7 +658,7 @@
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .label-tooltip-wrap {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   justify-content: space-between;
   width: 100%;
 }
@@ -659,7 +667,7 @@
   position: relative;
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .innerindianequity {
-  padding: 12px 0 12px 30px;
+  padding: 12px 0 0 30px;
 }
 @media (max-width: 768px) {
   .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .innerindianequity {
@@ -758,7 +766,8 @@
   .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input,
   .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .return-container .radio-label-container .radio-label input {
     visibility: hidden;
-    width: 20px;
+    min-width: 20px;
+    height: 20px;
     cursor: pointer;
   }
   .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input::before,
@@ -1526,6 +1535,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 @media (max-width: 1299px) {
   .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star {

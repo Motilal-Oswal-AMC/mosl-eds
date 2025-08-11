@@ -71,7 +71,7 @@
         width: 100%;
         padding: 12px 8px;
         border-radius: 6px;
-        border: 1px solid map.get($strokes, default);
+        outline: 1px solid map.get($strokes, default);
         display: flex;
         align-items: center;
         gap: 8px;
@@ -401,10 +401,11 @@
               border-radius: 8px 0 0;
             }
 
-            label {
+            p {
               @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
 
-              cursor: pointer;
+              // cursor: pointer;
+              margin: 0;
 
               @include media(mobile) {
                 @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
@@ -417,6 +418,10 @@
               display: flex;
               align-items: center;
               gap: 4px;
+
+              @include media(mobile){
+                gap: 8px
+              }
             }
 
             .clearall-btn {
@@ -426,6 +431,7 @@
               padding: 0;
               background: transparent;
               border-radius: 0;
+              border: none;
 
               @include media(mobile) {
                 display: none;
@@ -462,7 +468,7 @@
           }
 
           .filter-container {
-            padding: 0 12px;
+            padding: 0 12px 36px;
 
             @include media(mobile) {
               // position: fixed;
@@ -483,6 +489,7 @@
 
               @include media(mobile) {
                 display: flex;
+                align-items: center;
                 justify-content: space-between;
                 padding: 16px;
                 border-bottom: 1px solid $neutrals-300;
@@ -554,9 +561,10 @@
 
                 .categorey-direct {
                   visibility: hidden;
-                  width: 20px;
+                  min-width: 20px;
                   height: 20px;
                   cursor: pointer;
+                  margin: 1.67px;
 
                   &::before,
                   &:checked::before {
@@ -588,7 +596,7 @@
                   display: flex;
                   align-items: center;
                   width: 100%;
-                  padding: 0 0 0 12px;
+                  padding: 0 0 0 8px;
                   cursor: pointer;
                   position: relative;
 
@@ -601,25 +609,6 @@
                       $Poppins
                     );
                   }
-
-                  //   &::after {
-                  //     content: "";
-                  //     background-image: url("../../icons/filter-info.svg");
-                  //     background-position: center;
-                  //     background-repeat: no-repeat;
-                  //     background-size: cover;
-                  //     width: 12px;
-                  //     height: 12px;
-                  //     display: block;
-                  //     position: absolute;
-                  //     top: 50%;
-                  //     transform: translateY(-50%);
-                  //     right: 0;
-                  //     @include media(mobile) {
-                  //       width: 20px;
-                  //       height: 20px;
-                  //     }
-                  //   }
                 }
 
                 .tooltip-wrap {
@@ -631,7 +620,7 @@
 
                   // z-index: 10;
                   cursor: pointer;
-                  width: 12px;
+                  min-width: 12px;
                   height: 12px;
                   display: flex;
 
@@ -675,7 +664,7 @@
                       left: 49.5%;
                       transform: rotate(45deg) translateX(-50%);
                       bottom: -17px;
-                      background-color: $primary-white;
+                      background-color: $neutrals-50;
                     }
 
                     @include media(mobile) {
@@ -711,7 +700,7 @@
                 .label-tooltip-wrap{
                   display: flex;
                   align-items: center;
-                  gap: 20px;
+                  gap: 10px;
                   justify-content: space-between;
                   width: 100%;
                 }
@@ -722,7 +711,8 @@
                 }
 
                 .innerindianequity {
-                  padding: 12px 0 12px 30px;
+                  // padding: 12px 0 12px 30px;
+                  padding: 12px 0 0 30px;
 
                   @include media(mobile) {
                     padding: 12px 0 0 28px;
@@ -841,7 +831,8 @@
 
                       input {
                         visibility: hidden;
-                        width: 20px;
+                        min-width: 20px;
+                        height: 20px;
                         cursor: pointer;
 
                         &::before {
@@ -1692,6 +1683,7 @@
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
 
                 @include media(desktop-sm) {
                   max-width: 10%;
