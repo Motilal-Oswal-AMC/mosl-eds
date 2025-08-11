@@ -1,11 +1,4 @@
-/*    no-console */
-/*    no-cond-assign */
-/*    import/prefer-default-export */
-
-// group editable texts in single wrappers if applicable.
-// this script should execute after script.js but before the the universal editor cors script
-// and any block being loaded
-
+/* eslint-disable */
 export function decorateRichtext(container = document) {
   function deleteInstrumentation(element) {
     delete element.dataset.richtextResource;
@@ -46,7 +39,7 @@ export function decorateRichtext(container = document) {
     }
 
     if (orphanElements.length) {
-           + 'the first paragraph', orphanElements);
+           + 'the first paragraph', orphanElements;
       orphanElements.forEach((orphanElement) => deleteInstrumentation(orphanElement));
     } else {
       const group = document.createElement('div');

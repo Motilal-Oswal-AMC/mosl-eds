@@ -1,5 +1,5 @@
 import { loadEmbed } from '../blocks/embed/embed.js';
-import loadFragment from '../blocks/fragment/fragment.js';
+import loadFragment from '../blocks/fragment/fragment.js'; // eslint-disable-line
 import {
   loadHeader,
   loadFooter,

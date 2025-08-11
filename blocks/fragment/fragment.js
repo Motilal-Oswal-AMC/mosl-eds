@@ -5,7 +5,7 @@
  * https://www.aem.live/developer/block-collection/fragment
  */
 
-import { decorateMain } from '../../scripts/scripts.js';
+import { decorateMain } from '../../scripts/scripts.js'; // eslint-disable-line
 
 import {
   loadSections,
