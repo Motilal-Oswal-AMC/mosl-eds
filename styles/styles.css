@@ -9,10 +9,10 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-@import url("./quick-actions.css");
-@import url("../blocks/complete-the-investment/complete-the-investment.css");
-@import url("../blocks/faq/faq.css");
-@import url("../blocks/welcome-component/welcome-component.css");
+@import "./quick-actions.css";
+@import "../blocks/complete-the-investment/complete-the-investment.css";
+@import "../blocks/faq/faq.css";
+@import "../blocks/welcome-component/welcome-component.css";
 
 /* ------------------------------------------------------------------
  * GLOBAL RESET
@@ -23,6 +23,7 @@
   box-sizing: border-box;
   outline: none;
   text-size-adjust: none;
+
   /* appearance: none; */
 }
 

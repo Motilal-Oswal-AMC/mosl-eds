@@ -1,4 +1,5 @@
 /*   alpha-value-notation */
+
 /*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
 /* stylelint-disable */
@@ -1051,4 +1052,4 @@
   .section.tabs-container .card-container {
     max-width: 100%;
   }
-}/*# sourceMappingURL=fund-card.css.map */
+}
