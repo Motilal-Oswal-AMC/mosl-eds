@@ -403,7 +403,7 @@
           "id": "accordion-item",
           "plugins": {
             "xwalk": {
-              "page": {
+              "page": { 
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "name": "accordion item",
