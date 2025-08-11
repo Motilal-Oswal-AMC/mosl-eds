@@ -126,7 +126,6 @@ function wishlist() {
 
   watchlistText.textContent = `My Watchlist (${formattedCount})`;
 }
-
 function toTitleCase(str) {
   return str
     .toLowerCase()

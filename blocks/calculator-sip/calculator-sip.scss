@@ -22,7 +22,6 @@
   }
 
   .default-content-wrapper {
-
     p,
     ul,
     li {
@@ -33,7 +32,7 @@
         16px,
         $color-text-body,
         map.get($font-weights, regular),
-        $Poppins
+        $poppins
       );
     }
 
@@ -102,7 +101,7 @@
           48px,
           $primary-blue,
           map.get($font-weights, bold),
-          $ButlerPro
+          $butlerpro
         );
 
         margin: 0;
@@ -113,7 +112,7 @@
             40px,
             $primary-blue,
             map.get($font-weights, bold),
-            $ButlerPro
+            $butlerpro
           );
 
           margin-bottom: 0;
@@ -122,7 +121,7 @@
 
       p {
         color: $primary-blue;
-        font-family: $Poppins;
+        font-family: $poppins;
         font-size: 1rem;
         line-height: 1.5;
         margin: 0;
@@ -183,7 +182,7 @@
               16px,
               $color-text-body,
               map.get($font-weights, regular),
-              $Poppins
+              $poppins
             );
 
             text-align: left;
@@ -195,14 +194,14 @@
               normal,
               var(--text-color),
               map.get($font-weights, semibold),
-              $Poppins
+              $poppins
             );
           }
 
           input {
             width: 100%;
             color: #2e2a94;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 16px;
             font-weight: 500;
             line-height: 20px;
@@ -236,7 +235,7 @@
             font-size: 18px;
             text-align: left;
             border-radius: 6px;
-            border: 1px solid var(--Neutrals-200, #eee);
+            border: 1px solid $neutrals-200;
             box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
 
             @include media(mobile) {
@@ -252,7 +251,7 @@
               }
 
               &.active {
-                background: var(--Neutrals-200, #eee);
+                background: $neutrals-200;
               }
             }
           }
@@ -273,7 +272,7 @@
             border: 1px solid #bdbdbd;
             background: #fafafa;
             color: #424242;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 14px;
             font-weight: 600;
             line-height: 22px;
@@ -310,13 +309,13 @@
                 16px,
                 $color-text-body,
                 map.get($font-weights, regular),
-                $Poppins
+                $poppins
               );
             }
 
             span {
               color: #2b2e8c;
-              font-family: $Poppins;
+              font-family: $poppins;
               font-size: 12px;
               font-weight: 600;
               line-height: 16px;
@@ -351,7 +350,7 @@
                   16px,
                   $color-text-body,
                   map.get($font-weights, regular),
-                  $Poppins
+                  $poppins
                 );
 
                 @include media(mobile) {
@@ -361,7 +360,7 @@
 
               span {
                 color: #2e2a94;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 24px;
                 font-weight: 600;
                 line-height: 32px;
@@ -377,7 +376,7 @@
                 bottom: 0;
                 pointer-events: none;
                 color: #2e2a94;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 20px;
                 font-weight: 500;
               }
@@ -403,7 +402,7 @@
                 background: $primary-blue;
                 border: none;
                 color: #fff;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 14px;
                 font-weight: 600;
                 line-height: 16px;
@@ -435,7 +434,7 @@
             gap: map.get($spacing, sm);
 
             .toggle-label {
-              @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
+              @include font-style(14px, 16px, $neutrals-black, 500, $poppins);
 
               cursor: pointer;
 
@@ -491,7 +490,7 @@
 
             .select-selected-plan {
               color: #2e2a94;
-              font-family: $Poppins;
+              font-family: $poppins;
               font-size: 20px;
               font-weight: 500;
               cursor: pointer;
@@ -544,7 +543,7 @@
                 20px,
                 $color-text-body,
                 map.get($font-weights, regular),
-                $Poppins
+                $poppins
               );
 
               border-bottom: 1px solid #eee;
@@ -570,37 +569,35 @@
             min-width: 200px;
           }
 
-          .sip-wrapper {
-            .input-with-symbol {
-              position: relative;
-            }
-          }
-
+          // .sip-wrapper {
+          //   .input-with-symbol {
+          //     position: relative;
+          //   }
+          // }
+        /* stylelint-disable-next-line no-descending-specificity */
           label {
             @include font-style(
               12px,
               16px,
               $color-text-body,
               map.get($font-weights, regular),
-              $Poppins
+              $poppins
             );
 
             @include media(mobile) {
               text-align: start;
             }
           }
-
+         /* stylelint-disable-next-line no-descending-specificity */
           input,
           select {
             border: none;
             background-color: transparent;
             color: #2e2a94;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 20px;
             font-weight: 500;
             width: 100%;
-            appearance: none;
-            appearance: none;
             appearance: none;
             outline: none;
 
@@ -626,7 +623,7 @@
               left: 3px;
               pointer-events: none;
               color: #2e2a94;
-              font-family: $Poppins;
+              font-family: $poppins;
               font-size: 20px;
               font-weight: 500;
             }
@@ -642,7 +639,7 @@
 
             .select-selected {
               color: #2e2a94;
-              font-family: $Poppins;
+              font-family: $poppins;
               font-size: 20px;
               font-weight: 500;
               cursor: pointer;
@@ -695,7 +692,7 @@
                 20px,
                 $color-text-body,
                 map.get($font-weights, regular),
-                $Poppins
+                $poppins
               );
 
               border-bottom: 1px solid #eee;
@@ -731,7 +728,7 @@
             20px,
             map.get($blue-1, b500),
             map.get($font-weights, regular),
-            $Poppins
+            $poppins
           );
 
           text-decoration: underline;
@@ -794,7 +791,7 @@
             40px,
             $primary-blue,
             map.get($font-weights, bold),
-            $ButlerPro
+            $butlerpro
           );
 
           margin: 0;
@@ -805,21 +802,21 @@
               28px,
               $primary-blue,
               map.get($font-weights, bold),
-              $ButlerPro
+              $butlerpro
             );
 
             margin-bottom: 0;
           }
         }
       }
-
+      /* stylelint-disable-next-line no-descending-specificity */
       p {
         display: none;
 
         @include media(mobile) {
           display: block;
 
-          @include font-style(16px, 24px, $primary-blue, 400, $Poppins);
+          @include font-style(16px, 24px, $primary-blue, 400, $poppins);
 
           margin: 0;
           max-width: 450px;
@@ -842,6 +839,7 @@
         width: 100%;
 
         .search-bar-wrapper {
+          /* stylelint-disable-next-line no-descending-specificity */
           input {
             color: #2e2a94;
             background: url("../../icons/search-icon.svg") no-repeat right 12px
@@ -857,7 +855,7 @@
         .search-results-wrapper {
           ul {
             font-family: Poppins, sans-serif;
-            border: 1px solid var(--Neutrals-200, #eee);
+            border: 1px solid $neutrals-200;
             box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
           }
         }
@@ -865,7 +863,7 @@
         .scheme-btns-wrapper {
           display: flex;
           gap: map.get($spacing, sm);
-
+        /* stylelint-disable-next-line no-descending-specificity */
           button {
             border: 1px solid #bdbdbd;
             background: #fafafa;
@@ -879,12 +877,13 @@
         }
 
         .invested-amount {
+          /* stylelint-disable-next-line no-descending-specificity */
           span {
             color: #2b2e8c;
             position: relative;
             padding-left: 10px;
           }
-
+          /* stylelint-disable-next-line no-descending-specificity */
           span::before {
             content: "₹";
             position: absolute;
@@ -892,7 +891,7 @@
             bottom: 0;
             pointer-events: none;
             color: #2e2a94;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 12px;
             font-weight: 500;
           }
@@ -944,7 +943,7 @@
                   16px,
                   $color-text-body,
                   map.get($font-weights, regular),
-                  $Poppins
+                  $poppins
                 );
               }
             }
@@ -954,7 +953,7 @@
                 position: static;
                 width: 100%;
               }
-
+/* stylelint-disable-next-line no-descending-specificity */
               button {
                 position: absolute;
                 right: 0;
@@ -983,12 +982,12 @@
       }
     }
   }
-
+/* stylelint-disable-next-line no-descending-specificity */
   .default-content-wrapper {
     @include media(mobile) {
       padding-top: 16px;
     }
-
+/* stylelint-disable-next-line no-descending-specificity */
     p:nth-child(1) {
       margin-bottom: 20px;
 
@@ -1006,10 +1005,10 @@
         16px,
         $color-text-body,
         map.get($font-weights, regular),
-        $Poppins
+        $poppins
       );
     }
-
+/* stylelint-disable-next-line no-descending-specificity */
     ul {
       padding-left: map.get($spacing, md);
     }

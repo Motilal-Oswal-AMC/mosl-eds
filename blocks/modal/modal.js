@@ -24,7 +24,7 @@ export async function createModal(contentNodes) {
   closeButton.type = 'button';
   closeButton.innerHTML = '<span class="icon icon-close"></span>';
   closeButton.addEventListener('click', () => dialog.close());
-  dialog.prepend(closeButton);
+  dialogContent.prepend(closeButton);
 
   const block = buildBlock('modal', '');
   document.querySelector('main').append(block);

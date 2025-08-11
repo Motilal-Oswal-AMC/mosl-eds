@@ -32,7 +32,7 @@ export default function decorate(block) {
     { class: 'key-facts-section' },
 
     div(
-      { class: 'Investment-Objective' },
+      { class: 'investment-objective' },
       p(block.querySelector('.block-subitem-finelsub1')),
       p(
         { class: 'investment-discripstion' },

@@ -1,7 +1,10 @@
 /*   alpha-value-notation */
 /*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
-.growth-now-container .growth-now {
+.growth-now-container img {
+  height: 100%;
+}
+.growth-now-container .fund-us-container {
   display: flex;
   padding: 32px;
   align-items: center;
@@ -10,18 +13,18 @@
   height: 160px;
 }
 @media (max-width: 1299px) {
-  .growth-now-container .growth-now {
+  .growth-now-container .fund-us-container {
     justify-content: space-between;
   }
 }
 @media (max-width: 1025px) {
-  .growth-now-container .growth-now {
+  .growth-now-container .fund-us-container {
     height: 100%;
     align-items: flex-start;
   }
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now {
+  .growth-now-container .fund-us-container {
     flex-direction: column;
     position: relative;
     padding: 24px;
@@ -44,14 +47,14 @@
     bottom: -1px;
   }
 }
-.growth-now-container .growth-now .fund-sec-1 div img {
+.growth-now-container .growth-now .fund-sec-1 img {
   width: 109px;
   height: 160px;
   flex-shrink: 0;
   margin-bottom: -13px;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-1 div img {
+  .growth-now-container .growth-now .fund-sec-1 img {
     width: 142px;
     height: 173px;
     margin-bottom: -10px;
@@ -76,11 +79,11 @@
     order: 1;
   }
 }
-.growth-now-container .growth-now .fund-sec-2 div p {
+.growth-now-container .growth-now .fund-sec-2 p {
   font-size: 32px;
   line-height: 40px;
   color: #fff;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 700;
   max-inline-size: 11ch;
   text-wrap: balance;
@@ -88,11 +91,11 @@
   padding: 0;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-2 div p {
+  .growth-now-container .growth-now .fund-sec-2 p {
     font-size: 28px;
     line-height: 32px;
     color: #fff;
-    font-family: "ButlerPro", sans-serif;
+    font-family: "butlerPro", sans-serif;
     font-weight: 700;
   }
 }
@@ -112,26 +115,22 @@
     padding-bottom: 40px;
   }
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container {
-  margin: 0;
-  padding: 0;
-}
-.growth-now-container .growth-now .fund-sec-3 div .button-container form {
+.growth-now-container .growth-now .fund-sec-3 form {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 div .button-container form {
+  .growth-now-container .growth-now .fund-sec-3 form {
     flex-direction: column;
   }
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 div .button-container form .fieldset-wrapper {
+  .growth-now-container .growth-now .fund-sec-3 form .fieldset-wrapper {
     width: 100%;
   }
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset {
+.growth-now-container .growth-now .fund-sec-3 form fieldset {
   width: 228px;
   height: 40px;
   display: flex;
@@ -139,27 +138,27 @@
   align-items: center;
   align-self: stretch;
   border-radius: 6px;
-  border: 1px solid var(--Neutrals-500, #9E9E9E);
+  border: 1px solid #99A1B0;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset {
+  .growth-now-container .growth-now .fund-sec-3 form fieldset {
     width: 100%;
   }
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .field-wrapper {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .field-wrapper {
   line-height: normal;
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .select-wrapper {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .select-wrapper {
   border-radius: 3px 0 0 3px;
   border-right: 1px solid #6D798E;
   padding-right: 4px;
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset select {
+.growth-now-container .growth-now .fund-sec-3 form fieldset select {
   background: transparent;
   border: none;
   color: #FFF;
   text-align: center;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -169,13 +168,13 @@
           appearance: auto;
   padding-right: 4px;
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .text-wrapper input {
   width: 100%;
   min-width: 111px;
   background: transparent;
   box-shadow: none;
   color: #fff;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -187,20 +186,28 @@
   text-align: left;
   padding-left: 10px;
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container form fieldset .text-wrapper input::input-placeholder {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .text-wrapper input::-moz-placeholder {
   color: #fff;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.growth-now-container .growth-now .fund-sec-3 form fieldset .text-wrapper input::placeholder {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper {
+  .growth-now-container .growth-now .fund-sec-3 form .submit-wrapper {
     width: 100%;
   }
 }
-.growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper .button {
+.growth-now-container .growth-now .fund-sec-3 form .submit-wrapper .button {
   display: flex;
   padding: 12px;
   justify-content: center;
@@ -209,7 +216,7 @@
   border-radius: 4px;
   background: #FFF;
   color: #2E2A94;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -218,7 +225,7 @@
   height: 40px;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 div .button-container form .submit-wrapper .button {
+  .growth-now-container .growth-now .fund-sec-3 form .submit-wrapper .button {
     width: 100%;
   }
 }
@@ -242,7 +249,7 @@
   }
   .growth-now-container .growth-now .fund-sec-4 img {
     width: 45px;
-    height: 120px;
+    height: 92px;
   }
 }
 .growth-now-container .fund-sec-5 {
@@ -260,9 +267,6 @@
     display: none;
   }
 }
-.growth-now-container .fund-sec-5 img {
-  height: 100%;
-}
 @media (max-width: 768px) {
   .growth-now-container .fund-sec-6 {
     display: flex;
@@ -272,7 +276,7 @@
     padding-top: 68px;
   }
 }
-.growth-now-container .fund-sec-6 div > ul {
+.growth-now-container .fund-sec-6 ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -280,31 +284,27 @@
   flex-direction: column;
   gap: 9px;
 }
-.growth-now-container .fund-sec-6 div > ul > li {
+.growth-now-container .fund-sec-6 ul > li {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.growth-now-container .fund-sec-6 div > ul > li p {
-  margin: 0;
-  padding: 0;
-}
-.growth-now-container .fund-sec-6 div > ul > li ul {
+.growth-now-container .fund-sec-6 ul > li ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.growth-now-container .fund-sec-6 div > ul > li ul li:first-child {
+.growth-now-container .fund-sec-6 ul > li ul li:first-child {
   color: #FFF;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
 }
-.growth-now-container .fund-sec-6 div > ul > li ul li:nth-child(2) {
+.growth-now-container .fund-sec-6 ul > li ul li:nth-child(2) {
   color: #FFF;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

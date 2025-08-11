@@ -1,14 +1,9 @@
-@use '../../styles/common-theme/css/variables_mixins' as *;
-@use '../../styles/common-theme/css/fluid-typography' as *;
+@use '../../styles/common-theme/css/variables_mixins'as *;
+@use '../../styles/common-theme/css/fluid-typography'as *;
 @use 'sass:map';
 
-/*   */
-
-/*   max-line-length */
-// Variables (Make sure to define these in your _variables.scss or similar)
 :root {
     --background-color: #fff;
-    //     --body-font-family: "Poppins", sans-serif;
     --nav-height: 64px;
     --heading-font-size-s: 1.25rem;
     --body-font-size-s: 1rem;
@@ -29,14 +24,14 @@ header {
     nav {
         box-sizing: border-box;
         display: grid;
-        grid-template: "hamburger brand tools" var(--nav-height) "sections sections sections" 1fr / auto 1fr auto;
+        grid-template: "hamburger brand tools"var(--nav-height) "sections sections sections"1fr / auto 1fr auto;
         align-items: center;
         gap: 0 24px;
         margin: auto;
         max-width: 1248px;
         height: var(--nav-height);
         padding: 0 24px;
-        font-family: $Poppins;
+        font-family: $poppins;
 
         @include media(mobile) {
             gap: inherit;
@@ -48,18 +43,18 @@ header {
 
         &[aria-expanded="true"] {
             grid-template:
-                "hamburger brand" var(--nav-height) "sections sections" 1fr
-                "tools tools" var(--nav-height) / auto 1fr;
+                "hamburger brand"var(--nav-height) "sections sections"1fr "tools tools"var(--nav-height) / auto 1fr;
             overflow-y: auto;
             min-height: 100dvh;
         }
 
         p {
             margin: 0;
-            @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $Poppins);
+
+            @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
 
             @include media(mobile) {
-                @include font-style(12px, 14px, $primary-blue, map.get($font-weights, regular), $Poppins);
+                @include font-style(12px, 14px, $primary-blue, map.get($font-weights, regular), $poppins);
             }
         }
 
@@ -110,7 +105,6 @@ header {
 
         // Closed state
         nav[aria-expanded="false"] & {
-
             .nav-hamburger-icon,
             .nav-hamburger-icon::before,
             .nav-hamburger-icon::after {
@@ -230,6 +224,10 @@ header {
             align-items: center;
             gap: 24px;
 
+             @media (901px <=width <=1144px) {
+                 gap: 0 10px;
+             }
+
             @include media(mobile) {
                 padding: 0;
                 margin: 0;
@@ -244,6 +242,10 @@ header {
                 gap: 8px;
                 border-radius: 24px;
                 border: 1px solid #2E2A94;
+                 
+                @media (901px <=width <=1144px) {
+                   padding: 8px 7px;
+                }
 
                 @include media(mobile) {
                     margin: 0;
@@ -265,21 +267,13 @@ header {
                             align-items: center;
                             gap: 8px;
                             position: relative;
-                            // padding-right: 20px;
 
                             &::after {
                                 content: "";
                                 display: inline-block;
-                                // position: absolute;
-                                // top: 3px;
-                                // right: -3px;
-                                // transform: rotate(135deg);
                                 width: 14px;
                                 height: 14px;
-                                // border: 2px solid #2e2a94;
-                                // border-radius: 0 1px 0 0;
-                                // border-width: 2px 2px 0 0;
-                                background: url(../../icons/arrow-down-blue.svg), no-repeat, center, center;
+                                background: url('../../icons/arrow-down-blue.svg'), no-repeat, center, center;
                             }
                         }
 
@@ -292,7 +286,7 @@ header {
                                 font-size: 14px;
                                 line-height: 16px;
                                 color: #2e2a94;
-                                font-family: "Poppins", sans-serif;
+                                font-family: $poppins;
                                 font-weight: 500;
                                 border-bottom: 0.4px solid gray;
                                 white-space: nowrap;
@@ -316,23 +310,15 @@ header {
 
             >ul:nth-child(2) {
                 li {
-                    @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $Poppins);
-                    // padding-right: 12px;
-                    // font-size: rem(16px);
+                    @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
+
 
                     &::after {
                         content: "";
                         display: inline-block;
-                        // position: absolute;
-                        // top: 3px;
-                        // right: -3px;
-                        // transform: rotate(135deg);
                         width: 14px;
                         height: 14px;
-                        // border: 2px solid #2e2a94;
-                        // border-radius: 0 1px 0 0;
-                        // border-width: 2px 2px 0 0;
-                        background: url(../../icons/arrow-down-blue.svg), no-repeat, center, center;
+                        background: url('../../icons/arrow-down-blue.svg'), no-repeat, center, center;
                     }
                 }
 
@@ -361,6 +347,10 @@ header {
                 gap: 24px;
                 list-style: none;
                 margin: 0;
+                 
+                @media (901px <=width <=1144px) {
+                    gap: 0 10px;
+                }
 
                 @include media(mobile) {
                     display: none;
@@ -368,7 +358,7 @@ header {
                 }
 
                 li {
-                    @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $Poppins);
+                    @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
 
                     a {
                         display: flex;
@@ -387,7 +377,8 @@ header {
                     background: #2E2A94;
 
                     a {
-                        @include font-style(14px, 16px, $primary-white, map.get($font-weights, medium), $Poppins);
+                        @include font-style(14px, 16px, $primary-white, map.get($font-weights, medium), $poppins);
+
                         text-decoration: none;
                     }
                 }
@@ -444,7 +435,6 @@ header {
                 padding: 0 20px;
             }
 
-
             @include media(mobile) {
                 // width: 93%;
                 border-bottom: 1px solid #BDBDBD;
@@ -457,7 +447,7 @@ header {
                 margin: 0;
 
                 & li:first-child {
-                    @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $Poppins);
+                    @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $poppins);
 
                     @include media(mobile) {
                         display: none;
@@ -471,7 +461,8 @@ header {
                         display: flex;
                         align-items: center;
                         gap: 4px;
-                        @include font-style(12px, 14px, $primary-blue, map.get($font-weights, regular), $Poppins);
+
+                        @include font-style(12px, 14px, $primary-blue, map.get($font-weights, regular), $poppins);
 
                         span {
                             width: 16px;
@@ -492,7 +483,7 @@ header {
 
                 & li:nth-child(1) {
                     p {
-                        @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $Poppins);
+                        @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $poppins);
 
                         @include media(mobile) {
                             color: $primary-blue;
@@ -512,7 +503,9 @@ header {
                         display: flex;
                         align-items: center;
                         gap: 5px;
-                        @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $Poppins);
+
+                        @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $poppins);
+
                         cursor: pointer;
                         user-select: none;
 
@@ -526,7 +519,8 @@ header {
                 & ul {
                     position: absolute;
                     top: 18px;
-                    display: flex;
+
+                    // display: flex;
                     align-items: flex-start;
                     flex-direction: column;
                     background-color: $primary-white;
@@ -535,10 +529,12 @@ header {
                     border-radius: 4px;
                     display: none;
 
-
+                    /* stylelint-disable-next-line no-descending-specificity */
                     & li {
                         width: 100%;
-                        @include font-style(12px, 16px, $primary-blue, map.get($font-weights, regular), $Poppins);
+
+                        @include font-style(12px, 16px, $primary-blue, map.get($font-weights, regular), $poppins);
+
                         padding: 8px 10px;
                         border-bottom: 1px solid gray;
                     }
@@ -571,6 +567,10 @@ header {
             max-width: 1264px;
             padding: 0 20px;
 
+             @media (901px <=width <=1144px) {
+                 gap: 0 10px;
+             }
+
             &[aria-expanded="true"] {
                 min-height: 0;
                 overflow: visible;
@@ -588,22 +588,14 @@ header {
 
                 .nav-drop {
                     position: relative;
-                    // padding-right: 16px;
                     cursor: pointer;
 
                     &::after {
                         content: "";
                         display: inline-block;
-                        // position: absolute;
-                        // top: 3px;
-                        // right: -3px;
-                        // transform: rotate(135deg);
                         width: 14px;
                         height: 14px;
-                        // border: 2px solid #2e2a94;
-                        // border-radius: 0 1px 0 0;
-                        // border-width: 2px 2px 0 0;
-                        background: url(../../icons/arrow-down-blue.svg), no-repeat, center, center;
+                        background: url('../../icons/arrow-down-blue.svg'), no-repeat, center, center;
                     }
 
                     &[aria-expanded="true"]::after {
@@ -617,10 +609,13 @@ header {
                     display: flex;
                     gap: 24px;
                     margin: 0;
+
+                     @media (901px <=width <=1144px) {
+                         gap: 0 10px;
+                     }
                 }
 
                 .default-content-wrapper {
-
                     >ul>li {
                         flex: 0 1 auto;
                         display: flex;
@@ -647,7 +642,9 @@ header {
 
                             >li {
                                 padding: 14px 11px;
-                                @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $Poppins);
+
+                                @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
+
                                 border-bottom: 0.4px solid gray;
                             }
 
@@ -677,5 +674,3 @@ header {
         }
     }
 }
-
-/* stylelint-enable max-line-length */

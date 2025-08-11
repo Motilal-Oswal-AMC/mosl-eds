@@ -50,11 +50,15 @@ $blue-1: (
   b200: #9DADFE,
   b300: #7986fd,
   b400: #5659FA,
-  b900: #242177,
   b500: #4338f3,
   b700: #332ab5,
   b150:#D5DEFF
 );
+
+// Neutral colors
+$neutrals-200: #EEE;
+$neutrals-500: #9E9E9E;
+
 
 // body-Color
 
@@ -159,8 +163,8 @@ $fund-icon-bg: #BDCBFF;
 // ----------------------------------------
 // FONTS
 // ----------------------------------------
-$Poppins: "Poppins", sans-serif;
-$ButlerPro: "ButlerPro", sans-serif;
+$poppins: "Poppins", sans-serif;
+$butlerpro: "butlerPro", sans-serif;
 $font-weights: (
   light: 300,
   regular: 400,
@@ -168,17 +172,17 @@ $font-weights: (
   semibold: 600,
   bold: 700,
   extrabold: 800,
-  heavy: 900
+  heavy: 900,
 );
 
 // Font mixin
-@mixin font-style($size, $line-height, $color, $weight: null, $family: $ButlerPro) {
+@mixin font-style($size, $line-height, $color, $weight: null, $family: $butlerpro) {
   font-size: $size;
   line-height: $line-height;
   color: $color;
   font-family: $family;
 
-  @if $weight !=null {
+  @if $weight != "null" {
     font-weight: $weight;
   }
 }
@@ -189,7 +193,7 @@ $font-weights: (
 // ----------------------------------------
 
 @mixin typography-h2 {
-  font-family: $ButlerPro;
+  font-family: $butlerpro;
   color: $primary-blue;
   font-weight: map.get($font-weights, bold);
   line-height: $line-height-h2;
@@ -278,23 +282,23 @@ $breakpoints: (
 // TRANSITIONS & HOVER EFFECTS
 // ----------------------------------------
 
-@mixin transitionTransform {
+@mixin transitiontransform {
   transition: transform 0.5s ease;
 }
 
-@mixin hoverAfterEffect($translateX: 5px) {
+@mixin hoveraftereffect($translateX: 5px) {
   &:hover::after {
     transform: translateX($translateX);
   }
 }
 
-@mixin hoverBeforeEffect($translateX: 5px) {
+@mixin hoverbeforeeffect($translateX: 5px) {
   &:hover::before {
     transform: translateX($translateX);
   }
 }
 
-@mixin hoverImageEffect($translateX: 5px) {
+@mixin hoverimageeffect($translateX: 5px) {
   &:hover img {
     transform: translateX($translateX);
   }

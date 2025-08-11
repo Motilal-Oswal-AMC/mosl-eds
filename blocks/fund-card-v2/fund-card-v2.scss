@@ -1,8 +1,7 @@
 @use 'sass:map';
-@use '../../styles/common-theme/css/variables_mixins' as *;
-@use '../../styles/common-theme/css/fluid-typography' as *;
+@use '../../styles/common-theme/css/variables_mixins'as *;
+@use '../../styles/common-theme/css/fluid-typography'as *;
 
-/*   */
 
 $primary-purple: #2e2a94;
 $secondary-purple: #242177;
@@ -10,8 +9,10 @@ $accent-blue: #5659fa;
 $background-light: #edf1ff;
 $text-dark: #111;
 $white: #fff;
-$font-butler: "ButlerPro", sans-serif;
-$font-poppins: "Poppins", sans-serif;
+$font-butler: "ButlerPro",
+sans-serif;
+$font-poppins: "Poppins",
+sans-serif;
 $spacing-xs: 8px;
 $spacing-sm: 10px;
 $spacing-md: 12px;
@@ -101,6 +102,24 @@ $breakpoint-desktop: 1367px;
 
     // padding: 0;
     @include flex-center(row, stretch, flex-start, 0);
+  }
+
+  .section.compound-journey {
+    .button,
+    .btn-knowmore a,
+    .star {
+      &:focus {
+        outline: 2px solid $accent-blue;
+        outline-offset: 2px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
   }
 
   .compound-item {
@@ -344,7 +363,7 @@ $breakpoint-desktop: 1367px;
             h2 {
               margin: 0;
               color: var(--blue-1800-primary, #2E2A94);
-              font-family: Poppins;
+              font-family: $poppins;
               font-size: 24px;
               font-style: normal;
               font-weight: 500;
@@ -368,7 +387,7 @@ $breakpoint-desktop: 1367px;
             padding: 0;
             justify-content: center;
             align-items: center;
-            gap: var(--Spacing-8, 8px);
+            gap: 8px;
 
             a {
               @include button-style($bg-color: $accent-blue, $text-color: $white);
@@ -391,12 +410,11 @@ $breakpoint-desktop: 1367px;
               & span {
                 // Targeting button text
                 color: #FFF;
-                font-family: var(--body, $font-poppins);
-                font-size: var(--button-small-size, 14px);
+                font-family: $poppins;
+                font-size: 14px;
                 font-style: normal;
                 font-weight: 600;
                 line-height: 16px;
-                /* 114.286% */
               }
             }
           }
@@ -571,24 +589,6 @@ $breakpoint-desktop: 1367px;
             }
           }
         }
-      }
-    }
-  }
-
-  .section.compound-journey {
-    .button,
-    .btn-knowmore a,
-    .star {
-      &:focus {
-        outline: 2px solid $accent-blue;
-        outline-offset: 2px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition: none !important;
-        animation: none !important;
       }
     }
   }

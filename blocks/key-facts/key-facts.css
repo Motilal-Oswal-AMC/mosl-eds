@@ -32,7 +32,7 @@
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
@@ -71,12 +71,12 @@
   flex-direction: column;
   gap: 24px;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective {
+.key-facts-container .key-facts .key-facts-section .investment-objective {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(1) {
+.key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
   color: #242177;
@@ -84,7 +84,7 @@
   font-weight: 500;
   margin: 0;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(2) p {
+.key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(2) p {
   font-size: 20px;
   line-height: 24px;
   color: #242177;

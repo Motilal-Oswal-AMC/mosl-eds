@@ -1,6 +1,4 @@
 @import "../../../styles/fonts.css";
-/*   */
-/*   max-line-length */
 :root {
   --background-color: #fff;
   --nav-height: 64px;
@@ -206,6 +204,11 @@ header .nav-sections div {
   align-items: center;
   gap: 24px;
 }
+@media (901px <= width <= 1144px) {
+  header .nav-sections div {
+    gap: 0 10px;
+  }
+}
 @media (max-width: 768px) {
   header .nav-sections div {
     padding: 0;
@@ -221,6 +224,11 @@ header .nav-sections div ul:first-child {
   gap: 8px;
   border-radius: 24px;
   border: 1px solid #2E2A94;
+}
+@media (901px <= width <= 1144px) {
+  header .nav-sections div ul:first-child {
+    padding: 8px 7px;
+  }
 }
 @media (max-width: 768px) {
   header .nav-sections div ul:first-child {
@@ -246,7 +254,7 @@ header .nav-sections div ul:first-child li {
     display: inline-block;
     width: 14px;
     height: 14px;
-    background: url(../../icons/arrow-down-blue.svg), no-repeat, center, center;
+    background: url("../../icons/arrow-down-blue.svg"), no-repeat, center, center;
   }
   header .nav-sections div ul:first-child > li ul {
     border-radius: 8px;
@@ -286,7 +294,7 @@ header .nav-sections div > ul:nth-child(2) li::after {
   display: inline-block;
   width: 14px;
   height: 14px;
-  background: url(../../icons/arrow-down-blue.svg), no-repeat, center, center;
+  background: url("../../icons/arrow-down-blue.svg"), no-repeat, center, center;
 }
 @media (max-width: 768px) {
   header .nav-sections div > ul:nth-child(2) {
@@ -307,6 +315,11 @@ header .nav-tools div ul:first-child {
   gap: 24px;
   list-style: none;
   margin: 0;
+}
+@media (901px <= width <= 1144px) {
+  header .nav-tools div ul:first-child {
+    gap: 0 10px;
+  }
 }
 @media (max-width: 768px) {
   header .nav-tools div ul:first-child {
@@ -481,7 +494,6 @@ header .header-top div:first-child ul:nth-child(2) li:nth-child(2) p span {
 header .header-top div:first-child ul:nth-child(2) ul {
   position: absolute;
   top: 18px;
-  display: flex;
   align-items: flex-start;
   flex-direction: column;
   background-color: #fff;
@@ -489,6 +501,7 @@ header .header-top div:first-child ul:nth-child(2) ul {
   gap: 0;
   border-radius: 4px;
   display: none;
+  /* stylelint-disable-next-line no-descending-specificity */
 }
 header .header-top div:first-child ul:nth-child(2) ul li {
   width: 100%;
@@ -515,6 +528,13 @@ header .header-top div:first-child ul:nth-child(2) .dropdown-active span img {
     max-width: 1264px;
     padding: 0 20px;
   }
+}
+@media (width >= 900px) and (901px <= width <= 1144px) {
+  header nav {
+    gap: 0 10px;
+  }
+}
+@media (width >= 900px) {
   header nav[aria-expanded=true] {
     min-height: 0;
     overflow: visible;
@@ -537,7 +557,7 @@ header .header-top div:first-child ul:nth-child(2) .dropdown-active span img {
     display: inline-block;
     width: 14px;
     height: 14px;
-    background: url(../../icons/arrow-down-blue.svg), no-repeat, center, center;
+    background: url("../../icons/arrow-down-blue.svg"), no-repeat, center, center;
   }
   header nav .nav-sections .nav-drop[aria-expanded=true]::after {
     transform: rotate(180deg);
@@ -547,6 +567,13 @@ header .header-top div:first-child ul:nth-child(2) .dropdown-active span img {
     gap: 24px;
     margin: 0;
   }
+}
+@media (width >= 900px) and (901px <= width <= 1144px) {
+  header nav .nav-sections ul {
+    gap: 0 10px;
+  }
+}
+@media (width >= 900px) {
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     display: flex;
@@ -596,5 +623,4 @@ header .header-top div:first-child ul:nth-child(2) .dropdown-active span img {
     white-space: initial;
     border-radius: 8px;
   }
-}
-/* stylelint-enable max-line-length *//*# sourceMappingURL=header.css.map */
+}/*# sourceMappingURL=header.css.map */

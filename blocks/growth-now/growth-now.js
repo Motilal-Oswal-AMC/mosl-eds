@@ -1,13 +1,14 @@
-// import formblock from '../form/form.js';
+import formblock from '../form/form.js';
 
 export default function decorate(block) {
-  // formblock(block.querySelector('.button-container'));
-  Array.from(block.children).forEach((row, rowIndex) => {
-    // row.classList.add("fund-us-container");
-    row.classList.add(`fund-sec-${rowIndex + 1}`);
-    // Array.from(row.children).forEach((column, colIndex) => {
-    //     column.classList.add("find-us-container-column");
-    //     column.classList.add(`sebtxt-${colIndex + 1}`);
-    // });
+  // console.log(block)
+  Array.from(block.children).forEach((row) => {
+    row.classList.add('fund-us-container');
+    // row.classList.add(`fund-us-container-${rowIndex + 1}`);
+    Array.from(row.children).forEach((column, colIndex) => {
+      // column.classList.add('fund-sec');
+      column.classList.add(`fund-sec-${colIndex + 1}`);
+    });
   });
+  formblock(block.querySelector('.fund-sec-3'));
 }

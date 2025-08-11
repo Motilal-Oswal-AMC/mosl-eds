@@ -365,7 +365,7 @@
   font-size: 40px;
   line-height: 48px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 700;
   margin: 0;
 }
@@ -915,7 +915,7 @@
   font-size: 28px;
   line-height: 32px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 500;
   margin: 0;
   max-width: 306px;
@@ -975,7 +975,7 @@
     font-size: 32px;
     line-height: 40px;
     color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
+    font-family: "butlerPro", sans-serif;
     font-weight: 700;
   }
   .section.tabs-container .tabs-wrapper {

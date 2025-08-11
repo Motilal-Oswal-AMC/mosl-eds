@@ -14,7 +14,7 @@
   font-size: 36px;
   line-height: 44px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 700;
   margin: 0;
   padding-bottom: 4px;
@@ -24,7 +24,7 @@
     font-size: 24px;
     line-height: 28px;
     color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
+    font-family: "butlerPro", sans-serif;
     font-weight: 700;
     padding: 0 34px 4px;
   }
@@ -34,7 +34,7 @@
   font-size: 16px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 400;
   margin: 0;
 }
@@ -43,7 +43,7 @@
     font-size: 16px;
     line-height: 24px;
     color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
+    font-family: "butlerPro", sans-serif;
     font-weight: 400;
   }
 }
@@ -74,7 +74,7 @@
   font-size: 16px;
   line-height: 20px;
   color: #fff;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 500;
   margin: 0;
 }
@@ -111,7 +111,7 @@
   height: 200px;
 }
 .section.make-index-funds-container .make-index-funds__title {
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   color: #2e2a94;
   font-weight: 700;
   line-height: 1.2;

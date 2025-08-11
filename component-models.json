@@ -686,7 +686,7 @@
     ]
   },
   {
-    "id": "growth-now",
+    "id": "growth-now-item",
     "fields": [
       {
         "component": "reference",
@@ -796,6 +796,43 @@
     ]
   },
   {
+    "id": "risk-o-meter-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Scheme Risk- O-Meter",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "risk-meter",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "name": "linkText",
+        "label": "Text"
+      }
+    ]
+  },
+  {
     "id": "fdp-card",
     "fields": [
       {
@@ -813,7 +850,7 @@
         "name": "col1_title_Tracking",
         "label": "Inter Tracking text for card"
       },
-       {
+      {
         "component": "text",
         "name": "col2_title_NAV",
         "label": "Inter NAV text for card"
@@ -824,7 +861,7 @@
         "label": "Inter AUM text for card"
       },
       {
-       "component": "aem-content",
+        "component": "aem-content",
         "name": "col2_link",
         "label": "Link"
       },
@@ -837,7 +874,7 @@
       }
     ]
   },
-   {
+  {
     "id": "fund-video",
     "fields": [
       {
@@ -912,7 +949,7 @@
         "name": "col3_title_Entry Load",
         "label": "Inter Entry Load"
       },
-       {
+      {
         "component": "text",
         "name": "col3_title_Exit_Load_Policy",
         "label": "Inter Exit Load Policy"
