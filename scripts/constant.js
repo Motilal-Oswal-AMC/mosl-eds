@@ -32,6 +32,30 @@ const dataMapMoObj = {
   schstar: [],
   tempMobReturn: [],
   selectreturnstemp: '',
+  CLASS_PREFIXES: [
+    'block-item',
+    'block-subitem',
+    'block-subitem-finelsub',
+  ],
+  addIndexedClasses: function (parentElement, level = 0) {
+    if (level >= dataObj.CLASS_PREFIXES.length || !parentElement.children.length) {
+      return;
+    }
+
+    const prefix = dataObj.CLASS_PREFIXES[level];
+    const {
+      children
+    } = parentElement; // Cache the children collection for clarity.
+
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+      const index = i + 1; // Class names are typically 1-based, not 0-based.
+
+      child.classList.add(`${prefix}${index}`);
+
+      dataObj.addIndexedClasses(child, level + 1);
+    }
+  }
 };
 
 export default dataMapMoObj;
