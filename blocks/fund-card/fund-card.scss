@@ -10,9 +10,9 @@
   .card-container {
     max-width: 296px;
     width: 100%;
-    padding: 24px 16px;
+    padding: 16px;
     border-radius: map.get($radius, r8);
-    border: 1px solid map.get($old-silver, 100);
+    outline: 1px solid map.get($old-silver, 100);
 
     @include flex-center;
 
@@ -24,7 +24,6 @@
       flex-direction: column;
       height: 100%;
       width: 100%;
-
       // All dropdown in card
       .selectedtext {
         @include font-style(
@@ -209,10 +208,10 @@
         //   border-radius: 50%;
         // }
       }
-      &.no-planlist{
-        .fundtagging-list{
-          &-name{
-            &:last-of-type::after{
+      &.no-planlist {
+        .fundtagging-list {
+          &-name {
+            &:last-of-type::after {
               content: unset;
             }
           }
@@ -363,7 +362,7 @@
         // width: 80px;
         width: 115px;
         position: relative;
-        @include media(desktop-sm){
+        @include media(desktop-sm) {
           width: 80px;
         }
         @media screen and (max-width: 900px) {
@@ -407,52 +406,49 @@
       @include flex-center($align: center, $justify: space-between);
 
       flex-wrap: wrap;
-
-      // margin: 24px 0 0;
+      // gap: 24px;
+      gap: 24px 9.08%;
       margin: 20px 0 0;
-
-      // gap: 20px;
-      gap: 24px;
-
-      .know-more {
+      .card-btn {
+        // max-width: 120px;
+        max-width: 45.46%;
+        width: 100%;
+        display: block;
         @include font-style(
           $size: 14px,
           $line-height: 20px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
+          $color: map.get($blue-1, b500),
+          $weight: map.get($font-weights, regular),
           $family: $Poppins
         );
 
         margin: 0;
         padding: 0;
         background-color: transparent;
-        text-decoration-line: underline;
-        text-underline-offset: 20%;
         border-radius: 0;
-      }
-      a{
-        max-width: 120px;
-        width: 100%;
-        .invest-now {
-          width: 100%;
-        border-radius: map.get($radius, r8);
-        background: map.get($button-primary, default);
-
-        // padding: 12px;
-        padding: 8px 12px;
-        margin: 0;
         border: none;
-
-        @include font-style(
-          $size: 14px,
-          $line-height: 16px,
-          $color: $primary-white,
-          $weight: map.get($font-weights, semibold),
-          $family: $Poppins
-        );
+        // @include media(tab){
+        //   max-width: 45%;
+        // }
+        &.know-more {
+          text-decoration-line: underline;
+          text-underline-offset: 20%;
+          padding: 6px 0;
+        }
+        &.invest-now {
+          border-radius: map.get($radius, r8);
+          background: map.get($button-primary, default);
+          padding: 8px 12px;
+          text-align: center;
+          @include font-style(
+            $size: 14px,
+            $line-height: 16px,
+            $color: $primary-white,
+            $weight: map.get($font-weights, medium),
+            $family: $Poppins
+          );
+        }
       }
-      }
-      
     }
   }
   &.tabs-container {
@@ -615,7 +611,7 @@
     width: 100%;
     padding: 16px;
     border-radius: map.get($radius, r8);
-    border: 1px solid map.get($old-silver, 100);
+    outline: 1px solid map.get($old-silver, 100);
 
     @include flex-center;
 
@@ -932,7 +928,7 @@
         // width: 80px;
         width: 115px;
         position: relative;
-        @include media(desktop-sm){
+        @include media(desktop-sm) {
           width: 80px;
         }
         @media screen and (max-width: 900px) {
@@ -1091,13 +1087,15 @@
     .button-container {
       @include flex-center($align: center, $justify: space-between);
 
-      // margin: 24px 0 0;
+      flex-wrap: wrap;
+      // gap: 24px;
+      gap: 24px 9.08%;
       margin: 20px 0 0;
-
-      // gap: 20px;
-      gap: 24px;
-
-      .know-more {
+      .card-btn {
+        // max-width: 120px;
+        max-width: 45.46%;
+        width: 100%;
+        display: block;
         @include font-style(
           $size: 14px,
           $line-height: 20px,
@@ -1109,33 +1107,29 @@
         margin: 0;
         padding: 0;
         background-color: transparent;
-        text-decoration-line: underline;
-        text-underline-offset: 20%;
         border-radius: 0;
-      }
-
-      a{
-        max-width: 120px;
-        width: 100%;
-        .invest-now {
-        // max-width: 132px;
-        width: 100%;
-        border-radius: map.get($radius, r8);
-        background: map.get($button-primary, default);
-
-        // padding: 12px;
-        padding: 8px 12px;
-        margin: 0;
         border: none;
-
-        @include font-style(
-          $size: 14px,
-          $line-height: 16px,
-          $color: $primary-white,
-          $weight: map.get($font-weights, medium),
-          $family: $Poppins
-        );
-      }
+        // @include media(tab){
+        //   max-width: 45%;
+        // }
+        &.know-more {
+          text-decoration-line: underline;
+          text-underline-offset: 20%;
+          padding: 6px 0;
+        }
+        &.invest-now {
+          border-radius: map.get($radius, r8);
+          background: map.get($button-primary, default);
+          padding: 8px 12px;
+          text-align: center;
+          @include font-style(
+            $size: 14px,
+            $line-height: 16px,
+            $color: $primary-white,
+            $weight: map.get($font-weights, medium),
+            $family: $Poppins
+          );
+        }
       }
     }
   }
@@ -1231,11 +1225,11 @@
 }
 
 @include media(tab) {
-  .section {
-    .card-container .button-container .invest-now {
-      max-width: 115px;
-    }
-  }
+  // .section {
+  //   .card-container .button-container .invest-now {
+  //     max-width: 115px;
+  //   }
+  // }
 
   .section.index-fund {
     .compound-item {
