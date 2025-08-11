@@ -115,26 +115,22 @@
     padding-bottom: 40px;
   }
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container {
-  margin: 0;
-  padding: 0;
-}
-.growth-now-container .growth-now .fund-sec-3 .button-container form {
+.growth-now-container .growth-now .fund-sec-3 form {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 .button-container form {
+  .growth-now-container .growth-now .fund-sec-3 form {
     flex-direction: column;
   }
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 .button-container form .fieldset-wrapper {
+  .growth-now-container .growth-now .fund-sec-3 form .fieldset-wrapper {
     width: 100%;
   }
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container form fieldset {
+.growth-now-container .growth-now .fund-sec-3 form fieldset {
   width: 228px;
   height: 40px;
   display: flex;
@@ -145,19 +141,19 @@
   border: 1px solid #99A1B0;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 .button-container form fieldset {
+  .growth-now-container .growth-now .fund-sec-3 form fieldset {
     width: 100%;
   }
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container form fieldset .field-wrapper {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .field-wrapper {
   line-height: normal;
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container form fieldset .select-wrapper {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .select-wrapper {
   border-radius: 3px 0 0 3px;
   border-right: 1px solid #6D798E;
   padding-right: 4px;
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container form fieldset select {
+.growth-now-container .growth-now .fund-sec-3 form fieldset select {
   background: transparent;
   border: none;
   color: #FFF;
@@ -172,7 +168,7 @@
           appearance: auto;
   padding-right: 4px;
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container form fieldset .text-wrapper input {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .text-wrapper input {
   width: 100%;
   min-width: 111px;
   background: transparent;
@@ -190,7 +186,7 @@
   text-align: left;
   padding-left: 10px;
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container form fieldset .text-wrapper input::-moz-placeholder {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .text-wrapper input::-moz-placeholder {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -198,7 +194,7 @@
   font-weight: 400;
   line-height: 20px;
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container form fieldset .text-wrapper input::placeholder {
+.growth-now-container .growth-now .fund-sec-3 form fieldset .text-wrapper input::placeholder {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -207,11 +203,11 @@
   line-height: 20px;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 .button-container form .submit-wrapper {
+  .growth-now-container .growth-now .fund-sec-3 form .submit-wrapper {
     width: 100%;
   }
 }
-.growth-now-container .growth-now .fund-sec-3 .button-container form .submit-wrapper .button {
+.growth-now-container .growth-now .fund-sec-3 form .submit-wrapper .button {
   display: flex;
   padding: 12px;
   justify-content: center;
@@ -229,7 +225,7 @@
   height: 40px;
 }
 @media (max-width: 768px) {
-  .growth-now-container .growth-now .fund-sec-3 .button-container form .submit-wrapper .button {
+  .growth-now-container .growth-now .fund-sec-3 form .submit-wrapper .button {
     width: 100%;
   }
 }
@@ -253,7 +249,7 @@
   }
   .growth-now-container .growth-now .fund-sec-4 img {
     width: 45px;
-    height: 120px;
+    height: 92px;
   }
 }
 .growth-now-container .fund-sec-5 {
