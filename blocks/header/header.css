@@ -1,5 +1,4 @@
 @import "../../../styles/fonts.css";
-/*   max-line-length */
 :root {
   --background-color: #fff;
   --nav-height: 64px;
@@ -205,6 +204,11 @@ header .nav-sections div {
   align-items: center;
   gap: 24px;
 }
+@media (901px <= width <= 1144px) {
+  header .nav-sections div {
+    gap: 0 10px;
+  }
+}
 @media (max-width: 768px) {
   header .nav-sections div {
     padding: 0;
@@ -220,6 +224,11 @@ header .nav-sections div ul:first-child {
   gap: 8px;
   border-radius: 24px;
   border: 1px solid #2E2A94;
+}
+@media (901px <= width <= 1144px) {
+  header .nav-sections div ul:first-child {
+    padding: 8px 7px;
+  }
 }
 @media (max-width: 768px) {
   header .nav-sections div ul:first-child {
@@ -306,6 +315,11 @@ header .nav-tools div ul:first-child {
   gap: 24px;
   list-style: none;
   margin: 0;
+}
+@media (901px <= width <= 1144px) {
+  header .nav-tools div ul:first-child {
+    gap: 0 10px;
+  }
 }
 @media (max-width: 768px) {
   header .nav-tools div ul:first-child {
@@ -487,6 +501,17 @@ header .header-top div:first-child ul:nth-child(2) ul {
   gap: 0;
   border-radius: 4px;
   display: none;
+  /* stylelint-disable-next-line no-descending-specificity */
+}
+header .header-top div:first-child ul:nth-child(2) ul li {
+  width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding: 8px 10px;
+  border-bottom: 1px solid gray;
 }
 header .header-top div:first-child ul:nth-child(2) .dropdown-active ul {
   display: block;
@@ -503,6 +528,13 @@ header .header-top div:first-child ul:nth-child(2) .dropdown-active span img {
     max-width: 1264px;
     padding: 0 20px;
   }
+}
+@media (width >= 900px) and (901px <= width <= 1144px) {
+  header nav {
+    gap: 0 10px;
+  }
+}
+@media (width >= 900px) {
   header nav[aria-expanded=true] {
     min-height: 0;
     overflow: visible;
@@ -535,6 +567,13 @@ header .header-top div:first-child ul:nth-child(2) .dropdown-active span img {
     gap: 24px;
     margin: 0;
   }
+}
+@media (width >= 900px) and (901px <= width <= 1144px) {
+  header nav .nav-sections ul {
+    gap: 0 10px;
+  }
+}
+@media (width >= 900px) {
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     display: flex;

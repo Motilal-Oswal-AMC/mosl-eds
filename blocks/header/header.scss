@@ -2,9 +2,6 @@
 @use '../../styles/common-theme/css/fluid-typography'as *;
 @use 'sass:map';
 
-
-/*   max-line-length */
-// Variables (Make sure to define these in your _variables.scss or similar)
 :root {
     --background-color: #fff;
     --nav-height: 64px;
@@ -227,6 +224,10 @@ header {
             align-items: center;
             gap: 24px;
 
+             @media (901px <=width <=1144px) {
+                 gap: 0 10px;
+             }
+
             @include media(mobile) {
                 padding: 0;
                 margin: 0;
@@ -241,6 +242,10 @@ header {
                 gap: 8px;
                 border-radius: 24px;
                 border: 1px solid #2E2A94;
+                 
+                @media (901px <=width <=1144px) {
+                   padding: 8px 7px;
+                }
 
                 @include media(mobile) {
                     margin: 0;
@@ -306,7 +311,7 @@ header {
             >ul:nth-child(2) {
                 li {
                     @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
-                    
+
 
                     &::after {
                         content: "";
@@ -342,6 +347,10 @@ header {
                 gap: 24px;
                 list-style: none;
                 margin: 0;
+                 
+                @media (901px <=width <=1144px) {
+                    gap: 0 10px;
+                }
 
                 @include media(mobile) {
                     display: none;
@@ -369,7 +378,7 @@ header {
 
                     a {
                         @include font-style(14px, 16px, $primary-white, map.get($font-weights, medium), $poppins);
-                        
+
                         text-decoration: none;
                     }
                 }
@@ -425,7 +434,6 @@ header {
             @include media(tab) {
                 padding: 0 20px;
             }
-
 
             @include media(mobile) {
                 // width: 93%;
@@ -521,13 +529,15 @@ header {
                     border-radius: 4px;
                     display: none;
 
+                    /* stylelint-disable-next-line no-descending-specificity */
+                    & li {
+                        width: 100%;
 
-                    // & li {
-                    //     width: 100%;
-                    //     @include font-style(12px, 16px, $primary-blue, map.get($font-weights, regular), $poppins);
-                    //     padding: 8px 10px;
-                    //     border-bottom: 1px solid gray;
-                    // }
+                        @include font-style(12px, 16px, $primary-blue, map.get($font-weights, regular), $poppins);
+
+                        padding: 8px 10px;
+                        border-bottom: 1px solid gray;
+                    }
                 }
 
                 & .dropdown-active {
@@ -556,6 +566,10 @@ header {
             gap: 0 32px;
             max-width: 1264px;
             padding: 0 20px;
+
+             @media (901px <=width <=1144px) {
+                 gap: 0 10px;
+             }
 
             &[aria-expanded="true"] {
                 min-height: 0;
@@ -595,6 +609,10 @@ header {
                     display: flex;
                     gap: 24px;
                     margin: 0;
+
+                     @media (901px <=width <=1144px) {
+                         gap: 0 10px;
+                     }
                 }
 
                 .default-content-wrapper {
