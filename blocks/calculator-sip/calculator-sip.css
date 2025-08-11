@@ -586,7 +586,7 @@
   font-weight: 500;
   cursor: pointer;
   position: relative;
-          user-select: none;
+  user-select: none;
 }
 
 @media (width <= 768px) {
@@ -695,7 +695,7 @@
   font-size: 20px;
   font-weight: 500;
   width: 100%;
-          appearance: none;
+  appearance: none;
   outline: none;
 }
 
@@ -706,7 +706,7 @@
 .fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper input::-webkit-inner-spin-button,
 .fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper select::-webkit-outer-spin-button,
 .fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper select::-webkit-inner-spin-button {
-          appearance: none;
+  appearance: none;
   margin: 0;
 }
 
@@ -751,7 +751,7 @@
   font-weight: 500;
   cursor: pointer;
   position: relative;
-          user-select: none;
+  user-select: none;
   padding-bottom: 4px;
 }
 

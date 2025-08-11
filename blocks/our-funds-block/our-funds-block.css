@@ -123,10 +123,6 @@
   color: #616161;
 }
 
-.our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
-  color: #616161;
-}
-
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input .cancel-search {
   max-width: 24px;
   width: 100%;
@@ -607,7 +603,7 @@
 }
 
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container {
-          user-select: none;
+  user-select: none;
   display: flex;
   align-items: center;
   padding: 12px 0;

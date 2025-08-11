@@ -69,10 +69,6 @@ header nav a:any-link {
   color: currentcolor;
 }
 
-header nav a:any-link {
-  color: currentcolor;
-}
-
 header .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -559,7 +555,7 @@ header .header-top div:first-child ul:nth-child(2) li:nth-child(2) p {
   font-family: Poppins, sans-serif;
   font-weight: 400;
   cursor: pointer;
-          user-select: none;
+  user-select: none;
 }
 
 header .header-top div:first-child ul:nth-child(2) li:nth-child(2) p span {

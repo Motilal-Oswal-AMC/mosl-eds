@@ -231,8 +231,7 @@
   font-weight: 400;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-offset: 2.8px;
   text-underline-position: from-font;
