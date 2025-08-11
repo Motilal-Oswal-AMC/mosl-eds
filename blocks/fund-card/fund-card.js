@@ -15,6 +15,111 @@ import {
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import {getTimeLeft, evaluateByDays,wishlist} from "../../scripts/scripts.js"
+function planListEvent(param, block) { // Planlist onchange with changing cagr container
+  const tempReturns = [];
+  const codeTempArr = [];
+  block.returns.forEach((el) => {
+    codeTempArr.push((el.plancode + el.optioncode));
+    if (param.target.getAttribute("value") === (el.plancode + el.optioncode)) {
+      for (const key in el) {
+        if (dataMapMoObj.ObjTemp[key]) {
+          tempReturns.push(dataMapMoObj.ObjTemp[key]);
+        }
+      }
+    }
+  });
+  param.target.closest('.card-wrapper').querySelector('.cagr-container').innerHTML = '';
+  if (codeTempArr.includes(param.target.getAttribute("value")) && tempReturns.length !== 0) {
+    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
+    let dropdown = div(
+      {
+        class: "cagr-dropdown",
+      },
+      label("Annualised"),
+      div(
+        {
+          class: "cagr-select-wrapper",
+        },
+        p({ 
+          class: "selectedtext",
+          onclick:(event)=>{
+                event.target.nextElementSibling.classList.add("dropdown-active");
+          }
+         }, tempReturns[0]),
+        ul(
+          { class: "dropdown-list",schcode:block.schcode},
+          ...tempReturns.map((eloption) =>
+            li(
+              { 
+                class: "returnyears", 
+                value: dataMapMoObj.ObjTemp[eloption],
+                onclick:(event)=>{
+                      const cgarValue = block.returns[0][event.target.getAttribute("value")];
+                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = "";
+                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = event.currentTarget.textContent.trim();
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
+                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
+                }
+              },
+              eloption
+            )
+          )
+        )
+      )
+    );
+    let dropvalue = div({
+        class: 'cagr-value',
+      },
+      h2(
+        `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+        span('%'),
+      ),
+      p({
+        class: 'scheme-yet',
+        style: 'display:none',
+      }, 'Scheme is yet to complete 10 Years'),
+      p({
+        class: 'cagr-date',
+      }, '15th Mar 2020'),
+    );
+    const droplessthan = div(
+      {
+        class: 'cagr-desc',
+      },
+      span('Return is not provided because thescheme has not completed 6 months'),
+    );
+    param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
+  } else {
+    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove('not-provided');
+    const dropdown = div(
+      {
+        class: 'cagr-dropdown',
+      },
+      label('Return (Absolute)'),
+    );
+    const dropvalue = div(
+      {
+        class: 'cagr-value',
+      },
+      h2('NA'),
+    );
+    const droplessthan = div(
+      {
+        class: 'cagr-desc',
+      },
+      span('Return is not provided because thescheme has not completed 6 months'),
+    );
+    param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
+  }
+}
+
+function toTitleCase(str) {
+  return str
+    .toLowerCase()
+    .replace(/\b\w/g, char => char.toUpperCase());
+}
 export default function decorate(block) {
   let planFlow = 'Direct';
   if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
@@ -450,110 +555,4 @@ export default function decorate(block) {
     )
   );
   return cardContainer;
-}
-
-function planListEvent(param, block) { // Planlist onchange with changing cagr container
-  const tempReturns = [];
-  const codeTempArr = [];
-  block.returns.forEach((el) => {
-    codeTempArr.push((el.plancode + el.optioncode));
-    if (param.target.getAttribute("value") === (el.plancode + el.optioncode)) {
-      for (const key in el) {
-        if (dataMapMoObj.ObjTemp[key]) {
-          tempReturns.push(dataMapMoObj.ObjTemp[key]);
-        }
-      }
-    }
-  });
-  param.target.closest('.card-wrapper').querySelector('.cagr-container').innerHTML = '';
-  if (codeTempArr.includes(param.target.getAttribute("value")) && tempReturns.length !== 0) {
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove("not-provided");
-    let dropdown = div(
-      {
-        class: "cagr-dropdown",
-      },
-      label("Annualised"),
-      div(
-        {
-          class: "cagr-select-wrapper",
-        },
-        p({ 
-          class: "selectedtext",
-          onclick:(event)=>{
-                event.target.nextElementSibling.classList.add("dropdown-active");
-          }
-         }, tempReturns[0]),
-        ul(
-          { class: "dropdown-list",schcode:block.schcode},
-          ...tempReturns.map((eloption) =>
-            li(
-              { 
-                class: "returnyears", 
-                value: dataMapMoObj.ObjTemp[eloption],
-                onclick:(event)=>{
-                      const cgarValue = block.returns[0][event.target.getAttribute("value")];
-                      event.currentTarget.closest(".dropdown-list").classList.remove("dropdown-active");
-                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = "";
-                      event.currentTarget.closest(".cagr-select-wrapper").querySelector("p").innerText = event.currentTarget.textContent.trim();
-                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
-                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
-                      event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span("%"))
-                }
-              },
-              eloption
-            )
-          )
-        )
-      )
-    );
-    let dropvalue = div({
-        class: 'cagr-value',
-      },
-      h2(
-        `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
-        span('%'),
-      ),
-      p({
-        class: 'scheme-yet',
-        style: 'display:none',
-      }, 'Scheme is yet to complete 10 Years'),
-      p({
-        class: 'cagr-date',
-      }, '15th Mar 2020'),
-    );
-    const droplessthan = div(
-      {
-        class: 'cagr-desc',
-      },
-      span('Return is not provided because thescheme has not completed 6 months'),
-    );
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
-  } else {
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove('not-provided');
-    const dropdown = div(
-      {
-        class: 'cagr-dropdown',
-      },
-      label('Return (Absolute)'),
-    );
-    const dropvalue = div(
-      {
-        class: 'cagr-value',
-      },
-      h2('NA'),
-    );
-    const droplessthan = div(
-      {
-        class: 'cagr-desc',
-      },
-      span('Return is not provided because thescheme has not completed 6 months'),
-    );
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
-  }
-}
-
-function toTitleCase(str) {
-  return str
-    .toLowerCase()
-    .replace(/\b\w/g, char => char.toUpperCase());
 }
