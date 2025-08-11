@@ -336,6 +336,7 @@
   background-color: transparent;
   border-radius: 0;
   border: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .section .card-container .button-container .card-btn.know-more {
   text-decoration-line: underline;
@@ -851,6 +852,7 @@
   background-color: transparent;
   border-radius: 0;
   border: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .section .card-container .button-container .card-btn.know-more {
   text-decoration-line: underline;

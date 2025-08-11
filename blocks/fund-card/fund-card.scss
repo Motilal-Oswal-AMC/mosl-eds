@@ -427,9 +427,7 @@
         background-color: transparent;
         border-radius: 0;
         border: none;
-        // @include media(tab){
-        //   max-width: 45%;
-        // }
+        -webkit-tap-highlight-color: transparent;
         &.know-more {
           text-decoration-line: underline;
           text-underline-offset: 20%;
@@ -1109,9 +1107,7 @@
         background-color: transparent;
         border-radius: 0;
         border: none;
-        // @include media(tab){
-        //   max-width: 45%;
-        // }
+        -webkit-tap-highlight-color: transparent;
         &.know-more {
           text-decoration-line: underline;
           text-underline-offset: 20%;
