@@ -1,5 +1,5 @@
 /* eslint-disable */ 
-import {button, div, span, p, img, label} from "../../scripts/dom-helpers.js"
+import {button, div, span, p, img, label,a} from "../../scripts/dom-helpers.js"
 import dataMapMoObj from '../../scripts/constant.js';
 import {getTimeLeft,evaluateByDays,wishlist} from "../../scripts/scripts.js"
 export default function decorate(block){
@@ -67,7 +67,9 @@ export default function decorate(block){
                     p({class:'cagr-text'},"CAGR")
                 ),
                 div({class:"risk-star-icon"},
-                    img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"}),
+                    a({href:"/motilalfigma/modals/risk-o-meter"},
+                        img({class: "riskfactor-icon",src: "../../icons/nfo-risk-icon/"+nfosvg,alt: "risk icon"})
+                    ),
                 ),
                 div({class: "star "+starClass,
                     schcode:block.schcode,
@@ -108,7 +110,9 @@ export default function decorate(block){
                 p({class:'cagr-text'},labelcagr)
             ),
             div({class:"risk-star-icon"},
-                img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"}),
+                a({href:"/motilalfigma/modals/risk-o-meter"},
+                    img({class: "riskfactor-icon",src: "../../icons/risk-icon/"+iconsvg,alt: "risk icon"})
+                ),
             ),
             div({class: "star "+starClass,
                 schcode:block.schcode,
