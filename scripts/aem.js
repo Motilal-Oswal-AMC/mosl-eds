@@ -149,7 +149,8 @@ function setup() {
         [window.hlx.codeBasePath] = scriptURL.href.split('/scripts/scripts.js');
       }
     } catch (error) {
-      console.log('ERROR', error);
+      console.log('ERROR', error); // eslint-disable
+
       //   -next-line no-console
     }
   }
