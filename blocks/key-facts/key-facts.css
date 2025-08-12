@@ -92,6 +92,32 @@
   font-weight: 500;
   margin: 0;
 }
+@media (width <= 768px) {
+  .key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(2) p {
+    padding-right: 10px;
+  }
+}
+.key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion {
+  position: relative;
+}
+.key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion .read-toggle-btn {
+  font-size: 16px;
+  line-height: 24px;
+  color: #242177;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 3%;
+  right: 15%;
+  cursor: pointer;
+}
+@media (width <= 768px) {
+  .key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion .read-toggle-btn {
+    bottom: 0%;
+    right: 38%;
+  }
+}
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts {
   display: flex;
   flex-direction: column;
@@ -266,4 +292,6 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0;
+  text-indent: -20px;
+  padding-left: 1em;
 }/*# sourceMappingURL=key-facts.css.map */

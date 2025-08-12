@@ -90,11 +90,30 @@
         }
 
         p:nth-child(2) {
-            p{
-          @include font-style(20px, 24px, $primary-blue-1-900, 500, $poppins);
+          p {
+            @include font-style(20px, 24px, $primary-blue-1-900, 500, $poppins);
 
-          margin: 0;
+            margin: 0;
+            @media (width <= 768px) {
+              padding-right: 10px;
             }
+          }
+        }
+        .investment-discripstion {
+          position: relative;
+          .read-toggle-btn {
+            @include font-style(16px, 24px, $primary-blue-1-900, 500, $poppins);
+            text-decoration: underline;
+            position: absolute;
+            bottom: 3%;
+            right: 15%;
+            cursor: pointer;
+
+            @media (width <= 768px) {
+              bottom: 0%;
+              right: 38%;
+            }
+          }
         }
       }
 
@@ -239,15 +258,21 @@
                 }
 
                 p:nth-child(2) {
-                    @include font-style(14px, 20px, $text-body-2, 400, $poppins);
-
-                  margin: 0;
-
-                    p{
                   @include font-style(14px, 20px, $text-body-2, 400, $poppins);
 
                   margin: 0;
-                    }
+
+                  p {
+                    @include font-style(
+                      14px,
+                      20px,
+                      $text-body-2,
+                      400,
+                      $poppins
+                    );
+
+                    margin: 0;
+                  }
                 }
               }
             }
@@ -277,6 +302,8 @@
                 @include font-style(14px, 20px, $text-body-2, 400, $poppins);
 
                 margin: 0;
+                text-indent: -20px;
+                padding-left: 1em;
               }
             }
           }

@@ -37,7 +37,7 @@
   /* why fund section */
 }
 .section.fdp-card-container .item2 .item2-ul {
-  z-index: 1;
+  z-index: 12;
   max-width: 816px;
   width: 100%;
   justify-content: space-between;
@@ -55,6 +55,7 @@
     max-width: 300px;
     width: 100%;
     overflow-y: auto;
+    margin: 0 auto;
   }
 }
 .section.fdp-card-container .item2 .item2-ul li a {
@@ -86,6 +87,7 @@
   color: #2e2a94;
   font-family: "ButlerPro", sans-serif;
   font-weight: 500;
+  margin: 0;
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol {
   list-style: none;

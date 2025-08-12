@@ -1,4 +1,3 @@
-/*    */
 import {
   div,
   option,
@@ -38,13 +37,11 @@ export default function decorate(block) {
     }
     finPlangrp.push(ret.plancode + ret.optioncode);
   });
-  const planFlow = 'Direct';
-  const DirectPlanlistArr = block.planList.filter(
-    (el) => el.planName === planFlow && finPlangrp.includes(el.groupedCode),
+
+  const DirectPlanlistArr = cfObj[0].planList.filter(
+    (el) => el.planName === 'Regular' && finPlangrp.includes(el.groupedCode),
   );
-  // const classplan = DirectPlanlistArr.length !== 0 && tempReturns.length !== 0
-  //   ? ''
-  //   : ' not-provided';
+
   const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
 
   const cardContainer = div(
@@ -77,6 +74,8 @@ export default function decorate(block) {
               },
               select(
                 {
+                  onchange: () => {
+                  },
                   'aria-label': 'Select Investment Plan',
                 },
                 ...DirectPlanlistArr.map((el) => option(

@@ -45,8 +45,9 @@
     // }
 
     /* ul for second part */
+
     .item2-ul{
-      z-index: 1;
+      z-index: 12;
       max-width: 816px;
       width: 100%;
       justify-content: space-between;
@@ -63,6 +64,7 @@
         max-width: 300px;
         width: 100%;
         overflow-y: auto;
+        margin: 0 auto;
       }
 
       li {
@@ -92,12 +94,7 @@
         h5 {
           @include font-style(28px, 32px, $primary-blue, 500, $butlerpro);
 
-          //   font-family: "ButlerPro";
-          //   font-weight: 500;
-          //   font-size: 28px;
-          //   line-height: 32px;
-          //   letter-spacing: 0%;
-          //   color: #2e2a94;
+          margin: 0;
         }
 
         ol {

@@ -1,79 +1,91 @@
-/* eslint-disable*/
-
 import Swiper from '../swiper/swiper-bundle.min.js';
+import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
-  // 1. Setup main Swiper containers
+  // 1. Setup main Swiper container
   block.classList.add('swiper');
+
   const swiperWrapper = document.createElement('div');
   swiperWrapper.classList.add('swiper-wrapper');
-  const swiperPagination = document.createElement('div');
-  swiperPagination.classList.add('swiper-pagination');
 
   // 2. Get all the original content rows before clearing the block
   const sourceRows = Array.from(block.children);
-  block.innerHTML = ''; // Clear the main block to build it from scratch
+  block.innerHTML = '';
 
   // 3. Process each source row to create a slide
   sourceRows.forEach((row) => {
-    // Extract the raw content parts from the source structure
     const picture = row.querySelector('picture');
     const anchor = row.querySelector('a');
     const textContent = row.children[2]; // Assumes text content is in the third div
 
-    // Skip this row if it doesn't have the necessary parts
-    if (!picture || !anchor || !textContent) {
-      return;
-    }
-
-    // --- Create the final slide structure ---
+    if (!picture || !anchor || !textContent) return;
 
     const slide = document.createElement('div');
     slide.classList.add('swiper-slide');
 
-    // Create the first card div (.swiper-slide-cards-1)
     const card1 = document.createElement('div');
     card1.classList.add('swiper-slide-cards-1');
 
-    // Configure the anchor and image
-    anchor.textContent = ''; // Ensure anchor has no text
+    anchor.textContent = '';
     anchor.classList.add('button');
-    anchor.appendChild(picture); // Place the image inside the anchor
-    card1.appendChild(anchor); // Place the anchor inside the first card
+    anchor.appendChild(picture);
+    card1.appendChild(anchor);
 
-    // Create the second card div (.swiper-slide-cards-2)
     const card2 = document.createElement('div');
     card2.classList.add('swiper-slide-cards-2');
-    card2.innerHTML = textContent.innerHTML; // Copy the text content (the UL)
+    card2.innerHTML = textContent.innerHTML;
 
-    // Append the newly created cards to the slide
     slide.appendChild(card1);
     slide.appendChild(card2);
 
-    // Add the fully constructed slide to the Swiper wrapper
     swiperWrapper.appendChild(slide);
   });
 
   // 4. Final assembly of the Swiper block
   block.appendChild(swiperWrapper);
-  block.appendChild(swiperPagination);
 
-  // 5. Initialize Swiper
+  // 5. Check if .learning-fdp class exists in the parent
+  const learningFdp = block.closest('.learning-fdp') !== null;
+
+  let navigation = false;
+
+  // 6. Add prev/next buttons if learningFdp is true
+  if (learningFdp) {
+    const swiperBtn = document.createElement('div');
+    swiperBtn.classList.add('btn-wrapper');
+
+    const prevButton = document.createElement('div');
+    prevButton.classList.add('swiper-button-prev');
+
+    const nextButton = document.createElement('div');
+    nextButton.classList.add('swiper-button-next');
+
+    swiperBtn.appendChild(prevButton);
+    swiperBtn.appendChild(nextButton);
+
+    block.appendChild(swiperBtn);
+    // block.appendChild(nextButton);
+    navigation = {
+      nextEl: nextButton,
+      prevEl: prevButton,
+    };
+  }
+
+  dataMapMoObj.CLASS_PREFIXES = [];
+  dataMapMoObj.CLASS_PREFIXES.push('library-btn');
+
+  dataMapMoObj.addIndexed(block.closest('.future-building-container'));
+
+  // 7. Initialize Swiper with navigation if available
   Swiper(block, {
-    slidesPerView: "auto",
+    slidesPerView: 'auto',
     spaceBetween: 16,
-    slidesOffsetBefore: 0,
-    slidesOffsetAfter: 0,
     loop: true,
-    pagination: {
-      disabledClass: 'swiper-pagination-disabled',
-    },
+    navigation, // will be false if no buttons
     breakpoints: {
       769: {
         spaceBetween: 16,
-        slidesOffsetBefore: 0,
-        slidesOffsetAfter: 0,
-      }
+      },
     },
   });
 }
