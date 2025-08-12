@@ -6,7 +6,7 @@ import {
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import Swiper from '../swiper/swiper-bundle.min.js';
-
+import dataMapMoObj from '../../scripts/constant.js'
 // --- CONSTANTS AND STATE ---
 
 /**
@@ -33,27 +33,25 @@ let swiperInstance = null;
  * @returns {HTMLElement} The complete card element.
  */
 function createCardElement(cardData, brandName, iconsTemplate) {
+  let mop = cardData.fundIcon !== undefined ? cardData.fundIcon.split("/").at(-1) : "MO_Midcap_Fund.png";
+  let mopsec = mop.split(".");
+  let mopthree = mopsec[0] + ".svg";
   // 1. Create the card structure WITHOUT the icons.
-  const cardElement = div(
-    { class: 'card-wrap' },
-    div(
-      { class: 'img-wrapper' },
-      div(
-        { class: 'imgelogo' },
+  const cardElement = div({ class: 'card-wrap' },
+    div({ class: 'img-wrapper' },
+      div({ class: 'imgelogo' },
         img({
           class: 'logoScheme',
-          src: '../../icons/Group.svg',
+          src: '../../icons/fundicon' + mopthree,
           alt: 'BrandLogo',
           loading: 'lazy',
         }),
       ),
     ),
-    div(
-      { class: 'title-subtitle' },
+    div({ class: 'title-subtitle' },
       p(brandName),
-      div(
-        { class: 'title title-logo' },
-        h2('scheme name'), // Or use dynamic data: h2(cardData.name || 'Scheme Name')
+      div({ class: 'title title-logo' },
+        h2(cardData.schDetail.schemeName), // Or use dynamic data: h2(cardData.name || 'Scheme Name')
       ),
     ),
     // Create an empty container for the icons
@@ -63,6 +61,9 @@ function createCardElement(cardData, brandName, iconsTemplate) {
   // 2. Find the empty container and append the cloned icons. This is the fix.
   const iconsContainer = cardElement.querySelector('.icons-card-wrap');
   if (iconsContainer && iconsTemplate) {
+    let iconsvg = dataMapMoObj["icons-nfo"][cardData.risk.riskType.toLowerCase().replaceAll(" ", "-")] + ".svg"
+    let riskimg = iconsTemplate.querySelector('img')
+    riskimg.src = '../../icons/risk-icon/' + iconsvg;
     iconsContainer.append(iconsTemplate.cloneNode(true));
   }
 
@@ -155,8 +156,8 @@ export default function decorate(block) {
   // 1. Extract templates and data from the initial, author-configured DOM
   const brandName = block.querySelector('p')?.innerText.trim() || 'Motilal Oswal';
   const iconsTemplate = block.querySelector('ul'); // A simpler, more robust selector
-
   if (!iconsTemplate) {
+    console.error('Broaden Your Research: Icons template (<ul>) not found in the initial block content.');
     return;
   }
 
