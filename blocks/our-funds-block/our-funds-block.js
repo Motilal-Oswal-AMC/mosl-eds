@@ -68,7 +68,7 @@ function searchFunctionality(block) {
       const match = originalText.match(searchRegex);
       if (match) {
         matchesFound = true;
-        const highlightedText = originalText.replace(searchRegex, (match) => `<strong>${match}</strong>`);
+        const highlightedText = originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
         item.innerHTML = highlightedText;
         item.style.display = 'list-item';
       } else {
@@ -85,7 +85,7 @@ function searchFunctionality(block) {
     }
   };
 
-  searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));// activateSearch);
+  searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));
   searchContainer.classList.remove('search-active');
   searchInput.addEventListener('input', (event) => {
     filterListItems(event.target.value);
@@ -152,86 +152,42 @@ function searchFunctionality(block) {
 }
 
 function dataFilterfun(param) {
-  const dataMapObj = {};
-  dataMapObj.schemeName = [];
-  dataMapObj.fundCategory = [{
-    'indian-equity': [],
-  },
+  const dataMapObj = {
+    schemeName: [],
+    fundCategory: [
+      { 'indian-equity': [] },
+      { 'international-equity': [] },
+      { 'hybrid-&-balanced': [] },
+      { 'multi-asset': [] },
+      { commodity: [] },
+      { 'debt-&-liquid': [] },
   {
-    'international-equity': [],
-  },
-  {
-    'hybrid-&-balanced': [],
-  },
-  {
-    'multi-asset': [],
-  },
-  {
-    commodity: [],
-  },
-  {
-    'debt-&-liquid': [],
-  },
-  {
-    indianEquitySub: [{
-      'Indian Equity - Large and Mid Cap': [],
-    },
-    {
-      'Indian Equity - Large Cap': [],
-    },
-    {
-      'Indian Equity - Mid Cap': [],
-    },
-    {
-      'Indian Equity - Small Cap': [],
-    },
-    {
-      'Indian Equity - Sector': [],
-    },
-    {
-      'Indian Equity - Factor': [],
-    },
-    {
-      'Indian Equity - Tax Saver (ELSS)': [],
-    },
-    {
-      'Indian Equity - Multi Cap': [],
-    },
+        indianEquitySub: [
+          { 'Indian Equity - Large and Mid Cap': [] },
+          { 'Indian Equity - Large Cap': [] },
+          { 'Indian Equity - Mid Cap': [] },
+          { 'Indian Equity - Small Cap': [] },
+          { 'Indian Equity - Sector': [] },
+          { 'Indian Equity - Factor': [] },
+          { 'Indian Equity - Tax Saver (ELSS)': [] },
+          { 'Indian Equity - Multi Cap': [] },
     ],
   },
-  ];
-  dataMapObj.fundType = [{
-    active: [],
-  }, {
-    'index-funds': [],
-  }, {
-    etf: [],
-  }];
-  dataMapObj.sort = [{
-    ListDropdown: [{
-      text: 'Popular',
-      value: 'inception_Ret',
-    },
-    {
-      text: '1 Year Returns',
-      value: 'oneYear_Ret',
-    },
-    {
-      text: '3 Year Returns',
-      value: 'threeYear_Ret',
-    },
-    {
-      text: '5 Year Returns',
-      value: 'fiveYear_Ret',
-    },
-    {
-      text: '7 Year Returns',
-      value: 'sevenYear_Ret',
-    },
-    {
-      text: '10 Year Returns',
-      value: 'tenYear_Ret',
-    },
+    ],
+    fundType: [
+      { active: [] },
+      { 'index-funds': [] },
+      { etf: [] },
+    ],
+    sort: [
+      {
+        ListDropdown: [
+          { text: 'Popular', value: 'inception_Ret' },
+          { text: '1 Year Returns', value: 'oneYear_Ret' },
+          { text: '3 Year Returns', value: 'threeYear_Ret' },
+          { text: '5 Year Returns', value: 'fiveYear_Ret' },
+          { text: '7 Year Returns', value: 'sevenYear_Ret' },
+          { text: '10 Year Returns', value: 'tenYear_Ret' },
     ],
     inception_Ret: [],
     oneYear_Ret: [],
@@ -239,131 +195,115 @@ function dataFilterfun(param) {
     fiveYear_Ret: [],
     sevenYear_Ret: [],
     tenYear_Ret: [],
-  }];
+      },
+    ],
+  };
 
-  for (const name of param) {
-    if (
-      [...name.fundsTaggingSection].includes('motilal-oswal:indian-equity-')
-    ) {
-      dataMapObj.fundCategory.forEach((element) => {
-        if (element['indian-equity']) {
-          element['indian-equity'].push(name.schcode);
-        }
-      });
-    }
-    if (
-      [...name.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced')
-    ) {
-      dataMapObj.fundCategory.forEach((element) => {
-        if (element['hybrid-&-balanced']) {
-          element['hybrid-&-balanced'].push(name.schcode);
-        }
-      });
-    }
-    if ([...name.fundsTaggingSection].includes('motilal-oswal:debt-&-liquid')) {
-      dataMapObj.fundCategory.forEach((element) => {
-        if (element['debt-&-liquid']) {
-          element['debt-&-liquid'].push(name.schcode);
-        }
-      });
-    }
-    if (
-      [...name.fundsTaggingSection].includes(
+  const { fundCategory } = dataMapObj;
+  const { fundType } = dataMapObj;
+  const fundSort = dataMapObj.sort[0];
+  const equitySub = fundCategory[fundCategory.length - 1].indianEquitySub;
+
+  const categoryMapKeys = [
+    'motilal-oswal:indian-equity-',
         'motilal-oswal:international-equity',
-      )
-    ) {
-      dataMapObj.fundCategory.forEach((element) => {
-        if (element['international-equity']) {
-          element['international-equity'].push(name.schcode);
+    'motilal-oswal:hybrid-&-balanced',
+    'motilal-oswal:multi-asset',
+    'motilal-oswal:commodity',
+    'motilal-oswal:debt-&-liquid',
+  ];
+  const categoryValues = [
+    'indian-equity',
+    'international-equity',
+    'hybrid-&-balanced',
+    'multi-asset',
+    'commodity',
+    'debt-&-liquid',
+  ];
+
+  const typeMapKeys = [
+    'motilal-oswal:active',
+    'motilal-oswal:index-funds',
+    'motilal-oswal:etf',
+  ];
+  const typeValues = ['active', 'index-funds', 'etf'];
+
+  for (let i = 0; i < param.length; i += 1) {
+    const name = param[i];
+    const tags = name.fundsTaggingSection;
+    const { schcode } = name;
+
+    // Category matching
+    for (let k = 0; k < categoryMapKeys.length; k += 1) {
+      if (tags.indexOf(categoryMapKeys[k]) !== -1) {
+        const category = categoryValues[k];
+        for (let j = 0; j < fundCategory.length; j += 1) {
+          if (fundCategory[j][category]) {
+            fundCategory[j][category].push(schcode);
+            break;
         }
-      });
-    }
-    if ([...name.fundsTaggingSection].includes('motilal-oswal:multi-asset')) {
-      dataMapObj.fundCategory.forEach((element) => {
-        if (element['multi-asset']) {
-          element['multi-asset'].push(name.schcode);
         }
-      });
-    }
-    if ([...name.fundsTaggingSection].includes('motilal-oswal:commodity')) {
-      dataMapObj.fundCategory.forEach((element) => {
-        if (element.commodity) {
-          element.commodity.push(name.schcode);
-        }
-      });
-    }
-    if ([...name.fundsTaggingSection].includes('motilal-oswal:index-funds')) {
-      dataMapObj.fundType.forEach((element) => {
-        if (element['index-funds']) {
-          element['index-funds'].push(name.schcode);
-        }
-      });
-    }
-    if ([...name.fundsTaggingSection].includes('motilal-oswal:active')) {
-      dataMapObj.fundType.forEach((element) => {
-        if (element.active) {
-          element.active.push(name.schcode);
-        }
-      });
-    }
-    if ([...name.fundsTaggingSection].includes('motilal-oswal:etf')) {
-      dataMapObj.fundType.forEach((element) => {
-        if (element.etf) {
-          element.etf.push(name.schcode);
-        }
-      });
-    }
-    if (name.fundSubCategorisation) {
-      dataMapObj.fundCategory[dataMapObj.fundCategory.length - 1].indianEquitySub.forEach((elementsub, index) => {
-        if (elementsub[name.fundSubCategorisation]) {
-          elementsub[name.fundSubCategorisation].push(name.schcode);
-        }
-      });
-    }
-    for (const element of name.returns) {
-      const key = Object.keys(element);
-      if (
-        [...key].includes('inception_Ret')
-        && !dataMapObj.sort[0].inception_Ret.includes(name.schcode)
-      ) {
-        dataMapObj.sort[0].inception_Ret.push(name.schcode);
-      }
-      if (
-        [...key].includes('oneYear_Ret')
-        && !dataMapObj.sort[0].oneYear_Ret.includes(name.schcode)
-      ) {
-        dataMapObj.sort[0].oneYear_Ret.push(name.schcode);
-      }
-      if (
-        [...key].includes('threeYear_Ret')
-        && !dataMapObj.sort[0].threeYear_Ret.includes(name.schcode)
-      ) {
-        dataMapObj.sort[0].threeYear_Ret.push(name.schcode);
-      }
-      if (
-        [...key].includes('fiveYear_Ret')
-        && !dataMapObj.sort[0].fiveYear_Ret.includes(name.schcode)
-      ) {
-        dataMapObj.sort[0].fiveYear_Ret.push(name.schcode);
-      }
-      if (
-        [...key].includes('sevenYear_Ret')
-        && !dataMapObj.sort[0].sevenYear_Ret.includes(name.schcode)
-      ) {
-        dataMapObj.sort[0].sevenYear_Ret.push(name.schcode);
-      }
-      if (
-        [...key].includes('tenYear_Ret')
-        && !dataMapObj.sort[0].tenYear_Ret.includes(name.schcode)
-      ) {
-        dataMapObj.sort[0].tenYear_Ret.push(name.schcode);
       }
     }
+
+    // Type matching
+    for (let k = 0; k < typeMapKeys.length; k += 1) {
+      if (tags.indexOf(typeMapKeys[k]) !== -1) {
+        const type = typeValues[k];
+        for (let j = 0; j < fundType.length; j += 1) {
+          if (fundType[j][type]) {
+            fundType[j][type].push(schcode);
+            break;
+        }
+        }
+      }
+    }
+
+    // Sub-categorization
+    const subCat = name.fundSubCategorisation;
+    if (subCat) {
+      for (let j = 0; j < equitySub.length; j += 1) {
+        if (equitySub[j][subCat]) {
+          equitySub[j][subCat].push(schcode);
+          break;
+        }
+      }
+    }
+
+    // Returns sorting
+    const { returns } = name;
+    if (returns && returns.length) {
+      for (let r = 0; r < returns.length; r += 1) {
+        const ret = returns[r];
+        if (ret.inception_Ret && fundSort.inception_Ret.indexOf(schcode) === -1) {
+          fundSort.inception_Ret.push(schcode);
+      }
+        if (ret.oneYear_Ret && fundSort.oneYear_Ret.indexOf(schcode) === -1) {
+          fundSort.oneYear_Ret.push(schcode);
+      }
+        if (ret.threeYear_Ret && fundSort.threeYear_Ret.indexOf(schcode) === -1) {
+          fundSort.threeYear_Ret.push(schcode);
+      }
+        if (ret.fiveYear_Ret && fundSort.fiveYear_Ret.indexOf(schcode) === -1) {
+          fundSort.fiveYear_Ret.push(schcode);
+      }
+        if (ret.sevenYear_Ret && fundSort.sevenYear_Ret.indexOf(schcode) === -1) {
+          fundSort.sevenYear_Ret.push(schcode);
+      }
+        if (ret.tenYear_Ret && fundSort.tenYear_Ret.indexOf(schcode) === -1) {
+          fundSort.tenYear_Ret.push(schcode);
+      }
+    }
+    }
+
+    const sh = schcode;
+    // Scheme Name
     dataMapObj.schemeName.push({
       schemeName: name.schDetail.schemeName,
-      schcode: name.schcode,
+      schcode: sh,
     });
   }
+
   return dataMapObj;
 }
 
@@ -418,60 +358,85 @@ function checkfilter(block) {
     dataMapMoObj.funddata = [];
     dataMapMoObj.funddata = dataCfObj.filter((el, index) => {
       if (tempData.length > 0) {
-        if (tempData.includes(el.schcode)) {
-          return el;
+        return tempData.includes(el.schcode);
         }
-      } else if (index < 9) {
-        return el;
-      }
+      return index < 9;
     });
   }
 
   viewFunction(block);
+  function filterGroup(Filterparam) {
+    const appliedList = block.querySelector('.applied-filter-list');
+    appliedList.innerHTML = '';
 
-  filterGroup(filterTag);
+    // Render applied filters
+    for (let i = 0; i < Filterparam.length; i += 1) {
+      appliedList.innerHTML += `<li class="applied-filter-name"><span>${Filterparam[i]}</span><img src="../../icons/cross-icon.svg" alt="cross icon"></li>`;
+    }
 
-  function filterGroup(filterTag) {
-    block.querySelector('.applied-filter-list').innerHTML = '';
-    filterTag.forEach((elli, index) => {
-      block.querySelector('.applied-filter-list').innerHTML += `<li class="applied-filter-name"><span>${elli}</span><img src="../../icons/cross-icon.svg" alt="cross icon"></li>`;
-    });
+    // Add remove logic for each tag
+    const appliedItems = Array.from(appliedList.children);
+    for (let i = 0; i < appliedItems.length; i += 1) {
+      const removeIcon = appliedItems[i].querySelector('img');
+      removeIcon.addEventListener('click', (event) => {
+        const updatedFilterTag = [];
+        const clickedText = event.target.closest('.applied-filter-name').querySelector('span').textContent;
 
-    // Add Filter Tag Logic
-    Array.from(block.querySelector('.applied-filter-list').children).forEach((el) => {
-      el.querySelector('img').addEventListener('click', (event) => {
-        // console.log(event.target.closest('.applied-filter-name').querySelector("span").textContent);
-        filterTag = [];
-        Array.from(block.querySelector('.applied-filter-list').children).forEach((el, index) => {
-          if (el.querySelector('span').textContent !== event.target.closest('.applied-filter-name').querySelector('span').textContent) {
-            filterTag.push(el.querySelector('span').textContent);
+        const currentItems = Array.from(appliedList.children);
+        for (let j = 0; j < currentItems.length; j += 1) {
+          const spanText = currentItems[j].querySelector('span').textContent;
+          if (spanText !== clickedText) {
+            updatedFilterTag.push(spanText);
           }
-        });
-        filterGroup(filterTag);
-        // unchecked logic
-        Array.from(block.querySelector('.filter-list-wrapper').children).forEach((el) => {
-          if (el.closest('.checkbox-label-container').querySelector('.innerindianequity')) {
-            el.closest('.checkbox-label-container').querySelectorAll('.innerindianequity input').forEach((elemsub) => {
-              if (!filterTag.includes(elemsub.nextElementSibling.textContent.trim())) {
-                elemsub.checked = false;
+        }
+
+        // Re-render after removal
+        filterGroup(updatedFilterTag);
+
+        // Uncheck logic
+        const filterItems = Array.from(block.querySelector('.filter-list-wrapper').children);
+        for (let k = 0; k < filterItems.length; k += 1) {
+          const item = filterItems[k];
+          const checkboxContainer = item.closest('.checkbox-label-container');
+          if (checkboxContainer) {
+            const innerEquity = checkboxContainer.querySelector('.innerIndianEquity');
+            if (innerEquity) {
+              const subInputs = innerEquity.querySelectorAll('input');
+              for (let l = 0; l < subInputs.length; l += 1) {
+                const innerFundFilter = subInputs[l].nextElementSibling.textContent.trim();
+                if (updatedFilterTag.indexOf(innerFundFilter) === -1) {
+                  subInputs[l].checked = false;
               }
-            });
+              }
           }
-          if (el.querySelector('input').getAttribute('id').includes('index') && !filterTag.includes(el.querySelector('input').nextElementSibling.textContent.replace(/\d+/g, '').replaceAll('()', ''))) {
-            el.querySelector('input').checked = false;
-          } else if (el.querySelector('input').getAttribute('id').includes('fundtype') && !filterTag.includes(el.closest('.checkbox-label-container').querySelector('label').textContent.replace(/\d+/g, '').replaceAll('()', ''))) {
-            el.querySelector('input').checked = false;
+
+            const inp = item.querySelector('input');
+            if (inp) {
+              const idAttr = inp.getAttribute('id');
+              const filterFundName = inp.nextElementSibling?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
+              const outerLabel = checkboxContainer.querySelector('label')?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
+
+              if (idAttr.includes('index') && filterFundName && updatedFilterTag.indexOf(filterFundName) === -1) {
+                inp.checked = false;
+              } else if (idAttr.includes('fundtype') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) {
+                inp.checked = false;
           }
+
           checkfilter(block);
-        });
-      });
+            }
+          }
+        }
     });
   }
+  }
+
+  filterGroup(filterTag);
 }
 
 function applyFunction(block) {
-  dataMapMoObj.tempMobReturn = dataMapMoObj.tempMobReturn === undefined ? [] : dataMapMoObj.tempMobReturn;
-  dataMapMoObj.tempMobReturn = dataMapMoObj.tempMobReturn.length !== 0 ? dataMapMoObj.tempMobReturn : dataCfObj.slice(0, 9);
+  let temp = dataMapMoObj.tempMobReturn === undefined ? [] : dataMapMoObj.tempMobReturn;
+  temp = dataMapMoObj.tempMobReturn.length !== 0 ? temp : dataCfObj.slice(0, 9);
+  dataMapMoObj.tempMobReturn = temp;
   if (Array.from(block.querySelector('.filter-overlay').classList).includes('active')) {
     dataMapMoObj.funddata = dataMapMoObj.tempMobReturn;
     dataMapMoObj.tempMobReturn = [];
@@ -485,17 +450,16 @@ function applyFunction(block) {
     viewFunction(block);
   }
 }
-
 export default function decorate(block) {
   Array.from(block.closest('.section').children).forEach((el, index) => {
     el.classList.add(`item${index + 1}`);
   });
   Array.from(block.children).forEach((el, index) => {
     el.classList.add(`block-item${index + 1}`);
-    Array.from(el.children).forEach((elsub, subindex) => {
-      elsub.classList.add(`block-subitem${subindex + 1}`);
-      Array.from(elsub.children).forEach((finelsub, indexind) => {
-        finelsub.classList.add(`block-subitem-finelsub${indexind + 1}`);
+    Array.from(el.children).forEach((elsub, indexsub) => {
+      elsub.classList.add(`block-subitem${indexsub + 1}`);
+      Array.from(elsub.children).forEach((finelsub, indexin) => {
+        finelsub.classList.add(`block-subitem-finelsub${indexin + 1}`);
       });
     });
   });
@@ -763,9 +727,6 @@ export default function decorate(block) {
                 {
                   class: "filter-list-wrapper",
                 },
-                // div({class:"fundcategory-label"},
-                //   span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
-                // ),
                 ...dataMapMoObj.data.fundCategory.map((element, index) => {
                   const indexeq = index === 0 ? "indaneqsub" : "";
                   if (
@@ -795,14 +756,9 @@ export default function decorate(block) {
                             onclick: (event) => {
                               if (window.innerWidth < 786) {
                                 const dataattr = event.target
-                                  .getAttribute("dataattr")
-                                  .split("-");
-                                const tempdata = dataCfObj.filter((el) => {
-                                  if (dataattr.includes(el.schcode)) {
-                                    return el;
-                                  }
-                                });
-                                console.log(tempdata);
+                                  .getAttribute('dataattr')
+                                  .split('-');
+                                const tempdata = dataCfObj.filter((el) => (dataattr.includes(el.schcode) ? el : ''));
                                 dataMapMoObj.tempMobReturn = [];
                                 dataMapMoObj.tempMobReturn = tempdata;
                               } else {
@@ -822,143 +778,132 @@ export default function decorate(block) {
                   }
                   return Object.keys(element)[0] !== "indianEquitySub"
                     ? div(
-                        {
-                          class: `checkbox-label-container ${indexeq}`,
-                        },
-                        input({
-                          class: "categorey-direct",
-                          type: "checkbox",
-                          id: `index${index + 1}`,
-                          dataattr: element[Object.keys(element)[0]].join("-"),
-                          onclick: (event) => {
-                            const fundScheme = event.target
-                              .getAttribute("dataattr")
-                              .split("-");
-                            // viewFunction(block);
-                            if (event.target.closest(".indaneqsub")) {
-                              const el = event.target.closest(".indaneqsub");
-                              if (el.querySelector(".innerindianequity")) {
-                                el.querySelectorAll(
-                                  ".innerindianequity input"
-                                ).forEach((elemsub) => {
-                                  elemsub.checked =
-                                    el.querySelector("input").checked;
-                                });
-                              }
-                            }
-                            if (window.innerWidth < 786) {
-                              const dataattr = event.target
-                                .getAttribute("dataattr")
-                                .split("-");
-                              const tempdata = dataCfObj.filter((el) => {
-                                if (dataattr.includes(el.schcode)) {
-                                  return el;
-                                }
-                              });
-                              console.log(tempdata);
-                              dataMapMoObj.tempMobReturn = [];
-                              dataMapMoObj.tempMobReturn = tempdata;
-                            } else {
-                              checkfilter(block);
-                            }
-                          },
-                        }),
-                        div(
-                          { class: "label-tooltip-wrap" },
-                          label(
-                            {
-                              for: `index${index + 1}`,
-                            },
-                            capitalizeEachWord(
-                              Object.keys(element)[0].replaceAll("-", " ")
-                            ),
-                            span(
-                              {
-                                class: "fund-length",
-                              },
-                              `(${element[Object.keys(element)[0]].length})`
-                            )
-                          ),
-                          div(
-                            { class: "tooltip-wrap" },
-                            img({
-                              src: "../../icons/filter-info.svg",
-                              alt: "Filter Info Icon",
-                            }),
-                            p(
-                              { class: "tooltip-text" },
-                              "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
-                            )
-                          )
-                        ),
-                        capitalizeEachWord(
-                          Object.keys(element)[0].replaceAll("-", " ")
-                        ) === "Indian Equity"
-                          ? div(
-                              {
-                                class: "innerindianequity",
-                              },
-                              dataMapMoObj[`${index}ArrayDoc`]
-                            )
-                          : ""
-                      )
-                    : "";
-                }),
-                ...dataMapMoObj.data.fundType.map((element, index) =>
-                  div(
-                    {
-                      class: "checkbox-label-container",
-                    },
-                    input({
-                      class: "categorey-direct",
-                      type: "checkbox",
-                      id: `fundtype${index + 1}`,
-                      dataattr: element[Object.keys(element)[0]].join("-"),
-                      onclick: (event) => {
-                        // checkfilter(block);
-                        if (window.innerWidth < 786) {
-                          const dataattr = event.target
-                            .getAttribute("dataattr")
-                            .split("-");
-                          const tempdata = dataCfObj.filter((el) => {
-                            if (dataattr.includes(el.schcode)) {
-                              return el;
-                            }
-                          });
-                          console.log(tempdata);
-                          dataMapMoObj.tempMobReturn = [];
-                          dataMapMoObj.tempMobReturn = tempdata;
-                        } else {
-                          checkfilter(block);
-                        }
-                        // viewFunction(block);
+                      {
+                        class: `checkbox-label-container ${indexeq}`,
                       },
-                    }),
-                    div(
-                      { class: "label-tooltip-wrap" },
-                      label(
-                        {
-                          for: `fundtype${index + 1}`,
+                      input({
+                        class: 'categorey-direct',
+                        type: 'checkbox',
+                        id: `index${index + 1}`,
+                        dataattr: element[Object.keys(element)[0]].join('-'),
+                        onclick: (event) => {
+                          // const fundScheme = event.target
+                          //   .getAttribute('dataattr')
+                          //   .split('-');
+                          if (event.target.closest('.indaneqsub')) {
+                            const el = event.target.closest('.indaneqsub');
+                            if (el.querySelector('.innerindianequity')) {
+                              el.querySelectorAll(
+                                '.innerindianequity input',
+                              ).forEach((elemsub) => {
+                                elemsub.checked = el.querySelector('input').checked;
+                              });
+                            }
+                          }
+                          if (window.innerWidth < 786) {
+                            const dataattr = event.target
+                              .getAttribute('dataattr')
+                              .split('-');
+                            const tempdata = dataCfObj.filter((el) => (dataattr.includes(el.schcode) ? el : ''));
+                            dataMapMoObj.tempMobReturn = [];
+                            dataMapMoObj.tempMobReturn = tempdata;
+                          } else {
+                            checkfilter(block);
+                          }
                         },
-                        capitalizeEachWord(
-                          Object.keys(element)[0].replaceAll("-", " ")
-                        ),
-                        span(`(${element[Object.keys(element)[0]].length})`)
-                      ),
+                      }),
                       div(
-                        { class: "tooltip-wrap" },
-                        img({
-                          src: "../../icons/filter-info.svg",
-                          alt: "Filter Info Icon",
-                        }),
-                        p(
-                          { class: "tooltip-text" },
-                          "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                        { class: 'label-tooltip-wrap' },
+                        label(
+                          {
+                            for: `index${index + 1}`,
+                          },
+                          capitalizeEachWord(
+                            Object.keys(element)[0].replaceAll('-', ' '),
+                          ),
+                          span(
+                            {
+                              class: 'fund-length',
+                            },
+                          `(${element[Object.keys(element)[0]].length})`,
+                          ),
+                        ),
+                        div(
+                          { class: 'tooltip-wrap' },
+                          img({
+                            src: '../../icons/filter-info.svg',
+                            alt: 'Filter Info Icon',
+                          }),
+                          p(
+                            { class: 'tooltip-text' },
+                            'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
+                          ),
+                        ),
+                      ),
+                      capitalizeEachWord(
+                        Object.keys(element)[0].replaceAll('-', ' '),
+                      ) === 'Indian Equity'
+                        ? div(
+                          {
+                            class: 'innerindianequity',
+                          },
+                          dataMapMoObj[`${index}ArrayDoc`],
                         )
-                      )
+                        : '',
                     )
-                  )
-                )
+                    : '';
+                }),
+                ...dataMapMoObj.data.fundType.map((element, index) => div(
+                  {
+                    class: 'checkbox-label-container',
+                  },
+                  input({
+                    class: 'categorey-direct',
+                    type: 'checkbox',
+                    id: `fundtype${index + 1}`,
+                    dataattr: element[Object.keys(element)[0]].join('-'),
+                    onclick: (event) => {
+                      // checkfilter(block);
+                      if (window.innerWidth < 786) {
+                        const dataattr = event.target
+                          .getAttribute('dataattr')
+                          .split('-');
+                        const tempdata = dataCfObj.filter((el) => dataattr.includes(el.schcode));
+
+                        dataMapMoObj.tempMobReturn = [];
+                        dataMapMoObj.tempMobReturn = tempdata;
+                      } else {
+                        checkfilter(block);
+                      }
+                      // viewFunction(block);
+                    },
+                  }),
+                  div(
+                    { class: 'label-tooltip-wrap' },
+                    label(
+                      {
+                        for: `fundtype${index + 1}`,
+                      },
+                      capitalizeEachWord(
+                        Object.keys(element)[0].replaceAll('-', ' '),
+                      ),
+                      span(
+                        `(${element[Object.keys(element)[0]].length})`,
+                      ),
+                    ),
+                    div(
+                      { class: 'tooltip-wrap' },
+                      img({
+                        src: '../../icons/filter-info.svg',
+                        alt: 'Filter Info Icon',
+                      }),
+                      p(
+                        { class: 'tooltip-text' },
+                        'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
+                      ),
+                    ),
+                  ),
+                )),
               ),
               div(
                 {
@@ -966,8 +911,8 @@ export default function decorate(block) {
                 },
                 button(
                   {
-                    class: "close-btn",
-                    onclick: (event) => {
+                    class: 'close-btn',
+                    onclick: () => {
                       block
                         .querySelector(".filter-overlay")
                         .classList.remove("active");
@@ -1120,11 +1065,10 @@ export default function decorate(block) {
                         class: "radio-label",
                       },
                       input({
-                        type: "radio",
-                        id: "sinceinp",
-                        name: "returns",
-                        dataattr:
-                          dataMapMoObj.data.sort[0].inception_Ret.join("-"),
+                        type: 'radio',
+                        id: 'sinceinp',
+                        name: 'returns',
+                        dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
                       }),
                       label(
                         {
@@ -1138,11 +1082,10 @@ export default function decorate(block) {
                         class: "radio-label",
                       },
                       input({
-                        type: "radio",
-                        id: "oneyear",
-                        name: "returns",
-                        dataattr:
-                          dataMapMoObj.data.sort[0].oneYear_Ret.join("-"),
+                        type: 'radio',
+                        id: 'oneyear',
+                        name: 'returns',
+                        dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
                       }),
                       label(
                         {
@@ -1156,11 +1099,10 @@ export default function decorate(block) {
                         class: "radio-label",
                       },
                       input({
-                        type: "radio",
-                        id: "threeyear",
-                        name: "returns",
-                        dataattr:
-                          dataMapMoObj.data.sort[0].threeYear_Ret.join("-"),
+                        type: 'radio',
+                        id: 'threeyear',
+                        name: 'returns',
+                        dataattr: dataMapMoObj.data.sort[0].threeYear_Ret.join('-'),
                       }),
                       label(
                         {
@@ -1174,11 +1116,10 @@ export default function decorate(block) {
                         class: "radio-label",
                       },
                       input({
-                        type: "radio",
-                        id: "fiveyear",
-                        name: "returns",
-                        dataattr:
-                          dataMapMoObj.data.sort[0].fiveYear_Ret.join("-"),
+                        type: 'radio',
+                        id: 'fiveyear',
+                        name: 'returns',
+                        dataattr: dataMapMoObj.data.sort[0].fiveYear_Ret.join('-'),
                       }),
                       label(
                         {
@@ -1192,11 +1133,10 @@ export default function decorate(block) {
                         class: "radio-label",
                       },
                       input({
-                        type: "radio",
-                        id: "tenyear",
-                        name: "returns",
-                        dataattr:
-                          dataMapMoObj.data.sort[0].sevenYear_Ret.join("-"),
+                        type: 'radio',
+                        id: 'tenyear',
+                        name: 'returns',
+                        dataattr: dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
                       }),
                       label(
                         {
@@ -1210,11 +1150,10 @@ export default function decorate(block) {
                         class: "radio-label",
                       },
                       input({
-                        type: "radio",
-                        id: "tenyear",
-                        name: "returns",
-                        dataattr:
-                          dataMapMoObj.data.sort[0].tenYear_Ret.join("-"),
+                        type: 'radio',
+                        id: 'tenyear',
+                        name: 'returns',
+                        dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                       }),
                       label(
                         {
@@ -1232,8 +1171,8 @@ export default function decorate(block) {
                 },
                 button(
                   {
-                    class: "closebtn",
-                    onclick: (event) => {
+                    class: 'closebtn',
+                    onclick: () => {
                       block
                         .querySelector(".filter-overlay")
                         .classList.remove("active");
@@ -1288,7 +1227,6 @@ export default function decorate(block) {
                   {
                     class: "selectedtext",
                     onclick: (event) => {
-                      console.log(event.target);
                       event.target.nextElementSibling.classList.add(
                         "dropdown-active"
                       );
@@ -1339,7 +1277,6 @@ export default function decorate(block) {
                   {
                     class: "selectedtext",
                     onclick: (event) => {
-                      console.log(event.target);
                       event.target.nextElementSibling.classList.add(
                         "dropdown-active"
                       );
@@ -1362,14 +1299,9 @@ export default function decorate(block) {
                         .closest(".return-select-container")
                         .querySelector("p").innerText = name;
                       const dataattr = event.target
-                        .getAttribute("dataattr")
-                        .split("-");
-                      const tempdata = dataCfObj.filter((el) => {
-                        if (dataattr.includes(el.schcode)) {
-                          return el;
-                        }
-                      });
-                      console.log(tempdata);
+                        .getAttribute('dataattr')
+                        .split('-');
+                      const tempdata = dataCfObj.filter((el) => (dataattr.includes(el.schcode) ? el : ''));
                       dataMapMoObj.selectreturns = name;
                       dataMapMoObj.funddata = [];
                       dataMapMoObj.funddata = tempdata;
@@ -1378,41 +1310,37 @@ export default function decorate(block) {
                   },
                   li(
                     {
-                      dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join("-"),
+                      dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
                     },
                     "1 YEAR"
                   ),
                   li(
                     {
-                      dataattr:
-                        dataMapMoObj.data.sort[0].threeYear_Ret.join("-"),
+                      dataattr: dataMapMoObj.data.sort[0].threeYear_Ret.join('-'),
                     },
                     "3 YEARS"
                   ),
                   li(
                     {
-                      dataattr:
-                        dataMapMoObj.data.sort[0].fiveYear_Ret.join("-"),
+                      dataattr: dataMapMoObj.data.sort[0].fiveYear_Ret.join('-'),
                     },
                     "5 YEARS"
                   ),
                   li(
                     {
-                      dataattr:
-                        dataMapMoObj.data.sort[0].sevenYear_Ret.join("-"),
+                      dataattr: dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
                     },
                     "7 YEARS"
                   ),
                   li(
                     {
-                      dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join("-"),
+                      dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                     },
                     "10 YEARS"
                   ),
                   li(
                     {
-                      dataattr:
-                        dataMapMoObj.data.sort[0].inception_Ret.join("-"),
+                      dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
                     },
                     "SINCE INCEPTION"
                   )
@@ -1475,10 +1403,10 @@ export default function decorate(block) {
                   class: "fund-toggle-wrap",
                 },
                 input({
-                  type: "checkbox",
-                  id: "toggle",
-                  "aria-label": "Switch between Direct and Regular mode",
-                  onclick: (event) => {
+                  type: 'checkbox',
+                  id: 'toggle',
+                  'aria-label': 'Switch between Direct and Regular mode',
+                  onclick: () => {
                     viewFunction(block);
                   },
                 }),
@@ -1630,14 +1558,9 @@ export default function decorate(block) {
   searchFunctionality(block);
   Array.from(block.querySelector('.return-container .radio-label-container').children).forEach((el) => {
     el.querySelector('input').addEventListener('click', (event) => {
-      console.log(event.target.getAttribute('dataattr'));
       const dataattr = event.target.getAttribute('dataattr').split('-');
-      const tempdata = dataCfObj.filter((el) => {
-        if (dataattr.includes(el.schcode)) {
-          return el;
-        }
-      });
-      console.log(tempdata);
+      const tempdata = dataCfObj.filter((elem) => dataattr.includes(elem.schcode));
+
       dataMapMoObj.tempMobReturn = [];
       dataMapMoObj.tempMobReturn = tempdata;
       dataMapMoObj.selectreturnstemp = event.target.nextSibling.textContent.toUpperCase();
