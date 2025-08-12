@@ -1,4 +1,3 @@
-/*    */
 const dataMapMoObj = {
   ObjTemp: {
     inception_Ret: 'SINCE INCEPTION',
@@ -14,6 +13,7 @@ const dataMapMoObj = {
     '7 YEARS': 'sevenYear_Ret',
     '10 YEARS': 'tenYear_Ret',
   },
+
   icons: {
     'very-high': 'very-high-risk',
     'low-to-moderate': 'moderately-low-risk',
@@ -21,41 +21,41 @@ const dataMapMoObj = {
     moderate: 'moderate-risk',
     low: 'low-risk',
   },
-  "icons-nfo": {
+
+  iconsNfo: {
     'very-high': 'very-high-risk',
     'low-to-moderate': 'moderately-low-risk',
     high: 'high-risk',
     moderate: 'moderate-risk',
     low: 'low-risk',
   },
+
   selectreturns: '',
   schstar: [],
   tempMobReturn: [],
   selectreturnstemp: '',
+
   CLASS_PREFIXES: [
     'block-item',
     'block-subitem',
     'block-subitem-finelsub',
   ],
-  addIndexedClasses: function (parentElement, level = 0) {
-    if (level >= dataObj.CLASS_PREFIXES.length || !parentElement.children.length) {
+
+  addIndexed(parentElement, level = 0) {
+    if (level >= this.CLASS_PREFIXES.length || !parentElement.children.length) {
       return;
     }
+    const prefix = this.CLASS_PREFIXES[level];
+    const { children } = parentElement; // Cache children for clarity.
 
-    const prefix = dataObj.CLASS_PREFIXES[level];
-    const {
-      children
-    } = parentElement; // Cache the children collection for clarity.
-
-    for (let i = 0; i < children.length; i++) {
+    for (let i = 0; i < children.length; i += 1) {
       const child = children[i];
-      const index = i + 1; // Class names are typically 1-based, not 0-based.
+      const index = i + 1; // Class names are typically 1-based.
 
       child.classList.add(`${prefix}${index}`);
-
-      dataObj.addIndexedClasses(child, level + 1);
+      this.addIndexed(child, level + 1);
     }
-  }
+  },
 };
 
 export default dataMapMoObj;
