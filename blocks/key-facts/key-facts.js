@@ -17,19 +17,16 @@ import {
 export default function decorate(block) {
   Array.from(block.children).forEach((el, index) => {
     el.classList.add(`block-item${index + 1}`);
-    Array.from(el.children).forEach((elsub, index) => {
-      elsub.classList.add(`block-subitem${index + 1}`);
-      Array.from(elsub.children).forEach((finelsub, index) => {
-        finelsub.classList.add(`block-subitem-finelsub${index + 1}`);
+    Array.from(el.children).forEach((elsub, ind) => {
+      elsub.classList.add(`block-subitem${ind + 1}`);
+      Array.from(elsub.children).forEach((finelsub, index1) => {
+        finelsub.classList.add(`block-subitem-finelsub${index1 + 1}`);
       });
     });
   });
 
-  const data = dataCfObj.filter((element) => {
-    if (element.schcode === 'US') {
-      return element;
-    }
-  });
+  const data = dataCfObj.filter((element) => element.schcode === 'US');
+
   function dateFormat(date) {
     const formattedDate = new Date(date).toLocaleDateString('en-GB', {
       day: '2-digit',

@@ -16,7 +16,6 @@
     "build:json:definitions": "merge-json-cli -i \"models/_component-definition.json\" -o \"component-definition.json\"",
     "build:json:filters": "merge-json-cli -i \"models/_component-filters.json\" -o \"component-filters.json\"",
     "prepare": "husky",
-    "fix-scss": "stylelint --fix **/**/*.scss",
     "fix-css": "stylelint --fix **/**/*.css",
     "fix-scss": "stylelint --fix **/**/*.scss",
     "fix-js": "eslint --fix **/**/*.js"

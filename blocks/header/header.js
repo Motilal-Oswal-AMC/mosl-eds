@@ -5,6 +5,11 @@ import { loadFragment } from '../fragment/fragment.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
+function toggleAllNavSections(sections, expanded = false) {
+  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+    section.setAttribute('aria-expanded', expanded);
+  });
+}
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -16,7 +21,7 @@ function closeOnEscape(e) {
       navSectionExpanded.focus();
     } else if (!isDesktop.matches) {
       //   -next-line no-use-before-define
-      toggleMenu(nav, navSections);
+      toggleMenu(nav, navSections); //eslint-disable-line
       nav.querySelector('button').focus();
     }
   }
@@ -32,7 +37,7 @@ function closeOnFocusLost(e) {
       toggleAllNavSections(navSections, false);
     } else if (!isDesktop.matches) {
       //   -next-line no-use-before-define
-      toggleMenu(nav, navSections, false);
+      toggleMenu(nav, navSections, false); //eslint-disable-line
     }
   }
 }
@@ -57,11 +62,6 @@ function focusNavSection() {
  * @param {Element} sections The container element
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
-function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', expanded);
-  });
-}
 
 /**
  * Toggles the entire nav

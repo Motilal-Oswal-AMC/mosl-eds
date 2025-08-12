@@ -37,7 +37,7 @@
   font-size: 40px;
   line-height: 48px;
   color: #2e2a94;
-  font-family: ButlerPro, sans-serif;
+  font-family: butlerPro, sans-serif;
   font-weight: 700;
 }
 
@@ -119,11 +119,6 @@
   background-color: transparent;
 }
 
-.our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
-  color: #616161;
-}
-
-/* stylelint-disable-next-line no-duplicate-selectors */
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
   color: #616161;
 }
@@ -442,8 +437,8 @@
   }
 }
 
-.our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper p,
-.our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .sort-wrapper p {
+.our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper label,
+.our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .sort-wrapper label {
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
@@ -453,8 +448,8 @@
 }
 
 @media (width <= 768px) {
-  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper p,
-  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .sort-wrapper p {
+  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper label,
+  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .sort-wrapper label {
     font-size: 16px;
     line-height: 20px;
     color: #2e2a94;
@@ -467,12 +462,6 @@
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-@media (width <= 768px) {
-  .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper .filter-text {
-    gap: 8px;
-  }
 }
 
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container .filter-wrapper .clearall-btn {
@@ -616,7 +605,7 @@
 }
 
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container {
-          user-select: none;
+  user-select: none;
   display: flex;
   align-items: center;
   padding: 12px 0;
@@ -1018,8 +1007,8 @@
   gap: 4px;
 }
 
-.our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container .sort-pop-label,
-.our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container .sort-pop-label {
+.our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container label,
+.our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container label {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
@@ -1469,7 +1458,7 @@
   font-size: 18px;
   line-height: 24px;
   color: #fff;
-  font-family: ButlerPro, sans-serif;
+  font-family: butlerPro, sans-serif;
   font-weight: 700;
 }
 

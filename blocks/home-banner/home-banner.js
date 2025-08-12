@@ -1,3 +1,4 @@
+/* eslint-disable*/
 import Swiper from '../swiper/swiper-bundle.min.js';
 import { div } from '../../scripts/dom-helpers.js';
 

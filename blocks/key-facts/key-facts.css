@@ -1,4 +1,5 @@
 @import "../../../styles/fonts.css";
+
 .key-facts-container {
   display: flex;
   flex-direction: column;
@@ -7,13 +8,15 @@
   background-color: #fff;
   padding: 40px 24px;
   border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.0509803922);
+  border: 1px solid rgb(0 0 0 / 5.1%);
 }
+
 @media (width <= 768px) {
   .key-facts-container {
     padding: 40px 16px;
   }
 }
+
 .key-facts-container .default-content-wrapper li {
   display: flex;
   flex-wrap: wrap;
@@ -21,6 +24,7 @@
   list-style: none;
   align-items: center;
 }
+
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper li {
     flex-direction: column;
@@ -28,11 +32,12 @@
     align-items: start;
   }
 }
+
 .key-facts-container .default-content-wrapper li h4 {
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: butlerPro, sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
@@ -40,23 +45,26 @@
   justify-content: center;
   align-items: center;
 }
+
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper li h4 {
     font-size: 24px;
     line-height: 32px;
   }
 }
+
 .key-facts-container .default-content-wrapper li h4 span {
   max-width: 72px;
   width: 100%;
   max-height: 72px;
   height: 100%;
 }
+
 .key-facts-container .default-content-wrapper li ol li {
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   padding: 4px;
   margin: 0;
@@ -66,43 +74,50 @@
   justify-content: center;
   align-items: center;
 }
+
 .key-facts-container .key-facts .key-facts-section {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective {
+
+.key-facts-container .key-facts .key-facts-section .investment-objective {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(1) {
+
+.key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   margin: 0;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(2) p {
+
+.key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(2) p {
   font-size: 20px;
   line-height: 24px;
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   margin: 0;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
 }
+
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount {
     flex-wrap: wrap;
@@ -110,47 +125,55 @@
     height: unset;
   }
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div p:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   margin: 0;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div p:nth-child(2) {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   margin: 0;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans {
     flex-direction: column-reverse;
   }
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups {
   display: flex;
   justify-content: space-between;
   height: 60px;
 }
+
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups {
     height: unset;
@@ -158,6 +181,7 @@
     gap: 24px 10px;
   }
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div {
   max-width: 192px;
   width: 100%;
@@ -165,38 +189,44 @@
   flex-direction: column;
   gap: 4px;
 }
+
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div {
     max-width: 164px;
     width: 100%;
   }
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1) {
   text-wrap: nowrap;
   font-size: 14px;
   line-height: 16px;
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   margin: 0;
 }
+
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1) {
     text-wrap: wrap;
   }
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2) {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   margin: 0;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
   display: flex;
   height: 60px;
 }
+
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
     height: unset;
@@ -205,6 +235,7 @@
     justify-content: space-between;
   }
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
   display: flex;
   flex-direction: column;
@@ -212,58 +243,66 @@
   max-width: 192px;
   width: 100%;
 }
+
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
     max-width: 164px;
     width: 100%;
   }
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   margin: 0;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   margin: 0;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) p {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   margin: 0;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy p {
   font-size: 14px;
   line-height: 16px;
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
+
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list li {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   margin: 0;
-}/*# sourceMappingURL=key-facts.css.map */
+}

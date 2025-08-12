@@ -1,5 +1,3 @@
-/*    */
-
 /**
  * Transforms a content block into an accessible accordion.
  * - Only one item can be open (expanded) at a time.

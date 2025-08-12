@@ -29,7 +29,7 @@
 .newsletter-subscription-container .default-content-wrapper p:nth-child(1) {
   color: #242177;
   text-align: center;
-  font-family: ButlerPro, sans-serif;
+  font-family: butlerPro, sans-serif;
   font-size: 44px;
   font-style: normal;
   font-weight: 600;
@@ -100,7 +100,7 @@
   margin: 0;
   color: #242177;
   text-align: center;
-  font-family: ButlerPro, sans-serif;
+  font-family: butlerPro, sans-serif;
   font-size: 44px;
   font-style: normal;
   font-weight: 600;
@@ -170,6 +170,14 @@
   text-transform: uppercase;
 }
 
+.newsletter-subscription-container .block .newsitem2 .form-container .formwrapper .inputfield input::placeholder {
+  color: #616161;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
 .newsletter-subscription-container .block .newsitem2 .form-container .formwrapper .inputfield input {
   display: flex;
   height: 40px;
@@ -179,22 +187,6 @@
   border: 1px solid #9E9E9E;
   padding: 8px 12px;
   border-radius: 6px;
-}
-
-.newsletter-subscription-container .block .newsitem2 .form-container .formwrapper .inputfield input::placeholder {
-  color: #616161;
-  font-family: Poppins, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20px;
-}
-
-.newsletter-subscription-container .block .newsitem2 .form-container .formwrapper .inputfield input::placeholder {
-  color: #616161;
-  font-family: Poppins, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20px;
 }
 
 .newsletter-subscription-container .block .newsitem2 .form-container .formwrapper .inputfield .error {

@@ -700,11 +700,6 @@
         "label": "Alt Text"
       },
       {
-        "component": "text",
-        "name": "title",
-        "label": "Title"
-      },
-      {
         "component": "richtext",
         "name": "col2_text",
         "value": "",
@@ -732,13 +727,6 @@
         "component": "text",
         "name": "trdimageAlt",
         "label": "Alt Text"
-      },
-      {
-        "component": "richtext",
-        "name": "col3_text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
       }
     ]
   },

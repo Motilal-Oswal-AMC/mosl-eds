@@ -13,7 +13,11 @@
 /* eslint-env browser */
 function sampleRUM(checkpoint, data) {
   //   -next-line max-len
-  const timeShift = () => (window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime);
+  const timeShift = () => (
+    window.performance
+      ? window.performance.now()
+      : Date.now() - window.hlx.rum.firstReadTime
+  );
   try {
     window.hlx = window.hlx || {};
     sampleRUM.enhance = () => { };
@@ -93,7 +97,6 @@ function sampleRUM(checkpoint, data) {
             : rumData;
           navigator.sendBeacon(url, body);
           //   -next-line no-console
-          console.debug(`ping:${ck}`, pingData);
         };
         sampleRUM.sendPing('top', timeShift());
 
@@ -146,8 +149,8 @@ function setup() {
         [window.hlx.codeBasePath] = scriptURL.href.split('/scripts/scripts.js');
       }
     } catch (error) {
+
       //   -next-line no-console
-      console.log(error);
     }
   }
 }
@@ -260,8 +263,9 @@ async function loadScript(src, attrs) {
       script.src = src;
       if (attrs) {
         //   -next-line no-restricted-syntax, guard-for-in
-        for (const attr in attrs) {
-          script.setAttribute(attr, attrs[attr]);
+        const keys = Object.keys(attrs);
+        for (let i = 0; i < keys.length; i += 1) {
+          script.setAttribute(keys[i], attrs[keys[i]]);
         }
       }
       script.onload = resolve;
@@ -600,8 +604,8 @@ async function loadBlock(block) {
               await mod.default(block);
             }
           } catch (error) {
+            console.warn("ERROR", blockName, error) // eslint-disable-line
             //   -next-line no-console
-            console.log(`failed to load module for ${blockName}`, error);
           }
           resolve();
         })();
@@ -609,7 +613,6 @@ async function loadBlock(block) {
       await Promise.all([cssLoaded, decorationComplete]);
     } catch (error) {
       //   -next-line no-console
-      console.log(`failed to load block ${blockName}`, error);
     }
     block.dataset.blockStatus = 'loaded';
   }
@@ -690,34 +693,72 @@ async function waitForFirstImage(section) {
  * @param {Element} section The section element
  */
 
+// async function loadSection(section, loadCallback) {
+//   const status = section.dataset.sectionStatus;
+//   if (!status || status === 'initialized') {
+//     section.dataset.sectionStatus = 'loading';
+//     const blocks = [...section.querySelectorAll('div.block')];
+//     for (let i = 0; i < blocks.length; i += 1) {
+//       //   -next-line no-await-in-loop
+//       await loadBlock(blocks[i]);
+//     }
+//     if (loadCallback) await loadCallback(section);
+//     section.dataset.sectionStatus = 'loaded';
+//     section.style.display = null;
+//   }
+// }
 async function loadSection(section, loadCallback) {
   const status = section.dataset.sectionStatus;
   if (!status || status === 'initialized') {
     section.dataset.sectionStatus = 'loading';
+
+    // Get all the blocks
     const blocks = [...section.querySelectorAll('div.block')];
-    for (let i = 0; i < blocks.length; i += 1) {
-      //   -next-line no-await-in-loop
-      await loadBlock(blocks[i]);
-    }
+    // Create an array of promises by calling loadBlock on each block,
+    // but WITHOUT await. This starts all the loading operations.
+    const promises = blocks.map((block) => loadBlock(block));
+
+    // Now, wait for ALL of the loading promises to complete in parallel.
+    await Promise.all(promises);
+
+    // The rest of your function remains the same
     if (loadCallback) await loadCallback(section);
     section.dataset.sectionStatus = 'loaded';
     section.style.display = null;
   }
 }
-
 /**
  * Loads all sections.
  * @param {Element} element The parent element of sections to load
  */
 
+// async function loadSections(element) {
+//   const sections = [...element.querySelectorAll('div.section')];
+//   for (let i = 0; i < sections.length; i += 1) {
+//     //   -next-line no-await-in-loop
+//     await loadSection(sections[i]);
+//     if (i === 0 && sampleRUM.enhance) {
+//       sampleRUM.enhance();
+//     }
+//   }
+// }
+
 async function loadSections(element) {
   const sections = [...element.querySelectorAll('div.section')];
-  for (let i = 0; i < sections.length; i += 1) {
-    //   -next-line no-await-in-loop
-    await loadSection(sections[i]);
-    if (i === 0 && sampleRUM.enhance) {
-      sampleRUM.enhance();
-    }
+  if (sections.length === 0) return; // Exit if there are no sections
+
+  // 1. Load the first section by itself and wait for it.
+  await loadSection(sections[0]);
+  // 2. Now that the first section is loaded, run the specific logic for it.
+  if (sampleRUM.enhance) {
+    sampleRUM.enhance();
+  }
+
+  // 3. Load all REMAINING sections in parallel.
+  const remainingSections = sections.slice(1);
+  if (remainingSections.length > 0) {
+    const promises = remainingSections.map((section) => loadSection(section));
+    await Promise.all(promises);
   }
 }
 

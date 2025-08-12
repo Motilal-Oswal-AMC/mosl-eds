@@ -1,16 +1,11 @@
 /*    */
 import {
-  button,
   div,
-  label,
   option,
   select,
-  span,
   ul,
   li,
   h2,
-  p,
-  img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';
@@ -18,10 +13,10 @@ import dataMapMoObj from '../../scripts/constant.js';
 export default function decorate(block) {
   Array.from(block.children).forEach((element, index) => {
     element.classList.add(`compound-item${index + 1}`);
-    Array.from(element.children).forEach((subelement, index) => {
-      subelement.classList.add(`compound-sub-item${index + 1}`);
-      Array.from(subelement.children).forEach((innerelement, index) => {
-        innerelement.classList.add(`compound-inner-item${index + 1}`);
+    Array.from(element.children).forEach((subelement, ind) => {
+      subelement.classList.add(`compound-sub-item${ind + 1}`);
+      Array.from(subelement.children).forEach((innerelement, ind1) => {
+        innerelement.classList.add(`compound-inner-item${ind1 + 1}`);
       });
     });
   });
@@ -43,15 +38,13 @@ export default function decorate(block) {
     }
     finPlangrp.push(ret.plancode + ret.optioncode);
   });
-
-  const DirectPlanlistArr = cfObj[0].planList.filter((el) => {
-    if (el.planName === 'Regular' && finPlangrp.includes(el.groupedCode)) {
-      return el;
-    }
-  });
-  const classplan = DirectPlanlistArr.length !== 0 && tempReturns.length !== 0
-    ? ''
-    : ' not-provided';
+  const planFlow = 'Direct';
+  const DirectPlanlistArr = block.planList.filter(
+    (el) => el.planName === planFlow && finPlangrp.includes(el.groupedCode),
+  );
+  // const classplan = DirectPlanlistArr.length !== 0 && tempReturns.length !== 0
+  //   ? ''
+  //   : ' not-provided';
   const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
 
   const cardContainer = div(
@@ -84,9 +77,6 @@ export default function decorate(block) {
               },
               select(
                 {
-                  onchange: (event) => {
-                    planListEvent(event, block);
-                  },
                   'aria-label': 'Select Investment Plan',
                 },
                 ...DirectPlanlistArr.map((el) => option(
