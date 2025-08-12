@@ -44,23 +44,23 @@
         // margin-bottom: 40px;
 
         h3 {
-            @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+            @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
             margin: 0;
             padding-bottom: 4px;
 
             @include media(mobile) {
-                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
                 padding: 0 34px 4px;
             }
         }
 
         p {
             text-align: center;
-            @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $ButlerPro);
+            @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $butlerpro);
             margin: 0;
 
             @include media(mobile) {
-                @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $ButlerPro);
+                @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $butlerpro);
             }
         }
     }
@@ -89,7 +89,7 @@
                 gap: 8px;
                 border-radius: 4px;
                 background: $primary-blue;
-                @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $ButlerPro);
+                @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $butlerpro);
                 margin: 0;
             }
         }

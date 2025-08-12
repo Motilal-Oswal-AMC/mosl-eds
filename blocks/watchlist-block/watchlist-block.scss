@@ -56,20 +56,20 @@
             flex-direction: column;
 
             h2 {
-              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
 
               margin: 0;
 
               @include media(mobile) {
-                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
               }
             }
 
             .card-title-1 {
-              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
 
               @include media(mobile) {
-                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
               }
             }
           }

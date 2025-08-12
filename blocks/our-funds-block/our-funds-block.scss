@@ -34,7 +34,7 @@
       h1 {
         margin: 0;
 
-        @include font-style(40px, 48px, $primary-blue, 700, $ButlerPro);
+        @include font-style(40px, 48px, $primary-blue, 700, $butlerpro);
 
         @include media(mobile) {
           font-size: 34px;
@@ -1394,7 +1394,7 @@
                   24px,
                   $primary-white,
                   700,
-                  $ButlerPro
+                  $butlerpro
                 );
               }
             }

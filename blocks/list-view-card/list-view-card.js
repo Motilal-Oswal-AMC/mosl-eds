@@ -65,6 +65,12 @@ export default function decorate(block) {
         block.risk.riskType.toLowerCase().replaceAll(' ', '-')
       ]
     }.svg`;
+    const mop = block.fundIcon !== undefined
+      ? block.fundIcon.split('/').at(-1)
+      : 'MO_Midcap_Fund.png';
+    const mopsec = mop.split('.');
+    const mopthree = `${mopsec[0]}.svg`;
+
     const listcontainer = div(
       { class: 'nfo-list-container list-view-container' },
       div(
@@ -77,7 +83,7 @@ export default function decorate(block) {
               { class: 'logo-container' },
               img({
                 class: 'logoScheme',
-                src: block.fundIcon,
+                src: `../../icons/fundicon/${mopthree}`,
                 alt: 'BrandLogo',
               }),
             ),
@@ -153,6 +159,11 @@ export default function decorate(block) {
     );
     return listcontainer;
   }
+  const mop = block.fundIcon !== undefined
+    ? block.fundIcon.split('/').at(-1)
+    : 'MO_Midcap_Fund.png';
+  const mopsec = mop.split('.');
+  const mopfour = `${mopsec[0]}.svg`;
   const listcontainer = div(
     { class: 'list-view-container' },
     div(
@@ -161,7 +172,7 @@ export default function decorate(block) {
         { class: 'fund-name-wrapper', schcode: block.schcode },
         div(
           { class: 'logo-container' },
-          img({ class: 'logoScheme', src: block.fundIcon, alt: 'BrandLogo' }),
+          img({ class: 'logoScheme', src: `../../icons/fundicon/${mopfour}`, alt: 'BrandLogo' }),
         ),
         div(
           { class: 'fund-name-container' },

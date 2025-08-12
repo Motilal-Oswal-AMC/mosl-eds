@@ -26,12 +26,12 @@
             }
 
             li:first-child {
-                @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
 
                 margin-bottom: 16px;
 
                 @include media(mobile) {
-                    @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                    @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
                 }
             }
 
@@ -41,7 +41,7 @@
                 margin-bottom: 8px;
 
                 @include media(mobile) {
-                    @include font-style(20px, 28px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+                    @include font-style(20px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
                 }
             }
 
