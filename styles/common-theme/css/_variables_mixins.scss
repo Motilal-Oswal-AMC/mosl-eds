@@ -178,7 +178,7 @@ $font-weights: (
   color: $color;
   font-family: $family;
 
-  @if $weight !=null {
+  @if $weight != 'null' {
     font-weight: $weight;
   }
 }

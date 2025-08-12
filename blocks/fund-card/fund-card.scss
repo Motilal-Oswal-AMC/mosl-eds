@@ -419,7 +419,7 @@
           $line-height: 20px,
           $color: map.get($blue-1, b500),
           $weight: map.get($font-weights, regular),
-          $family: $Poppins
+          $family: $poppins
         );
 
         margin: 0;
@@ -443,7 +443,7 @@
             $line-height: 16px,
             $color: $primary-white,
             $weight: map.get($font-weights, medium),
-            $family: $Poppins
+            $family: $poppins
           );
         }
       }
@@ -1123,7 +1123,7 @@
             $line-height: 16px,
             $color: $primary-white,
             $weight: map.get($font-weights, medium),
-            $family: $Poppins
+            $family: $poppins
           );
         }
       }

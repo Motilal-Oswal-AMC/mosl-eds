@@ -37,7 +37,7 @@
         }
 
         p {
-            @include font-style(16px, 20px, $primary-blue, map.get($font-weights, regular), $Poppins);
+            @include font-style(16px, 20px, $primary-blue, map.get($font-weights, regular), $poppins);
 
             margin: 0;
             padding: 0;
@@ -103,7 +103,7 @@
                                 border-radius: map.get($radius, r40);
                                 border: 0.5px solid #585EF9;
                                 color: #2E2A94;
-                                font-family: $Poppins;
+                                font-family: $poppins;
                                 font-size: 12px;
                                 font-style: normal;
                                 font-weight: 400;
@@ -122,22 +122,22 @@
                         }
 
                         &>li:nth-child(2) {
-                            @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $Poppins);
+                            @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $poppins);
 
                             margin-bottom: 8px;
 
                             @include media(mobile) {
-                                @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $Poppins);
+                                @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $poppins);
 
                                 // margin-bottom: 8px;
                             }
                         }
 
                         &>li:nth-child(3) {
-                            @include font-style(16px, 24px, $color-text-body, map.get($font-weights, regular), $Poppins);
+                            @include font-style(16px, 24px, $color-text-body, map.get($font-weights, regular), $poppins);
 
                             @include media(mobile) {
-                                @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
+                                @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $poppins);
                             }
                         }
 
@@ -145,7 +145,7 @@
                             margin-top: 25px;
 
                             a {
-                                @include font-style(14px, 20px, $primary-blue, map.get($font-weights, regular), $Poppins);
+                                @include font-style(14px, 20px, $primary-blue, map.get($font-weights, regular), $poppins);
 
                                 text-decoration-line: underline;
                                 text-decoration-style: solid;
@@ -210,10 +210,10 @@
                 border-radius: map.get($radius, r8);
                 background: map.get($button-primary, default);
 
-                @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
+                @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $poppins);
 
                 @include media(mobile) {
-                    @include font-style(14px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
+                    @include font-style(14px, 20px, $primary-white, map.get($font-weights, medium), $poppins);
                 }
 
             }

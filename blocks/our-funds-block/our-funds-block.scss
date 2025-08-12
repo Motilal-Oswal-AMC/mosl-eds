@@ -104,7 +104,7 @@
         .search {
           width: 100%;
 
-          @include font-style(14px, 20px, $neutrals-black, 400, $Poppins);
+          @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
 
           border: none;
           outline: none;
@@ -168,7 +168,7 @@
           }
 
           .list-fund-name {
-            @include font-style(14px, 20px, $neutrals-black, 400, $Poppins);
+            @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
 
             border-bottom: 1px solid $neutrals-200;
             padding: 12px 36px;
@@ -235,7 +235,7 @@
           line-height: 0;
 
           span {
-            @include font-style(14px, 20px, $primary-blue, 400, $Poppins);
+            @include font-style(14px, 20px, $primary-blue, 400, $poppins);
 
             text-decoration-line: underline;
             text-underline-offset: 20%;
@@ -285,7 +285,7 @@
           }
 
           .trending-text {
-            @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
+            @include font-style(14px, 16px, $neutrals-black, 500, $poppins);
           }
         }
 
@@ -316,7 +316,7 @@
                   20px,
                   map.get($blue-1, b500),
                   400,
-                  $Poppins
+                  $poppins
                 );
 
                 @include media(mobile) {
@@ -402,13 +402,13 @@
             }
 
             p {
-              @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+              @include font-style(14px, 16px, $primary-blue, 600, $poppins);
 
               // cursor: pointer;
               margin: 0;
 
               @include media(mobile) {
-                @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
+                @include font-style(16px, 20px, $primary-blue, 500, $poppins);
               }
             }
           }
@@ -425,7 +425,7 @@
             }
 
             .clearall-btn {
-              @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
+              @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
 
               margin: 0;
               padding: 0;
@@ -495,7 +495,7 @@
                 border-bottom: 1px solid $neutrals-300;
 
                 span {
-                  @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
+                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
                 }
 
                 button {
@@ -505,7 +505,7 @@
                   border: none;
                   border-radius: 0;
 
-                  @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
+                  @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
                 }
               }
             }
@@ -525,7 +525,7 @@
                 .apply-btn {
                   border-left: 1px solid $neutrals-300;
 
-                  @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
+                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
                 }
               }
             }
@@ -590,7 +590,7 @@
                     20px,
                     $neutrals-black,
                     400,
-                    $Poppins
+                    $poppins
                   );
 
                   display: flex;
@@ -606,7 +606,7 @@
                       20px,
                       $neutrals-600,
                       400,
-                      $Poppins
+                      $poppins
                     );
                   }
                 }
@@ -649,7 +649,7 @@
                       16px,
                       $text-body-2,
                       400,
-                      $Poppins
+                      $poppins
                     );
 
                     &::after {
@@ -788,7 +788,7 @@
                 border-bottom: 1px solid $neutrals-300;
 
                 span {
-                  @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
+                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
                 }
               }
 
@@ -815,7 +815,7 @@
                       16px,
                       $neutrals-black,
                       600,
-                      $Poppins
+                      $poppins
                     );
                   }
 
@@ -860,7 +860,7 @@
                           20px,
                           $neutrals-black,
                           400,
-                          $Poppins
+                          $poppins
                         );
 
                         width: 100%;
@@ -893,11 +893,11 @@
                   border-radius: 0;
                   cursor: pointer;
 
-                  @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
+                  @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
                 }
 
                 button:last-of-type {
-                  @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
+                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
 
                   border-left: 1px solid $neutrals-300;
                 }
@@ -958,7 +958,7 @@
             gap: 4px;
 
             .sort-pop-label {
-              @include font-style(14px, 20px, $text-body-2, 400, $Poppins);
+              @include font-style(14px, 20px, $text-body-2, 400, $poppins);
             }
 
             .sort-select-container,
@@ -969,7 +969,7 @@
                   16px,
                   $neutrals-black,
                   map.get($font-weights, medium),
-                  $Poppins
+                  $poppins
                 );
 
                 margin: 0;
@@ -1034,7 +1034,7 @@
                     16px,
                     $neutrals-black,
                     map.get($font-weights, regular),
-                    $Poppins
+                    $poppins
                   );
 
                   padding: 12px;
@@ -1142,7 +1142,7 @@
                 16px,
                 map.get($blue-1, b700),
                 600,
-                $Poppins
+                $poppins
               );
             }
 
@@ -1214,7 +1214,7 @@
               border: 1px solid $primary-blue;
               cursor: pointer;
 
-              @include font-style(14px, 16px, $primary-blue, 500, $Poppins);
+              @include font-style(14px, 16px, $primary-blue, 500, $poppins);
             }
           }
         }
@@ -1257,7 +1257,7 @@
           padding: 4px 12px;
 
           span {
-            @include font-style(12px, 16px, $text-body-2, 400, $Poppins);
+            @include font-style(12px, 16px, $text-body-2, 400, $poppins);
           }
 
           .filter-cross-icon {
@@ -1415,7 +1415,7 @@
                     16px,
                     $primary-white,
                     600,
-                    $Poppins
+                    $poppins
                   );
 
                   display: flex;
@@ -1440,7 +1440,7 @@
                     16px,
                     $primary-white,
                     400,
-                    $Poppins
+                    $poppins
                   );
 
                   margin: 0;
@@ -1481,7 +1481,7 @@
             .list-header-text {
               margin: 0;
 
-              @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+              @include font-style(14px, 16px, $primary-blue, 600, $poppins);
             }
 
             .list-header-text:nth-of-type(1) {
@@ -1614,7 +1614,7 @@
                       16px,
                       map.get($blue-1, b400),
                       400,
-                      $Poppins
+                      $poppins
                     );
                   }
 
@@ -1624,7 +1624,7 @@
                       16px,
                       $primary-blue,
                       500,
-                      $Poppins
+                      $poppins
                     );
                   }
                 }
@@ -1652,7 +1652,7 @@
                 }
 
                 .cagr-value {
-                  @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+                  @include font-style(14px, 16px, $primary-blue, 600, $poppins);
 
                   display: flex;
                 }
@@ -1660,7 +1660,7 @@
                 .cagr-text {
                   margin: 0;
 
-                  @include font-style(12px, 16px, $neutrals-600, 400, $Poppins);
+                  @include font-style(12px, 16px, $neutrals-600, 400, $poppins);
                 }
               }
 
@@ -1730,7 +1730,7 @@
                     16px,
                     $primary-white,
                     500,
-                    $Poppins
+                    $poppins
                   );
                 }
               }
@@ -1786,7 +1786,7 @@
                           16px,
                           $primary-white,
                           600,
-                          $Poppins
+                          $poppins
                         );
 
                         display: flex;
@@ -1813,7 +1813,7 @@
                           16px,
                           $primary-white,
                           400,
-                          $Poppins
+                          $poppins
                         );
                       }
                     }

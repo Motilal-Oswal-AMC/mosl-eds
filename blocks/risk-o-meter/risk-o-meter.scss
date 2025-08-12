@@ -73,7 +73,7 @@
             padding: 0;
 
             //  padding: 0;
-            @include font-style(14px, 18px, #2C2A95, map.get($font-weights, semibold), $Poppins);
+            @include font-style(14px, 18px, #2C2A95, map.get($font-weights, semibold), $poppins);
         }
     }
 
@@ -96,7 +96,7 @@
             gap: 10px;
             align-self: stretch;
 
-            @include font-style(16px, 20px, #2C2A95, map.get($font-weights, semibold), $Poppins);
+            @include font-style(16px, 20px, #2C2A95, map.get($font-weights, semibold), $poppins);
         }
 
         ul {
@@ -106,7 +106,7 @@
 
             li {
                 color: #111;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 400;
@@ -116,7 +116,7 @@
 
         p {
             color: #111;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 12px;
             font-style: normal;
             font-weight: 400;

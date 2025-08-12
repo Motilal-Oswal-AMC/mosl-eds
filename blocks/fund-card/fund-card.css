@@ -1,5 +1,4 @@
 /*   alpha-value-notation */
-
 /*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
 /* stylelint-disable */
@@ -160,6 +159,7 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
+  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
   display: flex;
@@ -368,7 +368,7 @@
   font-size: 40px;
   line-height: 48px;
   color: #2e2a94;
-  font-family: "butlerPro", sans-serif;
+  font-family: "ButlerPro", sans-serif;
   font-weight: 700;
   margin: 0;
 }
@@ -439,6 +439,7 @@
   justify-content: flex-start;
   gap: 0;
   border-bottom: 1px solid #b7b7b7;
+  max-width: -moz-max-content;
   max-width: max-content;
 }
 .section.tabs-container .tabs-list .tabs-tab {
@@ -646,6 +647,7 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
+  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
   display: flex;
@@ -661,7 +663,9 @@
   font-weight: 400;
   border: none;
   outline: none;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
   width: 100%;
 }
@@ -906,13 +910,14 @@
   max-width: 49.53%;
   width: 100%;
   min-height: 180px;
+  height: -moz-max-content;
   height: max-content;
 }
 .section.index-fund .compound-item .compound-sub-item h2 {
   font-size: 28px;
   line-height: 32px;
   color: #2e2a94;
-  font-family: "butlerPro", sans-serif;
+  font-family: "ButlerPro", sans-serif;
   font-weight: 500;
   margin: 0;
   max-width: 306px;
@@ -969,7 +974,7 @@
     font-size: 32px;
     line-height: 40px;
     color: #2e2a94;
-    font-family: "butlerPro", sans-serif;
+    font-family: "ButlerPro", sans-serif;
     font-weight: 700;
   }
   .section.tabs-container .tabs-wrapper {
@@ -1045,4 +1050,4 @@
   .section.tabs-container .card-container {
     max-width: 100%;
   }
-}
+}/*# sourceMappingURL=fund-card.css.map */

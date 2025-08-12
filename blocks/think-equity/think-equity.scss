@@ -79,7 +79,7 @@
                     p {
                         width: 60%;
                         text-align: left;
-                        font-family: $Poppins;
+                        font-family: $poppins;
                         font-weight: 400;
                         font-size: 14px;
                         line-height: 20px;
@@ -131,7 +131,7 @@
                 max-inline-size: 30ch;
                 text-wrap: balance;
 
-                @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $Poppins);
+                @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $poppins);
             }
 
 
@@ -175,7 +175,7 @@
                 margin: 0;
                 text-align: left;
                 color: #2E2A94;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 500;
@@ -183,7 +183,7 @@
 
                 @include media(mobile) {
                     color: $primary-blue;
-                    font-family: $Poppins;
+                    font-family: $poppins;
                     font-size: 14px;
                     font-weight: 500;
                     line-height: 16px;
@@ -206,7 +206,7 @@
                 color: #fff;
                 padding: 12px;
                 border: none;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-weight: 600;
                 font-size: 1rem;
                 text-decoration: none;

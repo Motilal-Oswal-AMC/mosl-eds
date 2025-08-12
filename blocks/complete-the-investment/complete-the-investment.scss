@@ -44,7 +44,7 @@
             }
 
             a {
-                @include font-style(14px, 16px, $primary-white, map.get($font-weights, semi-bold), $Poppins);
+                @include font-style(14px, 16px, $primary-white, map.get($font-weights, semi-bold), $poppins);
 
                 margin: 0;
                 display: flex;

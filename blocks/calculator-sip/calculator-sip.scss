@@ -32,7 +32,7 @@
         16px,
         $color-text-body,
         map.get($font-weights, regular),
-        $Poppins
+        $poppins
       );
     }
 
@@ -121,7 +121,7 @@
 
       p {
         color: $primary-blue;
-        font-family: $Poppins;
+        font-family: $poppins;
         font-size: 1rem;
         line-height: 1.5;
         margin: 0;
@@ -182,7 +182,7 @@
               16px,
               $color-text-body,
               map.get($font-weights, regular),
-              $Poppins
+              $poppins
             );
 
             text-align: left;
@@ -194,14 +194,14 @@
               normal,
               var(--text-color),
               map.get($font-weights, semibold),
-              $Poppins
+              $poppins
             );
           }
 
           input {
             width: 100%;
             color: #2e2a94;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 16px;
             font-weight: 500;
             line-height: 20px;
@@ -272,7 +272,7 @@
             border: 1px solid #bdbdbd;
             background: #fafafa;
             color: #424242;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 14px;
             font-weight: 600;
             line-height: 22px;
@@ -309,13 +309,13 @@
                 16px,
                 $color-text-body,
                 map.get($font-weights, regular),
-                $Poppins
+                $poppins
               );
             }
 
             span {
               color: #2b2e8c;
-              font-family: $Poppins;
+              font-family: $poppins;
               font-size: 12px;
               font-weight: 600;
               line-height: 16px;
@@ -350,7 +350,7 @@
                   16px,
                   $color-text-body,
                   map.get($font-weights, regular),
-                  $Poppins
+                  $poppins
                 );
 
                 @include media(mobile) {
@@ -360,7 +360,7 @@
 
               span {
                 color: #2e2a94;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 24px;
                 font-weight: 600;
                 line-height: 32px;
@@ -376,7 +376,7 @@
                 bottom: 0;
                 pointer-events: none;
                 color: #2e2a94;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 20px;
                 font-weight: 500;
               }
@@ -402,7 +402,7 @@
                 background: $primary-blue;
                 border: none;
                 color: #fff;
-                font-family: $Poppins;
+                font-family: $poppins;
                 font-size: 14px;
                 font-weight: 600;
                 line-height: 16px;
@@ -434,7 +434,7 @@
             gap: map.get($spacing, sm);
 
             .toggle-label {
-              @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
+              @include font-style(14px, 16px, $neutrals-black, 500, $poppins);
 
               cursor: pointer;
 
@@ -490,7 +490,7 @@
 
             .select-selected-plan {
               color: #2e2a94;
-              font-family: $Poppins;
+              font-family: $poppins;
               font-size: 20px;
               font-weight: 500;
               cursor: pointer;
@@ -543,7 +543,7 @@
                 20px,
                 $color-text-body,
                 map.get($font-weights, regular),
-                $Poppins
+                $poppins
               );
 
               border-bottom: 1px solid #eee;
@@ -581,7 +581,7 @@
               16px,
               $color-text-body,
               map.get($font-weights, regular),
-              $Poppins
+              $poppins
             );
 
             @include media(mobile) {
@@ -594,7 +594,7 @@
             border: none;
             background-color: transparent;
             color: #2e2a94;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 20px;
             font-weight: 500;
             width: 100%;
@@ -623,7 +623,7 @@
               left: 3px;
               pointer-events: none;
               color: #2e2a94;
-              font-family: $Poppins;
+              font-family: $poppins;
               font-size: 20px;
               font-weight: 500;
             }
@@ -639,7 +639,7 @@
 
             .select-selected {
               color: #2e2a94;
-              font-family: $Poppins;
+              font-family: $poppins;
               font-size: 20px;
               font-weight: 500;
               cursor: pointer;
@@ -692,7 +692,7 @@
                 20px,
                 $color-text-body,
                 map.get($font-weights, regular),
-                $Poppins
+                $poppins
               );
 
               border-bottom: 1px solid #eee;
@@ -728,7 +728,7 @@
             20px,
             map.get($blue-1, b500),
             map.get($font-weights, regular),
-            $Poppins
+            $poppins
           );
 
           text-decoration: underline;
@@ -816,7 +816,7 @@
         @include media(mobile) {
           display: block;
 
-          @include font-style(16px, 24px, $primary-blue, 400, $Poppins);
+          @include font-style(16px, 24px, $primary-blue, 400, $poppins);
 
           margin: 0;
           max-width: 450px;
@@ -889,7 +889,7 @@
             bottom: 0;
             pointer-events: none;
             color: #2e2a94;
-            font-family: $Poppins;
+            font-family: $poppins;
             font-size: 12px;
             font-weight: 500;
           }
@@ -941,7 +941,7 @@
                   16px,
                   $color-text-body,
                   map.get($font-weights, regular),
-                  $Poppins
+                  $poppins
                 );
               }
             }
@@ -1003,7 +1003,7 @@
         16px,
         $color-text-body,
         map.get($font-weights, regular),
-        $Poppins
+        $poppins
       );
     }
 

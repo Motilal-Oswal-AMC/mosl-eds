@@ -36,7 +36,7 @@ header {
         max-width: 1248px;
         height: var(--nav-height);
         padding: 0 24px;
-        font-family: $Poppins;
+        font-family: $poppins;
 
         @include media(mobile) {
             gap: inherit;
@@ -56,10 +56,10 @@ header {
 
         p {
             margin: 0;
-            @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $Poppins);
+            @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
 
             @include media(mobile) {
-                @include font-style(12px, 14px, $primary-blue, map.get($font-weights, regular), $Poppins);
+                @include font-style(12px, 14px, $primary-blue, map.get($font-weights, regular), $poppins);
             }
         }
 
@@ -316,7 +316,7 @@ header {
 
             >ul:nth-child(2) {
                 li {
-                    @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $Poppins);
+                    @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
                     // padding-right: 12px;
                     // font-size: rem(16px);
 
@@ -368,7 +368,7 @@ header {
                 }
 
                 li {
-                    @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $Poppins);
+                    @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
 
                     a {
                         display: flex;
@@ -387,7 +387,7 @@ header {
                     background: #2E2A94;
 
                     a {
-                        @include font-style(14px, 16px, $primary-white, map.get($font-weights, medium), $Poppins);
+                        @include font-style(14px, 16px, $primary-white, map.get($font-weights, medium), $poppins);
                         text-decoration: none;
                     }
                 }
@@ -457,7 +457,7 @@ header {
                 margin: 0;
 
                 & li:first-child {
-                    @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $Poppins);
+                    @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $poppins);
 
                     @include media(mobile) {
                         display: none;
@@ -471,7 +471,7 @@ header {
                         display: flex;
                         align-items: center;
                         gap: 4px;
-                        @include font-style(12px, 14px, $primary-blue, map.get($font-weights, regular), $Poppins);
+                        @include font-style(12px, 14px, $primary-blue, map.get($font-weights, regular), $poppins);
 
                         span {
                             width: 16px;
@@ -492,7 +492,7 @@ header {
 
                 & li:nth-child(1) {
                     p {
-                        @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $Poppins);
+                        @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $poppins);
 
                         @include media(mobile) {
                             color: $primary-blue;
@@ -512,7 +512,7 @@ header {
                         display: flex;
                         align-items: center;
                         gap: 5px;
-                        @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $Poppins);
+                        @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $poppins);
                         cursor: pointer;
                         user-select: none;
 
@@ -538,7 +538,7 @@ header {
 
                     & li {
                         width: 100%;
-                        @include font-style(12px, 16px, $primary-blue, map.get($font-weights, regular), $Poppins);
+                        @include font-style(12px, 16px, $primary-blue, map.get($font-weights, regular), $poppins);
                         padding: 8px 10px;
                         border-bottom: 1px solid gray;
                     }
@@ -647,7 +647,7 @@ header {
 
                             >li {
                                 padding: 14px 11px;
-                                @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $Poppins);
+                                @include font-style(14px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
                                 border-bottom: 0.4px solid gray;
                             }
 
