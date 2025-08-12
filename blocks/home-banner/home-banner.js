@@ -1,4 +1,3 @@
-/* eslint-disable*/
 import Swiper from '../swiper/swiper-bundle.min.js';
 import { div } from '../../scripts/dom-helpers.js';
 
@@ -9,10 +8,10 @@ export default function decorate(block) {
     ele.classList.add('sub-home-banner', 'swiper-slide');
     Array.from(ele.children).forEach((innerEle, i) => {
       innerEle.classList.add(`sub-banner-item-${i + 1}`);
-      if(i+1!==1){
-        Array.from(innerEle.children).forEach((ele)=>{
-          ele.classList.add('item-child')
-        })
+      if (i + 1 !== 1) {
+        Array.from(innerEle.children).forEach((elem) => {
+          elem.classList.add('item-child');
+        });
       }
     });
     swiperWrapper.append(ele);

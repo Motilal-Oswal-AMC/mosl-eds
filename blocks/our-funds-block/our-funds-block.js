@@ -1210,7 +1210,7 @@ export default function decorate(block) {
                 class: 'sort-container',
               },
               span(
-                { class: "sort-pop-label" },
+                { class: 'sort-pop-label' },
                 block
                   .querySelector('.block-item3 .block-subitem-finelsub1')
                   .textContent.trim(),
@@ -1260,7 +1260,7 @@ export default function decorate(block) {
                 class: 'popular-container',
               },
               span(
-                { class: "sort-pop-label" },
+                { class: 'sort-pop-label' },
                 block
                   .querySelector('.block-item3 .block-subitem-finelsub2')
                   .textContent.trim(),

@@ -1,17 +1,10 @@
 /*    */
 import dataCfObj from '../../scripts/dataCfObj.js';
 import {
-  button,
   div,
-  label,
-  option,
-  select,
   span,
-  ul,
   li,
-  h2,
   p,
-  img,
 } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {
