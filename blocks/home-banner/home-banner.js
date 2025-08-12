@@ -3,7 +3,6 @@ import Swiper from '../swiper/swiper-bundle.min.js';
 import { div } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {
-  console.log("HEYEYEYE")
   const swiperWrapper = div({ class: 'swiper-wrapper' });
   block.classList.add('swiper');
   Array.from(block.children).forEach((ele) => {

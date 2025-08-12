@@ -604,7 +604,7 @@ async function loadBlock(block) {
               await mod.default(block);
             }
           } catch (error) {
-            console.log("ERROR", blockName, error) // eslint-disable-line
+            console.warn("ERROR", blockName, error) // eslint-disable-line
             //   -next-line no-console
           }
           resolve();
