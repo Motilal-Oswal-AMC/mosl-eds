@@ -34,7 +34,7 @@
     justify-content: center;
     border-radius: 8px;
     background: #FFF;
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
     height: auto;
 }
 
@@ -44,7 +44,7 @@
     width: 100%;
     border-radius: 8px;
     background: #FFF;
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
 
 
     .risk-o-meter {
@@ -71,6 +71,7 @@
         p {
             margin: 0;
             padding: 0;
+
             //  padding: 0;
             @include font-style(14px, 18px, #2C2A95, map.get($font-weights, semibold), $Poppins);
         }
@@ -94,6 +95,7 @@
             align-items: flex-start;
             gap: 10px;
             align-self: stretch;
+
             @include font-style(16px, 20px, #2C2A95, map.get($font-weights, semibold), $Poppins);
         }
 

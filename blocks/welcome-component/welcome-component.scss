@@ -27,6 +27,7 @@
 
             li:first-child {
                 @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+
                 margin-bottom: 16px;
 
                 @include media(mobile) {
@@ -36,6 +37,7 @@
 
             li:nth-child(2) {
                 @include font-style(24px, 32px, $primary-blue-dark, map.get($font-weights, semibold), $Poppins);
+
                 margin-bottom: 8px;
 
                 @include media(mobile) {
@@ -45,6 +47,7 @@
 
             li:nth-child(3) {
                 @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $Poppins);
+
                 margin-bottom: 40px;
             }
 
@@ -52,11 +55,13 @@
                 a {
                     display: flex;
                     width: 176px;
-                    padding: 12px 12px;
+                    padding: 12px;
                     justify-content: center;
                     align-items: center;
                     gap: 8px;
+
                     @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
+
                     border-radius: 4px;
                     background: $primary-blue;
                     text-align: center;

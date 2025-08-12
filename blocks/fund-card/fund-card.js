@@ -1,3 +1,4 @@
+/* eslint-disable   */
 import {
   div,
   label,
@@ -13,25 +14,34 @@ import dataMapMoObj from '../../scripts/constant.js';
 import {
   getTimeLeft,
   evaluateByDays,
+  wishlist,
 } from '../../scripts/scripts.js';
-
-function planListEvent(param, block) { // Planlist onchange with changing cagr container
+function planListEvent(param, block) {
+  // Planlist onchange with changing cagr container
   const tempReturns = [];
   const codeTempArr = [];
   block.returns.forEach((el) => {
-    codeTempArr.push((el.plancode + el.optioncode));
-    if (param.target.getAttribute('value') === (el.plancode + el.optioncode)) {
-      Object.keys(el).forEach((key) => {
+    codeTempArr.push(el.plancode + el.optioncode);
+    if (param.target.getAttribute('value') === el.plancode + el.optioncode) {
+      for (const key in el) {
         if (dataMapMoObj.ObjTemp[key]) {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
         }
-      });
+      }
     }
   });
-  param.target.closest('.card-wrapper').querySelector('.cagr-container').innerHTML = '';
-  if (codeTempArr.includes(param.target.getAttribute('value')) && tempReturns.length !== 0) {
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove('not-provided');
-    const dropdown = div(
+  param.target
+    .closest('.card-wrapper')
+    .querySelector('.cagr-container').innerHTML = '';
+  if (
+    codeTempArr.includes(param.target.getAttribute('value')) &&
+    tempReturns.length !== 0
+  ) {
+    param.target
+      .closest('.card-wrapper')
+      .querySelector('.cagr-container')
+      .classList.remove('not-provided');
+    let dropdown = div(
       {
         class: 'cagr-dropdown',
       },
@@ -40,103 +50,134 @@ function planListEvent(param, block) { // Planlist onchange with changing cagr c
         {
           class: 'cagr-select-wrapper',
         },
-        p({
-          class: 'selectedtext',
-          onclick: (event) => {
-            event.target.nextElementSibling.classList.add('dropdown-active');
-          },
-        }, tempReturns[0]),
-        ul(
+        p(
           {
-            class: 'dropdown-list',
-          },
-          ...tempReturns.map((eloption) => li(
-            {
-              class: 'returnyears',
-              value: dataMapMoObj.ObjTemp[eloption],
-              onclick: (event) => {
-                const cgarValue = block.returns[0][event.target.getAttribute('value')];
-                event.currentTarget.closest('.dropdown-list').classList.remove('dropdown-active');
-                event.currentTarget.closest('.cagr-select-wrapper').querySelector('p').innerText = '';
-                event.currentTarget.closest('.cagr-select-wrapper').querySelector('p').innerText = event.currentTarget.textContent.trim();
-                event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
-                event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
-                event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span('%'));
-              },
+            class: 'selectedtext',
+            onclick: (event) => {
+              event.target.nextElementSibling.classList.add('dropdown-active');
             },
-            eloption,
-          )),
+          },
+          tempReturns[0]
         ),
-      ),
+        ul(
+          { class: 'dropdown-list', schcode: block.schcode },
+          ...tempReturns.map((eloption) =>
+            li(
+              {
+                class: 'returnyears',
+                value: dataMapMoObj.ObjTemp[eloption],
+                onclick: (event) => {
+                  const cgarValue =
+                    block.returns[0][event.target.getAttribute('value')];
+                  event.currentTarget
+                    .closest('.dropdown-list')
+                    .classList.remove('dropdown-active');
+                  event.currentTarget
+                    .closest('.cagr-select-wrapper')
+                    .querySelector('p').innerText = '';
+                  event.currentTarget
+                    .closest('.cagr-select-wrapper')
+                    .querySelector('p').innerText =
+                    event.currentTarget.textContent.trim();
+                  event.target
+                    .closest('.cagr-container')
+                    .querySelector('.cagr-value h2').textContent = '';
+                  event.target
+                    .closest('.cagr-container')
+                    .querySelector(
+                      '.cagr-value h2'
+                    ).textContent = `${cgarValue}`;
+                  event.target
+                    .closest('.cagr-container')
+                    .querySelector('.cagr-value h2')
+                    .append(span('%'));
+                },
+              },
+              eloption
+            )
+          )
+        )
+      )
     );
-    const dropvalue = div(
+    let dropvalue = div(
       {
         class: 'cagr-value',
       },
       h2(
         `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
-        span('%'),
+        span('%')
       ),
-      p({
-        class: 'scheme-yet',
-        style: 'display:none',
-      }, 'Scheme is yet to complete 10 Years'),
-      p({
-        class: 'cagr-date',
-      }, '15th Mar 2020'),
+      p(
+        {
+          class: 'scheme-yet',
+          style: 'display:none',
+        },
+        'Scheme is yet to complete 10 Years'
+      ),
+      p(
+        {
+          class: 'cagr-date',
+        },
+        '15th Mar 2020'
+      )
     );
     const droplessthan = div(
       {
         class: 'cagr-desc',
       },
-      span('Return is not provided because thescheme has not completed 6 months'),
+      span(
+        'Return is not provided because thescheme has not completed 6 months'
+      )
     );
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
+    param.target
+      .closest('.card-wrapper')
+      .querySelector('.cagr-container')
+      .append(dropdown, dropvalue, droplessthan);
   } else {
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').classList.remove('not-provided');
+    param.target
+      .closest('.card-wrapper')
+      .querySelector('.cagr-container')
+      .classList.remove('not-provided');
     const dropdown = div(
       {
         class: 'cagr-dropdown',
       },
-      label('Return (Absolute)'),
+      label('Return (Absolute)')
     );
     const dropvalue = div(
       {
         class: 'cagr-value',
       },
-      h2('NA'),
+      h2('NA')
     );
     const droplessthan = div(
       {
         class: 'cagr-desc',
       },
-      span('Return is not provided because thescheme has not completed 6 months'),
+      span(
+        'Return is not provided because thescheme has not completed 6 months'
+      )
     );
-    param.target.closest('.card-wrapper').querySelector('.cagr-container').append(dropdown, dropvalue, droplessthan);
+    param.target
+      .closest('.card-wrapper')
+      .querySelector('.cagr-container')
+      .append(dropdown, dropvalue, droplessthan);
   }
 }
 
-function wishlist() {
-  const paramCount = document.querySelectorAll('.star-filled');
-  const watchlistText = document.querySelector('.watchlisttext span');
-
-  const count = paramCount.length;
-  const formattedCount = count < 10 ? `0${count}` : count;
-
-  watchlistText.textContent = `My Watchlist (${formattedCount})`;
-}
 function toTitleCase(str) {
-  return str
-    .toLowerCase()
-    .replace(/\b\w/g, (char) => char.toUpperCase());
+  return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
 }
 export default function decorate(block) {
   let planFlow = 'Direct';
-  if (document.querySelector(".fund-toggle-wrap [type='checkbox']")) {
-    planFlow = document.querySelector(".fund-toggle-wrap [type='checkbox']").checked ? 'Regular' : 'Direct';
+  if (document.querySelector('.fund-toggle-wrap [type="checkbox"]')) {
+    planFlow = document.querySelector('.fund-toggle-wrap [type="checkbox"]')
+      .checked
+      ? 'Regular'
+      : 'Direct';
   }
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
-  const finPlangrp = [];
+  let finPlangrp = [];
   const tempReturns = [];
   block.returns.forEach((ret, jind) => {
     if (jind === 0) {
@@ -149,60 +190,72 @@ export default function decorate(block) {
     finPlangrp.push(ret.plancode + ret.optioncode);
   });
 
-  const DirectPlanlistArr = block.planList.filter(
-    (el) => el.planName === planFlow && finPlangrp.includes(el.groupedCode),
-  );
+  const DirectPlanlistArr = block.planList.filter((el) => {
+    if (el.planName === planFlow && finPlangrp.includes(el.groupedCode)) {
+      return el;
+    }
+  });
 
-  const labelcagr = evaluateByDays(block.dateOfAllotment);
-  const classplan = (DirectPlanlistArr.length !== 0 && tempReturns.length !== 0) ? '' : ' not-provided';
-  const dropdowndot = DirectPlanlistArr.length !== 0 ? '' : 'no-planlist';
-  const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
-  const optionName = DirectPlanlistArr.length !== 0 ? DirectPlanlistArr[0].optionName : '';
-  const returnYear = dataMapMoObj.selectreturns === '' ? tempReturns[0] : dataMapMoObj.selectreturns;
-  const iconsvg = `${dataMapMoObj['icons-nfo'][block.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
-  const starClass = dataMapMoObj.schstar.includes(block.schcode) ? 'star-filled' : '';
+  let labelcagr = evaluateByDays(block.dateOfAllotment);
+  let classplan =
+    DirectPlanlistArr.length !== 0 && tempReturns.length !== 0
+      ? ''
+      : ' not-provided';
+  let dropdowndot = DirectPlanlistArr.length !== 0 ? '' : 'no-planlist';
+  let classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
+  let optionName =
+    DirectPlanlistArr.length !== 0 ? DirectPlanlistArr[0].optionName : '';
+  let returnYear =
+    dataMapMoObj['selectreturns'] === ''
+      ? tempReturns[0]
+      : dataMapMoObj['selectreturns'];
+  let iconsvg =
+    dataMapMoObj['iconsNfo'][
+      block.risk.riskType.toLowerCase().replaceAll(' ', '-')
+    ] + '.svg';
+  let starClass = dataMapMoObj.schstar.includes(block.schcode)
+    ? 'star-filled'
+    : '';
+  let mop =
+    block.fundIcon !== undefined
+      ? block.fundIcon.split('/').at(-1)
+      : 'MO_Midcap_Fund.png';
+  let mopsec = mop.split('.');
+  let mopthree = mopsec[0] + '.svg';
   if ([...block.fundsTaggingSection].includes('NFO')) {
-    const nfosvg = `${dataMapMoObj['icons-nfo'][block.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
+    let nfosvg =
+      dataMapMoObj['iconsNfo'][
+        block.risk.riskType.toLowerCase().replaceAll(' ', '-')
+      ] + '.svg';
     const NfocardContainer = div(
-      {
-        class: 'nfo-card-container card-container',
-      },
+      { class: 'nfo-card-container card-container' },
       div(
-        {
-          class: 'card-wrapper',
-        },
+        { class: 'card-wrapper' },
         div(
-          {
-            class: 'card-upper-title',
-          },
+          { class: 'card-upper-title' },
           div(
-            {
-              class: 'title-headLogo',
-            },
+            { class: 'title-headLogo' },
             div(
-              {
-                class: 'title title-logo',
-              },
+              { class: 'title title-logo' },
               img({
-                class: 'logoScheme',
-                src: '../../icons/Group.svg',
+                class: 'logoscheme',
+                src: '../../icons/fundicon/' + mopthree,
                 alt: 'BrandLogo',
-              }),
+              })
             ),
             div(
               {
-                class: `star ${starClass}`,
+                class: 'star ' + starClass,
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
-                      'star-filled',
+                      'star-filled'
                     )
                   ) {
                     event.target.parentElement.classList.add('star-filled');
                   } else {
                     event.target.parentElement.classList.remove('star-filled');
                   }
-                  wishlist();
                 },
                 schcode: block.schcode,
               },
@@ -215,129 +268,118 @@ export default function decorate(block) {
                 class: 'fillstar-icon',
                 src: '../../icons/filled-star.svg',
                 alt: 'fillstar-icon',
-              }),
-            ),
+              })
+            )
           ),
           div(
-            {
-              class: 'title-subtitle',
-            },
+            { class: 'title-subtitle' },
             p('Motilal Oswal'),
             div(
-              {
-                class: 'title title-logo',
-              },
-              h2(block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
-            ),
-          ),
+              { class: 'title title-logo' },
+              h2(block.schDetail.schemeName.replaceAll('Motilal Oswal', ''))
+            )
+          )
         ),
         div(
-          { class: `card-category ${dropdowndot}` },
+          { class: 'card-category ' + dropdowndot },
           div(
-            {
-              class: 'fund-tagging',
-            },
+            { class: 'fund-tagging' },
             ul(
               { class: 'fundtagging-list' },
-              ...fundsTaggingSection.map((eloption) => li(
-                { class: 'fundtagging-list-name' },
-                eloption
-                  .replaceAll('motilal-oswal:', '')
-                  .replaceAll('-', ' ')
-                  .toUpperCase(),
-              )),
-            ),
+              ...fundsTaggingSection.map((eloption) =>
+                li(
+                  { class: 'fundtagging-list-name' },
+                  eloption
+                    .replaceAll('motilal-oswal:', '')
+                    .replaceAll('-', ' ')
+                    .toUpperCase()
+                )
+              )
+            )
           ),
           div(
-            {
-              class: 'planlist-dropdown',
-              style: `display:${classdropdown}`,
-            },
-            p({
-              class: 'selectedtext',
-              onclick: (event) => {
-                event.target.nextElementSibling.classList.add('dropdown-active');
-              },
-            }, optionName),
-            ul(
+            { class: 'planlist-dropdown', style: 'display:' + classdropdown },
+            p(
               {
-                class: 'dropdown-list',
-              },
-              Array.isArray(DirectPlanlistArr)
-              && DirectPlanlistArr.map((el) => li({
-                value: el.groupedCode,
+                class: 'selectedtext',
                 onclick: (event) => {
-                  const dropdown = event.currentTarget.closest('.dropdown-list');
-                  const dropdownP = event.currentTarget.closest('.planlist-dropdown')?.querySelector('p');
-
-                  dropdown?.classList.remove('dropdown-active');
-
-                  if (dropdownP) {
-                    const name = event.currentTarget.textContent.trim();
-                    dropdownP.innerText = name;
-                  }
-
-                  // planListEvent(event, block); // uncomment when ready
+                  console.log(event.target);
+                  event.target.nextElementSibling.classList.add(
+                    'dropdown-active'
+                  );
                 },
-              }, el.optionName)),
+              },
+              optionName
             ),
+            ul(
+              { class: 'dropdown-list' },
+              ...DirectPlanlistArr?.map((el, index) => {
+                return li(
+                  {
+                    value: el.groupedCode,
+                    onclick: (event) => {
+                      event.currentTarget
+                        .closest('.dropdown-list')
+                        .classList.remove('dropdown-active');
+                      let name = event.currentTarget.textContent.trim();
+                      event.currentTarget
+                        .closest('.planlist-dropdown')
+                        .querySelector('p').innerText = '';
+                      event.currentTarget
+                        .closest('.planlist-dropdown')
+                        .querySelector('p').innerText = name;
+                      // planListEvent(event,block)
+                    },
+                  },
+                  el.optionName
+                );
+              })
+            )
           ),
           div(
-            {
-              class: 'dis-investor',
-            },
+            { class: 'dis-investor' },
             img({
               class: 'riskfactor-icon',
-              src: `../../icons/nfo-risk-icon/${nfosvg}`,
+              src: '../../icons/nfo-risk-icon/' + nfosvg,
               alt: 'risk icon',
-            }),
-          ),
+            })
+          )
         ),
         div(
-          {
-            class: 'banner-timing-container ',
-          },
+          { class: 'banner-timing-container ' },
           div(
-            {
-              class: 'banner-container',
-            },
+            { class: 'banner-container' },
             img({
-              src: '../../icons/banner-desk.png',
-              alt: 'banner Image',
+              class: 'nfo-img',
+              src: '../../icons/nfo-img.png',
+              alt: 'NFO Image',
             }),
-            span('Grab Them All'),
+            span('Grab Them All')
           ),
           div(
-            {
-              class: 'timing-nfo-value',
-            },
+            { class: 'timing-nfo-value' },
             div(
-              {
-                class: 'nfo-container',
-              },
-              span({
-                class: 'label-nfo',
-              }, 'NFO'),
+              { class: 'nfo-container' },
+              span({ class: 'label-nfo' }, 'NFO')
             ),
-            div({
-              class: 'timing-container',
-            }, p(getTimeLeft(block.dateOfAllotment))),
-          ),
+            div(
+              { class: 'timing-container' },
+              p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment))
+            )
+          )
         ),
         div(
           { class: 'button-container' },
-          button(
-            {
-              class: 'know-more',
-            },
-            a({ href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund' }, 'Know More'),
-          ),
           a(
-            { href: '/motilalfigma/modals/invest-now-homepage' },
-            button({ class: 'invest-now' }, 'Invest'),
+            {
+              href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund',
+              class: 'know-more card-btn',
+            },
+            'Know More'
           ),
-        ),
-      ),
+          a({href: '/motilalfigma/modals/invest-now-homepage', class: 'invest-now card-btn',}, 'Invest')
+        )
+      )
     );
     return NfocardContainer;
   }
@@ -362,25 +404,25 @@ export default function decorate(block) {
               class: 'title title-logo',
             },
             img({
-              class: 'logoScheme',
-              src: '../../icons/Group.svg',
+              class: 'logoscheme',
+              src: '../../icons/fundicon/' + mopthree,
               alt: 'BrandLogo',
-            }),
+            })
           ),
           div(
             {
-              class: `star ${starClass}`,
+              class: 'star ' + starClass,
               onclick: (event) => {
                 if (
                   !Array.from(event.target.parentElement.classList).includes(
-                    'star-filled',
+                    'star-filled'
                   )
                 ) {
                   event.target.parentElement.classList.add('star-filled');
                 } else {
                   event.target.parentElement.classList.remove('star-filled');
                 }
-                wishlist();
+                wishlist(block);
               },
               schcode: block.schcode,
             },
@@ -393,8 +435,8 @@ export default function decorate(block) {
               class: 'fillstar-icon',
               src: '../../icons/filled-star.svg',
               alt: 'fillstar-icon',
-            }),
-          ),
+            })
+          )
         ),
         div(
           {
@@ -405,13 +447,13 @@ export default function decorate(block) {
             {
               class: 'title title-logo',
             },
-            h2(block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
-          ),
-        ),
+            h2(block.schDetail.schemeName.replaceAll('Motilal Oswal', ''))
+          )
+        )
       ),
       div(
         {
-          class: `card-category ${dropdowndot}`,
+          class: 'card-category ' + dropdowndot,
         },
         div(
           {
@@ -421,49 +463,59 @@ export default function decorate(block) {
             {
               class: 'fundtagging-list',
             },
-            ...fundsTaggingSection.map((eloption) => li(
-              toTitleCase(
-                eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' '),
-              ),
-            )),
-          ),
+            ...fundsTaggingSection.map((eloption) =>
+              li(
+                { class: 'fundtagging-list-name' },
+                toTitleCase(
+                  eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' ')
+                )
+              )
+            )
+          )
         ),
         div(
-          {
-            class: 'planlist-dropdown',
-            style: `display:${classdropdown}`,
-          },
-          p({
-            class: 'selectedtext',
-            onclick: (event) => {
-              event.target.nextElementSibling.classList.add('dropdown-active');
-            },
-          }, optionName),
-          ul(
+          { class: 'planlist-dropdown', style: 'display:' + classdropdown },
+          p(
             {
-              class: 'dropdown-list',
-            },
-            Array.isArray(DirectPlanlistArr)
-            && DirectPlanlistArr.map((el) => li({
-              value: el.groupedCode,
+              class: 'selectedtext',
               onclick: (event) => {
-                const dropdown = event.currentTarget.closest('.dropdown-list');
-                const planList = event.currentTarget.closest('.planlist-dropdown').querySelector('p');
-                dropdown?.classList.remove('dropdown-active');
-                if (planList) {
-                  planList.innerText = '';
-                  planList.innerText = event.currentTarget.textContent.trim();
-                }
-                planListEvent(event, block);
+                console.log(event.target);
+                event.target.nextElementSibling.classList.add(
+                  'dropdown-active'
+                );
               },
-            }, el.optionName)),
-
+            },
+            optionName
           ),
-        ),
+          ul(
+            { class: 'dropdown-list' },
+            ...DirectPlanlistArr?.map((el, index) => {
+              return li(
+                {
+                  value: el.groupedCode,
+                  onclick: (event) => {
+                    event.currentTarget
+                      .closest('.dropdown-list')
+                      .classList.remove('dropdown-active');
+                    event.currentTarget
+                      .closest('.planlist-dropdown')
+                      .querySelector('p').innerText = '';
+                    event.currentTarget
+                      .closest('.planlist-dropdown')
+                      .querySelector('p').innerText =
+                      event.currentTarget.textContent.trim();
+                    planListEvent(event, block);
+                  },
+                },
+                el.optionName
+              );
+            })
+          )
+        )
       ),
       div(
         {
-          class: `cagr-container ${classplan}`,
+          class: 'cagr-container ' + classplan,
         },
         div(
           {
@@ -474,34 +526,56 @@ export default function decorate(block) {
             {
               class: 'cagr-select-wrapper',
             },
-            p({
-              class: 'selectedtext',
-              onclick: (event) => {
-                event.target.nextElementSibling.classList.add('dropdown-active');
-              },
-            }, returnYear),
-            ul(
+            p(
               {
-                class: 'dropdown-list',
-              },
-              ...tempReturns.map((eloption) => li(
-                {
-                  class: 'returnyears',
-                  value: dataMapMoObj.ObjTemp[eloption],
-                  onclick: (event) => {
-                    const cgarValue = block.returns[0][event.target.getAttribute('value')];
-                    event.currentTarget.closest('.dropdown-list').classList.remove('dropdown-active');
-                    event.currentTarget.closest('.cagr-select-wrapper').querySelector('p').innerText = '';
-                    event.currentTarget.closest('.cagr-select-wrapper').querySelector('p').innerText = event.currentTarget.textContent.trim();
-                    event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = '';
-                    event.target.closest('.cagr-container').querySelector('.cagr-value h2').textContent = `${cgarValue}`;
-                    event.target.closest('.cagr-container').querySelector('.cagr-value h2').append(span('%'));
-                  },
+                class: 'selectedtext',
+                onclick: (event) => {
+                  event.target.nextElementSibling.classList.add(
+                    'dropdown-active'
+                  );
                 },
-                eloption,
-              )),
+              },
+              returnYear
             ),
-          ),
+            ul(
+              { class: 'dropdown-list' },
+              ...tempReturns.map((eloption) =>
+                li(
+                  {
+                    class: 'returnyears',
+                    value: dataMapMoObj.ObjTemp[eloption],
+                    onclick: (event) => {
+                      const cgarValue =
+                        block.returns[0][event.target.getAttribute('value')];
+                      event.currentTarget
+                        .closest('.dropdown-list')
+                        .classList.remove('dropdown-active');
+                      event.currentTarget
+                        .closest('.cagr-select-wrapper')
+                        .querySelector('p').innerText = '';
+                      event.currentTarget
+                        .closest('.cagr-select-wrapper')
+                        .querySelector('p').innerText =
+                        event.currentTarget.textContent.trim();
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector('.cagr-value h2').textContent = '';
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector(
+                          '.cagr-value h2'
+                        ).textContent = `${cgarValue}`;
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector('.cagr-value h2')
+                        .append(span('%'));
+                    },
+                  },
+                  eloption
+                )
+              )
+            )
+          )
         ),
         div(
           {
@@ -509,30 +583,30 @@ export default function decorate(block) {
           },
           h2(
             `${block.returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,
-            span('%'),
+            span('%')
           ),
           p(
             {
               class: 'scheme-yet',
               style: 'display:none',
             },
-            'Scheme is yet to complete 10 Years',
+            'Scheme is yet to complete 10 Years'
           ),
           p(
             {
               class: 'cagr-date',
             },
-            '15th Mar 2020',
-          ),
+            '15th Mar 2020'
+          )
         ),
         div(
           {
             class: 'cagr-desc',
           },
           span(
-            'Return is not provided because thescheme has not completed 6 months',
-          ),
-        ),
+            'Return is not provided because thescheme has not completed 6 months'
+          )
+        )
       ),
       div(
         {
@@ -540,7 +614,7 @@ export default function decorate(block) {
           style: 'display:none',
         },
         label('Risk Factor'),
-        span(block.risk.riskType),
+        span(block.risk.riskType)
       ),
       div(
         {
@@ -560,31 +634,30 @@ export default function decorate(block) {
               src: '../../icons/Icon.svg',
               alt: 'person',
             }),
-            span('2.7 lakh investors'),
+            span('2.7 lakh investors')
           ),
-          img({
-            class: 'riskfactor-icon',
-            src: `../../icons/risk-icon/${iconsvg}`,
-            alt: 'risk icon',
-          }),
-        ),
+          a(
+            { href: '/motilalfigma/modals/risk-o-meter' },
+            img({
+              class: 'riskfactor-icon',
+              src: '../../icons/risk-icon/' + iconsvg,
+              alt: 'risk icon',
+            })
+          )
+        )
       ),
       div(
-        {
-          class: 'button-container',
-        },
-        button(
-          {
-            class: 'know-more',
-          },
-          a({ href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund' }, 'Know More'),
-        ),
-        a(
-          { href: '/motilalfigma/modals/invest-now-homepage' },
-          button({ class: 'invest-now' }, 'Invest'),
-        ),
-      ),
-    ),
+          { class: 'button-container' },
+          a(
+            {
+              href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund',
+              class: 'know-more card-btn',
+            },
+            'Know More'
+          ),
+          a({href: '/motilalfigma/modals/invest-now-homepage', class: 'invest-now card-btn',}, 'Invest')
+        )
+    )
   );
   return cardContainer;
 }

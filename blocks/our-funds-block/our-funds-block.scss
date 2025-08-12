@@ -34,7 +34,7 @@
       h1 {
         margin: 0;
 
-        @include font-style(40px, 48px, $primary-blue, 700, $butlerpro);
+        @include font-style(40px, 48px, $primary-blue, 700, $ButlerPro);
 
         @include media(mobile) {
           font-size: 34px;
@@ -104,7 +104,7 @@
         .search {
           width: 100%;
 
-          @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
+          @include font-style(14px, 20px, $neutrals-black, 400, $Poppins);
 
           border: none;
           outline: none;
@@ -168,7 +168,7 @@
           }
 
           .list-fund-name {
-            @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
+            @include font-style(14px, 20px, $neutrals-black, 400, $Poppins);
 
             border-bottom: 1px solid $neutrals-200;
             padding: 12px 36px;
@@ -235,7 +235,7 @@
           line-height: 0;
 
           span {
-            @include font-style(14px, 20px, $primary-blue, 400, $poppins);
+            @include font-style(14px, 20px, $primary-blue, 400, $Poppins);
 
             text-decoration-line: underline;
             text-underline-offset: 20%;
@@ -285,7 +285,7 @@
           }
 
           .trending-text {
-            @include font-style(14px, 16px, $neutrals-black, 500, $poppins);
+            @include font-style(14px, 16px, $neutrals-black, 500, $Poppins);
           }
         }
 
@@ -316,7 +316,7 @@
                   20px,
                   map.get($blue-1, b500),
                   400,
-                  $poppins
+                  $Poppins
                 );
 
                 @include media(mobile) {
@@ -408,7 +408,7 @@
               margin: 0;
 
               @include media(mobile) {
-                @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
               }
             }
           }
@@ -425,7 +425,7 @@
             }
 
             .clearall-btn {
-              @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
+              @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
 
               margin: 0;
               padding: 0;
@@ -495,7 +495,7 @@
                 border-bottom: 1px solid $neutrals-300;
 
                 span {
-                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                  @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
                 }
 
                 button {
@@ -505,7 +505,7 @@
                   border: none;
                   border-radius: 0;
 
-                  @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
+                  @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
                 }
               }
             }
@@ -525,7 +525,7 @@
                 .apply-btn {
                   border-left: 1px solid $neutrals-300;
 
-                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                  @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
                 }
               }
             }
@@ -590,7 +590,7 @@
                     20px,
                     $neutrals-black,
                     400,
-                    $poppins
+                    $Poppins
                   );
 
                   display: flex;
@@ -606,7 +606,7 @@
                       20px,
                       $neutrals-600,
                       400,
-                      $poppins
+                      $Poppins
                     );
                   }
                 }
@@ -649,7 +649,7 @@
                       16px,
                       $text-body-2,
                       400,
-                      $poppins
+                      $Poppins
                     );
 
                     &::after {
@@ -788,7 +788,7 @@
                 border-bottom: 1px solid $neutrals-300;
 
                 span {
-                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                  @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
                 }
               }
 
@@ -815,7 +815,7 @@
                       16px,
                       $neutrals-black,
                       600,
-                      $poppins
+                      $Poppins
                     );
                   }
 
@@ -860,7 +860,7 @@
                           20px,
                           $neutrals-black,
                           400,
-                          $poppins
+                          $Poppins
                         );
 
                         width: 100%;
@@ -893,11 +893,11 @@
                   border-radius: 0;
                   cursor: pointer;
 
-                  @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
+                  @include font-style(14px, 20px, $neutrals-600, 400, $Poppins);
                 }
 
                 button:last-of-type {
-                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                  @include font-style(16px, 20px, $primary-blue, 500, $Poppins);
 
                   border-left: 1px solid $neutrals-300;
                 }
@@ -969,7 +969,7 @@
                   16px,
                   $neutrals-black,
                   map.get($font-weights, medium),
-                  $poppins
+                  $Poppins
                 );
 
                 margin: 0;
@@ -1034,7 +1034,7 @@
                     16px,
                     $neutrals-black,
                     map.get($font-weights, regular),
-                    $poppins
+                    $Poppins
                   );
 
                   padding: 12px;
@@ -1142,7 +1142,7 @@
                 16px,
                 map.get($blue-1, b700),
                 600,
-                $poppins
+                $Poppins
               );
             }
 
@@ -1214,7 +1214,7 @@
               border: 1px solid $primary-blue;
               cursor: pointer;
 
-              @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+              @include font-style(14px, 16px, $primary-blue, 500, $Poppins);
             }
           }
         }
@@ -1257,7 +1257,7 @@
           padding: 4px 12px;
 
           span {
-            @include font-style(12px, 16px, $text-body-2, 400, $poppins);
+            @include font-style(12px, 16px, $text-body-2, 400, $Poppins);
           }
 
           .filter-cross-icon {
@@ -1394,7 +1394,7 @@
                   24px,
                   $primary-white,
                   700,
-                  $butlerpro
+                  $ButlerPro
                 );
               }
             }
@@ -1415,7 +1415,7 @@
                     16px,
                     $primary-white,
                     600,
-                    $poppins
+                    $Poppins
                   );
 
                   display: flex;
@@ -1440,7 +1440,7 @@
                     16px,
                     $primary-white,
                     400,
-                    $poppins
+                    $Poppins
                   );
 
                   margin: 0;
@@ -1481,7 +1481,7 @@
             .list-header-text {
               margin: 0;
 
-              @include font-style(14px, 16px, $primary-blue, 600, $poppins);
+              @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
             }
 
             .list-header-text:nth-of-type(1) {
@@ -1533,17 +1533,17 @@
             }
 
             @include media(desktop-sm) {
-              p:nth-of-type(1) {
+              .list-header-text:nth-of-type(1) {
                 margin-right: 25px;
                 max-width: 40%;
               }
 
-              p:nth-of-type(2) {
+              .list-header-text:nth-of-type(2) {
                 margin-right: 15px;
                 max-width: 12%;
               }
 
-              p:nth-of-type(4) {
+              .list-header-text:nth-of-type(4) {
                 max-width: 10%;
               }
             }
@@ -1614,7 +1614,7 @@
                       16px,
                       map.get($blue-1, b400),
                       400,
-                      $poppins
+                      $Poppins
                     );
                   }
 
@@ -1624,7 +1624,7 @@
                       16px,
                       $primary-blue,
                       500,
-                      $poppins
+                      $Poppins
                     );
                   }
                 }
@@ -1660,7 +1660,7 @@
                 .cagr-text {
                   margin: 0;
 
-                  @include font-style(12px, 16px, $neutrals-600, 400, $poppins);
+                  @include font-style(12px, 16px, $neutrals-600, 400, $Poppins);
                 }
               }
 
@@ -1730,7 +1730,7 @@
                     16px,
                     $primary-white,
                     500,
-                    $poppins
+                    $Poppins
                   );
                 }
               }
@@ -1786,7 +1786,7 @@
                           16px,
                           $primary-white,
                           600,
-                          $poppins
+                          $Poppins
                         );
 
                         display: flex;
@@ -1813,7 +1813,7 @@
                           16px,
                           $primary-white,
                           400,
-                          $poppins
+                          $Poppins
                         );
                       }
                     }

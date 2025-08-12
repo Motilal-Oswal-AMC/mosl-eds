@@ -1,4 +1,5 @@
 /*   alpha-value-notation */
+
 /*   media-feature-range-notation */
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins"as *;
@@ -94,8 +95,10 @@
                     cursor: pointer;
                     list-style: none;
                     overflow: hidden;
+
                     // transition: background-color 0.2s;
                     transition: background-color 0.6s ease-in-out;
+
                     // transform: scale(1.05);
                     padding-left: 0;
 
@@ -182,6 +185,7 @@
                 overflow: hidden;
                 transition: max-height 0.7s ease, opacity 0.4s ease;
                 max-height: 1000px;
+
                 /* high enough to hold content */
                 opacity: 1;
                 margin-bottom: 1em;

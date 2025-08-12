@@ -1,5 +1,3 @@
-/* eslint-disable*/
-
 import {
   div,
   h2,
@@ -9,6 +7,7 @@ import {
 import dataCfObj from '../../scripts/dataCfObj.js';
 import Swiper from '../swiper/swiper-bundle.min.js';
 import dataMapMoObj from '../../scripts/constant.js';
+
 // --- CONSTANTS AND STATE ---
 
 /**
@@ -35,6 +34,7 @@ let swiperInstance = null;
  * @returns {HTMLElement} The complete card element.
  */
 function createCardElement(cardData, brandName, iconsTemplate) {
+  const iconsvg = `${dataMapMoObj.iconsNfo[cardData.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
   const mop = cardData.fundIcon !== undefined ? cardData.fundIcon.split('/').at(-1) : 'MO_Midcap_Fund.png';
   const mopsec = mop.split('.');
   const mopthree = `${mopsec[0]}.svg`;
@@ -47,7 +47,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
         { class: 'imgelogo' },
         img({
           class: 'logoScheme',
-          src: `../../icons/fundicon${mopthree}`,
+          src: `../../icons/fundicon/${mopthree}`,
           alt: 'BrandLogo',
           loading: 'lazy',
         }),
@@ -58,8 +58,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
       p(brandName),
       div(
         { class: 'title title-logo' },
-        // Or use dynamic data: h2(cardData.name || 'Scheme Name')
-        h2(cardData.schDetail.schemeName),
+        h2(cardData.schDetail.schemeName.replaceAll('Motilal Oswal', '')), // Or use dynamic data: h2(cardData.name || 'Scheme Name')
       ),
     ),
     // Create an empty container for the icons
@@ -69,9 +68,26 @@ function createCardElement(cardData, brandName, iconsTemplate) {
   // 2. Find the empty container and append the cloned icons. This is the fix.
   const iconsContainer = cardElement.querySelector('.icons-card-wrap');
   if (iconsContainer && iconsTemplate) {
-    const iconsvg = `${dataMapMoObj['icons-nfo'][cardData.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
-    const riskimg = iconsTemplate.querySelector('img');
-    riskimg.src = `../../icons/risk-icon/${iconsvg}`;
+    const divwrapper = document.createElement('div');
+    divwrapper.classList.add('risk-home');
+    const link = document.createElement('a');
+    link.href = '/motilalfigma/modals/risk-o-meter';
+    const svfion = iconsTemplate.querySelector('img');
+    svfion.src = `/icons/risk-icon/${iconsvg}`;
+    link.append(svfion);
+    divwrapper.append(link);
+    iconsTemplate.querySelector('.icon').innerHTML = '';
+    iconsTemplate.querySelector('.icon').append(divwrapper);
+
+    const divwrappertwo = document.createElement('div');
+    divwrappertwo.classList.add('risk-home-two');
+    const linktwo = document.createElement('a');
+    linktwo.href = 'https://www.motilaloswalmf.com/mutual-funds';
+    const svfiontwo = iconsTemplate.children[1].querySelector('img');
+    linktwo.append(svfiontwo);
+    divwrappertwo.append(linktwo);
+    iconsTemplate.children[1].innerHTML = '';
+    iconsTemplate.children[1].append(divwrappertwo);
     iconsContainer.append(iconsTemplate.cloneNode(true));
   }
 
@@ -164,7 +180,9 @@ export default function decorate(block) {
   // 1. Extract templates and data from the initial, author-configured DOM
   const brandName = block.querySelector('p')?.innerText.trim() || 'Motilal Oswal';
   const iconsTemplate = block.querySelector('ul'); // A simpler, more robust selector
+
   if (!iconsTemplate) {
+    console.error('Broaden Your Research: Icons template (<ul>) not found in the initial block content.');
     return;
   }
 

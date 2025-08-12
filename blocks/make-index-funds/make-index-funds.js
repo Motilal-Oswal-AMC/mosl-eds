@@ -1,4 +1,3 @@
-/* eslint-disable */
 import {
   div,
   h2,
@@ -7,7 +6,7 @@ import {
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import Swiper from '../swiper/swiper-bundle.min.js';
-
+import dataMapMoObj from '../../scripts/constant.js';
 // --- CONSTANTS AND STATE ---
 
 /**
@@ -33,23 +32,33 @@ let swiperInstance = null;
  * @param {HTMLElement} iconsTemplate - A template of the icons to clone for each card.
  * @returns {HTMLElement} The complete card element.
  */
+
 function createCardElement(cardData, brandName, iconsTemplate) {
   // 1. Create the card structure WITHOUT the icons.
-  const cardElement = div({ class: 'card-wrap' },
-    div({ class: 'img-wrapper' },
-      div({ class: 'imgelogo' },
+  const iconsvg = `${dataMapMoObj.iconsNfo[cardData.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
+  const mop = cardData.fundIcon !== undefined ? cardData.fundIcon.split('/').at(-1) : 'MO_Midcap_Fund.png';
+  const mopsec = mop.split('.');
+  const mopthree = `${mopsec[0]}.svg`;
+  const cardElement = div(
+    { class: 'card-wrap' },
+    div(
+      { class: 'img-wrapper' },
+      div(
+        { class: 'imgelogo' },
         img({
           class: 'logoScheme',
-          src: '../../icons/nift-fund-icons.svg',
+          src: `../../icons/fundicon/${mopthree}`,
           alt: 'BrandLogo',
           loading: 'lazy',
         }),
       ),
     ),
-    div({ class: 'title-subtitle' },
+    div(
+      { class: 'title-subtitle' },
       p(brandName),
-      div({ class: 'title title-logo' },
-        h2('scheme name'), // Or use dynamic data: h2(cardData.name || 'Scheme Name')
+      div(
+        { class: 'title title-logo' },
+        h2(cardData.schDetail.schemeName.replaceAll('Motilal Oswal', '')), // Or use dynamic data: h2(cardData.name || 'Scheme Name')
       ),
     ),
     // Create an empty container for the icons
@@ -59,6 +68,26 @@ function createCardElement(cardData, brandName, iconsTemplate) {
   // 2. Find the empty container and append the cloned icons. This is the fix.
   const iconsContainer = cardElement.querySelector('.icons-card-wrap');
   if (iconsContainer && iconsTemplate) {
+    const divwrapper = document.createElement('div');
+    divwrapper.classList.add('risk-home');
+    const link = document.createElement('a');
+    link.href = '/motilalfigma/modals/risk-o-meter';
+    const svfion = iconsTemplate.querySelector('img');
+    svfion.src = `/icons/risk-icon/${iconsvg}`;
+    link.append(svfion);
+    divwrapper.append(link);
+    iconsTemplate.querySelector('.icon').innerHTML = '';
+    iconsTemplate.querySelector('.icon').append(divwrapper);
+
+    const divwrappertwo = document.createElement('div');
+    divwrappertwo.classList.add('risk-home-two');
+    const linktwo = document.createElement('a');
+    linktwo.href = 'https://www.motilaloswalmf.com/mutual-funds';
+    const svfiontwo = iconsTemplate.children[1].querySelector('img');
+    linktwo.append(svfiontwo);
+    divwrappertwo.append(linktwo);
+    iconsTemplate.children[1].innerHTML = '';
+    iconsTemplate.children[1].append(divwrappertwo);
     iconsContainer.append(iconsTemplate.cloneNode(true));
   }
 
@@ -97,8 +126,12 @@ function initSwiper(block) {
       clickable: true,
     },
     breakpoints: {
-      320: { slidesPerView: 'auto', spaceBetween: 16, slidesOffsetBefore: -1, slidesOffsetAfter: -1 },
-      768: { slidesPerView: 'auto', spaceBetween: 16, slidesOffsetBefore: -1, slidesOffsetAfter: -1 },
+      320: {
+        slidesPerView: 'auto', spaceBetween: 16, slidesOffsetBefore: -1, slidesOffsetAfter: -1,
+      },
+      768: {
+        slidesPerView: 'auto', spaceBetween: 16, slidesOffsetBefore: -1, slidesOffsetAfter: -1,
+      },
     },
   });
 
@@ -154,7 +187,8 @@ export default function decorate(block) {
   }
 
   // 2. Create the card elements in memory
-  const cardData = dataCfObj.slice(0, 5);
+  const makeArr = dataCfObj.filter((el) => el.fundsTaggingSection.includes('motilal-oswal:index-funds'));
+  const cardData = makeArr.slice(0, 5);
   const cardElements = cardData.map((data) => createCardElement(data, brandName, iconsTemplate));
 
   // 3. Set up the block with the static (desktop) view first

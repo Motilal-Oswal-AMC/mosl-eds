@@ -1,8 +1,6 @@
 /*   alpha-value-notation */
-
 /*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
-
 .section.freq-ask-ques {
   display: grid;
   justify-content: space-between;
@@ -12,8 +10,7 @@
   padding-top: 40px;
   grid-template-columns: 25% 68.5%;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques {
     display: flex;
     flex-direction: column;
@@ -22,53 +19,45 @@
     padding-top: 24px;
   }
 }
-
 .section.freq-ask-ques > div {
   max-width: unset;
   margin: unset;
   padding: 0;
 }
-
 .section.freq-ask-ques > div:nth-child(1) {
   width: 100%;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques > div:nth-child(1) {
     width: 100%;
   }
 }
-
 .section.freq-ask-ques > div:nth-child(1) p {
   font-size: 36px;
   line-height: 44px;
   color: #2e2a94;
-  font-family: butlerPro, sans-serif;
+  font-family: "ButlerPro", sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques > div:nth-child(1) p {
     font-size: 32px;
     line-height: 40px;
     color: #2e2a94;
-    font-family: butlerPro, sans-serif;
+    font-family: "ButlerPro", sans-serif;
     font-weight: 700;
   }
 }
-
 .section.freq-ask-ques .accordion-wrapper {
   width: 100%;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper {
     width: 100%;
   }
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion {
   display: flex;
   flex-direction: column;
@@ -76,41 +65,35 @@
   gap: 52px;
   flex: 1 0 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion {
     gap: 36px;
   }
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details {
   width: 100%;
   border: none;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details + .section.freq-ask-ques .accordion-wrapper .accordion details {
   margin-top: 24px;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details p {
   margin: 0;
   font-size: 18px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details p {
     font-size: 16px;
     line-height: 20px;
     color: #2e2a94;
-    font-family: Poppins, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
   }
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details summary {
   position: relative;
   padding: 0 46px 0 16px;
@@ -120,15 +103,12 @@
   transition: background-color 0.6s ease-in-out;
   padding-left: 0;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details summary:focus, .section.freq-ask-ques .accordion-wrapper .accordion details summary:hover {
   background-color: var(--light-color);
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details summary::-webkit-details-marker {
   display: none;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details summary::after {
   content: "";
   position: absolute;
@@ -142,18 +122,15 @@
   background: url("../../icons/plus-blue.svg");
   transition: transform 0.2s;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details summary::after {
     top: -2px;
     right: 0;
   }
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details .accordion-item-body {
   padding: 0 16px;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details[open] summary {
   color: #fff;
   background: #242177;
@@ -161,24 +138,20 @@
   padding: 16px;
   padding-bottom: 8px;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details[open] summary::after {
   top: 15px;
   right: 25px;
   background: url("../../icons/mins-white.svg");
   transform: unset;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details[open] summary p {
   color: #fff;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details[open] summary p {
     padding-right: 45px;
   }
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details[open] .accordion-item-body {
   color: #fff;
   border: none;
@@ -188,27 +161,24 @@
   padding-top: 0;
   border-radius: 0 0 8px 8px;
   background: #242177;
-  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion details[open] .accordion-item-body p {
   font-size: 14px;
   line-height: 20px;
   color: #fff;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details[open] .accordion-item-body p {
     font-size: 12px;
     line-height: 16px;
     color: #fff;
-    font-family: Poppins, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
   }
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion .accordion-item {
   overflow: hidden;
   transition: max-height 0.7s ease, opacity 0.4s ease;
@@ -217,48 +187,43 @@
   opacity: 1;
   margin-bottom: 1em;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion .accordion-item.hidden {
   display: none;
 }
-
 .section.freq-ask-ques .accordion-wrapper .accordion .accordion-item.collapsed {
   max-height: 0;
   opacity: 0;
   margin-bottom: 0;
   pointer-events: none;
 }
-
 .section.freq-ask-ques > div:nth-child(3) {
   grid-column: 2/2;
   grid-row: 2;
   margin-top: 52px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.freq-ask-ques > div:nth-child(3) {
     margin-top: 16px;
   }
 }
-
 .section.freq-ask-ques > div:nth-child(3) .button-container {
   margin: 0;
   padding: 0;
 }
-
 .section.freq-ask-ques > div:nth-child(3) .button-container a {
   margin: 0;
   padding: 0;
   background: transparent;
   color: #4338F3;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-skip: ink;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip: ink;
   text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-position: from-font;
@@ -266,4 +231,4 @@
   border: none;
   white-space: unset;
   overflow: hidden;
-}
+}/*# sourceMappingURL=faq.css.map */

@@ -5,7 +5,7 @@
 .section.watchlist-block-container {
   padding: 3rem 2rem;
   background: #fff;
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
 
   @include media(mobile) {
     padding: 0;
@@ -57,6 +57,7 @@
 
             h2 {
               @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $ButlerPro);
+
               margin: 0;
 
               @include media(mobile) {
@@ -104,7 +105,7 @@
               display: inline-block;
               display: flex;
               width: 176px;
-              padding: 12px 12px;
+              padding: 12px;
               justify-content: center;
               align-items: center;
               gap: 8px;
@@ -112,6 +113,7 @@
               background: $primary-blue;
               transition: background 0.3s ease;
               border: none;
+
               @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $Poppins);
 
               &:hover {
@@ -144,7 +146,7 @@
           border-radius: 8px;
           border: 0.783px solid #B9BBFF;
           background: #FFF;
-          box-shadow: 0px 0px 12.523px 0px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 0 12.523px 0 rgb(0 0 0 / 6%);
           z-index: 2;
 
           @include media(mobile) {
@@ -173,7 +175,7 @@
           top: 12px;
           left: 41px;
           border: 0.713px solid #B9BBFF;
-          box-shadow: 0px 0px 11.405px 0px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 0 11.405px 0 rgb(0 0 0 / 6%);
           z-index: 1;
 
           @include media(mobile) {
@@ -194,7 +196,7 @@
           flex-direction: column;
           justify-content: flex-start;
           min-width: 300px;
-          box-shadow: 0px 0px 13.514px 0px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 0 13.514px 0 rgb(0 0 0 / 6%);
           border-radius: 8px;
           border: 0.845px solid #B9BBFF;
           z-index: 3;
@@ -266,11 +268,13 @@
             .fund-name-card {
               p {
                 margin: 0;
+
                 @include font-style(16px, 20px, map-get($map: $blue-1, $key: b400), map.get($font-weights, medium), $Poppins);
               }
 
               .fund-name {
                 max-width: 240px;
+
                 @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $Poppins);
               }
             }
@@ -284,6 +288,7 @@
 
             p {
               margin: 0;
+
               @include font-style(12px, 16px, #111, map.get($font-weights, medium), $Poppins);
             }
 
