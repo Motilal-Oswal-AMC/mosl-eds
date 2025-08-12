@@ -21,7 +21,7 @@
   font-size: 48px;
   line-height: 56px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "butlerPro", sans-serif;
   font-weight: 700;
 }
 @media (max-width: 768px) {
@@ -170,6 +170,11 @@
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child:first-of-type {
     grid-area: icon;
   }
+}
+.section.cornerstones-advantage .cornerstones-advantage-cards .cards-item p:first-of-type,
+.section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .icon {
+  width: 64px;
+  height: 64px;
 }
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .button-container {
   margin-top: auto;

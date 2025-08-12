@@ -1,7 +1,7 @@
 /* Reset */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.cornerstones-advantage {
   &-cards-container {
@@ -32,7 +32,7 @@
         margin: 0 0 4px;
         text-align: center;
 
-        @include font-style(48px, 56px, $primary-blue, 700, $ButlerPro);
+        @include font-style(48px, 56px, $primary-blue, 700, $butlerpro);
 
         @include media(mobile) {
           font-size: 28px;
@@ -42,7 +42,7 @@
       }
 
       p {
-        @include font-style(18px, 24px, $primary-blue, 500, $Poppins);
+        @include font-style(18px, 24px, $primary-blue, 500, $poppins);
 
         text-align: center;
         margin: 0;
@@ -137,7 +137,7 @@
         h6 {
           margin: 24px 0 8px;
 
-          @include font-style(18px, 24px, $primary-blue, 600, $Poppins);
+          @include font-style(18px, 24px, $primary-blue, 600, $poppins);
 
           @include media(mobile) {
             grid-area: heading;
@@ -151,7 +151,7 @@
           margin: 0;
           
           &:not(:first-of-type, :last-of-type) {
-            @include font-style(16px, 24px, $color-text-body, 400, $Poppins);
+            @include font-style(16px, 24px, $color-text-body, 400, $poppins);
 
             // padding-right: 20px;
             @include media(mobile) {
@@ -168,6 +168,12 @@
               grid-area: icon;
             }
           }
+        }
+
+        p:first-of-type,
+        .icon {
+          width: 64px;
+          height: 64px;
         }
 
         .button-container {
@@ -188,7 +194,7 @@
             text-underline-offset: 20%;
             border-radius: 0;
 
-            @include font-style(14px, 20px, $primary-blue, 500, $Poppins);
+            @include font-style(14px, 20px, $primary-blue, 500, $poppins);
           }
         }
       }

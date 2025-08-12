@@ -739,6 +739,9 @@ button.swiper-pagination-bullet {
   max-width: 100%;
   margin: 0;
 }
+.section.home-banner-container p {
+  margin: 0;
+}
 .section.home-banner-container .home-banner-wrapper {
   padding: 0;
   max-width: 100%;
@@ -783,9 +786,6 @@ button.swiper-pagination-bullet {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
-.section.home-banner-container ul li:first-of-type {
-  background: #242177;
 }
 .section.home-banner-container ul li:last-of-type {
   display: none;

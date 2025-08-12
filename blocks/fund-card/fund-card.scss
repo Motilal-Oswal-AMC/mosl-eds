@@ -31,7 +31,7 @@
           16px,
           $primary-blue-1-900,
           map.get($font-weights, regular),
-          $Poppins
+          $poppins
         );
         margin: 0;
         cursor: pointer;
@@ -85,7 +85,7 @@
             16px,
             $neutrals-black,
             map.get($font-weights, regular),
-            $Poppins
+            $poppins
           );
           padding: 12px;
           border-bottom: 1px solid $neutrals-200;
@@ -116,7 +116,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins
+          $family: $poppins
         );
 
         margin: 0;
@@ -169,7 +169,7 @@
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: map.get($font-weights, regular),
-            $family: $Poppins
+            $family: $poppins
           );
           @include flex-center($align: center, $justify: flex-start);
 
@@ -234,7 +234,7 @@
           $line-height: 16px,
           $color: map.get($dark-liver, 500),
           $weight: map.get($font-weights, regular),
-          $family: $Poppins
+          $family: $poppins
         );
 
         margin: 0;
@@ -247,7 +247,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins
+          $family: $poppins
         );
         @include flex-center($align: center, $justify: flex-start);
 
@@ -282,7 +282,7 @@
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: map.get($font-weights, regular),
-            $family: $Poppins
+            $family: $poppins
           );
 
           padding-bottom: 4px;
@@ -301,7 +301,7 @@
             $line-height: 16px,
             $color: $primary-blue,
             $weight: map.get($font-weights, regular),
-            $family: $Poppins
+            $family: $poppins
           );
 
           padding: 8px 0;
@@ -319,7 +319,7 @@
             $line-height: 32px,
             $color: $primary-blue,
             $weight: map.get($font-weights, medium),
-            $family: $Poppins
+            $family: $poppins
           );
 
           margin: 0;
@@ -337,7 +337,7 @@
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: map.get($font-weights, regular),
-            $family: $Poppins
+            $family: $poppins
           );
 
           text-align: right;
@@ -391,7 +391,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, regular),
-          $family: $Poppins
+          $family: $poppins
         );
 
         margin: 0;
@@ -471,7 +471,7 @@
           $line-height: 48px,
           $color: $primary-blue,
           $weight: map.get($font-weights, bold),
-          $family: $ButlerPro
+          $family: $butlerpro
         );
 
         margin: 0;
@@ -540,7 +540,7 @@
         $line-height: 16px,
         $color: $primary-blue,
         $weight: map.get($font-weights, semibold),
-        $family: $Poppins
+        $family: $poppins
       );
 
       text-decoration: none;
@@ -577,7 +577,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins
+          $family: $poppins
         );
 
         &[aria-selected="true"] {
@@ -586,7 +586,7 @@
             $line-height: 16px,
             $color: $primary-blue,
             $weight: map.get($font-weights, semibold),
-            $family: $Poppins
+            $family: $poppins
           );
 
           border-bottom: 2px solid $primary-blue;
@@ -628,7 +628,7 @@
           16px,
           $primary-blue-1-900,
           map.get($font-weights, regular),
-          $Poppins
+          $poppins
         );
         margin: 0;
         cursor: pointer;
@@ -682,7 +682,7 @@
             16px,
             $neutrals-black,
             map.get($font-weights, regular),
-            $Poppins
+            $poppins
           );
           padding: 12px;
           border-bottom: 1px solid $neutrals-200;
@@ -757,7 +757,7 @@
             16px,
             map.get($blue-1, b400),
             map.get($font-weights, regular),
-            $Poppins
+            $poppins
           );
         }
 
@@ -768,7 +768,7 @@
               $line-height: 20px,
               $color: $primary-blue,
               $weight: map.get($font-weights, medium),
-              $family: $Poppins
+              $family: $poppins
             );
 
             margin: 0;
@@ -809,7 +809,7 @@
             $line-height: 16px,
             $color: $primary-blue-1-900,
             $weight: map.get($font-weights, regular),
-            $family: $Poppins
+            $family: $poppins
           );
           @include flex-center($align: center, $justify: flex-start);
 
@@ -854,7 +854,7 @@
             $line-height: 16px,
             $color: $primary-blue-1-900,
             $weight: map.get($font-weights, regular),
-            $family: $Poppins
+            $family: $poppins
           );
 
           border: none;
@@ -913,7 +913,7 @@
             $line-height: 16px,
             $color: #111,
             $weight: map.get($font-weights, medium),
-            $family: $Poppins
+            $family: $poppins
           );
 
           // padding-bottom: 4px;
@@ -953,7 +953,7 @@
             $line-height: 32px,
             $color: $primary-blue,
             $weight: map.get($font-weights, semibold),
-            $family: $Poppins
+            $family: $poppins
           );
 
           margin: 0;
@@ -971,7 +971,7 @@
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: map.get($font-weights, regular),
-            $family: $Poppins
+            $family: $poppins
           );
 
           text-align: right;
@@ -992,7 +992,7 @@
             $line-height: 16px,
             $color: $primary-blue,
             $weight: map.get($font-weights, regular),
-            $family: $Poppins
+            $family: $poppins
           );
 
           padding: 8px 0;
@@ -1016,7 +1016,7 @@
           $line-height: 16px,
           $color: map.get($dark-liver, 500),
           $weight: map.get($font-weights, regular),
-          $family: $Poppins
+          $family: $poppins
         );
 
         margin: 0;
@@ -1029,7 +1029,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins
+          $family: $poppins
         );
         @include flex-center($align: center, $justify: flex-start);
 
@@ -1061,7 +1061,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, regular),
-          $family: $Poppins
+          $family: $poppins
         );
 
         margin: 0;
@@ -1099,7 +1099,7 @@
           $line-height: 20px,
           $color: map.get($blue-1, b500),
           $weight: map.get($font-weights, regular),
-          $family: $Poppins
+          $family: $poppins
         );
 
         margin: 0;
@@ -1184,7 +1184,7 @@
             $line-height: 32px,
             $color: $primary-blue,
             $weight: map.get($font-weights, medium),
-            $family: $ButlerPro
+            $family: $butlerpro
           );
 
           margin: 0;
@@ -1205,7 +1205,7 @@
             font-size: 14px;
             font-weight: 600;
             line-height: 16px;
-            font-family: $Poppins;
+            font-family: $poppins;
           }
         }
       }
@@ -1262,7 +1262,7 @@
         $line-height: 40px,
         $color: $primary-blue,
         $weight: map.get($font-weights, bold),
-        $family: $ButlerPro
+        $family: $butlerpro
       );
     }
 
@@ -1281,7 +1281,7 @@
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins
+          $family: $poppins
         );
       }
     }
@@ -1315,7 +1315,7 @@
           $line-height: 20px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $Poppins
+          $family: $poppins
         );
       }
 
@@ -1337,7 +1337,7 @@
             $line-height: 32px,
             $color: $primary-blue,
             $weight: map.get($font-weights, medium),
-            $family: $Poppins
+            $family: $poppins
           );
         }
       }

@@ -8,6 +8,10 @@
   padding: 0;
   max-width: 100%;
   margin: 0;
+  
+  p{
+    margin: 0;
+  }
 
   .home-banner-wrapper {
     padding: 0;
@@ -131,7 +135,7 @@
           color: $primary-blue;
           font-size: 16px;
           font-weight: 600;
-          font-family: $Poppins;
+          font-family: $poppins;
           line-height: 20px;
           padding: 12px;
           background-color: $primary-white;
@@ -175,7 +179,7 @@
           color: $primary-blue;
           font-size: 14px;
           line-height: 16px;
-          font-family: $Poppins;
+          font-family: $poppins;
           background-color: $primary-white;
           padding: 8px 12px;
           border-radius: map.get($radius, r8);

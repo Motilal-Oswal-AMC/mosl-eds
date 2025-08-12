@@ -30,6 +30,8 @@
       "growth-now",
       "broaden-your-research",
       "make-index-funds",
+      "risk-o-meter",
+      "risk-meter",
       "fdp-card",
       "fund-video",
       "key-facts",
@@ -74,8 +76,16 @@
     "components": ["cornerstones-advantage-cards-item"]
   },
   {
+    "id": "growth-now",
+    "components": ["growth-now-item"]
+  },
+  {
     "id": "live-streaming",
     "components": ["live-streaming-content"]
+  },
+  {
+    "id": "risk-o-meter",
+    "components": ["risk-o-meter-item"]
   },
   {
     "id": "key-facts",

@@ -177,7 +177,7 @@ export default function decorate(block) {
       : 'Direct';
   }
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
-  const finPlangrp = [];
+  let finPlangrp = [];
   const tempReturns = [];
   block.returns.forEach((ret, jind) => {
     if (jind === 0) {
@@ -256,7 +256,6 @@ export default function decorate(block) {
                   } else {
                     event.target.parentElement.classList.remove('star-filled');
                   }
-                  wishlist();
                 },
                 schcode: block.schcode,
               },
@@ -423,7 +422,7 @@ export default function decorate(block) {
                 } else {
                   event.target.parentElement.classList.remove('star-filled');
                 }
-                wishlist();
+                wishlist(block);
               },
               schcode: block.schcode,
             },
