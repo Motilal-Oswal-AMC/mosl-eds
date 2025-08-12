@@ -1653,6 +1653,8 @@
 
                 .cagr-value {
                   @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
+                  
+                  display: flex;
                 }
 
                 .cagr-text {

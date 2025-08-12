@@ -1507,6 +1507,7 @@
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
+  display: flex;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .cagr-return .cagr-text {
   margin: 0;
