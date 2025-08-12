@@ -516,282 +516,287 @@ export default function decorate(block) {
   dataMapMoObj.funddata = dataCfObj.slice(0, 9);
   const divfund = div(
     {
-      class: 'blockwrapper',
+      class: "blockwrapper",
     },
     div(
       {
-        class: 'upper-container',
+        class: "upper-container",
       },
       div(
         {
-          class: 'fundcontainer',
+          class: "fundcontainer",
         },
-        block.querySelector('.block-subitem1'),
+        block.querySelector(".block-subitem1"),
         div(
           {
-            class: 'search-trending-wrapper',
+            class: "search-trending-wrapper",
           },
           div(
             {
-              class: 'search-input',
+              class: "search-input",
             },
             input({
-              class: 'search',
+              class: "search",
               placeholder: block
-                .querySelector('.block-subitem2 .block-subitem-finelsub1')
+                .querySelector(".block-subitem2 .block-subitem-finelsub1")
                 .textContent.trim(),
             }),
             div(
               {
-                class: 'cancel-search',
+                class: "cancel-search",
               },
               img({
-                class: 'cancel-btn',
-                src: '../../icons/input-cancel.svg',
-                alt: 'cancel button',
-              }),
+                class: "cancel-btn",
+                src: "../../icons/input-cancel.svg",
+                alt: "cancel button",
+              })
             ),
             ul(
               {
-                class: 'list-search',
+                class: "list-search",
               },
-              ...dataMapMoObj.funddata.map((el) => li(
-                {
-                  class: 'list-fund-name',
-                  schcode: el.schcode,
-                },
-                el.schDetail.schemeName,
-              )),
-            ),
+              ...dataMapMoObj.funddata.map((el) =>
+                li(
+                  {
+                    class: "list-fund-name",
+                    schcode: el.schcode,
+                  },
+                  el.schDetail.schemeName
+                )
+              )
+            )
           ),
           div(
             {
-              class: 'watchlist',
+              class: "watchlist",
             },
             div(
               {
-                class: 'staricon',
+                class: "staricon",
               },
               block.querySelector(
-                '.block-subitem2 .block-subitem-finelsub2 span',
+                ".block-subitem2 .block-subitem-finelsub2 span"
               ),
               block.querySelector(
-                '.block-subitem2 .block-subitem-finelsub3 span',
-              ),
+                ".block-subitem2 .block-subitem-finelsub3 span"
+              )
             ),
             div(
               {
-                class: 'watchlisttext',
+                class: "watchlisttext",
               },
               span(
                 block
-                  .querySelector('.block-subitem2 .block-subitem-finelsub3')
-                  .textContent.trim(),
-              ),
-            ),
+                  .querySelector(".block-subitem2 .block-subitem-finelsub3")
+                  .textContent.trim()
+              )
+            )
           ),
           div(
             {
-              class: 'trending-container',
+              class: "trending-container",
             },
             div(
               {
-                class: 'trendinglabel',
+                class: "trendinglabel",
               },
               p(
                 block.querySelector(
-                  '.block-subitem2 .block-subitem-finelsub4 span',
-                ),
+                  ".block-subitem2 .block-subitem-finelsub4 span"
+                )
               ),
               span(
-                { class: 'trending-text' },
+                { class: "trending-text" },
                 block
-                  .querySelector('.block-subitem2 .block-subitem-finelsub5')
-                  .textContent.trim(),
-              ),
+                  .querySelector(".block-subitem2 .block-subitem-finelsub5")
+                  .textContent.trim()
+              )
             ),
             div(
               {
-                class: 'trendingmostlist',
+                class: "trendingmostlist",
               },
-              block.querySelector('.block-subitem2 .block-subitem-finelsub6'),
-            ),
-          ),
-        ),
-      ),
+              block.querySelector(".block-subitem2 .block-subitem-finelsub6")
+            )
+          )
+        )
+      )
     ),
     div(
       {
-        class: 'filter-cards',
+        class: "filter-cards",
       },
       div(
         {
-          class: 'left-container',
+          class: "left-container",
         },
         div(
           {
-            class: 'fundcategory-container',
+            class: "fundcategory-container",
           },
           div(
             {
-              class: 'filter-sort-container',
+              class: "filter-sort-container",
             },
             div(
               {
-                class: 'filter-wrapper',
+                class: "filter-wrapper",
                 onclick: () => {
                   block
-                    .querySelector('.filter-overlay')
-                    .classList.add('active');
+                    .querySelector(".filter-overlay")
+                    .classList.add("active");
                   if (
                     Array.from(
-                      block.querySelector('.sort-overlay').classList,
-                    ).includes('active')
+                      block.querySelector(".sort-overlay").classList
+                    ).includes("active")
                   ) {
                     block
-                      .querySelector('.sort-overlay')
-                      .classList.remove('active');
+                      .querySelector(".sort-overlay")
+                      .classList.remove("active");
                   }
                 },
               },
               div(
                 {
-                  class: 'filter-text',
+                  class: "filter-text",
                 },
                 block.querySelector(
-                  '.block-item2 .block-subitem-finelsub1 span',
+                  ".block-item2 .block-subitem-finelsub1 span"
                 ),
                 p(
                   block
-                    .querySelector('.block-item2 .block-subitem-finelsub2')
-                    .textContent.trim(),
-                ),
+                    .querySelector(".block-item2 .block-subitem-finelsub2")
+                    .textContent.trim()
+                )
               ),
-              button({
-                class: 'clearall-btn',
-                onclick: () => {
-                  Array.from(
-                    block.querySelector('.filter-list-wrapper').children,
-                  ).forEach((el) => {
-                    if (
-                      el
-                        .closest('.checkbox-label-container')
-                        .querySelector('.innerindianequity')
-                    ) {
-                      el.closest('.checkbox-label-container')
-                        .querySelectorAll('.innerindianequity input')
-                        .forEach((elemsub) => {
-                          elemsub.checked = false;
-                        });
-                    }
-                    el.querySelector('input').checked = false;
-                  });
-                  dataMapMoObj.funddata = dataCfObj.slice(0, 9);
-                  viewFunction(block);
+              button(
+                {
+                  class: "clearall-btn",
+                  onclick: () => {
+                    Array.from(
+                      block.querySelector(".filter-list-wrapper").children
+                    ).forEach((el) => {
+                      if (
+                        el
+                          .closest(".checkbox-label-container")
+                          .querySelector(".innerindianequity")
+                      ) {
+                        el.closest(".checkbox-label-container")
+                          .querySelectorAll(".innerindianequity input")
+                          .forEach((elemsub) => {
+                            elemsub.checked = false;
+                          });
+                      }
+                      el.querySelector("input").checked = false;
+                    });
+                    dataMapMoObj.funddata = dataCfObj.slice(0, 9);
+                    viewFunction(block);
+                  },
                 },
-              }, 'Clear All'),
+                "Clear All"
+              )
             ),
             div(
               {
-                class: 'sort-wrapper',
+                class: "sort-wrapper",
                 onclick: () => {
-                  block.querySelector('.sort-overlay').classList.add('active');
+                  block.querySelector(".sort-overlay").classList.add("active");
                   if (
                     Array.from(
-                      block.querySelector('.filter-overlay').classList,
-                    ).includes('active')
+                      block.querySelector(".filter-overlay").classList
+                    ).includes("active")
                   ) {
                     block
-                      .querySelector('.filter-overlay')
-                      .classList.remove('active');
+                      .querySelector(".filter-overlay")
+                      .classList.remove("active");
                   }
                 },
               },
-              block.querySelector('.block-item2 .block-subitem-finelsub3 span'),
+              block.querySelector(".block-item2 .block-subitem-finelsub3 span"),
               p(
                 block
-                  .querySelector('.block-item2 .block-subitem-finelsub4')
-                  .textContent.trim(),
-              ),
-            ),
+                  .querySelector(".block-item2 .block-subitem-finelsub4")
+                  .textContent.trim()
+              )
+            )
           ),
           div(
             {
-              class: 'filter-overlay',
+              class: "filter-overlay",
             },
             div(
               {
-                class: 'filter-container',
+                class: "filter-container",
               },
               div(
                 {
-                  class: 'clearall-wrapper',
+                  class: "clearall-wrapper",
                 },
-                span('Filters'),
+                span("Filters"),
                 button(
                   {
-                    class: 'clearall-btn',
+                    class: "clearall-btn",
                     onclick: () => {
                       Array.from(
-                        block.querySelector('.filter-list-wrapper').children,
+                        block.querySelector(".filter-list-wrapper").children
                       ).forEach((el) => {
                         if (
                           el
-                            .closest('.checkbox-label-container')
-                            .querySelector('.innerindianequity')
+                            .closest(".checkbox-label-container")
+                            .querySelector(".innerindianequity")
                         ) {
-                          el.closest('.checkbox-label-container')
-                            .querySelectorAll('.innerindianequity input')
+                          el.closest(".checkbox-label-container")
+                            .querySelectorAll(".innerindianequity input")
                             .forEach((elemsub) => {
                               elemsub.checked = false;
                             });
                         }
-                        el.querySelector('input').checked = false;
+                        el.querySelector("input").checked = false;
                       });
                       dataMapMoObj.funddata = dataCfObj.slice(0, 9);
                     },
                   },
-                  'Clear All',
-                ),
+                  "Clear All"
+                )
               ),
               div(
                 {
-                  class: 'filter-list-wrapper',
+                  class: "filter-list-wrapper",
                 },
                 // div({class:"fundcategory-label"},
                 //   span(block.querySelector(".block-subitem1 .block-subitem-finelsub6").textContent.trim())
                 // ),
                 ...dataMapMoObj.data.fundCategory.map((element, index) => {
-                  const indexeq = index === 0 ? 'indaneqsub' : '';
+                  const indexeq = index === 0 ? "indaneqsub" : "";
                   if (
                     capitalizeEachWord(
-                      Object.keys(element)[0].replaceAll('-', ' '),
-                    ) === 'Indian Equity'
+                      Object.keys(element)[0].replaceAll("-", " ")
+                    ) === "Indian Equity"
                   ) {
                     dataMapMoObj[`${index}ArrayDoc`] = div(
                       {
-                        class: 'indian-equity-container',
+                        class: "indian-equity-container",
                       },
                       ...dataMapMoObj.data.fundCategory[
                         dataMapMoObj.data.fundCategory.length - 1
                       ].indianEquitySub.map((elme, ind) => {
                         const sublabel = Object.keys(elme)[0]
-                          .split('-')[1]
+                          .split("-")[1]
                           .trim();
                         return div(
                           {
-                            class: 'checkbox-label-container',
+                            class: "checkbox-label-container",
                           },
                           input({
-                            class: 'categorey-direct',
-                            type: 'checkbox',
+                            class: "categorey-direct",
+                            type: "checkbox",
                             id: `ind${ind + 1}`,
-                            dataattr: elme[Object.keys(elme)].join('-'),
+                            dataattr: elme[Object.keys(elme)].join("-"),
                             onclick: (event) => {
                               if (window.innerWidth < 786) {
                                 const dataattr = event.target
-                                  .getAttribute('dataattr')
-                                  .split('-');
+                                  .getAttribute("dataattr")
+                                  .split("-");
                                 const tempdata = dataCfObj.filter((el) => {
                                   if (dataattr.includes(el.schcode)) {
                                     return el;
@@ -809,555 +814,556 @@ export default function decorate(block) {
                             {
                               for: `ind${ind + 1}`,
                             },
-                            sublabel,
-                          ),
+                            sublabel
+                          )
                         );
-                      }),
+                      })
                     );
                   }
-                  return Object.keys(element)[0] !== 'indianEquitySub'
+                  return Object.keys(element)[0] !== "indianEquitySub"
                     ? div(
-                      {
-                        class: `checkbox-label-container ${indexeq}`,
-                      },
-                      input({
-                        class: 'categorey-direct',
-                        type: 'checkbox',
-                        id: `index${index + 1}`,
-                        dataattr: element[Object.keys(element)[0]].join('-'),
-                        onclick: (event) => {
-                          const fundScheme = event.target
-                            .getAttribute('dataattr')
-                            .split('-');
-                            // viewFunction(block);
-                          if (event.target.closest('.indaneqsub')) {
-                            const el = event.target.closest('.indaneqsub');
-                            if (el.querySelector('.innerindianequity')) {
-                              el.querySelectorAll(
-                                '.innerindianequity input',
-                              ).forEach((elemsub) => {
-                                elemsub.checked = el.querySelector('input').checked;
-                              });
-                            }
-                          }
-                          if (window.innerWidth < 786) {
-                            const dataattr = event.target
-                              .getAttribute('dataattr')
-                              .split('-');
-                            const tempdata = dataCfObj.filter((el) => {
-                              if (dataattr.includes(el.schcode)) {
-                                return el;
-                              }
-                            });
-                            console.log(tempdata);
-                            dataMapMoObj.tempMobReturn = [];
-                            dataMapMoObj.tempMobReturn = tempdata;
-                          } else {
-                            checkfilter(block);
-                          }
+                        {
+                          class: `checkbox-label-container ${indexeq}`,
                         },
-                      }),
-                      div(
-                        { class: 'label-tooltip-wrap' },
-                        label(
-                          {
-                            for: `index${index + 1}`,
+                        input({
+                          class: "categorey-direct",
+                          type: "checkbox",
+                          id: `index${index + 1}`,
+                          dataattr: element[Object.keys(element)[0]].join("-"),
+                          onclick: (event) => {
+                            const fundScheme = event.target
+                              .getAttribute("dataattr")
+                              .split("-");
+                            // viewFunction(block);
+                            if (event.target.closest(".indaneqsub")) {
+                              const el = event.target.closest(".indaneqsub");
+                              if (el.querySelector(".innerindianequity")) {
+                                el.querySelectorAll(
+                                  ".innerindianequity input"
+                                ).forEach((elemsub) => {
+                                  elemsub.checked =
+                                    el.querySelector("input").checked;
+                                });
+                              }
+                            }
+                            if (window.innerWidth < 786) {
+                              const dataattr = event.target
+                                .getAttribute("dataattr")
+                                .split("-");
+                              const tempdata = dataCfObj.filter((el) => {
+                                if (dataattr.includes(el.schcode)) {
+                                  return el;
+                                }
+                              });
+                              console.log(tempdata);
+                              dataMapMoObj.tempMobReturn = [];
+                              dataMapMoObj.tempMobReturn = tempdata;
+                            } else {
+                              checkfilter(block);
+                            }
                           },
-                          capitalizeEachWord(
-                            Object.keys(element)[0].replaceAll('-', ' '),
-                          ),
-                          span(
-                            {
-                              class: 'fund-length',
-                            },
-                            `(${
-                              element[Object.keys(element)[0]].length
-                            })`,
-                          ),
-                        ),
+                        }),
                         div(
-                          { class: 'tooltip-wrap' },
-                          img({
-                            src: '../../icons/filter-info.svg',
-                            alt: 'Filter Info Icon',
-                          }),
-                          p(
-                            { class: 'tooltip-text' },
-                            'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
+                          { class: "label-tooltip-wrap" },
+                          label(
+                            {
+                              for: `index${index + 1}`,
+                            },
+                            capitalizeEachWord(
+                              Object.keys(element)[0].replaceAll("-", " ")
+                            ),
+                            span(
+                              {
+                                class: "fund-length",
+                              },
+                              `(${element[Object.keys(element)[0]].length})`
+                            )
                           ),
+                          div(
+                            { class: "tooltip-wrap" },
+                            img({
+                              src: "../../icons/filter-info.svg",
+                              alt: "Filter Info Icon",
+                            }),
+                            p(
+                              { class: "tooltip-text" },
+                              "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                            )
+                          )
                         ),
-                      ),
-                      capitalizeEachWord(
-                        Object.keys(element)[0].replaceAll('-', ' '),
-                      ) === 'Indian Equity'
-                        ? div(
-                          {
-                            class: 'innerindianequity',
-                          },
-                          dataMapMoObj[`${index}ArrayDoc`],
-                        )
-                        : '',
-                    )
-                    : '';
+                        capitalizeEachWord(
+                          Object.keys(element)[0].replaceAll("-", " ")
+                        ) === "Indian Equity"
+                          ? div(
+                              {
+                                class: "innerindianequity",
+                              },
+                              dataMapMoObj[`${index}ArrayDoc`]
+                            )
+                          : ""
+                      )
+                    : "";
                 }),
-                ...dataMapMoObj.data.fundType.map((element, index) => div(
-                  {
-                    class: 'checkbox-label-container',
-                  },
-                  input({
-                    class: 'categorey-direct',
-                    type: 'checkbox',
-                    id: `fundtype${index + 1}`,
-                    dataattr: element[Object.keys(element)[0]].join('-'),
-                    onclick: (event) => {
-                      // checkfilter(block);
-                      if (window.innerWidth < 786) {
-                        const dataattr = event.target
-                          .getAttribute('dataattr')
-                          .split('-');
-                        const tempdata = dataCfObj.filter((el) => {
-                          if (dataattr.includes(el.schcode)) {
-                            return el;
-                          }
-                        });
-                        console.log(tempdata);
-                        dataMapMoObj.tempMobReturn = [];
-                        dataMapMoObj.tempMobReturn = tempdata;
-                      } else {
-                        checkfilter(block);
-                      }
-                      // viewFunction(block);
-                    },
-                  }),
+                ...dataMapMoObj.data.fundType.map((element, index) =>
                   div(
-                    { class: 'label-tooltip-wrap' },
-                    label(
-                      {
-                        for: `fundtype${index + 1}`,
+                    {
+                      class: "checkbox-label-container",
+                    },
+                    input({
+                      class: "categorey-direct",
+                      type: "checkbox",
+                      id: `fundtype${index + 1}`,
+                      dataattr: element[Object.keys(element)[0]].join("-"),
+                      onclick: (event) => {
+                        // checkfilter(block);
+                        if (window.innerWidth < 786) {
+                          const dataattr = event.target
+                            .getAttribute("dataattr")
+                            .split("-");
+                          const tempdata = dataCfObj.filter((el) => {
+                            if (dataattr.includes(el.schcode)) {
+                              return el;
+                            }
+                          });
+                          console.log(tempdata);
+                          dataMapMoObj.tempMobReturn = [];
+                          dataMapMoObj.tempMobReturn = tempdata;
+                        } else {
+                          checkfilter(block);
+                        }
+                        // viewFunction(block);
                       },
-                      capitalizeEachWord(
-                        Object.keys(element)[0].replaceAll('-', ' '),
-                      ),
-                      span(
-                        `(${element[Object.keys(element)[0]].length})`,
-                      ),
-                    ),
+                    }),
                     div(
-                      { class: 'tooltip-wrap' },
-                      img({
-                        src: '../../icons/filter-info.svg',
-                        alt: 'Filter Info Icon',
-                      }),
-                      p(
-                        { class: 'tooltip-text' },
-                        'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
+                      { class: "label-tooltip-wrap" },
+                      label(
+                        {
+                          for: `fundtype${index + 1}`,
+                        },
+                        capitalizeEachWord(
+                          Object.keys(element)[0].replaceAll("-", " ")
+                        ),
+                        span(`(${element[Object.keys(element)[0]].length})`)
                       ),
-                    ),
-                  ),
-                )),
+                      div(
+                        { class: "tooltip-wrap" },
+                        img({
+                          src: "../../icons/filter-info.svg",
+                          alt: "Filter Info Icon",
+                        }),
+                        p(
+                          { class: "tooltip-text" },
+                          "Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India."
+                        )
+                      )
+                    )
+                  )
+                )
               ),
               div(
                 {
-                  class: 'apply-wrapper',
+                  class: "apply-wrapper",
                 },
                 button(
                   {
-                    class: 'close-btn',
+                    class: "close-btn",
                     onclick: (event) => {
                       block
-                        .querySelector('.filter-overlay')
-                        .classList.remove('active');
+                        .querySelector(".filter-overlay")
+                        .classList.remove("active");
                       block
-                        .querySelector('.sort-overlay')
-                        .classList.remove('active');
+                        .querySelector(".sort-overlay")
+                        .classList.remove("active");
                     },
                   },
-                  'Close',
+                  "Close"
                 ),
                 button(
                   {
-                    class: 'apply-btn',
+                    class: "apply-btn",
                     onclick: () => {
                       applyFunction(block);
                     },
                   },
-                  'Apply',
-                ),
-              ),
-            ),
+                  "Apply"
+                )
+              )
+            )
           ),
           div(
             {
-              class: 'sort-overlay',
+              class: "sort-overlay",
             },
             div(
               {
-                class: 'sort-container',
+                class: "sort-container",
               },
               div(
                 {
-                  class: 'sort-label',
+                  class: "sort-label",
                 },
                 // span(label(
                 //   block.querySelector(".block-item3 .block-subitem-finelsub1").textContent.trim()
                 // ))
                 span(
                   block
-                    .querySelector('.block-item3 .block-subitem-finelsub1')
-                    .textContent.trim(),
-                ),
+                    .querySelector(".block-item3 .block-subitem-finelsub1")
+                    .textContent.trim()
+                )
               ),
               div(
                 {
-                  class: 'arrange-returns',
+                  class: "arrange-returns",
                 },
                 div(
                   {
-                    class: 'arrange-container',
+                    class: "arrange-container",
                   },
-                  span('Arrange by'),
+                  span("Arrange by"),
                   div(
                     {
-                      class: 'radio-label-container',
+                      class: "radio-label-container",
                     },
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'popular',
-                        name: 'arrange',
+                        type: "radio",
+                        id: "popular",
+                        name: "arrange",
                       }),
                       label(
                         {
-                          for: 'popular',
+                          for: "popular",
                         },
-                        'Popular',
-                      ),
+                        "Popular"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'lastnav',
-                        name: 'arrange',
+                        type: "radio",
+                        id: "lastnav",
+                        name: "arrange",
                       }),
                       label(
                         {
-                          for: 'lastnav',
+                          for: "lastnav",
                         },
-                        'Latest NAV',
-                      ),
+                        "Latest NAV"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'lastnavone',
-                        name: 'arrange',
+                        type: "radio",
+                        id: "lastnavone",
+                        name: "arrange",
                       }),
                       label(
                         {
-                          for: 'lastnavone',
+                          for: "lastnavone",
                         },
-                        'Latest by 1 day',
-                      ),
+                        "Latest by 1 day"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'oldnew',
-                        name: 'arrange',
+                        type: "radio",
+                        id: "oldnew",
+                        name: "arrange",
                       }),
                       label(
                         {
-                          for: 'oldnew',
+                          for: "oldnew",
                         },
-                        'Oldest to Newest',
-                      ),
+                        "Oldest to Newest"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'newold',
-                        name: 'arrange',
+                        type: "radio",
+                        id: "newold",
+                        name: "arrange",
                       }),
                       label(
                         {
-                          for: 'newold',
+                          for: "newold",
                         },
-                        'Newest to Oldest',
-                      ),
-                    ),
-                  ),
+                        "Newest to Oldest"
+                      )
+                    )
+                  )
                 ),
                 div(
                   {
-                    class: 'return-container',
+                    class: "return-container",
                   },
-                  span('Returns Period'),
+                  span("Returns Period"),
                   div(
                     {
-                      class: 'radio-label-container',
+                      class: "radio-label-container",
                     },
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'sinceinp',
-                        name: 'returns',
+                        type: "radio",
+                        id: "sinceinp",
+                        name: "returns",
                         dataattr:
-                          dataMapMoObj.data.sort[0].inception_Ret.join('-'),
+                          dataMapMoObj.data.sort[0].inception_Ret.join("-"),
                       }),
                       label(
                         {
-                          for: 'sinceinp',
+                          for: "sinceinp",
                         },
-                        'Since Inception',
-                      ),
+                        "Since Inception"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'oneyear',
-                        name: 'returns',
+                        type: "radio",
+                        id: "oneyear",
+                        name: "returns",
                         dataattr:
-                          dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
+                          dataMapMoObj.data.sort[0].oneYear_Ret.join("-"),
                       }),
                       label(
                         {
-                          for: 'oneyear',
+                          for: "oneyear",
                         },
-                        '1 year',
-                      ),
+                        "1 year"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'threeyear',
-                        name: 'returns',
+                        type: "radio",
+                        id: "threeyear",
+                        name: "returns",
                         dataattr:
-                          dataMapMoObj.data.sort[0].threeYear_Ret.join('-'),
+                          dataMapMoObj.data.sort[0].threeYear_Ret.join("-"),
                       }),
                       label(
                         {
-                          for: 'threeyear',
+                          for: "threeyear",
                         },
-                        '3 years',
-                      ),
+                        "3 years"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'fiveyear',
-                        name: 'returns',
+                        type: "radio",
+                        id: "fiveyear",
+                        name: "returns",
                         dataattr:
-                          dataMapMoObj.data.sort[0].fiveYear_Ret.join('-'),
+                          dataMapMoObj.data.sort[0].fiveYear_Ret.join("-"),
                       }),
                       label(
                         {
-                          for: 'fiveyear',
+                          for: "fiveyear",
                         },
-                        '5 years',
-                      ),
+                        "5 years"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'tenyear',
-                        name: 'returns',
+                        type: "radio",
+                        id: "tenyear",
+                        name: "returns",
                         dataattr:
-                          dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
+                          dataMapMoObj.data.sort[0].sevenYear_Ret.join("-"),
                       }),
                       label(
                         {
-                          for: 'tenyear',
+                          for: "tenyear",
                         },
-                        '7 years',
-                      ),
+                        "7 years"
+                      )
                     ),
                     div(
                       {
-                        class: 'radio-label',
+                        class: "radio-label",
                       },
                       input({
-                        type: 'radio',
-                        id: 'tenyear',
-                        name: 'returns',
+                        type: "radio",
+                        id: "tenyear",
+                        name: "returns",
                         dataattr:
-                          dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
+                          dataMapMoObj.data.sort[0].tenYear_Ret.join("-"),
                       }),
                       label(
                         {
-                          for: 'tenyear',
+                          for: "tenyear",
                         },
-                        '10 years',
-                      ),
-                    ),
-                  ),
-                ),
+                        "10 years"
+                      )
+                    )
+                  )
+                )
               ),
               div(
                 {
-                  class: 'close-apply-btn',
+                  class: "close-apply-btn",
                 },
                 button(
                   {
-                    class: 'closebtn',
+                    class: "closebtn",
                     onclick: (event) => {
                       block
-                        .querySelector('.filter-overlay')
-                        .classList.remove('active');
+                        .querySelector(".filter-overlay")
+                        .classList.remove("active");
                       block
-                        .querySelector('.sort-overlay')
-                        .classList.remove('active');
+                        .querySelector(".sort-overlay")
+                        .classList.remove("active");
                     },
                   },
-                  'close',
+                  "close"
                 ),
                 button(
                   {
-                    class: 'applybtn',
+                    class: "applybtn",
                     onclick: () => {
                       applyFunction(block);
                     },
                   },
-                  'Apply',
-                ),
-              ),
-            ),
-          ),
-        ),
+                  "Apply"
+                )
+              )
+            )
+          )
+        )
       ),
       div(
         {
-          class: 'right-container',
+          class: "right-container",
         },
         div(
           {
-            class: 'sort-pop-container',
+            class: "sort-pop-container",
           },
           div(
             {
-              class: 'sort-popular',
+              class: "sort-popular",
             },
             div(
               {
-                class: 'sort-container',
+                class: "sort-container",
               },
-              label(
+              span(
+                { class: "sort-pop-label" },
                 block
-                  .querySelector('.block-item3 .block-subitem-finelsub1')
-                  .textContent.trim(),
+                  .querySelector(".block-item3 .block-subitem-finelsub1")
+                  .textContent.trim()
               ),
               div(
                 {
-                  class: 'sort-select-container',
+                  class: "sort-select-container",
                 },
                 p(
                   {
-                    class: 'selectedtext',
+                    class: "selectedtext",
                     onclick: (event) => {
                       console.log(event.target);
                       event.target.nextElementSibling.classList.add(
-                        'dropdown-active',
+                        "dropdown-active"
                       );
                     },
                   },
-                  'Popular',
+                  "Popular"
                 ),
                 ul(
                   {
-                    class: 'dropdown-list',
+                    class: "dropdown-list",
                     onclick: (event) => {
                       event.target
-                        .closest('.dropdown-list')
-                        .classList.remove('dropdown-active');
+                        .closest(".dropdown-list")
+                        .classList.remove("dropdown-active");
                       const name = event.target.textContent.trim();
                       event.target
-                        .closest('.sort-select-container')
-                        .querySelector('p').innerText = '';
+                        .closest(".sort-select-container")
+                        .querySelector("p").innerText = "";
                       event.target
-                        .closest('.sort-select-container')
-                        .querySelector('p').innerText = name;
+                        .closest(".sort-select-container")
+                        .querySelector("p").innerText = name;
                       // planListEvent(event,block)
                     },
                   },
-                  li('Popular'),
-                  li('Latest NAV'),
-                  li('Lastest by 1 day'),
-                  li('Oldest to Newest'),
-                  li('Newest to Oldest'),
-                ),
-              ),
+                  li("Popular"),
+                  li("Latest NAV"),
+                  li("Lastest by 1 day"),
+                  li("Oldest to Newest"),
+                  li("Newest to Oldest")
+                )
+              )
             ),
             div(
               {
-                class: 'popular-container',
+                class: "popular-container",
               },
-              label(
+              span(
+                { class: "sort-pop-label" },
                 block
-                  .querySelector('.block-item3 .block-subitem-finelsub2')
-                  .textContent.trim(),
+                  .querySelector(".block-item3 .block-subitem-finelsub2")
+                  .textContent.trim()
               ),
               div(
                 {
-                  class: 'return-select-container',
+                  class: "return-select-container",
                 },
                 p(
                   {
-                    class: 'selectedtext',
+                    class: "selectedtext",
                     onclick: (event) => {
                       console.log(event.target);
                       event.target.nextElementSibling.classList.add(
-                        'dropdown-active',
+                        "dropdown-active"
                       );
                     },
                   },
-                  '1 YEAR',
+                  "1 YEAR"
                 ),
                 ul(
                   {
-                    class: 'dropdown-list',
+                    class: "dropdown-list",
                     onclick: (event) => {
                       event.target
-                        .closest('.dropdown-list')
-                        .classList.remove('dropdown-active');
+                        .closest(".dropdown-list")
+                        .classList.remove("dropdown-active");
                       const name = event.target.textContent.trim();
                       event.target
-                        .closest('.return-select-container')
-                        .querySelector('p').innerText = '';
+                        .closest(".return-select-container")
+                        .querySelector("p").innerText = "";
                       event.target
-                        .closest('.return-select-container')
-                        .querySelector('p').innerText = name;
+                        .closest(".return-select-container")
+                        .querySelector("p").innerText = name;
                       const dataattr = event.target
-                        .getAttribute('dataattr')
-                        .split('-');
+                        .getAttribute("dataattr")
+                        .split("-");
                       const tempdata = dataCfObj.filter((el) => {
                         if (dataattr.includes(el.schcode)) {
                           return el;
@@ -1372,189 +1378,189 @@ export default function decorate(block) {
                   },
                   li(
                     {
-                      dataattr:
-                        dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
+                      dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join("-"),
                     },
-                    '1 YEAR',
+                    "1 YEAR"
                   ),
                   li(
                     {
                       dataattr:
-                        dataMapMoObj.data.sort[0].threeYear_Ret.join('-'),
+                        dataMapMoObj.data.sort[0].threeYear_Ret.join("-"),
                     },
-                    '3 YEARS',
+                    "3 YEARS"
                   ),
                   li(
                     {
                       dataattr:
-                        dataMapMoObj.data.sort[0].fiveYear_Ret.join('-'),
+                        dataMapMoObj.data.sort[0].fiveYear_Ret.join("-"),
                     },
-                    '5 YEARS',
+                    "5 YEARS"
                   ),
                   li(
                     {
                       dataattr:
-                        dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
+                        dataMapMoObj.data.sort[0].sevenYear_Ret.join("-"),
                     },
-                    '7 YEARS',
+                    "7 YEARS"
+                  ),
+                  li(
+                    {
+                      dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join("-"),
+                    },
+                    "10 YEARS"
                   ),
                   li(
                     {
                       dataattr:
-                        dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
+                        dataMapMoObj.data.sort[0].inception_Ret.join("-"),
                     },
-                    '10 YEARS',
-                  ),
-                  li(
-                    {
-                      dataattr:
-                        dataMapMoObj.data.sort[0].inception_Ret.join('-'),
-                    },
-                    'SINCE INCEPTION',
-                  ),
-                ),
-              ),
-            ),
+                    "SINCE INCEPTION"
+                  )
+                )
+              )
+            )
           ),
           div(
             {
-              class: 'group-view-container',
+              class: "group-view-container",
             },
             div(
               {
-                class: 'view-container',
+                class: "view-container",
               },
               div(
                 {
-                  class: 'squareby-container grid-view-active',
+                  class: "squareby-container grid-view-active",
                   onclick: (event) => {
-                    event.currentTarget.classList.add('grid-view-active');
+                    event.currentTarget.classList.add("grid-view-active");
                     event.currentTarget
-                      .closest('.view-container')
-                      .querySelector('.listby-container')
-                      .classList.remove('list-view-active');
+                      .closest(".view-container")
+                      .querySelector(".listby-container")
+                      .classList.remove("list-view-active");
                     event.currentTarget
-                      .closest('.right-container')
-                      .querySelector('.list-view-header').style.display = 'none';
+                      .closest(".right-container")
+                      .querySelector(".list-view-header").style.display =
+                      "none";
                     viewFunction(block);
                   },
                 },
-                block.querySelector('.block-item3 .block-subitem-finelsub3'),
+                block.querySelector(".block-item3 .block-subitem-finelsub3")
               ),
               div(
                 {
-                  class: 'listby-container',
+                  class: "listby-container",
                   onclick: (event) => {
-                    event.currentTarget.classList.add('list-view-active');
+                    event.currentTarget.classList.add("list-view-active");
                     event.currentTarget
-                      .closest('.view-container')
-                      .querySelector('.squareby-container')
-                      .classList.remove('grid-view-active');
+                      .closest(".view-container")
+                      .querySelector(".squareby-container")
+                      .classList.remove("grid-view-active");
                     event.currentTarget
-                      .closest('.right-container')
-                      .querySelector('.list-view-header').style.display = 'block';
+                      .closest(".right-container")
+                      .querySelector(".list-view-header").style.display =
+                      "block";
                     viewFunction(block);
                   },
                 },
-                block.querySelector('.block-item3 .block-subitem-finelsub4'),
-              ),
+                block.querySelector(".block-item3 .block-subitem-finelsub4")
+              )
             ),
             div(
               {
-                class: 'togglebtn',
+                class: "togglebtn",
               },
-              p({ class: 'toggle-text' }, 'Direct'),
+              p({ class: "toggle-text" }, "Direct"),
               div(
                 {
-                  class: 'fund-toggle-wrap',
+                  class: "fund-toggle-wrap",
                 },
                 input({
-                  type: 'checkbox',
-                  id: 'toggle',
-                  'aria-label': 'Switch between Direct and Regular mode',
+                  type: "checkbox",
+                  id: "toggle",
+                  "aria-label": "Switch between Direct and Regular mode",
                   onclick: (event) => {
                     viewFunction(block);
                   },
                 }),
                 label({
-                  class: 'fund-toggle',
-                  for: 'toggle',
-                }),
+                  class: "fund-toggle",
+                  for: "toggle",
+                })
               ),
-              p({ class: 'toggle-text' }, 'Regular'),
+              p({ class: "toggle-text" }, "Regular")
             ),
             div(
               {
-                class: 'compare-btn',
+                class: "compare-btn",
               },
-              button('Compare'),
-            ),
-          ),
+              button("Compare")
+            )
+          )
         ),
         div(
           {
-            class: 'applied-filter-wrap',
+            class: "applied-filter-wrap",
           },
           ul(
             {
-              class: 'applied-filter-list',
+              class: "applied-filter-list",
             },
             li(
               {
-                class: 'applied-filter-name',
+                class: "applied-filter-name",
               },
-              span('Large Cap'),
+              span("Large Cap"),
               img({
-                class: 'filter-cross-icon',
-                src: '../../icons/cross-icon.svg',
-                alt: 'cross icon',
-              }),
+                class: "filter-cross-icon",
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon",
+              })
             ),
             li(
               {
-                class: 'applied-filter-name',
+                class: "applied-filter-name",
               },
-              span('Tax saver (ELSS)'),
+              span("Tax saver (ELSS)"),
               img({
-                src: '../../icons/cross-icon.svg',
-                alt: 'cross icon',
-              }),
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon",
+              })
             ),
             li(
               {
-                class: 'applied-filter-name',
+                class: "applied-filter-name",
               },
-              span('Hybrid & Balanced'),
+              span("Hybrid & Balanced"),
               img({
-                src: '../../icons/cross-icon.svg',
-                alt: 'cross icon',
-              }),
-            ),
-          ),
+                src: "../../icons/cross-icon.svg",
+                alt: "cross icon",
+              })
+            )
+          )
         ),
         div(
           {
-            class: 'cards-container',
+            class: "cards-container",
           },
-          ...dataMapMoObj.funddata.map((el) => fundcardblock(el)),
+          ...dataMapMoObj.funddata.map((el) => fundcardblock(el))
         ),
         div(
           {
-            class: 'list-view-header',
-            style: 'display:none',
+            class: "list-view-header",
+            style: "display:none",
           },
           div(
             {
-              class: 'list-header',
+              class: "list-header",
             },
-            block.closest('.section').querySelector('.item2'),
+            block.closest(".section").querySelector(".item2")
           ),
           div({
-            class: 'list-container',
-          }),
-        ),
-      ),
-    ),
+            class: "list-container",
+          })
+        )
+      )
+    )
   );
   block.innerHTML = '';
   block.append(divfund);

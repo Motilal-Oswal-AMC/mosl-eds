@@ -957,7 +957,7 @@
             align-items: center;
             gap: 4px;
 
-            label {
+            .sort-pop-label {
               @include font-style(14px, 20px, $text-body-2, 400, $Poppins);
             }
 
@@ -1653,7 +1653,7 @@
 
                 .cagr-value {
                   @include font-style(14px, 16px, $primary-blue, 600, $Poppins);
-                  
+
                   display: flex;
                 }
 
