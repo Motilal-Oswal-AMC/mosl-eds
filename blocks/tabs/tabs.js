@@ -111,7 +111,6 @@ export default async function decorate(block) {
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-international-equity') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:international-equity') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(1, 5);
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-hybrid-balanced') { // tabpanel-index
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
