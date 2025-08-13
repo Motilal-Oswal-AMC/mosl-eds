@@ -17696,7 +17696,7 @@ const dataCfObj = [
     moSchemeCode: 'MOFLM',
     fundCategorisation: 'Active Funds',
     nfoKnowMoreUrl: 'NIL',
-    fundIcon: '/content/dam/wknd-shared/fund-icons/MO_Large_&_Midcap_Fund.png',
+    fundIcon: '/content/dam/wknd-shared/fund-icons/MO_Large_Midcap_Fund.png',
     fundType: 'Mutual Fund',
     moAmcCode: 'MOSMF',
     sharpeRatio: '1.4 (Annualised)',
