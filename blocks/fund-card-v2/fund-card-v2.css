@@ -108,7 +108,6 @@
   text-align: center;
   transition: all 0.3s ease;
   min-width: 157px;
-  width: -moz-max-content;
   width: max-content;
   background: #242177;
   margin: 0;

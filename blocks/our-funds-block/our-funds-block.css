@@ -103,9 +103,6 @@
   outline: none;
   background-color: transparent;
 }
-.our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::-moz-placeholder {
-  color: #616161;
-}
 .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
   color: #616161;
 }
@@ -209,7 +206,6 @@
   display: block;
 }
 .our-funds-block .fundcontainer .search-trending-wrapper .watchlisttext {
-  width: -moz-max-content;
   width: max-content;
   line-height: 0;
 }
@@ -531,9 +527,7 @@
   display: none;
 }
 .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   display: flex;
   align-items: center;
   padding: 12px 0;
@@ -871,12 +865,10 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  height: -moz-max-content;
   height: max-content;
   line-height: 0;
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular {
-  min-width: -moz-max-content;
   min-width: max-content;
 }
 .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container,
@@ -1163,7 +1155,6 @@
 .our-funds-block .filter-cards .right-container .applied-filter-name {
   display: flex;
   align-items: center;
-  min-width: -moz-max-content;
   min-width: max-content;
   border: 1px solid #bdbdbd;
   border-radius: 1000px;
@@ -1229,7 +1220,6 @@
   background-color: #7986fd;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown {
-  max-width: -moz-max-content;
   max-width: max-content;
 }
 .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown p {
@@ -1371,7 +1361,6 @@
 @media (max-width: 1025px) {
   .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(2) {
     margin: 0;
-    max-width: -moz-max-content;
     max-width: max-content;
   }
 }
@@ -1609,7 +1598,6 @@
   gap: 12px;
   padding: 4px 12px;
   margin-left: 34px;
-  max-width: -moz-max-content;
   max-width: max-content;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .timing-nfo-value .nfo-container {

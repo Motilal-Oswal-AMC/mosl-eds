@@ -160,8 +160,7 @@
   font-weight: 400;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-offset: 2.8px;
   text-underline-position: from-font;
@@ -276,6 +275,10 @@
   .section.learning-fdp {
     padding: 40px 0 40px 16px;
   }
+}
+.section.learning-fdp .library-btn2 .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 ul li {
+  font-size: 14px;
+  line-height: 20px;
 }
 .section.learning-fdp .library-btn3 {
   display: flex;
