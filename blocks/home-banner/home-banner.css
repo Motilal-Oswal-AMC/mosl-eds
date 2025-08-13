@@ -800,7 +800,7 @@ button.swiper-pagination-bullet {
   position: absolute;
   padding: 0;
   right: 67px;
-  bottom: -20px;
+  bottom: -17px;
   z-index: 15;
 }
 @media (max-width: 1025px) {
@@ -811,13 +811,13 @@ button.swiper-pagination-bullet {
 @media (max-width: 768px) {
   .section.home-banner-container .default-content-wrapper {
     position: fixed;
-    top: 297px;
+    top: 311px;
     bottom: unset;
   }
 }
 .section.home-banner-container ul {
   display: flex;
-  gap: 8px;
+  gap: 16px;
   list-style: none;
   margin: 0;
 }
@@ -841,6 +841,11 @@ button.swiper-pagination-bullet {
 }
 .section.home-banner-container ul li:last-of-type {
   display: none;
+}
+@media (max-width: 768px) {
+  .section.home-banner-container ul li:last-of-type {
+    display: flex;
+  }
 }
 
 .home-banner .sub-home-banner {
@@ -867,7 +872,7 @@ button.swiper-pagination-bullet {
 }
 @media (max-width: 1367px) {
   .home-banner .sub-home-banner .sub-banner-item-1 picture img {
-    height: 400px;
+    height: 401px;
   }
 }
 .home-banner .sub-home-banner .sub-banner-item-1 p:last-of-type {
@@ -883,25 +888,32 @@ button.swiper-pagination-bullet {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 48px 67px 71px;
+  padding: 49px 67px 71px;
 }
 .home-banner .sub-home-banner .sub-banner-item-2 .item-child {
   margin: 0;
 }
+.home-banner .sub-home-banner .sub-banner-item-2 .item-child picture {
+  line-height: 0;
+  height: 100%;
+  display: block;
+}
 .home-banner .sub-home-banner .sub-banner-item-2 .button-container {
-  margin: 0;
+  max-width: 176px;
+  width: 100%;
+  margin: 27px 0 0 94px;
 }
 .home-banner .sub-home-banner .sub-banner-item-2 .button-container .button {
-  margin: 19px 0 0 94px;
+  margin: 0;
   color: #2e2a94;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
   line-height: 20px;
   padding: 12px;
   background-color: #fff;
   border-radius: 8px;
-  max-width: 176px;
+  border: none;
   width: 100%;
   display: block;
 }
@@ -917,12 +929,12 @@ button.swiper-pagination-bullet {
 .home-banner .sub-home-banner .sub-banner-item-3 .item-child {
   margin: 0;
 }
-.home-banner .sub-home-banner .sub-banner-item-3 picture {
+.home-banner .sub-home-banner .sub-banner-item-3 .item-child picture {
   line-height: 0;
   height: 100%;
   display: block;
 }
-.home-banner .sub-home-banner .sub-banner-item-3 picture img {
+.home-banner .sub-home-banner .sub-banner-item-3 .item-child picture img {
   width: 100%;
   height: 237px;
 }
@@ -930,6 +942,8 @@ button.swiper-pagination-bullet {
   position: absolute;
   top: 50%;
   left: 25%;
+  max-width: 120px;
+  width: 100%;
 }
 .home-banner .sub-home-banner .sub-banner-item-3 .button-container .button {
   color: #2e2a94;
@@ -939,7 +953,6 @@ button.swiper-pagination-bullet {
   background-color: #fff;
   padding: 8px 12px;
   border-radius: 8px;
-  max-width: 124px;
   width: 100%;
   margin: 0;
 }
@@ -965,10 +978,16 @@ button.swiper-pagination-bullet {
   gap: 4px;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .block.home-banner .swiper-pagination {
+    bottom: 15px;
+  }
+}
 .block.home-banner .swiper-pagination .swiper-pagination-bullet {
   margin: 0;
   border: 1px solid #fff;
   background-color: transparent;
+  border-radius: 50%;
   opacity: 1;
   width: 6px;
   height: 6px;
@@ -977,20 +996,13 @@ button.swiper-pagination-bullet {
 .block.home-banner .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #fff;
 }
-@media (max-width: 768px) {
-  .block.home-banner .swiper-pagination .swiper-pagination-bullet {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-  }
-}
 .block.home-banner .swiper-button-prev,
 .block.home-banner .swiper-button-next {
   background-color: #fff;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  left: 67px;
+  left: 27px;
 }
 .block.home-banner .swiper-button-prev::after,
 .block.home-banner .swiper-button-next::after {
@@ -1009,7 +1021,7 @@ button.swiper-pagination-bullet {
 }
 .block.home-banner .swiper-button-next {
   left: auto;
-  right: 67px;
+  right: 27px;
 }
 .block.home-banner .swiper-button-next::after {
   transform: rotate(180deg);

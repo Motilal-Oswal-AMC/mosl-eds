@@ -7,7 +7,7 @@
   width: 100%;
   padding: 16px;
   border-radius: 8px;
-  outline: 1px solid #b7b7b7;
+  border: 1px solid #b7b7b7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,9 +383,9 @@
   align-items: stretch;
   flex-wrap: wrap;
   gap: 16px;
-  margin: 24px 0 0;
+  padding: 24px 0 0;
   border: none;
-  padding: 0;
+  overflow: unset;
 }
 .section.tabs-container.our-popular-funds .default-content-wrapper,
 .section.tabs-container.our-popular-funds .tabs-wrapper {
@@ -472,7 +472,7 @@
   width: 100%;
   padding: 16px;
   border-radius: 8px;
-  outline: 1px solid #b7b7b7;
+  border: 1px solid #b7b7b7;
   display: flex;
   align-items: center;
   justify-content: center;

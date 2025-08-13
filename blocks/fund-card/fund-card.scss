@@ -12,7 +12,7 @@
     width: 100%;
     padding: 16px;
     border-radius: map.get($radius, r8);
-    outline: 1px solid map.get($old-silver, 100);
+    border: 1px solid map.get($old-silver, 100);
 
     @include flex-center;
 
@@ -494,9 +494,9 @@
         align-items: stretch;
         flex-wrap: wrap;
         gap: 16px;
-        margin: 24px 0 0;
+        padding: 24px 0 0;
         border: none;
-        padding: 0;
+        overflow: unset;
       }
     }
 
@@ -609,7 +609,7 @@
     width: 100%;
     padding: 16px;
     border-radius: map.get($radius, r8);
-    outline: 1px solid map.get($old-silver, 100);
+    border: 1px solid map.get($old-silver, 100);
 
     @include flex-center;
 

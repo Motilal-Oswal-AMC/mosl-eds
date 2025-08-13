@@ -8,8 +8,8 @@
   padding: 0;
   max-width: 100%;
   margin: 0;
-  
-  p{
+
+  p {
     margin: 0;
   }
 
@@ -26,27 +26,27 @@
     right: 67px;
 
     // top: 62%;
-    bottom: -20px;
+    bottom: -17px;
     z-index: 15;
 
     @include media(tab) {
       right: 16px;
     }
 
-    @include media(mobile){
+    @include media(mobile) {
       position: fixed;
-      top: 297px;
+      top: 311px;
       bottom: unset;
     }
   }
 
   ul {
     display: flex;
-    gap: 8px;
+    gap: 16px;
     list-style: none;
     margin: 0;
 
-    @include media(mobile){
+    @include media(mobile) {
       flex-direction: column;
     }
 
@@ -64,8 +64,12 @@
         background: map.get($blue-1, b900);
       }
 
-      &:last-of-type{
+      &:last-of-type {
         display: none;
+
+        @include media(mobile) {
+          display: flex;
+        }
       }
     }
   }
@@ -101,7 +105,7 @@
           height: 100%;
 
           @include media(desktop-md) {
-            height: 400px;
+            height: 401px;
           }
         }
       }
@@ -121,26 +125,34 @@
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 48px 67px 71px;
+      padding: 49px 67px 71px;
 
-      .item-child{
+      .item-child {
         margin: 0;
+
+        picture {
+          line-height: 0;
+          height: 100%;
+          display: block;
+        }
       }
 
       .button-container {
-        margin: 0;
+        max-width: 176px;
+        width: 100%;
+        margin: 27px 0 0 94px;
 
         .button {
-          margin: 19px 0 0 94px;
+          margin: 0;
           color: $primary-blue;
           font-size: 16px;
-          font-weight: 600;
+          font-weight: 500;
           font-family: $poppins;
           line-height: 20px;
           padding: 12px;
           background-color: $primary-white;
           border-radius: map.get($radius, r8);
-          max-width: 176px;
+          border: none;
           width: 100%;
           display: block;
         }
@@ -157,16 +169,16 @@
 
       .item-child {
         margin: 0;
-      }
 
-      picture {
-        line-height: 0;
-        height: 100%;
-        display: block;
+        picture {
+          line-height: 0;
+          height: 100%;
+          display: block;
 
-        img {
-          width: 100%;
-          height: 237px;
+          img {
+            width: 100%;
+            height: 237px;
+          }
         }
       }
 
@@ -174,6 +186,8 @@
         position: absolute;
         top: 50%;
         left: 25%;
+        max-width: 120px;
+        width: 100%;
 
         .button {
           color: $primary-blue;
@@ -183,7 +197,6 @@
           background-color: $primary-white;
           padding: 8px 12px;
           border-radius: map.get($radius, r8);
-          max-width: 124px;
           width: 100%;
           margin: 0;
         }
@@ -217,10 +230,15 @@
     gap: 4px;
     justify-content: center;
 
+    @include media(mobile) {
+      bottom: 15px;
+    }
+
     .swiper-pagination-bullet {
       margin: 0;
       border: 1px solid $primary-white;
       background-color: transparent;
+      border-radius: map.get($radius, r50);
       opacity: 1;
       width: 6px;
       height: 6px;
@@ -228,12 +246,6 @@
 
       &.swiper-pagination-bullet-active {
         background-color: $primary-white;
-      }
-
-      @include media(mobile) {
-        width: 5px;
-        height: 5px;
-        border-radius: map.get($radius, r50);
       }
     }
   }
@@ -244,7 +256,7 @@
     border-radius: map.get($radius, r50);
     width: 40px;
     height: 40px;
-    left: 67px;
+    left: 27px;
 
     &::after {
       content: "";
@@ -262,7 +274,7 @@
 
   .swiper-button-next {
     left: auto;
-    right: 67px;
+    right: 27px;
 
     &::after {
       transform: rotate(180deg);

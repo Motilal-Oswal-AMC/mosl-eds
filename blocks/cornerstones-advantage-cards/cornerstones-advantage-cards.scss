@@ -1,7 +1,7 @@
 /* Reset */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section.cornerstones-advantage {
   &-cards-container {
@@ -32,23 +32,23 @@
         margin: 0 0 4px;
         text-align: center;
 
-        @include font-style(48px, 56px, $primary-blue, 700, $butlerpro);
+        @include font-style(36px, 44px, $primary-blue, 700, $butlerpro);
 
         @include media(mobile) {
-          font-size: 28px;
-          line-height: 32px;
+          font-size: 24px;
+          line-height: 28px;
           text-align: left;
         }
       }
 
       p {
-        @include font-style(18px, 24px, $primary-blue, 500, $poppins);
+        @include font-style(16px, 24px, $primary-blue, 400, $poppins);
 
         text-align: center;
         margin: 0;
 
         @include media(mobile) {
-          font-size: 16px;
+          font-size: 14px;
           line-height: 20px;
           text-align: left;
         }
@@ -62,7 +62,6 @@
       gap: 16px;
       margin: 40px 0 0;
 
-
       @include media(mobile) {
         flex-wrap: unset;
         flex-direction: column;
@@ -74,8 +73,6 @@
       & .cards-item {
         max-width: 296px;
         width: 100%;
-
-        // padding-right: 26px;
         min-height: 300px;
 
         @include media(tab) {
@@ -91,14 +88,9 @@
           min-height: 168px;
           max-width: 100%;
           padding-right: 0;
-
-          &:last-of-type>div {
-            border: none;
-            padding: 0;
-          }
         }
 
-        >div {
+        > div {
           height: 100%;
           display: flex;
           flex-direction: column;
@@ -106,8 +98,6 @@
 
           @include media(mobile) {
             padding-right: 0;
-
-            // border-bottom: 1px solid $neutrals-400;
             padding-bottom: 16px;
             display: grid;
             grid-template-areas:
@@ -117,84 +107,76 @@
             grid-template-columns: 64px 1fr;
             gap: 0 8px;
             align-items: start;
-
-            // min-height: 176px;
-            min-height: 168px;
-          }
-        }
-
-        .item-child-1:first-of-type,
-        .icon {
-          width: 64px;
-          height: 64px;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          margin: 24px 0 8px;
-
-          @include font-style(18px, 24px, $primary-blue, 600, $poppins);
-
-          @include media(mobile) {
-            grid-area: heading;
-            margin: 0;
-            font-size: 16px;
-            line-height: 20px;
           }
         }
 
         .item-child {
           margin: 0;
-          
-          &:not(:first-of-type, :last-of-type) {
-            @include font-style(16px, 24px, $color-text-body, 400, $poppins);
 
-            // padding-right: 20px;
+          &.item-child-1,
+          &.item-child-1 .icon {
+            width: 64px;
+            height: 64px;
+
+            @include media(mobile) {
+              grid-area: icon;
+            }
+          }
+
+          &.item-child-2 {
+            margin: 24px 0 8px;
+
+            @include font-style(18px, 24px, $primary-blue, 500, $poppins);
+
+            @include media(mobile) {
+              grid-area: heading;
+              margin: 0 0 8px;
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+
+          &.item-child-3 {
+            @include font-style(16px, 24px, $text-body-2, 400, $poppins);
+
+            padding-bottom: 28px;
+
             @include media(mobile) {
               font-size: 14px;
               line-height: 20px;
+              padding-bottom: 0;
               white-space: break-spaces;
             }
           }
 
-          @include media(mobile) {
-            grid-area: text;
+          &.button-container {
+            margin-top: auto;
+            line-height: 0;
 
-            &:first-of-type {
-              grid-area: icon;
+            @include media(mobile) {
+              grid-area: button;
+              margin: 24px 0 0;
             }
-          }
-        }
 
-        p:first-of-type,
-        .icon {
-          width: 64px;
-          height: 64px;
-        }
+            .button {
+              margin: 0;
+              padding: 0;
+              background-color: transparent;
+              text-decoration-line: underline;
+              text-underline-offset: 20%;
+              border-radius: 0;
+              border: none;
+              display: block;
+              text-align: left;
 
-        .button-container {
-          margin-top: auto;
-
-          @include media(mobile) {
-            grid-area: button;
-            margin: 24px 0 0;
-            line-height: unset;
-            height: 23px;
-          }
-
-          .button {
-            margin: 0;
-            padding: 0;
-            background-color: transparent;
-            text-decoration-line: underline;
-            text-underline-offset: 20%;
-            border-radius: 0;
-
-            @include font-style(14px, 20px, $primary-blue, 500, $poppins);
+              @include font-style(
+                14px,
+                20px,
+                map.get($blue-1, b500),
+                400,
+                $poppins
+              );
+            }
           }
         }
       }

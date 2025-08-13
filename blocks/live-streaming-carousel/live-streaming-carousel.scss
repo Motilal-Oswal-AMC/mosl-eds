@@ -23,7 +23,7 @@
     h6 {
       margin: 0 0 8px;
 
-      @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+      @include font-style(16px, 24px, $primary-blue, 400, $poppins);
 
       @include media(mobile) {
         font-size: 12px;
@@ -38,7 +38,7 @@
     margin-right: 140px;
 
     @include media(mobile) {
-      // margin-right: 115px;
+      max-width: 100%;
       margin-right: 87px;
     }
 
@@ -57,7 +57,7 @@
         left: unset;
         width: 20px;
         height: 20px;
-        margin: 16px 0 2px;
+        margin: 18px 0 2px;
         display: block;
         opacity: 1;
 
@@ -97,29 +97,29 @@
       }
 
       .swiper-button-prev {
-        right: 105px;
+        right: 104px;
       }
 
-      .swiper-pagination{
+      .swiper-pagination {
         display: none;
 
-        &::after{
+        &::after {
           content: unset;
         }
 
-        @include media(mobile){
+        @include media(mobile) {
           display: flex;
           position: absolute;
           right: 8px;
           top: unset;
           left: unset;
           bottom: 0;
-          max-width: max-content;
+          max-width: 26px;
           height: 2px;
           border-radius: 10px;
           background-color: $neutrals-300;
 
-          &-bullet{
+          &-bullet {
             background-color: transparent;
             opacity: unset;
             margin: 0;
@@ -127,35 +127,36 @@
             border-radius: 10px;
           }
 
-          &-bullet-active{
+          &-bullet-active {
             background-color: map.get($button-primary, default);
           }
         }
       }
 
-      .custom-pagination{
+      .custom-pagination {
         max-width: max-content;
         width: unset;
         height: unset;
         gap: 4px;
         position: absolute;
-        right: 36px;
+        right: 39px;
         display: flex;
+        padding: 2px 0;
 
-        &::after{
+        &::after {
           content: unset;
         }
 
-        @include media(mobile){
+        @include media(mobile) {
           right: 0;
           bottom: 8px;
         }
 
         & .current-slide,
-        & .total-slide{
+        & .total-slide {
           margin: 0;
 
-          @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+          @include font-style(14px, 16px, $primary-blue, 500, $poppins);
         }
 
         & .total-slide {
@@ -173,7 +174,7 @@
       gap: 16px;
 
       @include media(mobile) {
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: start;
 
         // max-width: 75.53%;
@@ -185,9 +186,8 @@
         @include font-style(16px, 24px, $color-text-body, 400, $poppins);
 
         @include media(mobile) {
-          font-size: 14px;
-          line-height: 20px;
-          padding-right: 9px;
+          font-size: 12px;
+          line-height: 16px;
         }
       }
 
@@ -199,24 +199,30 @@
 
         @include font-style(16px, 20px, $color-text-body, 500, $poppins);
 
-        color: $text-header;
+        color: #3025e0;
 
         @include media(mobile) {
           font-size: 14px;
           line-height: 16px;
         }
 
-        &::before {
-          content: "";
-          width: 9px;
-          height: 9px;
-          display: block;
-          background-color: #f00;
-          border-radius: map.get($radius, r50);
-        }
-
-        a{
+        a {
           color: unset;
+        }
+      }
+    }
+
+    .swiper-slide:first-of-type {
+      ul {
+        li:last-of-type {
+          &::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            display: block;
+            background-color: #f00;
+            border-radius: map.get($radius, r50);
+          }
         }
       }
     }
