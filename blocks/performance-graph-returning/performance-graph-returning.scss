@@ -1,0 +1,196 @@
+/* Reset */
+@use 'sass:map';
+@use '../../styles/common-theme/css/variables_mixins' as *;
+@use '../../styles/common-theme/css/fluid-typography' as *;
+
+/* MAIN WRAPPER */
+.performance-graph-returning-container {
+    .performance-graph-wrapper {
+        display: flex;
+        max-width: 1366px;
+        height: 466px;
+        padding: 40px 67px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+
+        .default-content-wrapper {
+            width: 1232px;
+
+            h3 {
+                color: $primary-blue;
+                font-family: $poppins;
+                font-size: 36px;
+                font-style: normal;
+                font-weight: 700;
+                line-height:  44px;
+                margin: 0;
+            }
+
+        }
+
+        .performance-graph-returning-wrapper {
+            max-width: 100%;
+            width: 100%;
+
+            .performance-graph-returning {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                align-self: stretch;
+
+                .fund-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    align-self: stretch;
+
+
+                    .fund-details {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 8px;
+                        max-width: 920px;
+                        width: 100%;
+
+                        .fund-identity {
+                            display: flex;
+                            max-width: 920px;
+                            flex-direction: column;
+                            align-items: flex-start;
+
+                            .fund-note {
+                                color: map.get($blue-1, b500);
+                                font-family: $poppins;
+                                font-size: 12px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 16px;
+                                margin: 0;
+                            }
+
+                            .fund-name {
+                                align-self: stretch;
+                                color: $primary-blue;
+                                font-family: $poppins;
+                                font-size: 20px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height:24px;
+                                margin: 0;
+                            }
+                        }
+
+                        .fund-meta {
+                            display: flex;
+                            padding: 0;
+                            align-items: center;
+                            gap: 8px;
+
+                            .fund-tags-wrapper {
+                                display: flex;
+                                align-items: center;
+                                gap: 4px;
+
+                                .fund-tags-main {
+                                    border-radius: 12px;
+                                    background: map.get($blue-1, b50);
+                                    display: flex;
+                                    height: 20px;
+                                    padding: 0 2px;
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: 16px;
+
+                                    .fund-tag {
+                                        display: flex;
+                                        color: $primary-blue;
+                                        font-family: $poppins;
+                                        font-size: 12px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 16px;
+                                    }
+                                }
+                            }
+
+                            .fund-returns-main {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+
+
+                                .fund-returns {
+                                    color: $primary-blue;
+                                    font-family: $poppins;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 20px;
+                                }
+
+                                .value {
+                                    width: 55px;
+                                    align-self: stretch;
+                                    color: $primary-blue;
+                                    font-family: $poppins;
+                                    font-size: 16px;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+                    }
+
+                    .invest-now-btn {
+                        .button-desktop {
+                            text-align: center;
+                            font-style: normal;
+                            display: flex;
+                            padding: 12px;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 8px;
+                            border-radius: 8px;
+                            background: #2e2a94;
+                            border: none;
+                            color: #fff;
+                            font-family: $poppins;
+                            font-size: 14px;
+                            font-weight: 600;
+                            line-height: 16px;
+                            cursor: pointer;
+                            transition: background-color 0.2s ease;
+                            width: 176px;
+                            margin: 0;
+                        }
+                    }
+
+                }
+
+                // .chart-filter-bar {}
+
+                #chartdiv1 {
+                    width: 1232px;
+                    height: 400px;
+                    background: transparent;
+                    position: relative;
+
+                }
+
+                .invest-now-btn-mobile {
+                    .button-mobile {
+                        display: none;
+                    }
+
+                }
+
+            }
+
+        }
+    }
+}
