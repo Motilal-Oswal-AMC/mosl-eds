@@ -6,7 +6,7 @@
 /* MAIN WRAPPER */
 .compounding,
 .fdp-calculator {
-  background: $primary-white;
+  background: #EDF1FF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -154,7 +154,8 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-
+        padding: 24px;
+        
         @include media(mobile) {
           gap: 24px;
         }
