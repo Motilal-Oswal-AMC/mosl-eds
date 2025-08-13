@@ -155,6 +155,9 @@ export default function decorate(block) {
   const sipFields = document.querySelector('.modal-input-fields');
 
   lumpsumBtn.addEventListener('click', () => {
+    const sipFields = document.querySelector('.modal-input-fields');
+    const sipBtn = block.querySelector('.modal-btn-sip');
+
     lumpsumBtn.classList.add('active');
     sipBtn.classList.remove('active');
     sipFields.classList.add('hidden');
@@ -165,6 +168,8 @@ export default function decorate(block) {
   });
 
   sipBtn.addEventListener('click', () => {
+    const sipFields = document.querySelector('.modal-input-fields');
+    const sipBtn = block.querySelector('.modal-btn-sip');
     sipBtn.classList.add('active');
     lumpsumBtn.classList.remove('active');
     sipFields.classList.remove('hidden');
