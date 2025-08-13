@@ -51,6 +51,7 @@ export default async function decorate(block) {
     el.classList.add(`tabpanel${index + 1}`);
   });
   if (block.closest('.our-popular-funds')) {
+    block.closest('.our-popular-funds').classList.add('fund-tab');
     let dataCf = dataCfObj.slice(1, 5);
 
     Array.from(tablist.children).forEach((element) => {
@@ -98,6 +99,7 @@ export default async function decorate(block) {
     tablist.children[0].click();
   }
   if (block.closest('.known-our-funds')) {
+    block.closest('.known-our-funds').classList.add('fund-tab');
     let dataCf = dataCfObj.slice(1, 5);
 
     Array.from(tablist.children).forEach((element) => {

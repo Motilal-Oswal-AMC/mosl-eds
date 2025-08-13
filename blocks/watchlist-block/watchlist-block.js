@@ -45,16 +45,11 @@ export default function decorate(block) {
             block.querySelector('.watchlist-items1 .watchlist-inneritems2')
               .innerText,
           ),
-          h2(
-            { class: 'card-title-1' },
-            block.querySelector('.watchlist-items1 .watchlist-inneritems3')
-              .innerText,
-          ),
         ),
       ),
       div(
         { class: 'button-wrapper' },
-        block.querySelector('.watchlist-items1 .watchlist-inneritems4'),
+        block.querySelector('.watchlist-items1 .watchlist-inneritems3'),
       ),
     ),
     div(
