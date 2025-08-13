@@ -650,7 +650,7 @@ export default function decorate(block) {
           { class: 'button-container' },
           a(
             {
-              href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund',
+              href: 'https://mosldev--eds-cloud--rupeshdept.aem.page/motilalfigma/funds-details-page',
               class: 'know-more card-btn',
             },
             'Know More'
