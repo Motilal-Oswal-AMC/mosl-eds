@@ -290,6 +290,20 @@
             }
 
             .wishlist-icon {
+              display: flex;
+              gap: 16px;
+              align-items: center;
+
+              .risk-meter-icon{
+                width: 32px;
+                height: 32px;
+                
+                .riskfactor-icon{
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+
               ul {
                 display: flex;
                 gap: 0.5rem;

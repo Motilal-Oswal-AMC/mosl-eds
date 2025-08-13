@@ -240,6 +240,19 @@
     height: auto;
   }
 }
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .upper-right .wishlist-icon {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .upper-right .wishlist-icon .risk-meter-icon {
+  width: 32px;
+  height: 32px;
+}
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .upper-right .wishlist-icon .risk-meter-icon .riskfactor-icon {
+  width: 100%;
+  height: 100%;
+}
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .upper-right .wishlist-icon ul {
   display: flex;
   gap: 0.5rem;
