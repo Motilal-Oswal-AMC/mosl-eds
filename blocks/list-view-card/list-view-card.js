@@ -65,11 +65,7 @@ export default function decorate(block) {
         block.risk.riskType.toLowerCase().replaceAll(' ', '-')
       ]
     }.svg`;
-    const mop = block.fundIcon !== undefined
-      ? block.fundIcon.split('/').at(-1)
-      : 'MO_Midcap_Fund.png';
-    const mopsec = mop.split('.');
-    const mopthree = `${mopsec[0]}.svg`;
+    const mop = `MO_${block.schcode}.svg`;
 
     const listcontainer = div(
       { class: 'nfo-list-container list-view-container' },
@@ -83,7 +79,7 @@ export default function decorate(block) {
               { class: 'logo-container' },
               img({
                 class: 'logoScheme',
-                src: `../../icons/fundicon/${mopthree}`,
+                src: `../../icons/iconfund/${mop}`,
                 alt: 'BrandLogo',
               }),
             ),
@@ -159,11 +155,7 @@ export default function decorate(block) {
     );
     return listcontainer;
   }
-  const mop = block.fundIcon !== undefined
-    ? block.fundIcon.split('/').at(-1)
-    : 'MO_Midcap_Fund.png';
-  const mopsec = mop.split('.');
-  const mopfour = `${mopsec[0]}.svg`;
+  const mopsec = `MO_${block.schcode}.svg`;
   const listcontainer = div(
     { class: 'list-view-container' },
     div(
@@ -172,7 +164,7 @@ export default function decorate(block) {
         { class: 'fund-name-wrapper', schcode: block.schcode },
         div(
           { class: 'logo-container' },
-          img({ class: 'logoScheme', src: `../../icons/fundicon/${mopfour}`, alt: 'BrandLogo' }),
+          img({ class: 'logoScheme', src: `../../icons/iconfund/${mopsec}`, alt: 'BrandLogo' }),
         ),
         div(
           { class: 'fund-name-container' },

@@ -4,7 +4,7 @@ import {
   h2,
   p,
   img,
-  a
+  a,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 
@@ -65,10 +65,13 @@ export default function decorate(block) {
           ),
           div(
             { class: 'wishlist-icon' },
-            a({ href: '/motilalfigma/modals/risk-o-meter', class:'risk-meter-icon' },
-              img({class: 'riskfactor-icon',src: '../../icons/risk-icon/high-risk.svg',
-                          alt: 'risk icon',
-                        }),
+            a(
+              { href: '/motilalfigma/modals/risk-o-meter', class: 'risk-meter-icon' },
+              img({
+                class: 'riskfactor-icon',
+                src: '../../icons/risk-icon/high-risk.svg',
+                alt: 'risk icon',
+              }),
             ),
             block.querySelector('.watchlist-items2 .watchlist-inneritems2'),
           ),
