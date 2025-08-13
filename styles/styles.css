@@ -13,7 +13,8 @@
 @import "../blocks/complete-the-investment/complete-the-investment.css";
 @import "../blocks/faq/faq.css";
 @import "../blocks/welcome-component/welcome-component.css";
-
+@import "../blocks/download/download.css";
+@import "../blocks/investnowbtn/investnowbtn.css";
 /* ------------------------------------------------------------------
  * GLOBAL RESET
  * ------------------------------------------------------------------ */

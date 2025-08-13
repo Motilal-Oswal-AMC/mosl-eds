@@ -1,0 +1,46 @@
+/* Reset */
+@import "../../../styles/fonts.css";
+.investnow .default-content-wrapper {
+  border-radius: 8px;
+  background: #030C82;
+  height: 192px;
+  position: relative;
+}
+.investnow .default-content-wrapper p:nth-child(1) {
+  position: absolute;
+  left: 32px;
+}
+.investnow .default-content-wrapper p:nth-child(1) span {
+  width: 171px;
+  height: 156px;
+}
+.investnow .default-content-wrapper p:nth-child(2) {
+  position: relative;
+  left: 88px;
+  top: 66px;
+  color: #fff;
+  /* Desktop/Header/H5 */
+  font-family: "ButlerPro", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  /* 114.286% */
+}
+.investnow .default-content-wrapper .button-container {
+  position: relative;
+  text-align: end;
+  bottom: 20px;
+  right: 26px;
+}
+.investnow .default-content-wrapper .button-container .button {
+  border-radius: 8px;
+  background: #fff;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  /* 114.286% */
+}/*# sourceMappingURL=investnowbtn.css.map */

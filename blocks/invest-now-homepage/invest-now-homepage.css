@@ -457,7 +457,8 @@
   /* 133.333% */
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today input[type=checkbox] {
-  appearance: auto;
+  -moz-appearance: auto;
+       appearance: auto;
   -webkit-appearance: checkbox;
   display: inline-block;
   display: flex;
