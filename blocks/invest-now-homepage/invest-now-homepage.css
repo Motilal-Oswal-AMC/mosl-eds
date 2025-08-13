@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* Reset */
 @import "../../../styles/fonts.css";
-/* stylelint-disable */
 /* invest-now-homepage.scss */
 #invest-now-wrapper-flat .flatpickr-calendar {
   font-family: "Your-Brand-Font", sans-serif;

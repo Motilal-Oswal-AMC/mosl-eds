@@ -1,9 +1,7 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 @import "../swiper/swiper-bundle.min.css";
-
-/*   */
 
 .section.future-building-container {
   max-width: 1232px;
@@ -23,36 +21,51 @@
     padding-bottom: 40px;
 
     h4,
-    h3 {
-      @include font-style(36px,
-        44px,
-        $primary-blue,
-        map.get($font-weights, bold));
-
+    h3:nth-child(1) {
       margin: 0;
       padding: 0;
       padding-bottom: 8px;
       text-align: left;
 
+      @include font-style(36px,
+        44px,
+        $primary-blue,
+        map.get($font-weights, bold));
+
+
       @include media(mobile) {
-        font-size: 24px;
-        line-height: 28px;
+        display: none
       }
     }
 
-    p {
-      @include font-style(16px,
-        20px,
-        $primary-blue,
-        map.get($font-weights, regular),
-        $poppins );
+    h4,
+    h3:nth-child(2) {
+      display: none;
 
+      @include media(mobile) {
+        display: block;
+
+        @include font-style(24px,
+          28px,
+          $primary-blue,
+          map.get($font-weights, bold));
+      }
+    }
+
+
+    p {
       margin: 0;
       padding: 0;
       max-width: 600px;
 
+      @include font-style(16px,
+        20px,
+        $primary-blue,
+        map.get($font-weights, regular),
+        $poppins);
+
       @include media(mobile) {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 20px;
       }
     }
@@ -77,6 +90,10 @@
 
         .swiper-slide-cards-1 {
           line-height: normal;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           a {
             background: transparent;
@@ -90,6 +107,21 @@
             max-width: unset;
             color: unset;
             white-space: unset;
+          }
+
+          &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            aspect-ratio: 1/1;
+            background-image: url("/icons/Subtract.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            user-select: none;
+            pointer-events: none;
           }
         }
 
@@ -108,7 +140,7 @@
 
               a {
                 display: inline-flex;
-                padding: 0 8px;
+                padding: 0 12px 0 8px;
                 align-items: center;
                 gap: 8px;
                 border-radius: map.get($radius, r40);
@@ -119,81 +151,176 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: 16px;
-                min-width: 124px;
+
+                // min-width: 124px;
                 min-height: 32px;
               }
             }
 
             &>li:first-child {
-              margin-bottom: 25px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 24px;
+
+              @include media(mobile) {
+                margin-bottom: 16px;
+                gap: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+              }
+
+
+              .button-container {
+                margin: 0;
+                padding: 0;
+                display: flex;
+
+                a {
+                  margin: 0;
+
+                  // padding: 0;
+                  background: transparent;
+                }
+              }
+
+              ul {
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                list-style: none;
+
+                li {
+                  color: $text-body-2;
+                  font-family: $poppins;
+                  font-size: 12px;
+                  font-weight: 400;
+                  line-height: 16px;
+
+                  .icon {
+                    width: 12px;
+                    height: 12px;
+                    aspect-ratio: 1/1;
+                    margin-right: 4px;
+                  }
+
+                  &::marker {
+                    color: #5659FA !important;
+                  }
+                }
+
+                li:first-child {
+                  list-style: none;
+                  padding-right: 10px;
+                  position: relative;
+
+                  &::after {
+                    content: "•";
+                    color: #5659FA;
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    right: -2px;
+                  }
+                }
+              }
             }
 
             &>li:nth-child(2) {
-              @include font-style(18px,
-                24px,
-                $primary-blue,
-                map.get($font-weights, medium),
-                $poppins );
+              p {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 8px;
 
-              margin-bottom: 8px;
-
-              @include media(mobile) {
-                @include font-style(16px,
-                  20px,
+                @include font-style(18px,
+                  24px,
                   $primary-blue,
                   map.get($font-weights, medium),
-                  $poppins );
+                  $poppins);
 
-                // margin-bottom: 8px;
+
+                @include media(mobile) {
+                  @include font-style(18px,
+                    24px,
+                    $primary-blue,
+                    map.get($font-weights, medium),
+                    $poppins);
+                }
+
               }
             }
 
             &>li:nth-child(3) {
-              @include font-style(16px,
-                24px,
-                $color-text-body,
-                map.get($font-weights, regular),
-                $poppins );
+              p {
+                margin: 0;
+                padding: 0;
 
-              @include media(mobile) {
-                @include font-style(14px,
-                  20px,
-                  $color-text-body,
+                @include font-style(16px,
+                  24px,
+                  #616161,
                   map.get($font-weights, regular),
-                  $poppins );
+                  $poppins);
+
+                @include media(mobile) {
+                  @include font-style(14px,
+                    20px,
+                    #616161,
+                    map.get($font-weights, regular),
+                    $poppins);
+                }
               }
             }
 
-            &>li:last-child {
-              margin-top: 25px;
+            /* stylelint-disable-next-line no-descending-specificity */
+            &>li:nth-child(4) {
+              margin-top: 24px;
 
-              a {
-                @include font-style(14px,
-                  20px,
-                  $primary-blue,
-                  map.get($font-weights, regular),
-                  $poppins );
+              .button-container {
+                margin: 0;
 
-                text-decoration-line: underline;
-                text-decoration-style: solid;
-                text-decoration-skip-ink: auto;
-                text-decoration-thickness: auto;
-                text-underline-offset: 2.8px;
-                text-underline-position: from-font;
-                border: none;
-                padding: 0;
+                a {
+                   text-decoration-line: underline;
+                  text-decoration-style: solid;
+                  text-decoration-skip-ink: auto;
+                  text-decoration-thickness: auto;
+                  text-underline-offset: 1.4px;
+                  text-underline-position: from-font;
+                  border: none;
+                  padding: 0;
+                  background: transparent;
+                  margin: 0;
+                  
+                  @include font-style(14px,
+                    20px,
+                    $primary-blue,
+                    map.get($font-weights, regular),
+                    $poppins);
+                 
+                }
               }
 
               // @include media(mobile) {
               //     margin-top: 12px;
               // }
             }
+
+            /* stylelint-disable-next-line no-descending-specificity */
+            &>li:nth-child(5) {
+              position: absolute;
+              display: none;
+            }
           }
         }
 
-        &:last-child {
+        &:nth-child(4) {
           margin-right: 0 !important;
         }
+
+        // &:nth-child(5) {
+        //   display: none
+        // }
       }
     }
 
@@ -272,32 +399,38 @@
       margin-top: 40px;
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     p {
+      width: 100%;
       margin: 0;
       padding: 0;
 
+      /* stylelint-disable-next-line no-descending-specificity */
       a {
         margin: 0;
         display: inline-flex;
-        padding: 12px;
+        padding: 12px 19px;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 4px;
         border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
+        height: 44px;
 
         @include font-style(16px,
           20px,
           $primary-white,
           map.get($font-weights, medium),
-          $poppins );
+          $poppins);
 
         @include media(mobile) {
-          @include font-style(14px,
+          width: 100%;
+
+          @include font-style(16px,
             20px,
             $primary-white,
             map.get($font-weights, medium),
-            $poppins );
+            $poppins);
         }
       }
     }
@@ -315,6 +448,8 @@
         .swiper-slide {
           .swiper-slide-cards-2 {
             ul {
+
+              /* stylelint-disable-next-line no-descending-specificity */
               li {
                 font-size: 14px;
                 line-height: 20px;
@@ -332,14 +467,16 @@
     margin-top: 40px;
 
     @include media(mobile) {
-      padding: 0px 16px 0px 0px;
+      padding: 0 16px 0 0;
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     .button-container {
       @include media(mobile) {
         width: 100%;
       }
 
+      /* stylelint-disable-next-line no-descending-specificity */
       a {
         @include media(mobile) {
           width: 100%;

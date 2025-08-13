@@ -3,8 +3,8 @@
 /* media-feature-range-notation */
 
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .growth-now-container {
     img {
@@ -40,14 +40,14 @@
         display: flex;
         padding: 32px;
         align-items: center;
-
-        // justify-content: space-between;
+        justify-content: space-between;
         border-radius: 16px;
         background: #2E2A94;
         height: 160px;
 
         @include media (desktop-sm) {
             gap: 15px;
+
         }
 
         @include media(tab) {
@@ -58,16 +58,16 @@
         @include media(mobile) {
             flex-direction: column;
             position: relative;
-            padding: 24px;
+            padding: 16px;
             overflow: hidden;
         }
 
         .growth-now-row-1 {
-            @include media (desktop-sm) {
-                width: 70%;
-                justify-content: space-between;
+            // @include media (desktop-sm) {
+            //     width: 70%;
+            //     justify-content: space-between;
 
-            }
+            // }
 
             @include media(tab) {
                 gap: 10px;
@@ -79,10 +79,10 @@
         }
 
         .growth-now-row-2 {
-            @include media (desktop-sm) {
-                width: 30%;
-                justify-content: space-between;
-            }
+            // @include media (desktop-sm) {
+            //     width: 30%;
+            //     justify-content: space-between;
+            // }
 
             @include media(tab) {
                 gap: 10px;
@@ -92,6 +92,7 @@
         .fund-us-container {
             display: flex;
             align-items: center;
+            gap: 0;
 
             // @include media (desktop-sm) {
             //     justify-content: space-between;
@@ -104,11 +105,11 @@
             }
 
             .fund-sec-1 {
-                padding-right: 21px;
+                padding-right: 64px;
 
-                @include media (desktop-sm) {
-                    padding: 0;
-                }
+                // @include media (desktop-sm) {
+                //     padding: 0;
+                // }
 
                 @include media(mobile) {
                     padding: 0;
@@ -154,7 +155,7 @@
 
 
                 p {
-                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold),$butlerpro);
+                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $butlerpro);
 
                     max-inline-size: 11ch;
                     text-wrap: balance;
@@ -162,13 +163,14 @@
                     padding: 0;
 
                     @include media(mobile) {
-                        @include font-style(28px, 32px, $primary-white, map.get($font-weights, bold),$butlerpro);
+                        @include font-style(28px, 32px, $primary-white, map.get($font-weights, medium), $butlerpro);
                     }
                 }
 
             }
 
             .fund-sec-4 {
+                display: none;
                 padding-right: 40px;
 
                 @include media (desktop-sm) {
@@ -176,10 +178,15 @@
                 }
 
                 @include media(mobile) {
+                     display: block;
                     padding: 0;
                     order: 2;
                     width: 100%;
-                    padding-bottom: 40px;
+                    padding-bottom: 32px;
+
+                    .button-container {
+                        margin: 0;
+                    }
                 }
 
                 form {
@@ -189,6 +196,7 @@
 
                     @include media(mobile) {
                         flex-direction: column;
+                        align-items: flex-start;
                     }
 
                     // .field-wrapper {
@@ -232,7 +240,7 @@
                             border: none;
                             color: #FFF;
                             text-align: center;
-                            font-family:$poppins;
+                            font-family: $poppins;
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 400;
@@ -248,7 +256,7 @@
                                 background: transparent;
                                 box-shadow: none;
                                 color: #fff;
-                                font-family:$poppins;
+                                font-family: $poppins;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 400;
@@ -263,7 +271,7 @@
 
                             input::placeholder {
                                 color: #fff;
-                                font-family:$poppins;
+                                font-family: $poppins;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 400;
@@ -279,7 +287,7 @@
                                     background: transparent;
                                     box-shadow: none;
                                     color: #fff;
-                                    font-family:$poppins;
+                                    font-family: $poppins;
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 400;
@@ -295,7 +303,7 @@
 
                                     &::placeholder {
                                         color: #fff;
-                                        font-family:$poppins;
+                                        font-family: $poppins;
                                         font-size: 14px;
                                         font-style: normal;
                                         font-weight: 400;
@@ -319,9 +327,9 @@
                     }
 
                     .submit-wrapper {
-                        @include media(mobile) {
-                            width: 100%;
-                        }
+                        // @include media(mobile) {
+                        //     width: 100%;
+                        // }
 
                         .button {
                             display: flex;
@@ -332,7 +340,7 @@
                             border-radius: 4px;
                             background: #FFF;
                             color: #2E2A94;
-                            font-family:$poppins;
+                            font-family: $poppins;
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 500;
@@ -381,12 +389,12 @@
                 }
 
                 .fund-sec-1 {
-                    padding-right: 44px;
-                    margin-bottom: -35px;
+                    padding-right: 10px;
+                    margin-bottom: -25px;
 
-                    @include media (desktop-sm) {
-                        padding: 0;
-                    }
+                    // @include media (desktop-sm) {
+                    //     padding: 0;
+                    // }
 
                     @include media(mobile) {
                         padding: 0;
@@ -421,9 +429,9 @@
                     padding-right: 18px;
                     height: 100%;
 
-                    @include media (desktop-sm) {
-                        padding: 0;
-                    }
+                    // @include media (desktop-sm) {
+                    //     padding: 0;
+                    // }
 
                     @include media(mobile) {
                         padding: 0;
@@ -445,7 +453,7 @@
                         padding-top: 68px;
                     }
 
-                    ul {
+                    ul:first-child {
                         list-style: none;
                         margin: 0;
                         padding: 0;
@@ -453,9 +461,13 @@
                         flex-direction: column;
                         gap: 9px;
 
+                        @include media(mobile) {
+                            gap: 12px;
+                        }
+
                         >li {
                             display: flex;
-                            align-items: center;
+                            align-items: flex-start;
                             gap: 8px;
 
                             ul {
@@ -465,7 +477,7 @@
 
                                 li:first-child {
                                     color: #FFF;
-                                    font-family:$poppins;
+                                    font-family: $poppins;
                                     font-size: 12px;
                                     font-style: normal;
                                     font-weight: 400;
@@ -474,7 +486,7 @@
 
                                 li:nth-child(2) {
                                     color: #FFF;
-                                    font-family:$poppins;
+                                    font-family: $poppins;
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 600;
