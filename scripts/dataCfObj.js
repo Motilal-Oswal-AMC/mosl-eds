@@ -10816,7 +10816,7 @@ const dataCfObj = [
     indexMethodology: '<p>Index Methodology:&nbsp;<a href="https://www.niftyindices.com/indices/equity/broad-based-indices/nifty-500">Click here</a></p>\n<p>Historic Changes in Index Constituents:&nbsp;<a href="https://www.niftyindices.com/media">Click here</a></p>\n',
     fundCategorisation: "ETF's",
     nfoKnowMoreUrl: 'https://www.motilaloswalmf.com/mf/ETF/sandp-bse-enhanced-value/Login.aspx',
-    fundIcon: '/content/dam/wknd-shared/fund-icons/MO_S&P_BSE_Enhanced_Value_Index_Fund.png',
+    fundIcon: '/content/dam/wknd-shared/fund-icons/MO_S_P_BSE_Enhanced_Value_Index_Fund.png',
     fundType: 'Exchange Traded Fund',
     moAmcCode: 'MOSMF',
     periodicReturns: '<p>NIL</p>\n',
