@@ -15,7 +15,6 @@ export default function decorate(block) {
       }
     });
   });
-
   if (block.closest('.think-equity-container')) {
     Array.from(block.children).forEach((el, index) => {
       el.classList.add(`collist${index + 1}`);
