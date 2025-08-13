@@ -2,7 +2,7 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, table, tr, th
+  button, a, table, tr, th,
 } from '../../scripts/dom-helpers.js';
 
 export default async function decorate(block) {

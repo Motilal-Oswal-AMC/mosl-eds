@@ -111,12 +111,12 @@
   line-height:16px;
 }
 
-.tabs-tab p {
+/* .tabs-tab p { // getting confilt on anurag code
   padding: 9px;
   border-radius: 1000px;
   border:  1px solid  #382AD7;
   background: #EDF1FF;
-}
+} */
 
 .periodicreturn .tabs-wrapper {
   width: 100%;

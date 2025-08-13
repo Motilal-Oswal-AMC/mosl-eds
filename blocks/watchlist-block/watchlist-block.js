@@ -42,11 +42,13 @@ export default function decorate(block) {
           { class: 'titlewrapper' },
           h2(
             { class: 'card-title' },
-            block.querySelector('.watchlist-items1 .watchlist-inneritems2').innerText,
+            block.querySelector('.watchlist-items1 .watchlist-inneritems2')
+              .innerText,
           ),
           h2(
             { class: 'card-title-1' },
-            block.querySelector('.watchlist-items1 .watchlist-inneritems3').innerText,
+            block.querySelector('.watchlist-items1 .watchlist-inneritems3')
+              .innerText,
           ),
         ),
       ),
@@ -74,17 +76,24 @@ export default function decorate(block) {
           { class: 'lower-right' },
           div(
             { class: 'fund-name-card' },
-            p(block.querySelector('.watchlist-items2 .watchlist-inneritems1').innerText),
-            div({ class: 'fund-name' }, data[0].schDetail.schemeName.replaceAll('Motilal Oswal', '')),
+            p(
+              { class: 'brand-text' },
+              block.querySelector('.watchlist-items2 .watchlist-inneritems1')
+                .innerText,
+            ),
+            div(
+              { class: 'fund-name' },
+              data[0].schDetail.schemeName.replaceAll('Motilal Oswal', ''),
+            ),
           ),
-        ),
-        div(
-          { class: 'fund-returns' },
-          p('Annualised'),
           div(
-            { class: 'returns' },
-            p({ class: 'returns-percent' }, data[0].returns[0].oneYear_Ret),
-            span({ class: 'returns-percentage' }, '%'),
+            { class: 'fund-returns' },
+            p({ class: 'returns-text' }, 'Annualised'),
+            div(
+              { class: 'returns' },
+              p({ class: 'returns-percent' }, data[0].returns[0].oneYear_Ret),
+              span({ class: 'returns-percentage' }, '%'),
+            ),
           ),
         ),
       ),

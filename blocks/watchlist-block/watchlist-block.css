@@ -1,6 +1,6 @@
 @import "../../../styles/fonts.css";
 .section.watchlist-block-container {
-  padding: 3rem 2rem;
+  padding: 43px 32px;
   background: #fff;
   font-family: Inter, sans-serif;
 }
@@ -14,9 +14,14 @@
   justify-content: space-between;
   align-items: flex-start;
   border-radius: 1rem;
-  padding: 32px 0;
+  padding-right: 48px;
   gap: 16px;
   position: relative;
+}
+@media (max-width: 1025px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper {
+    padding-right: 0;
+  }
 }
 @media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper {
@@ -25,6 +30,7 @@
     padding: 0;
     position: relative;
     padding-bottom: 68px;
+    margin: 47px 0;
   }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left {
@@ -33,17 +39,23 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-top: 31px;
+  padding: 31px 0;
 }
 @media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left {
     padding: 0;
+    max-width: 100%;
   }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+}
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title {
+    gap: 8px;
+  }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .watchlist-logo {
   width: 64px;
@@ -53,7 +65,8 @@
   display: flex;
   flex-direction: column;
 }
-.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper h2 {
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper h2.card-title,
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper h2.card-title-1 {
   font-size: 36px;
   line-height: 44px;
   color: #2e2a94;
@@ -62,23 +75,8 @@
   margin: 0;
 }
 @media (max-width: 768px) {
-  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper h2 {
-    font-size: 24px;
-    line-height: 28px;
-    color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
-    font-weight: 700;
-  }
-}
-.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper .card-title-1 {
-  font-size: 36px;
-  line-height: 44px;
-  color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
-  font-weight: 700;
-}
-@media (max-width: 768px) {
-  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper .card-title-1 {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper h2.card-title,
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper h2.card-title-1 {
     font-size: 24px;
     line-height: 28px;
     color: #2e2a94;
@@ -100,7 +98,7 @@
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .button-wrapper .button-container {
   margin: 0;
   padding: 0;
-  margin-left: 90px;
+  margin-left: 80px;
 }
 @media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .button-wrapper .button-container {
@@ -125,6 +123,7 @@
   background: #2e2a94;
   transition: background 0.3s ease;
   border: none;
+  white-space: unset;
   font-size: 16px;
   line-height: 20px;
   color: #fff;
@@ -135,22 +134,29 @@
   background: #1f1f47;
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner {
-  max-width: 552px;
+  max-width: 42.57%;
   width: 100%;
   position: relative;
   flex: 1;
-  padding-right: 48px;
+  padding: 1px 0 10px;
 }
 @media (max-width: 1025px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner {
     padding: 0;
   }
 }
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner {
+    max-width: 100%;
+  }
+}
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner::before, .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner::after {
   content: "";
   position: absolute;
-  top: 28px;
-  left: 20px;
+  top: 21px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   border-radius: 8px;
   border: 0.783px solid #B9BBFF;
   background: #FFF;
@@ -159,39 +165,29 @@
 }
 @media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner::before, .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner::after {
-    top: 30px;
-    left: 14px;
-    right: 14px;
+    top: 28px;
   }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner::before {
-  max-width: 464px;
+  max-width: 92.1%;
   width: 100%;
-  height: 170px;
-}
-@media (max-width: 768px) {
-  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner::before {
-    max-width: unset;
-    width: -webkit-fill-available;
-  }
+  height: 40px;
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner::after {
-  max-width: 422px;
+  max-width: 83.73%;
   width: 100%;
-  height: 170px;
-  top: 12px;
-  left: 41px;
+  height: 40px;
+  top: 1px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   border: 0.713px solid #B9BBFF;
   box-shadow: 0 0 11.405px 0 rgba(0, 0, 0, 0.06);
   z-index: 1;
 }
 @media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner::after {
-    max-width: unset;
-    width: -webkit-fill-available;
     top: 15px;
-    left: 32px;
-    right: 30px;
   }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right {
@@ -201,14 +197,18 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 300px;
   box-shadow: 0 0 13.514px 0 rgba(0, 0, 0, 0.06);
   border-radius: 8px;
   border: 0.845px solid #B9BBFF;
   z-index: 3;
   width: 100%;
   padding: 24px;
-  margin-top: 45px;
+  margin-top: 43px;
+}
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right {
+    padding: 16px;
+  }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .upper-right {
   display: flex;
@@ -218,13 +218,13 @@
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .upper-right .fund-logo {
   width: 60px;
   height: 60px;
-  background: #eef1ff;
+  background-color: #BDCBFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-@media (max-width: ) {
+@media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .upper-right .fund-logo {
     width: 40px;
     height: 40px;
@@ -234,7 +234,7 @@
   width: 45px;
   height: auto;
 }
-@media (max-width: ) {
+@media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .upper-right .fund-logo img {
     width: 30px;
     height: auto;
@@ -259,54 +259,89 @@
   display: none;
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right {
-  width: 70%;
-  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
 }
-.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card p {
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right {
+    margin-top: 5px;
+    align-items: start;
+  }
+}
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card {
+  max-width: 212px;
+  width: 100%;
+  padding: 4px 0;
+}
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card {
+    padding: 0;
+    max-width: 67%;
+  }
+}
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card .brand-text {
   margin: 0;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 16px;
   color: #5659FA;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card .fund-name {
-  max-width: 240px;
+  text-wrap: balance;
   font-size: 16px;
   line-height: 20px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .fund-returns {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 2.5rem;
-  text-align: left;
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card .fund-name {
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
-.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .fund-returns p {
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns-text {
   margin: 0;
+  text-align: right;
   font-size: 12px;
   line-height: 16px;
   color: #111;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .fund-returns .returns {
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns-text {
+    font-size: 8.095px;
+    line-height: 10.794px;
+  }
+}
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns {
   display: flex;
+  align-items: center;
   flex-direction: row;
 }
-.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .fund-returns .returns .returns-percent {
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percent,
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percentage {
+  margin: 0;
   font-size: 24px;
   line-height: 32px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .fund-returns .returns .returns-percentage {
-  font-size: 24px;
-  line-height: 32px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percent,
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percentage {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+.section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percentage {
   font-weight: 300;
 }/*# sourceMappingURL=watchlist-block.css.map */
