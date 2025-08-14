@@ -1,15 +1,12 @@
-/* Reset */
 @use 'sass:map';
-@use '../../styles/common-theme/css/variables_mixins' as *;
-@use '../../styles/common-theme/css/fluid-typography' as *;
-@use '../../styles//common-theme/css/flatcalndar' as *;
+@use '../../styles/common-theme/css/variables_mixins'as *;
+@use '../../styles/common-theme/css/fluid-typography'as *;
+@use '../../styles//common-theme/css/flatcalndar'as *;
 
 
 .invest-now-homepage-container {
   .invest-now-homepage-wrapper {
     display: flex;
-    // height: 663px;
-    // padding-top: 64px;
     flex-direction: column;
     align-items: center;
     gap: 44px;
@@ -20,7 +17,7 @@
 
     .invest-now-homepage {
       // background-color: white;
-      background: var(--Neutrals-White, #FFF);
+      background: $primary-white;
       max-width: 100%;
       width: 100%;
 
@@ -42,7 +39,6 @@
           .close-btn {
             max-width: 100%;
             width: 100%;
-            // height: 10px;
             right: 9px;
             top: 12px;
             border-radius: 18px;
@@ -65,7 +61,6 @@
           gap: 24px;
 
           .modal-header-container {
-
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -83,10 +78,8 @@
                 height: 40px;
                 aspect-ratio: 1/1;
                 box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
-
                 position: relative;
                 min-width: 40px;
-                box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
                 border-radius: 50%;
                 background: #bdcbff;
 
@@ -385,7 +378,7 @@
                       border: none;
                       background-color: transparent;
                       color: #2E2A94;
-                      // font-family: $Poppins;
+                      // font-family: $poppins;
                       font-size: 20px;
                       font-weight: 500;
                       width: 100%;
@@ -411,7 +404,7 @@
                   //   border: none;
                   //   background-color: transparent;
                   //   color: #2E2A94;
-                  //   // font-family: $Poppins;
+                  //   // font-family: $poppins;
                   //   font-size: 20px;
                   //   font-weight: 500;
                   //   width: 100%;
@@ -676,7 +669,7 @@
                     border: none;
                     background-color: transparent;
                     color: #2E2A94;
-                    // font-family: $Poppins;
+                    // font-family: $poppins;
                     font-size: 20px;
                     font-weight: 500;
                     width: 100%;
@@ -744,7 +737,7 @@
                     border: none;
                     background-color: transparent;
                     color: #2E2A94;
-                    // font-family: $Poppins;
+                    // font-family: $poppins;
                     font-size: 20px;
                     font-weight: 500;
                     width: 100%;
@@ -842,7 +835,7 @@
           background: var(--Neutrals-White, #FFF);
 
           opacity: 0;
-  transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
 
 
 
@@ -872,8 +865,15 @@
 
           }
 
-           &.show { opacity: 1; pointer-events: all; }
-  &.hide { opacity: 0; pointer-events: none; }
+          &.show {
+            opacity: 1;
+            pointer-events: all;
+          }
+
+          &.hide {
+            opacity: 0;
+            pointer-events: none;
+          }
         }
 
         .hide {

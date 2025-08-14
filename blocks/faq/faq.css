@@ -100,7 +100,7 @@
   cursor: pointer;
   list-style: none;
   overflow: hidden;
-  transition: all 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
   padding-left: 0;
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details summary:focus, .section.freq-ask-ques .accordion-wrapper .accordion details summary:hover {
@@ -182,7 +182,6 @@
 .section.freq-ask-ques .accordion-wrapper .accordion .accordion-item {
   overflow: hidden;
   transition: all 0.4s ease-in-out;
-  /* high enough to hold content */
   margin-bottom: 1em;
 }
 .section.freq-ask-ques .accordion-wrapper .accordion .accordion-item.hidden {

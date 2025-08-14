@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* Reset */
 @import "../../../styles/fonts.css";
 /* invest-now-homepage.scss */
 #invest-now-wrapper-flat .flatpickr-calendar {
@@ -94,7 +93,7 @@
   background: white;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage {
-  background: var(--Neutrals-White, #FFF);
+  background: #fff;
   max-width: 100%;
   width: 100%;
 }
@@ -150,7 +149,6 @@
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
   position: relative;
   min-width: 40px;
-  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
   border-radius: 50%;
   background: #bdcbff;
 }

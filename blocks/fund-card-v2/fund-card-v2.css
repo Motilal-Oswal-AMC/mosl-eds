@@ -1,5 +1,4 @@
 @import "../../../styles/fonts.css";
-/*   */
 .section.compound-journey .investment-block {
   width: 100%;
   padding: 10px 10px 10px 0;
@@ -271,11 +270,6 @@
 }
 .section.compound-journey .compound-item .card-items .card-container .return-btn label {
   grid-area: label;
-  font-size: 14px;
-  line-height: 16px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
   margin: 0;
   color: var(--text-body, #424242);
   font-family: var(--body, Poppins);
@@ -283,6 +277,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: var(--disclaimer-xsmall-line-height, 16px);
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 .section.compound-journey .compound-item .card-items .card-container .return-btn .cagr-value {
   grid-area: value;
@@ -296,12 +295,11 @@
 .section.compound-journey .compound-item .card-items .card-container .return-btn .cagr-value h2 {
   margin: 0;
   color: var(--blue-1800-primary, #2E2A94);
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
   line-height: 32px;
-  /* 133.333% */
 }
 .section.compound-journey .compound-item .card-items .card-container .return-btn .cagr-value h2 span {
   font-size: 14px;
@@ -315,7 +313,7 @@
   padding: 0;
   justify-content: center;
   align-items: center;
-  gap: var(--Spacing-8, 8px);
+  gap: 8px;
 }
 .section.compound-journey .compound-item .card-items .card-container .return-btn .btn-knowmore a {
   font-size: var(--button-small-size, 14px);
@@ -354,12 +352,11 @@
 }
 .section.compound-journey .compound-item .card-items .card-container .return-btn .btn-knowmore a span {
   color: #FFF;
-  font-family: var(--body, "Poppins", sans-serif);
-  font-size: var(--button-small-size, 14px);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
-  /* 114.286% */
 }
 .section.compound-journey.broaden-your .compound-item .card-items .card-container {
   max-width: 31.4%;
@@ -491,6 +488,11 @@
   .section.compound-journey .section.compound-journey .compound-item .card-items .card-container .return-btn .btn-knowmore {
     width: 100%;
   }
+}
+.section.compound-journey .section.compound-journey .button,
+.section.compound-journey .section.compound-journey .btn-knowmore a,
+.section.compound-journey .section.compound-journey .star {
+  /* stylelint-disable-next-line no-descending-specificity */
 }
 .section.compound-journey .section.compound-journey .button:focus,
 .section.compound-journey .section.compound-journey .btn-knowmore a:focus,

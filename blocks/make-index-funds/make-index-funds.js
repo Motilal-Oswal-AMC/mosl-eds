@@ -36,7 +36,7 @@ let swiperInstance = null;
 function createCardElement(cardData, brandName, iconsTemplate) {
   // 1. Create the card structure WITHOUT the icons.
   const iconsvg = `${dataMapMoObj.iconsNfo[cardData.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
-  const mop = 'MO_'+cardData.schcode+'.svg'
+  const mop = `MO_${cardData.schcode}.svg`;
   const cardElement = div(
     { class: 'card-wrap' },
     div(

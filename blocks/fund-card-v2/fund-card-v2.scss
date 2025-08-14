@@ -2,8 +2,6 @@
 @use '../../styles/common-theme/css/variables_mixins' as *;
 @use '../../styles/common-theme/css/fluid-typography' as *;
 
-/*   */
-
 $primary-purple: #2e2a94;
 $secondary-purple: #242177;
 $accent-blue: #5659fa;
@@ -321,9 +319,6 @@ $breakpoint-desktop: 1367px;
 
           label {
             grid-area: label;
-
-            @include typography(14px, 16px, $primary-purple, $font-poppins, 400);
-
             margin: 0; // Reset margin
             color: var(--text-body, #424242);
             font-family: var(--body, Poppins);
@@ -331,6 +326,8 @@ $breakpoint-desktop: 1367px;
             font-style: normal;
             font-weight: 400;
             line-height: var(--disclaimer-xsmall-line-height, 16px);
+
+            @include typography(14px, 16px, $primary-purple, $font-poppins, 400);
 
           }
 
@@ -344,13 +341,12 @@ $breakpoint-desktop: 1367px;
             h2 {
               margin: 0;
               color: var(--blue-1800-primary, #2E2A94);
-              font-family: Poppins;
+              font-family: $poppins;
               font-size: 24px;
               font-style: normal;
               font-weight: 500;
               line-height: 32px;
 
-              /* 133.333% */
               span {
                 font-size: 14px;
                 line-height: 16px;
@@ -368,7 +364,7 @@ $breakpoint-desktop: 1367px;
             padding: 0;
             justify-content: center;
             align-items: center;
-            gap: var(--Spacing-8, 8px);
+            gap: 8px;
 
             a {
               @include button-style($bg-color: $accent-blue, $text-color: $white);
@@ -391,13 +387,11 @@ $breakpoint-desktop: 1367px;
               & span {
                 // Targeting button text
                 color: #FFF;
-                font-family: var(--body, $font-poppins);
-                font-size: var(--button-small-size, 14px);
+                font-family: $poppins;
+                font-size: 14px;
                 font-style: normal;
                 font-weight: 600;
                 line-height: 16px;
-
-                /* 114.286% */
               }
             }
           }
@@ -580,6 +574,7 @@ $breakpoint-desktop: 1367px;
     .button,
     .btn-knowmore a,
     .star {
+      /* stylelint-disable-next-line no-descending-specificity */
       &:focus {
         outline: 2px solid $accent-blue;
         outline-offset: 2px;

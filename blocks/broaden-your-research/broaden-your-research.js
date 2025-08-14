@@ -35,10 +35,7 @@ let swiperInstance = null;
  */
 function createCardElement(cardData, brandName, iconsTemplate) {
   const iconsvg = `${dataMapMoObj.iconsNfo[cardData.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
-  const mop = 'MO_'+cardData.schcode+'.svg'
-  // .fundIcon !== undefined ? cardData.fundIcon.split('/').at(-1) : 'MO_Midcap_Fund.png';
-  // const mopsec = mop.split('.');
-  // const mopthree = `${mopsec[0]}.svg`;
+  const mop = `MO_${cardData.schcode}.svg`;
   // 1. Create the card structure WITHOUT the icons.
   const cardElement = div(
     { class: 'card-wrap' },
