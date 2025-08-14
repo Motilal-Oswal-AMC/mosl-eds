@@ -13,48 +13,31 @@ function loadCSS(href) {
   document.head.appendChild(link);
 }
 
+function getTodaysDateFormatted() {
+  const today = new Date();
+  const day = today.getDate();
+  const month = today.toLocaleString('default', { month: 'short' });
+  const year = today.getFullYear();
+  return `${day} ${month} ${year}`;
+}
+
 export default function decorate(block) {
 
   loadCSS('../../scripts/flatpickr.min.css');
-  // loadCSS('./invest-now-homepage.css');
-  // if (localStorage.getItem('schcodeactive')) {
-  //   var schcodeactive = localStorage.getItem('schcodeactive')
-  // }
-
-  // --- START: New code for filtering ---
-
-  // 1. Get the scheme code from localStorage
-  const schcodeFromStorage = localStorage.getItem('schcodeactive'); // Make sure the key 'schcode' is correct
-  // 2. Find the matching object in the dataCfObj array
+  const schcodeFromStorage = localStorage.getItem('schcodeactive');
   const fundData = dataCfObj.find(fund => fund.schcode === schcodeFromStorage);
-
-  // 3. Check if data was found and use it
   if (fundData) {
     console.log('Found Fund Data:', fundData);
-    // You can now use the 'fundData' object to get any information you need.
-    // For example, to get the fund's name and benchmark:
     var fundNameFromData = fundData.schDetail.schemeName.replaceAll('Motilal Oswal', '');
     const benchmarkFromData = fundData.benchmark;
-
-    console.log('Fund Name:', fundNameFromData);       // Example: "Motilal Oswal Midcap Fund"
-    console.log('Benchmark:', benchmarkFromData);     // Example: "Nifty Midcap 150 TRI"
-
+    console.log('Fund Name:', fundNameFromData);
   } else {
     console.error('No fund data found for schcode:', schcodeFromStorage);
   }
-
-  console.log(fundNameFromData)
-
-  // --- END: New code for filtering ---
-
-
-  // console.log(schcodeactive);
-  console.log(dataCfObj);
   const col1 = block.children[0].querySelectorAll('p');
   const col2 = block.children[1].querySelectorAll('p');
   const col3 = block.children[2].querySelectorAll('p');
 
-  // const fundName = col1[0]?.textContent || ''; fundNameFromData
   const lumpsumLabel = col1[1]?.textContent || '';
   const sipLabel = col1[2]?.textContent || '';
   const inputLabel = col1[3]?.textContent || '';
@@ -98,9 +81,9 @@ export default function decorate(block) {
         )
       ),
       div({ class: 'modal-toggle' },
-        div({ class: 'modal-btn-lumpsum' },
+        div({ class: 'modal-btn-lumpsum active' },
           button({ class: 'lumpsum-btn' }, lumpsumLabel)),
-        div({ class: 'modal-btn-sip active' },
+        div({ class: 'modal-btn-sip' },
           button({ class: 'sip-btn' }, sipLabel)),
       )),
     div({ class: "modal-inputs-container" },
@@ -115,13 +98,13 @@ export default function decorate(block) {
             ...suggestions.map(s => button({ class: 'suggestion-btn' }, `₹ ` + s)),
           ),
         ),
-        div({ class: 'modal-input-fields' },
+        div({ class: 'modal-input-fields hidden' },
           div({ class: 'modal-sip' },
             div({ class: 'modal-sip-starts' },
               div({ class: 'sip-starts-maintext' },
                 p({ class: 'sip-starts-text' }, 'SIP starts from ')),
               div({ class: 'sip-starts-maindate' },
-                p({ class: 'sip-starts-date' }, '10 Aug 2025'),
+                p({ class: 'sip-starts-date' }, getTodaysDateFormatted()),
                 // button({ class: 'calendar-btn' },
                 //   img({ src: calendarIconSrc, alt: 'Calendar Icon' })
                 // ))
@@ -130,7 +113,7 @@ export default function decorate(block) {
             ),
             div({ class: 'modal-start-today' },
               label(
-                input({ type: 'checkbox', checked: true, class: 'start-today-checkbox' }),
+                input({ type: 'checkbox', class: 'start-today-checkbox' }),
                 span(' Start Today')
               ),
               div({ class: 'start-today-note' },
@@ -156,10 +139,6 @@ export default function decorate(block) {
               )
             ),
           )),
-        // ✅ Optional placeholder for calendar popup
-        // div({ class: 'modal-calendar-popup hidden' },
-        //   p('Calendar here...')
-        // )
       ),
       div({ class: 'modal-cta' },
         button({ class: 'invest-btn' }, ctaLabel)
@@ -245,43 +224,104 @@ export default function decorate(block) {
   const sipDateDisplay = block.querySelector('.sip-starts-date');
   const calendarContainer = block.querySelector('.invest-now-container');
 
+  // ADDED: A variable to store the user-selected date
+  let originalSipDate = '';
 
-  // Initialize flatpickr 
+  // 5. Initialize flatpickr 
+  // const fpInstance = window.flatpickr(calendarIcon, {
+  //   defaultDate: 'today',
+  //   altInput: false,
+  //   onReady: function (_, __, fp) {
+  //     // fp.calendarContainer.removeAttribute('style');
+  //     if (fp.calendarContainer) { // Add this check
+  //       fp.calendarContainer.removeAttribute('style');
+  //     }
+  //   },
+  //   appendTo: calendarContainer,
+  //   onChange: function (selectedDates, dateStr, instance) {
+  //     const selectedDate = selectedDates[0];
+  //     const day = selectedDate.getDate();
+  //     const month = selectedDate.toLocaleString('default', { month: 'short' });
+  //     const year = selectedDate.getFullYear();
+  //     const formattedDate = `${day} ${month} ${year}`;
+
+  //     sipDateDisplay.textContent = formattedDate;
+
+  //     originalSipDate = formattedDate;
+  //   },
+  //   position: (self, node) => {
+  //     const top = self.element.offsetTop + self.element.offsetHeight + 8;
+  //     const left = self.element.offsetLeft;
+
+  //     node.style.top = `${top}px`;
+  //     node.style.left = `${left}px`;
+  //   },
+  // });
+
   const fpInstance = window.flatpickr(calendarIcon, {
     defaultDate: 'today',
     altInput: false,
-    onReady: function (_, __, fp) {
-      fp.calendarContainer.removeAttribute('style');
-    },
     appendTo: calendarContainer,
+    disableMobile: true,
+
+    // FIX 1: Added a safety check to prevent the crash on mobile.
+    onReady: function (_, __, fp) {
+      if (fp.calendarContainer) {
+        fp.calendarContainer.removeAttribute('style');
+      } else {
+        console.log("somehting is wrong")
+      }
+    },
+
     onChange: function (selectedDates, dateStr, instance) {
       const selectedDate = selectedDates[0];
       const day = selectedDate.getDate();
       const month = selectedDate.toLocaleString('default', { month: 'short' });
       const year = selectedDate.getFullYear();
-      sipDateDisplay.textContent = `${day} ${month} ${year}`;
+      const formattedDate = `${day} ${month} ${year}`;
+
+      sipDateDisplay.textContent = formattedDate;
+
+      // Update the stored date whenever the user picks a new one
+      originalSipDate = formattedDate;
     },
     position: (self, node) => {
-      // 'self.element' is the calendar icon that was clicked
-      // 'node' is the calendar popup itself
-
-      // Position the calendar (node) right below the trigger (self.element).
-      // The top position is the icon's top offset + its height + a small margin.
-      const top = self.element.offsetTop + self.element.offsetHeight + 8; // 8px margin
-
-      // The left position should align with the left side of the icon.
+      const top = self.element.offsetTop + self.element.offsetHeight + 8;
       const left = self.element.offsetLeft;
 
-      // Apply our calculated positions directly.
       node.style.top = `${top}px`;
       node.style.left = `${left}px`;
     },
+
+    // FIX 2: Removed the entire custom 'position' function.
+    // Let flatpickr handle its own positioning, as it's more reliable on mobile.
+
   });
 
-  // On close or redecorate
-  // fpInstance.destroy();
+  // ADDED: Logic for the "Start Today" checkbox
+  const startTodayCheckbox = block.querySelector('.start-today-checkbox');
 
+  // Helper function to get today's date in the correct format
+  function getTodaysDateFormatted() {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.toLocaleString('default', { month: 'short' });
+    const year = today.getFullYear();
+    return `${day} ${month} ${year}`;
+  }
 
+  // Initialize the originalSipDate with the value set by flatpickr on load
+  originalSipDate = sipDateDisplay.textContent;
+
+  startTodayCheckbox.addEventListener('change', () => {
+    if (startTodayCheckbox.checked) {
+      // If checked, display today's date
+      sipDateDisplay.textContent = getTodaysDateFormatted();
+    } else {
+      // If unchecked, revert to the user's selected date
+      sipDateDisplay.textContent = originalSipDate;
+    }
+  });
 }
 
 
