@@ -5,13 +5,10 @@
 
 /* MAIN WRAPPER */
 
-.section.calculator-sip-container{
- background-color: #EDF1FF;  
-}
 
 .compounding,
 .fdp-calculator {
-  background: #edf1ff;
+  background: $primary-white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +19,7 @@
 
   @include media(mobile) {
     padding: 40px 16px;
-    background-color: #edf1ff;
+    background-color: map.get($blue-1, b25);
     gap: 40px;
   }
 
@@ -732,6 +729,14 @@
     }
   }
 }
+
+.compounding.calculator-sip-container:not(.fdp-calculator){
+background-color: map.get($blue-1, b25);  
+}
+
+// .compounding.fdp-calculator{
+
+// }
 
 // v2
 .fdp-calculator {

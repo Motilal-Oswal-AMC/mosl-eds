@@ -2,13 +2,9 @@
 /* Reset */
 @import "../../../styles/fonts.css";
 /* MAIN WRAPPER */
-.section.calculator-sip-container {
-  background-color: #EDF1FF;
-}
-
 .compounding,
 .fdp-calculator {
-  background: #edf1ff;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +17,7 @@
   .compounding,
   .fdp-calculator {
     padding: 40px 16px;
-    background-color: #edf1ff;
+    background-color: #EDF1FF;
     gap: 40px;
   }
 }
@@ -769,6 +765,10 @@
     font-size: 16px;
     line-height: 24px;
   }
+}
+
+.compounding.calculator-sip-container:not(.fdp-calculator) {
+  background-color: #EDF1FF;
 }
 
 .fdp-calculator {
