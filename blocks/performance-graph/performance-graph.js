@@ -65,22 +65,32 @@ export default function decorate(block) {
   //   graphDiv.style.height = "500px";
   block.append(graphDiv);
 
-  const useLiveAPI = false;
+  const useLiveAPI = true;
 
   async function showGraph(filter) {
     try {
       let parsedChartData;
 
       if (useLiveAPI) {
+        // const requestData = {
+        //   api_name: "PerformanceGraphNew",
+        //   cmt_schcode: "24097",
+        //   graphType: "Lumpsum",
+        //   invamount: "10000",
+        //   isCompare: "",
+        //   isin: "INF247L01445",
+        //   schcode: "FM",
+        // };
         const requestData = {
-          api_name: "PerformanceGraphNew",
-          cmt_schcode: "24097",
-          graphType: "Lumpsum",
-          invamount: "10000",
-          isCompare: "",
-          isin: "INF247L01445",
-          schcode: "FM",
-        };
+          "api_name": "PerformanceGraphNew",
+          "cmt_schcode": "26136",
+          "graphType": "Lumpsum",
+          "invamount": "10000",
+          "isCompare": "",
+          "isin": "INF247L01502",
+          "period": "Y",
+          "schcode": "CP"
+        }
 
         parsedChartData = await myAPI(
           "POST",
@@ -91,8 +101,15 @@ export default function decorate(block) {
         parsedChartData = chartsData;
       }
 
-      const key = Object.keys(parsedChartData)[0];
-      const chartArray = parsedChartData[key];
+      // const key = Object.keys(parsedChartData)[0];
+      // const chartArray = parsedChartData[key];
+      if (useLiveAPI) {
+        var key = Object.keys(parsedChartData.data.response)[0];
+        var chartArray = parsedChartData.data.response[key]
+      } else {
+        var key = Object.keys(parsedChartData)[0];
+        var chartArray = parsedChartData[key];
+      }
 
       // Dummy filter logic (actual API or backend should filter this)
       const filteredData = filterChartData(chartArray, filter);

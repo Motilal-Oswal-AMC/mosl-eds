@@ -2,6 +2,10 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
+main{
+  background-color: #f5f5f5;
+}
+
 .section.fdp-card-container {
   display: flex;
   flex-direction: row;
@@ -9,6 +13,7 @@
   width: 100%;
   margin: 0 auto;
   gap: 50px;
+  background-color: #f5f5f5;
 
   @media (width <= 768px) {
     flex-direction: column;
@@ -57,18 +62,22 @@
       padding: 0;
       margin: 0;
       border-bottom: 1px solid #b6bcc7;
-      background-color: #fff;
+      background-color: #f5f5f5;
 
       @media (width <= 768px) {
-        position: static;
-        max-width: 300px;
+        max-width: 100%;
         width: 100%;
-        overflow-y: auto;
-        margin: 0 auto;
+        position: static;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
 
       li {
-        a{
+        text-align: center;
+
+        a {
         @include font-style(14px, 16px, $primary-blue, 600, $poppins);
 
         padding: 12px;
@@ -79,6 +88,35 @@
         }
       }
       }
+    }
+
+    .selectedtext {
+      display: none;
+
+      @media (width <= 768px) {
+        display: block;
+        max-width: 100%;
+        text-align: center;
+        background: $primary-white;
+        margin: 0 auto;
+        padding: 16px;
+
+        @include font-style(14px, 16px, $primary-blue, 600, $poppins);
+
+        position: relative;
+      }
+    }
+
+    .selectedtext::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      width: 6px;
+      height: 6px;
+      border-right: 2px solid #3f51b5; /* dark blue color */
+      border-bottom: 2px solid #3f51b5;
+      transform: translateY(-50%) rotate(45deg);
     }
 
     /* why fund section */
@@ -119,13 +157,7 @@
               li:nth-child(1) {
                 @include font-style(18px, 24px, $primary-blue, 500, $poppins);
 
-                // font-family: "Poppins";
-                // font-weight: 500;
-                // font-size: 18px;
-                // line-height: 24px;
                 letter-spacing: 0%;
-
-                // color: #2e2a94;
                 padding: 0;
               }
 

@@ -184,6 +184,10 @@
           {
             "name": "fdp-calculator",
             "value": "fdp-calculator"
+          },
+          {
+            "name": "fund-card-section",
+            "value": "fund-card-section"
           }
         ]
       },
@@ -978,7 +982,7 @@
       }
     ]
   },
-   {
+  {
     "id": "our-funds-fdp",
     "fields": [
       {
@@ -987,6 +991,122 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "fund-card-slider",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Multi Select",
+        "options": [
+          {
+            "name": "Mobile Auto Scroll",
+            "value": "mobile-auto-scroll"
+          },
+          {
+            "name": "Mobile 1.5 View",
+            "value": "mobile-one-point-five-view"
+          },
+          {
+            "name": "Mobile 2.5 View",
+            "value": "two-point-five-view"
+          },
+          {
+            "name": "Mobile 3.5 View",
+            "value": "three-point-five-view"
+          },
+          {
+            "name": "Mobile 1.2 View",
+            "value": "mobile-one-point-two-view"
+          },
+          {
+            "name": "Mobile 1.3 View",
+            "value": "mobile-one-point-three-view"
+          },
+          {
+            "name": "Mobile Center View",
+            "value": "center-view"
+          },
+          {
+            "name": "Mobile Pagination",
+            "value": "mobile-pagination"
+          },
+          {
+            "name": "Mobile Loop",
+            "value": "mobile-loop"
+          },
+          {
+            "name": "Pagination",
+            "value": "desk-pagination"
+          },
+          {
+            "name": "Action Button",
+            "value": "left-right-navigation-btn"
+          },
+          {
+            "name": "Mobile Action Button",
+            "value": "mobile-left-right-navigation-btn"
+          },
+          {
+            "name": "Loop",
+            "value": "loop"
+          },
+          {
+            "name": "3 View",
+            "value": "three-point-view"
+          },
+          {
+            "name": "1.5 View",
+            "value": "one-point-five-view"
+          },
+          {
+            "name": " 2.5 View",
+            "value": "desk-two-point-five-view"
+          },
+          {
+            "name": "Auto Scroll",
+            "value": "auto-scroll"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
       }
     ]
   }

@@ -1,4 +1,8 @@
 @import "../../../styles/fonts.css";
+main {
+  background-color: #f5f5f5;
+}
+
 .section.fdp-card-container {
   display: flex;
   flex-direction: row;
@@ -6,6 +10,7 @@
   width: 100%;
   margin: 0 auto;
   gap: 50px;
+  background-color: #f5f5f5;
 }
 @media (width <= 768px) {
   .section.fdp-card-container {
@@ -47,16 +52,21 @@
   padding: 0;
   margin: 0;
   border-bottom: 1px solid #b6bcc7;
-  background-color: #fff;
+  background-color: #f5f5f5;
 }
 @media (width <= 768px) {
   .section.fdp-card-container .item2 .item2-ul {
-    position: static;
-    max-width: 300px;
+    max-width: 100%;
     width: 100%;
-    overflow-y: auto;
-    margin: 0 auto;
+    position: static;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+}
+.section.fdp-card-container .item2 .item2-ul li {
+  text-align: center;
 }
 .section.fdp-card-container .item2 .item2-ul li a {
   font-size: 14px;
@@ -71,6 +81,36 @@
   .section.fdp-card-container .item2 .item2-ul li a {
     text-wrap: nowrap;
   }
+}
+.section.fdp-card-container .item2 .selectedtext {
+  display: none;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .selectedtext {
+    display: block;
+    max-width: 100%;
+    text-align: center;
+    background: #fff;
+    margin: 0 auto;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #2e2a94;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    position: relative;
+  }
+}
+.section.fdp-card-container .item2 .selectedtext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid #3f51b5; /* dark blue color */
+  border-bottom: 2px solid #3f51b5;
+  transform: translateY(-50%) rotate(45deg);
 }
 .section.fdp-card-container .item2 .why-fund {
   margin: 80px 0;

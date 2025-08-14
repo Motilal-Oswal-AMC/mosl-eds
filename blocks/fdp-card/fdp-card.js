@@ -5,6 +5,7 @@ import {
   ul,
   li,
   h2,
+  p
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';
@@ -98,11 +99,27 @@ export default function decorate(block) {
     ),
   );
 
-  document.querySelector('.item2 ul').classList.add('item2-ul');
-
+  // document.querySelector('.item2 ul').classList.add('item2-ul');
+  const ptag = p({ class: 'selectedtext' }, 'Performance');
+  const item2Ul = block.closest('.section').querySelector('.item2 ul');
+  const item2 = block.closest('.section').querySelector('.item2');
+  item2Ul.classList.add('item2-ul');
+  item2.prepend(ptag);
   block.innerHTML = '';
   block.append(cardContainer);
 
+  item2Ul.addEventListener('click', (e) => {
+    if (window.innerWidth < 786) {
+      console.log(e.target.textContent);
+      ptag.textContent = e.target.textContent;
+      item2Ul.style.display = 'none';
+    }
+  });
+  ptag.addEventListener('click', () => {
+    if (window.innerWidth < 786) {
+      item2Ul.style.display = 'block';
+    }
+  });
   document.querySelectorAll('.table-wrapper').forEach((el) => {
     document.querySelector('.item2').append(el);
   });
