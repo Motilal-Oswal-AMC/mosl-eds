@@ -44,7 +44,7 @@ function planListEvent(param, block) {
       {
         class: 'cagr-dropdown',
       },
-      label('Annualised'),
+      span({class:'cagr-txt'},'Annualised'),
       div(
         {
           class: 'cagr-select-wrapper',
@@ -141,7 +141,7 @@ function planListEvent(param, block) {
       {
         class: 'cagr-dropdown',
       },
-      label('Return (Absolute)')
+      span({class:'cagr-txt'},'Return (Absolute)')
     );
     const dropvalue = div(
       {
@@ -517,7 +517,7 @@ export default function decorate(block) {
           {
             class: 'cagr-dropdown',
           },
-          label(labelcagr),
+          span({class:'cagr-txt'},labelcagr),
           div(
             {
               class: 'cagr-select-wrapper',
@@ -630,7 +630,7 @@ export default function decorate(block) {
               src: '../../icons/Icon.svg',
               alt: 'person',
             }),
-            span('2.7 lakh investors')
+            span({class:'investor-txt'},'2.7 lakh investors')
           ),
           a(
             { href: '/motilalfigma/modals/risk-o-meter' },

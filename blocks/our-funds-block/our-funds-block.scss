@@ -22,16 +22,18 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    padding: 0 2px;
+    max-width: 1228px;
+    width: 100%;
 
     @include media(mobile) {
       flex-direction: column;
       gap: 36px;
       padding: 56px 0 0;
+      max-width: 100%;
     }
 
     .block-subitem1 {
-      h1 {
+      .block-subitem-finelsub1 {
         margin: 0;
 
         @include font-style(40px, 48px, $primary-blue, 700, $butlerpro);
@@ -52,7 +54,8 @@
       gap: 12px;
 
       // max-width: 74.68%;
-      max-width: 74.6%;
+      // max-width: 74.6%;
+      max-width: 74.593%;
       width: 100%;
 
       @include media(mobile) {
@@ -67,7 +70,8 @@
 
       .search-input {
         // max-width: 81.8%;
-        max-width: 82.2%;
+        // max-width: 82.2%;
+        max-width: 82.206%;
         width: 100%;
         padding: 12px 8px;
         border-radius: 6px;
@@ -200,6 +204,7 @@
         padding: 8px 0;
         line-height: 0;
         cursor: pointer;
+        height: max-content;
 
         @include media(mobile) {
           grid-area: watchlist;
@@ -235,7 +240,7 @@
           line-height: 0;
 
           span {
-            @include font-style(14px, 20px, $primary-blue, 400, $poppins);
+            @include font-style(14px, 16px, $primary-blue, 500, $poppins);
 
             text-decoration-line: underline;
             text-underline-offset: 20%;
@@ -246,7 +251,7 @@
       .trending-container {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 8px;
 
         @include media(tab) {
           gap: 0;
@@ -343,7 +348,7 @@
     .left-container {
       max-width: 296px;
       width: 100%;
-      margin: 53px 0 0;
+      margin: 56px 0 0;
 
       @include media(desktop-sm) {
         max-width: 25%;
@@ -680,7 +685,7 @@
                       &::after {
                         transform: rotate(-135deg) translateX(-50%);
                         bottom: unset;
-                        top: -8.5px;
+                        top: -8.2px;
                         left: unset;
                         right: 12px;
                         width: 9.5px;
@@ -995,13 +1000,13 @@
                 display: none;
                 list-style: none;
                 position: absolute;
-                top: 22px;
+                top: 24px;
                 left: 36px;
                 z-index: 2;
                 width: 143px;
                 margin: 0;
                 background-color: $primary-white;
-                border-radius: 6px;
+                border-radius: 8px;
                 border: 1px solid $neutrals-200;
                 box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
 
@@ -1050,7 +1055,7 @@
 
             .return-select-container {
               .dropdown-list {
-                left: 107px;
+                left: 108px;
               }
             }
           }
@@ -1150,6 +1155,7 @@
               color: $neutrals-black;
               font-size: 14px;
               line-height: 20px;
+              font-weight: 400;
             }
 
             .fund-toggle-wrap {
@@ -1161,11 +1167,11 @@
               }
 
               .fund-toggle {
-                width: 36px;
+                width: 37px;
                 height: 20px;
                 background-color: $neutrals-500;
                 display: block;
-                border-radius: 16px;
+                border-radius: 16.7px;
                 position: relative;
                 transition: all 0.2s;
                 cursor: pointer;
@@ -1173,8 +1179,8 @@
 
                 &::before {
                   content: "";
-                  width: 16.667px;
-                  height: 16.667px;
+                  width: 17px;
+                  height: 17px;
                   display: block;
                   background: #fff;
                   border-radius: 50%;
@@ -1187,7 +1193,7 @@
               }
 
               input:checked + .fund-toggle::before {
-                transform: translateX(17.67px);
+                transform: translateX(18.67px);
               }
             }
           }
@@ -1296,6 +1302,7 @@
         .nfo-card-container {
           border-radius: map.get($radius, r8);
           border: 1px solid #b9bbff;
+          background: unset;
           background-color: $primary-blue;
           box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
 
@@ -1454,6 +1461,7 @@
 
             .know-more {
               color: $primary-white;
+              padding: 6px 0;
             }
 
             .invest-now {
@@ -1598,7 +1606,7 @@
 
                   // padding: 5px;
 
-                  img {
+                  .fund-logo {
                     width: 100%;
                     height: 100%;
                   }
@@ -1622,7 +1630,7 @@
 
                   .fund-name-txt {
                     margin: 0;
-                    
+
                     @include font-style(
                       14px,
                       16px,

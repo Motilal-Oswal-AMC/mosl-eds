@@ -78,7 +78,7 @@ export default function decorate(block) {
             div(
               { class: 'logo-container' },
               img({
-                class: 'logoScheme',
+                class: 'fund-logo',
                 src: `../../icons/iconfund/${mop}`,
                 alt: 'BrandLogo',
               }),
@@ -164,7 +164,7 @@ export default function decorate(block) {
         { class: 'fund-name-wrapper', schcode: block.schcode },
         div(
           { class: 'logo-container' },
-          img({ class: 'logoScheme', src: `../../icons/iconfund/${mopsec}`, alt: 'BrandLogo' }),
+          img({ class: 'fund-logo', src: `../../icons/iconfund/${mopsec}`, alt: 'BrandLogo' }),
         ),
         div(
           { class: 'fund-name-container' },

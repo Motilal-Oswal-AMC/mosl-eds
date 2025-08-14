@@ -50,7 +50,7 @@
   margin: 0;
   overflow: auto;
   background-color: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #EEE;
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
@@ -211,7 +211,7 @@
 }
 .section .card-container .cagr-container {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 4px 0;
@@ -222,13 +222,12 @@
   position: relative;
   line-height: 0;
 }
-.section .card-container .cagr-container .cagr-dropdown label {
+.section .card-container .cagr-container .cagr-dropdown .cagr-txt {
   font-size: 12px;
   line-height: 16px;
   color: #2e312f;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  padding-bottom: 4px;
 }
 .section .card-container .cagr-container .cagr-desc {
   padding: 4px 8px;
@@ -304,16 +303,12 @@
   margin: 10px 0 0;
   padding: 8px 12px;
 }
-.section .card-container .discription .dis-choosen {
+.section .card-container .discription .dis-choosen .dis-investor .investor-txt {
   font-size: 12px;
   line-height: 16px;
-  color: #2e2a94;
+  color: #242177;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  margin: 0;
-}
-.section .card-container .discription .dis-choosen .dis-investor {
-  font-weight: 600;
 }
 .section .card-container .button-container {
   display: flex;
@@ -328,7 +323,7 @@
   width: 100%;
   display: block;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 16px;
   color: #4338f3;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -342,10 +337,10 @@
 .section .card-container .button-container .card-btn.know-more {
   text-decoration-line: underline;
   text-underline-offset: 20%;
-  padding: 6px 0;
+  padding: 8px 0;
 }
 .section .card-container .button-container .card-btn.invest-now {
-  border-radius: 8px;
+  border-radius: 4px;
   background: #2e2a94;
   padding: 8px 12px;
   text-align: center;
@@ -459,7 +454,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 0;
-  border-bottom: 1px solid #B6BCC7;
+  border-bottom: 1px solid #b6bcc7;
   max-width: -moz-max-content;
   max-width: max-content;
   margin-right: -16px;
@@ -481,7 +476,7 @@
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  border-bottom: 2px solid #382AD7;
+  border-bottom: 2px solid #382ad7;
   padding: 12px;
 }
 .section.fund-tab.tabs-container.our-popular-funds .tabs-list .tabs-tab {
@@ -497,10 +492,14 @@
   padding: 16px;
   border-radius: 8px;
   border: 1px solid #b7b7b7;
+  background-color: #fff;
+  border-radius: 8px;
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #b9bbff 0%, #ffffff 50%, #b9bbff 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
 }
 .section .card-container .card-wrapper {
   display: flex;
@@ -540,7 +539,7 @@
   margin: 0;
   overflow: auto;
   background-color: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #EEE;
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
@@ -701,7 +700,6 @@
   min-height: 88px;
   height: 88px;
   padding: 12px;
-  align-self: stretch;
   border-radius: 12px;
   border: 0.5px solid #e8e8e8;
   background: #FAFAFA;
@@ -723,7 +721,7 @@
   flex: 1 0 0;
   position: relative;
 }
-.section .card-container .cagr-container .cagr-dropdown label {
+.section .card-container .cagr-container .cagr-dropdown .cagr-txt {
   font-size: 12px;
   line-height: 16px;
   color: #111;
@@ -838,12 +836,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
-  line-height: 16px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
   margin: 0;
+  line-height: 0;
 }
 .section .card-container .discription .dis-choosen .dis-investor {
   display: flex;
@@ -852,9 +846,6 @@
 .section .card-container .discription .dis-choosen .dis-investor .person {
   width: 16px;
   height: 16px;
-}
-.section .card-container .discription .dis-choosen .dis-investor span {
-  font-weight: 400;
 }
 .section .card-container .button-container {
   display: flex;
@@ -869,7 +860,7 @@
   width: 100%;
   display: block;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 16px;
   color: #4338f3;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -883,10 +874,10 @@
 .section .card-container .button-container .card-btn.know-more {
   text-decoration-line: underline;
   text-underline-offset: 20%;
-  padding: 6px 0;
+  padding: 8px 0;
 }
 .section .card-container .button-container .card-btn.invest-now {
-  border-radius: 8px;
+  border-radius: 4px;
   background: #2e2a94;
   padding: 8px 12px;
   text-align: center;
@@ -1044,7 +1035,7 @@
   }
   .section .card-container .cagr-container {
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: space-between;
   }
   .section .card-container .cagr-container .cagr-dropdown {

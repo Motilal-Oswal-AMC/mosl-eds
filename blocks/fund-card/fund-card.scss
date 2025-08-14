@@ -58,7 +58,7 @@
         margin: 0;
         overflow: auto;
         background-color: $primary-white;
-        border-radius: 6px;
+        border-radius: 8px;
         border: 1px solid $neutrals-200;
         box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
         &::-webkit-scrollbar {
@@ -265,7 +265,7 @@
     }
 
     .cagr-container {
-      @include flex-center($align: start, $justify: space-between);
+      @include flex-center($align: center, $justify: space-between);
 
       gap: 24px;
       padding: 4px 0;
@@ -276,7 +276,7 @@
         position: relative;
         line-height: 0;
 
-        label {
+        .cagr-txt {
           @include font-style(
             $size: 12px,
             $line-height: 16px,
@@ -284,8 +284,6 @@
             $weight: map.get($font-weights, regular),
             $family: $poppins
           );
-
-          padding-bottom: 4px;
         }
       }
 
@@ -386,18 +384,16 @@
       padding: 8px 12px;
 
       .dis-choosen {
-        @include font-style(
-          $size: 12px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, regular),
-          $family: $poppins
-        );
-
-        margin: 0;
-
         .dis-investor {
-          font-weight: map.get($font-weights, semibold);
+          .investor-txt {
+            @include font-style(
+              $size: 12px,
+              $line-height: 16px,
+              $color: map.get($blue-1, b900),
+              $weight: map.get($font-weights, regular),
+              $family: $poppins
+            );
+          }
         }
       }
     }
@@ -416,7 +412,7 @@
         display: block;
         @include font-style(
           $size: 14px,
-          $line-height: 20px,
+          $line-height: 16px,
           $color: map.get($blue-1, b500),
           $weight: map.get($font-weights, regular),
           $family: $poppins
@@ -431,10 +427,10 @@
         &.know-more {
           text-decoration-line: underline;
           text-underline-offset: 20%;
-          padding: 6px 0;
+          padding: 8px 0;
         }
         &.invest-now {
-          border-radius: map.get($radius, r8);
+          border-radius: map.get($radius, r4);
           background: map.get($button-primary, default);
           padding: 8px 12px;
           text-align: center;
@@ -455,7 +451,7 @@
     margin: 0 auto;
     padding: 40px 0 64px;
 
-    @include media(mobile){
+    @include media(mobile) {
       padding: 40px 0 49px;
     }
 
@@ -464,7 +460,7 @@
       max-width: 100%;
       padding: 54px 0 54px;
 
-      @include media(mobile){
+      @include media(mobile) {
         padding: 40px 0 45px;
       }
     }
@@ -482,17 +478,17 @@
           $weight: map.get($font-weights, bold),
           $family: $butlerpro
         );
-        
+
         margin: 0 0 12px;
 
-        @include media(mobile){
+        @include media(mobile) {
           font-size: 24px;
           line-height: 28px;
           margin: 0 0 24px;
         }
       }
     }
-    
+
     &.our-popular-funds .default-content-wrapper h1 {
       color: $primary-white;
       margin: 0 0 8px;
@@ -582,7 +578,7 @@
       @include flex-center($align: center, $justify: flex-start);
 
       gap: 0;
-      border-bottom: 1px solid #B6BCC7;
+      border-bottom: 1px solid #b6bcc7;
       max-width: max-content;
       margin-right: -16px;
 
@@ -609,7 +605,7 @@
             $family: $poppins
           );
 
-          border-bottom: 2px solid #382AD7;
+          border-bottom: 2px solid #382ad7;
           padding: 12px;
         }
       }
@@ -631,10 +627,14 @@
     padding: 16px;
     border-radius: map.get($radius, r8);
     border: 1px solid map.get($old-silver, 100);
+    background-color: $primary-white;
+    border-radius: 8px;
+    background: linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(135deg, #b9bbff 0%, #ffffff 50%, #b9bbff 100%) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
 
     @include flex-center;
-
-    background-color: $primary-white;
 
     .card-wrapper {
       @include flex-center($align: stretch, $justify: space-between);
@@ -676,7 +676,7 @@
         margin: 0;
         overflow: auto;
         background-color: $primary-white;
-        border-radius: 6px;
+        border-radius: 8px;
         border: 1px solid $neutrals-200;
         box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
         &::-webkit-scrollbar {
@@ -770,7 +770,7 @@
       }
 
       .title-subtitle {
-        .brand-name-text{
+        .brand-name-text {
           margin: 0;
 
           @include font-style(
@@ -897,7 +897,7 @@
 
       // padding: 24px 12px;
       padding: 12px;
-      align-self: stretch;
+      // align-self: stretch;
       border-radius: 12px;
       border: 0.5px solid #e8e8e8;
       background: $neutrals-50;
@@ -928,7 +928,7 @@
 
         // line-height: 0;
 
-        label {
+        .cagr-txt {
           @include font-style(
             $size: 12px,
             $line-height: 16px,
@@ -1076,16 +1076,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        @include font-style(
-          $size: 12px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, regular),
-          $family: $poppins
-        );
-
         margin: 0;
+        line-height: 0;
 
         .dis-investor {
           display: flex;
@@ -1094,10 +1086,6 @@
           .person {
             width: 16px;
             height: 16px;
-          }
-
-          span {
-            font-weight: map.get($font-weights, regular);
           }
         }
       }
@@ -1117,7 +1105,7 @@
         display: block;
         @include font-style(
           $size: 14px,
-          $line-height: 20px,
+          $line-height: 16px,
           $color: map.get($blue-1, b500),
           $weight: map.get($font-weights, regular),
           $family: $poppins
@@ -1132,10 +1120,10 @@
         &.know-more {
           text-decoration-line: underline;
           text-underline-offset: 20%;
-          padding: 6px 0;
+          padding: 8px 0;
         }
         &.invest-now {
-          border-radius: map.get($radius, r8);
+          border-radius: map.get($radius, r4);
           background: map.get($button-primary, default);
           padding: 8px 12px;
           text-align: center;
@@ -1346,7 +1334,7 @@
       }
 
       .cagr-container {
-        @include flex-center($align: start, $justify: space-between);
+        @include flex-center($align: center, $justify: space-between);
 
         .cagr-dropdown {
           max-width: 39.75%;
