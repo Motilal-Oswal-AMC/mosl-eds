@@ -98,16 +98,31 @@
   background: white;
   height: 100%;
 }
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper {
+    border-radius: 24px 24px 0 0;
+  }
+}
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage {
   background: var(--Neutrals-White, #FFF);
   max-width: 100%;
   width: 100%;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage {
+    border-radius: 24px 24px 0 0;
+  }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container {
   position: relative;
   padding: 64px 10px 10px 10px;
   max-width: 372px;
   width: 100%;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container {
+    padding: 64px 16px 10px 16px;
+  }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .modal-btn {
   position: absolute;
@@ -132,6 +147,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal {
+    display: flex;
+    width: 340px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-header-container {
   display: flex;
@@ -459,8 +483,7 @@
   /* 133.333% */
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today input[type=checkbox] {
-  -moz-appearance: auto;
-       appearance: auto;
+  appearance: auto;
   -webkit-appearance: checkbox;
   display: inline-block;
   display: flex;
