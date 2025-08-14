@@ -16,18 +16,17 @@ $day-size: 36px;
 // All styles are nested within the main calendar class.
 
 #invest-now-wrapper-flat {
-
   .flatpickr-calendar {
     font-family: $brand-font;
     background: $background-color;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
     width: 280px;
     border: 1px solid $border-color;
     z-index: 1000;
-
     position: absolute;
     top: 46%;
+
     // top: 100%;
     // left: 0;
     // right: auto !important;
@@ -46,7 +45,6 @@ $day-size: 36px;
         font-size: 16px;
         font-weight: 700;
         color: $brand-primary-color;
-
          display: flex;
     justify-content: center;
     align-items: center;

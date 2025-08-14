@@ -12,7 +12,7 @@
     gap: 44px;
     max-width: 372px;
     width: 100%;
-    padding: 0px;
+    padding: 0;
     background: white;
 
     .invest-now-homepage {
@@ -23,7 +23,7 @@
 
       .invest-now-container {
         position: relative;
-        padding: 64px 10px 10px 10px;
+        padding: 64px 10px 10px;
         max-width: 372px;
         width: 100%;
 
@@ -77,7 +77,7 @@
                 width: 40px;
                 height: 40px;
                 aspect-ratio: 1/1;
-                box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
+                box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
                 position: relative;
                 min-width: 40px;
                 border-radius: 50%;
@@ -109,6 +109,7 @@
                   font-weight: 400;
                   line-height: var(--Paragraph-XSmall-Line-Height, 16px);
                   margin: 0;
+
                   /* 133.333% */
 
                 }
@@ -124,6 +125,7 @@
                   font-weight: 500;
                   line-height: var(--Body-Medium-medium-Line-Height, 20px);
                   margin: 0;
+
                   /* 125% */
 
                 }
@@ -143,7 +145,6 @@
                 padding: var(--Spacing-8, 8px) var(--Spacing-12, 12px);
                 justify-content: center;
                 align-items: center;
-
                 border-radius: var(--Border-Radius-circle, 1000px);
                 border: var(--Border-Width-01, 1px) solid var(--Strokes-Disabled, #BDBDBD);
                 background: var(--Surface-Disabled, #FAFAFA);
@@ -151,12 +152,14 @@
                 .lumpsum-btn {
                   color: var(--Text-Body, #424242);
                   background-color: transparent;
+
                   /* Desktop/Paragraph/Small-regular */
                   font-family: var(--Body, Poppins);
                   font-size: var(--Body-Small-regular-Size, 14px);
                   font-style: normal;
                   font-weight: 400;
                   line-height: var(--Label-Large-Line-Height, 20px);
+
                   /* 142.857% */
 
                 }
@@ -182,8 +185,8 @@
                 padding: var(--Spacing-8, 8px) var(--Spacing-12, 12px);
                 justify-content: center;
                 align-items: center;
-
                 border-radius: var(--Border-Radius-circle, 1000px);
+
                 // border: var(--Border-Width-01, 1px) solid var(--Strokes-Selected, #382AD7);
                 // background: var(--Surface-Selected, #EDF1FF);
 
@@ -201,6 +204,7 @@
                   font-style: normal;
                   font-weight: 500;
                   line-height: var(--Body-Small-medium-Line-Height, 16px);
+
                   /* 114.286% */
 
                   .active {
@@ -312,12 +316,12 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: var(--Label-Small-Line-Height, 16px);
+
                     /* 133.333% */
 
                   }
 
                   .modal-input-symbol {
-
                     // padding-left: 10px; // Leave room for ₹ icon
                     color: var(--blue-1800-primary, #2E2A94);
                     font-family: "Rupee Foradian";
@@ -341,9 +345,9 @@
                       content: '₹';
                       position: absolute;
                       top: 80%;
+
                       // left: 12px;
                       transform: translateY(-50%);
-                      font-size: 16px;
                       color: #2E2A94;
                       font-family: var(--Body, Poppins);
                       font-size: var(--Body-Xlarge-medium-Size, 20px);
@@ -353,8 +357,6 @@
                     }
 
                     .amount-input {
-
-
                       /* Desktop/Body/Xlarge-medium */
                       font-family: var(--Body, Poppins);
                       font-size: var(--Body-Xlarge-medium-Size, 20px);
@@ -378,20 +380,20 @@
                       border: none;
                       background-color: transparent;
                       color: #2E2A94;
+
                       // font-family: $poppins;
                       font-size: 20px;
                       font-weight: 500;
                       width: 100%;
+
                       // Remove default browser appearance
-                      -webkit-appearance: none;
-                      -moz-appearance: none;
                       appearance: none;
                       outline: none;
 
                       // Remove number input spinners
                       &::-webkit-outer-spin-button,
                       &::-webkit-inner-spin-button {
-                        -webkit-appearance: none;
+                        appearance: none;
                         margin: 0;
                       }
                     }
@@ -448,12 +450,6 @@
                     border-radius: var(--Border-Radius-12, 12px);
                     background: var(--Blue-1-50, #D5DEFF);
 
-                    color: var(--blue-1800-primary, #2E2A94);
-                    font-family: "Rupee Foradian";
-                    font-size: var(--Disclaimer-XSmall-Size, 12px);
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: var(--Disclaimer-XSmall-Line-Height, 16px);
                     /* 133.333% */
 
                     color: var(--blue-1800-primary, #2E2A94);
@@ -514,6 +510,7 @@
                         font-weight: 400;
                         line-height: var(--Label-Small-Line-Height, 16px);
                         margin: 0;
+
                         /* 133.333% */
 
                       }
@@ -537,6 +534,7 @@
                         font-weight: 500;
                         line-height: var(--Body-Small-medium-Line-Height, 16px);
                         margin: unset;
+
                         /* 114.286% */
 
                       }
@@ -550,6 +548,7 @@
                         width: 20px;
                         height: 20px;
                         cursor: pointer;
+
                         // }
 
                       }
@@ -579,15 +578,15 @@
                         font-style: normal;
                         font-weight: 400;
                         line-height: var(--Paragraph-XSmall-Line-Height, 16px);
+
                         /* 133.333% */
                       }
                     }
 
                     input[type="checkbox"] {
                       appearance: auto;
-                      -webkit-appearance: checkbox;
+                      appearance: auto;
                       display: inline-block;
-
                       display: flex;
                       width: 24px;
                       height: 24px;
@@ -611,6 +610,7 @@
                         font-weight: 400;
                         line-height: var(--Paragraph-XSmall-Line-Height, 16px);
                         margin: 0;
+
                         /* 133.333% */
                       }
 
@@ -645,6 +645,7 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: var(--Label-Small-Line-Height, 16px);
+
                     /* 133.333% */
 
 
@@ -668,14 +669,11 @@
                   select {
                     border: none;
                     background-color: transparent;
-                    color: #2E2A94;
+
                     // font-family: $poppins;
-                    font-size: 20px;
-                    font-weight: 500;
                     width: 100%;
+
                     // Remove default browser appearance
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
                     appearance: none;
                     outline: none;
                     color: var(--blue-1800-primary, #2E2A94);
@@ -686,12 +684,13 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: var(--Body-Small-medium-Line-Height, 16px);
+
                     /* 114.286% */
 
                     // Remove number input spinners
                     &::-webkit-outer-spin-button,
                     &::-webkit-inner-spin-button {
-                      -webkit-appearance: none;
+                      appearance: none;
                       margin: 0;
                     }
                   }
@@ -714,6 +713,7 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: var(--Label-Small-Line-Height, 16px);
+
                     /* 133.333% */
 
                   }
@@ -728,6 +728,7 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: var(--Body-Small-medium-Line-Height, 16px);
+
                     /* 114.286% */
 
                   }
@@ -736,17 +737,13 @@
                   select {
                     border: none;
                     background-color: transparent;
-                    color: #2E2A94;
+
                     // font-family: $poppins;
-                    font-size: 20px;
-                    font-weight: 500;
                     width: 100%;
+
                     // Remove default browser appearance
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
                     appearance: none;
                     outline: none;
-
                     color: var(--blue-1800-primary, #2E2A94);
 
                     /* Desktop/Body/Small-medium */
@@ -755,12 +752,13 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: var(--Body-Small-medium-Line-Height, 16px);
+
                     /* 114.286% */
 
                     // Remove number input spinners
                     &::-webkit-outer-spin-button,
                     &::-webkit-inner-spin-button {
-                      -webkit-appearance: none;
+                      appearance: none;
                       margin: 0;
                     }
                   }
@@ -787,7 +785,6 @@
               justify-content: center;
               align-items: center;
               gap: var(--Spacing-8, 8px);
-
               color: var(--Text-White, #FFF);
               text-align: center;
               font-family: var(--Body, Poppins);
@@ -806,7 +803,6 @@
                 gap: var(--Spacing-8, 8px);
                 border-radius: 4px;
                 background: var(--blue-1800-primary, #2E2A94);
-
                 color: var(--Text-White, #FFF);
                 font-family: var(--Body, Poppins);
                 font-size: var(--Button-Small-Size, 14px);
@@ -825,15 +821,12 @@
           justify-content: center;
           align-items: center;
           gap: 36px;
-
           position: absolute;
           left: 16px;
           bottom: 129px;
-
           border-radius: 8px;
           border: 0.5px solid var(--Strokes-Default, #9E9E9E);
           background: var(--Neutrals-White, #FFF);
-
           opacity: 0;
           transition: opacity 0.2s ease;
 
@@ -849,6 +842,7 @@
               font-style: normal;
               font-weight: 500;
               line-height: var(--Paragraph-XSmall-Line-Height, 16px);
+
               /* 133.333% */
             }
 

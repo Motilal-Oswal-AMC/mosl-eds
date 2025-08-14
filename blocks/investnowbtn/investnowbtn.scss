@@ -2,6 +2,7 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
+
 .investnow {
     .default-content-wrapper {
         border-radius: 8px;
@@ -33,6 +34,7 @@
             font-style: normal;
             font-weight: 500;
             line-height: 32px;
+
             /* 114.286% */
         }
 
@@ -51,6 +53,7 @@
                 font-style: normal;
                 font-weight: 600;
                 line-height: 16px;
+
                 /* 114.286% */
             }
         }
