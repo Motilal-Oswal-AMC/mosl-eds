@@ -16,6 +16,7 @@ import {
 import dataMapMoObj from './constant.js';
 
 import delayed from './delayed.js';
+import { initializeModalHandlers } from '../blocks/modal/modal.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -85,19 +86,19 @@ async function loadFonts() {
     // do nothing
   }
 }
-function autolinkModals(element) {
-  element.addEventListener('click', async (e) => {
-    const origin = e.target.closest('a');
+// function autolinkModals(element) {
+//   element.addEventListener('click', async (e) => {
+//     const origin = e.target.closest('a');
 
-    if (origin && origin.href && origin.href.includes('/modals/')) {
-      e.preventDefault();
-      const { openModal } = await import(
-        `${window.hlx.codeBasePath}/blocks/modal/modal.js`
-      );
-      openModal(origin.href);
-    }
-  });
-}
+//     if (origin && origin.href && origin.href.includes('/modals/')) {
+//       e.preventDefault();
+//       const { openModal } = await import(
+//         `${window.hlx.codeBasePath}/blocks/modal/modal.js`
+//       );
+//       openModal(origin.href);
+//     }
+//   });
+// }
 
 function autolinkVideo(element) {
   const origin = element.querySelector('a');
@@ -169,7 +170,7 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   autolinkVideo(doc);
-  autolinkModals(doc);
+  // autolinkModals(doc);
   const main = doc.querySelector('main');
   autolinkFragements(doc);
   wrapImgsInLinks(doc);
@@ -322,3 +323,5 @@ window.hlx.utils = {
   evaluateByDays,
   wishlist,
 };
+
+initializeModalHandlers();

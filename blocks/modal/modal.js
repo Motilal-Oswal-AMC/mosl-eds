@@ -66,6 +66,7 @@ export async function createModal(contentNodes) {
   };
 }
 
+// --- Original openModal function (unchanged) ---
 export async function openModal(fragmentUrl) {
   const path = fragmentUrl.startsWith('http')
     ? new URL(fragmentUrl, window.location).pathname
@@ -74,4 +75,63 @@ export async function openModal(fragmentUrl) {
   const fragment = await loadFragment(path);
   const { showModal } = await createModal(fragment.childNodes);
   showModal();
+}
+
+// --- Specialized function for On-Card Modals ---
+async function openModalOnElement(fragmentUrl, clickedElement) {
+  // **IMPORTANT**: Replace '.your-card-class' with the actual class of your fund card!
+  const schcodeactive = clickedElement.parentElement.parentElement.parentElement.querySelector('.star').attributes.schcode.value;
+  localStorage.setItem('schcodeactive', schcodeactive);
+  const card = clickedElement.closest('.our-popular-funds');
+  if (!card) {
+    console.error('On-card modal: Could not find parent card with class ".your-card-class".');
+    return;
+  }
+
+  const path = fragmentUrl.startsWith('http')
+    ? new URL(fragmentUrl, window.location).pathname
+    : fragmentUrl;
+  const fragment = await loadFragment(path);
+  if (!fragment) return;
+
+  const overlay = document.createElement('div');
+  overlay.classList.add('card-modal-overlay');
+  overlay.append(...fragment.childNodes);
+  card.append(overlay);
+
+  const block = overlay.querySelector('.block');
+  if (block) {
+    await decorateBlock(block);
+    await loadBlock(block);
+  }
+
+  const closeButton = overlay.querySelector('.modal-btn');
+  if (closeButton) {
+    closeButton.addEventListener('click', (e) => {
+      e.stopPropagation(); // Stop click from bubbling further
+      overlay.remove();
+    });
+  }
+}
+
+// --- The SINGLE, SMART handler for ALL modal clicks ---
+export function initializeModalHandlers() {
+  document.body.addEventListener('click', async (e) => {
+    const link = e.target.closest('a');
+    if (!link || !link.href) return;
+
+    // Check if it's a link to a modal fragment
+    if (link.href.includes('/modals/')) {
+      e.preventDefault();
+
+      // If it's our special card button, use the on-card logic
+      if (link.classList.contains('invest-now') && link.classList.contains('card-btn')) {
+        e.stopPropagation(); // Stop other listeners!
+        await openModalOnElement(link.href, link);
+      } else {
+        // For all other modal links, use the default behavior
+        await openModal(link.href);
+      }
+    }
+  });
 }

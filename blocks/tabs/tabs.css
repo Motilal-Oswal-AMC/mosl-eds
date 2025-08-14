@@ -156,9 +156,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 0;
-  border-bottom: 1px solid #b7b7b7;
-  max-width: -moz-max-content;
-  max-width: max-content;
+ 
 }
 
 .tabdiv .tabs-wrapper .tabs .tabs-list .tabs-tab {
@@ -185,7 +183,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 12px;
+  /* padding: 12px; */
 }
 
 .chart-wrapper .bar-row {
@@ -233,9 +231,9 @@
 
 .tabdiv>.tabs-wrapper>.tabs>.tabs-list>.tabs-tab>p {
   padding: 9px;
-  border-radius: var(--Border-Radius-circle, 1000px);
-  border: var(--Border-Width-01, 1px) solid var(--Strokes-Selected, #382AD7);
-  background: var(--Surface-Selected, #EDF1FF);
+  border-radius: 1000px;
+  border: 1px solid #382AD7;
+  background: #EDF1FF;
 }
 
 .tabs-list>.default-content-wrapper p:nth-of-type(1) {
@@ -259,10 +257,10 @@
   /* 114.286% */
 }
 
-.section.tabs-container .tabs-list {
+/* .section.tabs-container .tabs-list {
   max-width: 100%;
   border-bottom: none;
-}
+} */
 
 .schemename {
   color: #242177;
@@ -312,7 +310,7 @@ table {
   line-height: 16px;
   text-align: center;
   position: relative;
-  right: 50px;
+  right: 16px;
 }
 
 /* .periodicreturn .tabs-tab{
@@ -347,7 +345,7 @@ td {
 }
 
 .tab-extradata>p {
-  color: var(--Neutrals-800, #424242);
+  color: #424242;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -436,9 +434,9 @@ td {
 
 .periodicreturn>.tabs-wrapper>.tabs>.tabs-list>.tab-btn>.tabs-tab>p {
   padding: 9px;
-  border-radius: var(--Border-Radius-circle, 1000px);
-  border: var(--Border-Width-01, 1px) solid var(--Strokes-Selected, #382AD7);
-  background: var(--Surface-Selected, #EDF1FF);
+  border-radius: 1000px;
+  border: 1px solid  #382AD7;
+  background: #EDF1FF;
 }
 
 @media(width <=768px) {

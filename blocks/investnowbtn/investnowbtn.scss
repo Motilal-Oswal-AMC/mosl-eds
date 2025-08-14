@@ -4,6 +4,10 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .investnow {
+    @include media(mobile) {
+        display: none;
+    }
+
     .default-content-wrapper {
         border-radius: 8px;
         background: #030C82;
@@ -29,7 +33,7 @@
             color: $primary-white;
 
             /* Desktop/Header/H5 */
-            font-family:$butlerpro;
+            font-family: $butlerpro;
             font-size: 28px;
             font-style: normal;
             font-weight: 500;

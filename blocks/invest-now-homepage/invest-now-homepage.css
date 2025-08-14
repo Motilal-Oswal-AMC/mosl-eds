@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* Reset */
 @import "../../../styles/fonts.css";
 /* invest-now-homepage.scss */
 #invest-now-wrapper-flat .flatpickr-calendar {
@@ -82,6 +83,10 @@
   color: #ccc;
 }
 
+.invest-now-homepage-container {
+  width: 360px;
+  max-width: 100%;
+}
 .invest-now-homepage-container .invest-now-homepage-wrapper {
   display: flex;
   flex-direction: column;
@@ -89,17 +94,18 @@
   gap: 44px;
   max-width: 372px;
   width: 100%;
-  padding: 0;
+  padding: 0px;
   background: white;
+  height: 100%;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage {
-  background: #fff;
+  background: var(--Neutrals-White, #FFF);
   max-width: 100%;
   width: 100%;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container {
   position: relative;
-  padding: 64px 10px 10px;
+  padding: 64px 10px 10px 10px;
   max-width: 372px;
   width: 100%;
 }
@@ -124,10 +130,8 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal {
   display: flex;
-  width: 340px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-header-container {
   display: flex;
@@ -138,9 +142,9 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-header-container .modal-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   align-self: stretch;
+  gap: 10px;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-header-container .modal-header .modal-header-logo {
   width: 40px;
@@ -149,6 +153,7 @@
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
   position: relative;
   min-width: 40px;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
   border-radius: 50%;
   background: #bdcbff;
 }
@@ -244,7 +249,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 15px;
   align-self: stretch;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer {
@@ -297,6 +302,7 @@
   position: absolute;
   top: 80%;
   transform: translateY(-50%);
+  font-size: 16px;
   color: #2E2A94;
   font-family: var(--Body, Poppins);
   font-size: var(--Body-Xlarge-medium-Size, 20px);
@@ -322,9 +328,7 @@
   font-weight: 500;
   width: 100%;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  appearance: none;
+  -moz-appearance: none;
   appearance: none;
   outline: none;
 }
@@ -332,7 +336,6 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol select::-webkit-outer-spin-button,
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol select::-webkit-inner-spin-button {
   -webkit-appearance: none;
-          appearance: none;
   margin: 0;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-suggestions {
@@ -351,6 +354,12 @@
   gap: 16px;
   border-radius: var(--Border-Radius-12, 12px);
   background: var(--Blue-1-50, #D5DEFF);
+  color: var(--blue-1800-primary, #2E2A94);
+  font-family: "Rupee Foradian";
+  font-size: var(--Disclaimer-XSmall-Size, 12px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--Disclaimer-XSmall-Line-Height, 16px);
   /* 133.333% */
   color: var(--blue-1800-primary, #2E2A94);
   /* Mobile/Disclaimer/Xsmall */
@@ -450,12 +459,8 @@
   /* 133.333% */
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today input[type=checkbox] {
-  -webkit-appearance: auto;
-     -moz-appearance: auto;
-          appearance: auto;
+  appearance: auto;
   -webkit-appearance: checkbox;
-     -moz-appearance: checkbox;
-          appearance: checkbox;
   display: inline-block;
   display: flex;
   width: 24px;
@@ -513,11 +518,12 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-dropdown-frequency select {
   border: none;
   background-color: transparent;
+  color: #2E2A94;
+  font-size: 20px;
+  font-weight: 500;
   width: 100%;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  appearance: none;
+  -moz-appearance: none;
   appearance: none;
   outline: none;
   color: var(--blue-1800-primary, #2E2A94);
@@ -533,7 +539,6 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-dropdown-frequency select::-webkit-outer-spin-button,
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-dropdown-frequency select::-webkit-inner-spin-button {
   -webkit-appearance: none;
-          appearance: none;
   margin: 0;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-dropdowns-enddate {
@@ -569,11 +574,12 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-dropdowns-enddate select {
   border: none;
   background-color: transparent;
+  color: #2E2A94;
+  font-size: 20px;
+  font-weight: 500;
   width: 100%;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  appearance: none;
+  -moz-appearance: none;
   appearance: none;
   outline: none;
   color: var(--blue-1800-primary, #2E2A94);
@@ -589,7 +595,6 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-dropdowns-enddate select::-webkit-outer-spin-button,
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-dropdowns-enddate select::-webkit-inner-spin-button {
   -webkit-appearance: none;
-          appearance: none;
   margin: 0;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .hidden {

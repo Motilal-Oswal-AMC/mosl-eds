@@ -418,3 +418,28 @@ footer .footer[data-block-status="loaded"] {
 .test{
     background-color: red;;
 }
+
+.our-popular-funds {
+  position: relative;
+  overflow: hidden; /* Recommended: Prevents content from spilling out */
+}
+
+.our-popular-funds > .card-modal-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  background: #00000099;
+  z-index: 10;
+  display: flex;
+     flex-direction: row;
+    justify-content: end;
+  animation: fadeinmodal 0.3s ease-in-out;
+}
+
+@keyframes fadeinmodal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
