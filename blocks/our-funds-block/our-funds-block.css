@@ -1450,12 +1450,10 @@
   height: 28px;
   margin-right: 2px;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
-  background-color: #BDCBFF;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  padding: 5px;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .logo-container img {
   width: 100%;
@@ -1465,7 +1463,7 @@
   display: flex;
   flex-direction: column;
 }
-.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container p {
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container .brand-name-txt {
   margin: 0;
   font-size: 12px;
   line-height: 16px;
@@ -1473,7 +1471,8 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
-.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container label {
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container .fund-name-txt {
+  margin: 0;
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
@@ -1592,10 +1591,10 @@
   max-width: 51.57%;
   width: 100%;
 }
-.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .fund-name-container p {
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .fund-name-container .brand-name-txt {
   color: #D5DEFF;
 }
-.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .fund-name-container label {
+.our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .fund-name-container .fund-name-txt {
   color: #fff;
 }
 .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .logoscheme {

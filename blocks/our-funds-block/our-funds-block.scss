@@ -1589,12 +1589,14 @@
                   height: 28px;
                   margin-right: 2px;
                   box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
-                  background-color: $fund-icon-bg;
+
+                  // background-color: $fund-icon-bg;
                   display: flex;
                   justify-content: center;
                   align-items: center;
                   border-radius: 50%;
-                  padding: 5px;
+
+                  // padding: 5px;
 
                   img {
                     width: 100%;
@@ -1606,7 +1608,7 @@
                   display: flex;
                   flex-direction: column;
 
-                  p {
+                  .brand-name-txt {
                     margin: 0;
 
                     @include font-style(
@@ -1618,7 +1620,9 @@
                     );
                   }
 
-                  label {
+                  .fund-name-txt {
+                    margin: 0;
+                    
                     @include font-style(
                       14px,
                       16px,
@@ -1753,11 +1757,11 @@
                       max-width: 51.57%;
                       width: 100%;
 
-                      p {
+                      .brand-name-txt  {
                         color: map.get($blue-1, b50);
                       }
 
-                      label {
+                      .fund-name-txt {
                         color: $primary-white;
                       }
                     }

@@ -1,4 +1,3 @@
-/* eslint-disable   */
 import {
   div,
   label,
@@ -177,7 +176,7 @@ export default function decorate(block) {
       : 'Direct';
   }
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
-  let finPlangrp = [];
+  const finPlangrp = [];
   const tempReturns = [];
   block.returns.forEach((ret, jind) => {
     if (jind === 0) {
@@ -196,11 +195,8 @@ export default function decorate(block) {
     }
   });
 
-  let labelcagr = evaluateByDays(block.dateOfAllotment);
-  let classplan =
-    DirectPlanlistArr.length !== 0 && tempReturns.length !== 0
-      ? ''
-      : ' not-provided';
+  const labelcagr = evaluateByDays(block.dateOfAllotment);
+  const classplan = DirectPlanlistArr.length !== 0 && tempReturns.length !== 0 ? '' : ' not-provided';
   let dropdowndot = DirectPlanlistArr.length !== 0 ? '' : 'no-planlist';
   let classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
   let optionName =
@@ -273,10 +269,10 @@ export default function decorate(block) {
           ),
           div(
             { class: 'title-subtitle' },
-            p('Motilal Oswal'),
+            p({class:'brand-name-text'},'Motilal Oswal'),
             div(
               { class: 'title title-logo' },
-              h2(block.schDetail.schemeName.replaceAll('Motilal Oswal', ''))
+              h2({class:'fund-name-title'},block.schDetail.schemeName.replaceAll('Motilal Oswal', ''))
             )
           )
         ),
@@ -442,12 +438,12 @@ export default function decorate(block) {
           {
             class: 'title-subtitle',
           },
-          p('Motilal Oswal'),
+          p({class:'brand-name-text'},'Motilal Oswal'),
           div(
             {
               class: 'title title-logo',
             },
-            h2(block.schDetail.schemeName.replaceAll('Motilal Oswal', ''))
+            h2({class:'fund-name-title'},block.schDetail.schemeName.replaceAll('Motilal Oswal', ''))
           )
         )
       ),

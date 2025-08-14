@@ -110,7 +110,7 @@
       // min-height: 50px;
       flex-direction: column;
 
-      h2 {
+      .fund-name-title {
         @include font-style(
           $size: 14px,
           $line-height: 16px,
@@ -453,11 +453,20 @@
     // max-width: 1264px;
     width: 100%;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 0 64px;
+
+    @include media(mobile){
+      padding: 40px 0 49px;
+    }
 
     &.our-popular-funds {
       background: $primary-blue;
       max-width: 100%;
+      padding: 54px 0 54px;
+
+      @include media(mobile){
+        padding: 40px 0 45px;
+      }
     }
 
     .default-content-wrapper {
@@ -467,19 +476,26 @@
 
       h1 {
         @include font-style(
-          $size: 40px,
-          $line-height: 48px,
+          $size: 36px,
+          $line-height: 44px,
           $color: $primary-blue,
           $weight: map.get($font-weights, bold),
           $family: $butlerpro
         );
+        
+        margin: 0 0 12px;
 
-        margin: 14px 0 0;
+        @include media(mobile){
+          font-size: 24px;
+          line-height: 28px;
+          margin: 0 0 24px;
+        }
       }
     }
-
+    
     &.our-popular-funds .default-content-wrapper h1 {
       color: $primary-white;
+      margin: 0 0 8px;
     }
 
     .tabs-wrapper {
@@ -497,6 +513,7 @@
         padding: 24px 0 0;
         border: none;
         overflow: unset;
+        margin: 0;
       }
     }
 
@@ -521,15 +538,16 @@
       margin: 0;
       padding: 0;
       line-height: 0;
-      max-width: 105px;
+      max-width: 120px;
       width: 100%;
       background-color: transparent;
-      border-radius: map.get($radius, r8);
+      border-radius: map.get($radius, r4);
+      border: none;
     }
 
     .btndesk a,
     .btnmob a {
-      border-radius: map.get($radius, r8);
+      border-radius: map.get($radius, r4);
       border: 1px solid map.get($button-primary, default);
       width: 100%;
       background-color: transparent;
@@ -539,7 +557,7 @@
         $size: 14px,
         $line-height: 16px,
         $color: $primary-blue,
-        $weight: map.get($font-weights, semibold),
+        $weight: map.get($font-weights, medium),
         $family: $poppins
       );
 
@@ -564,19 +582,21 @@
       @include flex-center($align: center, $justify: flex-start);
 
       gap: 0;
-      border-bottom: 1px solid map.get($old-silver, 100);
+      border-bottom: 1px solid #B6BCC7;
       max-width: max-content;
+      margin-right: -16px;
 
       .tabs-tab {
         border: none;
         background-color: transparent;
-        padding: 12px;
+        padding: 10px 12px;
+        cursor: pointer;
 
         @include font-style(
           $size: 14px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
+          $line-height: 20px,
+          $color: $text-body-2,
+          $weight: map.get($font-weights, regular),
           $family: $poppins
         );
 
@@ -585,11 +605,12 @@
             $size: 14px,
             $line-height: 16px,
             $color: $primary-blue,
-            $weight: map.get($font-weights, semibold),
+            $weight: map.get($font-weights, medium),
             $family: $poppins
           );
 
-          border-bottom: 2px solid $primary-blue;
+          border-bottom: 2px solid #382AD7;
+          padding: 12px;
         }
       }
     }
@@ -749,7 +770,7 @@
       }
 
       .title-subtitle {
-        p {
+        .brand-name-text{
           margin: 0;
 
           @include font-style(
@@ -762,7 +783,7 @@
         }
 
         .title-logo {
-          h2 {
+          .fund-name-title {
             @include font-style(
               $size: 16px,
               $line-height: 20px,
@@ -1309,7 +1330,7 @@
         max-width: 100%;
       }
 
-      .card-upper-title h2 {
+      .card-upper-title .fund-name-title {
         @include font-style(
           $size: 16px,
           $line-height: 20px,
