@@ -35,9 +35,10 @@ let swiperInstance = null;
  */
 function createCardElement(cardData, brandName, iconsTemplate) {
   const iconsvg = `${dataMapMoObj.iconsNfo[cardData.risk.riskType.toLowerCase().replaceAll(' ', '-')]}.svg`;
-  const mop = cardData.fundIcon !== undefined ? cardData.fundIcon.split('/').at(-1) : 'MO_Midcap_Fund.png';
-  const mopsec = mop.split('.');
-  const mopthree = `${mopsec[0]}.svg`;
+  const mop = 'MO_'+cardData.schcode+'.svg'
+  // .fundIcon !== undefined ? cardData.fundIcon.split('/').at(-1) : 'MO_Midcap_Fund.png';
+  // const mopsec = mop.split('.');
+  // const mopthree = `${mopsec[0]}.svg`;
   // 1. Create the card structure WITHOUT the icons.
   const cardElement = div(
     { class: 'card-wrap' },
@@ -46,8 +47,8 @@ function createCardElement(cardData, brandName, iconsTemplate) {
       div(
         { class: 'imgelogo' },
         img({
-          class: 'logoScheme',
-          src: `../../icons/fundicon/${mopthree}`,
+          class: 'logoscheme',
+          src: `../../icons/iconfund/${mop}`,
           alt: 'BrandLogo',
           loading: 'lazy',
         }),
@@ -82,7 +83,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
     const divwrappertwo = document.createElement('div');
     divwrappertwo.classList.add('risk-home-two');
     const linktwo = document.createElement('a');
-    linktwo.href = 'https://mosldev--eds-cloud--rupeshdept.aem.page/motilalfigma/funds-details-page';
+    linktwo.href = 'https://www.motilaloswalmf.com/mutual-funds';
     const svfiontwo = iconsTemplate.children[1].querySelector('img');
     linktwo.append(svfiontwo);
     divwrappertwo.append(linktwo);
@@ -182,7 +183,9 @@ export default function decorate(block) {
   const iconsTemplate = block.querySelector('ul'); // A simpler, more robust selector
 
   if (!iconsTemplate) {
-    console.error('Broaden Your Research: Icons template (<ul>) not found in the initial block content.');
+    // console.error('Broaden Your Research:
+    //  Icons template (<ul>) not found in the initial block content.');
+
     return;
   }
 

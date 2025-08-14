@@ -12,9 +12,8 @@
 }
 
 .modal.block dialog .close-button {
-    // top: 165px;
-    // right: 308px;
-    top: 92px;
+    top: 24px;
+    right: 24px;
     display: flex;
     width: 36px;
     height: 36px;
@@ -26,9 +25,9 @@
 }
 
 .modal.block dialog>.modal-content {
-    padding: 0;
+    position: relative;
     max-width: 816px;
-    padding-top: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +50,7 @@
         width: 100%;
         display: flex;
         padding: 0 80px;
-        margin-top: 60px;
+        margin-top: 52px;
         margin-bottom: 40px;
         justify-content: space-between;
         align-items: center;
@@ -60,6 +59,7 @@
         @include media(mobile) {
             flex-direction: column;
             padding: 0;
+            gap: 24px;
             margin-top: 40px;
         }
     }
@@ -72,8 +72,23 @@
             margin: 0;
             padding: 0;
 
-            //  padding: 0;
-            @include font-style(14px, 18px, #2C2A95, map.get($font-weights, semibold), $poppins);
+            @include font-style(14px, 18px, #2E2A94, map.get($font-weights, semibold), $poppins);
+        }
+
+        .column-1 {
+            padding-bottom: 10px;
+        }
+
+        .column-2 {
+            height: 160px;
+
+            @include media(mobile) {
+                height: 120px;
+            }
+
+            img {
+                height: 100%;
+            }
         }
     }
 
@@ -89,20 +104,32 @@
         h3 {
             margin: 0;
             padding: 0;
-            display: flex;
-            padding-top: 16px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-            align-self: stretch;
 
-            @include font-style(16px, 20px, #2C2A95, map.get($font-weights, semibold), $poppins);
+            @include font-style(16px, 20px, #2E2A94, map.get($font-weights, semibold), $poppins);
+
+            @include media(mobile) {
+                font-size: 14px;
+                line-height: 18px;
+            }
+
+            a {
+                @include font-style(16px, 20px, #7986FD, map.get($font-weights, semibold), $poppins);
+
+                @include media(mobile) {
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
         }
 
         ul {
             margin: 0;
             padding: 0;
-            padding-left: 18px;
+            padding-left: 24px;
+
+            @include media(mobile) {
+                padding-bottom: 6px;
+            }
 
             li {
                 color: #111;
@@ -111,16 +138,30 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: 18px;
+
+                @include media(mobile) {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
             }
         }
 
         p {
+            margin: 0;
             color: #111;
             font-family: $poppins;
             font-size: 12px;
             font-style: normal;
             font-weight: 400;
             line-height: 16px;
+
+            a {
+                color: #F03D48;
+                font-family: $poppins;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 16px;
+            }
         }
     }
 }
