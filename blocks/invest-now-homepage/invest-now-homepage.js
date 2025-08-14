@@ -3,6 +3,7 @@ import {
   div, p, h3, img, button, input, label, select, option, span
 } from '../../scripts/dom-helpers.js';
 import '../../scripts/flatpickr.js';
+import dataCfObj from '../../scripts/dataCfObj.js'
 
 
 function loadCSS(href) {
@@ -16,12 +17,44 @@ export default function decorate(block) {
 
   loadCSS('../../scripts/flatpickr.min.css');
   // loadCSS('./invest-now-homepage.css');
+  // if (localStorage.getItem('schcodeactive')) {
+  //   var schcodeactive = localStorage.getItem('schcodeactive')
+  // }
 
+  // --- START: New code for filtering ---
+
+  // 1. Get the scheme code from localStorage
+  const schcodeFromStorage = localStorage.getItem('schcodeactive'); // Make sure the key 'schcode' is correct
+  // 2. Find the matching object in the dataCfObj array
+  const fundData = dataCfObj.find(fund => fund.schcode === schcodeFromStorage);
+
+  // 3. Check if data was found and use it
+  if (fundData) {
+    console.log('Found Fund Data:', fundData);
+    // You can now use the 'fundData' object to get any information you need.
+    // For example, to get the fund's name and benchmark:
+    var fundNameFromData = fundData.schDetail.schemeName.replaceAll('Motilal Oswal', '');
+    const benchmarkFromData = fundData.benchmark;
+
+    console.log('Fund Name:', fundNameFromData);       // Example: "Motilal Oswal Midcap Fund"
+    console.log('Benchmark:', benchmarkFromData);     // Example: "Nifty Midcap 150 TRI"
+
+  } else {
+    console.error('No fund data found for schcode:', schcodeFromStorage);
+  }
+
+  console.log(fundNameFromData)
+
+  // --- END: New code for filtering ---
+
+
+  // console.log(schcodeactive);
+  console.log(dataCfObj);
   const col1 = block.children[0].querySelectorAll('p');
   const col2 = block.children[1].querySelectorAll('p');
   const col3 = block.children[2].querySelectorAll('p');
 
-  const fundName = col1[0]?.textContent || '';
+  // const fundName = col1[0]?.textContent || ''; fundNameFromData
   const lumpsumLabel = col1[1]?.textContent || '';
   const sipLabel = col1[2]?.textContent || '';
   const inputLabel = col1[3]?.textContent || '';
@@ -61,7 +94,7 @@ export default function decorate(block) {
         ),
         div({ class: 'modal-header-subtitle' },
           p({ class: 'brandname' }, brandName),
-          h3({ class: 'fund-name' }, fundName)
+          h3({ class: 'fund-name' }, fundNameFromData)
         )
       ),
       div({ class: 'modal-toggle' },
