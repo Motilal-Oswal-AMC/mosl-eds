@@ -10,7 +10,16 @@
 
     .default-content-wrapper {
         border-radius: 8px;
-        background: #030C82;
+
+        // background: #030C82;
+        background-image: url("../../icons/fdp/wealth-purpose-bg.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+
+        // height: 100%;
+        display: block;
         height: 192px;
         position: relative;
 
