@@ -186,7 +186,7 @@ pre {
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
-  word-break: break-word;
+  word-break: break-all;
 }
 
 a:hover {
@@ -415,23 +415,24 @@ footer .footer[data-block-status="loaded"] {
   margin-top: calc(var(--header-height) + 32px);
 }
 
-.test{
-    background-color: red;;
+.test {
+  background-color: red;
+  ;
 }
 
 .our-popular-funds {
   position: relative;
-  overflow: hidden; /* Recommended: Prevents content from spilling out */
+  overflow: hidden;
 }
 
-.our-popular-funds > .card-modal-overlay {
+.our-popular-funds>.card-modal-overlay {
   position: absolute;
   top: 0;
   right: 0;
   max-width: 100%;
   width: 100%;
   height: 100%;
-  background: #00000099;
+  background: #0009;
   z-index: 10;
   display: flex;
      flex-direction: row;
@@ -440,23 +441,27 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @keyframes fadeinmodal {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @media (width <=768px) {
-  .our-popular-funds > .card-modal-overlay {
+  .our-popular-funds>.card-modal-overlay {
     position: fixed; 
     left: 0;
     justify-content: center; 
   top: 18%;
   width: 100%;
-  /* height: 100%; */
   height: 630px;
   background-color: #fff;
   z-index: 1000;
   border-radius: 16px; 
-  padding: 0px;       
+    padding: 0;
   max-width: 360px;    
   }
 
@@ -465,3 +470,6 @@ footer .footer[data-block-status="loaded"] {
 }
 }
 
+.section .item2 .section {
+  margin: 40px 0;
+}
