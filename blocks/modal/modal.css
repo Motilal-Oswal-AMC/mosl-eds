@@ -32,7 +32,7 @@ body.modal-open {
 
 @media (width >=900px) {
     .modal dialog {
-        /* width: calc(100vw - 64px); */
+        width: calc(100vw - 64px);
         width: 100%;
     }
 
@@ -45,8 +45,8 @@ body.modal-open {
 
 .modal .close-button {
     position: absolute;
-    top: 10px;
-    right: 31px;
+    top: 50px;
+    right: 56px;
     width: 66px;
     height: 66px;
     margin: 0;
@@ -73,8 +73,8 @@ body.modal-open {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    width: 13px;
-    height: 1.5px;
+    width: 24px;
+    height: 2px;
     border-radius: 2px;
     background-color: currentcolor;
 }

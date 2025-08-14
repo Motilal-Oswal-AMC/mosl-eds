@@ -47,6 +47,8 @@
     >div:last-child {
         width: 100%;
         margin-top: 60px;
+        position: relative;
+        z-index: 2;
 
         @include media(mobile) {
             margin-top: 40px;
@@ -74,7 +76,8 @@
             }
         }
     }
-    
+
+
     .broaden-your-research-wrapper {
         @include media(mobile) {
             padding: 0;
@@ -141,7 +144,7 @@
                 gap: 8px;
                 align-self: stretch;
                 border-radius: 4px;
-                background:  #9DADFE;
+                background: #9DADFE;
                 height: 72px;
                 margin-bottom: 16px;
 
@@ -231,13 +234,28 @@
                 @include media(mobile) {
                     transform: unset;
                 }
+
+                // &:hover {
+                //     transform: translateY(calc(-1 * map.get($spacing, 'xl') - 8px));
+
+                //     @include media(mobile) {
+                //         transform: unset;
+                //     }
+                // }
             }
-            
-            &:last-child{
+
+            &:last-child {
                 margin-right: 16px !important;
             }
         }
 
+        // .card-wrap:nth-of-type(even) {
+        //     margin-bottom: 45px;
+
+        //     @include media (tab) {
+        //         margin: 0;
+        //     }
+        // }
         .swiper-pagination.swiper-pagination-bullets {
             bottom: 70px;
 

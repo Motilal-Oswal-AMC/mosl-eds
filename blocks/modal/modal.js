@@ -11,6 +11,7 @@ import {
 
 export async function createModal(contentNodes) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
+  const contentNodesClass = [...contentNodes].filter((node) => node.classList && node.classList.contains('risk-o-meter-container'));
   const dialog = document.createElement('dialog');
   const dialogContent = document.createElement('div');
   dialogContent.classList.add('modal-content');
@@ -23,7 +24,12 @@ export async function createModal(contentNodes) {
   closeButton.type = 'button';
   closeButton.innerHTML = '<span class="icon icon-close"></span>';
   closeButton.addEventListener('click', () => dialog.close());
-  dialogContent.prepend(closeButton);
+  if (contentNodesClass) {
+    dialogContent.prepend(closeButton);
+    dialogContent.classList.add('risk-meter');
+  } else {
+    dialog.prepend(closeButton);
+  }
 
   const block = buildBlock('modal', '');
   document.querySelector('main').append(block);

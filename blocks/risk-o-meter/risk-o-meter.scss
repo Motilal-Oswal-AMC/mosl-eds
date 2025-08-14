@@ -164,4 +164,18 @@
             }
         }
     }
+
+    .modal .close-button .icon.icon-close::before,
+    .modal .close-button .icon.icon-close::after {
+        width: 13px;
+        height: 1.5px;
+    }
+}
+
+.modal .modal-content.risk-meter {
+    .close-button .icon.icon-close::before,
+    .close-button .icon.icon-close::after {
+        width: 13px;
+        height: 1.5px;
+    }
 }

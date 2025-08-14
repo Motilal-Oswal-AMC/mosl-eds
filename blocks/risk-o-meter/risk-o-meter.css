@@ -168,4 +168,15 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
+}
+.section.risk-o-meter-container .modal .close-button .icon.icon-close::before,
+.section.risk-o-meter-container .modal .close-button .icon.icon-close::after {
+  width: 13px;
+  height: 1.5px;
+}
+
+.modal .modal-content.risk-meter .close-button .icon.icon-close::before,
+.modal .modal-content.risk-meter .close-button .icon.icon-close::after {
+  width: 13px;
+  height: 1.5px;
 }/*# sourceMappingURL=risk-o-meter.css.map */

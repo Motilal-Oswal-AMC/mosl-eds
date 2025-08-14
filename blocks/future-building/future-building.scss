@@ -188,17 +188,22 @@
               }
 
 
-              .button-container {
+              p {
                 margin: 0;
-                padding: 0;
                 display: flex;
-
-                a {
-                  margin: 0;
-
-                  // padding: 0;
-                  background: transparent;
-                }
+                display: inline-flex;
+                padding: 0 12px 0 8px;
+                align-items: center;
+                gap: 8px;
+                border-radius: map.get($radius, r40);
+                border: 0.5px solid #585ef9;
+                color: #2e2a94;
+                font-family: $poppins;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px;
+                min-height: 32px;
               }
 
               ul {
@@ -250,19 +255,25 @@
                 padding: 0;
                 margin-bottom: 8px;
 
-                @include font-style(18px,
-                  24px,
-                  $primary-blue,
-                  map.get($font-weights, medium),
-                  $poppins);
+                a {
+                  background: transparent;
+                  border: none;
+                  margin: 0;
+                  padding: 0;
+                  margin-bottom: 8px;
+                  overflow: hidden;
+                  border-radius: unset;
+                  min-height: unset;
 
+                  @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $poppins);
 
-                @include media(mobile) {
-                  @include font-style(18px,
-                    24px,
-                    $primary-blue,
-                    map.get($font-weights, medium),
-                    $poppins);
+                  @include media(mobile) {
+                    @include font-style(18px,
+                      24px,
+                      $primary-blue,
+                      map.get($font-weights, medium),
+                      $poppins);
+                  }
                 }
 
               }
