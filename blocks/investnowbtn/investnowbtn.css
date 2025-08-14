@@ -1,5 +1,10 @@
 /* Reset */
 @import "../../../styles/fonts.css";
+@media (max-width: 768px) {
+  .investnow {
+    display: none;
+  }
+}
 .investnow .default-content-wrapper {
   border-radius: 8px;
   background: #030C82;
