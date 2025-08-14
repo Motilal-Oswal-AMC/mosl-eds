@@ -4,9 +4,14 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 /* MAIN WRAPPER */
+
+.section.calculator-sip-container{
+ background-color: #EDF1FF;  
+}
+
 .compounding,
 .fdp-calculator {
-  background: $primary-white;
+  background: #edf1ff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -150,6 +155,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        padding: 24px;
 
         @include media(mobile) {
           gap: 24px;
@@ -700,7 +706,7 @@
       }
 
       .view-btn-cal {
-        padding-top: map.get($spacing, xs);
+        padding-top: 10px;
         text-align: left;
 
         @include media(mobile) {

@@ -2,9 +2,13 @@
 /* Reset */
 @import "../../../styles/fonts.css";
 /* MAIN WRAPPER */
+.section.calculator-sip-container {
+  background-color: #EDF1FF;
+}
+
 .compounding,
 .fdp-calculator {
-  background: #fff;
+  background: #edf1ff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,6 +164,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 24px;
 }
 @media (max-width: 768px) {
   .compounding .calculator-sip-wrapper .calculator-sip .cal-container,
@@ -740,7 +745,7 @@
 }
 .compounding .calculator-sip-wrapper .calculator-sip .view-btn-cal,
 .fdp-calculator .calculator-sip-wrapper .calculator-sip .view-btn-cal {
-  padding-top: 8px;
+  padding-top: 10px;
   text-align: left;
 }
 @media (max-width: 768px) {
