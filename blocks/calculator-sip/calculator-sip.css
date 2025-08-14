@@ -4,7 +4,7 @@
 /* MAIN WRAPPER */
 .compounding,
 .fdp-calculator {
-  background: #fff;
+  background: #EDF1FF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,6 +160,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 24px;
 }
 @media (max-width: 768px) {
   .compounding .calculator-sip-wrapper .calculator-sip .cal-container,
@@ -241,7 +242,7 @@
   font-size: 18px;
   text-align: left;
   border-radius: 6px;
-  border: 1px solid var(--Neutrals-200, #eee);
+  border: 1px solid #EEE;
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
 @media (max-width: 768px) {
@@ -261,7 +262,11 @@
 }
 .compounding .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul li.active,
 .fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul li.active {
-  background: var(--Neutrals-200, #eee);
+  background: #EEE;
+}
+.compounding .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul li strong,
+.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul li strong {
+  font-weight: 500;
 }
 .compounding .calculator-sip-wrapper .calculator-sip .cal-container .scheme-btns-wrapper,
 .fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .scheme-btns-wrapper {
@@ -592,10 +597,6 @@
   flex-direction: column;
   gap: 8px;
   min-width: 200px;
-}
-.compounding .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol,
-.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol {
-  position: relative;
 }
 .compounding .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper label,
 .fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper label {

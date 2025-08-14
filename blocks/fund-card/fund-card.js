@@ -216,12 +216,12 @@ export default function decorate(block) {
   let starClass = dataMapMoObj.schstar.includes(block.schcode)
     ? 'star-filled'
     : '';
-  let mop =
-    block.fundIcon !== undefined
-      ? block.fundIcon.split('/').at(-1)
-      : 'MO_Midcap_Fund.png';
-  let mopsec = mop.split('.');
-  let mopthree = mopsec[0] + '.svg';
+  let mop = 'MO_'+block.schcode+'.svg';
+    // block.fundIcon !== undefined
+    //   ? block.fundIcon.split('/').at(-1)
+    //   : 'MO_Midcap_Fund.png';
+  // let mopsec = mop.split('.');
+  // let mopthree = mopsec[0] + '.svg';
   if ([...block.fundsTaggingSection].includes('NFO')) {
     let nfosvg =
       dataMapMoObj['iconsNfo'][
@@ -239,7 +239,7 @@ export default function decorate(block) {
               { class: 'title title-logo' },
               img({
                 class: 'logoscheme',
-                src: '../../icons/fundicon/' + mopthree,
+                src: '../../icons/iconfund/' + mop,
                 alt: 'BrandLogo',
               })
             ),
@@ -405,7 +405,7 @@ export default function decorate(block) {
             },
             img({
               class: 'logoscheme',
-              src: '../../icons/fundicon/' + mopthree,
+              src: '../../icons/iconfund/' + mop,
               alt: 'BrandLogo',
             })
           ),
@@ -650,7 +650,7 @@ export default function decorate(block) {
           { class: 'button-container' },
           a(
             {
-              href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund',
+              href: 'https://mosldev--eds-cloud--rupeshdept.aem.page/motilalfigma/funds-details-page',
               class: 'know-more card-btn',
             },
             'Know More'

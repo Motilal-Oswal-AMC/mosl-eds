@@ -82,7 +82,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
     const divwrappertwo = document.createElement('div');
     divwrappertwo.classList.add('risk-home-two');
     const linktwo = document.createElement('a');
-    linktwo.href = 'https://www.motilaloswalmf.com/mutual-funds';
+    linktwo.href = 'https://mosldev--eds-cloud--rupeshdept.aem.page/motilalfigma/funds-details-page';
     const svfiontwo = iconsTemplate.children[1].querySelector('img');
     linktwo.append(svfiontwo);
     divwrappertwo.append(linktwo);

@@ -4,6 +4,7 @@ import {
   h2,
   p,
   img,
+  a,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 
@@ -42,17 +43,14 @@ export default function decorate(block) {
           { class: 'titlewrapper' },
           h2(
             { class: 'card-title' },
-            block.querySelector('.watchlist-items1 .watchlist-inneritems2').innerText,
-          ),
-          h2(
-            { class: 'card-title-1' },
-            block.querySelector('.watchlist-items1 .watchlist-inneritems3').innerText,
+            block.querySelector('.watchlist-items1 .watchlist-inneritems2')
+              .innerText,
           ),
         ),
       ),
       div(
         { class: 'button-wrapper' },
-        block.querySelector('.watchlist-items1 .watchlist-inneritems4'),
+        block.querySelector('.watchlist-items1 .watchlist-inneritems3'),
       ),
     ),
     div(
@@ -67,6 +65,14 @@ export default function decorate(block) {
           ),
           div(
             { class: 'wishlist-icon' },
+            a(
+              { href: '/motilalfigma/modals/risk-o-meter', class: 'risk-meter-icon' },
+              img({
+                class: 'riskfactor-icon',
+                src: '../../icons/risk-icon/high-risk.svg',
+                alt: 'risk icon',
+              }),
+            ),
             block.querySelector('.watchlist-items2 .watchlist-inneritems2'),
           ),
         ),
@@ -74,17 +80,24 @@ export default function decorate(block) {
           { class: 'lower-right' },
           div(
             { class: 'fund-name-card' },
-            p(block.querySelector('.watchlist-items2 .watchlist-inneritems1').innerText),
-            div({ class: 'fund-name' }, data[0].schDetail.schemeName.replaceAll('Motilal Oswal', '')),
+            p(
+              { class: 'brand-text' },
+              block.querySelector('.watchlist-items2 .watchlist-inneritems1')
+                .innerText,
+            ),
+            div(
+              { class: 'fund-name' },
+              data[0].schDetail.schemeName.replaceAll('Motilal Oswal', ''),
+            ),
           ),
-        ),
-        div(
-          { class: 'fund-returns' },
-          p('Annualised'),
           div(
-            { class: 'returns' },
-            p({ class: 'returns-percent' }, data[0].returns[0].oneYear_Ret),
-            span({ class: 'returns-percentage' }, '%'),
+            { class: 'fund-returns' },
+            p({ class: 'returns-text' }, 'Annualised'),
+            div(
+              { class: 'returns' },
+              p({ class: 'returns-percent' }, data[0].returns[0].oneYear_Ret),
+              span({ class: 'returns-percentage' }, '%'),
+            ),
           ),
         ),
       ),

@@ -2,7 +2,7 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, table, tr, th
+  button, a, table, tr, th,
 } from '../../scripts/dom-helpers.js';
 
 export default async function decorate(block) {
@@ -51,6 +51,7 @@ export default async function decorate(block) {
     el.classList.add(`tabpanel${index + 1}`);
   });
   if (block.closest('.our-popular-funds')) {
+    block.closest('.our-popular-funds').classList.add('fund-tab');
     let dataCf = dataCfObj.slice(1, 5);
 
     Array.from(tablist.children).forEach((element) => {
@@ -98,6 +99,7 @@ export default async function decorate(block) {
     tablist.children[0].click();
   }
   if (block.closest('.known-our-funds')) {
+    block.closest('.known-our-funds').classList.add('fund-tab');
     let dataCf = dataCfObj.slice(1, 5);
 
     Array.from(tablist.children).forEach((element) => {
@@ -111,7 +113,6 @@ export default async function decorate(block) {
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-international-equity') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:international-equity') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(1, 5);
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-hybrid-balanced') { // tabpanel-index
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
