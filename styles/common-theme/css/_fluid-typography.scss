@@ -26,7 +26,7 @@ $default-max-bp: 1440px;
 // Convert px to rem
 
 @function px-to-rem($px) {
-  @if unit($px) != "px" {
+  @if math.unit($px) != "px" {
     @error "Expected px unit but got #{unit($px)}";
   }
 

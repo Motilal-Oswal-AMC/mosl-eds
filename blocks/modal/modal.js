@@ -3,12 +3,6 @@ import {
   buildBlock, decorateBlock, loadBlock, loadCSS,
 } from '../../scripts/aem.js';
 
-/*
-  This is not a traditional block, so there is no decorate function.
-  Instead, links to a /modals/ path are automatically transformed into a modal.
-  Other blocks can also use the createModal() and openModal() functions.
-*/
-
 export async function createModal(contentNodes) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
   const contentNodesClass = [...contentNodes].filter((node) => node.classList && node.classList.contains('risk-o-meter-container'));
@@ -84,7 +78,7 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
   localStorage.setItem('schcodeactive', schcodeactive);
   const card = clickedElement.closest('.our-popular-funds');
   if (!card) {
-    console.error('On-card modal: Could not find parent card with class ".your-card-class".');
+    // console.error('On-card modal: Could not find parent card with class ".your-card-class".');
     return;
   }
 

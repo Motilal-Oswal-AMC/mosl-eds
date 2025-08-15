@@ -6,7 +6,7 @@
 }
 @media (max-width: 768px) {
   .fund-card-slider-container {
-    padding: 40px 16px 64px 16px;
+    padding: 40px 16px 64px;
   }
 }
 .fund-card-slider-container .block {

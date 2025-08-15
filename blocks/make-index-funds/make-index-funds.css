@@ -122,7 +122,6 @@
   padding: 8px;
   width: 192px !important;
   min-height: 230px;
-  height: -moz-fit-content;
   height: fit-content;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 8px;

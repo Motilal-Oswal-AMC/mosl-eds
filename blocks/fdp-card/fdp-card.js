@@ -5,7 +5,7 @@ import {
   ul,
   li,
   h2,
-  p
+  p,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';

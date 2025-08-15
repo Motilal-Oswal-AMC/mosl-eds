@@ -85,8 +85,8 @@ export default function decorate(block) {
             ),
             div(
               { class: 'fund-name-container' },
-              p({class:'brand-name-txt'},'Motilal Oswal'),
-              p({class:'fund-name-txt'},block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
+              p({ class: 'brand-name-txt' }, 'Motilal Oswal'),
+              p({ class: 'fund-name-txt' }, block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
             ),
             img({
               class: 'logoscheme',
@@ -168,8 +168,8 @@ export default function decorate(block) {
         ),
         div(
           { class: 'fund-name-container' },
-          p({class:'brand-name-txt'},'Motilal Oswal'),
-          p({class:'fund-name-txt'},block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
+          p({ class: 'brand-name-txt' }, 'Motilal Oswal'),
+          p({ class: 'fund-name-txt' }, block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
         ),
         img({
           class: 'logoscheme',
