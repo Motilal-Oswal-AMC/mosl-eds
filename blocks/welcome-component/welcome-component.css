@@ -11,13 +11,16 @@
 }
 @media (max-width: 768px) {
   .section.welcome-component div {
+    position: relative;
     flex-direction: column;
     gap: 40px;
+    padding-bottom: 80px;
   }
 }
 .section.welcome-component div ul {
   list-style: none;
   width: 33.7%;
+  margin: 0;
 }
 @media (max-width: 768px) {
   .section.welcome-component div ul {
@@ -42,31 +45,47 @@
   }
 }
 .section.welcome-component div ul li:nth-child(2) {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 20px;
+  line-height: 24px;
   color: #2b2e8c;
   font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 8px;
 }
 @media (max-width: 768px) {
   .section.welcome-component div ul li:nth-child(2) {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 20px;
     color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
-    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
   }
 }
 .section.welcome-component div ul li:nth-child(3) {
+  margin-bottom: 40px;
   font-size: 16px;
   line-height: 24px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  margin-bottom: 40px;
 }
-.section.welcome-component div ul li a {
+@media (max-width: 768px) {
+  .section.welcome-component div ul li:nth-child(3) {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 16px;
+    color: #2e2a94;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+  }
+}
+@media (max-width: 768px) {
+  .section.welcome-component div ul li:nth-child(4) {
+    position: absolute;
+    bottom: 0;
+  }
+}
+.section.welcome-component div ul li:nth-child(4) a {
   display: flex;
   width: 176px;
   padding: 12px;
