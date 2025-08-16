@@ -105,7 +105,7 @@
             }
 
             .fund-sec-1 {
-                padding-right: 64px;
+                padding-right: 21px;
 
                 // @include media (desktop-sm) {
                 //     padding: 0;
@@ -141,6 +141,7 @@
             }
 
             .fund-sec-3 {
+                padding-left: 8px;
                 padding-right: 54px;
 
                 @include media (desktop-sm) {
@@ -170,15 +171,14 @@
             }
 
             .fund-sec-4 {
-                display: none;
-                padding-right: 40px;
+                padding-right: 62px;
 
                 @include media (desktop-sm) {
                     padding: 0;
                 }
 
                 @include media(mobile) {
-                     display: block;
+                    display: block;
                     padding: 0;
                     order: 2;
                     width: 100%;
@@ -389,7 +389,7 @@
                 }
 
                 .fund-sec-1 {
-                    padding-right: 10px;
+                    padding-right: 37px;
                     margin-bottom: -25px;
 
                     // @include media (desktop-sm) {

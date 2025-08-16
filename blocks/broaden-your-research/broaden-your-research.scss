@@ -72,7 +72,7 @@
                 background: $primary-blue;
                 margin: 0;
 
-                @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $butlerpro);
+                @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $poppins);
             }
         }
     }
@@ -86,7 +86,6 @@
 
     .broaden-your-research {
         &.block {
-            // background-color: $primary-white;
             font-family: $poppins;
             padding: map.get($spacing, 'xxl') map.get($spacing, 'md');
             text-align: center;
@@ -125,7 +124,7 @@
             flex-direction: column;
             padding: 8px;
             width: 192px !important;
-            min-height: 225px;
+            min-height: 210px;
             height: fit-content;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-radius: 8px;

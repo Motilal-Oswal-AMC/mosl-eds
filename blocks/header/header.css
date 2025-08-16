@@ -59,6 +59,9 @@ header nav p {
     font-weight: 400;
   }
 }
+header nav a:-moz-any-link {
+  color: currentcolor;
+}
 header nav a:any-link {
   color: currentcolor;
 }
@@ -461,7 +464,9 @@ header .header-top div:first-child ul:nth-child(2) li:nth-child(2) p {
   align-items: center;
   gap: 5px;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-size: 12px;
   line-height: 16px;
   color: #fff;
@@ -583,6 +588,7 @@ header .header-top div:first-child ul:nth-child(2) .dropdown-active span img {
     display: block;
     position: absolute;
     left: -20px;
+    width: -moz-max-content;
     width: max-content;
     top: 37px;
     background-color: #f2f4ff;

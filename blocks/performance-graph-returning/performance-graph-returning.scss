@@ -8,8 +8,9 @@
     .performance-graph-wrapper {
         display: flex;
         max-width: 1366px;
-        height: 466px;
-        padding: 40px 67px;
+
+        // height: 466px;
+        padding: 0 67px;
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
@@ -18,7 +19,7 @@
             display: flex;
             width: 372px;
             height: 620px;
-            padding: 40px 16px;
+            padding: 0 16px;
             flex-direction: column;
             align-items: flex-start;
             gap: 20px;
@@ -197,7 +198,7 @@
 
                                     @include media(mobile) {
                                         display: flex;
-                                        padding: 4px;
+                                        padding: 5px 10px;
                                         justify-content: center;
                                         align-items: center;
                                         gap: 8px;
@@ -272,6 +273,7 @@
                                         font-style: normal;
                                         font-weight: 600;
                                         line-height: 16px;
+                                        align-self: unset;
                                     }
                                 }
                             }
@@ -287,7 +289,7 @@
                             justify-content: center;
                             align-items: center;
                             gap: 8px;
-                            border-radius: 8px;
+                            border-radius: 4px;
                             background: #2e2a94;
                             border: none;
                             color: #fff;
@@ -312,13 +314,19 @@
 
                 #chartdiv1 {
                     width: 1232px;
-                    height: 400px;
+                    height: 236px;
+
+                    // height: 400px;
                     background: transparent;
                     position: relative;
 
                 }
 
                 .invest-now-btn-mobile {
+                    @include media(mobile) {
+                        padding-top: 4px;
+                    }
+
                     .button-mobile {
                         display: none;
 

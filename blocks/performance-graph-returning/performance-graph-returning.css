@@ -4,8 +4,7 @@
 .performance-graph-returning-container .performance-graph-wrapper {
   display: flex;
   max-width: 1366px;
-  height: 466px;
-  padding: 40px 67px;
+  padding: 0 67px;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
@@ -15,7 +14,7 @@
     display: flex;
     width: 372px;
     height: 620px;
-    padding: 40px 16px;
+    padding: 0 16px;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
@@ -194,7 +193,7 @@
 @media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-tags-wrapper .fund-tags-main {
     display: flex;
-    padding: 4px;
+    padding: 5px 10px;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -268,6 +267,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 16px;
+    align-self: unset;
   }
 }
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .invest-now-btn .button-desktop {
@@ -278,7 +278,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   background: #2e2a94;
   border: none;
   color: #fff;
@@ -298,9 +298,14 @@
 }
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning #chartdiv1 {
   width: 1232px;
-  height: 400px;
+  height: 236px;
   background: transparent;
   position: relative;
+}
+@media (max-width: 768px) {
+  .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .invest-now-btn-mobile {
+    padding-top: 4px;
+  }
 }
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .invest-now-btn-mobile .button-mobile {
   display: none;

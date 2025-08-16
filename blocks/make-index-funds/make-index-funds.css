@@ -34,15 +34,15 @@
   font-size: 16px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 @media (max-width: 768px) {
   .section.make-index-funds-container > div:first-child p {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
     color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
   }
 }
@@ -74,7 +74,7 @@
   font-size: 16px;
   line-height: 20px;
   color: #fff;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -122,6 +122,7 @@
   padding: 8px;
   width: 192px !important;
   min-height: 230px;
+  height: -moz-fit-content;
   height: fit-content;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 8px;
@@ -158,8 +159,8 @@
 }
 .section.make-index-funds-container .make-index-funds .card-wrap .title-subtitle p {
   margin: 0;
-  font-size: 0.8rem;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 16px;
   color: #5659FA;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
