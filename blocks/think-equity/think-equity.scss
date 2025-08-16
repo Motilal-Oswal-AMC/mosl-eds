@@ -126,10 +126,10 @@
           text-align: left;
           color: #2e2a94;
           font-family: $poppins;
-          font-size: 16px;
+          font-size: 20px;
           font-style: normal;
           font-weight: 500;
-          line-height: 20px;
+          line-height: 24px;
 
           @include media(mobile) {
             color: $primary-blue;
@@ -157,7 +157,7 @@
             padding: 12px;
             border: none;
             font-family: $poppins;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1rem;
             line-height: 20px;
             text-decoration: none;

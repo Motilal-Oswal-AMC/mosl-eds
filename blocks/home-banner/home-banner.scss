@@ -1,7 +1,7 @@
 @use "../swiper/swiper-bundle.min.css"; // Modern Sass @use rule is preferred
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.home-banner-container {
   position: relative;
@@ -51,9 +51,9 @@
     }
 
     li {
-      width: 48px;
-      height: 48px;
-      border-radius: map.get($radius, r24);
+      width: 56px;
+      height: 56px;
+      border-radius: 28px;
       background: map.get($blue-1, b500);
 
       @include flex-center($align: center, $justify: center);
@@ -71,6 +71,11 @@
           display: flex;
         }
       }
+
+      .icon {
+        height: 37px;
+        width: 37px;
+      }
     }
   }
 }
@@ -82,11 +87,9 @@
     .sub-banner-item-1 {
       &::after {
         content: "";
-        background: linear-gradient(
-          90deg,
-          #787735 -1.21%,
-          rgb(120 119 53 / 0%) 52.42%
-        );
+        background: linear-gradient(90deg,
+            #787735 -1.21%,
+            rgb(120 119 53 / 0%) 52.42%);
         width: 100%;
         height: 100%;
         display: block;
@@ -199,6 +202,10 @@
           border-radius: map.get($radius, r8);
           width: 100%;
           margin: 0;
+
+          @include media(mobile) {
+            height: 32px;
+          }
         }
       }
     }

@@ -55,7 +55,7 @@
   padding: 0;
   max-width: 600px;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -125,7 +125,9 @@
   background-image: url("/icons/Subtract.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   pointer-events: none;
   z-index: 3;
 }
@@ -283,7 +285,8 @@
 .section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 > ul > li:nth-child(4) .button-container a {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-offset: 1.4px;
   text-underline-position: from-font;
@@ -404,7 +407,7 @@
   justify-content: center;
   align-items: center;
   gap: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   background: #2e2a94;
   height: 44px;
   font-size: 16px;

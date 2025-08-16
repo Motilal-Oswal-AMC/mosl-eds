@@ -25,7 +25,15 @@
   }
 
   .default-content-wrapper {
-    p,
+    p {
+      color: #2E2A94;
+      font-family: $poppins;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+    }
+
     ul,
     li {
       margin-bottom: map.get($spacing, xs);
@@ -42,7 +50,7 @@
     }
 
     ul {
-      padding-left: map.get($spacing, md);
+      padding-left: 24px;
     }
   }
 
@@ -81,8 +89,8 @@
 
       .icon {
         flex: 0 0 auto;
-        width: 56px;
-        height: 56px;
+        width: 64px;
+        height: 64px;
         flex-shrink: 0;
       }
 
@@ -100,7 +108,7 @@
         margin: 0;
 
         @include font-style(36px,
-          48px,
+          44px,
           $primary-blue,
           map.get($font-weights, bold),
           $butlerpro);
@@ -270,8 +278,10 @@
             color: #424242;
             font-family: $poppins;
             font-size: 14px;
-            font-weight: 600;
-            line-height: 22px;
+            font-weight: 500;
+            line-height: 16px;
+            margin: 0;
+            margin-top: 4px;
             cursor: pointer;
             transition: all 0.2s ease;
 
@@ -308,9 +318,9 @@
             }
 
             span {
-              color: #2b2e8c;
+              color: #2E2A94;
               font-family: $poppins;
-              font-size: 12px;
+              font-size: 14px;
               font-weight: 600;
               line-height: 16px;
               margin-left: 4px;
@@ -395,12 +405,12 @@
                 border: none;
                 color: #fff;
                 font-family: $poppins;
-                font-size: 14px;
-                font-weight: 600;
-                line-height: 16px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 20px;
                 cursor: pointer;
                 transition: background-color 0.2s ease;
-                width: 176px;
+                width: 164px;
 
                 @include media(mobile) {
                   width: 100%;
@@ -418,6 +428,7 @@
           display: flex;
           flex-wrap: wrap;
           gap: 24px;
+          margin: 8px 0;
 
           .plan-type-toggle {
             display: flex;
@@ -428,7 +439,7 @@
             .toggle-label {
               cursor: pointer;
 
-              @include font-style(14px, 16px, $neutrals-black, 500, $poppins);
+              @include font-style(12px, 16px, $neutrals-black, 500, $poppins);
 
 
               &.active {
@@ -484,8 +495,9 @@
             .select-selected-plan {
               color: #2e2a94;
               font-family: $poppins;
-              font-size: 20px;
+              font-size: 12px;
               font-weight: 500;
+              line-height: 16px;
               cursor: pointer;
               position: relative;
               user-select: none;
@@ -550,6 +562,7 @@
           display: flex;
           flex-wrap: wrap;
           gap: 24px;
+          margin: 8px 0;
 
           .sip-wrapper,
           .tenure-wrapper {
@@ -588,6 +601,7 @@
             font-family: $poppins;
             font-size: 20px;
             font-weight: 500;
+            line-height: 24px;
             width: 100%;
             appearance: none;
             outline: none;
@@ -633,6 +647,7 @@
               font-family: $poppins;
               font-size: 20px;
               font-weight: 500;
+              line-height: 24px;
               cursor: pointer;
               position: relative;
               user-select: none;
@@ -706,6 +721,7 @@
       .view-btn-cal {
         padding-top: 10px;
         text-align: left;
+        line-height: normal;
 
         @include media(mobile) {
           text-align: center;
@@ -717,7 +733,7 @@
           @include font-style(14px,
             20px,
             map.get($blue-1, b500),
-            map.get($font-weights, regular),
+            map.get($font-weights, medium),
             $poppins);
 
 
@@ -731,8 +747,8 @@
   }
 }
 
-.compounding.calculator-sip-container:not(.fdp-calculator){
-background-color: map.get($blue-1, b25);  
+.compounding.calculator-sip-container:not(.fdp-calculator) {
+  background-color: map.get($blue-1, b25);
 }
 
 // .compounding.fdp-calculator{
@@ -750,6 +766,7 @@ background-color: map.get($blue-1, b25);
     padding: 40px 16px;
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .compounding-two-inner {
     max-width: 100%;
     width: 100%;
@@ -761,9 +778,11 @@ background-color: map.get($blue-1, b25);
       gap: 40px;
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     .default-content-wrapper {
       width: 100%;
 
+      /* stylelint-disable-next-line no-descending-specificity */
       .icon {
         width: 48px;
         height: 48px;
@@ -780,6 +799,7 @@ background-color: map.get($blue-1, b25);
       }
 
       .hero-text {
+
         h3,
         h4 {
           margin: 0;
@@ -829,6 +849,7 @@ background-color: map.get($blue-1, b25);
         width: 100%;
       }
 
+      /* stylelint-disable-next-line no-descending-specificity */
       .cal-container {
         max-width: 100%;
         width: 100%;
@@ -847,6 +868,8 @@ background-color: map.get($blue-1, b25);
         }
 
         .search-results-wrapper {
+
+          /* stylelint-disable-next-line no-descending-specificity */
           ul {
             font-family: Poppins, sans-serif;
             border: 1px solid #eee;
@@ -854,6 +877,7 @@ background-color: map.get($blue-1, b25);
           }
         }
 
+        /* stylelint-disable-next-line no-descending-specificity */
         .scheme-btns-wrapper {
           display: flex;
           gap: map.get($spacing, sm);
@@ -863,6 +887,7 @@ background-color: map.get($blue-1, b25);
             border: 1px solid #bdbdbd;
             background: #fafafa;
 
+            /* stylelint-disable-next-line no-descending-specificity */
             &.active {
               background: #edf1ff;
               color: #2e2a94;
@@ -872,13 +897,15 @@ background-color: map.get($blue-1, b25);
         }
 
         .invested-amount {
+
           /* stylelint-disable-next-line no-descending-specificity */
           span {
             color: #2b2e8c;
             position: relative;
             padding-left: 10px;
           }
-         /* stylelint-disable-next-line no-descending-specificity */
+
+          /* stylelint-disable-next-line no-descending-specificity */
           span::before {
             content: "₹";
             position: absolute;
@@ -895,6 +922,8 @@ background-color: map.get($blue-1, b25);
         .plan-options-wrapper {
           .plan-type-toggle {
             .toggle-switch {
+
+              /* stylelint-disable-next-line no-descending-specificity */
               .slider {
                 inset: 0;
                 transition: 0.4s;
@@ -903,6 +932,7 @@ background-color: map.get($blue-1, b25);
           }
         }
 
+        /* stylelint-disable-next-line no-descending-specificity */
         .investment-wrapper {
           @include media(mobile) {
             flex-direction: column;
@@ -910,11 +940,13 @@ background-color: map.get($blue-1, b25);
             text-align: left;
           }
 
+          /* stylelint-disable-next-line no-descending-specificity */
           .tenure-wrapper select {
             padding-right: 32px;
             cursor: pointer;
           }
 
+          /* stylelint-disable-next-line no-descending-specificity */
           .cal-discription {
             display: flex;
             flex-wrap: wrap;
@@ -941,11 +973,13 @@ background-color: map.get($blue-1, b25);
               }
             }
 
+            /* stylelint-disable-next-line no-descending-specificity */
             .start-sip-btn {
               @include media(mobile) {
                 position: static;
                 width: 100%;
               }
+
               /* stylelint-disable-next-line no-descending-specificity */
               button {
                 position: absolute;
@@ -963,6 +997,7 @@ background-color: map.get($blue-1, b25);
         }
       }
 
+      /* stylelint-disable-next-line no-descending-specificity */
       .view-btn-cal {
         display: none;
 
@@ -975,12 +1010,14 @@ background-color: map.get($blue-1, b25);
       }
     }
   }
-/* stylelint-disable-next-line no-descending-specificity */
+
+  /* stylelint-disable-next-line no-descending-specificity */
   .default-content-wrapper {
     @include media(mobile) {
       padding-top: 16px;
     }
-/* stylelint-disable-next-line no-descending-specificity */
+
+    /* stylelint-disable-next-line no-descending-specificity */
     p:nth-child(1) {
       margin-bottom: 20px;
 
@@ -999,7 +1036,8 @@ background-color: map.get($blue-1, b25);
         map.get($font-weights, regular),
         $poppins);
     }
-/* stylelint-disable-next-line no-descending-specificity */
+
+    /* stylelint-disable-next-line no-descending-specificity */
     ul {
       padding-left: map.get($spacing, md);
     }
