@@ -20,20 +20,505 @@ main{
     gap: 50px;
   }
 
-  .item1 {
-    margin: 0;
+  .fdp-card {
+    &-wrapper.item1 {
+      // max-width: calc(100% - 816px);
+      max-width: calc(100% - 66.234%);
+      width: 100%;
+      height: 100%;
+      position: sticky;
+      top: 124px;
+      padding: 0;
 
-    // width: 30%;
-    max-width: 400px;
+      @include media(mobile) {
+        max-width: 100%;
+        padding: 0;
+        position: unset;
+      }
+    }
+
     width: 100%;
+    background-color: $primary-white;
 
-    /* fdp cards */
-    .fdp-card {
-      position: fixed;
-      width: 30%;
+    .card-container {
+      max-width: unset;
+      box-shadow: unset;
+      border: none;
+      width: 100%;
 
-      @media (width <= 768px) {
-        position: static;
+      @include media(mobile){
+        border-radius: 0;
+      }
+
+      .card-wrapper {
+        // Dropdown common
+        .dropdownlist {
+          display: none;
+          list-style: none;
+          position: absolute;
+
+          // top: 32px;
+          top: 100%;
+          left: 0;
+          z-index: 5;
+          width: 100%;
+          margin: 6px 0 0;
+          background-color: $primary-white;
+          border-radius: 8px;
+          border: 1px solid $neutrals-200;
+          box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+
+          &.dropdown-active {
+            display: block;
+          }
+
+          .listval {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+
+            @include font-style(12px, 16px, $neutrals-black, 400, $poppins);
+          }
+        }
+
+        .upperdiv {
+          .brandlogo-callicons {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap-reverse;
+            justify-content: space-between;
+            gap: 10px 20px;
+            margin-bottom: 8px;
+
+            .brand-logo {
+              max-width: 40px;
+              width: 100%;
+              height: 40px;
+
+              .logoscheme {
+                width: 100%;
+                height: 100%;
+              }
+            }
+
+            .contanct-share-icon {
+              display: flex;
+              align-items: center;
+              gap: 24px;
+
+              .contactus-icon,
+              .share-icon {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                line-height: 0;
+                cursor: pointer;
+
+                .icon-callback {
+                  max-width: 24px;
+                  width: 100%;
+                  height: 24px;
+                }
+
+                .icon-text {
+                  @include font-style(12px, 16px, $text-body-2, 400, $poppins);
+                }
+              }
+            }
+          }
+
+          .title-discrption {
+            .brand-name-text {
+              margin: 0;
+
+              @include font-style(
+                12px,
+                16px,
+                map.get($blue-1, b400),
+                500,
+                $poppins
+              );
+
+              @include media(mobile){
+                font-weight: 400;
+              }
+            }
+
+            .title-logo {
+              .fund-name-title {
+                margin: 0;
+
+                @include font-style(24px, 32px, $primary-blue, 600, $poppins);
+
+                @include media(mobile){
+                  font-size: 22px;
+                }
+              }
+            }
+
+            .discription {
+              padding: 0;
+              margin: 4px 0 0;
+              display: block;
+
+              @include font-style(12px, 16px, $primary-blue, 400, $poppins);
+
+              @include media(mobile){
+                margin: 0;
+              }
+            }
+          }
+
+          .fundtagging-grp {
+            .tags-grp {
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 4px;
+              list-style: none;
+              margin: 20px 0 0;
+
+              .list-tag {
+                border-radius: map.get($radius, r12);
+                background-color: map.get($blue-1, b150);
+                padding: 2px 8px;
+
+                @include font-style(12px, 16px, $primary-blue, 400, $poppins);
+
+                @include media(mobile){
+                  padding: 4px 10px;
+                }
+              }
+            }
+          }
+        }
+
+        .middlediv {
+          margin: 24px 0 0;
+
+          .dropdownmidle {
+            position: relative;
+            max-width: max-content;
+            margin: 0 0 8px;
+
+            .label-text {
+              .selecttext {
+                margin: 0;
+                padding: 8px 0;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+
+                @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+
+                &::after {
+                  content: "";
+                  background: url("../../icons/direction-right.svg") center /
+                    cover no-repeat;
+                  min-width: 16px;
+                  height: 16px;
+                  display: block;
+                  transform: rotate(90deg);
+                }
+              }
+            }
+          }
+
+          .nav-return-grp {
+            display: flex;
+            flex-wrap: wrap;
+
+            // align-items: center;
+            gap: 16px;
+
+            .return-grp {
+              // max-width: 52.18%;
+              max-width: 192px;
+              width: 100%;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 4px 8px;
+
+              @include media(desktop-sm){
+                max-width: 45%;
+              }
+
+              @include media(tab){
+                max-width: 120px;
+              }
+
+              @include media(mobile){
+                // max-width: 47.06%;
+                max-width: 160px;
+              }
+
+              .return-text {
+                @include font-style(
+                  12px,
+                  16px,
+                  $color-text-body,
+                  400,
+                  $poppins
+                );
+              }
+
+              .dropdown {
+                position: relative;
+                max-width: max-content;
+
+                .selectedtext {
+                  color: $primary-blue;
+                  font-weight: 500;
+                  gap: 3px;
+                  max-width: inherit;
+
+                  @include media(mobile){
+                    gap: 4px;
+                  }
+
+                  &::after {
+                    min-width: 16px;
+                    width: 16px;
+                    height: 16px;
+                  }
+                }
+
+                .dropdownlist {
+                  width: 70px;
+
+                  // top: 22px;
+                  top: 100%;
+                }
+              }
+
+              .return-cagr {
+                width: 100%;
+
+                .value-cagr,
+                .percent {
+                  @include font-style(24px, 32px, $primary-blue, 600, $poppins);
+
+                  margin: 0;
+
+                  @include media(mobile){
+                    font-size: 18px;
+                    line-height: 24px;
+                  }
+                }
+
+                .percent {
+                  font-size: 20px;
+                  font-weight: 400;
+
+                  @include media(mobile){
+                    line-height: 32px;
+                  }
+                }
+              }
+            }
+
+            .nav-grp {
+              // max-width: 43.48%;
+              max-width: 160px;
+              width: 100%;
+
+              @include media(desktop-sm){
+                max-width: 47%;
+              }
+
+              @include media(tab){
+                max-width: 140px;
+              }
+
+              @include media(mobile){
+                // max-width: 38.53%;
+                max-width: 131px;
+              }
+
+              .nav-label {
+                @include font-style(
+                  12px,
+                  16px,
+                  $color-text-body,
+                  400,
+                  $poppins
+                );
+
+                margin: 0 0 4px;
+              }
+
+              .nav-value-grp {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .value-nav,
+                .percent {
+                  @include font-style(24px, 32px, $primary-blue, 600, $poppins);
+
+                  margin: 0;
+
+                  @include media(mobile){
+                    font-size: 18px;
+                    line-height: 24px;
+                  }
+                }
+
+                .percent{
+                  font-size: 20px;
+                  font-weight: 400;
+
+                  @include media(mobile){
+                    line-height: 32px;
+                  }
+                }
+
+                .perecent-value {
+                  display: flex;
+                  align-items: center;
+                  gap: 4px;
+
+                  .nav-img {
+                    max-width: 20px;
+                    width: 100%;
+                    height: 20px;
+                  }
+
+                  .nav-percent {
+                    @include font-style(12px, 16px, #00a850, 400, $poppins);
+
+                    margin: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .lowerdiv {
+          margin: 24px 0 0;
+
+          .form-wrapper {
+            display: flex;
+            line-height: 0;
+            margin: 0 0 16px;
+
+            @include media(tab){
+              flex-direction: column;
+              gap: 15px;
+            }
+
+            @include media(mobile){
+              flex-direction: unset;
+              gap: 0;
+            }
+
+            .input-wrapper {
+              position: relative;
+
+              // width: 100%;
+              width: calc(100% - 125px);
+              border-radius: 4px;
+              border: 1px solid #8695af;
+              padding: 14px 8px;
+              z-index: 1;
+
+              @include media(tab){
+                width: 100%;
+              }
+
+              @include media(mobile){
+                width: calc(100% - 124px);
+              }
+
+              input {
+                border: none;
+                outline: none;
+                background-color: transparent;
+                width: 80.13%;
+
+                @include font-style(12px, 16px, $text-body-2, 400, $poppins);
+              }
+
+              .error-span {
+                display: none;
+                position: absolute;
+                bottom: -13px;
+                left: 8px;
+
+                @include font-style(
+                  8px,
+                  12px,
+                  map.get($danger, 300),
+                  400,
+                  $poppins
+                );
+
+                &.show-error {
+                  display: block;
+                }
+              }
+            }
+
+            .btn-wrapper {
+              line-height: 0;
+              z-index: 2;
+              margin-left: -7px;
+              max-width: 132px;
+              width: 100%;
+
+              @include media(tab){
+                max-width: 100%;
+                margin: 0;
+              }
+
+              @include media(mobile){
+                max-width: 124px;
+                margin-left: -7px;
+              }
+
+              button.submit {
+                width: 100%;
+                margin: 0;
+                border: none;
+                padding: 12px;
+                border-radius: map.get($radius, r4);
+                background-color: $primary-blue;
+                height: 100%;
+                cursor: pointer;
+
+                @include font-style(16px, 20px, $primary-white, 500, $poppins);
+              }
+            }
+          }
+
+          .notify-discription {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            @include media(mobile){
+              padding-bottom: 4px;
+            }
+
+            .icon-person {
+              max-width: 16px;
+              width: 100%;
+              height: 16px;
+            }
+
+            .notify-dis {
+              margin: 0;
+
+              @include font-style(12px, 16px, $color-text-body, 400, $poppins);
+
+              @include media(mobile){
+                color: $text-body-2;
+              }
+            }
+          }
+        }
       }
     }
   }
