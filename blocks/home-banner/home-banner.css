@@ -953,6 +953,7 @@ button.swiper-pagination-bullet {
   color: #2e2a94;
   font-size: 14px;
   line-height: 16px;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
   background-color: #fff;
   padding: 8px 12px;

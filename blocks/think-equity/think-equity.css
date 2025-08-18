@@ -64,7 +64,7 @@
     font-size: 16px;
     line-height: 20px;
     margin: 0;
-    max-width: 31.83%;
+    max-width: 32.36%;
     width: 100%;
   }
 }
@@ -80,8 +80,16 @@
 @media (max-width: 768px) {
   .think-equity-container .columns.block .collist1 .subcollist .subitem-child-2 {
     text-wrap: unset;
-    max-width: 59.61%;
+    max-width: 61%;
     width: 100%;
+  }
+}
+.think-equity-container .columns.block .collist1 .subcollist.item-child-2 .subitem-child-2 {
+  max-width: 116px;
+}
+@media (max-width: 768px) {
+  .think-equity-container .columns.block .collist1 .subcollist.item-child-2 .subitem-child-2 {
+    max-width: 61%;
   }
 }
 .think-equity-container .default-content-wrapper {
@@ -202,6 +210,14 @@
 }
 @media (max-width: 768px) {
   .think-equity.block .imagelist2 {
-    padding: 0 9px;
+    margin: 0 9px;
+    width: 322px;
+    height: 145px;
+  }
+  .think-equity.block .imagelist2 .subimagelist,
+  .think-equity.block .imagelist2 .subimagelist picture {
+    height: 145px;
+    line-height: 0;
+    display: block;
   }
 }/*# sourceMappingURL=think-equity.css.map */

@@ -30,15 +30,17 @@ export default function decorate(block) {
   block.append(swiperWrapper, paginationDiv, nextBtn, prevBtn);
   Swiper(block, {
     loop: true,
-
+    autoplay: {
+      delay: 5000,
+    },
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
       clickable: true,
     },
 
     navigation: {
-      nextEl: block.querySelector('.swiper-button-next'),
-      prevEl: block.querySelector('.swiper-button-prev'),
+      nextEl: block.querySelector(".swiper-button-next"),
+      prevEl: block.querySelector(".swiper-button-prev"),
     },
   });
 }

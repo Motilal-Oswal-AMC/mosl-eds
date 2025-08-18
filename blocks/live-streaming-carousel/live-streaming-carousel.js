@@ -38,13 +38,16 @@ export default function decorate(block) {
 
   Swiper(block, {
     loop: false,
+    autoplay: {
+      delay: 5000,
+    },
     pagination: {
-      el: wrapper.querySelector('.swiper-pagination'),
+      el: wrapper.querySelector(".swiper-pagination"),
       clickable: true,
     },
     navigation: {
-      nextEl: wrapper.querySelector('.swiper-button-next'),
-      prevEl: wrapper.querySelector('.swiper-button-prev'),
+      nextEl: wrapper.querySelector(".swiper-button-next"),
+      prevEl: wrapper.querySelector(".swiper-button-prev"),
     },
 
     on: {

@@ -24,9 +24,9 @@
 .section .card-container .card-wrapper .selectedtext {
   font-size: 12px;
   line-height: 16px;
-  color: #242177;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
   cursor: pointer;
   display: flex;
@@ -35,9 +35,9 @@
 }
 .section .card-container .card-wrapper .selectedtext::after {
   content: "";
-  background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
-  width: 12px;
-  height: 12px;
+  background: url("../../icons/down-arrow.svg") center/cover no-repeat;
+  min-width: 20px;
+  height: 20px;
   display: block;
 }
 .section .card-container .card-wrapper .dropdown-list {
@@ -159,7 +159,6 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
-  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
   display: flex;
@@ -217,7 +216,7 @@
   padding: 4px 0;
 }
 .section .card-container .cagr-container .cagr-dropdown {
-  max-width: 46%;
+  max-width: max-content;
   width: 100%;
   position: relative;
   line-height: 0;
@@ -230,17 +229,15 @@
   font-weight: 400;
 }
 .section .card-container .cagr-container .cagr-desc {
-  padding: 4px 8px;
   line-height: 0;
   width: 100%;
 }
 .section .card-container .cagr-container .cagr-desc span {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 11px;
+  line-height: 15px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  padding: 8px 0;
   display: block;
 }
 .section .card-container .cagr-container .cagr-value {
@@ -252,7 +249,7 @@
   line-height: 32px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   text-align: right;
 }
@@ -278,13 +275,8 @@
   display: none;
 }
 .section .card-container .cagr-container .cagr-select-wrapper {
-  width: 115px;
+  width: max-content;
   position: relative;
-}
-@media (max-width: 1299px) {
-  .section .card-container .cagr-container .cagr-select-wrapper {
-    width: 80px;
-  }
 }
 @media screen and (max-width: 900px) {
   .section .card-container .cagr-container .cagr-select-wrapper .dropdown-list {
@@ -292,9 +284,6 @@
   }
 }
 @media (max-width: 768px) {
-  .section .card-container .cagr-container .cagr-select-wrapper {
-    width: 115px;
-  }
   .section .card-container .cagr-container .cagr-select-wrapper .dropdown-list {
     top: 18px;
   }
@@ -322,11 +311,12 @@
   max-width: 45.46%;
   width: 100%;
   display: block;
+  cursor: pointer;
   font-size: 14px;
   line-height: 16px;
   color: #4338f3;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -455,7 +445,6 @@
   justify-content: flex-start;
   gap: 0;
   border-bottom: 1px solid #b6bcc7;
-  max-width: -moz-max-content;
   max-width: max-content;
   margin-right: -16px;
 }
@@ -512,9 +501,9 @@
 .section .card-container .card-wrapper .selectedtext {
   font-size: 12px;
   line-height: 16px;
-  color: #242177;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
   cursor: pointer;
   display: flex;
@@ -523,9 +512,9 @@
 }
 .section .card-container .card-wrapper .selectedtext::after {
   content: "";
-  background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
-  width: 12px;
-  height: 12px;
+  background: url("../../icons/down-arrow.svg") center/cover no-repeat;
+  min-width: 20px;
+  height: 20px;
   display: block;
 }
 .section .card-container .card-wrapper .dropdown-list {
@@ -629,6 +618,11 @@
   margin: 0;
   min-height: 40px;
 }
+@media (max-width: 768px) {
+  .section .card-container .card-upper-title .title-subtitle .title-logo .fund-name-title {
+    min-height: unset;
+  }
+}
 .section .card-container .card-category {
   display: flex;
   align-items: start;
@@ -670,7 +664,6 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
-  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
   display: flex;
@@ -686,9 +679,7 @@
   font-weight: 400;
   border: none;
   outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: transparent;
   width: 100%;
 }
@@ -699,7 +690,7 @@
   gap: 10px;
   min-height: 88px;
   height: 88px;
-  padding: 12px;
+  padding: 24px 12px;
   border-radius: 12px;
   border: 0.5px solid #e8e8e8;
   background: #FAFAFA;
@@ -729,13 +720,8 @@
   font-weight: 500;
 }
 .section .card-container .cagr-container .cagr-select-wrapper {
-  width: 115px;
+  width: max-content;
   position: relative;
-}
-@media (max-width: 1299px) {
-  .section .card-container .cagr-container .cagr-select-wrapper {
-    width: 80px;
-  }
 }
 @media screen and (max-width: 900px) {
   .section .card-container .cagr-container .cagr-select-wrapper .dropdown-list {
@@ -743,9 +729,6 @@
   }
 }
 @media (max-width: 768px) {
-  .section .card-container .cagr-container .cagr-select-wrapper {
-    width: 115px;
-  }
   .section .card-container .cagr-container .cagr-select-wrapper .dropdown-list {
     top: 18px;
   }
@@ -782,12 +765,11 @@
   width: 100%;
 }
 .section .card-container .cagr-container .cagr-desc span {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 11px;
+  line-height: 15px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  padding: 8px 0;
   display: block;
 }
 .section .card-container .risk-container {
@@ -859,11 +841,12 @@
   max-width: 45.46%;
   width: 100%;
   display: block;
+  cursor: pointer;
   font-size: 14px;
   line-height: 16px;
   color: #4338f3;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -925,7 +908,6 @@
   max-width: 49.53%;
   width: 100%;
   min-height: 180px;
-  height: -moz-max-content;
   height: max-content;
 }
 .section.index-fund .compound-item .compound-sub-item h2 {
@@ -982,37 +964,37 @@
   }
 }
 @media (max-width: 768px) {
-  .section.tabs-container {
+  .section.fund-tab.tabs-container {
     padding: 40px 0;
   }
-  .section.tabs-container .default-content-wrapper h1 {
+  .section.fund-tab.tabs-container .default-content-wrapper h1 {
     font-size: 32px;
     line-height: 40px;
     color: #2e2a94;
     font-family: "ButlerPro", sans-serif;
     font-weight: 700;
   }
-  .section.tabs-container .tabs-wrapper {
+  .section.fund-tab.tabs-container .tabs-wrapper {
     margin: 24px 0 0;
   }
-  .section.tabs-container .tabs-list::-webkit-scrollbar {
+  .section.fund-tab.tabs-container .tabs-list::-webkit-scrollbar {
     display: none;
   }
-  .section.tabs-container .tabs-list .tabs-tab {
+  .section.fund-tab.tabs-container .tabs-list .tabs-tab {
     font-size: 14px;
     line-height: 16px;
     color: #2e2a94;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
   }
-  .section.tabs-container .wrappertablist .btndesk {
+  .section.fund-tab.tabs-container .wrappertablist .btndesk {
     display: none;
   }
-  .section.tabs-container .btnmob {
+  .section.fund-tab.tabs-container .btnmob {
     display: block;
     margin: 40px auto 0;
   }
-  .section.tabs-container .card-container {
+  .section.fund-tab.tabs-container .card-container {
     padding: 20px 16px;
     max-width: 100%;
   }
@@ -1038,15 +1020,12 @@
     align-items: center;
     justify-content: space-between;
   }
-  .section .card-container .cagr-container .cagr-dropdown {
-    max-width: 39.75%;
-  }
   .section .card-container .cagr-container .cagr-value h2 {
     font-size: 24px;
     line-height: 32px;
     color: #2e2a94;
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
   }
   .section .card-container .risk-container {
     padding-bottom: 8px;
