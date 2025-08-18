@@ -93,11 +93,11 @@
               }
             }
 
-            &.item-child-2{
-              .subitem-child-2{
+            &.item-child-2 {
+              .subitem-child-2 {
                 max-width: 116px;
 
-                @include media(mobile){
+                @include media(mobile) {
                   max-width: 61%;
                 }
               }
@@ -190,7 +190,7 @@
       }
     }
   }
-
+  /* stylelint-disable-next-line no-descending-specificity */
   &-wrapper {
     display: flex;
     flex-direction: column;
@@ -238,10 +238,15 @@
         height: 145px;
 
         .subimagelist,
-        .subimagelist picture{
+        .subimagelist picture {
           height: 145px;
           line-height: 0;
           display: block;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }

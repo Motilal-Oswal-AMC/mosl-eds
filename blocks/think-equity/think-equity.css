@@ -1,4 +1,7 @@
 @import "../../../styles/fonts.css";
+.think-equity {
+  /* stylelint-disable-next-line no-descending-specificity */
+}
 .think-equity-container.section {
   margin: 0 auto;
 }
@@ -219,5 +222,10 @@
     height: 145px;
     line-height: 0;
     display: block;
+  }
+  .think-equity.block .imagelist2 .subimagelist img,
+  .think-equity.block .imagelist2 .subimagelist picture img {
+    width: 100%;
+    height: 100%;
   }
 }/*# sourceMappingURL=think-equity.css.map */
