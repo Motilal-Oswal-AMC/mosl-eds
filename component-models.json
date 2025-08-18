@@ -1113,5 +1113,99 @@
         ]
       }
     ]
+  },
+  {
+    "id": "our-fund-block-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "col_placeholder",
+        "label": "Enter Placeholder for Input Field"
+      },
+      {
+        "component": "richtext",
+        "name": "col_watchlist",
+        "value": "",
+        "label": "Enter Watchlist Context",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "col_treinding",
+        "value": "",
+        "label": "Enter Trending Context",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-fund-left-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "col_leftfilter",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-fund-right-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col_sort",
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "name": "col_return",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "col_richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   }
 ]

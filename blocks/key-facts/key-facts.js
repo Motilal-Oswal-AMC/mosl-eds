@@ -18,7 +18,13 @@ export default function decorate(block) {
     });
   });
 
-  const data = dataCfObj.filter((element) => element.schcode === 'US');
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const [planFlow, planslabel] = planCode.split(':');
+  const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+  const data = planObj;
+  const DirectPlanlistArr = planObj[0].planList.filter(
+    (el) => el.planName === planFlow,
+  );
   function dateFormat(date) {
     const formattedDate = new Date(date).toLocaleDateString('en-GB', {
       day: '2-digit',
@@ -77,14 +83,14 @@ export default function decorate(block) {
               p(
                 block.querySelector('.block-subitem2 .block-subitem-finelsub2'),
               ),
-              p(data[0].planList[0].planName),
+              p(DirectPlanlistArr[0].planName),
             ),
             div(
               { class: 'options' },
               p(
                 block.querySelector('.block-subitem2 .block-subitem-finelsub3'),
               ),
-              p(data[0].planList[0].optionName),
+              p(DirectPlanlistArr[0].optionName),
             ),
           ),
           div(
@@ -185,4 +191,6 @@ export default function decorate(block) {
     });
   }
   block.querySelector('.entry-load-detail').innerHTML = data[0].entryLoad;
+  block.querySelector('.load-policy-list').innerHTML = '';
+  block.querySelector('.load-policy-list').innerHTML = data[0].schDetail.exitLoad;
 }

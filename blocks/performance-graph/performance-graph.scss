@@ -8,12 +8,22 @@
     flex-direction: column;
     gap: 16px;
 
+  @media (width <= 768px) {
+    padding: 40px 0;
+  }
+
     .fund-note-container {
         h4 {
             @include font-style(32px, 40px, $primary-blue, 700, $butlerpro);
 
             padding: 0;
             margin: 0;
+
+      
+    @media (width <= 768px) {
+     font-size: 24px;
+     line-height: 28px;
+    }
         }
     }
 
@@ -21,9 +31,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        overflow: auto;
         
-        // padding: 0 16px;
+    @media (width <= 768px) {
+      display: table;
+    }
 
         .fund-filters {
             .chart-filter-bar {
@@ -40,6 +51,14 @@
                     background-color: $neutrals-50;
 
                     @include font-style(14px, 20px, $color-text-body, 400, $poppins);
+
+          @media (width <= 768px) {
+            // max-width: 40px;
+            width: 100%;
+            border-radius: 4px;
+            padding: 8px 12px;
+            max-width: max-content;
+          }
                 }
 
                 .active {
@@ -56,6 +75,11 @@
             gap: 8px;
             align-self: center;
             justify-content: center;
+
+      @media (width <= 768px) {
+        justify-content: start;
+        margin-top: 16px;
+      }
 
             .graph-cagr {
                 p {

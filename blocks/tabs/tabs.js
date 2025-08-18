@@ -2,8 +2,9 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, table, tr, th,
+  button, a, table, tr, th, div, input, ul, li,
 } from '../../scripts/dom-helpers.js';
+import dataMapMoObj from '../../scripts/constant.js';
 
 export default async function decorate(block) {
   const tablist = document.createElement('div');
@@ -61,7 +62,7 @@ export default async function decorate(block) {
         });
 
         if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-trending-funds') {
-          dataCf = dataCfObj.slice(1, 5);
+          dataCf = dataCfObj.slice(1, 7);
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-most-searched-funds') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:active') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
@@ -109,7 +110,7 @@ export default async function decorate(block) {
         });
 
         if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-trending-funds') {
-          dataCf = dataCfObj.slice(1, 5);
+          dataCf = dataCfObj.slice(1, 7);
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-international-equity') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:international-equity') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
@@ -166,21 +167,43 @@ export default async function decorate(block) {
   let tab2innerdivpanel2;
 
   function displaytableCAGR() {
+    const returnValue = [];
+    const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+    const planslabel = planCode.split(':')[1];
+    const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+    const cfObj = planObj;
+    cfObj[0].returns.forEach((ret) => {
+      if ((ret.plancode + ret.optioncode) === dataMapMoObj.gropcodevalue) {
+        returnValue.push(ret);
+      }
+    });
+
     tab2innerdiv.innerHTML = '';
     tab2innerdiv.append(tableWrapper);
+    // A helper function to format the return values safely
+    const formatReturn = (value) => {
+      const numericValue = Number(value);
+
+      // Use Number.isNaN() and check BEFORE calling .toFixed()
+      if (Number.isNaN(numericValue)) {
+        return '';
+      }
+      return numericValue.toFixed(2);
+    };
+
     const row1 = `
       <tr>
-        <td class='schemename'>${dataCfObj[0].schDetail.schemeName || ''}</td>
-        <td class='schDetailnum'>${dataCfObj[0].returns[0].oneYear_Ret || ''}</td>
-        <td class='schDetailnum'>${dataCfObj[0].returns[0].threeYear_Ret || ''}</td>
-        <td class='schDetailnum'>${dataCfObj[0].returns[0].fiveYear_Ret || ''}</td>
-        <td class='schDetailnum'>${dataCfObj[0].returns[0].sevenYear_Ret || ''}</td>
-        <td class='schDetailnum'>${dataCfObj[0].returns[0].tenYear_Ret || ''}</td>
-        <td class='schDetailnum'>${dataCfObj[0].returns[0].inception_Ret || ''}</td>
+        <td class='schemename'>${cfObj[0].schDetail.schemeName || ''}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].oneYear_Ret)}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].threeYear_Ret)}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].fiveYear_Ret)}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].sevenYear_Ret)}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].tenYear_Ret)}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].inception_Ret)}</td>
       </tr>`;
     tableWrapper.innerHTML += row1;
 
-    dataCfObj[0].benchmarkreturns.forEach((b) => {
+    cfObj[0].benchmarkreturns.forEach((b) => {
       const row2 = `<tr class="trbackgroundcolor">
         <td class='schemename'>${b.groupName}</td>
         <td class='schemenum'>${Number(b.oneYear_Ret).toFixed(2) === 'NaN' ? '' : Number(b.oneYear_Ret).toFixed(2) || ''}</td>
@@ -196,28 +219,39 @@ export default async function decorate(block) {
   }
 
   function displaytablecurrentvalue() {
+    const returnValue = [];
+    const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+    const planslabel = planCode.split(':')[1];
+    const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+    const cfObj = planObj;
+    cfObj[0].returns.forEach((ret) => {
+      if ((ret.plancode + ret.optioncode) === dataMapMoObj.gropcodevalue) {
+        returnValue.push(ret);
+      }
+    });
+
     const tab2table = table();
     tab2table.append(tabpanel2);
     const row3 = `
-      <tr> <td class='schemename'>${dataCfObj[0].schDetail.schemeName || ''}</td>
-      <td class='schDetailnum'>${dataCfObj[0].returns[0].oneYear_Ret || ''}</td>
-      <td class='schDetailnum'>${dataCfObj[0].returns[0].threeYear_Ret || ''}</td>
-      <td class='schDetailnum'>${dataCfObj[0].returns[0].fiveYear_Ret || ''}</td>
-      <td class='schDetailnum'>${dataCfObj[0].returns[0].sevenYear_Ret || ''}</td>
-      <td class='schDetailnum'>${dataCfObj[0].returns[0].tenYear_Ret || ''}</td>
-      <td class='schDetailnum'>${dataCfObj[0].returns[0].inception_Ret || ''}</td>
+      <tr> <td class='schemename'>${cfObj[0].schDetail.schemeName || ''}</td>
+      <td class='schDetailnum'>${Number(returnValue[0].oneYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].oneYear_marketValue).toFixed(2)}</td>
+      <td class='schDetailnum'>${Number(returnValue[0].threeYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].threeYear_marketValue).toFixed(2)}</td>
+      <td class='schDetailnum'>${Number(returnValue[0].fiveYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].fiveYear_marketValue).toFixed(2)}</td>
+      <td class='schDetailnum'>${Number(returnValue[0].sevenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].sevenYear_marketValue).toFixed(2)}</td>
+      <td class='schDetailnum'>${Number(returnValue[0].tenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].tenYear_marketValue).toFixed(2)}</td>
+      <td class='schDetailnum'>${Number(returnValue[0].inception_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].inception_marketValue).toFixed(2)}</td>
       </tr>`;
     tab2table.innerHTML += row3;
 
-    dataCfObj[0].benchmarkreturns.forEach((b) => {
+    cfObj[0].benchmarkreturns.forEach((b) => {
       const row4 = `
       <tr class="trbackgroundcolor"><td class='schemename'>${b.groupName}</td>
-        <td class='schemenum'>${Number(b.OneYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.OneYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.ThreeYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.ThreeYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.FiveYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.FiveYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.SevenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.SevenYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.TenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.TenYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.Inception_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.Inception_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.oneYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.oneYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.threeYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.threeYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.fiveYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.fiveYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.sevenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.sevenYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.tenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.tenYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.inception_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.inception_marketValue).toFixed(2) || ''}</td>
         </tr>`;
       tab2table.innerHTML += row4;
     });
@@ -347,7 +381,11 @@ export default async function decorate(block) {
     return wrapper;
   }
   if (block.parentElement.parentElement.classList.contains('tabdiv')) {
-    generateBarChart(dataCfObj[0].sector);
+    const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+    const planslabel = planCode.split(':')[1];
+    const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+    dataMapMoObj.scheme = planObj;
+    generateBarChart(planObj[0].sector);
   }
   const tabButtons = document.querySelectorAll('.tabs-tab');
   tabButtons.forEach((tabBtn) => {
@@ -357,13 +395,13 @@ export default async function decorate(block) {
       if (tabId === 'sector-holdings') {
         // dataselected = dataCfObj[0].sector
         if (panel && !panel.querySelector('.chart-wrapper')) {
-          const chart = generateBarChart(dataCfObj[0].sector);
+          const chart = generateBarChart(dataMapMoObj.scheme[0].sector);// (dataCfObj[0].sector);
           panel.appendChild(chart);
         }
       } else if (tabId === 'stock-holdings') {
         // dataselected = dataCfObj[0].holdings
         if (panel && !panel.querySelector('.chart-wrapper')) {
-          const chart = generateBarChartHoldings(dataCfObj[0].holdings);
+          const chart = generateBarChartHoldings(dataMapMoObj.scheme[0].holdings);
           panel.appendChild(chart);
         }
       }
@@ -371,4 +409,36 @@ export default async function decorate(block) {
   });
 
   /// //////////////////////first Tab ////////////////////////////
+
+  if (block.closest('.page-faq-section')) {
+    dataMapMoObj.CLASS_PREFIXES = [];
+    dataMapMoObj.CLASS_PREFIXES = ['itemfaq', 'subitemfaq'];
+    dataMapMoObj.addIndexed(block.closest('.page-faq-section'));
+
+    const divtablist = block.querySelector('.tabs-list');
+    const divwrapper = document.createElement('div');
+    divwrapper.classList.add('tablist-search');
+
+    const searchContainer = div(
+      { class: 'search-container' },
+      div(
+        { class: 'search-wrapper' },
+        input({
+          class: 'search-field',
+          placeholder: 'Search here',
+          'aria-label': 'Search here',
+        }),
+      ),
+      ul(
+        { class: 'dropdownlist' },
+        li({ class: 'singleval' }, 'asdfg'),
+        li({ class: 'singleval' }, 'zxcv'),
+        li({ class: 'singleval' }, 'zxcv'),
+      ),
+    );
+
+    divwrapper.append(divtablist);
+    divwrapper.append(searchContainer);
+    block.prepend(divwrapper);
+  }
 }

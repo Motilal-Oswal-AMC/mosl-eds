@@ -435,7 +435,7 @@ function checkfilter(block) {
 
 function applyFunction(block) {
   let temp = dataMapMoObj.tempMobReturn === undefined ? [] : dataMapMoObj.tempMobReturn;
-  temp = dataMapMoObj.tempMobReturn.length !== 0 ? temp : dataCfObj.slice(0, 9);
+  temp = dataMapMoObj.tempMobReturn.length !== 0 ? temp : dataCfObj.slice(0, 11);
   dataMapMoObj.tempMobReturn = temp;
   if (Array.from(block.querySelector('.filter-overlay').classList).includes('active')) {
     dataMapMoObj.funddata = dataMapMoObj.tempMobReturn;
@@ -477,7 +477,7 @@ export default function decorate(block) {
 
   dataMapMoObj.selectreturns = '';
   dataMapMoObj.data = dataFilterfun(dataCfObj);
-  dataMapMoObj.funddata = dataCfObj.slice(0, 9);
+  dataMapMoObj.funddata = dataCfObj.slice(0, 11);
   const divfund = div(
     {
       class: 'blockwrapper',
@@ -651,7 +651,7 @@ export default function decorate(block) {
                       }
                       el.querySelector('input').checked = false;
                     });
-                    dataMapMoObj.funddata = dataCfObj.slice(0, 9);
+                    dataMapMoObj.funddata = dataCfObj.slice(0, 11);
                     viewFunction(block);
                   },
                 },
@@ -715,7 +715,7 @@ export default function decorate(block) {
                         }
                         el.querySelector('input').checked = false;
                       });
-                      dataMapMoObj.funddata = dataCfObj.slice(0, 9);
+                      dataMapMoObj.funddata = dataCfObj.slice(0, 11);
                     },
                   },
                   'Clear All',

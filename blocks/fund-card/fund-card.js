@@ -20,16 +20,23 @@ function planListEvent(param, block) {
   // Planlist onchange with changing cagr container
   const tempReturns = [];
   const codeTempArr = [];
+  const tempreturnsec = [];
   block.returns.forEach((el) => {
     codeTempArr.push(el.plancode + el.optioncode);
     if (param.target.getAttribute('value') === el.plancode + el.optioncode) {
-      for (const key in el) {
+      [...Object.keys(el)].forEach((key) => {
         if (dataMapMoObj.ObjTemp[key]) {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
         }
-      }
+      });
+      tempreturnsec.push(el);
     }
   });
+  const [firstReturnYear] = tempReturns;
+  const selectedReturn = dataMapMoObj.selectreturns;
+  const returnYear = tempReturns.includes(selectedReturn)
+    ? selectedReturn
+    : firstReturnYear;
   param.target
     .closest('.card-wrapper')
     .querySelector('.cagr-container').innerHTML = '';
@@ -57,7 +64,7 @@ function planListEvent(param, block) {
               event.target.nextElementSibling.classList.add('dropdown-active');
             },
           },
-          tempReturns[0],
+          returnYear,
         ),
         ul(
           { class: 'dropdown-list', schcode: block.schcode },
@@ -66,7 +73,7 @@ function planListEvent(param, block) {
               class: 'returnyears',
               value: dataMapMoObj.ObjTemp[eloption],
               onclick: (event) => {
-                const cgarValue = block.returns[0][event.target.getAttribute('value')];
+                const cgarValue = tempreturnsec[0][event.target.getAttribute('value')];
                 event.currentTarget
                   .closest('.dropdown-list')
                   .classList.remove('dropdown-active');
@@ -100,7 +107,7 @@ function planListEvent(param, block) {
         class: 'cagr-value',
       },
       h2(
-        `${block.returns[0][dataMapMoObj.ObjTemp[tempReturns[0]]]}`,
+        `${tempreturnsec[0][dataMapMoObj.ObjTemp[returnYear]]}`,
         span('%'),
       ),
       p(
@@ -175,20 +182,21 @@ export default function decorate(block) {
   const fundsTaggingSection = block.fundsTaggingSection.slice(0, 2);
   const finPlangrp = [];
   const tempReturns = [];
-  block.returns.forEach((ret, jind) => {
-    if (jind === 0) {
-      [...Object.keys(ret)].forEach((key) => {
-        if (dataMapMoObj.ObjTemp[key]) {
-          tempReturns.push(dataMapMoObj.ObjTemp[key]);
-        }
-      });
-    }
-    finPlangrp.push(ret.plancode + ret.optioncode);
-  });
 
-  const DirectPlanlistArr = block.planList.filter((el) => {
-    if (el.planName === planFlow && finPlangrp.includes(el.groupedCode)) {
-      return el;
+  const DirectPlanlistArr = block.planList.filter(
+    (el) => el.planName === planFlow,
+  );
+  block.returns.forEach((ret) => {
+    if (DirectPlanlistArr.length !== 0) {
+      const grp = ret.plancode + ret.optioncode;
+      if (DirectPlanlistArr[0].groupedCode === grp) {
+        [...Object.keys(ret)].forEach((key) => {
+          if (dataMapMoObj.ObjTemp[key]) {
+            tempReturns.push(dataMapMoObj.ObjTemp[key]);
+          }
+        });
+        finPlangrp.push(ret);
+      }
     }
   });
 
@@ -197,9 +205,11 @@ export default function decorate(block) {
   const dropdowndot = DirectPlanlistArr.length !== 0 ? '' : 'no-planlist';
   const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
   const optionName = DirectPlanlistArr.length !== 0 ? DirectPlanlistArr[0].optionName : '';
-  const returnYear = dataMapMoObj.selectreturns === ''
-    ? tempReturns[0]
-    : dataMapMoObj.selectreturns;
+  const [fstRetYear] = tempReturns;
+  const selectedReturn = dataMapMoObj.selectreturns;
+  const returnYear = tempReturns.includes(selectedReturn)
+    ? selectedReturn
+    : fstRetYear;
   const iconsvg = `${dataMapMoObj.iconsNfo[
     block.risk.riskType.toLowerCase().replaceAll(' ', '-')
   ]}.svg`;
@@ -207,25 +217,183 @@ export default function decorate(block) {
     ? 'star-filled'
     : '';
   const mop = `MO_${block.schcode}.svg`;
-  // block.fundIcon !== undefined
-  //   ? block.fundIcon.split('/').at(-1)
-  //   : 'MO_Midcap_Fund.png';
-  // let mopsec = mop.split('.');
-  // let mopthree = mopsec[0] + '.svg';
-  if ([...block.fundsTaggingSection].includes('NFO')) {
-    const nfosvg = `${dataMapMoObj.iconsNfo[
-      block.risk.riskType.toLowerCase().replaceAll(' ', '-')
-    ]}.svg`;
-    const NfocardContainer = div(
-      { class: 'nfo-card-container card-container' },
-      div(
-        { class: 'card-wrapper' },
+  // const cagrValue = finPlangrp
+  if (finPlangrp.length !== 0) {
+    if ([...block.fundsTaggingSection].includes('NFO')) {
+      const nfosvg = `${dataMapMoObj.iconsNfo[
+        block.risk.riskType.toLowerCase().replaceAll(' ', '-')
+      ]}.svg`;
+      const NfocardContainer = div(
+        { class: 'nfo-card-container card-container' },
         div(
-          { class: 'card-upper-title' },
+          { class: 'card-wrapper' },
           div(
-            { class: 'title-headLogo' },
+            { class: 'card-upper-title' },
             div(
-              { class: 'title title-logo' },
+              { class: 'title-headLogo' },
+              div(
+                { class: 'title title-logo' },
+                img({
+                  class: 'logoscheme',
+                  src: `../../icons/iconfund/${mop}`,
+                  alt: 'BrandLogo',
+                }),
+              ),
+              div(
+                {
+                  class: `star ${starClass}`,
+                  onclick: (event) => {
+                    if (
+                      !Array.from(event.target.parentElement.classList).includes(
+                        'star-filled',
+                      )
+                    ) {
+                      event.target.parentElement.classList.add('star-filled');
+                    } else {
+                      event.target.parentElement.classList.remove('star-filled');
+                    }
+                  },
+                  schcode: block.schcode,
+                },
+                img({
+                  class: 'star-icon',
+                  src: '../../icons/not-filled-star.svg',
+                  alt: 'star-icon',
+                }),
+                img({
+                  class: 'fillstar-icon',
+                  src: '../../icons/filled-star.svg',
+                  alt: 'fillstar-icon',
+                }),
+              ),
+            ),
+            div(
+              { class: 'title-subtitle' },
+              p({ class: 'brand-name-text' }, 'Motilal Oswal'),
+              div(
+                { class: 'title title-logo' },
+                h2({ class: 'fund-name-title' }, block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
+              ),
+            ),
+          ),
+          div(
+            { class: `card-category ${dropdowndot}` },
+            div(
+              { class: 'fund-tagging' },
+              ul(
+                { class: 'fundtagging-list' },
+                ...fundsTaggingSection.map((eloption) => li(
+                  { class: 'fundtagging-list-name' },
+                  eloption
+                    .replaceAll('motilal-oswal:', '')
+                    .replaceAll('-', ' ')
+                    .toUpperCase(),
+                )),
+              ),
+            ),
+            div(
+              { class: 'planlist-dropdown', style: `display:${classdropdown}` },
+              p(
+                {
+                  class: 'selectedtext',
+                  onclick: (event) => {
+                    event.target.nextElementSibling.classList.add(
+                      'dropdown-active',
+                    );
+                  },
+                },
+                optionName,
+              ),
+              ul(
+                { class: 'dropdown-list' },
+                ...DirectPlanlistArr.map((el) => li(
+                  {
+                    value: el.groupedCode,
+                    onclick: (event) => {
+                      const clodrp = event.currentTarget.closest('.dropdown-list');
+                      clodrp.classList.remove('dropdown-active');
+
+                      const name = event.currentTarget.textContent.trim();
+                      const plandrp = event.currentTarget.closest('.planlist-dropdown');
+
+                      const pElement = plandrp.querySelector('p');
+                      if (pElement) {
+                        pElement.innerText = name;
+                      }
+                      // planListEvent(event,block)
+                    },
+                  },
+                  el.optionName,
+                )),
+              ),
+            ),
+            div(
+              { class: 'dis-investor' },
+              img({
+                class: 'riskfactor-icon',
+                src: `../../icons/nfo-risk-icon/${nfosvg}`,
+                alt: 'risk icon',
+              }),
+            ),
+          ),
+          div(
+            { class: 'banner-timing-container ' },
+            div(
+              { class: 'banner-container' },
+              img({
+                class: 'nfo-img',
+                src: '../../icons/nfo-img.png',
+                alt: 'NFO Image',
+              }),
+              span('Grab Them All'),
+            ),
+            div(
+              { class: 'timing-nfo-value' },
+              div(
+                { class: 'nfo-container' },
+                span({ class: 'label-nfo' }, 'NFO'),
+              ),
+              div(
+                { class: 'timing-container' },
+                p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment)),
+              ),
+            ),
+          ),
+          div(
+            { class: 'button-container' },
+            a(
+              {
+                href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund',
+                class: 'know-more card-btn',
+              },
+              'Know More',
+            ),
+            a({ href: '/motilalfigma/modals/invest-now-homepage', class: 'invest-now card-btn' }, 'Invest'),
+          ),
+        ),
+      );
+      return NfocardContainer;
+    }
+    const cardContainer = div(
+      {
+        class: 'card-container',
+      },
+      div(
+        {
+          class: 'card-wrapper',
+        },
+        div(
+          {
+            class: 'card-upper-title',
+          },
+          div(
+            {
+              class: 'title-headLogo',
+            },
+            div(
+              {
+                class: 'title title-logo',
+              },
               img({
                 class: 'logoscheme',
                 src: `../../icons/iconfund/${mop}`,
@@ -245,6 +413,7 @@ export default function decorate(block) {
                   } else {
                     event.target.parentElement.classList.remove('star-filled');
                   }
+                  wishlist(block);
                 },
                 schcode: block.schcode,
               },
@@ -261,26 +430,35 @@ export default function decorate(block) {
             ),
           ),
           div(
-            { class: 'title-subtitle' },
+            {
+              class: 'title-subtitle',
+            },
             p({ class: 'brand-name-text' }, 'Motilal Oswal'),
             div(
-              { class: 'title title-logo' },
+              {
+                class: 'title title-logo',
+              },
               h2({ class: 'fund-name-title' }, block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
             ),
           ),
         ),
         div(
-          { class: `card-category ${dropdowndot}` },
+          {
+            class: `card-category ${dropdowndot}`,
+          },
           div(
-            { class: 'fund-tagging' },
+            {
+              class: 'fund-tagging',
+            },
             ul(
-              { class: 'fundtagging-list' },
+              {
+                class: 'fundtagging-list',
+              },
               ...fundsTaggingSection.map((eloption) => li(
                 { class: 'fundtagging-list-name' },
-                eloption
-                  .replaceAll('motilal-oswal:', '')
-                  .replaceAll('-', ' ')
-                  .toUpperCase(),
+                toTitleCase(
+                  eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' '),
+                ),
               )),
             ),
           ),
@@ -290,7 +468,6 @@ export default function decorate(block) {
               {
                 class: 'selectedtext',
                 onclick: (event) => {
-                  console.log(event.target);
                   event.target.nextElementSibling.classList.add(
                     'dropdown-active',
                   );
@@ -300,56 +477,157 @@ export default function decorate(block) {
             ),
             ul(
               { class: 'dropdown-list' },
-              ...DirectPlanlistArr?.map((el, index) => li(
+              ...DirectPlanlistArr.map((el) => li(
                 {
                   value: el.groupedCode,
                   onclick: (event) => {
+                    const dropdown = event.currentTarget.closest('.planlist-dropdown');
+
                     event.currentTarget
                       .closest('.dropdown-list')
                       .classList.remove('dropdown-active');
-                    const name = event.currentTarget.textContent.trim();
-                    event.currentTarget
-                      .closest('.planlist-dropdown')
-                      .querySelector('p').innerText = '';
-                    event.currentTarget
-                      .closest('.planlist-dropdown')
-                      .querySelector('p').innerText = name;
-                    // planListEvent(event,block)
+
+                    if (dropdown) {
+                      const ptags = dropdown.querySelector('p');
+                      if (ptags) {
+                        ptags.innerText = event.currentTarget.textContent.trim();
+                      }
+                    }
+
+                    planListEvent(event, block);
                   },
                 },
                 el.optionName,
               )),
             ),
           ),
+        ),
+        div(
+          {
+            class: `cagr-container ${classplan}`,
+          },
           div(
-            { class: 'dis-investor' },
-            img({
-              class: 'riskfactor-icon',
-              src: `../../icons/nfo-risk-icon/${nfosvg}`,
-              alt: 'risk icon',
-            }),
+            {
+              class: 'cagr-dropdown',
+            },
+            span({ class: 'cagr-txt' }, labelcagr),
+            div(
+              {
+                class: 'cagr-select-wrapper',
+              },
+              p(
+                {
+                  class: 'selectedtext',
+                  onclick: (event) => {
+                    event.target.nextElementSibling.classList.add(
+                      'dropdown-active',
+                    );
+                  },
+                },
+                returnYear,
+              ),
+              ul(
+                { class: 'dropdown-list' },
+                ...tempReturns.map((eloption) => li(
+                  {
+                    class: 'returnyears',
+                    value: dataMapMoObj.ObjTemp[eloption],
+                    onclick: (event) => {
+                      const cgarValue = block.returns[0][event.target.getAttribute('value')];
+                      event.currentTarget
+                        .closest('.dropdown-list')
+                        .classList.remove('dropdown-active');
+                      event.currentTarget
+                        .closest('.cagr-select-wrapper')
+                        .querySelector('p').innerText = '';
+                      event.currentTarget
+                        .closest('.cagr-select-wrapper')
+                        .querySelector('p').innerText = event.currentTarget.textContent.trim();
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector('.cagr-value h2').textContent = '';
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector(
+                          '.cagr-value h2',
+                        ).textContent = `${cgarValue}`;
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector('.cagr-value h2')
+                        .append(span('%'));
+                    },
+                  },
+                  eloption,
+                )),
+              ),
+            ),
+          ),
+          div(
+            {
+              class: 'cagr-value',
+            },
+            h2(
+              `${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`,
+              span('%'),
+            ),
+            p(
+              {
+                class: 'scheme-yet',
+                style: 'display:none',
+              },
+              'Scheme is yet to complete 10 Years',
+            ),
+            p(
+              {
+                class: 'cagr-date',
+              },
+              '15th Mar 2020',
+            ),
+          ),
+          div(
+            {
+              class: 'cagr-desc',
+            },
+            span(
+              'Return is not provided because thescheme has not completed 6 months',
+            ),
           ),
         ),
         div(
-          { class: 'banner-timing-container ' },
-          div(
-            { class: 'banner-container' },
-            img({
-              class: 'nfo-img',
-              src: '../../icons/nfo-img.png',
-              alt: 'NFO Image',
-            }),
-            span('Grab Them All'),
-          ),
-          div(
-            { class: 'timing-nfo-value' },
+          {
+            class: 'risk-container',
+            style: 'display:none',
+          },
+          label('Risk Factor'),
+          span(block.risk.riskType),
+        ),
+        div(
+          {
+            class: 'discription',
+          },
+          p(
+            {
+              class: 'dis-choosen',
+            },
+            // 'Chosen by ',
             div(
-              { class: 'nfo-container' },
-              span({ class: 'label-nfo' }, 'NFO'),
+              {
+                class: 'dis-investor',
+              },
+              img({
+                class: 'icon person',
+                src: '../../icons/Icon.svg',
+                alt: 'person',
+              }),
+              span({ class: 'investor-txt' }, '2.7 lakh investors'),
             ),
-            div(
-              { class: 'timing-container' },
-              p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment)),
+            a(
+              { href: '/motilalfigma/modals/risk-o-meter' },
+              img({
+                class: 'riskfactor-icon',
+                src: `../../icons/risk-icon/${iconsvg}`,
+                alt: 'risk icon',
+              }),
             ),
           ),
         ),
@@ -357,8 +635,21 @@ export default function decorate(block) {
           { class: 'button-container' },
           a(
             {
-              href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund',
               class: 'know-more card-btn',
+              onclick: (event) => {
+                // href: 'https://mosldev--eds-cloud--rupeshdept.aem.page/motilalfigma/funds-details-page',
+                let planFlowsec = 'Direct';
+                if (event.target.closest('.right-container')) {
+                  const flowparent = event.target.closest('.right-container');
+                  const togglebtn = flowparent.querySelector('#toggle').checked;
+                  planFlowsec = togglebtn ? 'Regular' : 'Direct';
+                }
+                const cardWrapper = event.target.closest('.card-wrapper');
+                const cardWrapperStar = cardWrapper.querySelector('.star');
+                const cardWrapperSh = cardWrapperStar.getAttribute('schcode');
+                localStorage.setItem('planCode', `${planFlowsec}:${cardWrapperSh}`);
+                window.location.href = `${window.location.origin}/motilalfigma/funds-details-page`;
+              },
             },
             'Know More',
           ),
@@ -366,274 +657,7 @@ export default function decorate(block) {
         ),
       ),
     );
-    return NfocardContainer;
+    return cardContainer;
   }
-  const cardContainer = div(
-    {
-      class: 'card-container',
-    },
-    div(
-      {
-        class: 'card-wrapper',
-      },
-      div(
-        {
-          class: 'card-upper-title',
-        },
-        div(
-          {
-            class: 'title-headLogo',
-          },
-          div(
-            {
-              class: 'title title-logo',
-            },
-            img({
-              class: 'logoscheme',
-              src: `../../icons/iconfund/${mop}`,
-              alt: 'BrandLogo',
-            }),
-          ),
-          div(
-            {
-              class: `star ${starClass}`,
-              onclick: (event) => {
-                if (
-                  !Array.from(event.target.parentElement.classList).includes(
-                    'star-filled',
-                  )
-                ) {
-                  event.target.parentElement.classList.add('star-filled');
-                } else {
-                  event.target.parentElement.classList.remove('star-filled');
-                }
-                wishlist(block);
-              },
-              schcode: block.schcode,
-            },
-            img({
-              class: 'star-icon',
-              src: '../../icons/not-filled-star.svg',
-              alt: 'star-icon',
-            }),
-            img({
-              class: 'fillstar-icon',
-              src: '../../icons/filled-star.svg',
-              alt: 'fillstar-icon',
-            }),
-          ),
-        ),
-        div(
-          {
-            class: 'title-subtitle',
-          },
-          p({ class: 'brand-name-text' }, 'Motilal Oswal'),
-          div(
-            {
-              class: 'title title-logo',
-            },
-            h2({ class: 'fund-name-title' }, block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
-          ),
-        ),
-      ),
-      div(
-        {
-          class: `card-category ${dropdowndot}`,
-        },
-        div(
-          {
-            class: 'fund-tagging',
-          },
-          ul(
-            {
-              class: 'fundtagging-list',
-            },
-            ...fundsTaggingSection.map((eloption) => li(
-              { class: 'fundtagging-list-name' },
-              toTitleCase(
-                eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' '),
-              ),
-            )),
-          ),
-        ),
-        div(
-          { class: 'planlist-dropdown', style: `display:${classdropdown}` },
-          p(
-            {
-              class: 'selectedtext',
-              onclick: (event) => {
-                console.log(event.target);
-                event.target.nextElementSibling.classList.add(
-                  'dropdown-active',
-                );
-              },
-            },
-            optionName,
-          ),
-          ul(
-            { class: 'dropdown-list' },
-            ...DirectPlanlistArr?.map((el, index) => li(
-              {
-                value: el.groupedCode,
-                onclick: (event) => {
-                  event.currentTarget
-                    .closest('.dropdown-list')
-                    .classList.remove('dropdown-active');
-                  event.currentTarget
-                    .closest('.planlist-dropdown')
-                    .querySelector('p').innerText = '';
-                  event.currentTarget
-                    .closest('.planlist-dropdown')
-                    .querySelector('p').innerText = event.currentTarget.textContent.trim();
-                  planListEvent(event, block);
-                },
-              },
-              el.optionName,
-            )),
-          ),
-        ),
-      ),
-      div(
-        {
-          class: `cagr-container ${classplan}`,
-        },
-        div(
-          {
-            class: 'cagr-dropdown',
-          },
-          span({ class: 'cagr-txt' }, labelcagr),
-          div(
-            {
-              class: 'cagr-select-wrapper',
-            },
-            p(
-              {
-                class: 'selectedtext',
-                onclick: (event) => {
-                  event.target.nextElementSibling.classList.add(
-                    'dropdown-active',
-                  );
-                },
-              },
-              returnYear,
-            ),
-            ul(
-              { class: 'dropdown-list' },
-              ...tempReturns.map((eloption) => li(
-                {
-                  class: 'returnyears',
-                  value: dataMapMoObj.ObjTemp[eloption],
-                  onclick: (event) => {
-                    const cgarValue = block.returns[0][event.target.getAttribute('value')];
-                    event.currentTarget
-                      .closest('.dropdown-list')
-                      .classList.remove('dropdown-active');
-                    event.currentTarget
-                      .closest('.cagr-select-wrapper')
-                      .querySelector('p').innerText = '';
-                    event.currentTarget
-                      .closest('.cagr-select-wrapper')
-                      .querySelector('p').innerText = event.currentTarget.textContent.trim();
-                    event.target
-                      .closest('.cagr-container')
-                      .querySelector('.cagr-value h2').textContent = '';
-                    event.target
-                      .closest('.cagr-container')
-                      .querySelector(
-                        '.cagr-value h2',
-                      ).textContent = `${cgarValue}`;
-                    event.target
-                      .closest('.cagr-container')
-                      .querySelector('.cagr-value h2')
-                      .append(span('%'));
-                  },
-                },
-                eloption,
-              )),
-            ),
-          ),
-        ),
-        div(
-          {
-            class: 'cagr-value',
-          },
-          h2(
-            `${block.returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,
-            span('%'),
-          ),
-          p(
-            {
-              class: 'scheme-yet',
-              style: 'display:none',
-            },
-            'Scheme is yet to complete 10 Years',
-          ),
-          p(
-            {
-              class: 'cagr-date',
-            },
-            '15th Mar 2020',
-          ),
-        ),
-        div(
-          {
-            class: 'cagr-desc',
-          },
-          span(
-            'Return is not provided because thescheme has not completed 6 months',
-          ),
-        ),
-      ),
-      div(
-        {
-          class: 'risk-container',
-          style: 'display:none',
-        },
-        label('Risk Factor'),
-        span(block.risk.riskType),
-      ),
-      div(
-        {
-          class: 'discription',
-        },
-        p(
-          {
-            class: 'dis-choosen',
-          },
-          // 'Chosen by ',
-          div(
-            {
-              class: 'dis-investor',
-            },
-            img({
-              class: 'icon person',
-              src: '../../icons/Icon.svg',
-              alt: 'person',
-            }),
-            span({ class: 'investor-txt' }, '2.7 lakh investors'),
-          ),
-          a(
-            { href: '/motilalfigma/modals/risk-o-meter' },
-            img({
-              class: 'riskfactor-icon',
-              src: `../../icons/risk-icon/${iconsvg}`,
-              alt: 'risk icon',
-            }),
-          ),
-        ),
-      ),
-      div(
-        { class: 'button-container' },
-        a(
-          {
-            href: 'https://mosldev--eds-cloud--rupeshdept.aem.page/motilalfigma/funds-details-page',
-            class: 'know-more card-btn',
-          },
-          'Know More',
-        ),
-        a({ href: '/motilalfigma/modals/invest-now-homepage', class: 'invest-now card-btn' }, 'Invest'),
-      ),
-    ),
-  );
-  return cardContainer;
+  return '';
 }

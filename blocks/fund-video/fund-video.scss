@@ -2,7 +2,7 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-.fund-video-container {
+.section.fund-video-container {
   width: 100%;
   background-color: #2e2a94;
   padding: 40px 16px;
@@ -53,6 +53,7 @@
           p:nth-child(1) {
             width: 160px;
             height: 90px;
+            margin: 0;
 
             iframe {
               border-radius: 3.33px;

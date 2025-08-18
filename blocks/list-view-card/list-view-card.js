@@ -4,7 +4,6 @@ import {
   span,
   p,
   img,
-  label,
   a,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';

@@ -1,31 +1,31 @@
 @import "../../../styles/fonts.css";
-.fund-video-container {
+.section.fund-video-container {
   width: 100%;
   background-color: #2e2a94;
   padding: 40px 16px;
   border-radius: 8px;
 }
 @media (width <= 768px) {
-  .fund-video-container {
+  .section.fund-video-container {
     border-radius: 0;
   }
 }
-.fund-video-container .fund-video-wrapper .fund-video {
+.section.fund-video-container .fund-video-wrapper .fund-video {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 @media (width <= 768px) {
-  .fund-video-container .fund-video-wrapper .fund-video {
+  .section.fund-video-container .fund-video-wrapper .fund-video {
     flex-direction: column;
     gap: 50px;
     align-items: baseline;
   }
 }
-.fund-video-container .fund-video-wrapper .fund-video div:nth-child(1) {
+.section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(1) {
   max-width: 288px;
 }
-.fund-video-container .fund-video-wrapper .fund-video div:nth-child(1) div p {
+.section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(1) div p {
   font-size: 24px;
   line-height: 32px;
   color: #fff;
@@ -33,20 +33,21 @@
   font-weight: 600;
   margin: 0;
 }
-.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div {
+.section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div {
   max-width: 100%;
   display: flex;
   gap: 24px;
 }
-.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(1) {
+.section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(1) {
   width: 160px;
   height: 90px;
+  margin: 0;
 }
-.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(1) iframe {
+.section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(1) iframe {
   border-radius: 3.33px;
   opacity: 0.6;
 }
-.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(2) {
+.section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(2) {
   max-width: 255px;
   font-size: 16px;
   line-height: 24px;
@@ -56,7 +57,7 @@
   display: flex;
   flex-direction: column;
 }
-.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(2) strong {
+.section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(2) strong {
   font-size: 16px;
   line-height: 20px;
   color: #fff;
@@ -64,7 +65,7 @@
   font-weight: 600;
 }
 @media (width <= 768px) {
-  .fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(2) {
+  .section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(2) {
     font-size: 14px;
     width: 156px;
   }
