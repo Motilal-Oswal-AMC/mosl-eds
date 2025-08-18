@@ -168,7 +168,7 @@
                 p {
                     margin: 0;
 
-                    @include font-style(12px, 16px, #5659FA, map.get($font-weights, medium), $poppins);
+                    @include font-style(12px, 16px, #5659FA, map.get($font-weights, regular), $poppins);
                 }
 
                 .title h2 {

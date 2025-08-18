@@ -618,7 +618,23 @@
               position: relative;
 
               input {
-                padding-left: 18px;
+                padding-left: 15px;
+
+                &::placeholder {
+                  color: #2E2A94;
+                  font-family: $poppins;
+                  font-size: 20px;
+                  font-weight: 500;
+                  line-height: 24px;
+                }
+              }
+
+              input[type="number"i] {
+                color: #2E2A94;
+                font-family: $poppins;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 24px;
               }
             }
 
@@ -633,7 +649,8 @@
               font-weight: 500;
 
               @include media(mobile) {
-                top: -2px;
+                top: -4px;
+                height: 100%;
               }
             }
           }
@@ -863,7 +880,7 @@
       .cal-container {
         max-width: 100%;
         width: 100%;
-        padding: 0px;
+        padding: 0;
 
         .search-bar-wrapper {
 
