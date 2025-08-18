@@ -29,8 +29,8 @@
       .selectedtext {
         @include font-style(12px,
           16px,
-          $primary-blue-1-900,
-          map.get($font-weights, regular),
+          $primary-blue,
+          map.get($font-weights, medium),
           $poppins);
         margin: 0;
         cursor: pointer;
@@ -40,9 +40,9 @@
 
         &::after {
           content: "";
-          background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
-          width: 12px;
-          height: 12px;
+          background: url("../../icons/down-arrow.svg") center/cover no-repeat;
+          min-width: 20px;
+          height: 20px;
           display: block;
         }
       }
@@ -271,7 +271,7 @@
       padding: 4px 0;
 
       .cagr-dropdown {
-        max-width: 46%;
+        max-width: max-content;
         width: 100%;
         position: relative;
         line-height: 0;
@@ -287,18 +287,19 @@
 
       .cagr-desc {
         // background: map.get($old-silver, 50);
-        padding: 4px 8px;
+        // padding: 4px 8px;
+
         line-height: 0;
         width: 100%;
 
         span {
-          @include font-style($size: 12px,
-            $line-height: 16px,
+          @include font-style($size: 11px,
+            $line-height: 15px,
             $color: $primary-blue,
             $weight: map.get($font-weights, regular),
             $family: $poppins);
 
-          padding: 8px 0;
+          // padding: 8px 0;
           display: block;
         }
       }
@@ -311,7 +312,7 @@
           @include font-style($size: 24px,
             $line-height: 32px,
             $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
+            $weight: map.get($font-weights, semibold),
             $family: $poppins);
 
           margin: 0;
@@ -351,12 +352,14 @@
       .cagr-select-wrapper {
         // @include flex-center($align: center, $justify: start);
         // width: 80px;
-        width: 115px;
+        // width: 117px;
+
+        width: max-content;
         position: relative;
 
-        @include media(desktop-sm) {
-          width: 80px;
-        }
+        // @include media(desktop-sm) {
+        //   width: 80px;
+        // }
 
         @media screen and (max-width: 900px) {
 
@@ -367,7 +370,7 @@
         }
 
         @include media(mobile) {
-          width: 115px;
+          // width: 125px;
 
           .dropdown-list {
             top: 18px;
@@ -410,7 +413,7 @@
         @include font-style($size: 14px,
           $line-height: 16px,
           $color: map.get($blue-1, b500),
-          $weight: map.get($font-weights, regular),
+          $weight: map.get($font-weights, medium),
           $family: $poppins);
 
         margin: 0;
@@ -637,8 +640,8 @@
       .selectedtext {
         @include font-style(12px,
           16px,
-          $primary-blue-1-900,
-          map.get($font-weights, regular),
+          $primary-blue,
+          map.get($font-weights, medium),
           $poppins);
         margin: 0;
         cursor: pointer;
@@ -648,9 +651,9 @@
 
         &::after {
           content: "";
-          background: url("../../icons/down-arrow-small.svg") center/cover no-repeat;
-          width: 12px;
-          height: 12px;
+          background: url("../../icons/down-arrow.svg") center/cover no-repeat;
+          min-width: 20px;
+          height: 20px;
           display: block;
         }
       }
@@ -789,6 +792,10 @@
 
             // min-height: 50px;
             min-height: 40px;
+
+            @include media(mobile){
+              min-height: unset;
+            }
           }
         }
       }
@@ -885,8 +892,8 @@
       min-height: 88px;
       height: 88px;
 
-      // padding: 24px 12px;
-      padding: 12px;
+      padding: 24px 12px;
+      // padding: 12px;
       // align-self: stretch;
       border-radius: 12px;
       border: 0.5px solid #e8e8e8;
@@ -934,12 +941,14 @@
         // @include flex-center($align: center, $justify: start);
         // gap: 4px;
         // width: 80px;
-        width: 115px;
+        // width: 117px;
+
+        width: max-content;
         position: relative;
 
-        @include media(desktop-sm) {
-          width: 80px;
-        }
+        // @include media(desktop-sm) {
+        //   width: 80px;
+        // }
 
         @media screen and (max-width: 900px) {
 
@@ -950,7 +959,7 @@
         }
 
         @include media(mobile) {
-          width: 115px;
+          // width: 125px;
 
           .dropdown-list {
             top: 18px;
@@ -994,17 +1003,18 @@
       .cagr-desc {
         // background: map.get($old-silver, 50);
         // padding: 4px 8px;
+
         line-height: 0;
         width: 100%;
 
         span {
-          @include font-style($size: 12px,
-            $line-height: 16px,
+          @include font-style($size: 11px,
+            $line-height: 15px,
             $color: $primary-blue,
             $weight: map.get($font-weights, regular),
             $family: $poppins);
 
-          padding: 8px 0;
+          // padding: 8px 0;
           display: block;
         }
       }
@@ -1091,7 +1101,7 @@
         @include font-style($size: 14px,
           $line-height: 16px,
           $color: map.get($blue-1, b500),
-          $weight: map.get($font-weights, regular),
+          $weight: map.get($font-weights, medium),
           $family: $poppins);
 
         margin: 0;
@@ -1243,7 +1253,7 @@
 }
 
 @include media(mobile) {
-  .section.tabs-container {
+  .section.fund-tab.tabs-container {
     padding: 40px 0;
 
     .default-content-wrapper h1 {
@@ -1311,15 +1321,17 @@
       .cagr-container {
         @include flex-center($align: center, $justify: space-between);
 
-        .cagr-dropdown {
-          max-width: 39.75%;
-        }
+        // .cagr-dropdown {
+        //   // max-width: 39.75%;
+
+        //   max-width: max-content;
+        // }
 
         .cagr-value h2 {
           @include font-style($size: 24px,
             $line-height: 32px,
             $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
+            $weight: map.get($font-weights, semibold),
             $family: $poppins);
         }
       }

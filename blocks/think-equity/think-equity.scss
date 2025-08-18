@@ -66,7 +66,7 @@
                   font-size: 16px;
                   line-height: 20px;
                   margin: 0;
-                  max-width: 31.83%;
+                  max-width: 32.36%;
                   width: 100%;
                 }
               }
@@ -85,8 +85,18 @@
 
                 @include media(mobile) {
                   text-wrap: unset;
-                  max-width: 59.61%;
+                  max-width: 61%;
                   width: 100%;
+                }
+              }
+            }
+
+            &.item-child-2{
+              .subitem-child-2{
+                max-width: 116px;
+
+                @include media(mobile){
+                  max-width: 61%;
                 }
               }
             }
@@ -221,7 +231,16 @@
       flex-basis: 55.6%;
 
       @include media(mobile) {
-        padding: 0 9px;
+        margin: 0 9px;
+        width: 322px;
+        height: 145px;
+
+        .subimagelist,
+        .subimagelist picture{
+          height: 145px;
+          line-height: 0;
+          display: block;
+        }
       }
     }
   }
