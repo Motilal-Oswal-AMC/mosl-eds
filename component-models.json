@@ -192,6 +192,10 @@
           {
             "name": "Product Label",
             "value": "product-label"
+          },
+          {
+            "name": "Homepage Growth",
+            "value": "homepage-growth"
           }
         ]
       },
