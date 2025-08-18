@@ -21,7 +21,8 @@
   }
 }
 .performance-graph-returning-container .performance-graph-wrapper .default-content-wrapper {
-  width: 1232px;
+  max-width: 1232px;
+  width: 100%;
 }
 @media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .default-content-wrapper {

@@ -27,7 +27,8 @@
 
 
         .default-content-wrapper {
-            width: 1232px;
+            max-width: 1232px;
+            width: 100%;
 
             @include media(mobile) {
                 width: 100%;
