@@ -48,6 +48,8 @@
   .section.future-building-container > div:first-of-type h4,
   .section.future-building-container > div:first-of-type h3:nth-child(2) {
     display: block;
+    margin: 0;
+    margin-bottom: 4px;
     font-size: 24px;
     line-height: 28px;
     color: #2e2a94;
@@ -304,17 +306,18 @@
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
-  text-underline-offset: 1.4px;
+  text-underline-offset: 2.8px;
   text-underline-position: from-font;
   border: none;
   padding: 0;
   background: transparent;
   margin: 0;
+  padding-left: 2px;
   font-size: 14px;
   line-height: 20px;
-  color: #2e2a94;
+  color: #4338F3;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 .section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 > ul > li:nth-child(5) {
   position: absolute;

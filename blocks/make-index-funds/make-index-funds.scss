@@ -43,6 +43,7 @@
 
             @include media(mobile) {
                 padding: 0 34px 4px;
+                
 
                 @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
             }
