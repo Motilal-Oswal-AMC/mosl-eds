@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: auto;
 }
 .performance-graph .fund-main .fund-filters .chart-filter-bar {
   display: flex;

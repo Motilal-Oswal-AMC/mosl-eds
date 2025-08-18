@@ -193,9 +193,22 @@
     align-self: stretch;
     margin: 40px 0;
 
+    @include media(mobile) {
+        padding: 0 16px;
+        border-radius: 8px;
+        background: #FFF;
+        box-shadow: 0 4px 12px 0 #0000000D;
+    }
+
+
     >div:first-child {
         margin: 0;
         padding: 0;
+        width: 100%;
+
+        @include media(mobile) {
+            margin-top: 40px;
+        }
 
         h1 {
             margin: 0;
@@ -211,7 +224,8 @@
 
     .risk-wrapper {
         display: flex;
-        height: 394px;
+
+        // height: 394px;
         padding: 16px;
         flex-direction: column-reverse;
         justify-content: center;
@@ -225,6 +239,13 @@
         background: #FFF;
         box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
 
+        @include media(mobile) {
+            padding: 0;
+            border-radius: none;
+            background: inherit;
+            box-shadow: unset;
+        }
+
         .risk-o-meter-wrapper.item2 {
             .risk-o-meter {
                 width: 100%;
@@ -235,6 +256,11 @@
                 justify-content: space-between;
                 align-items: center;
                 align-self: stretch;
+
+                @include media (mobile) {
+                    gap: 40px;
+                    margin-bottom: 32px;
+                }
 
                 .risk-meter-cont {
                     &.corner-1,
@@ -260,7 +286,7 @@
             align-items: flex-start;
             gap: 10px;
             align-self: stretch;
-            
+
             // padding-top: 16px;
 
             h3 {
@@ -273,7 +299,6 @@
             }
 
         }
-
 
     }
 }
