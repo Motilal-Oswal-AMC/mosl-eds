@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .think-equity {
   &-container.section {
@@ -12,6 +12,10 @@
 
     @include media(tab) {
       padding: 40px 16px;
+    }
+
+    .think-equity-wrapper {
+      padding: 0;
     }
 
     .columns {
@@ -75,13 +79,11 @@
                 margin: 0;
                 text-wrap: balance;
 
-                @include font-style(
-                  14px,
+                @include font-style(14px,
                   20px,
                   $text-body-2,
                   map.get($font-weights, regular),
-                  $poppins
-                );
+                  $poppins);
 
                 @include media(mobile) {
                   text-wrap: unset;
@@ -194,7 +196,7 @@
     @include media(mobile) {
       justify-content: space-around;
       flex-direction: column;
-      gap: 27px;
+      gap: 24px;
       margin-bottom: 40px;
     }
 
