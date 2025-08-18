@@ -2,8 +2,9 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, table, tr, th,
+  button, a, table, tr, th, div, input, ul, li,
 } from '../../scripts/dom-helpers.js';
+import dataMapMoObj from '../../scripts/constant.js';
 
 export default async function decorate(block) {
   const tablist = document.createElement('div');
@@ -371,4 +372,36 @@ export default async function decorate(block) {
   });
 
   /// //////////////////////first Tab ////////////////////////////
+
+  if (block.closest('.page-faq-section')) {
+    dataMapMoObj.CLASS_PREFIXES = [];
+    dataMapMoObj.CLASS_PREFIXES = ['itemfaq', 'subitemfaq'];
+    dataMapMoObj.addIndexed(block.closest('.page-faq-section'));
+
+    const divtablist = block.querySelector('.tabs-list');
+    const divwrapper = document.createElement('div');
+    divwrapper.classList.add('tablist-search');
+
+    const searchContainer = div(
+      { class: "search-container" },
+      div(
+        { class: "search-wrapper" },
+        input({
+          class: "search-field",
+          placeholder: "Search here",
+          "aria-label": "Search here",
+        }),
+      ),
+      ul(
+        { class: "dropdownlist" },
+        li({ class: "singleval" }, "asdfg"),
+        li({ class: "singleval" }, "zxcv"),
+        li({ class: "singleval" }, "zxcv")
+      ),
+    );
+
+    divwrapper.append(divtablist);
+    divwrapper.append(searchContainer);
+    block.prepend(divwrapper);
+  }
 }

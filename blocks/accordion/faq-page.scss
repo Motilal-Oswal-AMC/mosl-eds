@@ -1,0 +1,384 @@
+/*   alpha-value-notation */
+
+/*   media-feature-range-notation */
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.section.page-faq-section {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 0;
+
+  @include media(desktop-sm) {
+    padding: 0 16px;
+  }
+
+  @include media(mobile) {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .itemfaq1 {
+    padding: 0 32px 0 0;
+
+    @include media(mobile) {
+      padding: 0 16px;
+    }
+
+    .subitemfaq1 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+
+      @include font-style(
+        36px,
+        44px,
+        $primary-blue,
+        map.get($font-weights, bold),
+        $butlerpro
+      );
+
+      @include media(mobile) {
+        gap: 8px;
+        font-size: 24px;
+        line-height: 28px;
+        text-wrap: balance;
+      }
+
+      .icon {
+        max-width: 64px;
+        width: 100%;
+        height: 64px;
+      }
+    }
+
+    .subitemfaq2 {
+      margin: 8px 0 0;
+
+      @include font-style(
+        16px,
+        24px,
+        $text-body-2,
+        map.get($font-weights, regular),
+        $poppins
+      );
+
+      @include media(mobile) {
+        margin: 24px 0 0;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .itemfaq2 {
+    padding: 24px 0 0;
+    margin: 0;
+
+    .subitemfaq1 {
+      .tablist-search {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        @include media(mobile) {
+          flex-direction: column-reverse;
+        }
+
+        .tabs-list {
+          margin: 2px 0;
+          max-width: calc(100% - 32.468%);
+          width: 100%;
+          border-bottom: 1px solid map.get($old-silver, 100);
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          @include media(mobile) {
+            max-width: 100%;
+            margin: 0;
+            margin-left: 32px;
+            border-bottom: 1px solid #b6bcc7;
+          }
+
+          .tabs-tab {
+            padding: 10px 35px;
+            border: none;
+            background-color: unset;
+
+            @include font-style(
+              14px,
+              20px,
+              $text-body-2,
+              map.get($font-weights, regular),
+              $poppins
+            );
+
+            @include media(mobile) {
+              padding: 10px 12px;
+            }
+
+            &[aria-selected="true"] {
+              padding: 12px 35px;
+              color: $primary-blue;
+              font-weight: 500;
+              line-height: 16px;
+              border-bottom: 2px solid $primary-blue;
+
+              @include media(mobile) {
+                padding: 12px;
+                border-bottom: 2px solid $text-header;
+              }
+            }
+          }
+        }
+
+        .search-container {
+          position: relative;
+          max-width: 32.468%;
+          width: 100%;
+
+          @include media(mobile) {
+            max-width: 100%;
+            padding: 0 16px;
+          }
+
+          .search-wrapper {
+            border-radius: 6px;
+            border: 1px solid #9e9e9e;
+            padding: 12px 8px;
+            line-height: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            &::before {
+              content: "";
+              background-image: url("../../icons/search-icon-black.svg");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              width: 20px;
+              height: 20px;
+              display: block;
+            }
+
+            .search-field {
+              width: 100%;
+              border: none;
+              outline: none;
+              background-color: transparent;
+
+              @include font-style(
+                14px,
+                20px,
+                $text-body-2,
+                map.get($font-weights, regular),
+                $poppins
+              );
+            }
+          }
+
+          .dropdownlist {
+            // display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            max-height: 200px;
+            margin: 6px 0 0;
+            overflow: auto;
+            box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+            background-color: $primary-white;
+            border-radius: 6px;
+            border: 1px solid $neutrals-200;
+            list-style: none;
+
+            &::-webkit-scrollbar {
+              width: 3px;
+            }
+
+            &::-webkit-scrollbar-track {
+              width: 3px;
+              background-color: $primary-white;
+              border-radius: 0 6px 6px 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              width: 3px;
+              background-color: $primary-blue;
+            }
+
+            &.dropdown-active {
+              display: block;
+            }
+
+            @include media(mobile) {
+              width: auto;
+              left: 16px;
+              right: 16px;
+            }
+
+            .singleval {
+              @include font-style(
+                12px,
+                16px,
+                $neutrals-black,
+                map.get($font-weights, regular),
+                $poppins
+              );
+
+              padding: 12px;
+              border-bottom: 1px solid $neutrals-200;
+              cursor: pointer;
+
+              &:last-of-type {
+                border: none;
+              }
+            }
+          }
+        }
+      }
+
+      .tabs-panel {
+        padding: 24px 0 0;
+        border: none;
+        overflow: unset;
+
+        @include media(mobile) {
+          padding: 32px 16px 0;
+        }
+
+        .button-container {
+          margin: 0;
+
+          .accordion-container {
+            .accordion-wrapper {
+              width: 100%;
+
+              .accordion {
+                display: flex;
+                flex-direction: column;
+
+                .accordion-item {
+                  border: none;
+                  padding: 24px 20px;
+                  -webkit-tap-highlight-color: transparent;
+
+                  @include media(mobile) {
+                    padding: 16px 12px;
+                  }
+
+                  .accordion-item-label {
+                    background-color: transparent;
+                    padding: 0;
+                    overflow: unset;
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    @include media(mobile) {
+                      align-items: start;
+                      gap: 37px;
+                    }
+
+                    &::after {
+                      content: "";
+                      background-image: url("../../icons/plus-blue.svg");
+                      background-position: center;
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                      min-width: 24px;
+                      height: 24px;
+                      display: block;
+                      border: none;
+                      position: unset;
+                      transform: unset;
+                    }
+
+                    p {
+                      margin: 0;
+                      width: 100%;
+
+                      @include font-style(
+                        20px,
+                        24px,
+                        $primary-blue,
+                        map.get($font-weights, medium),
+                        $poppins
+                      );
+
+                      @include media(mobile) {
+                        font-size: 16px;
+                        line-height: 20px;
+                      }
+                    }
+                  }
+
+                  .accordion-item-body {
+                    background-color: transparent;
+                    display: none;
+                    padding: 16px 0 0;
+
+                    @include media(mobile) {
+                      padding: 8px 0 0;
+                    }
+
+                    p {
+                      @include font-style(
+                        16px,
+                        24px,
+                        $primary-white,
+                        map.get($font-weights, regular),
+                        $poppins
+                      );
+
+                      margin: 0;
+
+                      @include media(mobile) {
+                        font-size: 12px;
+                        line-height: 16px;
+                      }
+                    }
+                  }
+
+                  &[open] {
+                    border-radius: map.get($radius, r8);
+                    background-color: map.get($blue-1, b900);
+                    padding: 20px;
+
+                    @include media(mobile) {
+                      padding: 16px 12px;
+                    }
+
+                    .accordion-item-label {
+                      @include media(mobile){
+                        gap: 16px;
+                      }
+
+                      &::after {
+                        background-image: url("../../icons/mins-white.svg");
+                      }
+
+                      p {
+                        color: $primary-white;
+                      }
+                    }
+
+                    .accordion-item-body {
+                      display: block;
+                      border: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

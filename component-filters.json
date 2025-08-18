@@ -40,7 +40,8 @@
       "risk-o-meter",
       "risk-meter",
       "performance-graph",
-      "our-funds-fdp"
+      "our-funds-fdp",
+      "our-funds-block"
     ]
   },
   {
@@ -128,6 +129,14 @@
     "id": "risk-o-meter",
     "components": [
       "risk-o-meter-item"
+    ]
+  },
+  {
+    "id": "our-funds-block",
+    "components": [
+      "our-fund-block-item",
+      "our-fund-left-item",
+      "our-fund-right-item"
     ]
   }
 ]
