@@ -246,7 +246,9 @@
             box-shadow: unset;
         }
 
-        .risk-o-meter-wrapper.item2 {
+        .risk-o-meter-wrapper.risk2 {
+            width: 100%;
+            
             .risk-o-meter {
                 width: 100%;
                 display: flex;
@@ -280,7 +282,7 @@
             }
         }
 
-        .item3 {
+        .risk3 {
             display: flex;
             flex-direction: column;
             align-items: flex-start;

@@ -245,7 +245,10 @@
     box-shadow: unset;
   }
 }
-.section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.item2 .risk-o-meter {
+.section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 {
+  width: 100%;
+}
+.section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 .risk-o-meter {
   width: 100%;
   display: flex;
   padding: 0 40px;
@@ -256,12 +259,12 @@
   align-self: stretch;
 }
 @media (max-width: 768px) {
-  .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.item2 .risk-o-meter {
+  .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 .risk-o-meter {
     gap: 40px;
     margin-bottom: 32px;
   }
 }
-.section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.item2 .risk-o-meter .risk-meter-cont.corner-1 .column-1 p, .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.item2 .risk-o-meter .risk-meter-cont.corner-2 .column-1 p {
+.section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 .risk-o-meter .risk-meter-cont.corner-1 .column-1 p, .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 .risk-o-meter .risk-meter-cont.corner-2 .column-1 p {
   color: #242177;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -269,14 +272,14 @@
   font-weight: 500;
   line-height: 24px;
 }
-.section.product-label.risk-o-meter-container .risk-wrapper .item3 {
+.section.product-label.risk-o-meter-container .risk-wrapper .risk3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
 }
-.section.product-label.risk-o-meter-container .risk-wrapper .item3 h3 {
+.section.product-label.risk-o-meter-container .risk-wrapper .risk3 h3 {
   margin: 0;
   padding: 0;
   font-size: 16px;

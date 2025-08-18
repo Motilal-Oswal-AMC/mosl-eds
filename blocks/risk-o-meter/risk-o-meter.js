@@ -14,13 +14,13 @@ export default function decorate(block) {
   });
 
   dataMapMoObj.CLASS_PREFIXES = [];
-  dataMapMoObj.CLASS_PREFIXES = ['item'];
+  dataMapMoObj.CLASS_PREFIXES = ['risk'];
   dataMapMoObj.addIndexed(block.closest('.product-label'));
 
-  const items = block.closest('.product-label');
+  const risks = block.closest('.product-label');
   const divwrapper = document.createElement('div');
   divwrapper.classList.add('risk-wrapper');
-  divwrapper.append(items.querySelector('.item2'));
-  divwrapper.append(items.querySelector('.item3'));
-  items.append(divwrapper);
+  divwrapper.append(risks.querySelector('.risk2'));
+  divwrapper.append(risks.querySelector('.risk3'));
+  risks.append(divwrapper);
 }
