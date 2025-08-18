@@ -631,6 +631,10 @@
               font-family: $poppins;
               font-size: 20px;
               font-weight: 500;
+
+              @include media(mobile) {
+                top: -2px;
+              }
             }
           }
 
@@ -756,7 +760,7 @@
 // }
 
 // v2
-.fdp-calculator {
+.section.fdp-calculator {
   gap: 24px;
   align-self: stretch;
   box-shadow: $box-shadow-soft;
@@ -764,6 +768,7 @@
 
   @include media(mobile) {
     padding: 40px 16px;
+    background-color: #fff;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
@@ -799,7 +804,6 @@
       }
 
       .hero-text {
-
         h3,
         h4 {
           margin: 0;
@@ -847,12 +851,19 @@
         background-color: #fff;
         border-radius: 8px;
         width: 100%;
+
+        @include media(mobile) {
+          box-shadow: none;
+          padding: 24px 0;
+        }
+
       }
 
       /* stylelint-disable-next-line no-descending-specificity */
       .cal-container {
         max-width: 100%;
         width: 100%;
+        padding: 0px;
 
         .search-bar-wrapper {
 

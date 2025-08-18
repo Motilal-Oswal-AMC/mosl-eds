@@ -3,11 +3,6 @@
 .section.our-funds-fdp-container {
   padding: 5rem 0;
 }
-@media (width <= 768px) {
-  .section.our-funds-fdp-container {
-    padding: 2.5rem 1rem;
-  }
-}
 .section.our-funds-fdp-container .default-content-wrapper h4 {
   font-size: 2rem;
   line-height: 2.5rem;
@@ -143,8 +138,7 @@
   text-decoration-style: solid;
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
   padding: 0 5rem;
 }
 @media (width <= 768px) {

@@ -59,7 +59,7 @@
       max-width: 600px;
 
       @include font-style(16px,
-        24px,
+        20px,
         $primary-blue,
         map.get($font-weights, regular),
         $poppins);
@@ -113,6 +113,7 @@
                 rgb(0 0 0 / 30%) 100%),
               lightgray 50% / cover no-repeat;
             z-index: 2;
+            height: 220px;
 
             @include media(mobile) {
               height: 141px;
@@ -197,7 +198,7 @@
                 display: inline-flex;
                 padding: 0 12px 0 8px;
                 align-items: center;
-                gap: 4px;
+                gap: 8px;
                 border-radius: map.get($radius, r40);
                 border: 0.5px solid #585ef9;
                 color: #2e2a94;
@@ -266,9 +267,13 @@
                   border: none;
                   margin: 0;
                   padding: 0;
+                  margin-bottom: 8px;
                   overflow: hidden;
                   border-radius: unset;
                   min-height: unset;
+                  word-break: auto-phrase;
+                  white-space: unset;
+                  text-align: left;
 
                   @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $poppins);
 
@@ -317,7 +322,7 @@
                   text-decoration-style: solid;
                   text-decoration-skip-ink: auto;
                   text-decoration-thickness: auto;
-                  text-underline-offset: 1.9px;
+                  text-underline-offset: 1.4px;
                   text-underline-position: from-font;
                   border: none;
                   padding: 0;
@@ -466,7 +471,7 @@
         justify-content: center;
         align-items: center;
         gap: 4px;
-        border-radius: map.get($radius, r4);
+        border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
         height: 44px;
 
@@ -490,9 +495,15 @@
   }
 }
 
-.section.learning-fdp {
+.section.learning-fdp.future-building-container {
   @include media(mobile) {
     padding: 40px 0 40px 16px;
+  }
+
+  .library-btn1{
+    h4{
+      display: block;
+    }
   }
 
   .library-btn2 {

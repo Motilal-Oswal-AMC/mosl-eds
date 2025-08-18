@@ -5,12 +5,10 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-.fund-card-slider-container {
+.section.fund-card-slider-container {
   position: relative;
 
-  @include media(mobile) {
-    padding: 40px 16px 64px 16px;
-  }
+ 
 
   .block {
     margin: 0;
@@ -43,6 +41,10 @@
     .card-slider-main {
       position: static;
 
+       @include media(mobile) {
+    padding: 0px 0px 64px 0px;
+  }
+
       .btn-wrapper {
         max-width: 92px;
         width: 100%;
@@ -59,7 +61,7 @@
           top:unset;
           right:unset;
           bottom: 0;
-          left: 0;
+          left: 9px;
         }
 
         div {
