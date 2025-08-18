@@ -15,7 +15,10 @@ export default function decorate(block) {
 
   const schemeNames = dataCfObj.map((fund) => fund.schDetail.schemeName);
 
-  let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
+  // let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
+  let planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  let [planFlow, schcode] = planCode.split(':');
+  const selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
   let returnCAGR = 0;
   let mode = 'sip';
   let planType = 'Direct';
@@ -37,86 +40,86 @@ export default function decorate(block) {
         placeholder: 'Search a fund',
         id: 'searchFundInput',
         role: 'combobox',
-        'aria-label':'Search for products', 
-        'aria-autocomplete':'list',
+        'aria-label': 'Search for products',
+        'aria-autocomplete': 'list',
         'aria-expanded': 'false',
       }),
       div({ class: 'search-results-wrapper' }, ul({ id: 'searchResults', role: 'listbox' })),
     ),
 
-    div({class : 'spi-wrapper'}, 
-    // 🔄 SIP & Lumpsum toggle
-    div(
-      { class: 'scheme-btns-wrapper' },
-      button({ class: 'sip-btn active' }, col1[2].textContent.trim()),
-      button({ class: 'lumpsum-btn' }, col1[3].textContent.trim()),
-    ),
-
-    // 🔀 Direct/Regular toggle & plan options
-    div(
-      { class: 'plan-options-wrapper' },
+    div({ class: 'spi-wrapper' },
+      // 🔄 SIP & Lumpsum toggle
       div(
-        { class: 'plan-type-toggle' },
-        span({ class: 'toggle-label active' }, 'Direct'),
-        label({ class: 'toggle-switch' }, input({ type: 'checkbox', id: 'planToggle' }), span({ class: 'slider' })),
-        span({ class: 'toggle-label' }, 'Regular'),
+        { class: 'scheme-btns-wrapper' },
+        button({ class: 'sip-btn active' }, col1[2].textContent.trim()),
+        button({ class: 'lumpsum-btn' }, col1[3].textContent.trim()),
       ),
-      div(
-        { class: 'plan-option-select custom-select-plan' },
-        div({ class: 'select-selected-plan' }, 'Growth'),
-        div({ class: 'select-options-plan' }),
-        input({ type: 'hidden', id: 'planOption', value: 'Growth' }),
-      ),
-    ),
 
-    // 💰 Amount input & tenure dropdown
-    div(
-      { class: 'investment-wrapper' },
+      // 🔀 Direct/Regular toggle & plan options
       div(
-        { class: 'sip-wrapper' },
-        label({ class: 'labelforsip' }, col2[0].textContent.trim()),
-        label({ class: 'labelforlumsum', style: 'display:none' }, col2[1].textContent.trim()),
+        { class: 'plan-options-wrapper' },
         div(
-          { class: 'input-with-symbol' },
-          input({
-            type: 'number',
-            value: col2[2].textContent.trim(),
-            id: 'investmentAmount',
-            placeholder: 'Enter amount',
-          }),
+          { class: 'plan-type-toggle' },
+          span({ class: 'toggle-label active' }, 'Direct'),
+          label({ class: 'toggle-switch' }, input({ type: 'checkbox', id: 'planToggle' }), span({ class: 'slider' })),
+          span({ class: 'toggle-label' }, 'Regular'),
+        ),
+        div(
+          { class: 'plan-option-select custom-select-plan' },
+          div({ class: 'select-selected-plan' }, 'Growth'),
+          div({ class: 'select-options-plan' }),
+          input({ type: 'hidden', id: 'planOption', value: 'Growth' }),
         ),
       ),
-      div(
-        { class: 'tenure-wrapper custom-select' },
-        label(col2[3].textContent.trim()),
-        div({ class: 'select-selected' }, `${col3[0].textContent.trim()} Years`),
-        div({ class: 'select-options', role: 'listbox' }),
-        input({ type: 'hidden', id: 'investmentTenure', value: col3[0].textContent.trim() }),
-      ),
-    ),
-  ),
 
-    div({class : 'incal-wrapper'}, 
-    // 📈 Invested amount & calculation
-    div(
-      { class: 'invested-amount' },
-      label(col3[1].textContent.trim()),
-      span({ class: 'invested-amount-value' }, col3[2].textContent.trim()),
+      // 💰 Amount input & tenure dropdown
+      div(
+        { class: 'investment-wrapper' },
+        div(
+          { class: 'sip-wrapper' },
+          label({ class: 'labelforsip' }, col2[0].textContent.trim()),
+          label({ class: 'labelforlumsum', style: 'display:none' }, col2[1].textContent.trim()),
+          div(
+            { class: 'input-with-symbol' },
+            input({
+              type: 'number',
+              value: col2[2].textContent.trim(),
+              id: 'investmentAmount',
+              placeholder: 'Enter amount',
+            }),
+          ),
+        ),
+        div(
+          { class: 'tenure-wrapper custom-select' },
+          label(col2[3].textContent.trim()),
+          div({ class: 'select-selected' }, `${col3[0].textContent.trim()} Years`),
+          div({ class: 'select-options', role: 'listbox' }),
+          input({ type: 'hidden', id: 'investmentTenure', value: col3[0].textContent.trim() }),
+        ),
+      ),
     ),
-    div(
-      { class: 'cal-discription' },
+
+    div({ class: 'incal-wrapper' },
+      // 📈 Invested amount & calculation
       div(
-        { class: 'current-value-wrapper' },
-        label(col3[3].textContent.trim()),
-        span({ class: 'current-value' }, '0'),
+        { class: 'invested-amount' },
+        label(col3[1].textContent.trim()),
+        span({ class: 'invested-amount-value' }, col3[2].textContent.trim()),
       ),
       div(
-        { class: 'return-cagr-wrapper' },
-        label(col4[1].textContent.trim()),
-        span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}  %`),
-      ),
-      div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
-    )),
+        { class: 'cal-discription' },
+        div(
+          { class: 'current-value-wrapper' },
+          label(col3[3].textContent.trim()),
+          span({ class: 'current-value' }, '0'),
+        ),
+        div(
+          { class: 'return-cagr-wrapper' },
+          label(col4[1].textContent.trim()),
+          span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}  %`),
+        ),
+        div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
+      )),
   );
 
   // 🔗 View other calculators
