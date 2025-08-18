@@ -410,6 +410,7 @@
         max-width: 45.46%;
         width: 100%;
         display: block;
+        cursor: pointer;
         @include font-style($size: 14px,
           $line-height: 16px,
           $color: map.get($blue-1, b500),
@@ -1098,6 +1099,7 @@
         max-width: 45.46%;
         width: 100%;
         display: block;
+        cursor: pointer;
         @include font-style($size: 14px,
           $line-height: 16px,
           $color: map.get($blue-1, b500),
