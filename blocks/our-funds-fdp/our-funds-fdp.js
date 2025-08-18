@@ -7,9 +7,15 @@ import {
 } from '../../scripts/dom-helpers.js';
 
 import objData from '../../scripts/dataCfObj.js';
+import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
-  const fundManagers = objData[0].fundManager;
+  let fundManagers;
+  if (dataMapMoObj.fundManagerDetails.length !== 0) {
+    fundManagers = dataMapMoObj.fundManagerDetails;
+  } else {
+    fundManagers = objData[0].fundManager;
+  }
 
   const fundTime = block.querySelectorAll('p')[0].textContent.trim();
   const aumText = block.querySelectorAll('p')[1].textContent.trim();

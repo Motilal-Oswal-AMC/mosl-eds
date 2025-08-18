@@ -17,15 +17,16 @@ function toTitleCase(str) {
 }
 
 export default function decorate(block) {
-  dataMapMoObj.CLASS_PREFIXES = [];
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const [planFlow, planslabel] = planCode.split(':');
+  const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
   dataMapMoObj.CLASS_PREFIXES = ['compound-item', 'compound-sub-item', 'compound-inner-item'];
   dataMapMoObj.addIndexed(block);
 
-  dataMapMoObj.CLASS_PREFIXES = [];
   dataMapMoObj.CLASS_PREFIXES = ['item'];
   dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
 
-  const cfObj = dataCfObj.slice(0, 1);
+  const cfObj = planObj;
   const fundsTaggingSection = cfObj[0].fundsTaggingSection.slice(0, 2);
   const finPlangrp = [];
   const tempReturns = [];
@@ -41,7 +42,7 @@ export default function decorate(block) {
   });
 
   const DirectPlanlistArr = cfObj[0].planList.filter(
-    (el) => el.planName === 'Direct' && finPlangrp.includes(el.groupedCode),
+    (el) => el.planName === planFlow && finPlangrp.includes(el.groupedCode),
   );
   fundsTaggingSection.push(DirectPlanlistArr[0].optionName);
   const navlistArr = cfObj[0].nav.filter(
@@ -49,8 +50,16 @@ export default function decorate(block) {
   );
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
   const mop = `MO_${cfObj[0].schcode}.svg`;
-  const returnYear = dataMapMoObj.selectreturns === '' ? tempReturns[0] : dataMapMoObj.selectreturns;
-
+  const [firstReturnYear] = tempReturns;
+  const selectedReturn = dataMapMoObj.selectreturns;
+  const returnYear = tempReturns.includes(selectedReturn)
+    ? selectedReturn
+    : firstReturnYear;
+  dataMapMoObj.gropcodevalue = DirectPlanlistArr[0].groupedCode;
+  dataMapMoObj.fundManagerDetails = cfObj[0].fundManager;
+  const navdatecss = navlistArr[0].nav_date === undefined ? 'none' : 'block';
+  const navnotpresent = navlistArr[0].nav_date === undefined ? 'block' : 'none';
+  const navlistArrDate = navlistArr[0]?.nav_date?.replaceAll('-', ' ') ?? '';
   function planGrpEvent(param) {
     const tempReturnsec = [];
     const returnValue = [];
@@ -134,7 +143,7 @@ export default function decorate(block) {
 
       const navValue = middlediv.querySelector('.value-nav');
       navValue.innerHTML = '';
-      navValue.append(navlistarray[0].latnav);
+      navValue.append(Number(navlistarray[0].latnav).toFixed(2));
       navValue.append(span({ class: 'percent' }, '%'));
     } else {
       const navdiv = middlediv.querySelector('.nav-return-grp .nav-label');
@@ -143,7 +152,7 @@ export default function decorate(block) {
 
       const navValue = middlediv.querySelector('.value-nav');
       navValue.innerHTML = '';
-      navValue.append(navlistarray[0].latnav);
+      navValue.append(Number(navlistarray[0].latnav).toFixed(2));
       navValue.append(span({ class: 'percent' }, '%'));
     }
   }
@@ -237,7 +246,7 @@ export default function decorate(block) {
             {
               class: 'discription',
             },
-            'An open-ended fund investing in passive funds.',
+            cfObj[0].typeOfScheme,
           ),
         ),
         div(
@@ -387,14 +396,22 @@ export default function decorate(block) {
             p(
               {
                 class: 'nav-label',
+                style: `display:${navdatecss}`,
               },
               'NAV as on ',
               span(
                 {
                   class: 'nav-date',
                 },
-                navlistArr[0].nav_date.replaceAll('-', ' '),
+                navlistArrDate,
               ),
+            ),
+            p(
+              {
+                class: 'nav-label',
+                style: `display:${navnotpresent}`,
+              },
+              'NAV',
             ),
             div(
               {
@@ -404,7 +421,7 @@ export default function decorate(block) {
                 {
                   class: 'value-nav',
                 },
-                navlistArr[0].latnav,
+                Number(navlistArr[0].latnav).toFixed(2),
                 span({
                   class: 'percent',
                 }, '%'),
