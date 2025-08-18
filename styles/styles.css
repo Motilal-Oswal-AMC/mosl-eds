@@ -478,6 +478,6 @@ footer .footer[data-block-status="loaded"] {
 
 @media (width <=900px) {
   .section .item2 .section {
-    padding: 0 16px;
+    /* padding: 0 16px; */
   }
 }
