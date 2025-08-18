@@ -52,11 +52,12 @@ export default function decorate(block) {
 
   // Frequency options (mirror your JSON)
   const brandName = 'Motilal Oswal';
-  const logoSrc = '../../icons/Group.svg';
+  // const logoSrc = '../../icons/Group.svg';
+  const mop = `MO_${schcodeFromStorage}.svg`;
+  const logoSrc = `../../icons/iconfund/${mop}`
   const calendarIconSrc = '../../icons/calendar.svg'; // Replace with your real calendar icon path
   const infotoolsrc = '../../icons/infotooltip.svg';
   const closesrc = '../../icons/cross.svg';
-
   const frequencyOptions = ['Annual', 'Daily', 'Fortnightly', 'Monthly', 'Quarterly', 'Weekly'];
   const endDateOptions = ['End Date', 'Until I cancel', 'Select Date'];
 
