@@ -111,25 +111,31 @@ export default async function decorate(block) {
 
         if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-trending-funds') {
           dataCf = dataCfObj.slice(1, 7);
+          dataMapMoObj.selectviewFunds = 'trendingFund';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-international-equity') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:international-equity') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
+          dataMapMoObj.selectviewFunds = 'international-equity';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-hybrid-balanced') { // tabpanel-index
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(1, 5);
+          dataMapMoObj.selectviewFunds = 'hybrid-&-balanced';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-index') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:index-funds') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(1, 5);
+          dataMapMoObj.selectviewFunds = 'index-funds';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-etfs') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:etf') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(1, 5);
+          dataMapMoObj.selectviewFunds = 'etf';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-others') {
           dataCf = dataCfObj.map((elem) => (elem.sebiSubCategory === 'Other ETF' ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(1, 5);
+          dataMapMoObj.selectviewFunds = 'OtherFund';
         }
         block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).innerHTML = '';
         dataCf.map((knowfunds) => block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).append(fundCardblock(knowfunds)));
@@ -144,7 +150,16 @@ export default async function decorate(block) {
       button(
         { class: 'btndesk' },
         a(
-          { href: block.closest('.section').querySelector('.button-container a').getAttribute('href') },
+          {
+            class: 'bthref',
+            linkattr: block.closest('.section').querySelector('.button-container a').getAttribute('href'),
+            onclick:() => {
+              const closer = block.closest('.section');
+              const pathname = closer.querySelector('.bthref').getAttribute('linkattr');
+              localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
+              window.location.href = `${window.location.origin}${pathname}`;
+            },
+          },
           block.closest('.section').querySelector('.button-container a').textContent.trim(),
         ),
       ),
