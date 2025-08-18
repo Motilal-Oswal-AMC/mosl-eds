@@ -477,7 +477,27 @@ export default function decorate(block) {
 
   dataMapMoObj.selectreturns = '';
   dataMapMoObj.data = dataFilterfun(dataCfObj);
-  dataMapMoObj.funddata = dataCfObj.slice(0, 11);
+  let checkboxSel = '';
+  let funddata;
+  if (localStorage.getItem('viewmark')) {
+    checkboxSel = localStorage.getItem('viewmark');
+    dataMapMoObj.data.fundCategory.forEach((el) => {
+      if (el[checkboxSel]) {
+        funddata = el[checkboxSel];
+      }
+    });
+    dataMapMoObj.data.fundType.forEach((el) => {
+      if (el[checkboxSel]) {
+        funddata = el[checkboxSel];
+      }
+    });
+    if (funddata !== undefined) {
+      dataMapMoObj.funddata = dataCfObj.filter((el) => funddata.includes(el.schcode));
+    }
+  }
+  if (funddata === undefined) {
+    dataMapMoObj.funddata = dataCfObj; //.slice(0, 11);;
+  }
   const divfund = div(
     {
       class: 'blockwrapper',
@@ -784,6 +804,7 @@ export default function decorate(block) {
                         type: 'checkbox',
                         id: `index${index + 1}`,
                         dataattr: element[Object.keys(element)[0]].join('-'),
+                        datakey: Object.keys(element)[0],
                         onclick: (event) => {
                           // const fundScheme = event.target
                           //   .getAttribute('dataattr')
@@ -860,6 +881,7 @@ export default function decorate(block) {
                     type: 'checkbox',
                     id: `fundtype${index + 1}`,
                     dataattr: element[Object.keys(element)[0]].join('-'),
+                    datakey: Object.keys(element)[0],
                     onclick: (event) => {
                       // checkfilter(block);
                       if (window.innerWidth < 786) {
@@ -1562,5 +1584,11 @@ export default function decorate(block) {
       dataMapMoObj.selectreturnstemp = event.target.nextSibling.textContent.toUpperCase();
       // viewFunction(block);
     });
+  });
+
+  Array.from(block.querySelectorAll('.filter-list-wrapper input')).forEach((el) => {
+    if (el.getAttribute('datakey') !== null && checkboxSel === el.getAttribute('datakey')) {
+      el.checked = true;
+    }
   });
 }

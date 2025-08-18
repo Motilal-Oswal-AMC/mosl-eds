@@ -80,7 +80,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
     const divwrappertwo = document.createElement('div');
     divwrappertwo.classList.add('risk-home-two');
     const linktwo = document.createElement('a');
-    linktwo.href = 'https://www.motilaloswalmf.com/mutual-funds';
+    linktwo.setAttribute('schemesh', `Direct:${cardData.schcode}`);
     const svfiontwo = iconsTemplate.children[1].querySelector('img');
     linktwo.append(svfiontwo);
     divwrappertwo.append(linktwo);
@@ -193,7 +193,22 @@ export default function decorate(block) {
   // 3. Set up the block with the static (desktop) view first
   block.innerHTML = '';
   block.append(...cardElements);
+  block.querySelectorAll('.risk-home-two a').forEach((el) => {
+    el.addEventListener('click', (event) => {
+      const closer = event.target.closest('.risk-home-two');
+      const plancode = closer.querySelector('a').getAttribute('schemesh');
+      localStorage.setItem('planCode', plancode);
+      window.location.href = `${window.location.origin}/motilalfigma/funds-details-page`;
+    });
+  });
 
+  const btnEvent = Array.from(block.closest('.make-index-funds-container').children).at(-1);
+  const pathname = btnEvent.querySelector('a').getAttribute('href');
+  btnEvent.querySelector('a').addEventListener('click', () => {
+    dataMapMoObj.selectviewFunds = 'index-funds';
+    localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
+    window.location.href = `${window.location.origin}${pathname}`;
+  });
   // Apply the 'promoted' style to the middle card for the static desktop view
   if (block.children.length > 1) {
     block.children[1].classList.add('card-wrap--promoted');
