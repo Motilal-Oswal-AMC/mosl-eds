@@ -556,4 +556,15 @@ export default function decorate(block) {
       });
     });
   });
+
+  document.addEventListener('click', (event) => {
+    const dropdownmidle = block.querySelector('.dropdownmidle');
+    const dropdown = block.querySelector('.dropdown');
+    if (!dropdownmidle.contains(event.target)) {
+      dropdownmidle.querySelector('.dropdownlist').classList.remove('dropdown-active');
+    }
+    if (!dropdown.contains(event.target)) {
+      dropdown.querySelector('.dropdownlist').classList.remove('dropdown-active');
+    }
+  });
 }
