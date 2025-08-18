@@ -528,14 +528,19 @@ main{
 
   .item2 {
     margin: 0;
-    max-width: 816px;
+    max-width: 66.234%;
     width: 100%;
     padding: 0;
+  
+    @include media(tab){
+      padding: 0 16px;
+    }
 
-    // @media (max-width: 768px) {
-    //   padding-left: 16px;
-    //   padding-right: 16px;
-    // }
+    @media (max-width: 768px) {
+      // padding-left: 16px;
+      // padding-right: 16px;
+      max-width: 100%;
+    }
 
     /* ul for second part */
 
