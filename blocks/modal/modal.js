@@ -76,7 +76,7 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
   // **IMPORTANT**: Replace '.your-card-class' with the actual class of your fund card!
   const schcodeactive = clickedElement.parentElement.parentElement.parentElement.querySelector('.star').attributes.schcode.value;
   localStorage.setItem('schcodeactive', schcodeactive);
-  const card = clickedElement.closest('.our-popular-funds');
+  const card = clickedElement.closest('.our-popular-funds') || clickedElement.closest('.known-our-funds');
   if (!card) {
     // console.error('On-card modal: Could not find parent card with class ".your-card-class".');
     return;
@@ -101,8 +101,10 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
 
   const closeButton = overlay.querySelector('.modal-btn');
   if (closeButton) {
+    document.body.classList.add('noscroll');
     closeButton.addEventListener('click', (e) => {
       e.stopPropagation(); // Stop click from bubbling further
+      document.body.classList.remove('noscroll');
       overlay.remove();
     });
   }

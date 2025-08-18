@@ -10,6 +10,9 @@
     padding: 40px 16px;
   }
 }
+.think-equity-container .think-equity-wrapper {
+  padding: 0;
+}
 .think-equity-container .columns-wrapper {
   padding: 0;
 }
@@ -181,7 +184,7 @@
   .think-equity.block {
     justify-content: space-around;
     flex-direction: column;
-    gap: 27px;
+    gap: 24px;
     margin-bottom: 40px;
   }
 }

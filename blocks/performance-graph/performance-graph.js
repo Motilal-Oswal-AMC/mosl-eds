@@ -5,174 +5,206 @@ import * as am5 from "../../scripts/index.js";
 import * as am5xy from "../../scripts/xy.js";
 import * as am5themes_Animated from "../../scripts/Animated.js";
 import { div, h2, a, p, h4, span } from "../../scripts/dom-helpers.js";
+import dataCfObj from '../../scripts/dataCfObj.js';
 
 export default function decorate(block) {
-
-
   const col1 = block.children[0].querySelector("h4");
   const col2 = block.children[0].querySelector("p");
 
   const fundNote = h4(col1.textContent.trim());
   const fundCAGR = p(col2.textContent.trim());
 
-  const filterBar = document.createElement("div");
-  filterBar.className = "chart-filter-bar";
-
+  const filterBar = div({ class: "chart-filter-bar" });
   const filters = ["1M", "3M", "6M", "1Y", "3Y", "5Y", "All"];
-  let activeFilter = "3Y";
+  let activeFilter = "1Y";
 
-  // ✅ Store chart root reference for disposal
   let root = null;
+  let cachedAPIData = null;
 
-  filters.forEach((label) => {
-    const btn = document.createElement("button");
-    btn.textContent = label;
-    btn.className = "filter-btn";
-    if (label === activeFilter) btn.classList.add("active");
-    btn.addEventListener("click", () => {
-      activeFilter = label;
-      [...filterBar.children].forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      showGraph(label); // Call graph with current filter
-    });
-    filterBar.appendChild(btn);
-  });
+  const filterSelectedEl = span({ class: "filter-selected" });
+  const cagrValueEl = span({ class: "cagr-value" });
 
-  const topBar = div(
-    { class: "fund-note-container" },
-    h4({ class: "fund-note" }, fundNote)
-  );
+  const topBar = div({ class: "fund-note-container" }, fundNote);
   const middleBar = div(
     { class: "fund-main" },
     div({ class: "fund-filters" }, filterBar),
     div(
       { class: "fund-cagr" },
       div({ class: "graph-cagr" }, fundCAGR),
-      div({ class: "fund-cagr-container" },
-        span({ class: "filter-selected" }, "3Y"),
-        span({ class: "cagr-value" }, "25.44%")
-      )
+      div({ class: "fund-cagr-container" }, filterSelectedEl, cagrValueEl)
     )
   );
 
   block.innerHTML = "";
   block.prepend(topBar, middleBar);
 
-  // Graph container
-  const graphDiv = document.createElement("div");
-  graphDiv.id = "chartdiv";
-  //   graphDiv.style.width = "100%";
-  //   graphDiv.style.height = "500px";
+  const graphDiv = div({ id: "chartdiv" });
   block.append(graphDiv);
 
+  // --- STATE & API LOGIC ---
   const useLiveAPI = true;
+  // const schcode = localStorage.getItem('planCode');
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const [planFlow, schcode] = planCode.split(':');
 
-  async function showGraph(filter) {
+  const selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
+
+  async function updateDashboard(filter) {
+    activeFilter = filter;
+    // Update button styles
+    [...filterBar.children].forEach((btn) => {
+      btn.classList.toggle("active", btn.textContent === filter);
+    });
+    await renderGraph(filter);
+    updateReturnsDisplay(filter);
+  }
+
+  async function renderGraph(filter) {
+    // UX Improvement: Show a loading message while fetching data
+    if (!cachedAPIData) {
+      graphDiv.innerHTML = `<div class="chart-loader">Loading Chart...</div>`;
+    }
+
     try {
-      let parsedChartData;
+      if (useLiveAPI && !cachedAPIData) {
+        if (!schcode) throw new Error("planCode not found in localStorage.");
+        if (!selectedFund) throw new Error(`Fund with schcode '${schcode}' not found in dataCfObj.`);
 
-      if (useLiveAPI) {
-        // const requestData = {
-        //   api_name: "PerformanceGraphNew",
-        //   cmt_schcode: "24097",
-        //   graphType: "Lumpsum",
-        //   invamount: "10000",
-        //   isCompare: "",
-        //   isin: "INF247L01445",
-        //   schcode: "FM",
-        // };
+        const allFundsData = await myAPI(
+          "GET",
+          "https://main--eds-ashdemo--ashwin27jethawa.aem.page/pocmosl.json"
+        );
+        const currentFundDetails = allFundsData.data.find(fund => fund.schcode === schcode);
+        if (!currentFundDetails) throw new Error(`API details for schcode '${schcode}' not found.`);
+
         const requestData = {
-          "api_name": "PerformanceGraphNew",
-          "cmt_schcode": "26136",
-          "graphType": "Lumpsum",
-          "invamount": "10000",
-          "isCompare": "",
-          "isin": "INF247L01502",
-          "period": "Y",
-          "schcode": "CP"
-        }
+          api_name: "PerformanceGraphNew",
+          cmt_schcode: currentFundDetails.cmt_schcode || "26136",
+          graphType: "Lumpsum",
+          invamount: "10000",
+          isCompare: "",
+          isin: currentFundDetails.isin || "INF247L01502",
+          period: "Y",
+          schcode: schcode || "CP",
+        };
 
-        parsedChartData = await myAPI(
+        cachedAPIData = await myAPI(
           "POST",
           "https://www.motilaloswalmf.com/mutualfund/api/v1/PerformanceGraphNew",
           requestData
         );
-      } else {
-        parsedChartData = chartsData;
       }
 
-      // const key = Object.keys(parsedChartData)[0];
-      // const chartArray = parsedChartData[key];
-      if (useLiveAPI) {
-        var key = Object.keys(parsedChartData.data.response)[0];
-        var chartArray = parsedChartData.data.response[key]
-      } else {
-        var key = Object.keys(parsedChartData)[0];
-        var chartArray = parsedChartData[key];
+      if (!cachedAPIData) {
+        // Fallback for local development or if live API is off
+        // cachedAPIData = chartsData;
+        throw new Error("No chart data available.");
       }
 
-      // Dummy filter logic (actual API or backend should filter this)
+      const key = Object.keys(cachedAPIData.data.response)[0];
+      const chartArray = cachedAPIData.data.response[key];
+
+      // ✅ Extract series names from the cached API data
+
+      // test
+      // const cagrInfo = cachedAPIData.data.cagr;
+      const series1Name = "Motilal Oswal Large and Midcap fund"; //cagrInfo.sch_name || "Scheme";
+      const series2Name = chartArray[0].co_name || 'Benchmark';  //cagrInfo.bm1_name || "Benchmark";
+
       const filteredData = filterChartData(chartArray, filter);
-
       const chartData = filteredData.map((item) => ({
         date: new Date(item.navdate).getTime(),
         value1: parseFloat(item.marketValue_Scheme),
         value2: parseFloat(item.marketValue_BM1),
       }));
 
-      renderChart(chartData);
+      // ✅ Pass the dynamic names to the charting function
+      renderAmChart(chartData, series1Name, series2Name);
+
     } catch (error) {
       console.error("Error loading chart data:", error);
+      graphDiv.innerHTML = `<div class="chart-error">Could not load chart. ${error.message}</div>`;
     }
   }
+
+  function updateReturnsDisplay(filter) {
+    const planType = 'Direct';
+    const planOption = 'Growth';
+
+    if (!selectedFund) {
+      cagrValueEl.textContent = 'N/A';
+      filterSelectedEl.textContent = filter;
+      return;
+    }
+
+    const targetPlan = selectedFund.planList.find(p => p.planName === planType && p.optionName === planOption);
+    const targetReturns = targetPlan ? selectedFund.returns.find(r => r.plancode === targetPlan.planCode && r.optioncode === targetPlan.optionCode) : null;
+
+    const returnKeyMap = {
+      '1Y': 'oneYear_Ret',
+      '3Y': 'threeYear_Ret',
+      '5Y': 'fiveYear_Ret',
+      '7Y': 'sevenYear_Ret',
+      '10Y': 'tenYear_Ret',
+      'All': 'inception_Ret',
+    };
+
+    const returnKey = returnKeyMap[filter];
+    const returnCAGR = (targetReturns && returnKey && targetReturns[returnKey])
+      ? parseFloat(targetReturns[returnKey])
+      : null;
+
+    filterSelectedEl.textContent = filter !== 'All' ? filter : 'Inception';
+
+    if (returnCAGR !== null) {
+      cagrValueEl.textContent = ` ${returnCAGR}%`;
+    } else {
+      cagrValueEl.textContent = '';
+    }
+  }
+
+  // --- EVENT LISTENERS & INITIALIZATION ---
+  filters.forEach((label) => {
+    const btn = document.createElement("button");
+    btn.textContent = label;
+    btn.className = "filter-btn";
+    btn.addEventListener("click", () => updateDashboard(label));
+    filterBar.appendChild(btn);
+  });
+
+  // Initial load
+  updateDashboard(activeFilter);
 
   function filterChartData(data, filter) {
     if (!data || data.length === 0) return [];
+    const sortedData = [...data].sort((a, b) => new Date(a.navdate) - new Date(b.navdate));
+    if (filter === "All") return sortedData;
 
-    // Sort data by date to ensure proper filtering
-    const sortedData = data.sort(
-      (a, b) => new Date(a.navdate) - new Date(b.navdate)
-    );
-
-    if (filter === "All") {
-      return sortedData;
-    }
-
-    // Get the latest date from the data
     const latestDate = new Date(sortedData[sortedData.length - 1].navdate);
+    let cutoffDate = new Date(latestDate);
 
-    const daysMap = {
-      "1M": 30,
-      "3M": 90,
-      "6M": 180,
-      "1Y": 365,
-      "3Y": 1095,
-      "5Y": 1825,
-    };
-
-    const days = daysMap[filter];
-    if (!days) return sortedData;
-
-    // Calculate the cutoff date from the latest data point
-    const cutoffDate = new Date(
-      latestDate.getTime() - days * 24 * 60 * 60 * 1000
-    );
-
-    // Filter data from cutoff date onwards
-    const filteredData = sortedData.filter(
-      (item) => new Date(item.navdate) >= cutoffDate
-    );
-
-    // If no data matches the filter (like your sample data is too recent), return all data
-    // This prevents empty charts when testing with limited date ranges
-    return filteredData.length > 0 ? filteredData : sortedData;
+    // A more robust way to calculate past dates
+    switch (filter) {
+      case "1M": cutoffDate.setMonth(cutoffDate.getMonth() - 1); break;
+      case "3M": cutoffDate.setMonth(cutoffDate.getMonth() - 3); break;
+      case "6M": cutoffDate.setMonth(cutoffDate.getMonth() - 6); break;
+      case "1Y": cutoffDate.setFullYear(cutoffDate.getFullYear() - 1); break;
+      case "3Y": cutoffDate.setFullYear(cutoffDate.getFullYear() - 3); break;
+      case "5Y": cutoffDate.setFullYear(cutoffDate.getFullYear() - 5); break;
+      default: return sortedData; // Should not happen
+    }
+    return sortedData.filter(item => new Date(item.navdate) >= cutoffDate);
   }
 
-  function renderChart(chartData) {
+  // ✅ Function now accepts dynamic series names
+  function renderAmChart(chartData, series1Name, series2Name) {
     if (root) {
       root.dispose();
       root = null;
     }
+
+    // Clear any previous loader or error message
+    graphDiv.innerHTML = '';
 
     window.am5.ready(() => {
       root = window.am5.Root.new("chartdiv");
@@ -252,10 +284,10 @@ export default function decorate(block) {
         fontWeight: 400,
       });
 
-      // Series 1
+      // Series 1 // test
       const series1 = chart.series.push(
         window.am5xy.LineSeries.new(root, {
-          name: "Motilal Oswal Large and Midcap fund",
+          name: series1Name || "Motilal Oswal Large and Midcap fund",
           xAxis,
           yAxis,
           valueYField: "value1",
@@ -282,10 +314,10 @@ export default function decorate(block) {
         }),
       });
 
-      // Series 2
+      // Series 2 // test
       const series2 = chart.series.push(
         window.am5xy.LineSeries.new(root, {
-          name: "Nifty 100 TRI",
+          name: series2Name || "Nifty 100 TRI",
           xAxis,
           yAxis,
           valueYField: "value2",
@@ -334,8 +366,6 @@ export default function decorate(block) {
           rotation: 90
         })
       });
-
-
 
       // Combine tooltip text for both series (REPLACEMENT)
       sharedTooltip.label.adapters.add("text", (text, target) => {
@@ -426,7 +456,4 @@ export default function decorate(block) {
       xhr.send(data ? JSON.stringify(data) : null);
     });
   }
-
-  // Initial load
-  showGraph(activeFilter);
 }

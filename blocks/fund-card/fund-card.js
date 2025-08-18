@@ -533,7 +533,7 @@ export default function decorate(block) {
                     class: 'returnyears',
                     value: dataMapMoObj.ObjTemp[eloption],
                     onclick: (event) => {
-                      const cgarValue = block.returns[0][event.target.getAttribute('value')];
+                      const cgarValue = finPlangrp[0][event.target.getAttribute('value')];
                       event.currentTarget
                         .closest('.dropdown-list')
                         .classList.remove('dropdown-active');

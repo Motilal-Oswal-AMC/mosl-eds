@@ -30,21 +30,22 @@ export default function decorate(block) {
   const finPlangrp = [];
   const tempReturns = [];
   // initallize
-  block.returns.forEach((ret, jind) => {
-    if (jind === 0) {
-      [...Object.keys(ret)].forEach((key) => {
-        if (dataMapMoObj.ObjTemp[key]) {
-          tempReturns.push(dataMapMoObj.ObjTemp[key]);
-        }
-      });
-    }
-    finPlangrp.push(ret.plancode + ret.optioncode);
-  });
-
   const DirectPlanlistArr = block.planList.filter(
-    (el) => el.planName === planFlow && finPlangrp.includes(el.groupedCode),
+    (el) => el.planName === planFlow,
   );
-
+  block.returns.forEach((ret) => {
+    if (DirectPlanlistArr.length !== 0) {
+      const grp = ret.plancode + ret.optioncode;
+      if (DirectPlanlistArr[0].groupedCode === grp) {
+        [...Object.keys(ret)].forEach((key) => {
+          if (dataMapMoObj.ObjTemp[key]) {
+            tempReturns.push(dataMapMoObj.ObjTemp[key]);
+          }
+        });
+        finPlangrp.push(ret);
+      }
+    }
+  });
   // Get the code to match ONCE. If DirectPlanlistArr is empty, this will be undefined.
   const groupedCodeToMatch = DirectPlanlistArr[0]?.groupedCode;
 
@@ -58,7 +59,8 @@ export default function decorate(block) {
   const starClass = dataMapMoObj.schstar.includes(block.schcode)
     ? 'star-filled'
     : '';
-  if ([...block.fundsTaggingSection].includes('NFO')) {
+  if (finPlangrp.length !== 0) {
+    if ([...block.fundsTaggingSection].includes('NFO')) {
     const nfosvg = `${
       dataMapMoObj.iconsNfo[
         block.risk.riskType.toLowerCase().replaceAll(' ', '-')
@@ -153,80 +155,82 @@ export default function decorate(block) {
       ),
     );
     return listcontainer;
-  }
-  const mopsec = `MO_${block.schcode}.svg`;
-  const listcontainer = div(
-    { class: 'list-view-container' },
-    div(
-      { class: 'list-wrapper' },
-      div(
-        { class: 'fund-name-wrapper', schcode: block.schcode },
+    }
+    const mopsec = `MO_${block.schcode}.svg`;
+    const listcontainer = div(
+        { class: 'list-view-container' },
         div(
-          { class: 'logo-container' },
-          img({ class: 'fund-logo', src: `../../icons/iconfund/${mopsec}`, alt: 'BrandLogo' }),
-        ),
-        div(
-          { class: 'fund-name-container' },
-          p({ class: 'brand-name-txt' }, 'Motilal Oswal'),
-          p({ class: 'fund-name-txt' }, block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
-        ),
-        img({
-          class: 'logoscheme',
-          src: '../../icons/direction-right.svg',
-          alt: 'Direction Right',
-        }),
-      ),
-      div(
-        { class: 'cagr-return' },
-        div(
-          { class: 'cagr-value' },
-          `${cagrval}`,
-          span({ style: `display:${stylecagrval}` }, '%'),
-        ),
+          { class: 'list-wrapper' },
+          div(
+            { class: 'fund-name-wrapper', schcode: block.schcode },
+            div(
+              { class: 'logo-container' },
+              img({ class: 'fund-logo', src: `../../icons/iconfund/${mopsec}`, alt: 'BrandLogo' }),
+            ),
+            div(
+              { class: 'fund-name-container' },
+              p({ class: 'brand-name-txt' }, 'Motilal Oswal'),
+              p({ class: 'fund-name-txt' }, block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
+            ),
+            img({
+              class: 'logoscheme',
+              src: '../../icons/direction-right.svg',
+              alt: 'Direction Right',
+            }),
+          ),
+          div(
+            { class: 'cagr-return' },
+            div(
+              { class: 'cagr-value' },
+              `${cagrval}`,
+              span({ style: `display:${stylecagrval}` }, '%'),
+            ),
 
-        p({ class: 'cagr-text' }, labelcagr),
-      ),
-      div(
-        { class: 'risk-star-icon' },
-        a(
-          { href: '/motilalfigma/modals/risk-o-meter' },
-          img({
-            class: 'riskfactor-icon',
-            src: `../../icons/risk-icon/${iconsvg}`,
-            alt: 'risk icon',
-          }),
+            p({ class: 'cagr-text' }, labelcagr),
+          ),
+          div(
+            { class: 'risk-star-icon' },
+            a(
+              { href: '/motilalfigma/modals/risk-o-meter' },
+              img({
+                class: 'riskfactor-icon',
+                src: `../../icons/risk-icon/${iconsvg}`,
+                alt: 'risk icon',
+              }),
+            ),
+          ),
+          div(
+            {
+              class: `star ${starClass}`,
+              schcode: block.schcode,
+              onclick: (event) => {
+                if (
+                  !Array.from(event.target.parentElement.classList).includes(
+                    'star-filled',
+                  )
+                ) {
+                  event.target.parentElement.classList.add('star-filled');
+                } else {
+                  event.target.parentElement.classList.remove('star-filled');
+                }
+                wishlist();
+              },
+            },
+            img({
+              class: 'star-icon',
+              src: '../../icons/not-filled-star.svg',
+              alt: 'star-icon',
+            }),
+            img({
+              class: 'fillstar-icon',
+              src: '../../icons/filled-star.svg',
+              alt: 'fillstar-icon',
+            }),
+          ),
+          div({ class: 'btn-invest' }, button('Invest')),
         ),
-      ),
-      div(
-        {
-          class: `star ${starClass}`,
-          schcode: block.schcode,
-          onclick: (event) => {
-            if (
-              !Array.from(event.target.parentElement.classList).includes(
-                'star-filled',
-              )
-            ) {
-              event.target.parentElement.classList.add('star-filled');
-            } else {
-              event.target.parentElement.classList.remove('star-filled');
-            }
-            wishlist();
-          },
-        },
-        img({
-          class: 'star-icon',
-          src: '../../icons/not-filled-star.svg',
-          alt: 'star-icon',
-        }),
-        img({
-          class: 'fillstar-icon',
-          src: '../../icons/filled-star.svg',
-          alt: 'fillstar-icon',
-        }),
-      ),
-      div({ class: 'btn-invest' }, button('Invest')),
-    ),
-  );
-  return listcontainer;
+    );
+    return listcontainer;
+  }
+  return '';
 }

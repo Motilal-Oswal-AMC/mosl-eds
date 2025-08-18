@@ -14,6 +14,7 @@
 
   @media (width <= 768px) {
     padding: 40px 16px;
+    gap: 0;
   }
 
   .default-content-wrapper {
@@ -26,7 +27,7 @@
 
       @media (width <= 768px) {
         flex-direction: column;
-        gap: 40px;
+        gap: 0;
         align-items: start;
       }
 
@@ -69,6 +70,10 @@
   }
 
   .key-facts {
+    @media (width <= 768px) {
+      padding: 40px 0;
+    }
+
     div:nth-child(1) {
       // display: none;
     }

@@ -12,6 +12,7 @@
 @media (width <= 768px) {
   .key-facts-container {
     padding: 40px 16px;
+    gap: 0;
   }
 }
 .key-facts-container .default-content-wrapper li {
@@ -24,7 +25,7 @@
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper li {
     flex-direction: column;
-    gap: 40px;
+    gap: 0;
     align-items: start;
   }
 }
@@ -65,6 +66,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (width <= 768px) {
+  .key-facts-container .key-facts {
+    padding: 40px 0;
+  }
 }
 .key-facts-container .key-facts .key-facts-section {
   display: flex;

@@ -441,4 +441,17 @@ export default async function decorate(block) {
     divwrapper.append(searchContainer);
     block.prepend(divwrapper);
   }
+
+  document.addEventListener('click', (event) => {
+    document.querySelectorAll('.cagr-container').forEach((el) => {
+      if (!el.contains(event.target)) {
+        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
+      }
+    });
+    document.querySelectorAll('.card-category').forEach((el) => {
+      if (!el.contains(event.target)) {
+        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
+      }
+    });
+  });
 }

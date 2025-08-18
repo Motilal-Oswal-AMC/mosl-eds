@@ -421,12 +421,12 @@ footer .footer[data-block-status="loaded"] {
   ;
 }
 
-.our-popular-funds {
+.our-popular-funds,.known-our-funds {
   position: relative;
   overflow: hidden;
 }
 
-.our-popular-funds>.card-modal-overlay {
+.our-popular-funds>.card-modal-overlay , .known-our-funds>.card-modal-overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -452,7 +452,7 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-  .our-popular-funds>.card-modal-overlay {
+  .our-popular-funds>.card-modal-overlay , .known-our-funds>.card-modal-overlay {
     position: fixed;
     left: 0;
     justify-content: center;
@@ -478,6 +478,6 @@ footer .footer[data-block-status="loaded"] {
 
 @media (width <=900px) {
   .section .item2 .section {
-    padding: 0 16px;
+    /* padding: 0 16px; */
   }
 }
