@@ -504,4 +504,18 @@
             }
         }
     }
+
+    &.homepage-growth {
+        .growth-now {
+            .fund-us-container {
+                .fund-sec-4 {
+                    display: none;
+                    
+                    @include media(mobile) {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
 }

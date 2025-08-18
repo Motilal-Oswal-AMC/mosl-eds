@@ -396,4 +396,12 @@
 }
 .growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-4 {
   display: none;
+}
+.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-4 {
+  display: none;
+}
+@media (max-width: 768px) {
+  .growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-4 {
+    display: block;
+  }
 }/*# sourceMappingURL=growth-now.css.map */

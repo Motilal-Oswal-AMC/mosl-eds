@@ -20,6 +20,10 @@
     height: 100%;
     padding-bottom: 40px;
 
+    @include media(mobile) {
+      padding-bottom: 24px;
+    }
+
     h4,
     h3:nth-child(1) {
       margin: 0;
@@ -223,7 +227,7 @@
                   font-weight: 400;
                   line-height: 16px;
                   display: flex;
-                  align-items: center;
+                  align-items: flex-start;
 
                   .icon {
                     width: 12px;
@@ -254,7 +258,8 @@
                 }
               }
             }
- /* stylelint-disable-next-line no-descending-specificity */
+
+            /* stylelint-disable-next-line no-descending-specificity */
             &>li:nth-child(2) {
               margin-bottom: 8px;
 
