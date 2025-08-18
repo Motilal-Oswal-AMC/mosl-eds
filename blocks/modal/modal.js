@@ -101,8 +101,10 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
 
   const closeButton = overlay.querySelector('.modal-btn');
   if (closeButton) {
+    document.body.classList.add('noscroll');
     closeButton.addEventListener('click', (e) => {
       e.stopPropagation(); // Stop click from bubbling further
+      document.body.classList.remove('noscroll');
       overlay.remove();
     });
   }
