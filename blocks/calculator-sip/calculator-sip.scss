@@ -40,7 +40,7 @@
 
       @include font-style(12px,
         16px,
-        $color-text-body,
+        $text-body-2,
         map.get($font-weights, regular),
         $poppins);
     }
@@ -1043,7 +1043,7 @@
     li {
       @include font-style(12px,
         16px,
-        $color-text-body,
+        $text-body-2,
         map.get($font-weights, regular),
         $poppins);
     }
