@@ -103,12 +103,12 @@
 .key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion .read-toggle-btn {
   font-size: 16px;
   line-height: 24px;
-  color: #242177;
+  color: #4338f3;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   text-decoration: underline;
   position: absolute;
-  bottom: 3%;
+  bottom: 1%;
   right: 15%;
   cursor: pointer;
 }

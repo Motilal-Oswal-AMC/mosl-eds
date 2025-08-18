@@ -5,6 +5,11 @@
   flex-direction: column;
   gap: 16px;
 }
+@media (width <= 768px) {
+  .performance-graph {
+    padding: 40px 0;
+  }
+}
 .performance-graph .fund-note-container h4 {
   font-size: 32px;
   line-height: 40px;
@@ -14,11 +19,21 @@
   padding: 0;
   margin: 0;
 }
+@media (width <= 768px) {
+  .performance-graph .fund-note-container h4 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
 .performance-graph .fund-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  overflow: auto;
+}
+@media (width <= 768px) {
+  .performance-graph .fund-main {
+    display: table;
+  }
 }
 .performance-graph .fund-main .fund-filters .chart-filter-bar {
   display: flex;
@@ -38,6 +53,14 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+@media (width <= 768px) {
+  .performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn {
+    width: 100%;
+    border-radius: 4px;
+    padding: 8px 12px;
+    max-width: max-content;
+  }
+}
 .performance-graph .fund-main .fund-filters .chart-filter-bar .active {
   border: 1px solid #382ad7;
   background-color: #EDF1FF;
@@ -52,6 +75,12 @@
   gap: 8px;
   align-self: center;
   justify-content: center;
+}
+@media (width <= 768px) {
+  .performance-graph .fund-main .fund-cagr {
+    justify-content: start;
+    margin-top: 16px;
+  }
 }
 .performance-graph .fund-main .fund-cagr .graph-cagr p {
   padding: 0;

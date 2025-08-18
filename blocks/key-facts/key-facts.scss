@@ -105,11 +105,11 @@
           position: relative;
 
           .read-toggle-btn {
-            @include font-style(16px, 24px, $primary-blue-1-900, 500, $poppins);
+            @include font-style(16px, 24px, map.get($blue-1,b500), 500, $poppins);
 
             text-decoration: underline;
             position: absolute;
-            bottom: 3%;
+            bottom: 1%;
             right: 15%;
             cursor: pointer;
 
