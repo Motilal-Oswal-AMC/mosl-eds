@@ -37,7 +37,7 @@ export default function decorate(block) {
   }
 
   Swiper(block, {
-    loop: false,
+    loop: true,
     autoplay: {
       delay: 5000,
     },
@@ -52,9 +52,9 @@ export default function decorate(block) {
 
     on: {
       slideChange(customSlide) {
-        const current = customSlide.activeIndex + 1;
+        const current = customSlide.realIndex + 1;
         const total = customSlide.slides.length;
-        if (customSlide.activeIndex < 10) {
+        if (current < 10) {
           currentSlide.textContent = `0${current} /`;
         } else {
           currentSlide.textContent = current;
