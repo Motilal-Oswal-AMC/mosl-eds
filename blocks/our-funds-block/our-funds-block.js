@@ -1567,13 +1567,15 @@ export default function decorate(block) {
         .closest('.radio-label')
         .querySelector('label').textContent;
       if (sortText.trim() === 'Oldest to Newest') {
-        const tempa = dataCfObj.sort(
+        const tempdata = JSON.parse(JSON.stringify(dataCfObj));
+        const tempa = tempdata.sort(
           (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
         );
         dataMapMoObj.tempMobReturn = tempa;
       }
       if (sortText.trim() === 'Newest to Oldest') {
-        const tempa = dataCfObj.sort(
+        const tempdata = JSON.parse(JSON.stringify(dataCfObj));
+        const tempa = tempdata.sort(
           (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
         );
         dataMapMoObj.tempMobReturn = tempa;
