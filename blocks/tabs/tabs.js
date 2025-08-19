@@ -153,7 +153,7 @@ export default async function decorate(block) {
           {
             class: 'bthref',
             linkattr: block.closest('.section').querySelector('.button-container a').getAttribute('href'),
-            onclick:() => {
+            onclick: () => {
               const closer = block.closest('.section');
               const pathname = closer.querySelector('.bthref').getAttribute('linkattr');
               localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
@@ -455,6 +455,135 @@ export default async function decorate(block) {
     divwrapper.append(divtablist);
     divwrapper.append(searchContainer);
     block.prepend(divwrapper);
+
+    dataMapMoObj.searchDrop = {};
+    block.querySelectorAll('.tabs-panel').forEach((el) => {
+      const attrbute = el.getAttribute('id');
+      dataMapMoObj.searchDrop[attrbute] = [];
+      const acclab = el.querySelectorAll('summary p');
+      acclab.forEach((elacc) => dataMapMoObj.searchDrop[attrbute].push(elacc.textContent.trim()));
+    });
+
+    let flagover = true;
+    const duplicateObj = [];
+    const searchFireld = block.querySelector('.search-field');
+    const dropdown = block.querySelector('.tablist-search .dropdownlist');
+    const droplist = block.querySelector('.search-container');
+    searchFireld.addEventListener('focus', () => {
+      if (!Array.from(dropdown.classList).includes('dropdown-active')) {
+        dropdown.classList.add('dropdown-active');
+        if (Array.from(document.querySelectorAll('summary').length !== 0) && flagover) {
+          flagover = false;
+          block.querySelectorAll('.tabs-panel').forEach((el) => {
+            const attrbute = el.getAttribute('id');
+            dataMapMoObj.searchDrop[attrbute] = [];
+            const acclab = el.querySelectorAll('summary p');
+            acclab.forEach((elacc) => {
+              dataMapMoObj.searchDrop[attrbute].push(elacc.textContent.trim());
+            });
+          });
+          if (JSON.stringify(dataMapMoObj.searchDrop) !== '{}') {
+            const uldorp = block.querySelector('.tablist-search .dropdownlist');
+            uldorp.innerHTML = '';
+            Object.keys(dataMapMoObj.searchDrop).forEach((el) => {
+              dataMapMoObj.searchDrop[el].forEach((innerSub) => {
+                if (!duplicateObj.includes(innerSub)) {
+                  duplicateObj.push(innerSub);
+                  uldorp.append(li({ class: 'singleval' }, innerSub));
+                }
+              });
+            });
+            const searchFunctionality = () => {
+              const searchInput = document.querySelector('.search-field');
+              const listItems = document.querySelectorAll('.dropdownlist .singleval');
+              const listContainer = document.querySelector('.dropdownlist'); // Get the parent <ul>
+
+              searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                let matchesFound = 0; // 1. Counter to track matches
+
+                // Remove any "not found" message from a previous search
+                const existingNotFound = listContainer.querySelector('.not-found-item');
+                if (existingNotFound) {
+                  existingNotFound.remove();
+                }
+
+                // If the search is cleared, show all original items and remove bolding
+                if (searchTerm === '') {
+                  listItems.forEach((item) => {
+                    item.style.display = ''; // Make sure all items are visible
+                    item.innerHTML = item.textContent; // Remove bolding
+                  });
+                  return;
+                }
+
+                const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(escapedTerm, 'gi');
+
+                listItems.forEach((item) => {
+                  const originalText = item.textContent;
+
+                  // Check for a match (case-insensitive)
+                  if (originalText.toLowerCase().includes(searchTerm)) {
+                    // If it matches: show it, bold it, and count it
+                    matchesFound += 1;
+                    item.style.display = ''; // Show the item
+                    const newHtml = originalText.replace(regex, (match) => `<strong>${match}</strong>`);
+                    item.innerHTML = newHtml;
+                  } else {
+                    // If it doesn't match, hide it
+                    item.style.display = 'none';
+                  }
+                });
+
+                // 2. After checking all items, if no matches were found, add the message
+                if (matchesFound === 0) {
+                  const lielement = document.createElement('li');
+                  lielement.className = 'singleval not-found-item'; // Assign a class for styling
+                  lielement.textContent = 'No results found';
+                  listContainer.appendChild(lielement);
+                }
+              });
+            };
+            searchFunctionality();
+
+            uldorp.addEventListener('click', (event) => {
+              let counter = 0;
+              const value = event.target.textContent.trim();
+              Object.keys(dataMapMoObj.searchDrop).forEach((el) => {
+                if ([...dataMapMoObj.searchDrop[el]].includes(value) && counter === 0) {
+                  const tabpanelText = el;
+                  const tabText = el.replaceAll('tabpanel', 'tab');
+                  const indexValue = [...dataMapMoObj.searchDrop[el]].indexOf(value);
+                  // console.log(tabText);
+                  Array.from(block.querySelector('.tabs-list').children).forEach((tabbtnlist) => tabbtnlist.setAttribute('aria-selected', 'false'));
+                  Array.from(block.querySelectorAll('.tabs-panel')).forEach((tabplelist) => tabplelist.setAttribute('aria-hidden', 'true'));
+                  block.querySelector(`#${tabText}`).setAttribute('aria-selected', 'true');
+                  block.querySelector(`#${tabpanelText}`).setAttribute('aria-hidden', 'false');
+                  Array.from(block.querySelectorAll(`#${tabpanelText} .accordion-item`)).forEach((elitem, indElm) => {
+                    if (indElm === indexValue) {
+                      elitem.setAttribute('open', '');
+                    } else {
+                      elitem.removeAttribute('open');
+                    }
+                  });
+                  uldorp.classList.remove('dropdown-active');
+                  block.querySelector(`#${tabpanelText}`).scrollIntoView({ behavior: 'smooth' });
+                  counter = 1;
+                }
+              });
+            });
+          }
+        }
+      } else {
+        dropdown.classList.remove('dropdown-active');
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (!droplist.contains(event.target)) {
+        dropdown.classList.remove('dropdown-active');
+      }
+    });
   }
 
   document.addEventListener('click', (event) => {

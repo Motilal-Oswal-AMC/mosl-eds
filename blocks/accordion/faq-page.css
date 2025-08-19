@@ -164,6 +164,7 @@
   font-weight: 400;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
