@@ -141,6 +141,12 @@ export default function decorate(block) {
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
 
+  // Hide Search and Direct Growth for FDP Page
+  if (block.parentElement.parentElement.classList.contains('fdp-calculator')) {
+    document.querySelector('.fdp-calculator .search-bar-wrapper').style.display = 'none'
+    document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none'
+  }
+
   // -------------------------------
   // ✅ 4. UPDATE VALUES
   // -------------------------------
