@@ -13,7 +13,6 @@
   .performance-graph-returning-container .performance-graph-wrapper {
     display: flex;
     width: 372px;
-    height: 620px;
     padding: 0 16px;
     flex-direction: column;
     align-items: flex-start;

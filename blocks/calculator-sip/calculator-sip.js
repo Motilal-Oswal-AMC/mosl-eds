@@ -121,7 +121,7 @@ export default function decorate(block) {
         div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
       )),
   );
-
+ 
   // 🔗 View other calculators
   const viewOthCalBtn = div(
     { class: 'view-btn-cal' },

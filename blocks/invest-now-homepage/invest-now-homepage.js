@@ -115,6 +115,7 @@ export default function decorate(block) {
             div({ class: 'modal-start-today' },
               label(
                 input({ type: 'checkbox', class: 'start-today-checkbox' }),
+                span({ class: 'custom-box' }),
                 span(' Start Today')
               ),
               div({ class: 'start-today-note' },

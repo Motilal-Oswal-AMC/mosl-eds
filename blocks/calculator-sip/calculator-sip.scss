@@ -118,8 +118,8 @@
         @include media(mobile) {
           margin-bottom: 0;
 
-          @include font-style(32px,
-            40px,
+          @include font-style(24px,
+            28px,
             $primary-blue,
             map.get($font-weights, bold),
             $butlerpro);
@@ -137,6 +137,7 @@
 
         @include media(mobile) {
           font-size: 14px;
+          line-height: 20px;
         }
       }
     }
@@ -280,7 +281,7 @@
             font-family: $poppins;
             font-size: 14px;
             font-weight: 500;
-            line-height: 16px;
+            line-height: 20px;
             margin: 0;
             margin-top: 4px;
             cursor: pointer;

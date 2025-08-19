@@ -159,6 +159,7 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
+  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
   display: flex;
@@ -216,6 +217,7 @@
   padding: 4px 0;
 }
 .section .card-container .cagr-container .cagr-dropdown {
+  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
   position: relative;
@@ -275,6 +277,7 @@
   display: none;
 }
 .section .card-container .cagr-container .cagr-select-wrapper {
+  width: -moz-max-content;
   width: max-content;
   position: relative;
 }
@@ -445,6 +448,7 @@
   justify-content: flex-start;
   gap: 0;
   border-bottom: 1px solid #b6bcc7;
+  max-width: -moz-max-content;
   max-width: max-content;
   margin-right: -16px;
 }
@@ -664,6 +668,7 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
+  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
   display: flex;
@@ -679,7 +684,9 @@
   font-weight: 400;
   border: none;
   outline: none;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
   width: 100%;
 }
@@ -720,6 +727,7 @@
   font-weight: 500;
 }
 .section .card-container .cagr-container .cagr-select-wrapper {
+  width: -moz-max-content;
   width: max-content;
   position: relative;
 }
@@ -908,6 +916,7 @@
   max-width: 49.53%;
   width: 100%;
   min-height: 180px;
+  height: -moz-max-content;
   height: max-content;
 }
 .section.index-fund .compound-item .compound-sub-item h2 {
@@ -1012,7 +1021,7 @@
     font-weight: 500;
   }
   .section .card-container .card-category {
-    margin: 0 0 20px;
+    margin: 0 0 36px;
     min-height: unset;
   }
   .section .card-container .cagr-container {
