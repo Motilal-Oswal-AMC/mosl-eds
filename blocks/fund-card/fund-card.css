@@ -9,6 +9,7 @@
   background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #b9bbff 0%, #fff 50%, #b9bbff 100%) border-box;
   border: 1px solid transparent;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -397,11 +398,7 @@
   background: #2e2a94;
   padding: 8px 12px;
   text-align: center;
-  font-size: 14px;
-  line-height: 16px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
 }
 .section.fund-tab.tabs-container {
   width: 100%;
