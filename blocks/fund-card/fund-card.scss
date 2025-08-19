@@ -2,21 +2,21 @@
 
 /*   media-feature-range-notation */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
-/* stylelint-disable */
 .section {
   .card-container {
     max-width: 296px;
     width: 100%;
     padding: 16px;
-    border-radius: map.get($radius, r8);
-    border: 1px solid map.get($old-silver, 100);
+    border-radius: 8px;
+    background: linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(135deg, #b9bbff 0%, #fff 50%, #b9bbff 100%) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
 
     @include flex-center;
-
-    background-color: $primary-white;
 
     .card-wrapper {
       @include flex-center($align: stretch, $justify: space-between);
@@ -27,11 +27,14 @@
 
       // All dropdown in card
       .selectedtext {
-        @include font-style(12px,
+        @include font-style(
+          12px,
           16px,
           $primary-blue,
           map.get($font-weights, medium),
-          $poppins);
+          $poppins
+        );
+
         margin: 0;
         cursor: pointer;
         display: flex;
@@ -48,7 +51,7 @@
       }
 
       .dropdown-list {
-        // display: none;
+        display: none;
         position: absolute;
         top: 18px;
         left: 0;
@@ -60,7 +63,7 @@
         background-color: $primary-white;
         border-radius: 8px;
         border: 1px solid $neutrals-200;
-        box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+        box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
 
         &::-webkit-scrollbar {
           width: 3px;
@@ -86,11 +89,14 @@
         }
 
         li {
-          @include font-style(12px,
+          @include font-style(
+            12px,
             16px,
             $neutrals-black,
             map.get($font-weights, regular),
-            $poppins);
+            $poppins
+          );
+
           padding: 12px;
           border-bottom: 1px solid $neutrals-200;
           cursor: pointer;
@@ -115,621 +121,12 @@
       // min-height: 50px;
       flex-direction: column;
 
-      .fund-name-title {
-        @include font-style($size: 14px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $poppins);
-
-        margin: 0;
-      }
-
-      .star {
-        min-width: 40px;
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-
-        &.star-filled .star-icon,
-        &:not(.star-filled) .fillstar-icon {
-          display: none;
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-
-    .card-category {
-      @include flex-center($align: start, $justify: flex-start);
-
-      // gap: 8px;
-      gap: 4px 8px;
-      padding: 4px 0;
-
-      // margin: 0 0 16px;
-      margin: 0 0 20px;
-      flex-wrap: wrap;
-      margin-top: auto;
-
-      // min-height: 40px;
-      min-height: unset;
-      height: 100%;
-
-      .fundtagging-list {
-        @include flex-center($align: center, $justify: flex-start);
-
-        gap: 8px;
-        list-style: none;
-        margin: 0;
-        flex-wrap: wrap;
-
-        &-name {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
-            $family: $poppins);
-          @include flex-center($align: center, $justify: flex-start);
-
-          gap: 8px;
-
-          // white-space: nowrap;
-          &::after {
-            content: "";
-            min-width: 3px;
-            height: 3px;
-            display: block;
-            background-color: $primary-blue;
-            border-radius: 50%;
-          }
-
-          // &:last-of-type::before {
-          //   content: none;
-          // }
-        }
-      }
-
-      .planlist-dropdown {
-        // max-width: 70px;
-        max-width: max-content;
-        width: 100%;
-
-        @include flex-center($align: center, $justify: flex-start);
-        gap: 8px;
-        position: relative;
-        // &::before {
-        //   content: "";
-        //   min-width: 3px;
-        //   height: 3px;
-        //   display: block;
-        //   background-color: $primary-blue;
-        //   border-radius: 50%;
-        // }
-      }
-
-      &.no-planlist {
-        .fundtagging-list {
-          &-name {
-            &:last-of-type::after {
-              content: unset;
-            }
-          }
-        }
-      }
-    }
-
-    .risk-container {
-      @include flex-center($align: stretch, $justify: flex-start);
-
-      flex-direction: column;
-      gap: 2px;
-      border-bottom: 1px solid map.get($old-silver, 100);
-      padding-bottom: 16px;
-      margin: 8px 0 0;
-
-      label {
-        @include font-style($size: 12px,
-          $line-height: 16px,
-          $color: map.get($dark-liver, 500),
-          $weight: map.get($font-weights, regular),
-          $family: $poppins);
-
-        margin: 0;
-        padding: 0;
-      }
-
-      span {
-        @include font-style($size: 12px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $poppins);
-        @include flex-center($align: center, $justify: flex-start);
-
-        gap: 4px;
-
-        &::after {
-          content: "";
-          background: url("../../icons/info-icon.svg") center/cover no-repeat;
-          width: 12px;
-          height: 12px;
-          display: block;
-          cursor: pointer;
-        }
-      }
-    }
-
-    .cagr-container {
-      @include flex-center($align: center, $justify: space-between);
-
-      gap: 24px;
-      padding: 4px 0;
-
-      .cagr-dropdown {
-        max-width: max-content;
-        width: 100%;
-        position: relative;
-        line-height: 0;
-
-        .cagr-txt {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
-            $family: $poppins);
-        }
-      }
-
-      .cagr-desc {
-        // background: map.get($old-silver, 50);
-        // padding: 4px 8px;
-
-        line-height: 0;
-        width: 100%;
-
-        span {
-          @include font-style($size: 11px,
-            $line-height: 15px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, regular),
-            $family: $poppins);
-
-          // padding: 8px 0;
-          display: block;
-        }
-      }
-
-      .cagr-value {
-        max-width: 46%;
-        width: 100%;
-
-        h2 {
-          @include font-style($size: 24px,
-            $line-height: 32px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, semibold),
-            $family: $poppins);
-
-          margin: 0;
-          text-align: right;
-
-          span {
-            font-weight: map.get($font-weights, light);
-          }
-        }
-
-        .scheme-yet,
-        .cagr-date {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
-            $family: $poppins);
-
-          text-align: right;
-          margin: 0;
-          padding: 0;
-        }
-      }
-
-      &.not-provided {
-
-        .cagr-dropdown,
-        .cagr-value {
-          display: none;
-        }
-      }
-
-      &:not(.not-provided) .cagr-desc {
-        display: none;
-      }
-
-      .cagr-select-wrapper {
-        // @include flex-center($align: center, $justify: start);
-        // width: 80px;
-        // width: 117px;
-
-        width: max-content;
-        position: relative;
-
-        // @include media(desktop-sm) {
-        //   width: 80px;
-        // }
-
-        @media screen and (max-width: 900px) {
-
-          // width: 80px;
-          .dropdown-list {
-            top: 35px;
-          }
-        }
-
-        @include media(mobile) {
-          // width: 125px;
-
-          .dropdown-list {
-            top: 18px;
-          }
-        }
-      }
-    }
-
-    .discription {
-      // margin: 24px 0 0;
-      margin: 10px 0 0;
-      padding: 8px 12px;
-
-      .dis-choosen {
-        .dis-investor {
-          .investor-txt {
-            @include font-style($size: 12px,
-              $line-height: 16px,
-              $color: map.get($blue-1, b900),
-              $weight: map.get($font-weights, regular),
-              $family: $poppins);
-          }
-        }
-      }
-    }
-
-    .button-container {
-      @include flex-center($align: center, $justify: space-between);
-
-      flex-wrap: wrap;
-      // gap: 24px;
-      gap: 24px 9.08%;
-      margin: 20px 0 0;
-
-      .card-btn {
-        // max-width: 120px;
-        max-width: 45.46%;
-        width: 100%;
-        display: block;
-        @include font-style($size: 14px,
-          $line-height: 16px,
-          $color: map.get($blue-1, b500),
-          $weight: map.get($font-weights, medium),
-          $family: $poppins);
-
-        margin: 0;
-        padding: 0;
-        background-color: transparent;
-        border-radius: 0;
-        border: none;
-        -webkit-tap-highlight-color: transparent;
-
-        &.know-more {
-          text-decoration-line: underline;
-          text-underline-offset: 20%;
-          padding: 8px 0;
-        }
-
-        &.invest-now {
-          border-radius: map.get($radius, r4);
-          background: map.get($button-primary, default);
-          padding: 8px 12px;
-          text-align: center;
-          @include font-style($size: 14px,
-            $line-height: 16px,
-            $color: $primary-white,
-            $weight: map.get($font-weights, medium),
-            $family: $poppins);
-        }
-      }
-    }
-  }
-
-  &.fund-tab.tabs-container {
-    // max-width: 1264px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 40px 0 64px;
-
-    @include media(mobile) {
-      padding: 40px 0 49px;
-    }
-
-    &.our-popular-funds {
-      background: $primary-blue;
-      max-width: 100%;
-      padding: 54px 0 54px;
-
-      @include media(mobile) {
-        padding: 40px 0 45px;
-      }
-    }
-
-    .default-content-wrapper {
-      // margin: 0;
-      // padding: 0;
-      // max-width: 100%;
-
-      h1 {
-        @include font-style($size: 36px,
-          $line-height: 44px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, bold),
-          $family: $butlerpro);
-
-        margin: 0 0 12px;
-
-        @include media(mobile) {
-          font-size: 24px;
-          line-height: 28px;
-          margin: 0 0 24px;
-        }
-      }
-    }
-
-    &.our-popular-funds .default-content-wrapper h1 {
-      color: $primary-white;
-      margin: 0 0 8px;
-    }
-
-    .tabs-wrapper {
-      margin: 0 auto;
-
-      // max-width: 100%;
-      // padding: 0;
-
-      .tabs-panel {
-        // @include flex-center($align: center, $justify: center);
-        justify-content: flex-start;
-        align-items: stretch;
-        flex-wrap: wrap;
-        gap: 16px;
-        padding: 24px 0 0;
-        border: none;
-        overflow: unset;
-        margin: 0;
-      }
-    }
-
-    &.our-popular-funds {
-
-      .default-content-wrapper,
-      .tabs-wrapper {
-        // max-width: 1264px;
-        width: 100%;
-        margin: 0 auto;
-      }
-    }
-
-    .wrappertablist {
-      @include flex-center($align: center, $justify: space-between);
-
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .btndesk,
-    .btnmob {
-      margin: 0;
-      padding: 0;
-      line-height: 0;
-      max-width: 120px;
-      width: 100%;
-      background-color: transparent;
-      border-radius: map.get($radius, r4);
-      border: none;
-    }
-
-    .btndesk a,
-    .btnmob a {
-      border-radius: map.get($radius, r4);
-      border: 1px solid map.get($button-primary, default);
-      width: 100%;
-      background-color: transparent;
-      padding: 8px;
-
-      @include font-style($size: 14px,
-        $line-height: 16px,
-        $color: $primary-blue,
-        $weight: map.get($font-weights, medium),
-        $family: $poppins);
-
-      text-decoration: none;
-      display: block;
-      margin: 0;
-    }
-
-    &.our-popular-funds {
-
-      .btnmob a,
-      .wrappertablist .btndesk a {
-        border: 1px solid $primary-white;
-        color: $primary-white;
-      }
-    }
-
-    .btnmob {
-      display: none;
-    }
-
-    .tabs-list {
-      @include flex-center($align: center, $justify: flex-start);
-
-      gap: 0;
-      border-bottom: 1px solid #b6bcc7;
-      max-width: max-content;
-      margin-right: -16px;
-
-      .tabs-tab {
-        border: none;
-        background-color: transparent;
-        padding: 10px 12px;
-        cursor: pointer;
-
-        @include font-style($size: 14px,
-          $line-height: 20px,
-          $color: $text-body-2,
-          $weight: map.get($font-weights, regular),
-          $family: $poppins);
-
-        &[aria-selected="true"] {
-          @include font-style($size: 14px,
-            $line-height: 16px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $poppins);
-
-          border-bottom: 2px solid #382ad7;
-          padding: 12px;
-        }
-      }
-    }
-
-    &.our-popular-funds .tabs-list .tabs-tab {
-      color: map.get($blue-1, b200);
-
-      &[aria-selected="true"] {
-        border-bottom: 2px solid $primary-white;
-        color: $primary-white;
-      }
-    }
-  }
-
-  .card-container {
-    max-width: 296px;
-    width: 100%;
-    padding: 16px;
-    border-radius: map.get($radius, r8);
-    border: 1px solid map.get($old-silver, 100);
-    background-color: $primary-white;
-    border-radius: 8px;
-    background: linear-gradient(#fff, #fff) padding-box,
-      linear-gradient(135deg, #b9bbff 0%, #ffffff 50%, #b9bbff 100%) border-box;
-    border: 1px solid transparent;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
-
-    @include flex-center;
-
-    .card-wrapper {
-      @include flex-center($align: stretch, $justify: space-between);
-
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-
-      // All dropdown in card
-      .selectedtext {
-        @include font-style(12px,
-          16px,
-          $primary-blue,
-          map.get($font-weights, medium),
-          $poppins);
-        margin: 0;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-
-        &::after {
-          content: "";
-          background: url("../../icons/down-arrow.svg") center/cover no-repeat;
-          min-width: 20px;
-          height: 20px;
-          display: block;
-        }
-      }
-
-      .dropdown-list {
-        display: none;
-        position: absolute;
-        top: 18px;
-        left: 0;
-        z-index: 2;
-        width: 143px;
-        max-height: 200px;
-        margin: 0;
-        overflow: auto;
-        background-color: $primary-white;
-        border-radius: 8px;
-        border: 1px solid $neutrals-200;
-        box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
-
-        &::-webkit-scrollbar {
-          width: 3px;
-        }
-
-        &::-webkit-scrollbar-track {
-          width: 3px;
-          background-color: $primary-white;
-          border-radius: 0 6px 6px 0;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          width: 3px;
-          background-color: $primary-blue;
-        }
-
-        &.dropdown-active {
-          display: block;
-        }
-
-        @include media(mobile) {
-          width: 168px;
-        }
-
-        li {
-          @include font-style(12px,
-            16px,
-            $neutrals-black,
-            map.get($font-weights, regular),
-            $poppins);
-          padding: 12px;
-          border-bottom: 1px solid $neutrals-200;
-          cursor: pointer;
-
-          &:last-of-type {
-            border: none;
-          }
-        }
-      }
-    }
-
-    .card-upper-title {
-      // @include flex-center($align: center, $justify: space-between);
-      // align-items: start;
-      // gap: 30px;
-      gap: 6px;
-      margin: 0 0 8px;
-
-      // height: 100%;
-      // min-height: 50px;
-      flex-direction: column;
-
-      .title-headLogo {
+      .brand-star-wrap {
         display: flex;
         justify-content: space-between;
         width: 100%;
 
-        .title-logo {
+        .brand-logo {
           position: relative;
           min-width: 40px;
           width: 40px;
@@ -769,33 +166,35 @@
         }
       }
 
-      .title-subtitle {
+      .brand-fund-wrap {
         .brand-name-text {
           margin: 0;
 
-          @include font-style(12px,
+          @include font-style(
+            12px,
             16px,
             map.get($blue-1, b400),
             map.get($font-weights, regular),
-            $poppins);
+            $poppins
+          );
         }
 
-        .title-logo {
-          .fund-name-title {
-            @include font-style($size: 16px,
-              $line-height: 20px,
-              $color: $primary-blue,
-              $weight: map.get($font-weights, medium),
-              $family: $poppins);
+        .fund-name-title {
+          @include font-style(
+            $size: 16px,
+            $line-height: 20px,
+            $color: $primary-blue,
+            $weight: map.get($font-weights, medium),
+            $family: $poppins
+          );
 
-            margin: 0;
+          margin: 0;
 
-            // min-height: 50px;
-            min-height: 40px;
+          // min-height: 50px;
+          min-height: 40px;
 
-            @include media(mobile){
-              min-height: unset;
-            }
+          @include media(mobile) {
+            min-height: unset;
           }
         }
       }
@@ -811,11 +210,11 @@
       // margin: 0 0 16px;
       margin: 0 0 24px;
       flex-wrap: wrap;
-      margin-top: auto;
 
-      // min-height: 40px;
-      min-height: unset;
-      height: 100%;
+      // margin-top: auto;
+      // min-height: unset;
+      // height: 100%;
+      height: auto;
 
       .fundtagging-list {
         @include flex-center($align: center, $justify: flex-start);
@@ -826,11 +225,13 @@
         flex-wrap: wrap;
 
         &-name {
-          @include font-style($size: 12px,
+          @include font-style(
+            $size: 12px,
             $line-height: 16px,
             $color: $primary-blue-1-900,
             $weight: map.get($font-weights, regular),
-            $family: $poppins);
+            $family: $poppins
+          );
           @include flex-center($align: center, $justify: flex-start);
 
           gap: 8px;
@@ -843,10 +244,6 @@
             background-color: $primary-blue;
             border-radius: 50%;
           }
-
-          // &:last-of-type::after {
-          //   content: none;
-          // }
         }
       }
 
@@ -858,28 +255,16 @@
         @include flex-center($align: center, $justify: flex-start);
 
         gap: 8px;
+        position: relative;
+      }
 
-        // &::before {
-        //   content: "";
-        //   min-width: 3px;
-        //   height: 3px;
-        //   display: block;
-        //   background-color: $primary-blue;
-        //   border-radius: 50%;
-        // }
-
-        select {
-          @include font-style($size: 12px,
-            $line-height: 16px,
-            $color: $primary-blue-1-900,
-            $weight: map.get($font-weights, regular),
-            $family: $poppins);
-
-          border: none;
-          outline: none;
-          appearance: none;
-          background-color: transparent;
-          width: 100%;
+      &.no-planlist {
+        .fundtagging-list {
+          &-name {
+            &:last-of-type::after {
+              content: unset;
+            }
+          }
         }
       }
     }
@@ -889,10 +274,14 @@
 
       // gap: 24px;
       gap: 10px;
-      min-height: 88px;
-      height: 88px;
 
+      // min-height: 88px;
+      min-height: unset;
+
+      // height: 88px;
+      height: auto;
       padding: 24px 12px;
+
       // padding: 12px;
       // align-self: stretch;
       border-radius: 12px;
@@ -900,18 +289,6 @@
       background: $neutrals-50;
       box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
       margin-top: auto;
-
-      &.not-provided {
-
-        .cagr-dropdown,
-        .cagr-value {
-          display: none;
-        }
-      }
-
-      &:not(.not-provided) .cagr-desc {
-        display: none;
-      }
 
       .cagr-dropdown {
         display: flex;
@@ -927,42 +304,43 @@
         // line-height: 0;
 
         .cagr-txt {
-          @include font-style($size: 12px,
+          @include font-style(
+            $size: 12px,
             $line-height: 16px,
-            $color: #111,
+            $color: $neutrals-black,
             $weight: map.get($font-weights, medium),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           // padding-bottom: 4px;
         }
-      }
 
-      .cagr-select-wrapper {
-        // @include flex-center($align: center, $justify: start);
-        // gap: 4px;
-        // width: 80px;
-        // width: 117px;
-
-        width: max-content;
-        position: relative;
-
-        // @include media(desktop-sm) {
-        //   width: 80px;
-        // }
-
-        @media screen and (max-width: 900px) {
-
+        .cagr-select-wrapper {
+          // @include flex-center($align: center, $justify: start);
+          // gap: 4px;
           // width: 80px;
-          .dropdown-list {
-            top: 35px;
+          // width: 117px;
+
+          width: max-content;
+          position: relative;
+
+          // @include media(desktop-sm) {
+          //   width: 80px;
+          // }
+
+          @media screen and (width <= 900px) {
+            // width: 80px;
+            .dropdown-list {
+              top: 35px;
+            }
           }
-        }
 
-        @include media(mobile) {
-          // width: 125px;
+          @include media(mobile) {
+            // width: 125px;
 
-          .dropdown-list {
-            top: 18px;
+            .dropdown-list {
+              top: 18px;
+            }
           }
         }
       }
@@ -972,11 +350,13 @@
         width: 100%;
 
         h2 {
-          @include font-style($size: 24px,
+          @include font-style(
+            $size: 24px,
             $line-height: 32px,
             $color: $primary-blue,
             $weight: map.get($font-weights, semibold),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           margin: 0;
           text-align: right;
@@ -988,11 +368,13 @@
 
         .scheme-yet,
         .cagr-date {
-          @include font-style($size: 12px,
+          @include font-style(
+            $size: 12px,
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: map.get($font-weights, regular),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           text-align: right;
           margin: 0;
@@ -1007,16 +389,31 @@
         line-height: 0;
         width: 100%;
 
-        span {
-          @include font-style($size: 11px,
+        .cagr-desc-text {
+          @include font-style(
+            $size: 11px,
             $line-height: 15px,
             $color: $primary-blue,
             $weight: map.get($font-weights, regular),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           // padding: 8px 0;
           display: block;
         }
+      }
+
+      &.not-provided {
+        padding: 33px 12px;
+
+        .cagr-dropdown,
+        .cagr-value {
+          display: none;
+        }
+      }
+
+      &:not(.not-provided) .cagr-desc {
+        display: none;
       }
     }
 
@@ -1029,23 +426,31 @@
       padding-bottom: 16px;
       margin: 8px 0 0;
 
-      label {
-        @include font-style($size: 12px,
+      @include media(mobile) {
+        padding-bottom: 8px;
+      }
+
+      .risk-label {
+        @include font-style(
+          $size: 12px,
           $line-height: 16px,
           $color: map.get($dark-liver, 500),
           $weight: map.get($font-weights, regular),
-          $family: $poppins);
+          $family: $poppins
+        );
 
         margin: 0;
         padding: 0;
       }
 
-      span {
-        @include font-style($size: 12px,
+      .risk-text {
+        @include font-style(
+          $size: 12px,
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $poppins);
+          $family: $poppins
+        );
         @include flex-center($align: center, $justify: flex-start);
 
         gap: 4px;
@@ -1081,6 +486,16 @@
             width: 16px;
             height: 16px;
           }
+
+          .investor-txt {
+            @include font-style(
+              $size: 12px,
+              $line-height: 16px,
+              $color: map.get($blue-1, b900),
+              $weight: map.get($font-weights, regular),
+              $family: $poppins
+            );
+          }
         }
       }
     }
@@ -1089,7 +504,6 @@
       @include flex-center($align: center, $justify: space-between);
 
       flex-wrap: wrap;
-      // gap: 24px;
       gap: 24px 9.08%;
       margin: 20px 0 0;
 
@@ -1098,11 +512,14 @@
         max-width: 45.46%;
         width: 100%;
         display: block;
-        @include font-style($size: 14px,
+
+        @include font-style(
+          $size: 14px,
           $line-height: 16px,
           $color: map.get($blue-1, b500),
           $weight: map.get($font-weights, medium),
-          $family: $poppins);
+          $family: $poppins
+        );
 
         margin: 0;
         padding: 0;
@@ -1122,241 +539,213 @@
           background: map.get($button-primary, default);
           padding: 8px 12px;
           text-align: center;
-          @include font-style($size: 14px,
+
+          @include font-style(
+            $size: 14px,
             $line-height: 16px,
             $color: $primary-white,
             $weight: map.get($font-weights, medium),
-            $family: $poppins);
+            $family: $poppins
+          );
         }
       }
     }
   }
 
-  &.index-fund {
-    margin: 40px auto;
-
-    // max-width: 1232px;
+  &.fund-tab.tabs-container {
+    // max-width: 1264px;
     width: 100%;
-    padding: 12px 0;
+    margin: 0 auto;
+    padding: 40px 0 64px;
 
-    // & > div {
-    //   padding: 0;
-    //   // max-width: 100%;
-    // }
-
-    .compound-item {
-      @include flex-center($align: center, $justify: space-between);
-
-      gap: 10px;
-
-      .card-items {
-        @include flex-center($align: center, $justify: flex-start);
-
-        align-items: stretch;
-        gap: 10px;
-        width: 100%;
-
-        .card-container {
-          box-shadow: 2px 9px 12px 0 rgb(0 0 0 / 8%);
-          border: none;
-
-          &:nth-child(odd) {
-            margin-bottom: 20px;
-          }
-
-          &:nth-child(even) {
-            margin-top: 20px;
-          }
-        }
-      }
-
-      .compound-sub-item {
-        @include flex-center($align: stretch, $justify: flex-start);
-
-        flex-direction: column;
-        padding: 12px;
-        max-width: 49.53%;
-        width: 100%;
-        min-height: 180px;
-        height: max-content;
-
-        h2 {
-          @include font-style($size: 28px,
-            $line-height: 32px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $butlerpro);
-
-          margin: 0;
-          max-width: 306px;
-          width: 100%;
-        }
-
-        .button-container {
-          margin: 0;
-          margin-top: auto;
-          line-height: 0;
-
-          .button {
-            border-radius: map.get($radius, r8);
-            background: $primary-blue;
-            padding: 12px;
-            margin: 0;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 16px;
-            font-family: $poppins;
-          }
-        }
-      }
+    @include media(mobile) {
+      padding: 40px 0 49px;
     }
-  }
-}
 
-// Media Queries
-@include media(desktop-sm) {
-  .section.tabs-container .card-container {
-    max-width: 31.8%;
-  }
-}
+    .default-content-wrapper {
+      // margin: 0;
+      // padding: 0;
+      // max-width: 100%;
 
-@include media(tab) {
-  // .section {
-  //   .card-container .button-container .invest-now {
-  //     max-width: 115px;
-  //   }
-  // }
+      h1 {
+        @include font-style(
+          $size: 36px,
+          $line-height: 44px,
+          $color: $primary-blue,
+          $weight: map.get($font-weights, bold),
+          $family: $butlerpro
+        );
 
-  .section.index-fund {
-    .compound-item {
-      flex-direction: column;
-
-      .compound-sub-item {
-        max-width: 100%;
+        margin: 0 0 12px;
 
         @include media(mobile) {
-          padding-left: 0;
-          padding-right: 0;
+          font-size: 24px;
+          line-height: 28px;
+          margin: 0 0 24px;
         }
       }
-
-      .card-items .card-container {
-        max-width: 49.8%;
-
-        &:nth-child(odd),
-        &:nth-child(even) {
-          margin: 0;
-        }
-      }
-    }
-  }
-}
-
-@include media(mobile) {
-  .section.fund-tab.tabs-container {
-    padding: 40px 0;
-
-    .default-content-wrapper h1 {
-      @include font-style($size: 32px,
-        $line-height: 40px,
-        $color: $primary-blue,
-        $weight: map.get($font-weights, bold),
-        $family: $butlerpro);
     }
 
     .tabs-wrapper {
-      margin: 24px 0 0;
-    }
+      margin: 0 auto;
 
-    .tabs-list {
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      .tabs-tab {
-        @include font-style($size: 14px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $poppins);
-      }
-    }
-
-    .wrappertablist .btndesk {
-      display: none;
-    }
-
-    .btnmob {
-      display: block;
-      margin: 40px auto 0;
-    }
-
-    .card-container {
-      padding: 20px 16px;
-      max-width: 100%;
-    }
-  }
-
-  .section {
-    .card-container {
-      max-width: 100%;
-
-      .card-wrapper {
-        max-width: 100%;
-      }
-
-      .card-upper-title .fund-name-title {
-        @include font-style($size: 16px,
-          $line-height: 20px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $poppins);
-      }
-
-      .card-category {
-        margin: 0 0 20px;
-        min-height: unset;
-      }
-
-      .cagr-container {
+      .wrappertablist {
         @include flex-center($align: center, $justify: space-between);
 
-        // .cagr-dropdown {
-        //   // max-width: 39.75%;
+        flex-wrap: wrap;
+        gap: 20px;
 
-        //   max-width: max-content;
-        // }
+        .tabs-list {
+          @include flex-center($align: center, $justify: flex-start);
 
-        .cagr-value h2 {
-          @include font-style($size: 24px,
-            $line-height: 32px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, semibold),
-            $family: $poppins);
+          gap: 0;
+          border-bottom: 1px solid #b6bcc7;
+          max-width: max-content;
+          margin-right: -16px;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .tabs-tab {
+            border: none;
+            background-color: transparent;
+            padding: 10px 12px;
+            cursor: pointer;
+
+            @include font-style(
+              $size: 14px,
+              $line-height: 20px,
+              $color: $text-body-2,
+              $weight: map.get($font-weights, regular),
+              $family: $poppins
+            );
+
+            &[aria-selected="true"] {
+              @include font-style(
+                $size: 14px,
+                $line-height: 16px,
+                $color: $primary-blue,
+                $weight: map.get($font-weights, medium),
+                $family: $poppins
+              );
+
+              border-bottom: 2px solid #382ad7;
+              padding: 12px;
+            }
+          }
         }
       }
 
-      .risk-container {
-        padding-bottom: 8px;
-      }
-
-      .button-container {
-        margin: 28px 0 0;
+      .tabs-panel {
+        // @include flex-center($align: center, $justify: center);
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 24px 0 0;
+        border: none;
+        overflow: unset;
+        margin: 0;
       }
     }
-  }
 
-  .section.index-fund .compound-item .card-items {
-    flex-wrap: wrap;
+    .btndesk,
+    .btnmob {
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+      max-width: 120px;
+      width: 100%;
+      background-color: transparent;
+      border-radius: map.get($radius, r4);
+      border: none;
+
+      a {
+        border-radius: map.get($radius, r4);
+        border: 1px solid map.get($button-primary, default);
+        width: 100%;
+        background-color: transparent;
+        padding: 8px 12px;
+
+        @include font-style(
+          $size: 14px,
+          $line-height: 16px,
+          $color: $primary-blue,
+          $weight: map.get($font-weights, medium),
+          $family: $poppins
+        );
+
+        text-decoration: none;
+        display: block;
+        margin: 0;
+      }
+
+      @include media(mobile) {
+        display: none;
+        margin: 40px auto 0;
+      }
+    }
+
+    .btnmob {
+      display: none;
+
+      @include media(mobile) {
+        display: block;
+      }
+    }
+
+    &.our-popular-funds {
+      background: $primary-blue;
+      max-width: 100%;
+      padding: 54px 0;
+
+      @include media(mobile) {
+        padding: 40px 0 45px;
+      }
+
+      .default-content-wrapper,
+      .tabs-wrapper {
+        // max-width: 1264px;
+        width: 100%;
+        margin: 0 auto;
+
+        .wrappertablist {
+          .tabs-list {
+            .tabs-tab {
+              color: map.get($blue-1, b200);
+
+              &[aria-selected="true"] {
+                border-bottom: 2px solid $primary-white;
+                color: $primary-white;
+              }
+            }
+          }
+        }
+      }
+
+      .default-content-wrapper {
+        h1 {
+          color: $primary-white;
+          margin: 0 0 8px;
+        }
+      }
+
+      .btnmob a,
+      .wrappertablist .btndesk a {
+        border: 1px solid $primary-white;
+        color: $primary-white;
+      }
+    }
 
     .card-container {
-      max-width: 100%;
-    }
-  }
-}
+      @include media(desktop-sm) {
+        max-width: 31.8%;
+      }
 
-@include media(mobile) {
-  .section.tabs-container .card-container {
-    max-width: 100%;
+      @include media(mobile) {
+        max-width: 100%;
+      }
+    }
   }
 }
