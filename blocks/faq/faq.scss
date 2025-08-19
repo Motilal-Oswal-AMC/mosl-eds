@@ -85,7 +85,7 @@
                 p {
                     margin: 0;
 
-                    @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $poppins);
+                    @include font-style(20px, 24px, $primary-blue, map.get($font-weights, medium), $poppins);
 
                     @include media (mobile) {
                         @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $poppins);
@@ -183,7 +183,8 @@
             .accordion-item {
                 overflow: hidden;
                 transition: all 0.4s ease-in-out;
-                margin-bottom: 1em;
+
+                // margin-bottom: 1em;
 
                 &.hidden {
                     display: none;
@@ -221,7 +222,7 @@
                 font-family: $poppins;
                 font-size: 14px;
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 500;
                 line-height: 20px;
                 text-decoration-line: underline;
                 text-decoration-style: solid;
