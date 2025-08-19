@@ -118,7 +118,7 @@ export default function decorate(block) {
           a(
             {
               href: "/motilalfigma/modals/risk-o-meter",
-              class: "riskfactor-icon",
+              class: "risk-icon",
             },
             img({
               class: "riskfactor-icon",
@@ -204,7 +204,7 @@ export default function decorate(block) {
         a(
           {
             href: "/motilalfigma/modals/risk-o-meter",
-            class: "riskfactor-icon",
+            class: "risk-icon",
           },
           img({
             class: "riskfactor-icon",
