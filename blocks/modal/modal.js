@@ -5,7 +5,12 @@ import {
 
 export async function createModal(contentNodes) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
-  const contentNodesClass = [...contentNodes].filter((node) => node.classList && node.classList.contains('risk-o-meter-container'));
+  let contentNodesClass = [...contentNodes].filter((node) => node.classList && node.classList.contains('risk-o-meter-container'));
+  if (contentNodesClass.length === 0) {
+    contentNodesClass = [...contentNodes].filter(
+      (node) => node.classList && node.classList.contains("live-streaming")
+    );
+  }
   const dialog = document.createElement('dialog');
   const dialogContent = document.createElement('div');
   dialogContent.classList.add('modal-content');

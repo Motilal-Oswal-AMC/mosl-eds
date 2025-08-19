@@ -179,6 +179,15 @@ export default function decorate(block) {
   //   returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
   // }
 
+
+  const inputEl = document.getElementById("investmentAmount");
+  inputEl.addEventListener("input", (e) => {
+    let val = +e.target.value;
+    if (val > 1000000) {
+      e.target.value = e.target.value.slice(0, -1);
+    }
+  });
+
   // -------------------------------
   // ✅ 4. UPDATE VALUES (FINAL)
   // -------------------------------
@@ -188,6 +197,10 @@ export default function decorate(block) {
     const returnCAGRSpan = block.querySelector('.return-cagr');
     const tenureValue = block.querySelector('#investmentTenure').value;
     const amount = parseFloat(amountInput.value) || 0;
+
+    if (amount > 1000000) {
+      return false;
+    }
 
     let tenure = 0;
 
