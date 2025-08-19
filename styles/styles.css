@@ -481,3 +481,9 @@ footer .footer[data-block-status="loaded"] {
     /* padding: 0 16px; */
   }
 }
+
+#chartdiv {
+  text, tspan {
+    font-family: var(--heading-font-family)
+  }
+}
