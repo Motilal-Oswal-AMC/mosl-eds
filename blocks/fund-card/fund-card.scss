@@ -201,8 +201,8 @@
     }
 
     .card-category {
-      @include flex-center($align: start, $justify: flex-start);
-
+      @include flex-center($align: center, $justify: flex-start);
+      
       // gap: 8px;
       gap: 4px 8px;
       padding: 4px 0;
