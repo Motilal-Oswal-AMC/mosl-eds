@@ -264,6 +264,7 @@
             /* stylelint-disable-next-line no-descending-specificity */
             &>li:nth-child(2) {
               margin-bottom: 8px;
+              min-height: 48px;
 
               p {
                 margin: 0;

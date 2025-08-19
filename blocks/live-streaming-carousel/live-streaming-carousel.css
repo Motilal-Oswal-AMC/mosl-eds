@@ -1014,12 +1014,12 @@ button.swiper-pagination-bullet {
   top: 5px;
   right: 5px;
   display: flex;
-  width: 36px;
-  height: 36px;
-  padding: 11px;
+  width: 32px;
+  height: 32px;
+  padding: 10px;
   align-items: center;
   gap: 10px;
-  border-radius: 18px;
+  border-radius: 16px;
   background: #2e2a94;
 }
 .modal.block dialog .modal-content {

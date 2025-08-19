@@ -192,6 +192,10 @@
                     li {
                         height: -webkit-fill-available;
                         line-height: normal;
+
+                        a {
+                            cursor: pointer;
+                        }
                     }
 
                     li:nth-child(2) {

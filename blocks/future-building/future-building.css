@@ -245,6 +245,7 @@
 }
 .section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 > ul > li:nth-child(2) {
   margin-bottom: 8px;
+  min-height: 48px;
 }
 .section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 > ul > li:nth-child(2) p {
   margin: 0;

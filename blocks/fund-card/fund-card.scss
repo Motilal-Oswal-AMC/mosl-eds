@@ -2,8 +2,8 @@
 
 /*   media-feature-range-notation */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section {
   .card-container {
@@ -27,11 +27,13 @@
 
       // All dropdown in card
       .selectedtext {
-        @include font-style(12px,
+        @include font-style(
+          12px,
           16px,
           $primary-blue,
           map.get($font-weights, medium),
-          $poppins);
+          $poppins
+        );
 
         margin: 0;
         cursor: pointer;
@@ -87,11 +89,13 @@
         }
 
         li {
-          @include font-style(12px,
+          @include font-style(
+            12px,
             16px,
             $neutrals-black,
             map.get($font-weights, regular),
-            $poppins);
+            $poppins
+          );
 
           padding: 12px;
           border-bottom: 1px solid $neutrals-200;
@@ -166,19 +170,23 @@
         .brand-name-text {
           margin: 0;
 
-          @include font-style(12px,
+          @include font-style(
+            12px,
             16px,
             map.get($blue-1, b400),
             map.get($font-weights, regular),
-            $poppins);
+            $poppins
+          );
         }
 
         .fund-name-title {
-          @include font-style($size: 16px,
+          @include font-style(
+            $size: 16px,
             $line-height: 20px,
             $color: $primary-blue,
             $weight: map.get($font-weights, medium),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           margin: 0;
 
@@ -194,7 +202,7 @@
 
     .card-category {
       @include flex-center($align: center, $justify: flex-start);
-      
+
       // gap: 8px;
       gap: 4px 8px;
       padding: 4px 0;
@@ -217,11 +225,13 @@
         flex-wrap: wrap;
 
         &-name {
-          @include font-style($size: 12px,
+          @include font-style(
+            $size: 12px,
             $line-height: 16px,
             $color: $primary-blue-1-900,
             $weight: map.get($font-weights, regular),
-            $family: $poppins);
+            $family: $poppins
+          );
           @include flex-center($align: center, $justify: flex-start);
 
           gap: 8px;
@@ -294,11 +304,13 @@
         // line-height: 0;
 
         .cagr-txt {
-          @include font-style($size: 12px,
+          @include font-style(
+            $size: 12px,
             $line-height: 16px,
             $color: $neutrals-black,
             $weight: map.get($font-weights, medium),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           // padding-bottom: 4px;
         }
@@ -316,9 +328,8 @@
           //   width: 80px;
           // }
 
-          @media screen and (width <=900px) {
+          @media screen and (width <= 900px) {
             // width: 80px;
-
             .dropdown-list {
               top: 35px;
             }
@@ -339,11 +350,13 @@
         width: 100%;
 
         h2 {
-          @include font-style($size: 24px,
+          @include font-style(
+            $size: 24px,
             $line-height: 32px,
             $color: $primary-blue,
             $weight: map.get($font-weights, semibold),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           margin: 0;
           text-align: right;
@@ -355,11 +368,13 @@
 
         .scheme-yet,
         .cagr-date {
-          @include font-style($size: 12px,
+          @include font-style(
+            $size: 12px,
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: map.get($font-weights, regular),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           text-align: right;
           margin: 0;
@@ -375,11 +390,13 @@
         width: 100%;
 
         .cagr-desc-text {
-          @include font-style($size: 11px,
+          @include font-style(
+            $size: 11px,
             $line-height: 15px,
             $color: $primary-blue,
             $weight: map.get($font-weights, regular),
-            $family: $poppins);
+            $family: $poppins
+          );
 
           // padding: 8px 0;
           display: block;
@@ -414,22 +431,26 @@
       }
 
       .risk-label {
-        @include font-style($size: 12px,
+        @include font-style(
+          $size: 12px,
           $line-height: 16px,
           $color: map.get($dark-liver, 500),
           $weight: map.get($font-weights, regular),
-          $family: $poppins);
+          $family: $poppins
+        );
 
         margin: 0;
         padding: 0;
       }
 
       .risk-text {
-        @include font-style($size: 12px,
+        @include font-style(
+          $size: 12px,
           $line-height: 16px,
           $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $poppins);
+          $family: $poppins
+        );
         @include flex-center($align: center, $justify: flex-start);
 
         gap: 4px;
@@ -467,11 +488,13 @@
           }
 
           .investor-txt {
-            @include font-style($size: 12px,
+            @include font-style(
+              $size: 12px,
               $line-height: 16px,
               $color: map.get($blue-1, b900),
               $weight: map.get($font-weights, regular),
-              $family: $poppins);
+              $family: $poppins
+            );
           }
         }
       }
@@ -490,11 +513,13 @@
         width: 100%;
         display: block;
 
-        @include font-style($size: 14px,
+        @include font-style(
+          $size: 14px,
           $line-height: 16px,
           $color: map.get($blue-1, b500),
           $weight: map.get($font-weights, medium),
-          $family: $poppins);
+          $family: $poppins
+        );
 
         margin: 0;
         padding: 0;
@@ -536,11 +561,13 @@
       // max-width: 100%;
 
       h1 {
-        @include font-style($size: 36px,
+        @include font-style(
+          $size: 36px,
           $line-height: 44px,
           $color: $primary-blue,
           $weight: map.get($font-weights, bold),
-          $family: $butlerpro);
+          $family: $butlerpro
+        );
 
         margin: 0 0 12px;
 
@@ -555,207 +582,162 @@
     .tabs-wrapper {
       margin: 0 auto;
 
-      .tabs-list {
-        &::-webkit-scrollbar {
-          display: none;
+      .wrappertablist {
+        @include flex-center($align: center, $justify: space-between);
+
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .tabs-list {
+          @include flex-center($align: center, $justify: flex-start);
+
+          gap: 0;
+          border-bottom: 1px solid #b6bcc7;
+          max-width: max-content;
+          margin-right: -16px;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .tabs-tab {
+            border: none;
+            background-color: transparent;
+            padding: 10px 12px;
+            cursor: pointer;
+
+            @include font-style(
+              $size: 14px,
+              $line-height: 20px,
+              $color: $text-body-2,
+              $weight: map.get($font-weights, regular),
+              $family: $poppins
+            );
+
+            &[aria-selected="true"] {
+              @include font-style(
+                $size: 14px,
+                $line-height: 16px,
+                $color: $primary-blue,
+                $weight: map.get($font-weights, medium),
+                $family: $poppins
+              );
+
+              border-bottom: 2px solid #382ad7;
+              padding: 12px;
+            }
+          }
         }
-
-        .tabs-tab {
-          @include font-style($size: 14px,
-            $line-height: 16px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $poppins);
-        }
       }
 
-      .wrappertablist .btndesk {
-        display: none;
-      }
-
-      .btnmob {
-        display: block;
-        margin: 40px auto 0;
-      }
-
-      .card-container {
-        padding: 20px 16px;
-        max-width: 100%;
+      .tabs-panel {
+        // @include flex-center($align: center, $justify: center);
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 24px 0 0;
+        border: none;
+        overflow: unset;
+        margin: 0;
       }
     }
 
-    .section {
-      .card-container {
-        max-width: 100%;
+    .btndesk,
+    .btnmob {
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+      max-width: 120px;
+      width: 100%;
+      background-color: transparent;
+      border-radius: map.get($radius, r4);
+      border: none;
 
-        .card-wrapper {
-          max-width: 100%;
-        }
-
-        .card-upper-title .fund-name-title {
-          @include font-style($size: 16px,
-            $line-height: 20px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $poppins);
-        }
-
-        .card-category {
-          margin: 0 0 36px;
-          min-height: unset;
-        }
-
-        .cagr-container {
-          @include flex-center($align: center, $justify: space-between);
-
-          flex-wrap: wrap;
-          gap: 20px;
-
-          .tabs-list {
-            @include flex-center($align: center, $justify: flex-start);
-
-            gap: 0;
-            border-bottom: 1px solid #b6bcc7;
-            max-width: max-content;
-            margin-right: -16px;
-
-            &::-webkit-scrollbar {
-              display: none;
-            }
-
-            .tabs-tab {
-              border: none;
-              background-color: transparent;
-              padding: 10px 12px;
-              cursor: pointer;
-
-              @include font-style($size: 14px,
-                $line-height: 20px,
-                $color: $text-body-2,
-                $weight: map.get($font-weights, regular),
-                $family: $poppins);
-
-              &[aria-selected="true"] {
-                @include font-style($size: 14px,
-                  $line-height: 16px,
-                  $color: $primary-blue,
-                  $weight: map.get($font-weights, medium),
-                  $family: $poppins);
-
-                border-bottom: 2px solid #382ad7;
-                padding: 12px;
-              }
-            }
-          }
-        }
-
-        .tabs-panel {
-          // @include flex-center($align: center, $justify: center);
-          justify-content: flex-start;
-          align-items: stretch;
-          flex-wrap: wrap;
-          gap: 16px;
-          padding: 24px 0 0;
-          border: none;
-          overflow: unset;
-          margin: 0;
-        }
-      }
-
-      .btndesk,
-      .btnmob {
-        margin: 0;
-        padding: 0;
-        line-height: 0;
-        max-width: 120px;
+      a {
+        border-radius: map.get($radius, r4);
+        border: 1px solid map.get($button-primary, default);
         width: 100%;
         background-color: transparent;
-        border-radius: map.get($radius, r4);
-        border: none;
+        padding: 8px 12px;
 
-        a {
-          border-radius: map.get($radius, r4);
-          border: 1px solid map.get($button-primary, default);
-          width: 100%;
-          background-color: transparent;
-          padding: 8px 12px;
+        @include font-style(
+          $size: 14px,
+          $line-height: 16px,
+          $color: $primary-blue,
+          $weight: map.get($font-weights, medium),
+          $family: $poppins
+        );
 
-          @include font-style($size: 14px,
-            $line-height: 16px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $poppins);
-
-          text-decoration: none;
-          display: block;
-          margin: 0;
-        }
-
-        @include media(mobile) {
-          display: none;
-          margin: 40px auto 0;
-        }
+        text-decoration: none;
+        display: block;
+        margin: 0;
       }
 
-      .btnmob {
+      @include media(mobile) {
         display: none;
+        margin: 40px auto 0;
+      }
+    }
 
-        @include media(mobile) {
-          display: block;
-        }
+    .btnmob {
+      display: none;
+
+      @include media(mobile) {
+        display: block;
+      }
+    }
+
+    &.our-popular-funds {
+      background: $primary-blue;
+      max-width: 100%;
+      padding: 54px 0;
+
+      @include media(mobile) {
+        padding: 40px 0 45px;
       }
 
-      &.our-popular-funds {
-        background: $primary-blue;
-        max-width: 100%;
-        padding: 54px 0;
+      .default-content-wrapper,
+      .tabs-wrapper {
+        // max-width: 1264px;
+        width: 100%;
+        margin: 0 auto;
 
-        @include media(mobile) {
-          padding: 40px 0 45px;
-        }
+        .wrappertablist {
+          .tabs-list {
+            .tabs-tab {
+              color: map.get($blue-1, b200);
 
-        .default-content-wrapper,
-        .tabs-wrapper {
-          // max-width: 1264px;
-          width: 100%;
-          margin: 0 auto;
-
-          .wrappertablist {
-            .tabs-list {
-              .tabs-tab {
-                color: map.get($blue-1, b200);
-
-                &[aria-selected="true"] {
-                  border-bottom: 2px solid $primary-white;
-                  color: $primary-white;
-                }
+              &[aria-selected="true"] {
+                border-bottom: 2px solid $primary-white;
+                color: $primary-white;
               }
             }
           }
         }
+      }
 
-        .default-content-wrapper {
-          h1 {
-            color: $primary-white;
-            margin: 0 0 8px;
-          }
-        }
-
-        .btnmob a,
-        .wrappertablist .btndesk a {
-          border: 1px solid $primary-white;
+      .default-content-wrapper {
+        h1 {
           color: $primary-white;
+          margin: 0 0 8px;
         }
       }
 
-      .card-container {
-        @include media(desktop-sm) {
-          max-width: 31.8%;
-        }
+      .btnmob a,
+      .wrappertablist .btndesk a {
+        border: 1px solid $primary-white;
+        color: $primary-white;
+      }
+    }
 
-        @include media(mobile) {
-          max-width: 100%;
-        }
+    .card-container {
+      @include media(desktop-sm) {
+        max-width: 31.8%;
+      }
+
+      @include media(mobile) {
+        max-width: 100%;
       }
     }
   }

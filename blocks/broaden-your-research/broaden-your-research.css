@@ -190,6 +190,9 @@
   height: -webkit-fill-available;
   line-height: normal;
 }
+.broaden-your-research-container .broaden-your-research .card-wrap .icons-card-wrap ul li a {
+  cursor: pointer;
+}
 .broaden-your-research-container .broaden-your-research .card-wrap .icons-card-wrap ul li:nth-child(2) {
   padding-top: 5px;
 }
