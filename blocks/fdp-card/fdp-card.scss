@@ -531,10 +531,6 @@ main{
     max-width: 66.234%;
     width: 100%;
     padding: 0;
-  
-    @include media(tab){
-      padding: 0 16px;
-    }
 
     @media (max-width: 768px) {
       // padding-left: 16px;
@@ -555,7 +551,7 @@ main{
       list-style: none;
       padding: 0;
       margin: 0;
-      border-bottom: 1px solid #b6bcc7;
+      border-bottom: 1px solid #BDBDBD;
       background-color: #f5f5f5;
 
       @media (width <= 768px) {
@@ -584,7 +580,7 @@ main{
         a {
         @include font-style(14px, 20px, $text-body-2, 400, $poppins);
 
-        padding: 12px;
+          padding:0 12px;
         cursor: pointer;
 
         @media (width <= 768px) {
@@ -632,6 +628,10 @@ main{
         flex-direction: column;
         gap: 28px;
         padding: 0 16px;
+
+        @media (width <= 768px) {
+          padding: 0;
+        }
 
         h5 {
           @include font-style(28px, 32px, $primary-blue, 500, $butlerpro);

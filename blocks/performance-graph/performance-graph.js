@@ -237,9 +237,11 @@ export default function decorate(block) {
       );
 
       xAxis.get("renderer").labels.template.setAll({
-        fill: window.am5.color(0x212121),
-        fontFamily: "Poppins",
-        fontSize: 14,
+        // fill: window.am5.color(0x212121),
+        // fontFamily: "Poppins",
+        fill: window.am5.color(0x888888),  // <-- Change color here (e.g., grey) // test
+        fontFamily: "Poppins", //"Arial",             // <-- Change font family here
+        fontSize: 12,
         fontWeight: 400,
         paddingTop: 8,
       });
@@ -266,6 +268,14 @@ export default function decorate(block) {
         stroke: window.am5.color(0xCCCCCC)
       });
 
+      // test
+      // ADD THIS CODE BLOCK FOR Y-AXIS LABELS
+      yAxis.get("renderer").labels.template.setAll({
+        fill: window.am5.color(0x888888),  // <-- Set your desired color
+        fontFamily: "Poppins", //"Arial",             // <-- Set your desired font family
+        fontSize: 14,
+      });
+
       // Shared tooltip
       const sharedTooltip = window.am5.Tooltip.new(root, {
         getFillFromSprite: false,
@@ -280,6 +290,8 @@ export default function decorate(block) {
       sharedTooltip.label.setAll({
         fill: window.am5.color(0xffffff),
         fontFamily: "Poppins",
+        // fill: window.am5.color(0xffeecc),  // <-- Change text color (e.g., light yellow)
+        // fontFamily: "Courier New",       // <-- Change font family
         fontSize: 14,
         fontWeight: 400,
       });
@@ -423,9 +435,98 @@ export default function decorate(block) {
           y: window.am5.percent(110),
           layout: root.horizontalLayout,
           marginTop: 30,
+          itemContainers: {
+            paddingTop: 4,
+            paddingBottom: 4,
+            paddingLeft: 10,
+            paddingRight: 10
+          },
         })
       );
+
+      // Replace rectangle markers with circle dots
+      legend.markers.template.setAll({
+        width: 12,
+        height: 12,
+        cornerRadiusTL: 6,
+        cornerRadiusTR: 6,
+        cornerRadiusBL: 6,
+        cornerRadiusBR: 6
+      });
+
+      // OR, more cleanly:
+      legend.markers.template.set("draw", function (display) {
+        display.circle(6, 6, 6); // x, y, radius
+      });
+
+      // Also update your legend labels template for better alignment:
+      legend.labels.template.setAll({
+        fill: window.am5.color(0x333333),
+        fontFamily: "Poppins",
+        fontSize: 16,
+        fontWeight: "500",
+        marginLeft: 6,
+        centerY: window.am5.p50,  // Vertically center the text
+        paddingTop: 0,            // Remove any top padding
+        paddingBottom: 0          // Remove any bottom padding
+      });
       legend.data.setAll(chart.series.values);
+
+      // Center the legend group and keep items tight
+      legend.setAll({
+        layout: root.horizontalLayout,
+        centerX: window.am5.p50,
+        x: window.am5.p50,
+        centerY: window.am5.p100,
+        y: window.am5.percent(110),
+        paddingLeft: 0,
+        paddingRight: 0
+      });
+
+      // Make sure item containers size to content (no forced width)
+      legend.itemContainers.template.set("width", null);
+
+      // Alternative approach - if the above doesn't work perfectly, try this:
+      legend.itemContainers.template.setAll({
+        paddingTop: 4,
+        paddingBottom: 4,
+        marginRight: 20,
+        valign: "middle"  // Ensure vertical alignment of container contents
+      });
+
+      // optional: no extra gap after the last item
+      legend.itemContainers.template.adapters.add("marginRight", (mr, target) => {
+        const di = target.dataItem;
+        return di && di.get("index") === legend.data.length - 1 ? 0 : mr;
+      });
+
+
+
+      // Make legend markers circular dots that match series color
+      [series1, series2].forEach((s) => {
+        const legendItem = s.get("legendDataItem");
+        if (!legendItem) return;
+
+        const marker = legendItem.get("marker");
+        marker.setAll({
+          width: 12,
+          height: 12,
+          centerY: window.am5.p50,  // Center the marker vertically
+          centerX: window.am5.p50   // Center the marker horizontally
+        });
+
+        // Remove default rectangle/line sample and add a circle
+        marker.children.clear();
+        marker.children.push(window.am5.Circle.new(root, {
+          radius: 6,
+          fill: s.get("stroke"),   // use the series stroke color
+          stroke: s.get("stroke"),
+          paddingTop: 10,
+          centerY: window.am5.p50,  // Center the circle within the marker
+          centerX: window.am5.p50   // Center the circle within the marker
+        }));
+      });
+
 
       series1.appear(1000);
       series2.appear(1000);

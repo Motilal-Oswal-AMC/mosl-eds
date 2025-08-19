@@ -373,7 +373,11 @@
                 padding-left: 18px;
               }
 
-              span::before {
+              .return-cagr{
+                padding-left: 0;
+              }
+
+              .current-value::before {
                 content: "₹";
                 position: absolute;
                 left: 3px;
@@ -1052,7 +1056,7 @@
       margin-bottom: 20px;
 
       strong {
-        font-weight: map.get($font-weights, semibold);
+        font-weight:400;
         color: $primary-blue;
       }
     }

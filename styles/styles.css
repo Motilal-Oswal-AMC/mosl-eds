@@ -480,5 +480,12 @@ footer .footer[data-block-status="loaded"] {
 /* @media (width <=900px) {
   .section .item2 .section {
     padding: 0 16px;
+    padding: 40px 16px;
+  }
+}
+
+#chartdiv {
+  text, tspan {
+    font-family: var(--heading-font-family)
   }
 } */

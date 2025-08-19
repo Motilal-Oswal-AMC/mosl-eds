@@ -508,11 +508,6 @@ main {
   /* ul for second part */
   /* why fund section */
 }
-@media (max-width: 1025px) {
-  .section.fdp-card-container .item2 {
-    padding: 0 16px;
-  }
-}
 @media (max-width: 768px) {
   .section.fdp-card-container .item2 {
     max-width: 100%;
@@ -529,7 +524,7 @@ main {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid #b6bcc7;
+  border-bottom: 1px solid #BDBDBD;
   background-color: #f5f5f5;
 }
 @media (width <= 768px) {
@@ -563,7 +558,7 @@ main {
   color: #616161;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  padding: 12px;
+  padding: 0 12px;
   cursor: pointer;
 }
 @media (width <= 768px) {
@@ -609,6 +604,11 @@ main {
   flex-direction: column;
   gap: 28px;
   padding: 0 16px;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper {
+    padding: 0;
+  }
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper h5 {
   font-size: 28px;

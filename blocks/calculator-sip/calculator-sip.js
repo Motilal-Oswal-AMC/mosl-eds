@@ -18,7 +18,7 @@ export default function decorate(block) {
   // let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
   let planCode = localStorage.getItem('planCode') || 'Direct:LM';
   let [planFlow, schcode] = planCode.split(':');
-  const selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
+  let selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
   let returnCAGR = 0;
   let mode = 'sip';
   let planType = 'Direct';
@@ -141,6 +141,12 @@ export default function decorate(block) {
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
 
+  // Hide Search and Direct Growth for FDP Page
+  if (block.parentElement.parentElement.classList.contains('fdp-calculator')) {
+    document.querySelector('.fdp-calculator .search-bar-wrapper').style.display = 'none'
+    document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none'
+  }
+
   // -------------------------------
   // ✅ 4. UPDATE VALUES
   // -------------------------------
@@ -182,6 +188,15 @@ export default function decorate(block) {
   //   returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
   // }
 
+
+  const inputEl = document.getElementById("investmentAmount");
+  inputEl.addEventListener("input", (e) => {
+    let val = +e.target.value;
+    if (val > 1000000) {
+      e.target.value = e.target.value.slice(0, -1);
+    }
+  });
+
   // -------------------------------
   // ✅ 4. UPDATE VALUES (FINAL)
   // -------------------------------
@@ -191,6 +206,10 @@ export default function decorate(block) {
     const returnCAGRSpan = block.querySelector('.return-cagr');
     const tenureValue = block.querySelector('#investmentTenure').value;
     const amount = parseFloat(amountInput.value) || 0;
+
+    if (amount > 1000000) {
+      return false;
+    }
 
     let tenure = 0;
 
