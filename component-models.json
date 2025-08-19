@@ -194,6 +194,10 @@
             "value": "product-label"
           },
           {
+            "name": "Live Streaming",
+            "value": "live-streaming"
+          },
+          {
             "name": "Homepage Growth",
             "value": "homepage-growth"
           }

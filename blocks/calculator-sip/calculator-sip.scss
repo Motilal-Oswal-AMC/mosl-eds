@@ -372,7 +372,11 @@
                 padding-left: 18px;
               }
 
-              span::before {
+              .return-cagr{
+                padding-left: 0;
+              }
+
+              .current-value::before {
                 content: "₹";
                 position: absolute;
                 left: 3px;
