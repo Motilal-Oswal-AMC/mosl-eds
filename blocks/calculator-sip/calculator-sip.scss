@@ -1051,7 +1051,7 @@
       margin-bottom: 20px;
 
       strong {
-        font-weight: map.get($font-weights, semibold);
+        font-weight:400;
         color: $primary-blue;
       }
     }

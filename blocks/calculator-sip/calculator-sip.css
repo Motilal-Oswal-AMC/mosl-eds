@@ -534,9 +534,7 @@
   line-height: 16px;
   cursor: pointer;
   position: relative;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 @media (max-width: 768px) {
   .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .plan-options-wrapper .plan-option-select .select-selected-plan,
@@ -636,9 +634,7 @@
   font-weight: 500;
   line-height: 24px;
   width: 100%;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   outline: none;
 }
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper input::-webkit-outer-spin-button, .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper input::-webkit-inner-spin-button,
@@ -648,8 +644,7 @@
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper input::-webkit-inner-spin-button,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper select::-webkit-outer-spin-button,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper select::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   margin: 0;
 }
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol,
@@ -659,13 +654,6 @@
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol input,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol input {
   padding-left: 15px;
-}
-.section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol input::-moz-placeholder, .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol input::-moz-placeholder {
-  color: #2E2A94;
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 24px;
 }
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol input::placeholder,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .investment-wrapper .sip-wrapper .input-with-symbol input::placeholder {
@@ -719,9 +707,7 @@
   line-height: 24px;
   cursor: pointer;
   position: relative;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   padding-bottom: 4px;
 }
 @media (max-width: 768px) {
@@ -1068,7 +1054,7 @@
   margin-bottom: 20px;
 }
 .section.fdp-calculator .default-content-wrapper p:nth-child(1) strong {
-  font-weight: 600;
+  font-weight: 400;
   color: #2e2a94;
 }
 .section.fdp-calculator .default-content-wrapper p,
