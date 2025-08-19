@@ -18,7 +18,7 @@ export default function decorate(block) {
   // let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
   let planCode = localStorage.getItem('planCode') || 'Direct:LM';
   let [planFlow, schcode] = planCode.split(':');
-  const selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
+  let selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
   let returnCAGR = 0;
   let mode = 'sip';
   let planType = 'Direct';
