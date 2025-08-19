@@ -539,14 +539,7 @@
           background: map.get($button-primary, default);
           padding: 8px 12px;
           text-align: center;
-
-          @include font-style(
-            $size: 14px,
-            $line-height: 16px,
-            $color: $primary-white,
-            $weight: map.get($font-weights, medium),
-            $family: $poppins
-          );
+          color: $primary-white;
         }
       }
     }
