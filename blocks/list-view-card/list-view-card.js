@@ -240,4 +240,6 @@ export default function decorate(block) {
     )
   );
   return listcontainer;
+  }
 }
+ 
