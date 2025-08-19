@@ -144,6 +144,15 @@ function searchFunctionality(block) {
         el.querySelector('.dropdown-list').classList.remove('dropdown-active');
       }
     });
+    const sortsel = document.querySelector('.sort-select-container');
+    if (!sortsel.contains(event.target)) {
+      sortsel.querySelector('.dropdown-list').classList.remove('dropdown-active');
+    }
+
+    const resortsel = document.querySelector('.return-select-container');
+    if (!resortsel.contains(event.target)) {
+      resortsel.querySelector('.dropdown-list').classList.remove('dropdown-active');
+    }
   });
 
   if (searchInput.value.length === 0) {
@@ -496,7 +505,7 @@ export default function decorate(block) {
     }
   }
   if (funddata === undefined) {
-    dataMapMoObj.funddata = dataCfObj; //.slice(0, 11);;
+    dataMapMoObj.funddata = dataCfObj.slice(0, 10); //.slice(0, 11);;
   }
   const divfund = div(
     {
@@ -1268,6 +1277,27 @@ export default function decorate(block) {
                       event.target
                         .closest('.sort-select-container')
                         .querySelector('p').innerText = name;
+                      if (name === 'Popular') {
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = dataCfObj.slice(0, 10);
+                      }
+                      if (event.target.textContent.trim() === 'Oldest to Newest') {
+                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
+                        const tempa = tempData.sort(
+                          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
+                        );
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = tempa;
+                      }
+                      if (event.target.textContent.trim() === 'Newest to Oldest') {
+                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
+                        const tempa = tempData.sort(
+                          (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                        );
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = tempa;
+                      }
+                      viewFunction(block);
                       // planListEvent(event,block)
                     },
                   },
@@ -1547,6 +1577,9 @@ export default function decorate(block) {
           (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
         );
         dataMapMoObj.tempMobReturn = tempa;
+      }
+      if (sortText.trim() === 'Popular') {
+        dataMapMoObj.tempMobReturn = dataCfObj.slice(0, 10);
       }
     });
   });
