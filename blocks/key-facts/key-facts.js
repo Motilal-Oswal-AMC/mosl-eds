@@ -192,5 +192,8 @@ export default function decorate(block) {
   }
   block.querySelector('.entry-load-detail').innerHTML = data[0].entryLoad;
   block.querySelector('.load-policy-list').innerHTML = '';
-  block.querySelector('.load-policy-list').innerHTML = data[0].schDetail.exitLoad;
+  const replacepara = data[0].schDetail.exitLoad.replaceAll('<p>', '<li>');
+  const replaceparatwo = replacepara.replaceAll('</p>', '</li>');
+  const prarrep = replaceparatwo.replaceAll('<li>&nbsp;</li>', '');
+  block.querySelector('.load-policy-list').innerHTML = prarrep;
 }
