@@ -5,10 +5,10 @@
 
 .section.our-funds-fdp-container {
   // Make sure this has enough contrast with text
-  padding: 5rem 0;
+  padding: 40px 0;
 
   @media (width <= 768px) {
-    // padding: 2.5rem 1rem;
+    padding: 0 16px;
   }
 
   .default-content-wrapper {

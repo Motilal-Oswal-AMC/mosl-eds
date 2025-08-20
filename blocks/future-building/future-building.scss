@@ -508,8 +508,10 @@
 }
 
 .section.learning-fdp.future-building-container {
+  padding: 40px 0;
+
   @include media(mobile) {
-    padding: 40px 0 40px 16px;
+    padding: 0 0 0 16px;
   }
 
   .library-btn1 {

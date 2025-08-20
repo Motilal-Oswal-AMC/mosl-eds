@@ -4,6 +4,11 @@
   width: 100%;
   max-width: 100%;
 }
+@media (width <= 768px) {
+  .section.download {
+    padding: 0 16px;
+  }
+}
 .section.download .default-content-wrapper > ul {
   display: flex;
   flex-direction: column;
