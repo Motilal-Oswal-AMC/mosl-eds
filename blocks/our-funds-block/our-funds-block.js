@@ -352,7 +352,9 @@ function checkfilter(block) {
     if (el.closest('.checkbox-label-container').querySelector('.innerindianequity')) {
       el.closest('.checkbox-label-container').querySelectorAll('.innerindianequity input').forEach((elemsub) => {
         if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
-          filterTag.push(elemsub.nextElementSibling.textContent.trim().replace(/\d+/g, '')); // 5-8-25
+          filterTag.push(
+            elemsub.nextElementSibling.textContent.trim().split("(")[0]
+          ); // 5-8-25
           elemsub.getAttribute('dataattr').split('-').forEach((eldata) => {
             if (!tempData.includes(eldata)) {
               tempData.push(eldata);
