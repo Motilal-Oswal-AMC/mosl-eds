@@ -256,7 +256,7 @@ body.scroll-lock {
   .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container {
     grid-area: trending;
     align-items: center;
-    overflow: auto;
+    overflow: auto hidden;
     width: calc(100% + 16px);
   }
   .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container::-webkit-scrollbar {
@@ -307,7 +307,7 @@ body.scroll-lock {
     flex-wrap: nowrap;
     gap: 24px;
     padding-right: 16px;
-    overflow-x: auto;
+    overflow: auto hidden;
     scrollbar-width: none;
   }
   .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul::-webkit-scrollbar {
