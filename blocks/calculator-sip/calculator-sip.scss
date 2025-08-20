@@ -218,6 +218,10 @@
             border: none;
             outline: none;
 
+            @include media(mobile) {
+              padding-right: 40px;
+            }
+
             &:active {
               border: none;
             }
@@ -649,6 +653,7 @@
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 24px;
+                height: 100%;
               }
             }
 
@@ -663,7 +668,7 @@
               font-weight: 500;
 
               @include media(mobile) {
-                top: -4px;
+                top: 0;
                 height: 100%;
               }
             }
@@ -850,6 +855,7 @@
       }
 
       .hero-text {
+
         h3,
         h4 {
           margin: 0;
@@ -1079,7 +1085,7 @@
       margin-bottom: 20px;
 
       strong {
-        font-weight:400;
+        font-weight: 400;
         color: $primary-blue;
       }
     }

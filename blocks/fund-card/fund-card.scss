@@ -676,6 +676,7 @@
         width: 100%;
         background-color: transparent;
         padding: 8px 12px;
+        height: 32px;
 
         @include font-style(
           $size: 14px,
@@ -744,6 +745,7 @@
       .wrappertablist .btndesk a {
         border: 1px solid $primary-white;
         color: $primary-white;
+        height: 32px;
       }
     }
 
