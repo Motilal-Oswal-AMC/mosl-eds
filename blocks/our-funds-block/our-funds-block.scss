@@ -10,7 +10,7 @@
     padding: 0 0 50px;
     margin: 0;
 
-    @include media(mobile){
+    @include media(mobile) {
       padding: 0 0 24px;
     }
   }
@@ -307,7 +307,8 @@
 
           .trendingmostlist {
             line-height: 0;
-
+            overflow: hidden;
+            
             ul {
               display: flex;
               align-items: center;
@@ -320,9 +321,19 @@
                 flex-wrap: nowrap;
                 gap: 24px;
                 padding-right: 16px;
+                overflow-x: auto;
+                scrollbar-width: none;
+
+                &::-webkit-scrollbar {
+                  display: none;
+                }
               }
 
               li {
+                @include media(mobile) {
+                  white-space: nowrap;
+                }
+
                 a {
                   text-decoration-line: underline;
                   text-underline-offset: 20%;
@@ -334,10 +345,6 @@
                     400,
                     $poppins
                   );
-
-                  @include media(mobile) {
-                    white-space: nowrap;
-                  }
                 }
               }
             }
@@ -659,8 +666,8 @@
                     min-width: 12px;
                     height: 12px;
                     display: flex;
-                    
-                    @include media(mobile){
+
+                    @include media(mobile) {
                       min-width: 20px;
                       height: 20px;
                     }
@@ -1752,7 +1759,7 @@
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  
+
                   .risk-icon,
                   .riskfactor-icon {
                     max-width: 20px;
