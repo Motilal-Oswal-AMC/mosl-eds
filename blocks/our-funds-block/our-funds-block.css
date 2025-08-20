@@ -594,7 +594,7 @@
   align-items: center;
   gap: 3px;
   width: 100%;
-  padding: 0 0 0 8px;
+  padding: 0 0 0 16px;
   cursor: pointer;
   position: relative;
 }

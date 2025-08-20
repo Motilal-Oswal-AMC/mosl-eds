@@ -345,9 +345,9 @@
                     }
 
                     .submit-wrapper {
-                        // @include media(mobile) {
-                        //     width: 100%;
-                        // }
+                        @include media(mobile) {
+                            width: 100%;
+                        }
 
                         .button {
                             width: 112px;
@@ -511,6 +511,11 @@
                                     font-weight: 600;
                                     line-height: 16px;
                                 }
+                            }
+
+                            .icon {
+                                width: 21px;
+                                height: 24px;
                             }
                         }
                     }

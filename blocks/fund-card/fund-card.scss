@@ -172,6 +172,8 @@
       }
 
       .brand-fund-wrap {
+        width: 100%;
+
         .brand-name-text {
           margin: 0;
 
@@ -196,7 +198,7 @@
           margin: 0;
 
           // min-height: 50px;
-          min-height: 40px;
+          // min-height: 40px;
 
           @include media(mobile) {
             min-height: unset;
