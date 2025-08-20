@@ -795,6 +795,9 @@
     min-width: 20px;
     height: 20px;
     cursor: pointer;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input::before,
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .return-container .radio-label-container .radio-label input::before {
