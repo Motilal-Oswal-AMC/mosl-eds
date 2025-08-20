@@ -185,7 +185,8 @@ body.scroll-lock {
   cursor: pointer;
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active {
-  border: 1px solid #1887D2;
+  outline: 1px solid #1887D2;
+  padding: 10px 8px;
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active .search {
   caret-color: #1887D2;

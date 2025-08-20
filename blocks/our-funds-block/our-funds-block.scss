@@ -196,7 +196,8 @@ body.scroll-lock {
           }
 
           &.search-active {
-            border: 1px solid map.get($strokes, typing);
+            outline: 1px solid map.get($strokes, typing);
+            padding: 10px 8px;
 
             .search {
               caret-color: map.get($strokes, typing);
