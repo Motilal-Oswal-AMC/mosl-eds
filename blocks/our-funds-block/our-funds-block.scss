@@ -258,8 +258,8 @@ body.scroll-lock {
             span {
               @include font-style(14px, 16px, $primary-blue, 500, $poppins);
 
+              // text-underline-offset: 20%;
               text-decoration-line: underline;
-              text-underline-offset: 20%;
             }
           }
         }
