@@ -593,7 +593,7 @@
                     padding: 16px 0;
                   }
 
-                  .categorey-direct {
+                  .category-direct {
                     visibility: hidden;
                     min-width: 20px;
                     height: 20px;
@@ -630,6 +630,7 @@
 
                     display: flex;
                     align-items: center;
+                    gap: 3px;
                     width: 100%;
                     padding: 0 0 0 8px;
                     cursor: pointer;

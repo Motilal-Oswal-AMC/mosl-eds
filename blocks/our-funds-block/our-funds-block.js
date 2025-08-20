@@ -747,7 +747,7 @@ export default function decorate(block) {
                             class: 'checkbox-label-container',
                           },
                           input({
-                            class: 'categorey-direct',
+                            class: 'category-direct',
                             type: 'checkbox',
                             id: `ind${ind + 1}`,
                             dataattr: elme[Object.keys(elme)].join('-'),
@@ -780,7 +780,7 @@ export default function decorate(block) {
                         class: `checkbox-label-container ${indexeq}`,
                       },
                       input({
-                        class: 'categorey-direct',
+                        class: 'category-direct',
                         type: 'checkbox',
                         id: `index${index + 1}`,
                         dataattr: element[Object.keys(element)[0]].join('-'),
@@ -856,7 +856,7 @@ export default function decorate(block) {
                     class: 'checkbox-label-container',
                   },
                   input({
-                    class: 'categorey-direct',
+                    class: 'category-direct',
                     type: 'checkbox',
                     id: `fundtype${index + 1}`,
                     dataattr: element[Object.keys(element)[0]].join('-'),
