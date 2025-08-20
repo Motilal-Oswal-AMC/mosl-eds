@@ -53,7 +53,7 @@ export default async function decorate(block) {
   });
   if (block.closest('.our-popular-funds')) {
     block.closest('.our-popular-funds').classList.add('fund-tab');
-    let dataCf = dataCfObj.slice(1, 5);
+    let dataCf = dataCfObj.slice(0, 4);
 
     Array.from(tablist.children).forEach((element) => {
       element.addEventListener('click', (event) => {
@@ -62,7 +62,7 @@ export default async function decorate(block) {
         });
 
         if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-trending-funds') {
-          dataCf = dataCfObj.slice(1, 7);
+          dataCf = dataCfObj.slice(1, 5);
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-most-searched-funds') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:active') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
