@@ -433,7 +433,7 @@ function checkfilter(block) {
             if (innerEquity) {
               const subInputs = innerEquity.querySelectorAll('input');
               for (let l = 0; l < subInputs.length; l += 1) {
-                const innerFundFilter = subInputs[l].nextElementSibling.textContent.trim();
+                const innerFundFilter = subInputs[l].nextElementSibling.textContent.trim().split('(')[0];
                 if (updatedFilterTag.indexOf(innerFundFilter) === -1) {
                   subInputs[l].checked = false;
                   const labelnum = subInputs[l].nextElementSibling;
