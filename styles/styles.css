@@ -467,7 +467,11 @@ footer .footer[data-block-status="loaded"] {
     padding-top: 5px;
   }
 
-  body.noscroll {
+  /* body.noscroll {
+    overflow: hidden;
+  } */
+
+  main.noscroll {
     overflow: hidden;
   }
 }
@@ -497,6 +501,7 @@ footer .footer[data-block-status="loaded"] {
   overflow-y: auto;  
   position: relative; 
   z-index: 1000; 
+  background-color: #fff;
 }
 
 body.noscroll {

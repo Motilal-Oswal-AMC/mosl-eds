@@ -99,8 +99,18 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
 
   const overlay = document.createElement('div');
   overlay.classList.add('card-modal-overlay');
+  overlay.style.visibility = 'hidden';
+  overlay.style.position = 'absolute';
+  overlay.style.left = '-9999px';
+
   overlay.append(...fragment.childNodes);
   card.append(overlay);
+
+  requestAnimationFrame(() => {
+    overlay.style.visibility = '';
+    overlay.style.position = '';
+    overlay.style.left = '';
+  });
 
   const block = overlay.querySelector('.block');
   if (block) {
