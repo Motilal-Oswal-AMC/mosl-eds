@@ -173,7 +173,7 @@
 
       .brand-fund-wrap {
         width: 100%;
-
+        
         .brand-name-text {
           margin: 0;
 
@@ -307,7 +307,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 4px;
+        gap: 2px;
         flex: 1 0 0;
 
         // max-width: 46%;
@@ -324,6 +324,8 @@
             $weight: map.get($font-weights, medium),
             $family: $poppins
           );
+
+          margin-bottom: 4px;
 
           // padding-bottom: 4px;
         }
@@ -356,6 +358,19 @@
           //   }
           // }
         }
+
+        .cagr-date {
+          @include font-style(
+            $size: 12px,
+            $line-height: 16px,
+            $color: $primary-blue,
+            $weight: map.get($font-weights, medium),
+            $family: $poppins
+          );
+
+          margin: 0;
+          padding: 0;
+        }
       }
 
       .cagr-value {
@@ -379,8 +394,7 @@
           }
         }
 
-        .scheme-yet,
-        .cagr-date {
+        .scheme-yet{
           @include font-style(
             $size: 12px,
             $line-height: 16px,
@@ -674,7 +688,6 @@
         width: 100%;
         background-color: transparent;
         padding: 8px 12px;
-        height: 32px;
 
         @include font-style(
           $size: 14px,
@@ -743,7 +756,6 @@
       .wrappertablist .btndesk a {
         border: 1px solid $primary-white;
         color: $primary-white;
-        height: 32px;
       }
     }
 
