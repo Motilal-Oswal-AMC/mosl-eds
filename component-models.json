@@ -118,6 +118,14 @@
             "value": "highlight"
           },
           {
+            "name": "fdp-faq",
+            "value": "fdp-faq"
+          },
+          {
+            "name": "tabdiv",
+            "value": "tabdiv"
+          },
+          {
             "name": "Compounding",
             "value": "compounding"
           },

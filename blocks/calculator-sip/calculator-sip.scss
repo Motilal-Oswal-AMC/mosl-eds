@@ -222,6 +222,14 @@
               border: none;
             }
           }
+
+          .error-hide {
+            display: none;
+          }
+
+          .error-show {
+            display: block;
+          }
         }
 
         .search-results-wrapper {
@@ -373,7 +381,7 @@
                 padding-left: 18px;
               }
 
-              .return-cagr{
+              .return-cagr {
                 padding-left: 0;
               }
 
@@ -658,6 +666,21 @@
                 top: -4px;
                 height: 100%;
               }
+            }
+
+            .amount-error {
+              font-size: 10px;
+              line-height: 16px;
+              font-family: $poppins;
+              color: rgb(240, 83, 83);
+            }
+
+            .error-hide {
+              display: none;
+            }
+
+            .error-show {
+              display: block;
             }
           }
 

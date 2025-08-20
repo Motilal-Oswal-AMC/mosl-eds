@@ -4,13 +4,17 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 @import "../fund-card/fund-card.css";
 
+body.scroll-lock {
+  overflow: hidden;
+}
+
 .section {
   &.our-funds-block-container {
     background-color: $neutrals-100;
     padding: 0 0 50px;
     margin: 0;
 
-    @include media(mobile){
+    @include media(mobile) {
       padding: 0 0 24px;
     }
   }
@@ -271,7 +275,10 @@
           @include media(mobile) {
             grid-area: trending;
             align-items: center;
-            overflow: auto;
+
+            // overflow-x: auto;
+            // overflow-y: hidden;
+            overflow: auto hidden;
             width: calc(100% + 16px);
 
             &::-webkit-scrollbar {
@@ -307,6 +314,7 @@
 
           .trendingmostlist {
             line-height: 0;
+            overflow: hidden;
 
             ul {
               display: flex;
@@ -320,9 +328,22 @@
                 flex-wrap: nowrap;
                 gap: 24px;
                 padding-right: 16px;
+
+                // overflow-x: auto;
+                // overflow-y: hidden;
+                overflow: auto hidden;
+                scrollbar-width: none;
+
+                &::-webkit-scrollbar {
+                  display: none;
+                }
               }
 
               li {
+                @include media(mobile) {
+                  white-space: nowrap;
+                }
+
                 a {
                   text-decoration-line: underline;
                   text-underline-offset: 20%;
@@ -334,10 +355,6 @@
                     400,
                     $poppins
                   );
-
-                  @include media(mobile) {
-                    white-space: nowrap;
-                  }
                 }
               }
             }
@@ -460,8 +477,18 @@
 
               @include media(mobile) {
                 display: flex;
-                border-left: 1px solid $neutrals-300;
                 border-radius: 0 8px 0 0;
+                position: relative;
+
+                &::before {
+                  content: "";
+                  width: 1px;
+                  height: 100%;
+                  display: block;
+                  background-color: $neutrals-300;
+                  position: absolute;
+                  left: 0;
+                }
               }
             }
           }
@@ -659,8 +686,8 @@
                     min-width: 12px;
                     height: 12px;
                     display: flex;
-                    
-                    @include media(mobile){
+
+                    @include media(mobile) {
                       min-width: 20px;
                       height: 20px;
                     }
@@ -881,6 +908,7 @@
                           min-width: 20px;
                           height: 20px;
                           cursor: pointer;
+                          appearance: none;
 
                           &::before {
                             content: "";
@@ -1751,7 +1779,7 @@
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  
+
                   .risk-icon,
                   .riskfactor-icon {
                     max-width: 20px;

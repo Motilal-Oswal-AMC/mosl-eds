@@ -22,7 +22,7 @@
 
       @media (width <= 768px) {
         flex-direction: column;
-        gap: 50px;
+        gap: 40px;
         align-items: baseline;
       }
 
@@ -63,11 +63,12 @@
 
           p:nth-child(2) {
             max-width: 255px;
+            margin: 10px 0;
 
             @include font-style(
               16px,
               24px,
-              map.get($blue-1, b150),
+              map.get($blue-1, b50),
               400,
               $poppins
             );
@@ -87,7 +88,8 @@
 
             @media (width <= 768px) {
               font-size: 14px;
-              width: 156px;
+              width: 158px;
+              margin: 0;
             }
           }
         }

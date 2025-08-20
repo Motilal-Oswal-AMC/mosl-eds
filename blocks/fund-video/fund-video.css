@@ -18,7 +18,7 @@
 @media (width <= 768px) {
   .section.fund-video-container .fund-video-wrapper .fund-video {
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
     align-items: baseline;
   }
 }
@@ -49,6 +49,7 @@
 }
 .section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(2) {
   max-width: 255px;
+  margin: 10px 0;
   font-size: 16px;
   line-height: 24px;
   color: #D5DEFF;
@@ -67,6 +68,7 @@
 @media (width <= 768px) {
   .section.fund-video-container .fund-video-wrapper .fund-video div:nth-child(2) div p:nth-child(2) {
     font-size: 14px;
-    width: 156px;
+    width: 158px;
+    margin: 0;
   }
 }/*# sourceMappingURL=fund-video.css.map */

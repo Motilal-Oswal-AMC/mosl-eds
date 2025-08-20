@@ -87,11 +87,15 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     return;
   }
 
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
   const path = fragmentUrl.startsWith('http')
     ? new URL(fragmentUrl, window.location).pathname
     : fragmentUrl;
   const fragment = await loadFragment(path);
   if (!fragment) return;
+
+  card.classList.add('modal-active-parent');
 
   const overlay = document.createElement('div');
   overlay.classList.add('card-modal-overlay');
@@ -110,6 +114,7 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     closeButton.addEventListener('click', (e) => {
       e.stopPropagation(); // Stop click from bubbling further
       document.body.classList.remove('noscroll');
+      card.classList.remove('modal-active-parent');
       overlay.remove();
     });
   }

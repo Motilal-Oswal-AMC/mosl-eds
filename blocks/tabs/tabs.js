@@ -365,8 +365,9 @@ export default async function decorate(block) {
       // Append row to wrapper
       wrapper.appendChild(row);
     });
-    const tabblock = document.getElementsByClassName('tabdiv')[1];
-    tabblock.appendChild(wrapper);
+    const tabblock = document.querySelector('.tabdiv');
+    const tabpanelone = tabblock.querySelector('.tabpanel1');
+    tabpanelone.appendChild(wrapper);
     return wrapper;
   }
   function generateBarChartHoldings(data) {
@@ -395,8 +396,9 @@ export default async function decorate(block) {
       row.appendChild(rightLabel);
       wrapper.appendChild(row);
     });
-    const tabblock = document.getElementsByClassName('tabdiv')[1];
-    tabblock.appendChild(wrapper);
+    const tabblock = document.querySelector('.tabdiv');
+    const tabpaneltwo = tabblock.querySelector('.tabpanel2');
+    tabpaneltwo.appendChild(wrapper);
     return wrapper;
   }
   if (block.parentElement.parentElement.classList.contains('tabdiv')) {
