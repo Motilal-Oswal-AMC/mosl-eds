@@ -642,7 +642,7 @@ export default function decorate(block) {
                 src: "../../icons/Icon.svg",
                 alt: "person",
               }),
-              span({ class: "investor-txt" }, "2.7 lakh investors")
+              span({ class: "investor-txt" }, "2.7L Investors")
             ),
             a(
               { href: "/motilalfigma/modals/risk-o-meter" },

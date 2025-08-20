@@ -7,6 +7,12 @@
 .section {
   &.our-funds-block-container {
     background-color: $neutrals-100;
+    padding: 0 0 50px;
+    margin: 0;
+
+    @include media(mobile){
+      padding: 0 0 24px;
+    }
   }
 
   .our-funds-block {
@@ -384,7 +390,7 @@
           border-radius: 8px;
 
           .filter-sort-container {
-            padding: 12px;
+            padding: 12px 12px 0;
 
             @include media(mobile) {
               padding: 0;
@@ -593,6 +599,7 @@
                     height: 20px;
                     cursor: pointer;
                     margin: 1.67px;
+                    appearance: none;
 
                     &::before,
                     &:checked::before {
@@ -1041,11 +1048,13 @@
                   display: none;
                   list-style: none;
                   position: absolute;
-                  top: 24px;
+
+                  // top: 24px;
+                  top: 100%;
                   left: 36px;
                   z-index: 2;
                   width: 143px;
-                  margin: 0;
+                  margin: 6px 0 0;
                   background-color: $primary-white;
                   border-radius: 8px;
                   border: 1px solid $neutrals-200;
@@ -1084,7 +1093,8 @@
                     );
 
                     padding: 12px;
-                    border-bottom: 1px solid $neutrals-200;
+
+                    // border-bottom: 1px solid $neutrals-200;
                     cursor: pointer;
 
                     &:last-of-type {

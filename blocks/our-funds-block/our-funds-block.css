@@ -3,6 +3,13 @@
 @import "../fund-card/fund-card.css";
 .section.our-funds-block-container {
   background-color: #F5F5F5;
+  padding: 0 0 50px;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .section.our-funds-block-container {
+    padding: 0 0 24px;
+  }
 }
 .section .our-funds-block-wrapper {
   width: 100%;
@@ -358,7 +365,7 @@
   border-radius: 8px;
 }
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container {
-  padding: 12px;
+  padding: 12px 12px 0;
 }
 @media (max-width: 768px) {
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-sort-container {
@@ -559,6 +566,9 @@
   height: 20px;
   cursor: pointer;
   margin: 1.67px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct::before, .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .categorey-direct:checked::before {
   content: "";
@@ -939,11 +949,11 @@
   display: none;
   list-style: none;
   position: absolute;
-  top: 24px;
+  top: 100%;
   left: 36px;
   z-index: 2;
   width: 143px;
-  margin: 0;
+  margin: 6px 0 0;
   background-color: #fff;
   border-radius: 8px;
   border: 1px solid #EEE;
@@ -994,7 +1004,6 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   padding: 12px;
-  border-bottom: 1px solid #EEE;
   cursor: pointer;
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container .sort-select-container .dropdown-list li:last-of-type,
