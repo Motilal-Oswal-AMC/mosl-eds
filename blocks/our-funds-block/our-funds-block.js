@@ -461,6 +461,27 @@ function applyFunction(block) {
 }
 
 function checkcount(param) { //temp
+  let counter = 0;
+  const shcode = param.target.getAttribute('dataattr').split('-');
+  let labcount = param.target.nextElementSibling.querySelector('label');
+  if (labcount === null) {
+    labcount = param.target.nextElementSibling;
+  }
+  if (!labcount.querySelector('.tempcount')) {
+    labcount.append(span({ class: 'tempcount' }));
+  }
+  Array.from(document.querySelector('.cards-container').children).forEach((carel) => {
+    const code = carel.querySelector('.star').getAttribute('schcode');
+    if (shcode.includes(code)) {
+      counter += 1;
+    }
+  });
+  if (param.target.checked) {
+    labcount.querySelector('.tempcount').textContent = '';
+    labcount.querySelector('.tempcount').append(counter);
+  } else {
+    labcount.querySelector('.tempcount').textContent = '';
+  }
 }
 export default function decorate(block) {
   Array.from(block.closest('.section').children).forEach((el, index) => {
