@@ -20,6 +20,8 @@ export default function decorate(block) {
 
   let root = null;
   let cachedAPIData = null;
+  let planType = 'Direct';
+  let planOption = 'Growth';
 
   const filterSelectedEl = span({ class: "filter-selected" });
   const cagrValueEl = span({ class: "cagr-value" });
@@ -70,11 +72,26 @@ export default function decorate(block) {
         if (!schcode) throw new Error("planCode not found in localStorage.");
         if (!selectedFund) throw new Error(`Fund with schcode '${schcode}' not found in dataCfObj.`);
 
-        const allFundsData = await myAPI(
-          "GET",
-          "https://main--eds-ashdemo--ashwin27jethawa.aem.page/pocmosl.json"
+        // const allFundsData = await myAPI(
+        //   "GET",
+        //   "https://main--eds-ashdemo--ashwin27jethawa.aem.page/pocmosl.json"
+        // );
+
+        /// new code
+        const targetPlan = selectedFund?.planList.find(
+          (p) => p.planName === planType && p.optionName === planOption,
         );
-        const currentFundDetails = allFundsData.data.find(fund => fund.schcode === schcode);
+        const targetReturns = selectedFund?.returns.find(
+          (r) => r.plancode === targetPlan?.planCode && r.optioncode === targetPlan?.optionCode,
+        );
+
+        const currentFundDetails = {
+          cmt_schcode: targetReturns.cmt_schcode,
+          isin: targetReturns.isin
+        };
+
+        /// new code
+        // const currentFundDetails = allFundsData.data.find(fund => fund.schcode === schcode);
         if (!currentFundDetails) throw new Error(`API details for schcode '${schcode}' not found.`);
 
         const requestData = {
