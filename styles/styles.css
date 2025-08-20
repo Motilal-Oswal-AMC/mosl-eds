@@ -469,7 +469,6 @@ footer .footer[data-block-status="loaded"] {
 
   body.noscroll {
     overflow: hidden;
-    position: fixed;
   }
 }
 
