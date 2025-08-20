@@ -21,6 +21,22 @@ function getTodaysDateFormatted() {
   return `${day} ${month} ${year}`;
 }
 
+// Helper function to create a custom dropdown
+function createCustomDropdown(id, labelText, options, defaultValue) {
+  return div({ class: 'custom-select-wrapper', id: `custom-select-${id}` },
+    label(labelText),
+    div({ class: 'select-selected' }, defaultValue),
+    div({ class: 'select-options' },
+      ul(
+        ...options.map((opt) =>
+          li({ 'data-value': opt }, opt)
+        )
+      ),
+    ),
+    input({ type: 'hidden', id, value: defaultValue }),
+  );
+}
+
 export default function decorate(block) {
 
   loadCSS('../../scripts/flatpickr.min.css');
@@ -123,24 +139,29 @@ export default function decorate(block) {
                 span({ class: 'sip-note-highlight' }, img({ class: '', src: infotoolsrc, alt: 'information' }))
               )
             )),
-          div({ class: 'modal-dropdown-frequency' },
-            label('Frequency'),
-            select(
-              {},
-              ...frequencyOptions.map(opt =>
-                option({ selected: opt === frequency }, opt)
-              )
-            ),
-          ),
-          div({ class: 'modal-dropdowns-enddate' },
-            label('End Date'),
-            select(
-              {},
-              ...endDateOptions.map(opt =>
-                option({ selected: opt === endDate }, opt)
-              )
-            ),
-          )),
+          // div({ class: 'modal-dropdown-frequency' },
+          //   label('Frequency'),
+          //   select(
+          //     {},
+          //     ...frequencyOptions.map(opt =>
+          //       option({ selected: opt === frequency }, opt)
+          //     )
+          //   ),
+          // ),
+          // div({ class: 'modal-dropdowns-enddate' },
+          //   label('End Date'),
+          //   select(
+          //     {},
+          //     ...endDateOptions.map(opt =>
+          //       option({ selected: opt === endDate }, opt)
+          //     )
+          //   ),
+          // )
+
+          createCustomDropdown('frequency', 'Frequency', frequencyOptions, frequency),
+          createCustomDropdown('endDate', 'End Date', endDateOptions, endDate),
+
+        ),
       ),
       div({ class: 'modal-cta' },
         button({ class: 'invest-btn' }, ctaLabel)
@@ -323,6 +344,43 @@ export default function decorate(block) {
       // If unchecked, revert to the user's selected date
       sipDateDisplay.textContent = originalSipDate;
     }
+  });
+
+  // --- CORRECTED CUSTOM DROPDOWN LOGIC ---
+  block.querySelectorAll('.custom-select-wrapper').forEach((wrapper) => {
+    const selected = wrapper.querySelector('.select-selected');
+    const options = wrapper.querySelector('.select-options');
+    const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+
+    selected.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Close all other dropdowns first
+      // 🧰 FIX: Look for the '.open' class on the wrapper, not the options list
+      block.querySelectorAll('.custom-select-wrapper.open').forEach(openWrapper => {
+        if (openWrapper !== wrapper) {
+          openWrapper.classList.remove('open');
+        }
+      });
+      // Toggle the current one
+      wrapper.classList.toggle('open');
+    });
+
+    options.querySelectorAll('li').forEach((option) => {
+      option.addEventListener('click', () => {
+        selected.textContent = option.textContent;
+        hiddenInput.value = option.getAttribute('data-value');
+        // 🧰 FIX: Remove the '.open' class from the wrapper
+        wrapper.classList.remove('open');
+      });
+    });
+  });
+
+  // Add a listener to close dropdowns when clicking anywhere else
+  block.addEventListener('click', () => {
+    // 🧰 FIX: Look for and close any wrapper that has the '.open' class
+    block.querySelectorAll('.custom-select-wrapper.open').forEach(openWrapper => {
+      openWrapper.classList.remove('open');
+    });
   });
 }
 
