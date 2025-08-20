@@ -1,7 +1,12 @@
 @import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
 .section.our-funds-fdp-container {
-  padding: 5rem 0;
+  padding: 40px 0;
+}
+@media (width <= 768px) {
+  .section.our-funds-fdp-container {
+    padding: 0 16px;
+  }
 }
 .section.our-funds-fdp-container .default-content-wrapper h4 {
   font-size: 2rem;

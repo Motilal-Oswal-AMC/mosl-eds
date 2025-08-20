@@ -7,7 +7,7 @@
 }
 @media (width <= 768px) {
   .performance-graph {
-    padding: 40px 0;
+    padding: 0 16px;
   }
 }
 .performance-graph .fund-note-container h4 {
@@ -58,7 +58,6 @@
     width: 100%;
     border-radius: 4px;
     padding: 8px 12px;
-    max-width: -moz-max-content;
     max-width: max-content;
   }
 }

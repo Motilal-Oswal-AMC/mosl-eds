@@ -621,8 +621,12 @@ main {
 
     /* why fund section */
     .why-fund {
-      margin: 80px 0;
+      margin: 40px 0;
 
+       @media (width <=768px) {
+          padding: 0 16px;
+        }
+        
       .default-content-wrapper {
         display: flex;
         flex-direction: column;

@@ -595,7 +595,12 @@ main {
   transform: translateY(-50%) rotate(45deg);
 }
 .section.fdp-card-container .item2 .why-fund {
-  margin: 80px 0;
+  margin: 40px 0;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .why-fund {
+    padding: 0 16px;
+  }
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper {
   display: flex;

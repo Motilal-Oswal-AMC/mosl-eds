@@ -3,6 +3,12 @@
 @import "../../../styles/fonts.css";
 .section.fund-card-slider-container {
   position: relative;
+  padding: 0 0 40px 0;
+}
+@media (width <= 768px) {
+  .section.fund-card-slider-container {
+    padding: 0 16px 0 16px;
+  }
 }
 .section.fund-card-slider-container .block {
   margin: 0;
@@ -48,7 +54,7 @@
     display: block;
     top: unset;
     right: unset;
-    bottom: 40px;
+    bottom: 0;
     left: 9px;
   }
 }

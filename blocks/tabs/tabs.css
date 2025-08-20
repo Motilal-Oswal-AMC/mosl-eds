@@ -71,7 +71,13 @@
 .tabdiv.tabs-container {
   width: 100%;
   margin: 0 auto;
-  padding: 40px 0px;
+  padding: 40px 0;
+}
+
+ @media (width <=768px) {
+         .tabdiv.tabs-container {
+          padding: 0 16px;
+         }
 }
 
 .tabdiv.tabs-container.our-popular-funds {
@@ -426,7 +432,7 @@ td {
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
-  padding: 24px 2px;
+  padding: 24px 2px 0 2px;
 }
 
 .periodicreturn .tabs-wrapper {
@@ -563,6 +569,11 @@ td {
   width: 32px;
 }
 
+ .periodicreturn .tabs-wrapper>.tabs{
+      padding: 40px 0;
+    }
+
+
 @media(width <=768px) {
   .chart-wrapper .bar-row {
     display: grid;
@@ -630,11 +641,16 @@ td {
     width: 100%;
     text-align: start;
     margin-top: 24px;
+    overflow: auto;
   }
 
   .periodicreturn .default-content-wrapper {
     width: 100%;
     text-align: start;
+  }
+
+    .periodicreturn .tabs-wrapper>.tabs{
+      padding: 40px 16px;
   }
 
   .periodicreturn .tabs-list .tabs-tab {
