@@ -459,6 +459,9 @@ function applyFunction(block) {
     viewFunction(block);
   }
 }
+
+function checkcount(param) { //temp
+}
 export default function decorate(block) {
   Array.from(block.closest('.section').children).forEach((el, index) => {
     el.classList.add(`item${index + 1}`);
@@ -790,6 +793,7 @@ export default function decorate(block) {
                                 dataMapMoObj.tempMobReturn = tempdata;
                               } else {
                                 checkfilter(block);
+                                checkcount(event);
                               }
                             },
                           }),
@@ -837,6 +841,7 @@ export default function decorate(block) {
                             dataMapMoObj.tempMobReturn = tempdata;
                           } else {
                             checkfilter(block);
+                            checkcount(event); //temp
                           }
                         },
                       }),
@@ -903,6 +908,7 @@ export default function decorate(block) {
                         dataMapMoObj.tempMobReturn = tempdata;
                       } else {
                         checkfilter(block);
+                        checkcount(event); //temp
                       }
                       // viewFunction(block);
                     },
@@ -1623,7 +1629,14 @@ export default function decorate(block) {
 
   Array.from(block.querySelectorAll('.filter-list-wrapper input')).forEach((el) => {
     if (el.getAttribute('datakey') !== null && checkboxSel === el.getAttribute('datakey')) {
-      el.checked = true;
+      if (checkboxSel === 'indian-equity') {
+        el.checked = true;
+        block.querySelectorAll('.indian-equity-container input').forEach((inner) => {
+          inner.checked = true;
+        });
+      } else {
+        el.checked = true;
+      }
     }
   });
 }

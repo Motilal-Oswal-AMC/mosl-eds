@@ -214,6 +214,11 @@
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist .singleval:last-of-type {
   border: none;
 }
+.section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist .active {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tabs-panel {
   padding: 24px 0 0;
   border: none;

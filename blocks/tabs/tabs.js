@@ -101,17 +101,21 @@ export default async function decorate(block) {
   }
   if (block.closest('.known-our-funds')) {
     block.closest('.known-our-funds').classList.add('fund-tab');
-    let dataCf = dataCfObj.slice(1, 5);
-
+    // let dataCf = dataCfObj.slice(1, 5);
+    let dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:indian-equity-') ? elem : ''));
+    dataCf = dataCf.filter((el) => el);
+    dataCf = dataCf.slice(0, 4);
     Array.from(tablist.children).forEach((element) => {
       element.addEventListener('click', (event) => {
         block.querySelectorAll('.tabs-panel').forEach((el) => {
           el.style.display = 'none';
         });
 
-        if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-trending-funds') {
-          dataCf = dataCfObj.slice(1, 7);
-          dataMapMoObj.selectviewFunds = 'trendingFund';
+        if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-indian-equity') {
+          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:indian-equity-') ? elem : ''));
+          dataCf = dataCf.filter((el) => el);
+          dataCf = dataCf.slice(0, 4);
+          dataMapMoObj.selectviewFunds = 'indian-equity';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-international-equity') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:international-equity') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
@@ -119,7 +123,7 @@ export default async function decorate(block) {
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-hybrid-balanced') { // tabpanel-index
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(1, 5);
+          // dataCf = dataCf.slice(1, 5);
           dataMapMoObj.selectviewFunds = 'hybrid-&-balanced';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-index') {
           dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:index-funds') ? elem : ''));
@@ -496,52 +500,114 @@ export default async function decorate(block) {
             const searchFunctionality = () => {
               const searchInput = document.querySelector('.search-field');
               const listItems = document.querySelectorAll('.dropdownlist .singleval');
-              const listContainer = document.querySelector('.dropdownlist'); // Get the parent <ul>
+              const listContainer = document.querySelector('.dropdownlist');
+
+              let activeIndex = -1;
+
+              // This is the only function that needs a change
+              const updateActiveItem = () => {
+                const visibleItems = listContainer.querySelectorAll('.singleval:not([style*="display: none"])');
+                listItems.forEach((item) => item.classList.remove('active'));
+                if (activeIndex >= 0 && activeIndex < visibleItems.length) {
+                  const activeElement = visibleItems[activeIndex];
+                  activeElement.classList.add('active');
+                  activeElement.scrollIntoView({
+                    block: 'nearest',
+                  });
+                }
+              };
+
+              listContainer.addEventListener('mouseover', (event) => {
+                const targetLi = event.target.closest('.singleval');
+                if (!targetLi) return;
+                const visibleItems = Array.from(listContainer.querySelectorAll('.singleval:not([style*="display: none"])'));
+                activeIndex = visibleItems.indexOf(targetLi);
+                updateActiveItem();
+              });
 
               searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.trim().toLowerCase();
-                let matchesFound = 0; // 1. Counter to track matches
-
-                // Remove any "not found" message from a previous search
+                let matchesFound = 0;
                 const existingNotFound = listContainer.querySelector('.not-found-item');
-                if (existingNotFound) {
-                  existingNotFound.remove();
-                }
-
-                // If the search is cleared, show all original items and remove bolding
+                if (existingNotFound) existingNotFound.remove();
                 if (searchTerm === '') {
-                  listItems.forEach((item) => {
-                    item.style.display = ''; // Make sure all items are visible
-                    item.innerHTML = item.textContent; // Remove bolding
+                  listItems.forEach((itemls) => {
+                    itemls.style.display = '';
+                    itemls.innerHTML = itemls.textContent;
                   });
+                  activeIndex = -1;
+                  updateActiveItem();
                   return;
                 }
-
-                const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                const regex = new RegExp(escapedTerm, 'gi');
-
-                listItems.forEach((item) => {
-                  const originalText = item.textContent;
-
-                  // Check for a match (case-insensitive)
+                const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                listItems.forEach((iteminner) => {
+                  const originalText = iteminner.textContent;
                   if (originalText.toLowerCase().includes(searchTerm)) {
-                    // If it matches: show it, bold it, and count it
                     matchesFound += 1;
-                    item.style.display = ''; // Show the item
-                    const newHtml = originalText.replace(regex, (match) => `<strong>${match}</strong>`);
-                    item.innerHTML = newHtml;
+                    iteminner.style.display = '';
+                    iteminner.innerHTML = originalText.replace(regex, (matcheck) => `<strong>${matcheck}</strong>`);
                   } else {
-                    // If it doesn't match, hide it
-                    item.style.display = 'none';
+                    iteminner.style.display = 'none';
                   }
                 });
-
-                // 2. After checking all items, if no matches were found, add the message
                 if (matchesFound === 0) {
-                  const lielement = document.createElement('li');
-                  lielement.className = 'singleval not-found-item'; // Assign a class for styling
-                  lielement.textContent = 'No results found';
-                  listContainer.appendChild(lielement);
+                  const liitem = document.createElement('li');
+                  liitem.className = 'singleval not-found-item';
+                  liitem.textContent = 'No results found';
+                  liitem.appendChild(li);
+                }
+                activeIndex = 0;
+                updateActiveItem();
+              });
+
+              searchInput.addEventListener('keydown', (event) => {
+                const visibleItems = listContainer.querySelectorAll('.singleval:not([style*="display: none"]):not(.not-found-item)');
+                if (visibleItems.length === 0) return;
+                switch (event.key) {
+                  case 'ArrowDown':
+                    event.preventDefault();
+                    activeIndex = (activeIndex + 1) % visibleItems.length;
+                    updateActiveItem();
+                    break;
+                  case 'ArrowUp':
+                    event.preventDefault();
+                    activeIndex = (activeIndex - 1 + visibleItems.length) % visibleItems.length;
+                    updateActiveItem();
+                    break;
+                  case 'Enter':
+                    event.preventDefault();
+                    if (activeIndex >= 0 && activeIndex < visibleItems.length) {
+                      const selectedItem = visibleItems[activeIndex];
+                      searchInput.value = selectedItem.textContent;
+                      let counter = 0;
+                      const value = selectedItem.textContent;
+                      Object.keys(dataMapMoObj.searchDrop).forEach((el) => {
+                        if ([...dataMapMoObj.searchDrop[el]].includes(value) && counter === 0) {
+                          const tabpanelText = el;
+                          const tabText = el.replaceAll('tabpanel', 'tab');
+                          const indexValue = [...dataMapMoObj.searchDrop[el]].indexOf(value);
+                          // console.log(tabText);
+                          Array.from(block.querySelector('.tabs-list').children).forEach((tabbtnlist) => tabbtnlist.setAttribute('aria-selected', 'false'));
+                          Array.from(block.querySelectorAll('.tabs-panel')).forEach((tabplelist) => tabplelist.setAttribute('aria-hidden', 'true'));
+                          block.querySelector(`#${tabText}`).setAttribute('aria-selected', 'true');
+                          block.querySelector(`#${tabpanelText}`).setAttribute('aria-hidden', 'false');
+                          Array.from(block.querySelectorAll(`#${tabpanelText} .accordion-item`)).forEach((elitem, indElm) => {
+                            if (indElm === indexValue) {
+                              elitem.setAttribute('open', '');
+                            } else {
+                              elitem.removeAttribute('open');
+                            }
+                          });
+                          uldorp.classList.remove('dropdown-active');
+                          block.querySelector(`#${tabpanelText}`).scrollIntoView({ behavior: 'smooth' });
+                          counter = 1;
+                        }
+                      });
+                      searchInput.innerHTML = '';
+                    }
+                    break;
+                  default:
+                    break;
                 }
               });
             };

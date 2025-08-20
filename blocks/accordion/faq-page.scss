@@ -239,6 +239,11 @@
                 border: none;
               }
             }
+            .active {
+              background-color: #007bff;
+              color: white;
+              cursor: pointer;
+            }
           }
         }
       }
