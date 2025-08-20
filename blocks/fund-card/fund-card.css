@@ -47,7 +47,7 @@
   left: 0;
   z-index: 2;
   width: 143px;
-  height: auto;
+  max-height: 200px;
   margin: 6px 0 0;
   overflow: auto;
   background-color: #fff;
@@ -202,9 +202,6 @@
 }
 .section .card-container .card-category .planlist-dropdown .selectedtext {
   font-weight: 400;
-}
-.section .card-container .card-category .planlist-dropdown .dropdown-list {
-  max-height: 200px;
 }
 .section .card-container .card-category.no-planlist .fundtagging-list-name:last-of-type::after {
   content: unset;
