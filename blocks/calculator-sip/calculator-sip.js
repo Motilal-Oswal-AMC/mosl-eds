@@ -45,6 +45,7 @@ export default function decorate(block) {
         'aria-expanded': 'false',
       }),
       div({ class: 'search-results-wrapper' }, ul({ id: 'searchResults', role: 'listbox' })),
+      span({ class: 'search-error error-hide' }, 'Fund not found'),
     ),
 
     div({ class: 'spi-wrapper' },
@@ -88,6 +89,8 @@ export default function decorate(block) {
               placeholder: 'Enter amount',
             }),
           ),
+          span({ class: 'amount-error error-hide' }, 'Amount must be between 500 and 1000000'),
+
         ),
         div(
           { class: 'tenure-wrapper custom-select' },
@@ -121,7 +124,7 @@ export default function decorate(block) {
         div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
       )),
   );
- 
+
   // 🔗 View other calculators
   const viewOthCalBtn = div(
     { class: 'view-btn-cal' },
@@ -147,55 +150,21 @@ export default function decorate(block) {
     document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none'
   }
 
-  // -------------------------------
-  // ✅ 4. UPDATE VALUES
-  // -------------------------------
-  // function updateValues() {
-  //   const investedAmountSpan = block.querySelector('.invested-amount-value');
-  //   const currentValueSpan = block.querySelector('.current-value');
-  //   const returnCAGRSpan = block.querySelector('.return-cagr');
-  //   const tenureValue = block.querySelector('#investmentTenure').value;
-  //   const amount = parseFloat(amountInput.value) || 0;
-  //   let tenure = tenureValue === 'inception'
-  //     ? (new Date().getTime() - new Date(selectedFund.dateOfAllotment).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
-  //     : parseFloat(tenureValue) || 0;
-
-  //   // If no returns, hide & show fallback
-  //   const mainSections = ['.investment-wrapper', '.invested-amount', '.cal-discription'];
-  //   const noReturnsMsg = block.querySelector('.no-returns-msg');
-  //   if (!returnCAGR || isNaN(returnCAGR) || returnCAGR <= 0) {
-  //     investedAmountSpan.textContent = '—';
-  //     currentValueSpan.textContent = '—';
-  //     returnCAGRSpan.textContent = '—';
-  //     mainSections.forEach((sel) => { block.querySelector(sel).style.display = 'none'; });
-  //     if (!noReturnsMsg) {
-  //       calContainer.appendChild(div({ class: 'no-returns-msg' }, 'Returns are not available for the selected plan.'));
-  //     }
-  //     return;
+  // const inputEl = document.getElementById("investmentAmount");
+  // inputEl.addEventListener("input", (e) => {
+  //   let val = +e.target.value;
+  //   if (val < 500) {
+  //     const amountError = document.querySelector('.amount-error')
+  //     amountError.classList.add('error-show')
+  //     return false;
+  //   } else {
+  //     const amountError = document.querySelector('.amount-error')
+  //     amountError.classList.remove('error-show')
   //   }
-  //   if (noReturnsMsg) noReturnsMsg.remove();
-  //   mainSections.forEach((sel) => { block.querySelector(sel).style.display = ''; });
-
-  //   const r = returnCAGR / 100 / 12;
-  //   const n = tenure * 12;
-  //   let investedAmount = mode === 'sip' ? amount * n : amount;
-  //   let futureValue = mode === 'sip'
-  //     ? (isNaN(r) || r === 0 ? investedAmount : amount * (((1 + r) ** n - 1) / r))
-  //     : amount * ((1 + returnCAGR / 100) ** tenure);
-
-  //   investedAmountSpan.textContent = `₹${(investedAmount / 100000).toFixed(2)} Lac`;
-  //   currentValueSpan.textContent = `₹${(futureValue / 100000).toFixed(2)} Lac`;
-  //   returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)}%`;
-  // }
-
-
-  const inputEl = document.getElementById("investmentAmount");
-  inputEl.addEventListener("input", (e) => {
-    let val = +e.target.value;
-    if (val > 1000000) {
-      e.target.value = e.target.value.slice(0, -1);
-    }
-  });
+  //   if (val > 1000000) {
+  //     e.target.value = e.target.value.slice(0, -1);
+  //   }
+  // });
 
   // -------------------------------
   // ✅ 4. UPDATE VALUES (FINAL)
@@ -206,10 +175,25 @@ export default function decorate(block) {
     const returnCAGRSpan = block.querySelector('.return-cagr');
     const tenureValue = block.querySelector('#investmentTenure').value;
     const amount = parseFloat(amountInput.value) || 0;
+    const amountError = block.querySelector('.amount-error'); // Get the error span
+
+    // If the input value exists and is less than 500, show an error and stop.
+    if (amount < 500) {
+      amountError.classList.add('error-show');
+      // investedAmountSpan.textContent = '—'; 
+      // currentValueSpan.textContent = '—';    
+      return;
+    }
+
+    // If the value is valid, make sure the error is hidden.
+    amountError.classList.remove('error-show');
 
     if (amount > 1000000) {
+      // This part is a user convenience, not strict validation
+      amountInput.value = amountInput.value.slice(0, -1);
       return false;
     }
+
 
     let tenure = 0;
 
@@ -402,6 +386,21 @@ export default function decorate(block) {
     searchResults.innerHTML = '';
     currentFocus = -1;
     const filtered = query ? schemeNames.filter((name) => name.toLowerCase().includes(query)) : schemeNames;
+
+    // --- ADD THIS BLOCK ---
+    // If no funds match the query, show the "not found" message
+    if (filtered.length === 0) {
+      // const errorLi = document.createElement('li');
+      // errorLi.textContent = 'Fund not found';
+      // errorLi.classList.add('no-results'); // Add a class for styling (e.g., to make it non-hoverable)
+      // searchResults.appendChild(errorLi);
+
+      const searchError = document.querySelector('.search-error')
+      searchError.classList.remove('error-hide')
+      return; // Stop further execution
+    }
+    // --- END BLOCK ---
+
     filtered.forEach((name) => {
       const li = document.createElement('li');
       li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
@@ -419,7 +418,20 @@ export default function decorate(block) {
   searchInput.addEventListener('keydown', (e) => {
     const items = searchResults.querySelectorAll('li');
     if (!items.length) return;
+    const searchError = document.querySelector('.search-error')
+    searchError.classList.add('error-hide')
     if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); } else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); } else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click(); } else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
+  });
+
+  searchInput.addEventListener('blur', () => {
+    // Use a short delay to allow click events on search results to fire first
+    setTimeout(() => {
+      searchResults.innerHTML = '';
+      searchInput.value = selectedFund.schDetail.schemeName;
+      currentFocus = -1;
+      const searchError = document.querySelector('.search-error')
+      searchError.classList.add('error-hide')
+    }, 150);
   });
 
   function addActive(items) {

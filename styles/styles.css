@@ -489,3 +489,16 @@ footer .footer[data-block-status="loaded"] {
     font-family: var(--heading-font-family)
   }
 } */
+
+
+.our-popular-funds.modal-active-parent,
+.known-our-funds.modal-active-parent {
+  max-height: 100vh; 
+  overflow-y: auto;  
+  position: relative; 
+  z-index: 1000; 
+}
+
+body.noscroll {
+    overflow: hidden;
+  }
