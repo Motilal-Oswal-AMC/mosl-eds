@@ -211,7 +211,6 @@ body.scroll-lock {
   .section .our-funds-block .fundcontainer .search-trending-wrapper .watchlist {
     grid-area: watchlist;
     margin-top: 20px;
-    padding: 8px 0;
   }
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .watchlist .staricon .icon {
