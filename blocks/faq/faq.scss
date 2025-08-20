@@ -92,7 +92,7 @@
                     cursor: pointer;
                     list-style: none;
                     overflow: hidden;
-                    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+                     transition: all 0.4s ease-in-out;
 
                     // padding-left: 0;
 
@@ -116,7 +116,7 @@
                         border-width: unset;
                         transform: unset;
                         background: url("../../icons/plus-blue.svg");
-                        transition: all transform 0.4s;
+                        transition: all 0.4s ease-in-out;
 
                         @include media(mobile) {
                             top: -2px;
@@ -253,7 +253,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 40px 0 0 0;
+  padding: 40px 0 0;
 
   @media (width <= 768px) {
     padding: 0 16px;
