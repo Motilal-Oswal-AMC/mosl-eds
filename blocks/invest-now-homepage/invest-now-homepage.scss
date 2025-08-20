@@ -19,6 +19,7 @@
     padding: 0;
     background: white;
     height: 100%;
+    overflow: auto;
 
     @include media(mobile) {
       border-radius: 24px 24px 0 0;
@@ -96,21 +97,23 @@
               gap: 10px;
 
               .modal-header-logo {
+                position: relative;
                 width: 40px;
                 height: 40px;
-                aspect-ratio: 1/1;
-                position: relative;
-                min-width: 40px;
-                box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
-                border-radius: 50%;
-                background: #bdcbff;
+
+                // aspect-ratio: 1/1;
+                // min-width: 40px;
+                // box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
+                // border-radius: 50%;
+                // background: #bdcbff;
 
                 .brandlogo {
-                  position: absolute;
-                  top: 20%;
-                  left: 15%;
-                  width: 29.977px;
-                  height: 20.855px;
+                  width: 100%;
+                  height: 100%;
+
+                  // position: absolute;
+                  // top: 9px;
+                  // left: 5px;
                 }
 
               }
@@ -239,13 +242,15 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 8px;
+
+                // gap: 16px;
                 align-self: stretch;
 
                 .modal-input {
                   display: flex;
-                  height: 68px;
-                  padding: 8px 0 0;
+
+                  // height: 68px;
+                  padding: 24px 0 0;
                   flex-direction: column;
 
                   // justify-content: space-between;
@@ -254,6 +259,7 @@
                   position: relative;
                   gap: 8px;
                   min-width: 200px;
+                  padding-bottom: 16px;
 
                   label {
                     align-self: stretch;
@@ -296,7 +302,7 @@
                       font-weight: 500;
                       line-height: 24px;
                       padding-left: 14px;
-                      height: 100%;
+                      height: 28px;
                     }
 
                     input,
@@ -659,8 +665,9 @@
                 // }
 
                 .custom-select-wrapper {
-                  position: relative; 
+                  position: relative;
                   width: 100%;
+                  line-height: 0.5px;
 
                   label {
                     align-self: stretch;
@@ -674,9 +681,10 @@
 
                   .select-selected {
                     background-color: #fff;
-                    border: 1px solid #BDBDBD; 
-                    border-radius: 4px;
-                    padding: 8px 12px;
+
+                    // border: 1px solid #BDBDBD; 
+                    // border-radius: 4px;
+                    // padding: 8px 12px;
                     cursor: pointer;
                     display: flex;
                     justify-content: space-between;
@@ -687,47 +695,52 @@
                     font-size: 14px;
                     font-weight: 500;
                     line-height: 16px;
+                    padding: 2px 0;
 
                     // Arrow for the dropdown
                     &::after {
                       content: '';
-                      width: 0;
-                      height: 0;
-                      border-left: 5px solid transparent;
-                      border-right: 5px solid transparent;
-                      border-top: 5px solid #2E2A94; 
+                      width: 20px;
+                      height: 20px;
+                      aspect-ratio: 1/1;
+                      background: url('../../icons/arrow-down-blue.svg');
+                      background-repeat: no-repeat;
+                      background-size: contain;
+                      background-position: center;
                       transition: transform 0.2s ease;
                     }
                   }
 
                   .select-options {
-                    display: none; 
+                    display: none;
                     position: absolute;
-                    top: 100%; 
+                    top: 100%;
                     left: 0;
-                    background-color: white;
                     width: 100%;
-                    border: 1px solid #BDBDBD;
-                    border-radius: 4px;
+                    border-radius: 8px;
+                    border: 0.5px solid #9E9E9E;
+                    background: #FFF;
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                     z-index: 10;
-                    max-height: 150px; 
-                    overflow-y: auto; 
+                    max-height: 150px;
+                    overflow-y: auto;
 
                     ul {
                       list-style: none;
-                      padding: 0;
                       margin: 0;
+                      padding: 4px 0;
 
                       li {
-                        padding: 8px 12px;
+                        padding: 4px 8px;
                         cursor: pointer;
-                        color: #424242; 
+                        color: #111;
                         font-family: $poppins;
-                        font-size: 14px;
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 16px;
 
                         &:hover {
-                          background-color: #f0f0f0; 
+                          background-color: #f0f0f0;
                         }
                       }
                     }
