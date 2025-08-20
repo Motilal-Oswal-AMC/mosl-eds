@@ -59,7 +59,9 @@
         left: 0;
         z-index: 2;
         width: 143px;
-        max-height: 200px;
+        height: auto;
+
+        // max-height: 200px;
         margin: 6px 0 0;
         overflow: auto;
         background-color: $primary-white;
@@ -262,6 +264,10 @@
 
         .selectedtext{
           font-weight: 400;
+        }
+
+        .dropdown-list{
+          max-height: 200px;
         }
       }
 

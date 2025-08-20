@@ -659,6 +659,11 @@
                     min-width: 12px;
                     height: 12px;
                     display: flex;
+                    
+                    @include media(mobile){
+                      min-width: 20px;
+                      height: 20px;
+                    }
 
                     .filter-info-icon {
                       width: 100%;
@@ -704,11 +709,11 @@
                       }
 
                       @include media(mobile) {
-                        right: -8px;
+                        right: -5px;
                         left: unset;
                         transform: unset;
                         bottom: unset;
-                        top: 22.5px;
+                        top: 26.5px;
                         width: 292px;
                         padding: 8px;
                         text-align: right;
@@ -716,7 +721,7 @@
                         &::after {
                           transform: rotate(-135deg) translateX(-50%);
                           bottom: unset;
-                          top: -8.2px;
+                          top: -8.8px;
                           left: unset;
                           right: 12px;
                           width: 9.5px;
