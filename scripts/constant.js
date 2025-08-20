@@ -33,6 +33,8 @@ const dataMapMoObj = {
   selectreturnstemp: '',
   gropcodevalue: '',
   fundManagerDetails: '',
+  selectviewFunds: '',
+  deskrightdrp: '',
   CLASS_PREFIXES: [
     'block-item',
     'block-subitem',

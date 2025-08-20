@@ -184,10 +184,20 @@ function viewFunction(param) {
     dataMapMoObj.funddata.forEach((el) => {
       param.querySelector('.list-container').append(listviewblock(el));
     });
+    if (dataMapMoObj.deskrightdrp === '') {
+      param.querySelector('.return-select-container p').textContent = 'SINCE INCEPTION';
+    } else {
+      param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
+    }
   } else {
     dataMapMoObj.funddata.forEach((el) => {
       param.querySelector('.cards-container').append(fundcardblock(el));
     });
+    if (dataMapMoObj.deskrightdrp === '') {
+      param.querySelector('.return-select-container p').textContent = '3 YEARS';
+    } else {
+      param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
+    }
   }
   searchFunctionality(param);
 }
@@ -352,9 +362,7 @@ function checkfilter(block) {
     if (el.closest('.checkbox-label-container').querySelector('.innerindianequity')) {
       el.closest('.checkbox-label-container').querySelectorAll('.innerindianequity input').forEach((elemsub) => {
         if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
-          filterTag.push(
-            elemsub.nextElementSibling.textContent.trim().split("(")[0]
-          ); // 5-8-25
+          filterTag.push(elemsub.nextElementSibling.textContent.trim().split('(')[0]); // 5-8-25
           elemsub.getAttribute('dataattr').split('-').forEach((eldata) => {
             if (!tempData.includes(eldata)) {
               tempData.push(eldata);
@@ -391,9 +399,11 @@ function checkfilter(block) {
 
     // Render applied filters
     for (let i = 0; i < Filterparam.length; i += 1) {
-      appliedList.innerHTML += `<li class="applied-filter-name"><span>${Filterparam[i]}</span><img src="../../icons/cross-icon.svg" alt="cross icon"></li>`;
+      appliedList.innerHTML += `<li class="applied-filter-name"><span>${Filterparam[i]}</span><img src="../../icons/cross-icon.svg" alt="cross icon" class="filter-cross-icon"></li>`;
     }
-
+    if (Filterparam.length !== 0) {
+      appliedList.closest('.applied-filter-wrap').classList.add('filter-active');
+    }
     // Add remove logic for each tag
     const appliedItems = Array.from(appliedList.children);
     for (let i = 0; i < appliedItems.length; i += 1) {
@@ -430,6 +440,9 @@ function checkfilter(block) {
                   if (labelnum.querySelector('.tempcount') !== null) {
                     labelnum.querySelector('.tempcount').textContent = '';
                   }
+                  if (updatedFilterTag.length === 0) {
+                    appliedList.closest('.applied-filter-wrap').classList.remove('filter-active');
+                  }
                 }
               }
             }
@@ -455,10 +468,6 @@ function checkfilter(block) {
   }
 
   filterGroup(filterTag);
-  const arrlist = Array.from(block.querySelector('.applied-filter-wrap').classList);
-  if (!arrlist.includes('filter-active')) {
-    block.querySelector('.applied-filter-wrap').classList.add('filter-active');
-  }
 }
 
 function applyFunction(block) {
@@ -1353,7 +1362,7 @@ export default function decorate(block) {
                       );
                     },
                   },
-                  '1 YEAR',
+                  '3 YEARS',
                 ),
                 ul(
                   {
@@ -1376,6 +1385,7 @@ export default function decorate(block) {
                       dataMapMoObj.selectreturns = name;
                       dataMapMoObj.funddata = [];
                       dataMapMoObj.funddata = tempdata;
+                      dataMapMoObj.deskrightdrp = name;
                       viewFunction(block);
                     },
                   },
