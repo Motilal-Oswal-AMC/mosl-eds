@@ -4,7 +4,7 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 @import "../fund-card/fund-card.css";
 
-body.scroll-lock{
+body.scroll-lock {
   overflow: hidden;
 }
 
@@ -275,7 +275,7 @@ body.scroll-lock{
           @include media(mobile) {
             grid-area: trending;
             align-items: center;
-            
+
             // overflow-x: auto;
             // overflow-y: hidden;
             overflow: auto hidden;
@@ -315,7 +315,7 @@ body.scroll-lock{
           .trendingmostlist {
             line-height: 0;
             overflow: hidden;
-            
+
             ul {
               display: flex;
               align-items: center;
@@ -477,8 +477,18 @@ body.scroll-lock{
 
               @include media(mobile) {
                 display: flex;
-                border-left: 1px solid $neutrals-300;
                 border-radius: 0 8px 0 0;
+                position: relative;
+
+                &::before {
+                  content: "";
+                  width: 1px;
+                  height: 100%;
+                  display: block;
+                  background-color: $neutrals-300;
+                  position: absolute;
+                  left: 0;
+                }
               }
             }
           }
