@@ -192,11 +192,9 @@
             $weight: map.get($font-weights, medium),
             $family: $poppins
           );
-
-          margin: 0;
-
-          // min-height: 50px;
+          
           min-height: 40px;
+          margin: 0;
 
           @include media(mobile) {
             min-height: unset;
