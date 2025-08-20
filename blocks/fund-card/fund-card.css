@@ -43,12 +43,12 @@
 .section .card-container .card-wrapper .dropdown-list {
   display: none;
   position: absolute;
-  top: 18px;
+  top: 100%;
   left: 0;
   z-index: 2;
   width: 143px;
-  max-height: 200px;
-  margin: 0;
+  height: auto;
+  margin: 6px 0 0;
   overflow: auto;
   background-color: #fff;
   border-radius: 8px;
@@ -82,7 +82,6 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   padding: 12px;
-  border-bottom: 1px solid #EEE;
   cursor: pointer;
 }
 .section .card-container .card-wrapper .dropdown-list li:last-of-type {
@@ -198,6 +197,12 @@
   gap: 8px;
   position: relative;
 }
+.section .card-container .card-category .planlist-dropdown .selectedtext {
+  font-weight: 400;
+}
+.section .card-container .card-category .planlist-dropdown .dropdown-list {
+  max-height: 200px;
+}
 .section .card-container .card-category.no-planlist .fundtagging-list-name:last-of-type::after {
   content: unset;
 }
@@ -234,16 +239,6 @@
   width: -moz-max-content;
   width: max-content;
   position: relative;
-}
-@media screen and (width <= 900px) {
-  .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list {
-    top: 35px;
-  }
-}
-@media (max-width: 768px) {
-  .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list {
-    top: 18px;
-  }
 }
 .section .card-container .cagr-container .cagr-value {
   max-width: 46%;
@@ -389,7 +384,6 @@
 }
 .section .card-container .button-container .card-btn.know-more {
   text-decoration-line: underline;
-  text-underline-offset: 20%;
   padding: 8px 0;
 }
 .section .card-container .button-container .card-btn.invest-now {

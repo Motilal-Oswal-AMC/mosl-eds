@@ -7,6 +7,12 @@
 .section {
   &.our-funds-block-container {
     background-color: $neutrals-100;
+    padding: 0 0 50px;
+    margin: 0;
+
+    @include media(mobile){
+      padding: 0 0 24px;
+    }
   }
 
   .our-funds-block {
@@ -384,7 +390,7 @@
           border-radius: 8px;
 
           .filter-sort-container {
-            padding: 12px;
+            padding: 12px 12px 0;
 
             @include media(mobile) {
               padding: 0;
@@ -587,12 +593,13 @@
                     padding: 16px 0;
                   }
 
-                  .categorey-direct {
+                  .category-direct {
                     visibility: hidden;
                     min-width: 20px;
                     height: 20px;
                     cursor: pointer;
                     margin: 1.67px;
+                    appearance: none;
 
                     &::before,
                     &:checked::before {
@@ -623,6 +630,7 @@
 
                     display: flex;
                     align-items: center;
+                    gap: 3px;
                     width: 100%;
                     padding: 0 0 0 8px;
                     cursor: pointer;
@@ -651,6 +659,11 @@
                     min-width: 12px;
                     height: 12px;
                     display: flex;
+                    
+                    @include media(mobile){
+                      min-width: 20px;
+                      height: 20px;
+                    }
 
                     .filter-info-icon {
                       width: 100%;
@@ -696,11 +709,11 @@
                       }
 
                       @include media(mobile) {
-                        right: -8px;
+                        right: -5px;
                         left: unset;
                         transform: unset;
                         bottom: unset;
-                        top: 22.5px;
+                        top: 26.5px;
                         width: 292px;
                         padding: 8px;
                         text-align: right;
@@ -708,7 +721,7 @@
                         &::after {
                           transform: rotate(-135deg) translateX(-50%);
                           bottom: unset;
-                          top: -8.2px;
+                          top: -8.8px;
                           left: unset;
                           right: 12px;
                           width: 9.5px;
@@ -1041,11 +1054,13 @@
                   display: none;
                   list-style: none;
                   position: absolute;
-                  top: 24px;
+
+                  // top: 24px;
+                  top: 100%;
                   left: 36px;
                   z-index: 2;
                   width: 143px;
-                  margin: 0;
+                  margin: 6px 0 0;
                   background-color: $primary-white;
                   border-radius: 8px;
                   border: 1px solid $neutrals-200;
@@ -1084,7 +1099,8 @@
                     );
 
                     padding: 12px;
-                    border-bottom: 1px solid $neutrals-200;
+
+                    // border-bottom: 1px solid $neutrals-200;
                     cursor: pointer;
 
                     &:last-of-type {
