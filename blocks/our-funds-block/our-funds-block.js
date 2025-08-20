@@ -486,6 +486,7 @@ function applyFunction(block) {
     dataMapMoObj.selectreturns = dataMapMoObj.selectreturnstemp;
     viewFunction(block);
   }
+  block.closest('body').classList.remove('scroll-lock');
 }
 
 export default function decorate(block) {
@@ -665,7 +666,7 @@ export default function decorate(block) {
                   block
                     .querySelector('.filter-overlay')
                     .classList.add('active');
-                    block.closest("body").classList.add("scroll-lock");
+                  block.closest('body').classList.add('scroll-lock');
                   if (
                     Array.from(
                       block.querySelector('.sort-overlay').classList,
@@ -722,7 +723,7 @@ export default function decorate(block) {
                 class: 'sort-wrapper',
                 onclick: () => {
                   block.querySelector('.sort-overlay').classList.add('active');
-                  block.closest("body").classList.add("scroll-lock");
+                  block.closest('body').classList.add('scroll-lock');
                   if (
                     Array.from(
                       block.querySelector('.filter-overlay').classList,
@@ -973,8 +974,8 @@ export default function decorate(block) {
                       block
                         .querySelector('.filter-overlay')
                         .classList.remove('active');
-                        block.closest("body").classList.remove("scroll-lock");
-                        block
+                      block.closest('body').classList.remove('scroll-lock');
+                      block
                         .querySelector('.sort-overlay')
                         .classList.remove('active');
                     },
@@ -1234,7 +1235,7 @@ export default function decorate(block) {
                       block
                         .querySelector('.filter-overlay')
                         .classList.remove('active');
-                        block.closest("body").classList.remove("scroll-lock");
+                      block.closest('body').classList.remove('scroll-lock');
                       block
                         .querySelector('.sort-overlay')
                         .classList.remove('active');
