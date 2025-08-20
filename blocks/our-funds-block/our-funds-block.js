@@ -14,152 +14,6 @@ import dataMapMoObj from '../../scripts/constant.js';
 import fundcardblock from '../fund-card/fund-card.js';
 import listviewblock from '../list-view-card/list-view-card.js';
 
-function searchFunctionality(block) {
-  // 1. Cache all necessary DOM element references
-  const searchContainer = document.querySelector('.search-input');
-  const searchInput = searchContainer.querySelector('.search');
-  const listContainer = searchContainer.querySelector('.list-search');
-  // const listItems = searchContainer.querySelectorAll('.list-fund-name');
-  const cancelButton = searchContainer.querySelector('.cancel-search');
-  const FUND_DATA = dataMapMoObj.funddata.map((fund) => fund.schDetail.schemeName);
-
-  const populateList = () => {
-    listContainer.innerHTML = ''; // Clear list before populating
-    FUND_DATA.forEach((fundName) => {
-      const item = document.createElement('li');
-      item.className = 'list-fund-name';
-      item.textContent = fundName;
-      listContainer.appendChild(item);
-    });
-  };
-
-  // --- SCRIPT INITIALIZATION ---
-  populateList(); // Create the list on page load
-
-  // --- IMPORTANT: Select listItems AFTER they have been created ---
-  const listItems = searchContainer.querySelectorAll('.list-fund-name');
-  listItems.forEach((item) => {
-    item.dataset.originalText = item.textContent;
-  });
-  // --- End of Initialization ---
-
-  const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-  // The filter function remains the same
-  const filterListItems = (searchTerm) => {
-    const term = searchTerm.trim();
-    const existingNoResultsMessage = listContainer.querySelector('.no-results-message');
-    if (existingNoResultsMessage) existingNoResultsMessage.remove();
-    listContainer.classList.remove('no-search-list');
-
-    if (!term) {
-      listItems.forEach((item) => {
-        item.innerHTML = item.dataset.originalText;
-        item.style.display = 'list-item';
-      });
-      return;
-    }
-
-    const searchRegex = new RegExp(escapeRegExp(term), 'gi');
-    let matchesFound = false;
-
-    listItems.forEach((item) => {
-      const { originalText } = item.dataset;
-      const match = originalText.match(searchRegex);
-      if (match) {
-        matchesFound = true;
-        const highlightedText = originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
-        item.innerHTML = highlightedText;
-        item.style.display = 'list-item';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-
-    if (!matchesFound) {
-      listContainer.classList.add('no-search-list');
-      const messageItem = document.createElement('li');
-      messageItem.className = 'list-fund-name no-results-message';
-      messageItem.textContent = 'No results found';
-      listContainer.appendChild(messageItem);
-    }
-  };
-
-  searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));
-  searchContainer.classList.remove('search-active');
-  searchInput.addEventListener('input', (event) => {
-    filterListItems(event.target.value);
-    searchContainer.classList.add('search-active');
-    cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
-  });
-
-  listContainer.addEventListener('click', (event) => {
-    if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
-      searchInput.value = event.target.dataset.originalText;
-      searchContainer.classList.remove('search-active');
-      // CARD HIDE LOGIC ON SEARCH
-      const cardsContainer = block.querySelector('.filter-cards .cards-container');
-      if (cardsContainer && cardsContainer.checkVisibility()) {
-        Array.from(cardsContainer.children).forEach((elment) => {
-          const schname = elment.querySelector('.title-subtitle p').textContent + elment.querySelector('.title-subtitle h2').textContent;
-          elment.style.display = 'block';
-          if (searchInput.value !== schname) {
-            elment.style.display = 'none';
-          }
-        });
-      }
-
-      const listHeader = block.querySelector('.filter-cards .list-container');
-      if (listHeader && listHeader.checkVisibility()) {
-        Array.from(listHeader.children).forEach((elment) => {
-          const schname = elment.querySelector('.fund-name-container').textContent;
-          elment.style.display = 'block';
-          if (searchInput.value !== schname) {
-            elment.style.display = 'none';
-          }
-        });
-      }
-    }
-  });
-
-  cancelButton.addEventListener('click', () => {
-    searchInput.value = '';
-    filterListItems('');
-    cancelButton.style.display = 'none';
-    searchContainer.classList.remove('search-active');
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!searchContainer.contains(event.target)) {
-      searchContainer.classList.remove('search-active');
-      // searchInput.value = ""
-    }
-    document.querySelectorAll('.cagr-container').forEach((el) => {
-      if (!el.contains(event.target)) {
-        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
-      }
-    });
-    document.querySelectorAll('.card-category').forEach((el) => {
-      if (!el.contains(event.target)) {
-        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
-      }
-    });
-    const sortsel = document.querySelector('.sort-select-container');
-    if (!sortsel.contains(event.target)) {
-      sortsel.querySelector('.dropdown-list').classList.remove('dropdown-active');
-    }
-
-    const resortsel = document.querySelector('.return-select-container');
-    if (!resortsel.contains(event.target)) {
-      resortsel.querySelector('.dropdown-list').classList.remove('dropdown-active');
-    }
-  });
-
-  if (searchInput.value.length === 0) {
-    cancelButton.style.display = 'none';
-  }
-}
-
 function dataFilterfun(param) {
   const dataMapObj = {
     schemeName: [],
@@ -338,6 +192,159 @@ function viewFunction(param) {
   searchFunctionality(param);
 }
 
+function searchFunctionality(block) {
+  // 1. Cache all necessary DOM element references
+  const data = [];
+  if (Array.from(block.querySelector('.cards-container').children).length !== 0) {
+    Array.from(block.querySelector('.cards-container').children).forEach((cardel) => {
+      data.push(cardel.querySelector('.star').getAttribute('schcode'));
+    });
+    dataMapMoObj.funddata = dataCfObj.filter((elobj) => data.includes(elobj.schcode));
+  }
+  if (Array.from(block.querySelector('.list-container').children).length !== 0) {
+    Array.from(block.querySelector('.list-container').children).forEach((cardel) => {
+      data.push(cardel.querySelector('.star').getAttribute('schcode'));
+    });
+    dataMapMoObj.funddata = dataCfObj.filter((elobj) => data.includes(elobj.schcode));
+  }
+  const searchContainer = document.querySelector('.search-input');
+  const searchInput = searchContainer.querySelector('.search');
+  const listContainer = searchContainer.querySelector('.list-search');
+  // const listItems = searchContainer.querySelectorAll('.list-fund-name');
+  const cancelButton = searchContainer.querySelector('.cancel-search');
+  const FUND_DATA = dataMapMoObj.funddata.map((fund) => fund.schDetail.schemeName);
+
+  const populateList = () => {
+    listContainer.innerHTML = ''; // Clear list before populating
+    FUND_DATA.forEach((fundName) => {
+      const item = document.createElement('li');
+      item.className = 'list-fund-name';
+      item.textContent = fundName;
+      listContainer.appendChild(item);
+    });
+  };
+
+  // --- SCRIPT INITIALIZATION ---
+  populateList(); // Create the list on page load
+
+  // --- IMPORTANT: Select listItems AFTER they have been created ---
+  const listItems = searchContainer.querySelectorAll('.list-fund-name');
+  listItems.forEach((item) => {
+    item.dataset.originalText = item.textContent;
+  });
+  // --- End of Initialization ---
+
+  const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  // The filter function remains the same
+  const filterListItems = (searchTerm) => {
+    const term = searchTerm.trim();
+    const existingNoResultsMessage = listContainer.querySelector('.no-results-message');
+    if (existingNoResultsMessage) existingNoResultsMessage.remove();
+    listContainer.classList.remove('no-search-list');
+
+    if (!term) {
+      listItems.forEach((item) => {
+        item.innerHTML = item.dataset.originalText;
+        item.style.display = 'list-item';
+      });
+      return;
+    }
+
+    const searchRegex = new RegExp(escapeRegExp(term), 'gi');
+    let matchesFound = false;
+
+    listItems.forEach((item) => {
+      const { originalText } = item.dataset;
+      const match = originalText.match(searchRegex);
+      if (match) {
+        matchesFound = true;
+        const highlightedText = originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
+        item.innerHTML = highlightedText;
+        item.style.display = 'list-item';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    if (!matchesFound) {
+      listContainer.classList.add('no-search-list');
+      const messageItem = document.createElement('li');
+      messageItem.className = 'list-fund-name no-results-message';
+      messageItem.textContent = 'No results found';
+      listContainer.appendChild(messageItem);
+    }
+  };
+
+  // searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));
+  searchContainer.classList.remove('search-active');
+  searchInput.addEventListener('input', (event) => {
+    searchContainer.classList.add('search-active');
+    filterListItems(event.target.value);
+    cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
+  });
+
+  listContainer.addEventListener('click', (event) => {
+    if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
+      searchInput.value = event.target.dataset.originalText;
+      searchContainer.classList.remove('search-active');
+      // CARD HIDE LOGIC ON SEARCH
+      const cardsContainer = block.querySelector('.filter-cards .cards-container');
+      if (cardsContainer && cardsContainer.checkVisibility()) {
+        Array.from(cardsContainer.children).forEach((elment) => {
+          const brandName = elment.querySelector('.brand-name-text').textContent.trim();
+          const schemen = elment.querySelector('.fund-name-title').textContent.trim();
+          const schname = `${brandName} ${schemen}`;
+          elment.style.display = 'block';
+          if (searchInput.value !== schname) {
+            elment.style.display = 'none';
+          }
+        });
+      }
+
+      const listHeader = block.querySelector('.filter-cards .list-container');
+      if (listHeader && listHeader.checkVisibility()) {
+        Array.from(listHeader.children).forEach((elment) => {
+          const schname = elment.querySelector('.fund-name-container').textContent;
+          elment.style.display = 'block';
+          if (searchInput.value !== schname) {
+            elment.style.display = 'none';
+          }
+        });
+      }
+    }
+  });
+
+  cancelButton.addEventListener('click', () => {
+    searchInput.value = '';
+    filterListItems('');
+    cancelButton.style.display = 'none';
+    searchContainer.classList.remove('search-active');
+    dataMapMoObj.funddata = dataCfObj.slice(0, 10);
+    viewFunction(block);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!searchContainer.contains(event.target)) {
+      searchContainer.classList.remove('search-active');
+      // searchInput.value = ""
+    }
+    document.querySelectorAll('.cagr-container').forEach((el) => {
+      if (!el.contains(event.target)) {
+        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
+      }
+    });
+    document.querySelectorAll('.card-category').forEach((el) => {
+      if (!el.contains(event.target)) {
+        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
+      }
+    });
+  });
+
+  if (searchInput.value.length === 0) {
+    cancelButton.style.display = 'none';
+  }
+}
 function checkfilter(block) {
   const filterTag = []; // 5-8-25
   const tempData = [];
@@ -345,7 +352,7 @@ function checkfilter(block) {
     if (el.closest('.checkbox-label-container').querySelector('.innerindianequity')) {
       el.closest('.checkbox-label-container').querySelectorAll('.innerindianequity input').forEach((elemsub) => {
         if (elemsub.checked && !tempData.includes(elemsub.getAttribute('dataattr'))) {
-          filterTag.push(elemsub.nextElementSibling.textContent.trim()); // 5-8-25
+          filterTag.push(elemsub.nextElementSibling.textContent.trim().replace(/\d+/g, '')); // 5-8-25
           elemsub.getAttribute('dataattr').split('-').forEach((eldata) => {
             if (!tempData.includes(eldata)) {
               tempData.push(eldata);
@@ -355,7 +362,9 @@ function checkfilter(block) {
       });
     }
     if (el.querySelector('input').checked && el.querySelector('input').getAttribute('id') !== 'index1') {
-      filterTag.push(el.querySelector('input').nextElementSibling.textContent.replace(/\d+/g, '').replaceAll('()', '')); // 5-8-25
+      const moplabel = el.querySelector('input').nextElementSibling;
+      const finlabel = moplabel.querySelector('label').textContent.split('(')[0];
+      filterTag.push(finlabel); // 5-8-25
       el.querySelector('input').getAttribute('dataattr').split('-').forEach((eldata) => {
         if (!tempData.includes(eldata)) {
           tempData.push(eldata);
@@ -408,13 +417,17 @@ function checkfilter(block) {
           const item = filterItems[k];
           const checkboxContainer = item.closest('.checkbox-label-container');
           if (checkboxContainer) {
-            const innerEquity = checkboxContainer.querySelector('.innerIndianEquity');
+            const innerEquity = checkboxContainer.querySelector('.innerindianequity');
             if (innerEquity) {
               const subInputs = innerEquity.querySelectorAll('input');
               for (let l = 0; l < subInputs.length; l += 1) {
                 const innerFundFilter = subInputs[l].nextElementSibling.textContent.trim();
                 if (updatedFilterTag.indexOf(innerFundFilter) === -1) {
                   subInputs[l].checked = false;
+                  const labelnum = subInputs[l].nextElementSibling;
+                  if (labelnum.querySelector('.tempcount') !== null) {
+                    labelnum.querySelector('.tempcount').textContent = '';
+                  }
                 }
               }
             }
@@ -440,6 +453,10 @@ function checkfilter(block) {
   }
 
   filterGroup(filterTag);
+  const arrlist = Array.from(block.querySelector('.applied-filter-wrap').classList);
+  if (!arrlist.includes('filter-active')) {
+    block.querySelector('.applied-filter-wrap').classList.add('filter-active');
+  }
 }
 
 function applyFunction(block) {
@@ -460,29 +477,6 @@ function applyFunction(block) {
   }
 }
 
-function checkcount(param) { //temp
-  let counter = 0;
-  const shcode = param.target.getAttribute('dataattr').split('-');
-  let labcount = param.target.nextElementSibling.querySelector('label');
-  if (labcount === null) {
-    labcount = param.target.nextElementSibling;
-  }
-  if (!labcount.querySelector('.tempcount')) {
-    labcount.append(span({ class: 'tempcount' }));
-  }
-  Array.from(document.querySelector('.cards-container').children).forEach((carel) => {
-    const code = carel.querySelector('.star').getAttribute('schcode');
-    if (shcode.includes(code)) {
-      counter += 1;
-    }
-  });
-  if (param.target.checked) {
-    labcount.querySelector('.tempcount').textContent = '';
-    labcount.querySelector('.tempcount').append(counter);
-  } else {
-    labcount.querySelector('.tempcount').textContent = '';
-  }
-}
 export default function decorate(block) {
   Array.from(block.closest('.section').children).forEach((el, index) => {
     el.classList.add(`item${index + 1}`);
@@ -782,11 +776,7 @@ export default function decorate(block) {
                 },
                 ...dataMapMoObj.data.fundCategory.map((element, index) => {
                   const indexeq = index === 0 ? 'indaneqsub' : '';
-                  if (
-                    capitalizeEachWord(
-                      Object.keys(element)[0].replaceAll('-', ' '),
-                    ) === 'Indian Equity'
-                  ) {
+                  if (capitalizeEachWord(Object.keys(element)[0].replaceAll('-', ' ')) === 'Indian Equity') {
                     dataMapMoObj[`${index}ArrayDoc`] = div(
                       {
                         class: 'indian-equity-container',
@@ -816,7 +806,6 @@ export default function decorate(block) {
                                 dataMapMoObj.tempMobReturn = tempdata;
                               } else {
                                 checkfilter(block);
-                                checkcount(event);
                               }
                             },
                           }),
@@ -825,6 +814,7 @@ export default function decorate(block) {
                               for: `ind${ind + 1}`,
                             },
                             sublabel,
+                            span({class: 'fund-length'}, `(${elme[Object.keys(elme)[0]].length})`),
                           ),
                         );
                       }),
@@ -864,7 +854,6 @@ export default function decorate(block) {
                             dataMapMoObj.tempMobReturn = tempdata;
                           } else {
                             checkfilter(block);
-                            checkcount(event); //temp
                           }
                         },
                       }),
@@ -931,7 +920,6 @@ export default function decorate(block) {
                         dataMapMoObj.tempMobReturn = tempdata;
                       } else {
                         checkfilter(block);
-                        checkcount(event); //temp
                       }
                       // viewFunction(block);
                     },
@@ -1486,7 +1474,8 @@ export default function decorate(block) {
                   id: 'toggle',
                   'aria-label': 'Switch between Direct and Regular mode',
                   onclick: () => {
-                    viewFunction(block);
+                    // viewFunction(block);
+                    checkfilter(block);
                   },
                 }),
                 label({
