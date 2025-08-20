@@ -105,7 +105,6 @@
   list-style: none;
   overflow: hidden;
   transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-  padding-left: 0;
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details summary:focus, .section.freq-ask-ques .accordion-wrapper .accordion details summary:hover {
   background-color: var(--light-color);
@@ -142,9 +141,15 @@
   padding: 16px;
   padding-bottom: 8px;
 }
+@media (max-width: 768px) {
+  .section.freq-ask-ques .accordion-wrapper .accordion details[open] summary {
+    padding: 16px 12px;
+    padding-bottom: 8px;
+  }
+}
 .section.freq-ask-ques .accordion-wrapper .accordion details[open] summary::after {
   top: 15px;
-  right: 25px;
+  right: 16px;
   background: url("../../icons/mins-white.svg");
   transform: unset;
 }
@@ -167,7 +172,14 @@
   background: #242177;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 }
+@media (max-width: 768px) {
+  .section.freq-ask-ques .accordion-wrapper .accordion details[open] .accordion-item-body {
+    padding: 16px 12px;
+    padding-top: 0;
+  }
+}
 .section.freq-ask-ques .accordion-wrapper .accordion details[open] .accordion-item-body p {
+  padding-right: 40px;
   font-size: 14px;
   line-height: 20px;
   color: #fff;
@@ -176,6 +188,7 @@
 }
 @media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details[open] .accordion-item-body p {
+    padding: 0;
     font-size: 12px;
     line-height: 16px;
     color: #fff;
@@ -200,6 +213,7 @@
   grid-column: 2/2;
   grid-row: 2;
   margin-top: 52px;
+  padding-left: 15px;
 }
 @media (max-width: 768px) {
   .section.freq-ask-ques > div:nth-child(3) {
@@ -209,6 +223,7 @@
 .section.freq-ask-ques > div:nth-child(3) .button-container {
   margin: 0;
   padding: 0;
+  line-height: 0;
 }
 .section.freq-ask-ques > div:nth-child(3) .button-container a {
   margin: 0;

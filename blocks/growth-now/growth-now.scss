@@ -156,12 +156,18 @@
 
 
                 p {
-                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $butlerpro);
-
                     max-inline-size: 11ch;
                     text-wrap: balance;
                     margin: 0;
                     padding: 0;
+                    white-space: nowrap;
+
+                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $butlerpro);
+
+                    @media (width <=1279px) {
+                        white-space: inherit;
+                    }
+
 
                     @include media(mobile) {
                         @include font-style(28px, 32px, $primary-white, map.get($font-weights, medium), $butlerpro);
@@ -344,6 +350,7 @@
                         // }
 
                         .button {
+                            width: 112px;
                             display: flex;
                             padding: 12px;
                             justify-content: center;
@@ -401,7 +408,7 @@
                 }
 
                 .fund-sec-1 {
-                    padding-right: 37px;
+                    padding-right: 44px;
                     margin-bottom: -25px;
 
                     // @include media (desktop-sm) {

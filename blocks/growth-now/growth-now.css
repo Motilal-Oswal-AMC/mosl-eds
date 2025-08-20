@@ -106,15 +106,21 @@
   }
 }
 .growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
+  max-inline-size: 11ch;
+  text-wrap: balance;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
   font-size: 32px;
   line-height: 40px;
   color: #fff;
   font-family: "ButlerPro", sans-serif;
   font-weight: 700;
-  max-inline-size: 11ch;
-  text-wrap: balance;
-  margin: 0;
-  padding: 0;
+}
+@media (width <= 1279px) {
+  .growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
+    white-space: inherit;
+  }
 }
 @media (max-width: 768px) {
   .growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
@@ -285,6 +291,7 @@
   line-height: 20px;
 }
 .growth-now-container .growth-now .fund-us-container .fund-sec-4 form .submit-wrapper .button {
+  width: 112px;
   display: flex;
   padding: 12px;
   justify-content: center;
@@ -316,7 +323,7 @@
   }
 }
 .growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-1 {
-  padding-right: 37px;
+  padding-right: 44px;
   margin-bottom: -25px;
 }
 @media (max-width: 768px) {
