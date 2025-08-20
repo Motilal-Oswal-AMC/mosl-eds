@@ -47,7 +47,7 @@
   left: 0;
   z-index: 2;
   width: 143px;
-  height: auto;
+  max-height: 200px;
   margin: 6px 0 0;
   overflow: auto;
   background-color: #fff;
@@ -203,9 +203,6 @@
 .section .card-container .card-category .planlist-dropdown .selectedtext {
   font-weight: 400;
 }
-.section .card-container .card-category .planlist-dropdown .dropdown-list {
-  max-height: 200px;
-}
 .section .card-container .card-category.no-planlist .fundtagging-list-name:last-of-type::after {
   content: unset;
 }
@@ -227,7 +224,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 2px;
   flex: 1 0 0;
   position: relative;
 }
@@ -237,11 +234,21 @@
   color: #111;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  margin-bottom: 4px;
 }
 .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper {
   width: -moz-max-content;
   width: max-content;
   position: relative;
+}
+.section .card-container .cagr-container .cagr-dropdown .cagr-date {
+  font-size: 12px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
 }
 .section .card-container .cagr-container .cagr-value {
   max-width: 46%;
@@ -259,8 +266,7 @@
 .section .card-container .cagr-container .cagr-value h2 span {
   font-weight: 300;
 }
-.section .card-container .cagr-container .cagr-value .scheme-yet,
-.section .card-container .cagr-container .cagr-value .cagr-date {
+.section .card-container .cagr-container .cagr-value .scheme-yet {
   font-size: 12px;
   line-height: 16px;
   color: #2e312f;
@@ -492,7 +498,6 @@
   width: 100%;
   background-color: transparent;
   padding: 8px 12px;
-  height: 32px;
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
@@ -549,7 +554,6 @@
 .section.fund-tab.tabs-container.our-popular-funds .wrappertablist .btndesk a {
   border: 1px solid #fff;
   color: #fff;
-  height: 32px;
 }
 @media (max-width: 1299px) {
   .section.fund-tab.tabs-container .card-container {
