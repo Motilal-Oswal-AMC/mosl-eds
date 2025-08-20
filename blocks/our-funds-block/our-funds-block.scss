@@ -4,6 +4,10 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 @import "../fund-card/fund-card.css";
 
+body.scroll-lock{
+  overflow: hidden;
+}
+
 .section {
   &.our-funds-block-container {
     background-color: $neutrals-100;

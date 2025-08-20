@@ -1,6 +1,10 @@
 /* Reset */
 @import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
+body.scroll-lock {
+  overflow: hidden;
+}
+
 .section.our-funds-block-container {
   background-color: #F5F5F5;
   padding: 0 0 50px;
