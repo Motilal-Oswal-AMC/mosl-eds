@@ -288,6 +288,7 @@
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist {
   line-height: 0;
+  overflow: hidden;
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul {
   display: flex;
@@ -302,6 +303,16 @@
     flex-wrap: nowrap;
     gap: 24px;
     padding-right: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul::-webkit-scrollbar {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul li {
+    white-space: nowrap;
   }
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul li a {
@@ -312,11 +323,6 @@
   color: #4338f3;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-}
-@media (max-width: 768px) {
-  .section .our-funds-block .fundcontainer .search-trending-wrapper .trending-container .trendingmostlist ul li a {
-    white-space: nowrap;
-  }
 }
 .section .our-funds-block .filter-cards {
   display: flex;
@@ -795,6 +801,9 @@
     min-width: 20px;
     height: 20px;
     cursor: pointer;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input::before,
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .return-container .radio-label-container .radio-label input::before {
