@@ -9,7 +9,6 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-@import "./common.css";
 
 /* ------------------------------------------------------------------
  * GLOBAL RESET
@@ -503,7 +502,7 @@ body.noscroll {
     overflow: hidden;
   }
 
-/*co-branded  for FDP Page */
+/* co-branded  for FDP Page */
 
 .co-branded {
     padding: 8px 0;
@@ -519,7 +518,7 @@ body.noscroll {
 .co-branded .default-content-wrapper {
     width: 100%;
     padding: 8px 16px;
-    background-color: #ffffff;
+    background-color: #fff;
     display: flex;
     justify-content: start;
 }
@@ -534,7 +533,7 @@ body.noscroll {
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
-    font-family: 'Poppins';
+    font-family: Poppins, sans-serif;
     color: #2e2a94;
     cursor: pointer;
     background: none;
