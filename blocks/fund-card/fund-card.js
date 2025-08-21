@@ -62,7 +62,11 @@ function planListEvent(param, block) {
           {
             class: 'selectedtext',
             onclick: (event) => {
-              event.target.nextElementSibling.classList.add('dropdown-active');
+              if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
+                event.target.nextElementSibling.classList.remove('dropdown-active');
+              } else {
+                event.target.nextElementSibling.classList.add('dropdown-active');
+              }
             },
           },
           returnYear,
@@ -308,12 +312,14 @@ export default function decorate(block) {
                 {
                   class: 'selectedtext',
                   onclick: (event) => {
-                    event.target.nextElementSibling.classList.add(
-                      'dropdown-active'
-                    );
+                    if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
+                      event.target.nextElementSibling.classList.remove('dropdown-active');
+                    } else {
+                      event.target.nextElementSibling.classList.add('dropdown-active');
+                    }
                   },
                 },
-                optionName
+                optionName,
               ),
               ul(
                 { class: 'dropdown-list' },
@@ -490,9 +496,11 @@ export default function decorate(block) {
               {
                 class: 'selectedtext',
                 onclick: (event) => {
-                  event.target.nextElementSibling.classList.add(
-                    'dropdown-active'
-                  );
+                  if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
+                    event.target.nextElementSibling.classList.remove('dropdown-active');
+                  } else {
+                    event.target.nextElementSibling.classList.add('dropdown-active');
+                  }
                 },
               },
               optionName,
@@ -543,9 +551,11 @@ export default function decorate(block) {
                 {
                   class: 'selectedtext',
                   onclick: (event) => {
-                    event.target.nextElementSibling.classList.add(
-                      'dropdown-active'
-                    );
+                    if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
+                      event.target.nextElementSibling.classList.remove('dropdown-active');
+                    } else {
+                      event.target.nextElementSibling.classList.add('dropdown-active');
+                    }
                   },
                 },
                 returnYear,

@@ -1302,9 +1302,11 @@ export default function decorate(block) {
                   {
                     class: 'selectedtext',
                     onclick: (event) => {
-                      event.target.nextElementSibling.classList.add(
-                        'dropdown-active',
-                      );
+                      if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
+                        event.target.nextElementSibling.classList.remove('dropdown-active');
+                      } else {
+                        event.target.nextElementSibling.classList.add('dropdown-active');
+                      }
                     },
                   },
                   'Popular',
@@ -1373,9 +1375,11 @@ export default function decorate(block) {
                   {
                     class: 'selectedtext',
                     onclick: (event) => {
-                      event.target.nextElementSibling.classList.add(
-                        'dropdown-active',
-                      );
+                      if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
+                        event.target.nextElementSibling.classList.remove('dropdown-active');
+                      } else {
+                        event.target.nextElementSibling.classList.add('dropdown-active');
+                      }
                     },
                   },
                   '3 Years',
