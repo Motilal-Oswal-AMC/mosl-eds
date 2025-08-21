@@ -146,7 +146,7 @@
       @media (width <= 768px) {
         gap: 24px;
       }
-
+ /* stylelint-disable-next-line no-descending-specificity */
       > li {
         list-style-type: none;
         height: 48px;
