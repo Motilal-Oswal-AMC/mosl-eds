@@ -371,7 +371,7 @@ function checkfilter(block) {
         }
       });
     }
-    if (el.querySelector('input').checked && el.querySelector('input').getAttribute('id') !== 'index1') {
+    if (el.querySelector('input').checked) { //&& el.querySelector('input').getAttribute('id') !== 'index1'
       const moplabel = el.querySelector('input').nextElementSibling;
       const finlabel = moplabel.querySelector('label').textContent.split('(')[0];
       filterTag.push(finlabel); // 5-8-25
@@ -399,7 +399,8 @@ function checkfilter(block) {
 
     // Render applied filters
     for (let i = 0; i < Filterparam.length; i += 1) {
-      appliedList.innerHTML += `<li class="applied-filter-name"><span>${Filterparam[i]}</span><img src="../../icons/cross-icon.svg" alt="cross icon" class="filter-cross-icon"></li>`;
+      const dspclose = Filterparam[i] === 'Indian Equity' ? 'none' : 'flex';
+      appliedList.innerHTML += `<li class="applied-filter-name" style="display:${dspclose}"><span>${Filterparam[i]}</span><img src="../../icons/cross-icon.svg" alt="cross icon" class="filter-cross-icon"></li>`;
     }
     if (Filterparam.length !== 0) {
       appliedList.closest('.applied-filter-wrap').classList.add('filter-active');
@@ -450,10 +451,10 @@ function checkfilter(block) {
             const inp = item.querySelector('input');
             if (inp) {
               const idAttr = inp.getAttribute('id');
-              const filterFundName = inp.nextElementSibling?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
+              // const filterFundName = inp.nextElementSibling?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
               const outerLabel = checkboxContainer.querySelector('label')?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
 
-              if (idAttr.includes('index') && filterFundName && updatedFilterTag.indexOf(filterFundName) === -1) {
+              if (idAttr.includes('index') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) { //filterFundName
                 inp.checked = false;
               } else if (idAttr.includes('fundtype') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) {
                 inp.checked = false;
@@ -713,6 +714,8 @@ export default function decorate(block) {
                     });
                     dataMapMoObj.funddata = dataCfObj.slice(0, 11);
                     viewFunction(block);
+                    block.querySelector('.applied-filter-list').innerHTML = '';
+                    block.querySelector('.applied-filter-wrap').classList.remove('filter-active');
                   },
                 },
                 'Clear All',
