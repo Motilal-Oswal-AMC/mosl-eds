@@ -240,139 +240,90 @@
 
 // Download Component start
 
-.section {
-    &.download {
-        width: 100%;
-        max-width: 100%;
+.section.download {
+  width: 100%;
+  max-width: 100%;
 
-        @media (width <=768px) {
-            padding: 0 16px;
-        }
+  @media (width <= 768px) {
+    padding: 0 16px;
+  }
 
-        .default-content-wrapper {
-            >ul {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                margin: 0;
-
-                @media (width <=768px) {
-                    gap: 24px;
-                }
-
-                /* stylelint-disable-next-line no-descending-specificity */
-                >li {
-                    list-style-type: none;
-                    height: 48px;
-
-                    >ul {
-                        list-style-type: none;
-                        display: flex;
-                        justify-content: space-between;
-                        margin: 0;
-                    }
-
-                    &:nth-child(1)>ul>li::marker {
-                        display: none;
-                        list-style-type: none;
-                    }
-
-                    &:nth-child(1)>ul>li:nth-child(1)::before {
-                        content: "";
-                        display: inline-block;
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 8px;
-                        background-color: #fff;
-                        box-shadow: 0 4px 12px 0 #0000000D;
-                        background-image: url("../../icons/dow1.svg");
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        margin-right: 16px;
-                    }
-
-                    &:nth-child(2)>ul>li:nth-child(1)::before {
-                        content: "";
-                        display: inline-block;
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 8px;
-                        background-color: #fff;
-                        box-shadow: 0 4px 12px 0 #0000000D;
-                        background-image: url('../../icons/dow2.svg');
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        margin-right: 16px;
-                    }
-
-                    &:nth-child(3)>ul>li:nth-child(1)::before {
-                        content: "";
-                        display: inline-block;
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 8px;
-                        background-color: #fff;
-                        box-shadow: 0 4px 12px 0 #0000000D;
-                        background-image: url('../../icons/dow3.svg');
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        margin-right: 16px;
-                    }
-
-                    &:nth-child(4)>ul>li:nth-child(1)::before {
-                        content: "";
-                        display: inline-block;
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 8px;
-                        background-color: #fff;
-                        box-shadow: 0 4px 12px 0 #0000000D;
-                        background-image: url("../../icons/dow4.svg");
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        margin-right: 16px;
-                    }
-
-                    &:nth-child(5)>ul>li:nth-child(1)::before {
-                        content: "";
-                        display: inline-block;
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 8px;
-                        background-color: #fff;
-                        box-shadow: 0 4px 12px 0 #0000000D;
-                        background-image: url('../../icons/dow5.svg');
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        margin-right: 16px;
-                    }
-
-                    >ul:nth-child(1) li:nth-child(1) {
-                        display: flex;
-                        padding: 0 16px 0 0;
-                        color: $primary-blue;
-                        font-family: $poppins;
-                        font-size: 16px;
-                        font-style: normal;
-                        font-weight: 500;
-                        line-height: 20px;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                }
-            }
-
-            p {
-                color: $primary-blue;
-                font-family: $butlerpro;
-                font-size: 32px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 40px;
-                padding-bottom: 24px;
-            }
-        }
+  .default-content-wrapper {
+    > p {
+      color: $primary-blue;
+      font-family: $butlerpro;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 40px;
+      padding-bottom: 24px;
     }
+
+    > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+
+      @media (width <= 768px) {
+        gap: 24px;
+      }
+
+      > li {
+        list-style-type: none;
+        height: 48px;
+
+        > ul {
+          list-style-type: none;
+          display: flex;
+          justify-content: space-between;
+          margin: 0;
+          padding: 0;
+          align-items: center;
+
+          li {
+            &:first-child {
+              display: flex;
+              align-items: center;
+              padding: 0 16px 0 0;
+              color: $primary-blue;
+              font-family: $poppins;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 20px;
+
+              &:focus-visible {
+                outline: 2px solid #2e2a94;
+                outline-offset: 4px;
+              }
+            }
+          }
+        }
+
+        // Icon logic for each list item
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) > ul > li:first-child::before {
+            content: "";
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+            background-image: url("../../icons/dow#{$i}.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 16px;
+
+            // Visually hide if decorative
+            // Add role for screen readers if necessary
+          }
+        }
+      }
+    }
+  }
 }
 
 // Download Component End

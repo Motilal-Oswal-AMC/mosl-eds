@@ -41,24 +41,28 @@
 }
 .performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn {
   margin: 0;
-  width: 56px;
+  width: auto;
   height: 32px;
   padding: 8px 12px;
   border-radius: 1000px;
   border: 1px solid #BDBDBD;
   background-color: #FAFAFA;
+  cursor: pointer;
   font-size: 14px;
   line-height: 20px;
   color: #424242;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+.performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn:hover {
+  border-color: #2e2a94;
+}
 @media (width <= 768px) {
   .performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn {
-    width: 100%;
+    width: auto;
     border-radius: 4px;
     padding: 8px 12px;
-    max-width: max-content;
+    max-width: 100%;
   }
 }
 .performance-graph .fund-main .fund-filters .chart-filter-bar .active {
@@ -78,7 +82,7 @@
 }
 @media (width <= 768px) {
   .performance-graph .fund-main .fund-cagr {
-    justify-content: start;
+    justify-content: flex-start;
     margin-top: 16px;
   }
 }
@@ -105,4 +109,21 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* -----------------------------------
+   Accessibility Media Queries
+----------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (prefers-contrast: more) {
+  .filter-btn {
+    border-color: black !important;
+    background-color: white !important;
+    color: black !important;
+  }
 }/*# sourceMappingURL=performance-graph.css.map */

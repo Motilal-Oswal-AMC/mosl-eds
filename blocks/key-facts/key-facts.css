@@ -1,4 +1,36 @@
 @import "../../../styles/fonts.css";
+/* ===== Accessibility Helpers ===== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (prefers-contrast: more) {
+  .key-facts-container {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+  .key-facts-container h4,
+  .key-facts-container p,
+  .key-facts-container button,
+  .key-facts-container a {
+    color: #000 !important;
+  }
+}
+/* ===== Key Facts Container ===== */
 .key-facts-container {
   display: flex;
   flex-direction: column;
@@ -15,21 +47,17 @@
     gap: 0;
   }
 }
-.key-facts-container .default-content-wrapper li {
+.key-facts-container .default-content-wrapper ol {
+  margin: 0;
+}
+.key-facts-container .default-content-wrapper ol li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
   align-items: center;
 }
-@media (width <= 768px) {
-  .key-facts-container .default-content-wrapper li {
-    flex-direction: column;
-    gap: 0;
-    align-items: start;
-  }
-}
-.key-facts-container .default-content-wrapper li h4 {
+.key-facts-container .default-content-wrapper ol li h4 {
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
@@ -40,20 +68,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 }
 @media (width <= 768px) {
-  .key-facts-container .default-content-wrapper li h4 {
+  .key-facts-container .default-content-wrapper ol li h4 {
     font-size: 24px;
-    line-height: 32px;
+    line-height: 28px;
   }
 }
-.key-facts-container .default-content-wrapper li h4 span {
+.key-facts-container .default-content-wrapper ol li h4 span {
   max-width: 72px;
   width: 100%;
   max-height: 72px;
   height: 100%;
 }
-.key-facts-container .default-content-wrapper li ol li {
+.key-facts-container .default-content-wrapper ol li ol {
+  width: calc(100% - 72px);
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  align-items: center;
+}
+@media (width <= 768px) {
+  .key-facts-container .default-content-wrapper ol li ol {
+    flex-direction: column;
+    gap: 4px;
+    align-items: start;
+  }
+}
+.key-facts-container .default-content-wrapper ol li ol li:nth-child(2) {
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
@@ -68,8 +111,13 @@
   align-items: center;
 }
 @media (width <= 768px) {
+  .key-facts-container .default-content-wrapper ol li ol li:nth-child(2) {
+    font-weight: 400;
+  }
+}
+@media (width <= 768px) {
   .key-facts-container .key-facts {
-    padding: 40px 0;
+    padding: 40px 0 0 0;
   }
 }
 .key-facts-container .key-facts .key-facts-section {
@@ -82,10 +130,15 @@
   flex-direction: column;
   gap: 4px;
 }
+@media (width <= 768px) {
+  .key-facts-container .key-facts .key-facts-section .Investment-Objective {
+    gap: 12px;
+  }
+}
 .key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
-  color: #242177;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
@@ -93,7 +146,7 @@
 .key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(2) p {
   font-size: 20px;
   line-height: 24px;
-  color: #242177;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
@@ -105,6 +158,7 @@
 }
 .key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion {
   position: relative;
+  margin: 0;
 }
 .key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion .read-toggle-btn {
   font-size: 16px;
@@ -113,16 +167,11 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   text-decoration: underline;
-  position: absolute;
-  bottom: 1%;
-  right: 15%;
   cursor: pointer;
 }
-@media (width <= 768px) {
-  .key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion .read-toggle-btn {
-    bottom: 0%;
-    right: 38%;
-  }
+.key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion .read-toggle-btn:focus {
+  outline: 2px dashed #2e2a94;
+  outline-offset: 2px;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts {
   display: flex;
@@ -178,19 +227,22 @@
   flex-direction: column;
   gap: 24px;
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups {
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups,
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
   display: flex;
   justify-content: space-between;
   height: 60px;
 }
 @media (width <= 768px) {
-  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups {
-    height: unset;
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups,
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
     flex-wrap: wrap;
-    gap: 24px 10px;
+    gap: 24px 12px;
+    height: unset;
   }
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div {
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div,
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
   max-width: 192px;
   width: 100%;
   display: flex;
@@ -198,12 +250,13 @@
   gap: 4px;
 }
 @media (width <= 768px) {
-  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div {
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div,
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
     max-width: 164px;
-    width: 100%;
   }
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1) {
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1),
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
   text-wrap: nowrap;
   font-size: 14px;
   line-height: 16px;
@@ -213,51 +266,12 @@
   margin: 0;
 }
 @media (width <= 768px) {
-  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1) {
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1),
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
     text-wrap: wrap;
   }
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2) {
-  font-size: 14px;
-  line-height: 20px;
-  color: #616161;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  margin: 0;
-}
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
-  display: flex;
-  height: 60px;
-}
-@media (width <= 768px) {
-  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
-    height: unset;
-    flex-wrap: wrap;
-    gap: 24px 10px;
-    justify-content: space-between;
-  }
-}
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  max-width: 192px;
-  width: 100%;
-}
-@media (width <= 768px) {
-  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
-    max-width: 164px;
-    width: 100%;
-  }
-}
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
-  font-size: 14px;
-  line-height: 16px;
-  color: #242177;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  margin: 0;
-}
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2),
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) {
   font-size: 14px;
   line-height: 20px;
@@ -266,6 +280,7 @@
   font-weight: 400;
   margin: 0;
 }
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2) p,
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) p {
   font-size: 14px;
   line-height: 20px;
@@ -285,6 +300,7 @@
   color: #242177;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  margin: 0;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list {
   display: flex;
