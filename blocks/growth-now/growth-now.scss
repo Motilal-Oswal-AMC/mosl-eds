@@ -266,10 +266,12 @@
                             padding-right: 4px;
 
                             option{
-                                color: #111;
+                                color: #fff;
+                                background-color: #111;
 
                                 &:checked{
-                                    color: #fff
+                                    color: #fff;
+                                    background-color: #111;
                                 }
                             }
                         }

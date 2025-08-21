@@ -5,17 +5,12 @@
   margin: 0 auto;
   padding: 40px 0;
 }
-.section.cornerstones-advantage .cornerstones-advantage-title-wrapper h1,
-.section.cornerstones-advantage .cornerstones-advantage-title-wrapper h2,
-.section.cornerstones-advantage .cornerstones-advantage-title-wrapper h3,
-.section.cornerstones-advantage .cornerstones-advantage-title-wrapper h4,
-.section.cornerstones-advantage .cornerstones-advantage-title-wrapper h5,
-.section.cornerstones-advantage .cornerstones-advantage-title-wrapper h6, .section.cornerstones-advantage .cornerstones-advantage-title h1,
-.section.cornerstones-advantage .cornerstones-advantage-title h2,
-.section.cornerstones-advantage .cornerstones-advantage-title h3,
-.section.cornerstones-advantage .cornerstones-advantage-title h4,
-.section.cornerstones-advantage .cornerstones-advantage-title h5,
-.section.cornerstones-advantage .cornerstones-advantage-title h6 {
+.section.cornerstones-advantage-cards-container .default-content-wrapper h1,
+.section.cornerstones-advantage-cards-container .default-content-wrapper h2,
+.section.cornerstones-advantage-cards-container .default-content-wrapper h3,
+.section.cornerstones-advantage-cards-container .default-content-wrapper h4,
+.section.cornerstones-advantage-cards-container .default-content-wrapper h5,
+.section.cornerstones-advantage-cards-container .default-content-wrapper h6 {
   margin: 0 0 4px;
   text-align: center;
   font-size: 36px;
@@ -25,23 +20,18 @@
   font-weight: 700;
 }
 @media (max-width: 768px) {
-  .section.cornerstones-advantage .cornerstones-advantage-title-wrapper h1,
-  .section.cornerstones-advantage .cornerstones-advantage-title-wrapper h2,
-  .section.cornerstones-advantage .cornerstones-advantage-title-wrapper h3,
-  .section.cornerstones-advantage .cornerstones-advantage-title-wrapper h4,
-  .section.cornerstones-advantage .cornerstones-advantage-title-wrapper h5,
-  .section.cornerstones-advantage .cornerstones-advantage-title-wrapper h6, .section.cornerstones-advantage .cornerstones-advantage-title h1,
-  .section.cornerstones-advantage .cornerstones-advantage-title h2,
-  .section.cornerstones-advantage .cornerstones-advantage-title h3,
-  .section.cornerstones-advantage .cornerstones-advantage-title h4,
-  .section.cornerstones-advantage .cornerstones-advantage-title h5,
-  .section.cornerstones-advantage .cornerstones-advantage-title h6 {
+  .section.cornerstones-advantage-cards-container .default-content-wrapper h1,
+  .section.cornerstones-advantage-cards-container .default-content-wrapper h2,
+  .section.cornerstones-advantage-cards-container .default-content-wrapper h3,
+  .section.cornerstones-advantage-cards-container .default-content-wrapper h4,
+  .section.cornerstones-advantage-cards-container .default-content-wrapper h5,
+  .section.cornerstones-advantage-cards-container .default-content-wrapper h6 {
     font-size: 24px;
     line-height: 28px;
     text-align: left;
   }
 }
-.section.cornerstones-advantage .cornerstones-advantage-title-wrapper p, .section.cornerstones-advantage .cornerstones-advantage-title p {
+.section.cornerstones-advantage-cards-container .default-content-wrapper p {
   font-size: 16px;
   line-height: 24px;
   color: #2e2a94;
@@ -51,7 +41,7 @@
   margin: 0;
 }
 @media (max-width: 768px) {
-  .section.cornerstones-advantage .cornerstones-advantage-title-wrapper p, .section.cornerstones-advantage .cornerstones-advantage-title p {
+  .section.cornerstones-advantage-cards-container .default-content-wrapper p {
     font-size: 14px;
     line-height: 20px;
     text-align: left;
