@@ -82,9 +82,16 @@ export default function decorate(block) {
           label({ class: 'labelforlumsum', style: 'display:none' }, col2[1].textContent.trim()),
           div(
             { class: 'input-with-symbol' },
+            // input({
+            //   type: 'number',
+            //   value: col2[2].textContent.trim(),
+            //   id: 'investmentAmount',
+            //   placeholder: 'Enter amount',
+            // }),
             input({
-              type: 'number',
-              value: col2[2].textContent.trim(),
+              type: 'text', // Changed from 'number'
+              inputmode: 'numeric', // Keeps numeric keyboard on mobile
+              value: Number(col2[2].textContent.trim()).toLocaleString('en-IN'), // Format the initial value
               id: 'investmentAmount',
               placeholder: 'Enter amount',
             }),
@@ -174,7 +181,8 @@ export default function decorate(block) {
     const currentValueSpan = block.querySelector('.current-value');
     const returnCAGRSpan = block.querySelector('.return-cagr');
     const tenureValue = block.querySelector('#investmentTenure').value;
-    const amount = parseFloat(amountInput.value) || 0;
+    // const amount = parseFloat(amountInput.value) || 0;
+    const amount = parseFloat(amountInput.value.replace(/,/g, '')) || 0;
     const amountError = block.querySelector('.amount-error'); // Get the error span
 
     // If the input value exists and is less than 500, show an error and stop.
@@ -360,7 +368,26 @@ export default function decorate(block) {
     updateReturnRate();
   });
 
-  amountInput.addEventListener('input', updateValues);
+  // amountInput.addEventListener('input', updateValues);
+  // ✅ ADD THIS NEW HANDLER AND LISTENER
+  function handleAmountInput(e) {
+    const input = e.target;
+    // 1. Get the raw number by removing non-digits
+    const rawValue = input.value.replace(/[^0-9]/g, '');
+
+    // 2. Format the number with commas (Indian system)
+    if (rawValue) {
+      const formattedValue = parseInt(rawValue, 10).toLocaleString('en-IN');
+      input.value = formattedValue;
+    } else {
+      input.value = ''; // Handle empty input
+    }
+
+    // 3. Trigger the calculation
+    updateValues();
+  }
+
+  amountInput.addEventListener('input', handleAmountInput);
 
   // Tenure & Plan dropdowns
   block.querySelector('.select-selected').addEventListener('click', (e) => {

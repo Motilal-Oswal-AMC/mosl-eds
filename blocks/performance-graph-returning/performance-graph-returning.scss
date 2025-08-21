@@ -8,7 +8,7 @@
     .performance-graph-wrapper {
         display: flex;
         max-width: 1366px;
-        
+
         // height: 466px;
         padding: 0 67px;
         flex-direction: column;
@@ -327,6 +327,7 @@
                 .invest-now-btn-mobile {
                     @include media(mobile) {
                         padding-top: 4px;
+                        padding-bottom: 8px;
                     }
 
                     .button-mobile {

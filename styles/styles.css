@@ -9,7 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-@import "./quick-actions.css";
+@import "../blocks/quick-actions/quick-actions.css";
 @import "../blocks/complete-the-investment/complete-the-investment.css";
 @import "../blocks/faq/faq.css";
 @import "../blocks/welcome-component/welcome-component.css";
@@ -467,7 +467,11 @@ footer .footer[data-block-status="loaded"] {
     padding-top: 5px;
   }
 
-  body.noscroll {
+  /* body.noscroll {
+    overflow: hidden;
+  } */
+
+  main.noscroll {
     overflow: hidden;
   }
 }
@@ -497,6 +501,7 @@ footer .footer[data-block-status="loaded"] {
   overflow-y: auto;  
   position: relative; 
   z-index: 1000; 
+  background-color: #fff;
 }
 
 body.noscroll {

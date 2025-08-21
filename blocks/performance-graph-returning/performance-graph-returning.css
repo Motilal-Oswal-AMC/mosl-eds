@@ -305,6 +305,7 @@
 @media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .invest-now-btn-mobile {
     padding-top: 4px;
+    padding-bottom: 8px;
   }
 }
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .invest-now-btn-mobile .button-mobile {
