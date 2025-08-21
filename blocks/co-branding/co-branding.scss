@@ -141,6 +141,12 @@
 }
 
 .modal.block {
+  display: none;
+  
+  @include media(mobile) {
+    display: block;
+  }
+
   dialog {
     padding: 0;
     margin: 0;
@@ -173,7 +179,7 @@
           position: relative;
 
           &::before,
-          &::after{
+          &::after {
             width: 14px;
             height: 1px;
           }
