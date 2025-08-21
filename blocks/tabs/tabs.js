@@ -2,7 +2,7 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, table, tr, th, div, input, ul, li,
+  button, a, table, tr, th, div, input, ul, li, img,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
@@ -449,6 +449,11 @@ export default async function decorate(block) {
           placeholder: 'Search here',
           'aria-label': 'Search here',
         }),
+        img({
+          class: 'cancel-btn',
+          src: '../../icons/input-cancel.svg',
+          alt: 'cancel button',
+        }),
       ),
       ul(
         { class: 'dropdownlist' },
@@ -475,7 +480,10 @@ export default async function decorate(block) {
     const searchFireld = block.querySelector('.search-field');
     const dropdown = block.querySelector('.tablist-search .dropdownlist');
     const droplist = block.querySelector('.search-container');
+    const cancelbtn = block.querySelector('.cancel-btn');
+
     searchFireld.addEventListener('focus', () => {
+      searchFireld.closest('.search-wrapper').classList.add('search-active');
       if (!Array.from(dropdown.classList).includes('dropdown-active')) {
         dropdown.classList.add('dropdown-active');
         if (Array.from(document.querySelectorAll('summary').length !== 0) && flagover) {
@@ -556,7 +564,7 @@ export default async function decorate(block) {
                   const liitem = document.createElement('li');
                   liitem.className = 'singleval not-found-item';
                   liitem.textContent = 'No results found';
-                  liitem.appendChild(li);
+                  listContainer.appendChild(liitem);
                 }
                 activeIndex = 0;
                 updateActiveItem();
@@ -584,7 +592,7 @@ export default async function decorate(block) {
                       let counter = 0;
                       const value = selectedItem.textContent;
                       Object.keys(dataMapMoObj.searchDrop).forEach((el) => {
-                        if ([...dataMapMoObj.searchDrop[el]].includes(value) && counter === 0) {
+                        if ([...dataMapMoObj.searchDrop[el]].includes(value) && counter === 0 && el !== 'tabpanel-all') {
                           const tabpanelText = el;
                           const tabText = el.replaceAll('tabpanel', 'tab');
                           const indexValue = [...dataMapMoObj.searchDrop[el]].indexOf(value);
@@ -619,7 +627,8 @@ export default async function decorate(block) {
               let counter = 0;
               const value = event.target.textContent.trim();
               Object.keys(dataMapMoObj.searchDrop).forEach((el) => {
-                if ([...dataMapMoObj.searchDrop[el]].includes(value) && counter === 0) {
+                if ([...dataMapMoObj.searchDrop[el]].includes(value) && counter === 0 && el !== 'tabpanel-all') {
+                  const searchInput = document.querySelector('.search-field');
                   const tabpanelText = el;
                   const tabText = el.replaceAll('tabpanel', 'tab');
                   const indexValue = [...dataMapMoObj.searchDrop[el]].indexOf(value);
@@ -638,6 +647,7 @@ export default async function decorate(block) {
                   uldorp.classList.remove('dropdown-active');
                   block.querySelector(`#${tabpanelText}`).scrollIntoView({ behavior: 'smooth' });
                   counter = 1;
+                  searchInput.value = value;
                 }
               });
             });
@@ -651,6 +661,10 @@ export default async function decorate(block) {
       if (!droplist.contains(event.target)) {
         dropdown.classList.remove('dropdown-active');
       }
+    });
+    cancelbtn.addEventListener('click', () => {
+      searchFireld.value = '';
+      searchFireld.closest('.search-wrapper').classList.remove('search-active');
     });
   }
 
