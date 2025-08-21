@@ -32,7 +32,7 @@ function planListEvent(param, block) {
     }
   });
   const [firstReturnYear] = tempReturns;
-  const valRet = dataMapMoObj.selectreturns === '' ? '3 YEARS' : dataMapMoObj.selectreturns;
+  const valRet = dataMapMoObj.selectreturns === '' ? '3 Years' : dataMapMoObj.selectreturns;
   const selectedReturn = valRet; // dataMapMoObj.selectreturns;
   const returnYear = tempReturns.includes(selectedReturn)
     ? selectedReturn
@@ -40,7 +40,7 @@ function planListEvent(param, block) {
   param.target
     .closest('.card-wrapper')
     .querySelector('.cagr-container').innerHTML = '';
-  const dspdate = returnYear === 'SINCE INCEPTION' ? 'block' : 'none';
+  const dspdate = returnYear === 'Since Inception' ? 'block' : 'none';
   if (
     codeTempArr.includes(param.target.getAttribute('value'))
     && tempReturns.length !== 0
@@ -97,7 +97,7 @@ function planListEvent(param, block) {
                   .querySelector('.cagr-value h2')
                   .append(span('%'));
                 const datedrp = event.currentTarget.closest('.cagr-dropdown');
-                if (event.target.textContent.trim() === 'SINCE INCEPTION') {
+                if (event.target.textContent.trim() === 'Since Inception') {
                   datedrp.querySelector('.cagr-date').style.display = 'block';
                 } else {
                   datedrp.querySelector('.cagr-date').style.display = 'none';
@@ -136,7 +136,8 @@ function planListEvent(param, block) {
       {
         class: 'cagr-desc',
       },
-      span({class:'cagr-desc-text'},
+      span(
+        { class: 'cagr-desc-text' },
         'Return is not provided because thescheme has not completed 6 months',
       ),
     );
@@ -215,7 +216,7 @@ export default function decorate(block) {
   const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
   const optionName = DirectPlanlistArr.length !== 0 ? DirectPlanlistArr[0].optionName : '';
   const [fstRetYear] = tempReturns;
-  const valRet = dataMapMoObj.selectreturns === '' ? '3 YEARS' : dataMapMoObj.selectreturns;
+  const valRet = dataMapMoObj.selectreturns === '' ? '3 Years' : dataMapMoObj.selectreturns;
   const returnYear = tempReturns.includes(valRet)
     ? valRet
     : fstRetYear;
@@ -226,7 +227,7 @@ export default function decorate(block) {
     ? 'star-filled'
     : '';
   const mop = `MO_${block.schcode}.svg`;
-  const dspdate = returnYear === 'SINCE INCEPTION' ? 'block' : 'none';
+  const dspdate = returnYear === 'Since Inception' ? 'block' : 'none';
   // const cagrValue = finPlangrp
   if (finPlangrp.length !== 0) {
     if ([...block.fundsTaggingSection].includes('NFO')) {
@@ -579,7 +580,7 @@ export default function decorate(block) {
                         .querySelector('.cagr-value h2')
                         .append(span('%'));
                       const datedrp = event.currentTarget.closest('.cagr-dropdown');
-                      if (event.target.textContent.trim() === 'SINCE INCEPTION') {
+                      if (event.target.textContent.trim() === 'Since Inception') {
                         datedrp.querySelector('.cagr-date').style.display = 'block';
                       } else {
                         datedrp.querySelector('.cagr-date').style.display = 'none';

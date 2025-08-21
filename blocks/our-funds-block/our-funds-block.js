@@ -1363,7 +1363,7 @@ export default function decorate(block) {
                       );
                     },
                   },
-                  '3 YEARS',
+                  '3 Years',
                 ),
                 ul(
                   {
@@ -1394,37 +1394,37 @@ export default function decorate(block) {
                     {
                       dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
                     },
-                    '1 YEAR',
+                    '1 Year',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].threeYear_Ret.join('-'),
                     },
-                    '3 YEARS',
+                    '3 Years',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].fiveYear_Ret.join('-'),
                     },
-                    '5 YEARS',
+                    '5 Years',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
                     },
-                    '7 YEARS',
+                    '7 Years',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                     },
-                    '10 YEARS',
+                    '10 Years',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
                     },
-                    'SINCE INCEPTION',
+                    'Since Inception',
                   ),
                 ),
               ),
