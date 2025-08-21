@@ -20,6 +20,7 @@ export default function decorate(block) {
   swiperWrapper.querySelectorAll('img').forEach((el, ind) => {
     if (ind === 0) {
       el.setAttribute('loading', 'eager');
+      el.setAttribute('fetchpriority', 'high');
     }
   });
   //   Create div for pagination and buttons
@@ -35,13 +36,13 @@ export default function decorate(block) {
       pauseOnMouseEnter: true,
     },
     pagination: {
-      el: ".swiper-pagination",
+      el: '.swiper-pagination',
       clickable: true,
     },
 
     navigation: {
-      nextEl: block.querySelector(".swiper-button-next"),
-      prevEl: block.querySelector(".swiper-button-prev"),
+      nextEl: block.querySelector('.swiper-button-next'),
+      prevEl: block.querySelector('.swiper-button-prev'),
     },
   });
 }
