@@ -1,5 +1,5 @@
 import { loadEmbed } from '../blocks/embed/embed.js';
-import loadFragment from '../blocks/fragment/fragment.js'; // eslint-disable-line
+import loadFragment from "../blocks/fragment/fragment.js"; // eslint-disable-line
 import {
   loadHeader,
   loadFooter,
@@ -81,7 +81,9 @@ export function moveInstrumentation(from, to) {
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes('localhost')) { sessionStorage.setItem('fonts-loaded', 'true'); }
+    if (!window.location.hostname.includes('localhost')) {
+      sessionStorage.setItem('fonts-loaded', 'true');
+    }
   } catch (e) {
     // do nothing
   }
@@ -280,6 +282,15 @@ export function getTimeLeft(targetDateStr) {
   return `${pad(days)} days ${pad(hours)} hrs ${pad(minutes)} mins left`;
 }
 
+export function initObserver(block, callback) {
+  const observer = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      observer.disconnect();
+      callback();
+    }
+  });
+  observer.observe(block);
+}
 export function evaluateByDays(pastDateStr) {
   const now = new Date();
   const pastDate = new Date(pastDateStr);
@@ -296,12 +307,14 @@ export function evaluateByDays(pastDateStr) {
   // Apply logic based on days
   if (diffDays === 365) {
     return 'Annualised';
-  } if (diffDays > 365) {
+  }
+  if (diffDays > 365) {
     return 'CAGR';
-  } if (diffDays >= 180 && diffDays < 365) {
+  }
+  if (diffDays >= 180 && diffDays < 365) {
     return 'Annualised';
   }
-  return 'Annualised';// `${diffDays} days`;
+  return 'Annualised'; // `${diffDays} days`;
 }
 
 export function wishlist() {
@@ -312,9 +325,13 @@ export function wishlist() {
   });
   document.querySelector('.watchlisttext span').textContent = '';
   if (paramCount.length < 10) {
-    document.querySelector('.watchlisttext span').textContent = `My Watchlist (0${paramCount.length})`;
+    document.querySelector(
+      '.watchlisttext span',
+    ).textContent = `My Watchlist (0${paramCount.length})`;
   } else {
-    document.querySelector('.watchlisttext span').textContent = `My Watchlist (${paramCount.length})`;
+    document.querySelector(
+      '.watchlisttext span',
+    ).textContent = `My Watchlist (${paramCount.length})`;
   }
 }
 window.hlx = window.hlx || {};

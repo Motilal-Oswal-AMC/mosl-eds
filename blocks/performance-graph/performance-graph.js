@@ -5,7 +5,8 @@ import * as am5 from "../../scripts/index.js";
 import * as am5xy from "../../scripts/xy.js";
 import * as am5themes_Animated from "../../scripts/Animated.js";
 import { div, h2, a, p, h4, span } from "../../scripts/dom-helpers.js";
-import dataCfObj from '../../scripts/dataCfObj.js';
+import dataCfObj from "../../scripts/dataCfObj.js";
+import { initObserver } from "../../scripts/scripts.js";
 
 export default function decorate(block) {
   const col1 = block.children[0].querySelector("h4");
@@ -20,8 +21,8 @@ export default function decorate(block) {
 
   let root = null;
   let cachedAPIData = null;
-  let planType = 'Direct';
-  let planOption = 'Growth';
+  let planType = "Direct";
+  let planOption = "Growth";
 
   const filterSelectedEl = span({ class: "filter-selected" });
   const cagrValueEl = span({ class: "cagr-value" });
@@ -46,10 +47,10 @@ export default function decorate(block) {
   // --- STATE & API LOGIC ---
   const useLiveAPI = true;
   // const schcode = localStorage.getItem('planCode');
-  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  const [planFlow, schcode] = planCode.split(':');
+  const planCode = localStorage.getItem("planCode") || "Direct:LM";
+  const [planFlow, schcode] = planCode.split(":");
 
-  const selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
+  const selectedFund = dataCfObj.find((fund) => fund.schcode === schcode);
 
   async function updateDashboard(filter) {
     activeFilter = filter;
@@ -70,7 +71,10 @@ export default function decorate(block) {
     try {
       if (useLiveAPI && !cachedAPIData) {
         if (!schcode) throw new Error("planCode not found in localStorage.");
-        if (!selectedFund) throw new Error(`Fund with schcode '${schcode}' not found in dataCfObj.`);
+        if (!selectedFund)
+          throw new Error(
+            `Fund with schcode '${schcode}' not found in dataCfObj.`
+          );
 
         // const allFundsData = await myAPI(
         //   "GET",
@@ -79,20 +83,23 @@ export default function decorate(block) {
 
         /// new code
         const targetPlan = selectedFund?.planList.find(
-          (p) => p.planName === planType && p.optionName === planOption,
+          (p) => p.planName === planType && p.optionName === planOption
         );
         const targetReturns = selectedFund?.returns.find(
-          (r) => r.plancode === targetPlan?.planCode && r.optioncode === targetPlan?.optionCode,
+          (r) =>
+            r.plancode === targetPlan?.planCode &&
+            r.optioncode === targetPlan?.optionCode
         );
 
         const currentFundDetails = {
           cmt_schcode: targetReturns.cmt_schcode,
-          isin: targetReturns.isin
+          isin: targetReturns.isin,
         };
 
         /// new code
         // const currentFundDetails = allFundsData.data.find(fund => fund.schcode === schcode);
-        if (!currentFundDetails) throw new Error(`API details for schcode '${schcode}' not found.`);
+        if (!currentFundDetails)
+          throw new Error(`API details for schcode '${schcode}' not found.`);
 
         const requestData = {
           api_name: "PerformanceGraphNew",
@@ -126,7 +133,7 @@ export default function decorate(block) {
       // test
       // const cagrInfo = cachedAPIData.data.cagr;
       const series1Name = "Motilal Oswal Large and Midcap fund"; //cagrInfo.sch_name || "Scheme";
-      const series2Name = chartArray[0].co_name || 'Benchmark';  //cagrInfo.bm1_name || "Benchmark";
+      const series2Name = chartArray[0].co_name || "Benchmark"; //cagrInfo.bm1_name || "Benchmark";
 
       const filteredData = filterChartData(chartArray, filter);
       const chartData = filteredData.map((item) => ({
@@ -137,7 +144,6 @@ export default function decorate(block) {
 
       // ✅ Pass the dynamic names to the charting function
       renderAmChart(chartData, series1Name, series2Name);
-
     } catch (error) {
       console.error("Error loading chart data:", error);
       graphDiv.innerHTML = `<div class="chart-error">Could not load chart. ${error.message}</div>`;
@@ -145,38 +151,47 @@ export default function decorate(block) {
   }
 
   function updateReturnsDisplay(filter) {
-    const planType = 'Direct';
-    const planOption = 'Growth';
+    const planType = "Direct";
+    const planOption = "Growth";
 
     if (!selectedFund) {
-      cagrValueEl.textContent = 'N/A';
+      cagrValueEl.textContent = "N/A";
       filterSelectedEl.textContent = filter;
       return;
     }
 
-    const targetPlan = selectedFund.planList.find(p => p.planName === planType && p.optionName === planOption);
-    const targetReturns = targetPlan ? selectedFund.returns.find(r => r.plancode === targetPlan.planCode && r.optioncode === targetPlan.optionCode) : null;
+    const targetPlan = selectedFund.planList.find(
+      (p) => p.planName === planType && p.optionName === planOption
+    );
+    const targetReturns = targetPlan
+      ? selectedFund.returns.find(
+          (r) =>
+            r.plancode === targetPlan.planCode &&
+            r.optioncode === targetPlan.optionCode
+        )
+      : null;
 
     const returnKeyMap = {
-      '1Y': 'oneYear_Ret',
-      '3Y': 'threeYear_Ret',
-      '5Y': 'fiveYear_Ret',
-      '7Y': 'sevenYear_Ret',
-      '10Y': 'tenYear_Ret',
-      'All': 'inception_Ret',
+      "1Y": "oneYear_Ret",
+      "3Y": "threeYear_Ret",
+      "5Y": "fiveYear_Ret",
+      "7Y": "sevenYear_Ret",
+      "10Y": "tenYear_Ret",
+      All: "inception_Ret",
     };
 
     const returnKey = returnKeyMap[filter];
-    const returnCAGR = (targetReturns && returnKey && targetReturns[returnKey])
-      ? parseFloat(targetReturns[returnKey])
-      : null;
+    const returnCAGR =
+      targetReturns && returnKey && targetReturns[returnKey]
+        ? parseFloat(targetReturns[returnKey])
+        : null;
 
-    filterSelectedEl.textContent = filter !== 'All' ? filter : 'Inception';
+    filterSelectedEl.textContent = filter !== "All" ? filter : "Inception";
 
     if (returnCAGR !== null) {
       cagrValueEl.textContent = ` ${returnCAGR}%`;
     } else {
-      cagrValueEl.textContent = '';
+      cagrValueEl.textContent = "";
     }
   }
 
@@ -194,7 +209,9 @@ export default function decorate(block) {
 
   function filterChartData(data, filter) {
     if (!data || data.length === 0) return [];
-    const sortedData = [...data].sort((a, b) => new Date(a.navdate) - new Date(b.navdate));
+    const sortedData = [...data].sort(
+      (a, b) => new Date(a.navdate) - new Date(b.navdate)
+    );
     if (filter === "All") return sortedData;
 
     const latestDate = new Date(sortedData[sortedData.length - 1].navdate);
@@ -202,15 +219,28 @@ export default function decorate(block) {
 
     // A more robust way to calculate past dates
     switch (filter) {
-      case "1M": cutoffDate.setMonth(cutoffDate.getMonth() - 1); break;
-      case "3M": cutoffDate.setMonth(cutoffDate.getMonth() - 3); break;
-      case "6M": cutoffDate.setMonth(cutoffDate.getMonth() - 6); break;
-      case "1Y": cutoffDate.setFullYear(cutoffDate.getFullYear() - 1); break;
-      case "3Y": cutoffDate.setFullYear(cutoffDate.getFullYear() - 3); break;
-      case "5Y": cutoffDate.setFullYear(cutoffDate.getFullYear() - 5); break;
-      default: return sortedData; // Should not happen
+      case "1M":
+        cutoffDate.setMonth(cutoffDate.getMonth() - 1);
+        break;
+      case "3M":
+        cutoffDate.setMonth(cutoffDate.getMonth() - 3);
+        break;
+      case "6M":
+        cutoffDate.setMonth(cutoffDate.getMonth() - 6);
+        break;
+      case "1Y":
+        cutoffDate.setFullYear(cutoffDate.getFullYear() - 1);
+        break;
+      case "3Y":
+        cutoffDate.setFullYear(cutoffDate.getFullYear() - 3);
+        break;
+      case "5Y":
+        cutoffDate.setFullYear(cutoffDate.getFullYear() - 5);
+        break;
+      default:
+        return sortedData; // Should not happen
     }
-    return sortedData.filter(item => new Date(item.navdate) >= cutoffDate);
+    return sortedData.filter((item) => new Date(item.navdate) >= cutoffDate);
   }
 
   // ✅ Function now accepts dynamic series names
@@ -221,362 +251,376 @@ export default function decorate(block) {
     }
 
     // Clear any previous loader or error message
-    graphDiv.innerHTML = '';
+    graphDiv.innerHTML = "";
 
-    window.am5.ready(() => {
-      root = window.am5.Root.new("chartdiv");
+    initObserver(block, () => {
+      window.am5.ready(() => {
+        root = window.am5.Root.new("chartdiv");
 
-      root.setThemes([window.am5themes_Animated.new(root)]);
+        root.setThemes([window.am5themes_Animated.new(root)]);
 
-      const chart = root.container.children.push(
-        window.am5xy.XYChart.new(root, {
-          panX: true,
-          panY: true,
-          wheelX: "panX",
-          wheelY: "zoomX",
-          pinchZoomX: true,
-          paddingBottom: 80,
-        })
-      );
+        const chart = root.container.children.push(
+          window.am5xy.XYChart.new(root, {
+            panX: true,
+            panY: true,
+            wheelX: "panX",
+            wheelY: "zoomX",
+            pinchZoomX: true,
+            paddingBottom: 80,
+          })
+        );
 
-      chart.get("colors").set("step", 3);
+        chart.get("colors").set("step", 3);
 
-      const cursor = chart.set("cursor", window.am5xy.XYCursor.new(root, {}));
-      cursor.lineY.set("visible", false);
+        const cursor = chart.set("cursor", window.am5xy.XYCursor.new(root, {}));
+        cursor.lineY.set("visible", false);
 
-      const xAxis = chart.xAxes.push(
-        window.am5xy.DateAxis.new(root, {
-          baseInterval: { timeUnit: "day", count: 1 },
-          renderer: window.am5xy.AxisRendererX.new(root, {
-            minorGridEnabled: true,
+        const xAxis = chart.xAxes.push(
+          window.am5xy.DateAxis.new(root, {
+            baseInterval: { timeUnit: "day", count: 1 },
+            renderer: window.am5xy.AxisRendererX.new(root, {
+              minorGridEnabled: true,
+            }),
+          })
+        );
+
+        xAxis.get("renderer").labels.template.setAll({
+          // fill: window.am5.color(0x212121),
+          // fontFamily: "Poppins",
+          fill: window.am5.color(0x888888), // <-- Change color here (e.g., grey) // test
+          fontFamily: "Poppins", //"Arial",             // <-- Change font family here
+          fontSize: 12,
+          fontWeight: 400,
+          paddingTop: 8,
+        });
+
+        const yAxis = chart.yAxes.push(
+          window.am5xy.ValueAxis.new(root, {
+            renderer: window.am5xy.AxisRendererY.new(root, {}),
+          })
+        );
+
+        // Hide all grids
+        xAxis.get("renderer").grid.template.set("visible", false);
+        yAxis.get("renderer").grid.template.set("visible", false);
+
+        // Show only bottom X axis baseline
+        xAxis.get("renderer").setAll({
+          strokeOpacity: 1,
+          stroke: window.am5.color(0xcccccc),
+        });
+
+        // Show only left Y axis baseline
+        yAxis.get("renderer").setAll({
+          strokeOpacity: 1,
+          stroke: window.am5.color(0xcccccc),
+        });
+
+        // test
+        // ADD THIS CODE BLOCK FOR Y-AXIS LABELS
+        yAxis.get("renderer").labels.template.setAll({
+          fill: window.am5.color(0x888888), // <-- Set your desired color
+          fontFamily: "Poppins", //"Arial",             // <-- Set your desired font family
+          fontSize: 14,
+        });
+
+        // Shared tooltip
+        const sharedTooltip = window.am5.Tooltip.new(root, {
+          getFillFromSprite: false,
+          autoTextColor: false,
+        });
+        sharedTooltip.get("background").setAll({
+          fill: window.am5.color(0x2f2fa2),
+          fillOpacity: 1,
+          strokeOpacity: 0,
+          cornerRadius: 6,
+        });
+        sharedTooltip.label.setAll({
+          fill: window.am5.color(0xffffff),
+          fontFamily: "Poppins",
+          // fill: window.am5.color(0xffeecc),  // <-- Change text color (e.g., light yellow)
+          // fontFamily: "Courier New",       // <-- Change font family
+          fontSize: 14,
+          fontWeight: 400,
+        });
+
+        // Series 1 // test
+        const series1 = chart.series.push(
+          window.am5xy.LineSeries.new(root, {
+            name: series1Name || "Motilal Oswal Large and Midcap fund",
+            xAxis,
+            yAxis,
+            valueYField: "value1",
+            valueXField: "date",
+            tensionX: 0.8,
+            tooltip: sharedTooltip,
+            paddingTop: 40,
+          })
+        );
+
+        series1.strokes.template.setAll({
+          strokeWidth: 2,
+          stroke: window.am5.color(0x4a68f6),
+        });
+        series1.fills.template.setAll({
+          visible: true,
+          fillOpacity: 0.2,
+          fillGradient: window.am5.LinearGradient.new(root, {
+            stops: [
+              { color: window.am5.color(0x4a68f6), opacity: 0.3 },
+              { color: window.am5.color(0xffffff), opacity: 0 },
+            ],
+            rotation: 90,
           }),
-        })
-      );
+        });
 
-      xAxis.get("renderer").labels.template.setAll({
-        // fill: window.am5.color(0x212121),
-        // fontFamily: "Poppins",
-        fill: window.am5.color(0x888888),  // <-- Change color here (e.g., grey) // test
-        fontFamily: "Poppins", //"Arial",             // <-- Change font family here
-        fontSize: 12,
-        fontWeight: 400,
-        paddingTop: 8,
-      });
+        // Series 2 // test
+        const series2 = chart.series.push(
+          window.am5xy.LineSeries.new(root, {
+            name: series2Name || "Nifty 100 TRI",
+            xAxis,
+            yAxis,
+            valueYField: "value2",
+            valueXField: "date",
+            tensionX: 0.8,
+            tooltip: sharedTooltip,
+          })
+        );
 
-      const yAxis = chart.yAxes.push(
-        window.am5xy.ValueAxis.new(root, {
-          renderer: window.am5xy.AxisRendererY.new(root, {}),
-        })
-      );
+        series2.strokes.template.setAll({
+          strokeWidth: 2,
+          stroke: window.am5.color(0xf5a623),
+        });
+        series2.fills.template.setAll({
+          visible: true,
+          fillOpacity: 0.2,
+          fillGradient: window.am5.LinearGradient.new(root, {
+            stops: [
+              { color: window.am5.color(0xf5a623), opacity: 0.3 },
+              { color: window.am5.color(0xffffff), opacity: 0 },
+            ],
+            rotation: 90,
+          }),
+        });
 
-      // Hide all grids
-      xAxis.get("renderer").grid.template.set("visible", false);
-      yAxis.get("renderer").grid.template.set("visible", false);
+        // Series 1 - Blue
+        series1.setAll({
+          stroke: window.am5.color(0x7a88fd),
+          fill: window.am5.LinearGradient.new(root, {
+            stops: [
+              { color: window.am5.color(0x7a88fd), opacity: 1 },
+              { color: window.am5.color(0x7a88fd), opacity: 0 },
+            ],
+            rotation: 90,
+          }),
+        });
 
-      // Show only bottom X axis baseline
-      xAxis.get("renderer").setAll({
-        strokeOpacity: 1,
-        stroke: window.am5.color(0xCCCCCC)
-      });
+        // Series 2 - Orange
+        series2.setAll({
+          stroke: window.am5.color(0xff9811),
+          fill: window.am5.LinearGradient.new(root, {
+            stops: [
+              { color: window.am5.color(0xff9811), opacity: 1 },
+              { color: window.am5.color(0xff9811), opacity: 0 },
+            ],
+            rotation: 90,
+          }),
+        });
 
-      // Show only left Y axis baseline
-      yAxis.get("renderer").setAll({
-        strokeOpacity: 1,
-        stroke: window.am5.color(0xCCCCCC)
-      });
+        // Combine tooltip text for both series (REPLACEMENT)
+        sharedTooltip.label.adapters.add("text", (text, target) => {
+          try {
+            const axisPos = xAxis.toAxisPosition(
+              cursor.getPrivate("positionX")
+            );
+            const dataItem1 = xAxis.getSeriesItem(series1, axisPos);
+            const dataItem2 = xAxis.getSeriesItem(series2, axisPos);
 
-      // test
-      // ADD THIS CODE BLOCK FOR Y-AXIS LABELS
-      yAxis.get("renderer").labels.template.setAll({
-        fill: window.am5.color(0x888888),  // <-- Set your desired color
-        fontFamily: "Poppins", //"Arial",             // <-- Set your desired font family
-        fontSize: 14,
-      });
+            const dateVal =
+              (dataItem1 && dataItem1.get("valueX")) ||
+              (dataItem2 && dataItem2.get("valueX"));
 
-      // Shared tooltip
-      const sharedTooltip = window.am5.Tooltip.new(root, {
-        getFillFromSprite: false,
-        autoTextColor: false,
-      });
-      sharedTooltip.get("background").setAll({
-        fill: window.am5.color(0x2f2fa2),
-        fillOpacity: 1,
-        strokeOpacity: 0,
-        cornerRadius: 6,
-      });
-      sharedTooltip.label.setAll({
-        fill: window.am5.color(0xffffff),
-        fontFamily: "Poppins",
-        // fill: window.am5.color(0xffeecc),  // <-- Change text color (e.g., light yellow)
-        // fontFamily: "Courier New",       // <-- Change font family
-        fontSize: 14,
-        fontWeight: 400,
-      });
+            const formattedDate = dateVal
+              ? root.dateFormatter.format(new Date(dateVal), "d MMM yyyy")
+              : "";
 
-      // Series 1 // test
-      const series1 = chart.series.push(
-        window.am5xy.LineSeries.new(root, {
-          name: series1Name || "Motilal Oswal Large and Midcap fund",
-          xAxis,
-          yAxis,
-          valueYField: "value1",
-          valueXField: "date",
-          tensionX: 0.8,
-          tooltip: sharedTooltip,
-          paddingTop: 40
-        })
-      );
+            let result = formattedDate
+              ? `Nav on [bold]${formattedDate}[/]\n\n`
+              : "";
 
-      series1.strokes.template.setAll({
-        strokeWidth: 2,
-        stroke: window.am5.color(0x4a68f6),
-      });
-      series1.fills.template.setAll({
-        visible: true,
-        fillOpacity: 0.2,
-        fillGradient: window.am5.LinearGradient.new(root, {
-          stops: [
-            { color: window.am5.color(0x4a68f6), opacity: 0.3 },
-            { color: window.am5.color(0xffffff), opacity: 0 },
-          ],
-          rotation: 90,
-        }),
-      });
+            // Series 1 bullet in actual stroke color
+            if (dataItem1) {
+              const color1 = series1.get("stroke").toCSSHex();
+              const val1 = dataItem1.get("valueY");
+              result += `[#${color1.replace(
+                "#",
+                ""
+              )}]●[/] [bold]${root.numberFormatter.format(
+                val1,
+                "#,###.00"
+              )}[/]\n`;
+            }
 
-      // Series 2 // test
-      const series2 = chart.series.push(
-        window.am5xy.LineSeries.new(root, {
-          name: series2Name || "Nifty 100 TRI",
-          xAxis,
-          yAxis,
-          valueYField: "value2",
-          valueXField: "date",
-          tensionX: 0.8,
-          tooltip: sharedTooltip,
-        })
-      );
+            // Series 2 bullet in actual stroke color
+            if (dataItem2) {
+              const color2 = series2.get("stroke").toCSSHex();
+              const val2 = dataItem2.get("valueY");
+              result += `[#${color2.replace(
+                "#",
+                ""
+              )}]●[/] [bold]${root.numberFormatter.format(
+                val2,
+                "#,###.00"
+              )}[/]`;
+            }
 
-      series2.strokes.template.setAll({
-        strokeWidth: 2,
-        stroke: window.am5.color(0xf5a623),
-      });
-      series2.fills.template.setAll({
-        visible: true,
-        fillOpacity: 0.2,
-        fillGradient: window.am5.LinearGradient.new(root, {
-          stops: [
-            { color: window.am5.color(0xf5a623), opacity: 0.3 },
-            { color: window.am5.color(0xffffff), opacity: 0 },
-          ],
-          rotation: 90,
-        }),
-      });
-
-      // Series 1 - Blue
-      series1.setAll({
-        stroke: window.am5.color(0x7a88fd),
-        fill: window.am5.LinearGradient.new(root, {
-          stops: [
-            { color: window.am5.color(0x7a88fd), opacity: 1 },
-            { color: window.am5.color(0x7a88fd), opacity: 0 }
-          ],
-          rotation: 90
-        })
-      });
-
-      // Series 2 - Orange
-      series2.setAll({
-        stroke: window.am5.color(0xff9811),
-        fill: window.am5.LinearGradient.new(root, {
-          stops: [
-            { color: window.am5.color(0xff9811), opacity: 1 },
-            { color: window.am5.color(0xff9811), opacity: 0 }
-          ],
-          rotation: 90
-        })
-      });
-
-      // Combine tooltip text for both series (REPLACEMENT)
-      sharedTooltip.label.adapters.add("text", (text, target) => {
-        try {
-          const axisPos = xAxis.toAxisPosition(cursor.getPrivate("positionX"));
-          const dataItem1 = xAxis.getSeriesItem(series1, axisPos);
-          const dataItem2 = xAxis.getSeriesItem(series2, axisPos);
-
-          const dateVal =
-            (dataItem1 && dataItem1.get("valueX")) ||
-            (dataItem2 && dataItem2.get("valueX"));
-
-          const formattedDate = dateVal
-            ? root.dateFormatter.format(new Date(dateVal), "d MMM yyyy")
-            : "";
-
-          let result = formattedDate ? `Nav on [bold]${formattedDate}[/]\n\n` : "";
-
-          // Series 1 bullet in actual stroke color
-          if (dataItem1) {
-            const color1 = series1.get("stroke").toCSSHex();
-            const val1 = dataItem1.get("valueY");
-            result += `[#${color1.replace("#", "")}]●[/] [bold]${root.numberFormatter.format(val1, "#,###.00")}[/]\n`;
+            return result || text;
+          } catch (err) {
+            return text;
           }
+        });
 
-          // Series 2 bullet in actual stroke color
-          if (dataItem2) {
-            const color2 = series2.get("stroke").toCSSHex();
-            const val2 = dataItem2.get("valueY");
-            result += `[#${color2.replace("#", "")}]●[/] [bold]${root.numberFormatter.format(val2, "#,###.00")}[/]`;
-          }
+        root.dateFormatter.setAll({
+          dateFormat: "yyyy-MM-dd",
+          dateFields: ["valueX"],
+        });
 
-          return result || text;
-        } catch (err) {
-          return text;
-        }
-      });
+        series1.data.setAll(chartData);
+        series2.data.setAll(chartData);
 
+        const legend = chart.children.push(
+          window.am5.Legend.new(root, {
+            centerX: window.am5.p50,
+            x: window.am5.p50,
+            centerY: window.am5.p100,
+            y: window.am5.percent(110),
+            layout: root.horizontalLayout,
+            marginTop: 30,
+            itemContainers: {
+              paddingTop: 4,
+              paddingBottom: 4,
+              paddingLeft: 10,
+              paddingRight: 10,
+            },
+          })
+        );
 
+        // Replace rectangle markers with circle dots
+        legend.markers.template.setAll({
+          width: 12,
+          height: 12,
+          cornerRadiusTL: 6,
+          cornerRadiusTR: 6,
+          cornerRadiusBL: 6,
+          cornerRadiusBR: 6,
+        });
 
+        // OR, more cleanly:
+        legend.markers.template.set("draw", function (display) {
+          display.circle(6, 6, 6); // x, y, radius
+        });
 
-      root.dateFormatter.setAll({
-        dateFormat: "yyyy-MM-dd",
-        dateFields: ["valueX"],
-      });
+        // Also update your legend labels template for better alignment:
+        legend.labels.template.setAll({
+          fill: window.am5.color(0x333333),
+          fontFamily: "Poppins",
+          fontSize: 16,
+          fontWeight: "500",
+          marginLeft: 6,
+          centerY: window.am5.p50, // Vertically center the text
+          paddingTop: 0, // Remove any top padding
+          paddingBottom: 0, // Remove any bottom padding
+        });
+        legend.data.setAll(chart.series.values);
 
-      series1.data.setAll(chartData);
-      series2.data.setAll(chartData);
-
-      const legend = chart.children.push(
-        window.am5.Legend.new(root, {
+        // Center the legend group and keep items tight
+        legend.setAll({
+          layout: root.horizontalLayout,
           centerX: window.am5.p50,
           x: window.am5.p50,
           centerY: window.am5.p100,
           y: window.am5.percent(110),
-          layout: root.horizontalLayout,
-          marginTop: 30,
-          itemContainers: {
-            paddingTop: 4,
-            paddingBottom: 4,
-            paddingLeft: 10,
-            paddingRight: 10
-          },
-        })
-      );
-
-      // Replace rectangle markers with circle dots
-      legend.markers.template.setAll({
-        width: 12,
-        height: 12,
-        cornerRadiusTL: 6,
-        cornerRadiusTR: 6,
-        cornerRadiusBL: 6,
-        cornerRadiusBR: 6
-      });
-
-      // OR, more cleanly:
-      legend.markers.template.set("draw", function (display) {
-        display.circle(6, 6, 6); // x, y, radius
-      });
-
-      // Also update your legend labels template for better alignment:
-      legend.labels.template.setAll({
-        fill: window.am5.color(0x333333),
-        fontFamily: "Poppins",
-        fontSize: 16,
-        fontWeight: "500",
-        marginLeft: 6,
-        centerY: window.am5.p50,  // Vertically center the text
-        paddingTop: 0,            // Remove any top padding
-        paddingBottom: 0          // Remove any bottom padding
-      });
-      legend.data.setAll(chart.series.values);
-
-      // Center the legend group and keep items tight
-      legend.setAll({
-        layout: root.horizontalLayout,
-        centerX: window.am5.p50,
-        x: window.am5.p50,
-        centerY: window.am5.p100,
-        y: window.am5.percent(110),
-        paddingLeft: 0,
-        paddingRight: 0
-      });
-
-      // Make sure item containers size to content (no forced width)
-      legend.itemContainers.template.set("width", null);
-
-      // Alternative approach - if the above doesn't work perfectly, try this:
-      legend.itemContainers.template.setAll({
-        paddingTop: 4,
-        paddingBottom: 4,
-        marginRight: 20,
-        valign: "middle"  // Ensure vertical alignment of container contents
-      });
-
-      // optional: no extra gap after the last item
-      legend.itemContainers.template.adapters.add("marginRight", (mr, target) => {
-        const di = target.dataItem;
-        return di && di.get("index") === legend.data.length - 1 ? 0 : mr;
-      });
-
-
-
-      // Make legend markers circular dots that match series color
-      [series1, series2].forEach((s) => {
-        const legendItem = s.get("legendDataItem");
-        if (!legendItem) return;
-
-        const marker = legendItem.get("marker");
-        marker.setAll({
-          width: 2,
-          height: 2,
-          paddingRight: -5,
-          paddingLeft: -5,
-          centerY: window.am5.p50,  // Center the marker vertically
-          centerX: window.am5.p50   // Center the marker horizontally
+          paddingLeft: 0,
+          paddingRight: 0,
         });
 
-        // Remove default rectangle/line sample and add a circle
-        marker.children.clear();
-        marker.children.push(window.am5.Circle.new(root, {
-          radius: 6,
-          fill: s.get("stroke"),   // use the series stroke color
-          stroke: s.get("stroke"),
-          paddingTop: 10,
-          centerY: window.am5.p50,  // Center the circle within the marker
-          centerX: window.am5.p50   // Center the circle within the marker
-        }));
-      });
+        // Make sure item containers size to content (no forced width)
+        legend.itemContainers.template.set("width", null);
 
-      // --- START: ADDED CODE FOR RESPONSIVE LEGEND ---
-      // This block overrides the settings above ONLY on mobile screens
-      if (window.innerWidth <= 768) {
-        legend.setAll({
-          layout: root.verticalLayout, // Stack items vertically
-          x: window.am5.percent(0),           // Align to the left
-          centerX: window.am5.percent(0),     // Anchor to the left
-          y: window.am5.percent(115),         // Position at the bottom
-          // centerY: window.am5.percent(100),   // Center vertically
-          // paddingLeft: 20,                   // Add left padding
-          // paddingRight: 20,                  // Add right padding
-          paddingTop: 100,                    // Add top padding
-          paddingBottom: 0,                 // Add bottom padding
-        });
-        // Adjust spacing for vertical items
+        // Alternative approach - if the above doesn't work perfectly, try this:
         legend.itemContainers.template.setAll({
-          marginRight: 0,
-          marginBottom: 0,
-          paddingTop: 10,
-          paddingBottom: 0,
-          paddingLeft: 20,
-          paddingRight: 20,
-          // width: window.innerWidth - 40, // Full width minus padding
-
+          paddingTop: 4,
+          paddingBottom: 4,
+          marginRight: 20,
+          valign: "middle", // Ensure vertical alignment of container contents
         });
-      }
-      // --- END: ADDED CODE ---
 
-      series1.appear(1000);
-      series2.appear(1000);
-      chart.appear(1000, 100);
+        // optional: no extra gap after the last item
+        legend.itemContainers.template.adapters.add(
+          "marginRight",
+          (mr, target) => {
+            const di = target.dataItem;
+            return di && di.get("index") === legend.data.length - 1 ? 0 : mr;
+          }
+        );
+
+        // Make legend markers circular dots that match series color
+        [series1, series2].forEach((s) => {
+          const legendItem = s.get("legendDataItem");
+          if (!legendItem) return;
+
+          const marker = legendItem.get("marker");
+          marker.setAll({
+            width: 2,
+            height: 2,
+            paddingRight: -5,
+            paddingLeft: -5,
+            centerY: window.am5.p50, // Center the marker vertically
+            centerX: window.am5.p50, // Center the marker horizontally
+          });
+
+          // Remove default rectangle/line sample and add a circle
+          marker.children.clear();
+          marker.children.push(
+            window.am5.Circle.new(root, {
+              radius: 6,
+              fill: s.get("stroke"), // use the series stroke color
+              stroke: s.get("stroke"),
+              paddingTop: 10,
+              centerY: window.am5.p50, // Center the circle within the marker
+              centerX: window.am5.p50, // Center the circle within the marker
+            })
+          );
+        });
+
+        // --- START: ADDED CODE FOR RESPONSIVE LEGEND ---
+        // This block overrides the settings above ONLY on mobile screens
+        if (window.innerWidth <= 768) {
+          legend.setAll({
+            layout: root.verticalLayout, // Stack items vertically
+            x: window.am5.percent(0), // Align to the left
+            centerX: window.am5.percent(0), // Anchor to the left
+            y: window.am5.percent(115), // Position at the bottom
+            paddingTop: 100, // Add top padding
+            paddingBottom: 0, // Add bottom padding
+          });
+          // Adjust spacing for vertical items
+          legend.itemContainers.template.setAll({
+            marginRight: 0,
+            marginBottom: 0,
+            paddingTop: 10,
+            paddingBottom: 0,
+            paddingLeft: 20,
+            paddingRight: 20,
+            // width: window.innerWidth - 40, // Full width minus padding
+          });
+        }
+        // --- END: ADDED CODE ---
+
+        series1.appear(1000);
+        series2.appear(1000);
+        chart.appear(1000, 100);
+      });
     });
   }
 
