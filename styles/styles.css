@@ -502,3 +502,45 @@ footer .footer[data-block-status="loaded"] {
 body.noscroll {
     overflow: hidden;
   }
+
+/*co-branded  for FDP Page */
+
+.co-branded {
+    padding: 8px 0;
+    display: none;
+}
+
+@media (width <=768px) {
+    .co-branded {
+        display: block;
+    }
+}
+
+.co-branded .default-content-wrapper {
+    width: 100%;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: start;
+}
+
+.co-branded .default-content-wrapper p a {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    font-family: 'Poppins';
+    color: #2e2a94;
+    cursor: pointer;
+    background: none;
+}
+
+.co-branded .default-content-wrapper span {
+    width: 16px;
+    height: 16px;
+}

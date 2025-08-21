@@ -45,7 +45,6 @@
   left: 0;
   z-index: 2;
   width: 143px;
-  max-height: 200px;
   margin: 6px 0 0;
   overflow: auto;
   background-color: #fff;
@@ -156,7 +155,7 @@
   justify-content: flex-start;
   gap: 4px 8px;
   padding: 4px 0;
-  margin: 0 0 24px;
+  margin: 0 0 22px;
   flex-wrap: wrap;
   height: auto;
 }
@@ -200,6 +199,9 @@
 }
 .section .card-container .card-category .planlist-dropdown .selectedtext {
   font-weight: 400;
+}
+.section .card-container .card-category .planlist-dropdown .dropdown-list {
+  max-height: 200px;
 }
 .section .card-container .card-category.no-planlist .fundtagging-list-name:last-of-type::after {
   content: unset;
@@ -484,6 +486,19 @@
   overflow: unset;
   margin: 0;
 }
+@media (max-width: 1299px) {
+  .section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container {
+    max-width: 31.8%;
+  }
+}
+@media (max-width: 768px) {
+  .section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container {
+    max-width: 100%;
+  }
+}
+.section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container .dropdown-list {
+  max-height: 200px;
+}
 .section.fund-tab.tabs-container .btndesk,
 .section.fund-tab.tabs-container .btnmob {
   margin: 0;
@@ -558,14 +573,4 @@
 .section.fund-tab.tabs-container.our-popular-funds .wrappertablist .btndesk a {
   border: 1px solid #fff;
   color: #fff;
-}
-@media (max-width: 1299px) {
-  .section.fund-tab.tabs-container .card-container {
-    max-width: 31.8%;
-  }
-}
-@media (max-width: 768px) {
-  .section.fund-tab.tabs-container .card-container {
-    max-width: 100%;
-  }
 }/*# sourceMappingURL=fund-card.css.map */

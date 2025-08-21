@@ -1,8 +1,10 @@
 /* Reset */
 @import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
-body.scroll-lock {
-  overflow: hidden;
+@media (max-width: 768px) {
+  body .scroll-lock {
+    overflow: hidden;
+  }
 }
 
 .section.our-funds-block-container {

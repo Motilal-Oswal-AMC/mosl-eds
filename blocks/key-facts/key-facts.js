@@ -169,7 +169,7 @@ export default function decorate(block) {
   // Append preview and button initially
   container.innerHTML = '';
   container.appendChild(previewPara);
-  container.appendChild(toggleBtn);
+  previewPara.appendChild(toggleBtn);
 
   if (words.length > 20) {
     toggleBtn.addEventListener('click', () => {

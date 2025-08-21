@@ -56,7 +56,8 @@
         left: 0;
         z-index: 2;
         width: 143px;
-        max-height: 200px;
+
+        // max-height: 200px;
         margin: 6px 0 0;
         overflow: auto;
         background-color: $primary-white;
@@ -168,7 +169,7 @@
 
       .brand-fund-wrap {
         width: 100%;
-        
+
         .brand-name-text {
           margin: 0;
 
@@ -189,7 +190,7 @@
             $weight: map.get($font-weights, medium),
             $family: $poppins
           );
-          
+
           min-height: 40px;
           margin: 0;
 
@@ -202,13 +203,13 @@
 
     .card-category {
       @include flex-center($align: center, $justify: flex-start);
-      
+
       // gap: 8px;
       gap: 4px 8px;
       padding: 4px 0;
 
       // margin: 0 0 16px;
-      margin: 0 0 24px;
+      margin: 0 0 22px;
       flex-wrap: wrap;
 
       // margin-top: auto;
@@ -257,8 +258,12 @@
         gap: 8px;
         position: relative;
 
-        .selectedtext{
+        .selectedtext {
           font-weight: 400;
+        }
+
+        .dropdown-list {
+          max-height: 200px;
         }
       }
 
@@ -294,7 +299,7 @@
       box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
       margin-top: auto;
 
-      @include media(tab){
+      @include media(tab) {
         height: 100%;
       }
 
@@ -391,7 +396,7 @@
           }
         }
 
-        .scheme-yet{
+        .scheme-yet {
           @include font-style(
             $size: 12px,
             $line-height: 16px,
@@ -554,7 +559,7 @@
 
         &.know-more {
           text-decoration-line: underline;
-          
+
           // text-underline-offset: 20%;
           padding: 8px 0;
         }
@@ -665,6 +670,20 @@
         border: none;
         overflow: unset;
         margin: 0;
+
+        .card-container {
+          @include media(desktop-sm) {
+            max-width: 31.8%;
+          }
+
+          @include media(mobile) {
+            max-width: 100%;
+          }
+
+          .dropdown-list{
+            max-height: 200px;
+          }
+        }
       }
     }
 
@@ -753,16 +772,6 @@
       .wrappertablist .btndesk a {
         border: 1px solid $primary-white;
         color: $primary-white;
-      }
-    }
-
-    .card-container {
-      @include media(desktop-sm) {
-        max-width: 31.8%;
-      }
-
-      @include media(mobile) {
-        max-width: 100%;
       }
     }
   }

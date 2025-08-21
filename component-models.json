@@ -122,6 +122,10 @@
             "value": "fdp-faq"
           },
           {
+            "name": "co-branded",
+            "value": "co-branded"
+          },
+          {
             "name": "tabdiv",
             "value": "tabdiv"
           },
@@ -1218,6 +1222,18 @@
       {
         "component": "richtext",
         "name": "col_richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "co-branding",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "richtext",
         "value": "",
         "label": "Text",
         "valueType": "string"

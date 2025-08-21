@@ -38,6 +38,9 @@
   align-items: flex-start;
   gap: 1rem;
 }
+.section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container[role=region] {
+  aria-label: "Fund details";
+}
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper {
   display: flex;
   justify-content: space-between;
@@ -59,12 +62,14 @@
   gap: 1rem;
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-image {
-  width: 61px; /* adjust as needed */
+  width: 61px;
   height: 64px;
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-image img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p {
   margin: 0;
