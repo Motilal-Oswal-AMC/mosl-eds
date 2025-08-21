@@ -371,15 +371,17 @@ function checkfilter(block) {
         }
       });
     }
-    if (el.querySelector('input').checked) { //&& el.querySelector('input').getAttribute('id') !== 'index1'
+    if (el.querySelector('input').checked) {
       const moplabel = el.querySelector('input').nextElementSibling;
       const finlabel = moplabel.querySelector('label').textContent.split('(')[0];
       filterTag.push(finlabel); // 5-8-25
-      el.querySelector('input').getAttribute('dataattr').split('-').forEach((eldata) => {
-        if (!tempData.includes(eldata)) {
-          tempData.push(eldata);
-        }
-      });
+      if (el.querySelector('input').getAttribute('id') !== 'index1') {
+        el.querySelector('input').getAttribute('dataattr').split('-').forEach((eldata) => {
+          if (!tempData.includes(eldata)) {
+            tempData.push(eldata);
+          }
+        });
+      }
     }
   });
   if (window.innerWidth > 786) {
@@ -403,7 +405,15 @@ function checkfilter(block) {
       appliedList.innerHTML += `<li class="applied-filter-name" style="display:${dspclose}"><span>${Filterparam[i]}</span><img src="../../icons/cross-icon.svg" alt="cross icon" class="filter-cross-icon"></li>`;
     }
     if (Filterparam.length !== 0) {
+      if (Filterparam.length === 1 && Filterparam[0] === 'Indian Equity') {
+        document.querySelector('.filter-list-wrapper #index1').checked = false;
+        appliedList.closest('.applied-filter-wrap').classList.remove('filter-active');
+        return false;
+      }
       appliedList.closest('.applied-filter-wrap').classList.add('filter-active');
+    } else {
+      appliedList.closest('.applied-filter-wrap').classList.remove('filter-active');
+      return false;
     }
     // Add remove logic for each tag
     const appliedItems = Array.from(appliedList.children);
@@ -451,12 +461,14 @@ function checkfilter(block) {
             const inp = item.querySelector('input');
             if (inp) {
               const idAttr = inp.getAttribute('id');
-              // const filterFundName = inp.nextElementSibling?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
               const outerLabel = checkboxContainer.querySelector('label')?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
 
-              if (idAttr.includes('index') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) { //filterFundName
+              if (idAttr.includes('index') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) {
                 inp.checked = false;
               } else if (idAttr.includes('fundtype') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) {
+                inp.checked = false;
+              } else if (updatedFilterTag.length === 1 && updatedFilterTag[0] === 'Indian Equity') {
+                appliedList.closest('.applied-filter-wrap').classList.remove('filter-active');
                 inp.checked = false;
               }
 
