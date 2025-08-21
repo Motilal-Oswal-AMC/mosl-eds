@@ -400,6 +400,7 @@
 .section .card-container .button-container .card-btn.know-more {
   text-decoration-line: underline;
   padding: 8px 0;
+  cursor: pointer;
 }
 .section .card-container .button-container .card-btn.invest-now {
   border-radius: 4px;

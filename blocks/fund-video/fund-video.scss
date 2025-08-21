@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
+@import "../live-streaming-carousel/live-streaming-carousel.scss";
 
 .section.fund-video-container {
   width: 100%;
@@ -26,13 +27,13 @@
         align-items: baseline;
       }
 
-      div:nth-child(1) {
+      .fundvedmain1 {
         max-width: 288px;
 
         div {
           p {
             @include font-style(
-              24px,
+              22px,
               32px,
               map.get($button-secondary, default),
               600,
@@ -44,30 +45,60 @@
         }
       }
 
-      div:nth-child(2) {
-        div {
-          max-width: 100%;
-          display: flex;
-          gap: 24px;
+      .fundvedmain2 {
+        position: relative;
+        display: flex;
+        gap: 24px;
 
-          p:nth-child(1) {
-            width: 160px;
-            height: 90px;
+        .fundsubinner {
+          .fundvedinnermain1 {
             margin: 0;
 
-            iframe {
-              border-radius: 3.33px;
+            img {
+              border-radius: 3.333px;
               opacity: 0.6;
+              background: #2e2a94;
+              width: 160px;
+              height: 90px;
+              margin: 0;
             }
           }
 
-          p:nth-child(2) {
+          .fundvedinnermain2 {
+            position: absolute;
+            margin: 0;
+            top: 23%;
+            left: 11%;
+
+            @media (width <= 768px) {
+              left: 15%;
+            }
+
+            a {
+              margin: 0;
+              background: none;
+
+              span {
+                width: 16px;
+                height: 16px;
+
+                @media (width <= 768px) {
+                  width: 10px;
+                  height: 10px;
+                }
+              }
+            }
+          }
+        }
+
+        .fundvedsubmain1 {
+          p {
             max-width: 255px;
             margin: 10px 0;
 
             @include font-style(
-              16px,
-              24px,
+              14px,
+              20px,
               map.get($blue-1, b50),
               400,
               $poppins

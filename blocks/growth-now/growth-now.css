@@ -215,6 +215,14 @@
           appearance: auto;
   padding-right: 4px;
 }
+.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select option {
+  color: #fff;
+  background-color: #111;
+}
+.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select option:checked {
+  color: #fff;
+  background-color: #111;
+}
 .growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input {
   width: 100%;
   min-width: 111px;

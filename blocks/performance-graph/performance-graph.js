@@ -16,13 +16,57 @@ export default function decorate(block) {
   const fundCAGR = p(col2.textContent.trim());
 
   const filterBar = div({ class: "chart-filter-bar" });
-  const filters = ["1M", "3M", "6M", "1Y", "3Y", "5Y", "All"];
-  let activeFilter = "1Y";
+
+  // --- START: MODIFIED CODE FOR DYNAMIC FILTERS ---
+
+  // 1. Define the mapping from data keys to button labels and their desired order.
+  const returnKeyMapToLabel = {
+    'oneMonth_Ret': '1M',
+    'threeMonth_Ret': '3M',
+    'sixMonth_Ret': '6M',
+    'oneYear_Ret': '1Y',
+    'threeYear_Ret': '3Y',
+    'fiveYear_Ret': '5Y',
+    'sevenYear_Ret': '7Y',
+    'tenYear_Ret': '10Y',
+    'inception_Ret': 'All'
+  };
+
+
+  const filterOrder = ['1M', '3M', '6M', '1Y', '3Y', '5Y', '7Y', '10Y', 'All'];
 
   let root = null;
   let cachedAPIData = null;
-  let planType = "Direct";
-  let planOption = "Growth";
+  let planType = 'Direct';
+  let planOption = 'Growth';
+
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const [planFlow, schcode] = planCode.split(':');
+  const selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
+
+  // 2. Get the returns data for the current fund immediately.
+  const targetPlan = selectedFund?.planList.find(p => p.planName === planType && p.optionName === planOption);
+  const targetReturns = targetPlan ? selectedFund.returns.find(r => r.plancode === targetPlan.planCode && r.optioncode === targetPlan.optionCode) : null;
+
+  // 3. Create the dynamic filters array based on available data.
+  const dynamicFilters = [];
+  if (targetReturns) {
+    // Invert the map for easier lookup (e.g., '1Y' -> 'oneYear_Ret')
+    const labelToKeyMap = Object.fromEntries(Object.entries(returnKeyMapToLabel).map(([key, value]) => [value, key]));
+
+    filterOrder.forEach(label => {
+      const key = labelToKeyMap[label];
+      // If the return key exists in our data, add the label to our filter list
+      if (targetReturns.hasOwnProperty(key)) {
+        dynamicFilters.push(label);
+      }
+    });
+  }
+
+  // 4. Set a smart default active filter. Fallback to the first available one.
+  let activeFilter = dynamicFilters.includes("1Y") ? "1Y" : (dynamicFilters[0] || "All");
+
+  // --- END: MODIFIED CODE ---
 
   const filterSelectedEl = span({ class: "filter-selected" });
   const cagrValueEl = span({ class: "cagr-value" });
@@ -46,11 +90,6 @@ export default function decorate(block) {
 
   // --- STATE & API LOGIC ---
   const useLiveAPI = true;
-  // const schcode = localStorage.getItem('planCode');
-  const planCode = localStorage.getItem("planCode") || "Direct:LM";
-  const [planFlow, schcode] = planCode.split(":");
-
-  const selectedFund = dataCfObj.find((fund) => fund.schcode === schcode);
 
   async function updateDashboard(filter) {
     activeFilter = filter;
@@ -160,24 +199,40 @@ export default function decorate(block) {
       return;
     }
 
-    const targetPlan = selectedFund.planList.find(
-      (p) => p.planName === planType && p.optionName === planOption
-    );
-    const targetReturns = targetPlan
-      ? selectedFund.returns.find(
-          (r) =>
-            r.plancode === targetPlan.planCode &&
-            r.optioncode === targetPlan.optionCode
-        )
-      : null;
+    const targetPlan = selectedFund.planList.find(p => p.planName === planType && p.optionName === planOption);
+    const targetReturns = targetPlan ? selectedFund.returns.find(r => r.plancode === targetPlan.planCode && r.optioncode === targetPlan.optionCode) : null;
+
+    // const returnKeyMap = {
+    //   '1Y': 'oneYear_Ret',
+    //   '3Y': 'threeYear_Ret',
+    //   '5Y': 'fiveYear_Ret',
+    //   '7Y': 'sevenYear_Ret',
+    //   '10Y': 'tenYear_Ret',
+    //   'All': 'inception_Ret',
+    // };
+
+    // const returnKeyMap = {
+    //   '1M' : 'oneMonth_Ret',
+    //   '3M' : 'threeMonth_Ret',
+    //   '6M' : 'sixMonth_Ret',
+    //   'oneYear_Ret': '1Y',
+    //   'threeYear_Ret': '3Y',
+    //   'fiveYear_Ret': '5Y',
+    //   'sevenYear_Ret': '7Y',
+    //   'tenYear_Ret': '10Y',
+    //   'inception_Ret': 'All'
+    // }
 
     const returnKeyMap = {
-      "1Y": "oneYear_Ret",
-      "3Y": "threeYear_Ret",
-      "5Y": "fiveYear_Ret",
-      "7Y": "sevenYear_Ret",
-      "10Y": "tenYear_Ret",
-      All: "inception_Ret",
+      '1M': 'oneMonth_Ret',
+      '3M': 'threeMonth_Ret',
+      '6M': 'sixMonth_Ret',
+      '1Y': 'oneYear_Ret',
+      '3Y': 'threeYear_Ret',
+      '5Y': 'fiveYear_Ret',
+      '7Y': 'sevenYear_Ret',
+      '10Y': 'tenYear_Ret',
+      'All': 'inception_Ret',
     };
 
     const returnKey = returnKeyMap[filter];
@@ -196,7 +251,8 @@ export default function decorate(block) {
   }
 
   // --- EVENT LISTENERS & INITIALIZATION ---
-  filters.forEach((label) => {
+  // 5. Use the new dynamicFilters array to create the buttons.
+  dynamicFilters.forEach((label) => {
     const btn = document.createElement("button");
     btn.textContent = label;
     btn.className = "filter-btn";
