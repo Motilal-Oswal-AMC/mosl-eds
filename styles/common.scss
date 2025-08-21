@@ -1,0 +1,452 @@
+/*   alpha-value-notation */
+
+/* media-feature-range-notation */
+
+@use "sass:map";
+@use "../styles/common-theme/css/variables_mixins"as *;
+@use "../styles/common-theme/css/fluid-typography"as *;
+
+
+// Quick Action css Start
+
+.section.quick-actions {
+    margin: 40px 0;
+
+    >div>ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        >li {
+            display: flex;
+            align-items: center;
+            gap: 72px;
+            align-self: stretch;
+
+            >ul {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 16px;
+                list-style: none;
+
+                >li {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    color: #2E2A94;
+
+
+                    >a {
+                        color: #2E2A94;
+                        font-family: Poppins, sans-serif;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 20px;
+
+                        .icon {
+                            display: none;
+                        }
+                    }
+
+                    /* stylelint-disable-next-line no-descending-specificity */
+                    .icon {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            color: #2E2A94;
+            font-family: Poppins, sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+            white-space: nowrap;
+        }
+    }
+
+    // Media query for responsive styles
+    @media (width <=768px) {
+        >div>ul {
+            >li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+
+                >ul {
+                    width: 100%;
+                    gap: 24px;
+                    flex-direction: column;
+
+                    >li {
+                        max-width: 100%;
+                        flex: 0 0 100%;
+                        gap: 16px;
+                        text-align: center;
+                        white-space: nowrap;
+
+                        .icon {
+                            width: 40px;
+                            height: 40px;
+                            flex-shrink: 0;
+                        }
+
+                        >a {
+                            width: -webkit-fill-available;
+                            color: #2E2A94;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            .icon {
+                                display: flex;
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            p {
+                font-size: 24px;
+                font-style: normal;
+                line-height: 32px;
+            }
+        }
+    }
+}
+
+// Quick Action css End
+
+
+
+// Welcome Anushuka Component Start
+
+.section.welcome-component {
+    width: 100%;
+
+    div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        @include media(mobile) {
+            position: relative;
+            flex-direction: column;
+            gap: 40px;
+            padding-bottom: 80px;
+        }
+
+        /* stylelint-disable-next-line no-descending-specificity */
+        ul {
+            list-style: none;
+            width: 32.5%;
+            margin: 0;
+
+            @include media(mobile) {
+                width: 100%;
+            }
+
+            li:first-child {
+                @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+
+                margin-bottom: 16px;
+
+                @include media(mobile) {
+                    @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+                }
+            }
+
+            li:nth-child(2) {
+                @include font-style(20px, 24px, $primary-blue-dark, map.get($font-weights, medium), $poppins);
+
+                margin-bottom: 8px;
+
+                @include media(mobile) {
+                    @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $poppins);
+                }
+            }
+
+            li:nth-child(3) {
+                margin-bottom: 40px;
+
+                @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $poppins);
+
+
+                @include media(mobile) {
+                    margin-bottom: 0;
+
+                    @include font-style(12px, 16px, $primary-blue, map.get($font-weights, regular), $poppins);
+                }
+
+            }
+
+            li:nth-child(4) {
+                @include media(mobile) {
+                    position: absolute;
+                    bottom: 0;
+                }
+
+                a {
+                    display: flex;
+                    width: 176px;
+                    padding: 12px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 8px;
+
+                    @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $poppins);
+
+                    border-radius: 4px;
+                    background: $primary-blue;
+                    text-align: center;
+                }
+            }
+        }
+
+        /* stylelint-disable-next-line no-descending-specificity */
+        p {
+            width: 57.8%;
+            height: 381px;
+            margin: 0;
+            padding: 0;
+
+            @include media(mobile) {
+                width: 100%;
+                height: 226px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+// Welcome Anushuka Component End
+
+
+// Download Component start
+
+.section {
+    &.download {
+        width: 100%;
+        max-width: 100%;
+
+        @media (width <=768px) {
+            padding: 0 16px;
+        }
+
+        .default-content-wrapper {
+            >ul {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin: 0;
+
+                @media (width <=768px) {
+                    gap: 24px;
+                }
+
+                /* stylelint-disable-next-line no-descending-specificity */
+                >li {
+                    list-style-type: none;
+                    height: 48px;
+
+                    >ul {
+                        list-style-type: none;
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 0;
+                    }
+
+                    &:nth-child(1)>ul>li::marker {
+                        display: none;
+                        list-style-type: none;
+                    }
+
+                    &:nth-child(1)>ul>li:nth-child(1)::before {
+                        content: "";
+                        display: inline-block;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 4px 12px 0 #0000000D;
+                        background-image: url("../../icons/dow1.svg");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        margin-right: 16px;
+                    }
+
+                    &:nth-child(2)>ul>li:nth-child(1)::before {
+                        content: "";
+                        display: inline-block;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 4px 12px 0 #0000000D;
+                        background-image: url('../../icons/dow2.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        margin-right: 16px;
+                    }
+
+                    &:nth-child(3)>ul>li:nth-child(1)::before {
+                        content: "";
+                        display: inline-block;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 4px 12px 0 #0000000D;
+                        background-image: url('../../icons/dow3.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        margin-right: 16px;
+                    }
+
+                    &:nth-child(4)>ul>li:nth-child(1)::before {
+                        content: "";
+                        display: inline-block;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 4px 12px 0 #0000000D;
+                        background-image: url("../../icons/dow4.svg");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        margin-right: 16px;
+                    }
+
+                    &:nth-child(5)>ul>li:nth-child(1)::before {
+                        content: "";
+                        display: inline-block;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 4px 12px 0 #0000000D;
+                        background-image: url('../../icons/dow5.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        margin-right: 16px;
+                    }
+
+                    >ul:nth-child(1) li:nth-child(1) {
+                        display: flex;
+                        padding: 0 16px 0 0;
+                        color: $primary-blue;
+                        font-family: $poppins;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 20px;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+
+            p {
+                color: $primary-blue;
+                font-family: $butlerpro;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 40px;
+                padding-bottom: 24px;
+            }
+        }
+    }
+}
+
+// Download Component End
+
+
+// Invest Now Scss Start
+.investnow {
+    @include media(mobile) {
+        display: none;
+    }
+
+    .default-content-wrapper {
+        border-radius: 8px;
+
+        // background: #030C82;
+        background-image: url("../../icons/fdp/wealth-purpose-bg.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+
+        // height: 100%;
+        display: block;
+        height: 192px;
+        position: relative;
+
+        p:nth-child(1) {
+            position: absolute;
+            left: 32px;
+
+            span {
+                width: 171px;
+                height: 156px;
+            }
+        }
+
+
+
+        p:nth-child(2) {
+            position: relative;
+            left: 88px;
+            top: 66px;
+            color: $primary-white;
+
+            /* Desktop/Header/H5 */
+            font-family: $butlerpro;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 32px;
+
+            /* 114.286% */
+        }
+
+        .button-container {
+            position: relative;
+            text-align: end;
+            bottom: 20px;
+            right: 26px;
+
+            .button {
+                border-radius: map.get($radius, r8);
+                background: $primary-white;
+                color: $primary-blue;
+                font-family: $poppins;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 16px;
+
+                /* 114.286% */
+            }
+        }
+    }
+}
+
+// Invest Now Scss Start
