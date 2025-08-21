@@ -297,6 +297,10 @@
       box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
       margin-top: auto;
 
+      @include media(tab){
+        height: 100%;
+      }
+
       .cagr-dropdown {
         display: flex;
         flex-direction: column;
@@ -329,8 +333,9 @@
           // gap: 4px;
           // width: 80px;
           // width: 117px;
-
-          width: max-content;
+          // width: max-content;
+          max-width: 130px;
+          width: 100%;
           position: relative;
 
           // @include media(desktop-sm) {
@@ -368,7 +373,8 @@
       }
 
       .cagr-value {
-        max-width: 46%;
+        // max-width: 46%;
+        max-width: max-content;
         width: 100%;
 
         h2 {

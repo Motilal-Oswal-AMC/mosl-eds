@@ -220,6 +220,11 @@
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
   margin-top: auto;
 }
+@media (max-width: 1025px) {
+  .section .card-container .cagr-container {
+    height: 100%;
+  }
+}
 .section .card-container .cagr-container .cagr-dropdown {
   display: flex;
   flex-direction: column;
@@ -237,8 +242,8 @@
   margin-bottom: 4px;
 }
 .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper {
-  width: -moz-max-content;
-  width: max-content;
+  max-width: 130px;
+  width: 100%;
   position: relative;
 }
 .section .card-container .cagr-container .cagr-dropdown .cagr-date {
@@ -251,7 +256,8 @@
   padding: 0;
 }
 .section .card-container .cagr-container .cagr-value {
-  max-width: 46%;
+  max-width: -moz-max-content;
+  max-width: max-content;
   width: 100%;
 }
 .section .card-container .cagr-container .cagr-value h2 {
