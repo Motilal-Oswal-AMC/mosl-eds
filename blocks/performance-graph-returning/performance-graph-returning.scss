@@ -7,19 +7,13 @@
 .performance-graph-returning-container {
     .performance-graph-wrapper {
         display: flex;
-        max-width: 1366px;
-
-        // height: 466px;
-        padding: 0 67px;
+        width: 100%;
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
 
         @include media(mobile) {
             display: flex;
-            width: 372px;
-
-            // height: 620px;
             padding: 0 16px;
             flex-direction: column;
             align-items: flex-start;
