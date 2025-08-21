@@ -276,7 +276,7 @@
   padding: 0;
   line-height: 0;
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(3) .button-container a {
+.section.freq-ask-ques > .default-content-wrapper:nth-child(3) .button-container a.button {
   margin: 0;
   padding: 0;
   background: transparent;
