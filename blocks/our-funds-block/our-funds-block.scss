@@ -4,8 +4,12 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 @import "../fund-card/fund-card.css";
 
-body.scroll-lock {
-  overflow: hidden;
+body {
+  @include media(mobile) {
+    .scroll-lock {
+      overflow: hidden;
+    }
+  }
 }
 
 .section {
@@ -576,7 +580,7 @@ body.scroll-lock {
                     max-width: 50%;
                     width: 100%;
                   }
-                  
+
                   .apply-btn {
                     border-left: 1px solid $neutrals-300;
                     padding: 18px 18px 22px;
