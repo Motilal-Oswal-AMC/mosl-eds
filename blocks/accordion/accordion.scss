@@ -2,369 +2,429 @@
 
 /*   media-feature-range-notation */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
-@import './faq-page.css';
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+@import "./faq-page.css";
 
 .accordion-container {
-    display: flex;
+  display: flex;
 }
 
 .accordion {
-    details {
-        border: 1px solid #dadada;
+  details {
+    border: 1px solid #dadada;
 
-        /*  -next-line no-descending-specificity */
-        // Use the parent selector `&` to target an adjacent sibling
-        &+& {
-            margin-top: 24px;
-        }
-
-        p {
-            margin-bottom: 0.8em;
-        }
-
-        summary {
-            position: relative;
-
-            // The original CSS was `padding: 0 16px;` followed by `padding-right: 46px;`.
-            // This is the simplified version of that.
-            padding: 0 46px 0 16px;
-            cursor: pointer;
-            list-style: none;
-            overflow: auto;
-
-            // transition: background-color 0.2s;
-
-            &:focus,
-            &:hover {
-                background-color: var(--light-color);
-            }
-
-            &::-webkit-details-marker {
-                display: none;
-            }
-
-            &::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                right: 18px;
-                transform: translateY(-50%) rotate(135deg);
-                width: 6px;
-                height: 6px;
-                border: 2px solid;
-                border-width: 2px 2px 0 0;
-                transition: transform 0.2s;
-            }
-        }
-
-        .accordion-item-body {
-            padding: 0 16px;
-        }
-
-        // Styles for when the details element is open
-        &[open] {
-            summary {
-                background-color: var(--light-color);
-
-                &::after {
-                    transform: translateY(-50%) rotate(-45deg);
-                }
-            }
-
-            .accordion-item-body {
-                border-top: 1px solid #dadada;
-                background-color: var(--background-color);
-            }
-        }
+    /*  -next-line no-descending-specificity */
+    // Use the parent selector `&` to target an adjacent sibling
+    & + & {
+      margin-top: 24px;
     }
-}
 
+    p {
+      margin-bottom: 0.8em;
+    }
+
+    summary {
+      position: relative;
+
+      // The original CSS was `padding: 0 16px;` followed by `padding-right: 46px;`.
+      // This is the simplified version of that.
+      padding: 0 46px 0 16px;
+      cursor: pointer;
+      list-style: none;
+      overflow: auto;
+
+      // transition: background-color 0.2s;
+
+      &:focus,
+      &:hover {
+        background-color: var(--light-color);
+      }
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 18px;
+        transform: translateY(-50%) rotate(135deg);
+        width: 6px;
+        height: 6px;
+        border: 2px solid;
+        border-width: 2px 2px 0 0;
+        transition: transform 0.2s;
+      }
+    }
+
+    .accordion-item-body {
+      padding: 0 16px;
+    }
+
+    // Styles for when the details element is open
+    &[open] {
+      summary {
+        background-color: var(--light-color);
+
+        &::after {
+          transform: translateY(-50%) rotate(-45deg);
+        }
+      }
+
+      .accordion-item-body {
+        border-top: 1px solid #dadada;
+        background-color: var(--background-color);
+      }
+    }
+  }
+}
 
 // Faq css start
 
 .section.freq-ask-ques {
-    display: grid;
-    justify-content: space-between;
-    max-width: 1232px;
-    margin: 0 auto;
-    padding-top: 40px;
-    grid-template-columns: 24.05% 66.3%;
+  display: grid;
+  justify-content: space-between;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding-top: 40px;
+  grid-template-columns: 24.05% 66.3%;
 
-    @media (width <=1279px) {
-        padding: 0 24px;
-    }
+  @media (width <=1279px) {
+    padding: 0 24px;
+  }
+
+  @include media(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 16px 16px;
+
+    // padding-top: 24px;
+  }
+
+  > .default-content-wrapper,
+  .accordion-wrapper {
+    max-width: unset;
+    margin: unset;
+    padding: 0;
+  }
+
+  & > .default-content-wrapper:nth-child(1) {
+    width: 100%;
 
     @include media(mobile) {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 0 16px;
-        padding-top: 24px;
+      width: 100%;
     }
 
-    >div {
-        max-width: unset;
-        margin: unset;
-        padding: 0;
+    p {
+      @include font-style(
+        36px,
+        44px,
+        $primary-blue,
+        map.get($font-weights, bold),
+        $butlerpro
+      );
+
+      padding: 0;
+      margin: 0;
+
+      @include media(mobile) {
+        @include font-style(
+          32px,
+          40px,
+          $primary-blue,
+          map.get($font-weights, bold),
+          $butlerpro
+        );
+      }
+    }
+  }
+
+  .accordion-wrapper {
+    width: 100%;
+
+    @include media(mobile) {
+      width: 100%;
     }
 
-    &>div:nth-child(1) {
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 52px;
+      flex: 1 0 0;
+
+      @include media(mobile) {
+        gap: 36px;
+      }
+
+      details {
         width: 100%;
+        border: none;
 
-        @include media(mobile) {
-            width: 100%;
+        & + & {
+          margin-top: 24px;
         }
 
         p {
-            @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+          margin: 0;
 
-            padding: 0;
-            margin: 0;
+          @include font-style(
+            20px,
+            24px,
+            $primary-blue,
+            map.get($font-weights, medium),
+            $poppins
+          );
+
+          @include media(mobile) {
+            @include font-style(
+              16px,
+              20px,
+              $primary-blue,
+              map.get($font-weights, medium),
+              $poppins
+            );
+          }
+        }
+
+        summary {
+          position: relative;
+          padding: 0 46px 0 16px;
+          cursor: pointer;
+          list-style: none;
+          overflow: hidden;
+
+          // transition: all 0.4s ease-in-out;
+
+          // padding-left: 0;
+
+          &:focus,
+          &:hover {
+            background-color: var(--light-color);
+          }
+
+          &::-webkit-details-marker {
+            display: none;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            border: none;
+            border-width: unset;
+            transform: unset;
+            background: url("../../icons/plus-blue.svg");
+
+            // transition: all 0.4s ease-in-out;
 
             @include media(mobile) {
-                @include font-style(32px, 40px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+              top: -2px;
+              right: 0;
             }
-        }
-    }
-
-    .accordion-wrapper {
-        width: 100%;
-
-        @include media(mobile) {
-            width: 100%;
+          }
         }
 
-        .accordion {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 52px;
-            flex: 1 0 0;
-
-            @include media (mobile) {
-                gap: 36px;
-            }
-
-            details {
-                width: 100%;
-                border: none;
-
-                &+& {
-                    margin-top: 24px;
-                }
-
-                p {
-                    margin: 0;
-
-                    @include font-style(20px, 24px, $primary-blue, map.get($font-weights, medium), $poppins);
-
-                    @include media (mobile) {
-                        @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $poppins);
-                    }
-                }
-
-                summary {
-                    position: relative;
-                    padding: 0 46px 0 16px;
-                    cursor: pointer;
-                    list-style: none;
-                    overflow: hidden;
-
-                    // transition: all 0.4s ease-in-out;
-
-                    // padding-left: 0;
-
-                    &:focus,
-                    &:hover {
-                        background-color: var(--light-color);
-                    }
-
-                    &::-webkit-details-marker {
-                        display: none;
-                    }
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        top: 2px;
-                        right: 16px;
-                        width: 24px;
-                        height: 24px;
-                        border: none;
-                        border-width: unset;
-                        transform: unset;
-                        background: url("../../icons/plus-blue.svg");
-                        
-                        // transition: all 0.4s ease-in-out;
-
-                        @include media(mobile) {
-                            top: -2px;
-                            right: 0;
-                        }
-                    }
-                }
-
-                .accordion-item-body {
-                    padding: 0 16px;
-                }
-
-                &[open] {
-                    summary {
-                        color: #fff;
-                        background: #242177;
-                        border-radius: 8px 8px 0 0;
-                        padding: 16px;
-                        padding-bottom: 8px;
-
-                        @include media(mobile) {
-                            padding: 16px 12px;
-                            padding-bottom: 8px;
-                        }
-
-                        &::after {
-                            top: 15px;
-                            right: 16px;
-                            background: url("../../icons/mins-white.svg");
-                            transform: unset;
-                        }
-
-                        p {
-                            color: #fff;
-
-                            @include media(mobile) {
-                                padding-right: 45px;
-                            }
-                        }
-                    }
-
-                    .accordion-item-body {
-                        color: #fff;
-                        border: none;
-                        outline: none;
-                        margin-top: -1px;
-                        padding: 16px;
-                        padding-top: 0;
-                        border-radius: 0 0 8px 8px;
-                        background: #242177;
-                        box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
-
-                        @include media(mobile) {
-                            padding: 16px 12px;
-                            padding-top: 0;
-                        }
-
-                        p {
-                            padding-right: 40px;
-
-                            @include font-style(14px, 20px, $primary-white, map.get($font-weights, regular), $poppins);
-
-                            @include media(mobile) {
-                                padding: 0;
-
-                                @include font-style(12px, 16px, $primary-white, map.get($font-weights, regular), $poppins);
-                            }
-                        }
-                    }
-                }
-            }
-
-            .accordion-item {
-                overflow: hidden;
-
-                // transition: all 0.4s ease-in-out;
-
-                // margin-bottom: 1em;
-
-                &.hidden {
-                    display: none;
-                }
-
-                &.collapsed {
-                    max-height: 0;
-                    opacity: 0;
-                    margin-bottom: 0;
-                    pointer-events: none;
-                }
-            }
+        .accordion-item-body {
+          padding: 0 16px;
         }
 
-    }
+        &[open] {
+          summary {
+            color: #fff;
+            background: #242177;
+            border-radius: 8px 8px 0 0;
+            padding: 16px;
+            padding-bottom: 8px;
 
-    &>div:nth-child(3) {
-        grid-column: 2 / 2;
-        grid-row: 2;
-        margin-top: 52px;
-        padding-left: 15px;
+            @include media(mobile) {
+              padding: 16px 12px;
+              padding-bottom: 8px;
+            }
 
-        @include media(mobile) {
-            margin-top: 16px;
-        }
+            &::after {
+              top: 15px;
+              right: 16px;
+              background: url("../../icons/mins-white.svg");
+              transform: unset;
+            }
 
-        .button-container {
-            margin: 0;
-            padding: 0;
-            line-height: 0;
+            p {
+              color: #fff;
 
-            a {
-                margin: 0;
+              @include media(mobile) {
+                padding-right: 45px;
+              }
+            }
+          }
+
+          .accordion-item-body {
+            color: #fff;
+            border: none;
+            outline: none;
+            margin-top: -1px;
+            padding: 16px;
+            padding-top: 0;
+            border-radius: 0 0 8px 8px;
+            background: #242177;
+            box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+
+            @include media(mobile) {
+              padding: 16px 12px;
+              padding-top: 0;
+            }
+
+            p {
+              padding-right: 40px;
+
+              @include font-style(
+                14px,
+                20px,
+                $primary-white,
+                map.get($font-weights, regular),
+                $poppins
+              );
+
+              @include media(mobile) {
                 padding: 0;
-                background: transparent;
-                color: #4338F3;
-                font-family: $poppins;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: 20px;
-                text-decoration-line: underline;
-                text-decoration-style: solid;
-                text-decoration-skip: ink;
-                text-decoration-skip-ink: auto;
-                text-decoration-thickness: auto;
-                text-underline-position: from-font;
-                border: none;
-                white-space: unset;
-                overflow: hidden;
+
+                @include font-style(
+                  12px,
+                  16px,
+                  $primary-white,
+                  map.get($font-weights, regular),
+                  $poppins
+                );
+              }
             }
+          }
         }
+      }
+
+      .accordion-item {
+        overflow: hidden;
+
+        // transition: all 0.4s ease-in-out;
+
+        // margin-bottom: 1em;
+
+        &.hidden {
+          display: none;
+        }
+
+        &.collapsed {
+          max-height: 0;
+          opacity: 0;
+          margin-bottom: 0;
+          pointer-events: none;
+        }
+      }
     }
+  }
+
+  & > .default-content-wrapper:nth-child(3) {
+    grid-column: 2 / 2;
+    grid-row: 2;
+    margin-top: 52px;
+    padding-left: 15px;
+
+    @include media(mobile) {
+      margin-top: 16px;
+    }
+
+    .button-container {
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+
+      a {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        color: #4338f3;
+        font-family: $poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-skip: ink;
+        text-decoration-skip-ink: auto;
+        text-decoration-thickness: auto;
+        text-underline-position: from-font;
+        border: none;
+        white-space: unset;
+        overflow: hidden;
+      }
+    }
+
+    ul {
+      margin: 0;
+      display: none;
+      justify-content: end;
+      gap: 8px;
+      list-style: none;
+
+      @include media(mobile) {
+        display: flex;
+      }
+
+      li {
+        width: 48px;
+        height: 48px;
+        border-radius: 28px;
+        background: map.get($blue-1, b500);
+        cursor: pointer;
+
+        @include flex-center($align: center, $justify: center);
+
+        &:first-of-type {
+          background: map.get($blue-1, b900);
+        }
+      }
+    }
+  }
 }
 
 .section.fdp-faq {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 0 0;
 
-    @media (width <=768px) {
-        padding: 0 16px;
-    }
+  @media (width <=768px) {
+    padding: 0 16px;
+  }
 
-    .accordion-wrapper {
-        .accordion {
-            gap: 40px;
+  .accordion-wrapper {
+    .accordion {
+      gap: 40px;
 
-            @media (width <=768px) {
-                gap: 0;
-            }
+      @media (width <=768px) {
+        gap: 0;
+      }
 
-            .accordion-item {
-                padding: 0;
-                margin: 0;
+      .accordion-item {
+        padding: 0;
+        margin: 0;
 
-                @media (width <=768px) {
-                    padding: 16px 12px;
-                }
-            }
+        @media (width <=768px) {
+          padding: 16px 12px;
         }
+      }
     }
+  }
 
-    div:nth-of-type(3) {
-        margin-top: 16px;
-    }
+  div:nth-of-type(3) {
+    margin-top: 16px;
+  }
 }
-
-
 
 // Faq css End
