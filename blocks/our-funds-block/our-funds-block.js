@@ -500,6 +500,9 @@ function applyFunction(block) {
     viewFunction(block);
   }
   block.closest('body').classList.remove('scroll-lock');
+  if (window.innerWidth < 786) {
+    block.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 export default function decorate(block) {
