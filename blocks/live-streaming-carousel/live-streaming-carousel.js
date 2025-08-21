@@ -11,6 +11,11 @@ export default function decorate(block) {
     ele.classList.add('swiper-slide');
     swiperWrapper.append(ele);
   });
+  const firstImage = swiperWrapper.querySelector('.swiper-slide:first-child img');
+  if (firstImage) {
+    firstImage.setAttribute('loading', 'eager');
+    firstImage.setAttribute('fetchpriority', 'high');
+  }
 
   const pagination = div({ class: 'swiper-pagination' });
   const nextBtn = div({ clasS: 'swiper-button-next' });
