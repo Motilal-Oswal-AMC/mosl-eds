@@ -620,7 +620,7 @@
             font-family: $poppins;
             font-size: 20px;
             font-weight: 500;
-            line-height: 24px;
+            // line-height: 24px;
             width: 100%;
             appearance: none;
             outline: none;
@@ -670,7 +670,7 @@
               font-weight: 500;
 
               @include media(mobile) {
-                // top: -3px;
+                top: 1.5px;
                 height: 100%;
               }
             }
@@ -857,7 +857,6 @@
       }
 
       .hero-text {
-
         h3,
         h4 {
           margin: 0;

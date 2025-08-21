@@ -58,8 +58,12 @@ export default function decorate(block) {
   const sipLabel = col1[2]?.textContent || '';
   const inputLabel = col1[3]?.textContent || '';
 
-  const defaultAmount = col2[0]?.textContent || '';
-  const suggestions = [col2[1], col2[2], col2[3]].map(p => p?.textContent || '');
+  // const defaultAmount = col2[0]?.textContent || '';
+  const rawAmount = col2[0]?.textContent || '';
+  const defaultAmount = rawAmount ? Number(rawAmount).toLocaleString('en-IN') : '';
+  const formattedSuggestions = [col2[1], col2[2], col2[3]].map(p => p?.textContent || '');
+  const suggestions = formattedSuggestions.map(s => Number(s).toLocaleString('en-IN'));
+
 
   const frequency = col3[0]?.textContent || '';
   const endDate = col3[1]?.textContent || '';
@@ -110,7 +114,9 @@ export default function decorate(block) {
             label(inputLabel),
             div({ class: 'modal-input-symbol' },
               // input({ type: 'number', value: defaultAmount, class: 'amount-input' })),
-              input({ type: 'tel', inputmode: 'numeric', pattern: '[0-9]*', value: defaultAmount, class: 'amount-input' })),
+              input({ type: 'tel', inputmode: 'numeric', pattern: '[0-9]*', value: defaultAmount, class: 'amount-input' }),
+              span({ class: 'amount-error error-hide' }, 'Amount must be between 500 and 1000000'),
+            ),
           ),
           div({ class: 'modal-suggestions' },
             ...suggestions.map(s => button({ class: 'suggestion-btn' }, `₹ ` + s)),
@@ -219,11 +225,63 @@ export default function decorate(block) {
 
   suggestionButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
+      // Remove .active from all buttons
+      suggestionButtons.forEach(b => b.classList.remove('active'));
+      // Add .active to the clicked button
+      btn.classList.add('active');
       const value = btn.textContent.split(' ')[1];
       amountInput.value = value;
       amountInput.dispatchEvent(new Event('input'));
     });
   });
+
+  // --- 2. ADD this new helper function ---
+  function syncSuggestionButtonsState() {
+    const currentValue = amountInput.value;
+    let hasActiveMatch = false;
+    suggestionButtons.forEach(btn => {
+      // Check if button's text (e.g., "₹ 5,000") matches the input's value
+      if (`₹ ${currentValue}` === btn.textContent) {
+        btn.classList.add('active');
+        hasActiveMatch = true;
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // --- 3. MODIFY the `handleAmountInput` function to call the new sync function ---
+  function handleAmountInput(e) {
+    const input = e.target;
+    const rawValue = input.value.replace(/[^0-9]/g, '');
+
+    if (rawValue) {
+      const formattedValue = parseInt(rawValue, 10).toLocaleString('en-IN');
+      input.value = formattedValue;
+    } else {
+      input.value = '';
+    }
+
+    const amount = parseFloat(rawValue) || 0;
+    const amountError = block.querySelector('.amount-error');
+
+    if (amount < 500 && rawValue !== '') {
+      amountError.classList.add('error-show');
+    } else {
+      amountError.classList.remove('error-show');
+    }
+
+    if (amount > 1000000) {
+      input.value = input.value.slice(0, -1);
+    }
+
+    syncSuggestionButtonsState();
+  }
+  amountInput.addEventListener('input', handleAmountInput);
+
+
+  // This sets the initial active button based on the default amount.
+  syncSuggestionButtonsState();
 
   //3. tooltip disaply
   const sipNote = block.querySelector('.sip-note-highlight');

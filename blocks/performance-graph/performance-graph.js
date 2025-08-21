@@ -526,8 +526,10 @@ export default function decorate(block) {
 
         const marker = legendItem.get("marker");
         marker.setAll({
-          width: 12,
-          height: 12,
+          width: 2,
+          height: 2,
+          paddingRight: -5,
+          paddingLeft: -5,
           centerY: window.am5.p50,  // Center the marker vertically
           centerX: window.am5.p50   // Center the marker horizontally
         });
@@ -544,6 +546,33 @@ export default function decorate(block) {
         }));
       });
 
+      // --- START: ADDED CODE FOR RESPONSIVE LEGEND ---
+      // This block overrides the settings above ONLY on mobile screens
+      if (window.innerWidth <= 768) {
+        legend.setAll({
+          layout: root.verticalLayout, // Stack items vertically
+          x: window.am5.percent(0),           // Align to the left
+          centerX: window.am5.percent(0),     // Anchor to the left
+          y: window.am5.percent(115),         // Position at the bottom
+          // centerY: window.am5.percent(100),   // Center vertically
+          // paddingLeft: 20,                   // Add left padding
+          // paddingRight: 20,                  // Add right padding
+          paddingTop: 100,                    // Add top padding
+          paddingBottom: 0,                 // Add bottom padding
+        });
+        // Adjust spacing for vertical items
+        legend.itemContainers.template.setAll({
+          marginRight: 0,
+          marginBottom: 0,
+          paddingTop: 10,
+          paddingBottom: 0,
+          paddingLeft: 20,
+          paddingRight: 20,
+          // width: window.innerWidth - 40, // Full width minus padding
+
+        });
+      }
+      // --- END: ADDED CODE ---
 
       series1.appear(1000);
       series2.appear(1000);
