@@ -188,7 +188,6 @@ main {
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle {
   position: relative;
-  max-width: -moz-max-content;
   max-width: max-content;
   margin: 0 0 8px;
 }
@@ -249,7 +248,6 @@ main {
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown {
   position: relative;
-  max-width: -moz-max-content;
   max-width: max-content;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .selectedtext {
@@ -605,6 +603,7 @@ main {
 }
 .section.fdp-card-container .item2 .why-fund {
   margin: 40px 0;
+  padding: 40px 0;
 }
 @media (width <= 768px) {
   .section.fdp-card-container .item2 .why-fund {
@@ -615,7 +614,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  padding: 0 16px;
 }
 @media (width <= 768px) {
   .section.fdp-card-container .item2 .why-fund .default-content-wrapper {
@@ -636,7 +634,6 @@ main {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 @media (width <= 768px) {
   .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol {
@@ -646,6 +643,12 @@ main {
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li {
   display: flex;
   gap: 24px;
+  padding: 16px 0;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li {
+    padding: 16px 0;
+  }
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol {
   display: flex;
@@ -682,8 +685,8 @@ main {
   line-height: 16px;
   font-weight: 400;
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li:nth-child(1) {
-  padding: 16px 0;
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li {
+  padding: 0;
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper p {
   font-size: 12px;
