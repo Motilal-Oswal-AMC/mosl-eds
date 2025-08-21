@@ -32,7 +32,8 @@ function planListEvent(param, block) {
     }
   });
   const [firstReturnYear] = tempReturns;
-  const selectedReturn = '3 Years'; // dataMapMoObj.selectreturns;
+  const valRet = dataMapMoObj.selectreturns === '' ? '3 YEARS' : dataMapMoObj.selectreturns;
+  const selectedReturn = valRet; // dataMapMoObj.selectreturns;
   const returnYear = tempReturns.includes(selectedReturn)
     ? selectedReturn
     : firstReturnYear;
@@ -214,9 +215,9 @@ export default function decorate(block) {
   const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
   const optionName = DirectPlanlistArr.length !== 0 ? DirectPlanlistArr[0].optionName : '';
   const [fstRetYear] = tempReturns;
-  const selectedReturn = '3 YEARS';// dataMapMoObj.selectreturns;
-  const returnYear = tempReturns.includes(selectedReturn)
-    ? selectedReturn
+  const valRet = dataMapMoObj.selectreturns === '' ? '3 YEARS' : dataMapMoObj.selectreturns;
+  const returnYear = tempReturns.includes(valRet)
+    ? valRet
     : fstRetYear;
   const iconsvg = `${dataMapMoObj.iconsNfo[
     block.risk.riskType.toLowerCase().replaceAll(' ', '-')
