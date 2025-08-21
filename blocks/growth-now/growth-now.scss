@@ -264,6 +264,14 @@
                             line-height: 20px;
                             appearance: auto;
                             padding-right: 4px;
+
+                            option{
+                                color: #111;
+
+                                &:checked{
+                                    color: #fff
+                                }
+                            }
                         }
 
                         .text-wrapper {
