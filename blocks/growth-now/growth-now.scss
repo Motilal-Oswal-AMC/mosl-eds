@@ -6,7 +6,15 @@
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
-.growth-now-container {
+.section.growth-now-container {
+    margin: 0;
+    background-color: #f5f5f5;
+    padding: 40px 0 50px;
+
+    @include media(mobile){
+        padding: 40px 0;
+    }
+    
     img {
         height: 100%;
     }
