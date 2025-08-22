@@ -163,6 +163,22 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+.section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper .cancel-btn {
+  max-width: 24px;
+  width: 100%;
+  height: 24px;
+  display: none;
+}
+.section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper.search-active {
+  border: 1px solid #1887D2;
+  padding: 10px 8px;
+}
+.section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper.search-active .search-field {
+  caret-color: #1887D2;
+}
+.section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper.search-active .cancel-btn {
+  display: block;
+}
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist {
   display: none;
   position: absolute;

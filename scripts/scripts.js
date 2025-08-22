@@ -343,5 +343,12 @@ window.hlx.utils = {
 
 initializeModalHandlers();
 
-dataMapMoObj.CLASS_PREFIXES = ['quckactmain', 'quckactmain-sub', 'quckactmain-sub-wrp', 'quicksubactmain', 'quicksubinnactmain', 'quckaqweactmain'];
-dataMapMoObj.addIndexed(document.querySelector('.quick-actions'));
+if (document.querySelector('.quick-actions') !== null) {
+  dataMapMoObj.CLASS_PREFIXES = ['quckactmain', 'quckactmain-sub', 'quckactmain-sub-wrp', 'quicksubactmain', 'quicksubinnactmain', 'quckaqweactmain'];
+  dataMapMoObj.addIndexed(document.querySelector('.quick-actions'));
+}
+
+if (document.querySelector('.welcome-component') !== null) {
+  dataMapMoObj.CLASS_PREFIXES = ['welcomemain', 'welcomemain-sub', 'welcomemain-sub-wrp', 'welcomeactmain', 'welcomeinnactmain', 'welcomeaqweactmain'];
+  dataMapMoObj.addIndexed(document.querySelector('.welcome-component'));
+}
