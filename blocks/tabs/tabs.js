@@ -212,25 +212,25 @@ export default async function decorate(block) {
 
     const row1 = `
       <tr>
-        <td class='schemename'>${cfObj[0].schDetail.schemeName || ''}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].oneYear_Ret)}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].threeYear_Ret)}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].fiveYear_Ret)}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].sevenYear_Ret)}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].tenYear_Ret)}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].inception_Ret)}</td>
+        <td class='schemename'>${cfObj[0].schDetail.schemeName || 'N/A'}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].oneYear_Ret) || 'N/A'}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].threeYear_Ret) || 'N/A'}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].fiveYear_Ret) || 'N/A'}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].sevenYear_Ret) || 'N/A'}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].tenYear_Ret) || 'N/A'}</td>
+        <td class='schDetailnum'>${formatReturn(returnValue[0].inception_Ret) || 'N/A'}</td>
       </tr>`;
     tableWrapper.innerHTML += row1;
 
     cfObj[0].benchmarkreturns.forEach((b) => {
       const row2 = `<tr class="trbackgroundcolor">
         <td class='schemename'>${b.groupName}</td>
-        <td class='schemenum'>${Number(b.oneYear_Ret).toFixed(2) === 'NaN' ? '' : Number(b.oneYear_Ret).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.threeYear_Ret).toFixed(2) === 'NaN' ? '' : Number(b.threeYear_Ret).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.fiveYear_Ret).toFixed(2) === 'NaN' ? '' : Number(b.fiveYear_Ret).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.sevenYear_Ret).toFixed(2) === 'NaN' ? '' : Number(b.sevenYear_Ret).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.tenYear_Ret).toFixed(2) === 'NaN' ? '' : Number(b.tenYear_Ret).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.inception_Ret).toFixed(2) === 'NaN' ? '' : Number(b.inception_Ret).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.oneYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.oneYear_Ret).toFixed(2) || 'N/A'}</td>
+        <td class='schemenum'>${Number(b.threeYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.threeYear_Ret).toFixed(2) || 'N/A'}</td>
+        <td class='schemenum'>${Number(b.fiveYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.fiveYear_Ret).toFixed(2) || 'N/A'}</td>
+        <td class='schemenum'>${Number(b.sevenYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.sevenYear_Ret).toFixed(2) || 'N/A'}</td>
+        <td class='schemenum'>${Number(b.tenYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.tenYear_Ret).toFixed(2) || 'N/A'}</td>
+        <td class='schemenum'>${Number(b.inception_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.inception_Ret).toFixed(2) || 'N/A'}</td>
       </tr>
     `;
       tableWrapper.innerHTML += row2;
