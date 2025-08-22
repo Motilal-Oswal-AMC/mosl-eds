@@ -265,12 +265,12 @@ export default async function decorate(block) {
     cfObj[0].benchmarkreturns.forEach((b) => {
       const row4 = `
       <tr class="trbackgroundcolor"><td class='schemename'>${b.groupName}</td>
-        <td class='schemenum'>${Number(b.oneYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.oneYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.threeYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.threeYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.fiveYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.fiveYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.sevenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.sevenYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.tenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.tenYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.inception_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(b.inception_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.oneYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.oneYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.threeYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.threeYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.fiveYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.fiveYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.sevenYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.sevenYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.tenYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.tenYear_marketValue).toFixed(2) || ''}</td>
+        <td class='schemenum'>${Number(b.inception_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.inception_marketValue).toFixed(2) || ''}</td>
         </tr>`;
       tab2table.innerHTML += row4;
     });
