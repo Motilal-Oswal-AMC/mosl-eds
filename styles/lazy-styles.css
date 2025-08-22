@@ -973,7 +973,6 @@
   flex-direction: column;
   gap: 40px;
   padding-bottom: 80px;
-  /* stylelint-disable-next-line no-descending-specificity */
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 {
   list-style: none;
