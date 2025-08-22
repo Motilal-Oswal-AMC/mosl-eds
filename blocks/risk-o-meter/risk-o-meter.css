@@ -98,8 +98,7 @@
 .section.risk-o-meter-container .corner-2 .column-2 img {
   height: 100%;
   max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   alt: "";
   role: presentation;
 }

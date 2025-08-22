@@ -1,5 +1,54 @@
 [
   {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Page Description"
+      },
+      {
+        "component": "boolean",
+        "name": "breadcrumbs",
+        "label": "Breadcrumb"
+      },
+      {
+        "component": "text",
+        "name": "breadcrumbs_title",
+        "label": "Breadcrumb Title"
+      },
+      {
+        "component": "boolean",
+        "name": "breadcrumbs_hide",
+        "label": "Hide On Breadcrumbs"
+      },
+      {
+        "component": "multiselect",
+        "name": "robots",
+        "value": "",
+        "label": "Robots Tags",
+        "options": [
+          {
+            "name": "index",
+            "value": "index"
+          },
+          {
+            "name": "noindex",
+            "value": "noindex"
+          },
+          {
+            "name": "follow",
+            "value": "follow"
+          },
+          {
+            "name": "nofollow",
+            "value": "nofollow"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "image",
     "fields": [
       {
@@ -116,6 +165,10 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "breadcrumbs-fdp",
+            "value": "breadcrumbs-fdp"
           },
           {
             "name": "fdp-faq",

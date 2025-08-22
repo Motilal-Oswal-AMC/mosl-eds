@@ -147,15 +147,18 @@ export default function decorate(block) {
   );
   block.appendChild(keyFactsSection);
   // Add Read More / Read Less functionality
-  const fullText = data[0].investmentObjective;
-  const textContent = fullText.replace(/<[^>]+>/g, ''); // Strip HTML tags for counting
-  const words = textContent.split(/\s+/);
+  const fullText = data[0].investmentObjective || '';
+  const textContent = fullText?.replace(/<[^>]+>/g, '') || ''; // Strip HTML tags for counting
+  const words = textContent?.split(/\s+/) || '';
   const preview = words.slice(0, 20).join(' ') + (words.length > 20 ? '...' : '');
 
   const container = block.querySelector('.investment-discripstion');
 
   // Create preview paragraph
   const previewPara = document.createElement('p');
+  if (!preview) {
+    document.querySelector('.Investment-Objective').style.display = 'none';
+  }
   previewPara.innerHTML = preview;
 
   // Create toggle button
