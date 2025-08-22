@@ -569,7 +569,7 @@ main {
       }
 
       li {
-        text-align: center;
+        text-align: start;
         white-space: nowrap;
 
         @media (width <=768px) {
@@ -599,7 +599,7 @@ main {
       @media (width <=768px) {
         display: block;
         max-width: 100%;
-        text-align: center;
+        text-align: start;
         background: $primary-white;
         margin: 0 auto;
         padding: 16px;

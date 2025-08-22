@@ -544,7 +544,7 @@ main {
   }
 }
 .section.fdp-card-container .item2 .item2-ul li {
-  text-align: center;
+  text-align: start;
   white-space: nowrap;
 }
 @media (width <= 768px) {
@@ -577,7 +577,7 @@ main {
   .section.fdp-card-container .item2 .selectedtext-fdp {
     display: block;
     max-width: 100%;
-    text-align: center;
+    text-align: start;
     background: #fff;
     margin: 0 auto;
     padding: 16px;

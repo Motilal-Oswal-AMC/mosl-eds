@@ -513,9 +513,34 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.append(cardContainer);
 
+  const ptagtest = document.querySelector('.selectedtext-fdp');
+
+  let currentSelectedText = '';
+
   item2Ul.addEventListener('click', (e) => {
     if (window.innerWidth < 786) {
       ptag.textContent = e.target.textContent;
+      item2Ul.style.display = 'none';
+    }
+    if (window.innerWidth < 786 && e.target.tagName === 'A') {
+      // changes for opstions
+      const selectedText = e.target.textContent.trim();
+
+      // Show previous selected item back (if any)
+      if (currentSelectedText) {
+        item2Ul.querySelectorAll('li').forEach((li) => {
+          if (li.textContent.trim() === currentSelectedText) {
+            li.style.display = '';
+          }
+        });
+      }
+
+      // Hide the newly selected item
+      e.target.closest('li').style.display = 'none';
+
+      // Update the current selected text
+      currentSelectedText = selectedText;
+      ptagtest.textContent = selectedText;
       item2Ul.style.display = 'none';
     }
   });
@@ -533,29 +558,103 @@ export default function decorate(block) {
   document.querySelectorAll('.table-wrapper').forEach((el) => {
     document.querySelector('.item2').append(el);
   });
-  document.querySelectorAll('.section .item2 ul li a').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href'); // scrollMap[];
-      const target = document.querySelector(`.section[data-id="${targetId}"]`);
-      target?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    });
-  });
+  // document.querySelectorAll('.section .item2 ul li a').forEach((link) => {
+  //   link.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     const targetId = link.getAttribute('href'); // scrollMap[];
+  //     const target = document.querySelector(`.section[data-id="${targetId}"]`);
+  //     target?.scrollIntoView({
+  //       behavior: 'smooth',
+  //       block: 'start',
+  //     });
+  //   });
+  // });
 
-  document.querySelectorAll('.section .navlinks ul li a').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href'); // scrollMap[];
-      const target = document.querySelector(`.section[data-id="${targetId}"]`);
-      target?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+  // document.querySelectorAll('.section .navlinks ul li a').forEach((link) => {
+  //   link.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     const targetId = link.getAttribute('href'); // scrollMap[];
+  //     const target = document.querySelector(`.section[data-id="${targetId}"]`);
+  //     target?.scrollIntoView({
+  //       behavior: 'smooth',
+  //       block: 'start',
+  //     });
+  //   });
+  // });
+
+  // chat  1
+
+  (function () {
+    // Function to calculate the correct header offset based on screen size
+    function getHeaderOffset() {
+      return window.innerWidth <= 768 ? 450 : 180;
+    }
+
+    // Smooth scroll setup with dynamic header offset
+    function setupSmoothScroll(linkSelector) {
+      document.querySelectorAll(linkSelector).forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href');
+          const target = document.querySelector(`.section[data-id="${targetId}"]`);
+
+          if (target) {
+            const headerOffset = getHeaderOffset();
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth',
+            });
+          }
+        });
       });
+    }
+
+    // Apply to both link groups
+    setupSmoothScroll('.item2-ul li a');
+    setupSmoothScroll('.navlinks ul li a');
+
+    // Optional: re-initialize on window resize (if layout changes)
+    window.addEventListener('resize', () => {
+      // No need to re-bind listeners, just let `getHeaderOffset()` always return current value
+      // This works because the scroll is recalculated each click
     });
-  });
+  }());
+
+  // chat 2
+
+  // debugger;
+  //   (function () {
+  //   document.querySelectorAll("ul.item2-ul > li > a").forEach((link) => {
+  //     link.addEventListener("click", (e) => {
+  //       e.preventDefault();
+
+  //       const targetId = link.getAttribute("href");
+  //       const target = document.querySelector(
+  //         `.section[data-id="${targetId.trim()}"]`
+  //       );
+  //       const clickY = (e.currentTarget.getBoundingClientRect()).y + 40;
+
+  //       if (target) {
+  //         const targetRectY = (target.getBoundingClientRect()).y;
+  //         const targetPosition = targetRectY - clickY;
+
+  //         // Calculate intended final scroll position
+  //         const finalScrollY = window.scrollY + targetPosition;
+
+  //         // Check if we're already close enough (±2px to handle float errors)
+  //         if (Math.abs(window.scrollY - finalScrollY) > 2) {
+  //           window.scrollTo({
+  //             top: finalScrollY,
+  //             behavior: "smooth",
+  //           });
+  //         }
+  //       }
+  //     });
+  //   });
+  // })();
 
   document.addEventListener('click', (event) => {
     const dropdownmidle = block.querySelector('.dropdownmidle');
