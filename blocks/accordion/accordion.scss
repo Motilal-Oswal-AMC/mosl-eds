@@ -333,8 +333,10 @@
     grid-column: 2 / 2;
     grid-row: 2;
     margin-top: 52px;
-    padding-left: 15px;
 
+    // padding-left: 15px;
+    padding: 0 16px;
+    
     @include media(mobile) {
       margin-top: 16px;
     }
