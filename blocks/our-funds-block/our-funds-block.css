@@ -123,6 +123,9 @@
   outline: none;
   background-color: transparent;
 }
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::-moz-placeholder {
+  color: #616161;
+}
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
   color: #616161;
 }
@@ -203,6 +206,7 @@
   padding: 8px 0;
   line-height: 0;
   cursor: pointer;
+  height: -moz-max-content;
   height: max-content;
 }
 @media (max-width: 768px) {
@@ -227,6 +231,7 @@
   display: block;
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .watchlisttext {
+  width: -moz-max-content;
   width: max-content;
   line-height: 0;
 }
@@ -563,7 +568,9 @@
   display: none;
 }
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   display: flex;
   align-items: center;
   padding: 12px 0;
@@ -580,7 +587,9 @@
   height: 20px;
   cursor: pointer;
   margin: 1.67px;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .category-direct::before, .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .category-direct:checked::before {
   content: "";
@@ -606,7 +615,7 @@
   align-items: center;
   gap: 3px;
   width: 100%;
-  padding: 0 0 0 8px;
+  padding: 0 0 0 12px;
   cursor: pointer;
   position: relative;
 }
@@ -725,6 +734,9 @@
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .innerindianequity .indian-equity-container .checkbox-label-container {
   padding: 0;
 }
+.section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .innerindianequity .indian-equity-container .checkbox-label-container label {
+  padding: 0 0 0 8px;
+}
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .innerindianequity .indian-equity-container .checkbox-label-container label::after {
   content: unset;
 }
@@ -807,7 +819,9 @@
     min-width: 20px;
     height: 20px;
     cursor: pointer;
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input::before,
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .return-container .radio-label-container .radio-label input::before {
@@ -910,10 +924,12 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  height: -moz-max-content;
   height: max-content;
   line-height: 0;
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular {
+  min-width: -moz-max-content;
   min-width: max-content;
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container,
@@ -1200,6 +1216,7 @@
 .section .our-funds-block .filter-cards .right-container .applied-filter-name {
   display: flex;
   align-items: center;
+  min-width: -moz-max-content;
   min-width: max-content;
   border: 1px solid #bdbdbd;
   border-radius: 1000px;
@@ -1266,6 +1283,7 @@
   background-color: #7986fd;
 }
 .section .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown {
+  max-width: -moz-max-content;
   max-width: max-content;
 }
 .section .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown p {
@@ -1408,6 +1426,7 @@
 @media (max-width: 1025px) {
   .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(2) {
     margin: 0;
+    max-width: -moz-max-content;
     max-width: max-content;
   }
 }
@@ -1645,6 +1664,7 @@
   gap: 12px;
   padding: 4px 12px;
   margin-left: 34px;
+  max-width: -moz-max-content;
   max-width: max-content;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .timing-nfo-value .nfo-container {

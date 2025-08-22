@@ -664,7 +664,7 @@ body {
                     align-items: center;
                     gap: 3px;
                     width: 100%;
-                    padding: 0 0 0 8px;
+                    padding: 0 0 0 12px;
                     cursor: pointer;
                     position: relative;
 
@@ -803,8 +803,12 @@ body {
                       .checkbox-label-container {
                         padding: 0;
 
-                        label::after {
-                          content: unset;
+                        label {
+                          padding: 0 0 0 8px;
+
+                          &::after{
+                            content: unset;
+                          }
                         }
                       }
                     }
