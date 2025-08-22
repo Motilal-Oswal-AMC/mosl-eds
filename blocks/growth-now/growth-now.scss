@@ -6,9 +6,13 @@
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
+main{
+    background-color: $neutrals-100;
+}
+
 .section.growth-now-container {
     margin: 0;
-    background-color: #f5f5f5;
+    background-color: $neutrals-100;
     padding: 40px 0 50px;
 
     @include media(mobile){

@@ -1,9 +1,13 @@
 /*   alpha-value-notation */
 /* media-feature-range-notation */
 @import "../../../styles/fonts.css";
+main {
+  background-color: #F5F5F5;
+}
+
 .section.growth-now-container {
   margin: 0;
-  background-color: #f5f5f5;
+  background-color: #F5F5F5;
   padding: 40px 0 50px;
 }
 @media (max-width: 768px) {
