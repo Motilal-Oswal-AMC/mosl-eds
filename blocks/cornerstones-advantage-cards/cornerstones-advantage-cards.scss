@@ -1,20 +1,14 @@
-/* Reset */
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section.cornerstones-advantage {
   &-cards-container {
-    // max-width: 1264px;
     width: 100%;
     margin: 0 auto;
     padding: 40px 0;
 
-    // @include media(mobile) {
-    //   max-width: 100%;
-    // }
-
-    .default-content-wrapper{
+    .default-content-wrapper {
       h1,
       h2,
       h3,
@@ -59,8 +53,6 @@
       @include media(mobile) {
         flex-wrap: unset;
         flex-direction: column;
-
-        // gap: 40px;
         gap: 24px;
       }
 
@@ -78,7 +70,6 @@
         }
 
         @include media(mobile) {
-          // min-height: 176px;
           min-height: 168px;
           max-width: 100%;
           padding-right: 0;
@@ -111,6 +102,9 @@
           &.item-child-1 .icon {
             width: 64px;
             height: 64px;
+            min-width: 64px;
+            min-height: 64px;
+            flex-shrink: 0;
 
             @include media(mobile) {
               grid-area: icon;
@@ -122,30 +116,35 @@
 
             @include font-style(18px, 24px, $primary-blue, 500, $poppins);
 
+            min-height: 24px;
+
             @include media(mobile) {
               grid-area: heading;
               margin: 0 0 8px;
               font-size: 16px;
               line-height: 20px;
+              min-height: 20px;
             }
           }
 
           &.item-child-3 {
             @include font-style(16px, 24px, $text-body-2, 400, $poppins);
 
-            padding-bottom: 28px;
+            padding-bottom: clamp(0px, 2vw, 28px);
+            min-height: 48px; // reserve 2 lines desktop
 
             @include media(mobile) {
               font-size: 14px;
               line-height: 20px;
-              padding-bottom: 0;
               white-space: break-spaces;
+              min-height: 40px; // reserve 2 lines mobile
             }
           }
 
           &.button-container {
             margin-top: auto;
             line-height: 0;
+            min-height: 20px;
 
             @include media(mobile) {
               grid-area: button;
