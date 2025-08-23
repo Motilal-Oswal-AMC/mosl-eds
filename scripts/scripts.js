@@ -268,11 +268,13 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
-  const lcpImg = document.querySelector('main img');
-  if (lcpImg) {
-    lcpImg.setAttribute('loading', 'eager');
-    lcpImg.setAttribute('fetchpriority', 'high');
-  }
+  setTimeout(() => {
+    const lcpImg = document.querySelector('main img');
+    if (lcpImg) {
+      lcpImg.setAttribute('loading', 'eager');
+      lcpImg.setAttribute('fetchpriority', 'high');
+    }
+  }, 0);
 }
 
 loadPage();
