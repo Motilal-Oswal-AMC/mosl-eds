@@ -268,13 +268,25 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
-  setTimeout(() => {
-    const lcpImg = document.querySelector('main img');
-    if (lcpImg) {
-      lcpImg.setAttribute('loading', 'eager');
-      lcpImg.setAttribute('fetchpriority', 'high');
-    }
-  }, 0);
+  const lcpImg = document.querySelector('main img');
+  if (lcpImg) {
+    lcpImg.setAttribute('loading', 'eager');
+    lcpImg.setAttribute('fetchpriority', 'high');
+
+    const observer = new MutationObserver((mutations) => {
+      // Changed the for...of loop to a forEach loop to fix the ESLint error
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'loading') {
+          const targetElement = mutation.target;
+          if (targetElement.getAttribute('loading') !== 'eager') {
+            targetElement.setAttribute('loading', 'eager');
+            observer.disconnect();
+          }
+        }
+      });
+    });
+    observer.observe(lcpImg, { attributes: true });
+  }
 }
 
 loadPage();
