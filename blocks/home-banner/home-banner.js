@@ -16,14 +16,13 @@ export default function decorate(block) {
     });
     swiperWrapper.append(ele);
   });
-  setTimeout(() => {
-    swiperWrapper.querySelectorAll('img').forEach((el, ind) => {
-      if (ind === 0) {
-        el.setAttribute('loading', 'eager');
-        el.setAttribute('fetchpriority', 'high');
-      }
-    });
-  }, 0);
+  swiperWrapper.querySelectorAll('img').forEach((el, ind) => {
+    if (ind === 0) {
+      el.classList.add('skip-lazy');
+      el.setAttribute('loading', 'eager');
+      el.setAttribute('fetchpriority', 'high');
+    }
+  });
   //   Create div for pagination and buttons
   const paginationDiv = div({ class: 'swiper-pagination' });
   const nextBtn = div({ class: 'swiper-button-next' });
