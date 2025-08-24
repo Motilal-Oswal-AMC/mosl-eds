@@ -25,18 +25,14 @@
       border-radius: 24px 24px 0 0;
     }
 
-
-
     .invest-now-homepage {
       background: #FFF;
       max-width: 100%;
       width: 100%;
 
-
       @include media(mobile) {
         border-radius: 24px 24px 0 0;
       }
-
 
       .invest-now-container {
         position: relative;
@@ -101,19 +97,9 @@
                 width: 40px;
                 height: 40px;
 
-                // aspect-ratio: 1/1;
-                // min-width: 40px;
-                // box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
-                // border-radius: 50%;
-                // background: #bdcbff;
-
                 .brandlogo {
                   width: 100%;
                   height: 100%;
-
-                  // position: absolute;
-                  // top: 9px;
-                  // left: 5px;
                 }
 
               }
@@ -242,18 +228,12 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-
-                // gap: 16px;
                 align-self: stretch;
 
                 .modal-input {
                   display: flex;
-
-                  // height: 68px;
                   padding: 24px 0 0;
                   flex-direction: column;
-
-                  // justify-content: space-between;
                   align-items: flex-start;
                   align-self: stretch;
                   position: relative;
@@ -272,10 +252,9 @@
                   }
 
                   .modal-input-symbol {
-                    // padding-left: 10px; // Leave room for ₹ icon
                     position: relative;
                     color: #2E2A94;
-                    font-family: "Rupee Foradian";
+                    font-family: "Rupee Foradian", sans-serif;
                     font-size: 20px;
                     font-style: normal;
                     font-weight: 400;
@@ -329,7 +308,7 @@
                     font-size: 10px;
                     line-height: 16px;
                     font-family: $poppins;
-                    color: rgb(240, 83, 83);
+                    color: #F05353;
                   }
 
                   .error-hide {
@@ -470,21 +449,7 @@
 
                     input[type="checkbox"] {
                       display: none;
-
-                      // appearance: auto;
-                      // display: inline-block;
-                      // display: flex;
-                      // width: 24px;
-                      // height: 24px;
-                      // padding: 2px;
-                      // justify-content: center;
-                      // align-items: center;
-                      //  background-color: #2E2A94;
-                      //   color: #FFF;
-                      //   border-radius: 8px;
-
                     }
-
 
                     .custom-box {
                       position: relative;
@@ -494,10 +459,11 @@
                       align-items: center;
                       justify-content: center;
                       transition: all 0.2s ease;
-                      background-color: #2E2A94;
+                      background-color: #fff;
                       color: #FFF;
                       border-radius: 6px;
                       margin: 2px;
+                      border: 1px solid #9E9E9E;
 
                       &::after {
                         content: "";
@@ -518,6 +484,7 @@
 
                     input[type="checkbox"]:checked+.custom-box {
                       background: #2E2A94;
+                      border: none;
 
                       &::after {
                         opacity: 1;
@@ -553,144 +520,12 @@
                   }
                 }
 
-                // .modal-dropdown-frequency {
-                //   display: flex;
-                //   width: 340px;
-                //   flex-direction: column;
-                //   align-items: flex-start;
-                //   gap: 4px;
-
-                //   label {
-                //     align-self: stretch;
-                //     color: #424242;
-
-                //     /* Desktop/Label/Small */
-                //     font-family: $poppins;
-                //     font-size: 12px;
-                //     font-style: normal;
-                //     font-weight: 400;
-                //     line-height: 16px;
-
-                //   }
-
-                //   select {
-                //     flex: 1 0 0;
-                //     color: #2E2A94;
-                //     appearance: none;
-                //     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%232E2A94' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 10px center / 20px 20px;
-                //   }
-
-                //   input,
-                //   select {
-                //     border: none;
-                //     background-color: transparent;
-                //     width: 100%;
-                //     appearance: none;
-                //     outline: none;
-                //     color: #2E2A94;
-                //     font-family: $poppins;
-                //     font-size: 14px;
-                //     font-style: normal;
-                //     font-weight: 500;
-                //     line-height: 16px;
-
-                //     &::-webkit-outer-spin-button,
-                //     &::-webkit-inner-spin-button {
-                //       appearance: none;
-                //       margin: 0;
-                //     }
-
-                //     // &::after {
-                //     //   content: "";
-                //     //   position: absolute;
-                //     //   right: 0;
-                //     //   top: 50%;
-                //     //   transform: translateY(-50%);
-                //     //   width: 20px;
-                //     //   height: 20px;
-                //     //   background: url('../../icons/Frame.svg') no-repeat center;
-                //     //   background-size: contain;
-                //     //   transition: transform 0.2s ease;
-                //     // }
-                //   }
-                // }
-
-                // .modal-dropdowns-enddate {
-                //   display: flex;
-                //   width: 340px;
-                //   flex-direction: column;
-                //   align-items: flex-start;
-                //   gap: 2px;
-
-                //   label {
-                //     align-self: stretch;
-                //     color: #424242;
-                //     font-family: $poppins;
-                //     font-size: 12px;
-                //     font-style: normal;
-                //     font-weight: 400;
-                //     line-height: 16px;
-                //   }
-
-                //   select {
-                //     flex: 1 0 0;
-                //     color: var(--blue-1800-primary, #2E2A94);
-                //     font-family: $poppins;
-                //     font-size: 14px;
-                //     font-style: normal;
-                //     font-weight: 500;
-                //     line-height: 16px;
-                //     appearance: none;
-                //     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%232E2A94' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 10px center / 20px 20px;
-
-                //     option {
-                //       padding: 10px;
-                //       font-size: 14px;
-                //       background-color: #fff;
-                //       color: #333;
-                //     }
-
-                //     option:checked {
-                //       background-color: #2e2a94;
-                //       color: #fff;
-                //     }
-                //   }
-
-                //   // select:not(:-internal-list-box):not([multiple]) option {
-                //   //   padding: 10px;
-                //   //   font-size: 14px;
-                //   //   background-color: #855151;
-                //   //   color: #333;
-                //   // }
-
-                //   input,
-                //   select {
-                //     border: none;
-                //     background-color: transparent;
-                //     width: 100%;
-                //     appearance: none;
-                //     outline: none;
-                //     color: var(--blue-1800-primary, #2E2A94);
-                //     font-family: $poppins;
-                //     font-size: 14px;
-                //     font-style: normal;
-                //     font-weight: 500;
-                //     line-height: 16px;
-
-                //     // Remove number input spinners
-                //     &::-webkit-outer-spin-button,
-                //     &::-webkit-inner-spin-button {
-                //       appearance: none;
-                //       margin: 0;
-                //     }
-                //   }
-                // }
-
                 .custom-select-wrapper {
                   position: relative;
                   width: 100%;
                   line-height: 0.5px;
 
+                  /* stylelint-disable-next-line no-descending-specificity */
                   label {
                     align-self: stretch;
                     color: #424242;
@@ -703,10 +538,6 @@
 
                   .select-selected {
                     background-color: #fff;
-
-                    // border: 1px solid #BDBDBD; 
-                    // border-radius: 4px;
-                    // padding: 8px 12px;
                     cursor: pointer;
                     display: flex;
                     justify-content: space-between;
@@ -742,7 +573,7 @@
                     border-radius: 8px;
                     border: 0.5px solid #9E9E9E;
                     background: #FFF;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 4px 8px #0000001A;
                     z-index: 10;
                     max-height: 150px;
                     overflow-y: auto;

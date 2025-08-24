@@ -188,6 +188,7 @@
   border-radius: 50%;
 }
 .section .card-container .card-category .planlist-dropdown {
+  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
   display: flex;
@@ -255,6 +256,7 @@
   padding: 0;
 }
 .section .card-container .cagr-container .cagr-value {
+  max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
 }
@@ -448,6 +450,7 @@
   justify-content: flex-start;
   gap: 0;
   border-bottom: 1px solid #b6bcc7;
+  max-width: -moz-max-content;
   max-width: max-content;
   margin-right: -16px;
 }
