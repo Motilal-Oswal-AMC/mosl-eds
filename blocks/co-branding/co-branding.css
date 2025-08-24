@@ -33,6 +33,7 @@
   color: #424242;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  width: -moz-max-content;
   width: max-content;
   background-color: #fff;
   padding: 0 4px;
