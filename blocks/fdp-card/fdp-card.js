@@ -438,7 +438,7 @@ export default function decorate(block) {
                 },
                 img({
                   class: 'nav-img',
-                  src: '../icons/upperecent.svg',
+                  src: '../../icons/upperecent.svg',
                   alt: 'navalt',
                 }),
                 p(
