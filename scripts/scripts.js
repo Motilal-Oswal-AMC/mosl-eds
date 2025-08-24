@@ -1,5 +1,5 @@
 import { loadEmbed } from '../blocks/embed/embed.js';
-// import loadFragment from "../blocks/fragment/fragment.js"; // eslint-disable-line
+import loadFragment from "../blocks/fragment/fragment.js"; // eslint-disable-line
 import {
   loadHeader,
   loadFooter,
@@ -103,7 +103,7 @@ function autolinkFragements(element) {
       const div = document.createElement('div');
       div.append(origin);
       parent.append(div);
-      fragmentdeco(div);
+      loadFragment(div);
     }
   });
 }
@@ -452,44 +452,3 @@ export default async function myAPI(method, url, body = null) {
     return text;
   }
 }
-
-export async function loadFragment(path) {
-  if (path && path.startsWith('/')) {
-    // create a local variable to avoid reassigning the parameter
-    const cleanPath = path.replace(/(\.plain)?\.html/, '');
-    const resp = await fetch(`${cleanPath}.plain.html`);
-    if (resp.ok) {
-      const main = document.createElement('main');
-      main.innerHTML = await resp.text();
-
-      // reset base path for media to fragment base
-      const resetAttributeBase = (tag, attr) => {
-        main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
-          elem[attr] = new URL(elem.getAttribute(attr), new URL(cleanPath, window.location)).href;
-        });
-      };
-      resetAttributeBase('img', 'src');
-      resetAttributeBase('source', 'srcset');
-
-      decorateMain(main);
-      await loadSections(main);
-      return main;
-    }
-  }
-  return null;
-}
-
-async function fragmentdeco(block) {
-  const link = block.querySelector('a');
-  const path = link ? link.getAttribute('href') : block.textContent.trim();
-  const fragment = await loadFragment(path);
-  if (fragment) {
-    const fragmentSection = fragment.querySelector(':scope .section');
-    if (fragmentSection) {
-      block.classList.add(...fragmentSection.classList);
-      block.classList.remove('section');
-      block.replaceChildren(...fragmentSection.childNodes);
-    }
-  }
-}
-
