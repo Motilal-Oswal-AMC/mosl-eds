@@ -534,9 +534,9 @@ export default function decorate(block) {
 
       // Show previous selected item back (if any)
       if (currentSelectedText) {
-        item2Ul.querySelectorAll('li').forEach((li) => {
-          if (li.textContent.trim() === currentSelectedText) {
-            li.style.display = '';
+        item2Ul.querySelectorAll('li').forEach((lielm) => {
+          if (lielm.textContent.trim() === currentSelectedText) {
+            lielm.style.display = '';
           }
         });
       }
