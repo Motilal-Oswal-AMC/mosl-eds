@@ -30,20 +30,19 @@ export default function decorate(block) {
   const fundsTaggingSection = cfObj[0].fundsTaggingSection.slice(0, 2);
   const finPlangrp = [];
   const tempReturns = [];
-  cfObj[0].returns.forEach((ret, jind) => {
-    if (jind === 0) {
+  const DirectPlanlistArr = cfObj[0].planList.filter(
+    (el) => el.planName === planFlow,
+  );
+  cfObj[0].returns.forEach((ret) => {
+    if (DirectPlanlistArr[0].groupedCode === (ret.plancode + ret.optioncode)) {
       [...Object.keys(ret)].forEach((key) => {
         if (dataMapMoObj.ObjTemp[key]) {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
         }
       });
+      finPlangrp.push(ret);
     }
-    finPlangrp.push(ret.plancode + ret.optioncode);
   });
-
-  const DirectPlanlistArr = cfObj[0].planList.filter(
-    (el) => el.planName === planFlow && finPlangrp.includes(el.groupedCode),
-  );
   fundsTaggingSection.push(DirectPlanlistArr[0].optionName);
   const navlistArr = cfObj[0].nav.filter(
     (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
@@ -51,7 +50,10 @@ export default function decorate(block) {
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
   const mop = `MO_${cfObj[0].schcode}.svg`;
   const [firstReturnYear] = tempReturns;
-  const selectedReturn = dataMapMoObj.selectreturns;
+  let selectedReturn;
+  if (dataMapMoObj.selectreturns === '') {
+    selectedReturn = '3 Years';
+  } else { selectedReturn = dataMapMoObj.selectreturns;}
   const returnYear = tempReturns.includes(selectedReturn)
     ? selectedReturn
     : firstReturnYear;
@@ -97,7 +99,7 @@ export default function decorate(block) {
           droplist.remove('dropdown-active');
         }
       },
-    }, dataMapMoObj.selectreturns));
+    }, returnValue.length !== 0 ? dataMapMoObj.selectreturns : ''));
     const drpyrs = ul(
       {
         class: 'dropdownlist',
@@ -127,8 +129,12 @@ export default function decorate(block) {
     // cagr-value
     const cagrValue = middlediv.querySelector('.nav-return-grp .value-cagr');
     cagrValue.innerHTML = '';
-    cagrValue.append(returnValue[0][dataMapMoObj.ObjTemp[returnYear]]);
-    cagrValue.append(span({ class: 'percent' }, '%'));
+    if (returnValue.length !== 0) {
+      cagrValue.append(returnValue[0][dataMapMoObj.ObjTemp[returnYear]]);
+      cagrValue.append(span({ class: 'percent' }, '%'));
+    } else {
+      cagrValue.append('NA');
+    }
 
     // nav
     const navlistarray = cfObj[0].nav.filter(
@@ -360,7 +366,7 @@ export default function decorate(block) {
                     const valueCagr = returnClass.querySelector('.value-cagr');
                     const dataValue = event.target.getAttribute('value');
                     valueCagr.innerHTML = '';
-                    valueCagr.append(cfObj[0].returns[0][dataValue]);
+                    valueCagr.append(finPlangrp[0][dataValue]);
                     valueCagr.append(span({
                       class: 'percent',
                     }, '%'));
@@ -382,7 +388,7 @@ export default function decorate(block) {
                 {
                   class: 'value-cagr',
                 },
-                `${cfObj[0].returns[0][dataMapMoObj.ObjTemp[returnYear]]}`,
+                `${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`,
                 span({
                   class: 'percent',
                 }, '%'),

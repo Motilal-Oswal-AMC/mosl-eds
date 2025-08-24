@@ -436,3 +436,19 @@ if (document.querySelector('.welcome-component') !== null) {
   dataMapMoObj.CLASS_PREFIXES = ['welcomemain', 'welcomemain-sub', 'welcomemain-sub-wrp', 'welcomeactmain', 'welcomeinnactmain', 'welcomeaqweactmain'];
   dataMapMoObj.addIndexed(document.querySelector('.welcome-component'));
 }
+
+export default async function myAPI(method, url, body = null) {
+  const options = { method };
+  if (body) {
+    options.headers = { 'Content-Type': 'application/json' };
+    options.body = JSON.stringify(body);
+  }
+  const response = await fetch(url, options);
+  if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+  const text = await response.text();
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    return text;
+  }
+}

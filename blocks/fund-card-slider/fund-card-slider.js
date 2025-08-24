@@ -8,20 +8,22 @@ export default function decorate(block) {
   dataMapMoObj.CLASS_PREFIXES = ['itemcards', 'subitemcards'];
   dataMapMoObj.addIndexed(block);
 
-  const data = dataCfObj.slice(0, 5);
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const [planFlow, planslabel] = planCode.split(':');
+  const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+  const plantag = planObj[0].fundsTaggingSection[0];
+  const cardtemp = dataCfObj.filter((el) =>
+    (plantag === el.fundsTaggingSection[0] && el.schcode !== planslabel));
+  let data;
+  if (cardtemp.length < 5) {
+    data = cardtemp;
+  } else {
+    data = cardtemp.slice(0, 5);
+  }
   const cardWrapper = document.createElement('div');
   cardWrapper.classList.add('card-slider-main');
   data.forEach((el) => cardWrapper.append(fundcardblock(el)));
   Array.from(block.classList).forEach((el) => cardWrapper.classList.add(el));
   block.append(cardWrapper);
   swiperblock(block.querySelector('.card-slider-main'));
-
-  //   const btnAction = block.querySelector('.card-slider-main');
-  //   const cardWrapperbtn = document.createElement('div');
-  //   cardWrapperbtn.classList.add('card-action-btn');
-  //   const next = btnAction.querySelector('.swiper-button-next');
-  //   const prev = btnAction.querySelector('.swiper-button-prev');
-  //   cardWrapperbtn.appendChild(prev);
-  //   cardWrapperbtn.appendChild(next);
-  //   btnAction.appendChild(cardWrapperbtn);
 }

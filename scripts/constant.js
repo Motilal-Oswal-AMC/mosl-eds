@@ -27,7 +27,7 @@ const dataMapMoObj = {
     moderate: 'moderate-risk',
     low: 'low-risk',
   },
-  selectreturns: '3 YEARS',
+  selectreturns: '3 Years',
   schstar: [],
   tempMobReturn: [],
   selectreturnstemp: '',

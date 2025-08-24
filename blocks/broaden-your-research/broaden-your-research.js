@@ -199,7 +199,7 @@ export default function decorate(block) {
       const closer = event.target.closest('.risk-home-two');
       const plancode = closer.querySelector('a').getAttribute('schemesh');
       localStorage.setItem('planCode', plancode);
-      window.location.href = `${window.location.origin}/motilalfigma/funds-details-page`;
+      window.location.href = `${window.location.origin}/motilalfigma/our-funds/funds-details-page`;
     });
   });
   // Apply the 'promoted' style to the middle card for the static desktop view

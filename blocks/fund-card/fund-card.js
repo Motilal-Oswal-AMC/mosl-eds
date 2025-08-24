@@ -693,7 +693,7 @@ export default function decorate(block) {
                   'planCode',
                   `${planFlowsec}:${cardWrapperSh}`
                 );
-                window.location.href = `${window.location.origin}/motilalfigma/funds-details-page`;
+                window.location.href = `${window.location.origin}/motilalfigma/our-funds/funds-details-page`;
               },
             },
             'Know More',
