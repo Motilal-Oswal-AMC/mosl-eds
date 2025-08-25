@@ -1,6 +1,6 @@
 /*  eslint-disable   */
 import {
-  div, a, label, input, span, button, ul, h3, p as pTag,
+  div, a, label, input, span, button, ul, img, li,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 
@@ -16,8 +16,8 @@ export default function decorate(block) {
   const schemeNames = dataCfObj.map((fund) => fund.schDetail.schemeName);
 
   // let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
-  let planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  let [planFlow, schcode] = planCode.split(':');
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const schcode = planCode.split(':')[1];
   let selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
   let returnCAGR = 0;
   let mode = 'sip';
@@ -43,6 +43,12 @@ export default function decorate(block) {
         'aria-label': 'Search for products',
         'aria-autocomplete': 'list',
         'aria-expanded': 'false',
+        autocomplete: 'off',
+      }),
+      img({
+        class: 'cancel-btn',
+        src: '../../icons/input-cancel.svg',
+        alt: 'cancel button',
       }),
       div({ class: 'search-results-wrapper' }, ul({ id: 'searchResults', role: 'listbox' })),
       span({ class: 'search-error error-hide' }, 'Fund not found'),
@@ -421,44 +427,75 @@ export default function decorate(block) {
       // errorLi.textContent = 'Fund not found';
       // errorLi.classList.add('no-results'); // Add a class for styling (e.g., to make it non-hoverable)
       // searchResults.appendChild(errorLi);
-
-      const searchError = document.querySelector('.search-error')
-      searchError.classList.remove('error-hide')
+      calContainer.querySelector('.cancel-btn').style.display = 'block';
+      searchResults.append(li('Fund not found'))
+      // const searchError = document.querySelector('.search-error')
+      // searchError.classList.remove('error-hide')
       return; // Stop further execution
     }
     // --- END BLOCK ---
 
     filtered.forEach((name) => {
-      const li = document.createElement('li');
-      li.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
-      li.addEventListener('click', () => {
+      const lione = document.createElement('li');
+      lione.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
+      lione.addEventListener('click', () => {
         searchInput.value = name;
         selectedFund = dataCfObj.find((f) => f.schDetail.schemeName === name);
         searchResults.innerHTML = '';
         updatePlanOptions(selectedFund);
         updateReturnRate();
+        calContainer.querySelector('.cancel-btn').style.display = 'block';
       });
-      searchResults.appendChild(li);
+      searchResults.appendChild(lione);
     });
   });
 
   searchInput.addEventListener('keydown', (e) => {
     const items = searchResults.querySelectorAll('li');
     if (!items.length) return;
-    const searchError = document.querySelector('.search-error')
+    const searchError = document.querySelector('.search-error');
     searchError.classList.add('error-hide')
-    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); } else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); } else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click(); } else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
+    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); } 
+    else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); } 
+    else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click(); } 
+    else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
+    else if (e.key === 'Backspace' || e.key === 'Delete') { 
+      if (searchInput.value.length === 1) {
+        calContainer.querySelector('.cancel-btn').style.display = 'none';
+      }else{
+        if (searchInput.value.length > 1) {
+          calContainer.querySelector('.cancel-btn').style.display = 'block';
+        }
+      }
+     }
   });
 
-  searchInput.addEventListener('blur', () => {
-    // Use a short delay to allow click events on search results to fire first
-    setTimeout(() => {
+  document.addEventListener('click', (event) => {
+    const searchbar = document.querySelector('.search-bar-wrapper');
+    if (!searchbar.contains(event.target)) {
       searchResults.innerHTML = '';
       searchInput.value = selectedFund.schDetail.schemeName;
-      currentFocus = -1;
-      const searchError = document.querySelector('.search-error')
-      searchError.classList.add('error-hide')
-    }, 150);
+      calContainer.querySelector('.cancel-btn').style.display = 'block';
+    }
+  });
+  calContainer.querySelector('.cancel-btn').addEventListener('click', () => {
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+    schemeNames.forEach((el) => {
+      const ligrp = document.createElement('li');
+      ligrp.innerHTML = el.replace(new RegExp(`(${''})`, 'gi'), '<strong>$1</strong>');
+      ligrp.addEventListener('click', (event) => {
+        const name = event.target.textContent;
+        searchInput.value = name;
+        selectedFund = dataCfObj.find((f) => f.schDetail.schemeName === name);
+        searchResults.innerHTML = '';
+        updatePlanOptions(selectedFund);
+        updateReturnRate();
+        calContainer.querySelector('.cancel-btn').style.display = 'block';
+      });
+      searchResults.appendChild(ligrp);
+    });
+    calContainer.querySelector('.cancel-btn').style.display = 'none';
   });
 
   function addActive(items) {
