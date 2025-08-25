@@ -4,6 +4,7 @@
 }
 .think-equity-container.section {
   margin: 0 auto;
+  background-color: #FFF;
 }
 .think-equity-container {
   padding: 40px 0;
@@ -177,10 +178,16 @@
   align-items: center;
 }
 .think-equity.block {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 24px;
+}
+@media (max-width: 1025px) {
+  .think-equity.block {
+    padding: 0 16px;
+  }
 }
 @media (max-width: 768px) {
   .think-equity.block {
@@ -198,6 +205,7 @@
 .think-equity.block .imagelist1 {
   padding: 28px 0;
   flex-basis: 44.4%;
+  min-height: 237px;
 }
 @media (max-width: 768px) {
   .think-equity.block .imagelist1 {
@@ -205,6 +213,56 @@
     flex-basis: 100%;
     max-width: 93.18%;
     width: 100%;
+    min-height: 114px;
+  }
+}
+.think-equity.block .imagelist1 .subimagelist {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 237px;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .think-equity.block .imagelist1 .subimagelist {
+    min-height: 114px;
+  }
+}
+.think-equity.block .imagelist1 .subimagelist h3 {
+  margin: 0;
+  padding: 0;
+  color: #2E2A94;
+  font-family: "ButlerPro", sans-serif;
+  font-size: 36px;
+  line-height: 44px;
+  font-style: normal;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .think-equity.block .imagelist1 .subimagelist h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+.think-equity.block .imagelist1 .subimagelist::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -42px;
+  display: block;
+  background: url("../../icons/think-logo-circle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 223px;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .think-equity.block .imagelist1 .subimagelist::before {
+    background: url("../../icons/think-logo-circle-mob.svg");
+    width: 107px;
+    height: 115px;
+    top: -2px;
+    left: -24px;
   }
 }
 .think-equity.block .imagelist2 {
