@@ -628,14 +628,18 @@ export default async function decorate(block) {
                     if (searchInput.value.length === 1) {
                       searchFireld.closest('.search-wrapper').classList.remove('search-active');
                     } else {
-                      searchFireld.closest('.search-wrapper').classList.add('search-active');
+                      if (searchInput.value.length > 1) {
+                        searchFireld.closest('.search-wrapper').classList.add('search-active'); 
+                      }
                     }
                     break;
                   case 'Delete':
                     if (searchInput.value.length === 1) {
                       searchFireld.closest('.search-wrapper').classList.remove('search-active');
                     } else {
-                      searchFireld.closest('.search-wrapper').classList.add('search-active');
+                      if (searchInput.value.length > 1) {
+                        searchFireld.closest('.search-wrapper').classList.add('search-active'); 
+                      }
                     }
                     break;
                   default:
