@@ -32,6 +32,11 @@
   outline: 3px dashed #FFF;
   outline-offset: 4px;
 }
+.modal.block dialog .close-button .icon.icon-close::before,
+.modal.block dialog .close-button .icon.icon-close::after {
+  width: 13px;
+  height: 1.5px;
+}
 
 .modal.block dialog > .modal-content {
   position: relative;
@@ -57,7 +62,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 80px;
-  margin: 52px 0 40px;
+  margin: 76px 0 40px;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container .risk-o-meter {

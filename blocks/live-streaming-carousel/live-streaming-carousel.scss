@@ -1,8 +1,8 @@
 /* Reset */
-@use "../swiper/swiper-bundle.min.css"; // Modern Sass @use rule is preferred
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
+@import "../swiper/swiper-bundle.min.css"; // Modern Sass @use rule is preferred
 
 .section.live-streaming-carousel-container {
   // padding: 24px;
