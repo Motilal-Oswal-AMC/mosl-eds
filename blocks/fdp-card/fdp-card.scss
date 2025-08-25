@@ -759,6 +759,11 @@ main {
         h4 {
           @include font-style(32px, 40px, $primary-blue, 700, $butlerpro);
           margin: 0;
+
+          @media (width <=768px) {
+            font-size: 24px;
+            line-height: 28px;
+          }
         }
 
         ol {
@@ -788,10 +793,20 @@ main {
 
               li:nth-child(1) {
                 @include font-style(18px, 24px, $primary-blue, 500, $poppins);
+
+                @media (width <=768px) {
+                  font-size: 14px;
+                  line-height: 16px;
+                }
               }
 
               li:nth-child(2) {
                 @include font-style(16px, 24px, $text-body-2, 400, $poppins);
+
+                 @media (width <=768px) {
+                  font-size: 14px;
+                  line-height: 20px;
+                }
               }
 
               li:nth-child(3) {

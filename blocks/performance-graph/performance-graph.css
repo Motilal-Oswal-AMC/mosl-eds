@@ -1,6 +1,5 @@
 @import "../../../styles/fonts.css";
 .performance-graph {
-  padding-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -8,6 +7,7 @@
 @media (width <= 768px) {
   .performance-graph {
     padding: 0 16px;
+    height: unset;
   }
 }
 .performance-graph .fund-note-container h4 {

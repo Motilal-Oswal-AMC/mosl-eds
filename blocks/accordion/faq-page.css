@@ -151,6 +151,7 @@
   width: 20px;
   height: 20px;
   display: block;
+  padding-left: 8px;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper .search-field {
   width: 100%;

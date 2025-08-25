@@ -177,6 +177,10 @@
               }
             }
           }
+
+          li:nth-child(2) {
+            cursor: pointer;
+          }
         }
 
         // Icon logic for each list item

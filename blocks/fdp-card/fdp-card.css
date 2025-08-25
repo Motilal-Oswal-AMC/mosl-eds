@@ -630,6 +630,12 @@ main {
   font-weight: 700;
   margin: 0;
 }
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper h4 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol {
   list-style: none;
   padding: 0;
@@ -664,12 +670,24 @@ main {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(1) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(2) {
   font-size: 16px;
   line-height: 24px;
   color: #616161;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(2) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(3) {
   font-size: 12px;

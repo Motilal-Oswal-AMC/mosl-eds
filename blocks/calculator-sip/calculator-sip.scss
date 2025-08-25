@@ -835,6 +835,7 @@
   @include media(mobile) {
     padding: 40px 16px;
     background-color: #fff;
+    gap: 0;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
@@ -846,7 +847,7 @@
     gap: 24px;
 
     @include media(mobile) {
-      gap: 40px;
+      gap: 24px;
     }
 
     /* stylelint-disable-next-line no-descending-specificity */
@@ -899,7 +900,7 @@
         display: none;
 
         @include media(mobile) {
-          display: block;
+          display: none;
           margin: 0;
           max-width: 450px;
 
@@ -920,7 +921,7 @@
 
         @include media(mobile) {
           box-shadow: none;
-          padding: 24px 0;
+          padding: 0px;
         }
 
       }
@@ -957,7 +958,7 @@
         /* stylelint-disable-next-line no-descending-specificity */
         .scheme-btns-wrapper {
           display: flex;
-          gap: map.get($spacing, sm);
+          gap: 8px;
 
           /* stylelint-disable-next-line no-descending-specificity */
           button {
@@ -1079,7 +1080,7 @@
         display: none;
 
         @include media(mobile) {
-          display: block;
+          display: none;
           text-align: center;
           font-size: 16px;
           line-height: 24px;

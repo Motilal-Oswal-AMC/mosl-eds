@@ -887,6 +887,7 @@
   .section.fdp-calculator {
     padding: 40px 16px;
     background-color: #fff;
+    gap: 0;
   }
 }
 .section.fdp-calculator .compounding-two-inner {
@@ -899,7 +900,7 @@
 }
 @media (max-width: 768px) {
   .section.fdp-calculator .compounding-two-inner {
-    gap: 40px;
+    gap: 24px;
   }
 }
 .section.fdp-calculator .compounding-two-inner .default-content-wrapper {
@@ -944,7 +945,7 @@
 }
 @media (max-width: 768px) {
   .section.fdp-calculator .compounding-two-inner .default-content-wrapper p {
-    display: block;
+    display: none;
     margin: 0;
     max-width: 450px;
     font-size: 16px;
@@ -968,7 +969,7 @@
 @media (max-width: 768px) {
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip {
     box-shadow: none;
-    padding: 24px 0;
+    padding: 0px;
   }
 }
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .cal-container {
@@ -1000,7 +1001,7 @@
 }
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .cal-container .scheme-btns-wrapper {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   /* stylelint-disable-next-line no-descending-specificity */
 }
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .cal-container .scheme-btns-wrapper button {
@@ -1106,7 +1107,7 @@
 }
 @media (max-width: 768px) {
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .view-btn-cal {
-    display: block;
+    display: none;
     text-align: center;
     font-size: 16px;
     line-height: 24px;
