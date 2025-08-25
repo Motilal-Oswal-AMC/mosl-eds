@@ -578,7 +578,7 @@
   {
     "id": "think-equity",
     "fields": [
-       {
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
