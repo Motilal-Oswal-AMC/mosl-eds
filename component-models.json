@@ -589,6 +589,13 @@
         "name": "oneimageAlt",
         "label": "Alt Text"
       },
+       {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Context think equity",
+        "valueType": "string"
+      },
       {
         "component": "reference",
         "name": "twoimage",
