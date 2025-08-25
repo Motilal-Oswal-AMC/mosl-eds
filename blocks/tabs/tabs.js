@@ -556,6 +556,7 @@ export default async function decorate(block) {
                   return;
                 }
                 const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                searchFireld.closest('.search-wrapper').classList.add('search-active');
                 listItems.forEach((iteminner) => {
                   const originalText = iteminner.textContent;
                   if (originalText.toLowerCase().includes(searchTerm)) {
@@ -572,7 +573,6 @@ export default async function decorate(block) {
                   liitem.textContent = 'No results found';
                   listContainer.appendChild(liitem);
                 }
-                searchFireld.closest('.search-wrapper').classList.add('search-active');
                 activeIndex = 0;
                 updateActiveItem();
               });
