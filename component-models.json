@@ -578,17 +578,6 @@
   {
     "id": "think-equity",
     "fields": [
-      {
-        "component": "reference",
-        "name": "oneimage",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "name": "oneimageAlt",
-        "label": "Alt Text"
-      },
        {
         "component": "richtext",
         "name": "text",
