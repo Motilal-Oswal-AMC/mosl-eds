@@ -428,8 +428,9 @@ export default function decorate(block) {
       // errorLi.classList.add('no-results'); // Add a class for styling (e.g., to make it non-hoverable)
       // searchResults.appendChild(errorLi);
       calContainer.querySelector('.cancel-btn').style.display = 'block';
-      const searchError = document.querySelector('.search-error')
-      searchError.classList.remove('error-hide')
+      searchResults.append(li('Fund not found'))
+      // const searchError = document.querySelector('.search-error')
+      // searchError.classList.remove('error-hide')
       return; // Stop further execution
     }
     // --- END BLOCK ---
