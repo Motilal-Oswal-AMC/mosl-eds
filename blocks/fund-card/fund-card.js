@@ -664,7 +664,13 @@ export default function decorate(block) {
               span({ class: 'investor-txt' }, '2.7L Investors')
             ),
             a(
-              { href: '/motilalfigma/modals/risk-o-meter' },
+              {
+                href: '/motilalfigma/modals/risk-o-meter',
+                onclick:(event)=>{
+                  const clasName = event.target.closest('body');
+                  clasName.classList.add('scroll-lock');
+                },
+              },
               img({
                 class: 'riskfactor-icon',
                 src: `../../icons/risk-icon/${iconsvg}`,
