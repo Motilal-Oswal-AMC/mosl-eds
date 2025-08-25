@@ -9,6 +9,10 @@
   width: 360px;
   max-width: 100%;
 
+  @include media(mobile) {
+    width: 100%;
+  }
+
   .invest-now-homepage-wrapper {
     display: flex;
     flex-direction: column;
@@ -23,6 +27,7 @@
 
     @include media(mobile) {
       border-radius: 24px 24px 0 0;
+      max-width: 100%;
     }
 
     .invest-now-homepage {
@@ -39,9 +44,13 @@
         padding: 64px 16px 37px;
         max-width: 372px;
         width: 100%;
+        max-height: 629px;
+        overflow: auto;
 
         @include media(mobile) {
           padding: 64px 16px 10px;
+          max-width: 100%;
+          max-height: inherit;
         }
 
         .modal-btn {
@@ -263,7 +272,7 @@
                     &::before {
                       content: '₹';
                       position: absolute;
-                      top: 16px;
+                      top: 14px;
                       left: 2px;
                       transform: translateY(-50%);
                       color: #2E2A94;
@@ -625,7 +634,6 @@
             .modal-cta {
               display: flex;
               width: 164px;
-              padding: 12px;
               justify-content: center;
               align-items: center;
               gap: 8px;
@@ -636,6 +644,8 @@
               font-style: normal;
               font-weight: 500;
               line-height: 16px;
+              padding: 0;
+              margin-top: 25px;
 
               button {
                 display: flex;
@@ -652,6 +662,7 @@
                 font-style: normal;
                 font-weight: 500;
                 line-height: 20px;
+                margin: 0;
               }
             }
 

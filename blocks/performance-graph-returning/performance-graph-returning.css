@@ -294,6 +294,9 @@
     display: none;
   }
 }
+.performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .chart-filter-bar {
+  display: none;
+}
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning #chartdiv1 {
   width: 1232px;
   height: 236px;
