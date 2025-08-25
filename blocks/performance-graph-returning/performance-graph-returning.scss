@@ -306,7 +306,9 @@
 
                 }
 
-                // .chart-filter-bar {}
+                .chart-filter-bar {
+                    display: none;
+                }
 
                 #chartdiv1 {
                     width: 1232px;

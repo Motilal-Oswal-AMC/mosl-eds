@@ -59,6 +59,9 @@
   outline: 2px solid #2e2a94;
   outline-offset: 4px;
 }
+.section.download .default-content-wrapper > ul > li > ul li:nth-child(2) {
+  cursor: pointer;
+}
 .section.download .default-content-wrapper > ul > li:nth-child(1) > ul > li:first-child::before {
   content: "";
   display: inline-block;

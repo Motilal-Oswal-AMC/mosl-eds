@@ -826,12 +826,13 @@
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input::before,
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .return-container .radio-label-container .radio-label input::before {
     content: "";
-    min-width: 20px;
-    height: 20px;
+    min-width: 18px;
+    height: 17px;
     display: block;
     border: 1.67px solid #2e2a94;
     border-radius: 50%;
     visibility: visible;
+    margin: 2px;
   }
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label input:checked::before,
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .return-container .radio-label-container .radio-label input:checked::before {

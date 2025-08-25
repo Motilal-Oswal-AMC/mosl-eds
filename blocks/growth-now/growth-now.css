@@ -445,11 +445,36 @@ main {
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-4 {
   display: none;
 }
+@media (max-width: 768px) {
+  .section.growth-now-container.homepage-growth .growth-now {
+    gap: 32px;
+  }
+}
+.section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-1 {
+  padding-right: 56px;
+}
+@media (max-width: 768px) {
+  .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-1 {
+    padding: 0;
+  }
+}
+.section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-3 {
+  padding-right: 28px;
+}
+@media (max-width: 768px) {
+  .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-3 {
+    padding-right: 0;
+  }
+}
 .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-4 {
   display: none;
 }
 @media (max-width: 768px) {
   .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-4 {
     display: block;
+    padding: 0;
   }
+}
+.section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-4 .submit-wrapper .button {
+  width: 112px;
 }/*# sourceMappingURL=growth-now.css.map */

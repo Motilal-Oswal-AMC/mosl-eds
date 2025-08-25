@@ -114,13 +114,14 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .performance-graph {
-  padding-top: 40px;
+  // padding-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 
   @media (width <=768px) {
     padding: 0 16px;
+    height: unset;
   }
 
   .fund-note-container {

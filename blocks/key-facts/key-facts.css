@@ -82,6 +82,12 @@
   max-height: 72px;
   height: 100%;
 }
+@media (width <= 768px) {
+  .key-facts-container .default-content-wrapper ol li h4 span {
+    max-width: 56px;
+    height: 56px;
+  }
+}
 .key-facts-container .default-content-wrapper ol li ol {
   width: calc(100% - 72px);
   display: flex;

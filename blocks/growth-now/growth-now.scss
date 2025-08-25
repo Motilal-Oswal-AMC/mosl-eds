@@ -6,7 +6,7 @@
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
-main{
+main {
     background-color: $neutrals-100;
 }
 
@@ -15,10 +15,10 @@ main{
     background-color: $neutrals-100;
     padding: 40px 0 50px;
 
-    @include media(mobile){
+    @include media(mobile) {
         padding: 40px 0;
     }
-    
+
     img {
         height: 100%;
     }
@@ -277,11 +277,11 @@ main{
                             appearance: auto;
                             padding-right: 4px;
 
-                            option{
+                            option {
                                 color: #fff;
                                 background-color: #111;
 
-                                &:checked{
+                                &:checked {
                                     color: #fff;
                                     background-color: #111;
                                 }
@@ -553,12 +553,39 @@ main{
 
     &.homepage-growth {
         .growth-now {
+            @include media (mobile) {
+                gap: 32px;
+            }
+
             .fund-us-container {
+                .fund-sec-1 {
+                    padding-right: 56px;
+
+                    @include media(mobile) {
+                        padding: 0;
+                    }
+                }
+
+                .fund-sec-3 {
+                    padding-right: 28px;
+
+                    @include media(mobile) {
+                        padding-right: 0;
+                    }
+                }
+
                 .fund-sec-4 {
                     display: none;
 
                     @include media(mobile) {
                         display: block;
+                        padding: 0;
+                    }
+
+                    .submit-wrapper {
+                        .button {
+                            width: 112px;
+                        }
                     }
                 }
             }

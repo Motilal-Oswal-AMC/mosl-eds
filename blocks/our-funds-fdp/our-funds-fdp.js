@@ -31,18 +31,18 @@ export default async function decorate(block) {
 
   block.innerHTML = '';
 
-  mangerDetails.forEach((manager) => {
+  fundManagers.forEach((manager) => {
     const ourFunds = div(
       { class: 'funds-container' },
       div(
         { class: 'fund-wrapper' },
         div(
           { class: 'fund-manager' },
-          div({ class: 'fund-manager-image' }, img({ src: manager.managerImageUrl, alt: 'Managerpic' })), // src: manager.picture
+          div({ class: 'fund-manager-image' }, img({ src: `/icons/fund-managers/${manager.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic' })),
           div(
             { class: 'fund-manager-detail' },
-            p(manager.managerName),
-            p(manager.managerDesignation),
+            p(manager.fundManagerName),//(manager.managerName),
+            p(manager.designation),//(manager.managerDesignation),
           ),
         ),
         div(
@@ -50,7 +50,7 @@ export default async function decorate(block) {
           div(
             { class: 'funds-time' },
             p({ class: 'funds-time-text' }, fundTime),
-            span({ class: 'funds-time-year' }, mangerDetails[0].managingSince.split('-')[0]),
+            span({ class: 'funds-time-year' }, '2024'),//mangerDetails[0].managingSince.split('-')[0]),
           ),
           div(
             { class: 'fund-aum' },

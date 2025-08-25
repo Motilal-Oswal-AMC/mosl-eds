@@ -88,6 +88,11 @@
   width: 360px;
   max-width: 100%;
 }
+@media (max-width: 768px) {
+  .invest-now-homepage-container {
+    width: 100%;
+  }
+}
 .invest-now-homepage-container .invest-now-homepage-wrapper {
   display: flex;
   flex-direction: column;
@@ -103,6 +108,7 @@
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper {
     border-radius: 24px 24px 0 0;
+    max-width: 100%;
   }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage {
@@ -120,10 +126,14 @@
   padding: 64px 16px 37px;
   max-width: 372px;
   width: 100%;
+  max-height: 629px;
+  overflow: auto;
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container {
     padding: 64px 16px 10px;
+    max-width: 100%;
+    max-height: inherit;
   }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .modal-btn {
@@ -324,7 +334,7 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol::before {
   content: "₹";
   position: absolute;
-  top: 16px;
+  top: 14px;
   left: 2px;
   transform: translateY(-50%);
   color: #2E2A94;
@@ -635,7 +645,6 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-cta {
   display: flex;
   width: 164px;
-  padding: 12px;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -646,6 +655,8 @@
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
+  padding: 0;
+  margin-top: 25px;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal .modal-inputs-container .modal-cta button {
   display: flex;
@@ -662,6 +673,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
+  margin: 0;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .sip-tooltip {
   display: flex;
