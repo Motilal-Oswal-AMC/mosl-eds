@@ -526,7 +526,7 @@ export default async function decorate(block) {
                 listItems.forEach((item) => item.classList.remove('active'));
                 if (activeIndex >= 0 && activeIndex < visibleItems.length) {
                   const activeElement = visibleItems[activeIndex];
-                  // activeElement.classList.add('active');
+                  activeElement.classList.add('active');
                   activeElement.scrollIntoView({
                     block: 'nearest',
                   });
@@ -547,7 +547,7 @@ export default async function decorate(block) {
                 const existingNotFound = listContainer.querySelector('.not-found-item');
                 if (existingNotFound) existingNotFound.remove();
                 if (searchTerm === '') {
-                  listItems.forEach((itemls) => {
+                  Array.from(listContainer.children).forEach((itemls) => {
                     itemls.style.display = '';
                     itemls.innerHTML = itemls.textContent;
                   });
@@ -556,13 +556,12 @@ export default async function decorate(block) {
                   return;
                 }
                 const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-                searchFireld.closest('.search-wrapper').classList.add('search-active');
-                listItems.forEach((iteminner) => {
+                Array.from(listContainer.children).forEach((iteminner) => {
                   const originalText = iteminner.textContent;
                   if (originalText.toLowerCase().includes(searchTerm)) {
                     matchesFound += 1;
                     iteminner.style.display = '';
-                    iteminner.innerHTML = originalText.replace(regex, (matcheck) => `<strong>${matcheck}</strong>`);
+                    iteminner.innerHTML = originalText.replaceAll(regex, (matcheck) => `<strong>${matcheck}</strong>`);
                   } else {
                     iteminner.style.display = 'none';
                   }
@@ -573,6 +572,7 @@ export default async function decorate(block) {
                   liitem.textContent = 'No results found';
                   listContainer.appendChild(liitem);
                 }
+                searchFireld.closest('.search-wrapper').classList.add('search-active');
                 activeIndex = 0;
                 updateActiveItem();
               });
@@ -615,6 +615,7 @@ export default async function decorate(block) {
                               elitem.removeAttribute('open');
                             }
                           });
+                          searchFireld.closest('.search-wrapper').classList.add('search-active');
                           uldorp.classList.remove('dropdown-active');
                           block.querySelector(`#${tabpanelText}`).scrollIntoView({ behavior: 'smooth' });
                           counter = 1;
@@ -630,16 +631,23 @@ export default async function decorate(block) {
                     } else {
                       if (searchInput.value.length > 1) {
                         searchFireld.closest('.search-wrapper').classList.add('search-active'); 
-                      }
+                      } else if (searchInput.value === '') {
+                      dropdown.classList.add('dropdown-active');
                     }
+                    } 
                     break;
                   case 'Delete':
+                    event.preventDefault();
+                    activeIndex = (activeIndex - 1 + visibleItems.length) % visibleItems.length;
+                    updateActiveItem();
                     if (searchInput.value.length === 1) {
                       searchFireld.closest('.search-wrapper').classList.remove('search-active');
                     } else {
                       if (searchInput.value.length > 1) {
                         searchFireld.closest('.search-wrapper').classList.add('search-active'); 
-                      }
+                      }else if (searchInput.value === '') {
+                      dropdown.classList.add('dropdown-active');
+                    }
                     }
                     break;
                   default:

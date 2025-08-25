@@ -457,7 +457,7 @@ export default function decorate(block) {
     searchError.classList.add('error-hide')
     if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); } 
     else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); } 
-    else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click(); } 
+    else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click();} 
     else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
     else if (e.key === 'Backspace' || e.key === 'Delete') { 
       if (searchInput.value.length === 1) {

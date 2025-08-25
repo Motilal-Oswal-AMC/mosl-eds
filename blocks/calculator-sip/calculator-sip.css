@@ -299,7 +299,7 @@
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul::-webkit-scrollbar-thumb,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul::-webkit-scrollbar-thumb {
   width: 3px;
-  background-color: #2e2a94;
+  background-color: #eee;
 }
 @media (max-width: 768px) {
   .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul,

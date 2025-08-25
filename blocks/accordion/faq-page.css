@@ -206,7 +206,7 @@
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist::-webkit-scrollbar-thumb {
   width: 3px;
-  background-color: #2e2a94;
+  background-color: #eee;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist.dropdown-active {
   display: block;
@@ -231,9 +231,11 @@
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist .singleval:last-of-type {
   border: none;
 }
+.section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist .singleval:hover {
+  background: #f3f3f3;
+}
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist .active {
-  background-color: #007bff;
-  color: white;
+  background-color: #f3f3f3;
   cursor: pointer;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tabs-panel {

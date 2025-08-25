@@ -230,7 +230,7 @@
 
             &::-webkit-scrollbar-thumb {
               width: 3px;
-              background-color: $primary-blue;
+              background-color: #eee;
             }
 
             &.dropdown-active {
@@ -259,11 +259,15 @@
               &:last-of-type {
                 border: none;
               }
+
+              &:hover{
+                background: #f3f3f3;
+              }
             }
-            
+
             .active {
-              background-color: #007bff;
-              color: white;
+              background-color: #f3f3f3;
+              // color: white;
               cursor: pointer;
             }
           }
