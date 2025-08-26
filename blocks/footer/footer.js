@@ -1,6 +1,8 @@
 /*    */
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import dataMapMoObj from '../../scripts/constant.js';
+import { loadAutoBlock } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the footer
@@ -18,4 +20,9 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
   block.append(footer);
+
+  dataMapMoObj.CLASS_PREFIXES = ['footer-container', 'footer-section', 'footer-sub', 'footer-sub-cont', 'section-content'];
+  dataMapMoObj.addIndexed(block);
+
+  loadAutoBlock(footer);
 }

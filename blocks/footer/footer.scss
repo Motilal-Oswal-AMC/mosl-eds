@@ -1,0 +1,376 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
+
+.sr-only {
+    position: absolute;
+
+    // width: 1px;
+    // height: 1px;
+    // padding: 0;
+    // margin: -1px;
+    // overflow: hidden;
+    // clip: rect(0, 0, 0, 0);
+    // white-space: nowrap;
+    border-width: 0;
+}
+
+.footer-wrapper {
+    .footer {
+        background-color: $primary-blue;
+        color: #FFF;
+        color: $primary-white;
+        font-family: $poppins;
+        padding: map.get($spacing, xxl) 0;
+
+        a {
+            color: $primary-white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        // General container for consistent padding
+        .footer-container1 {
+            max-width: 1232px;
+            margin: 0 auto;
+            padding: 0 map.get($spacing, lg);
+            display: flex;
+            flex-direction: column;
+            gap: map.get($spacing, xxl);
+        }
+
+        // --- Section 1: Logo, Social, App Stores ---
+        .footer-section1 .footer-sub1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: map.get($spacing, lg);
+            text-align: center;
+
+            .footer-sub-cont1 img {
+                // Logo
+                max-width: 151px;
+            }
+
+            .footer-sub-cont2 {
+                @include flex-center;
+
+                gap: map.get($spacing, lg);
+            }
+
+            .footer-sub-cont3 {
+                display: flex;
+                flex-direction: column;
+                gap: map.get($spacing, md);
+
+                .section-content1 {
+                    display: flex;
+                }
+
+                .section-content2,
+                .section-content3 {
+                    // App Store Links
+                    @include flex-center($align: center, $justify: flex-start);
+
+                    gap: map.get($spacing, sm);
+                    background: transparent;
+                    padding: map.get($spacing, xs) map.get($spacing, md);
+                    border-radius: map.get($radius, r8);
+                    min-width: 180px;
+
+                    ul {
+                        text-align: left;
+
+                        @include font-style(12px, 1.2, $primary-white, map.get($font-weights, regular), $poppins);
+
+                        li:last-child {
+                            font-size: 16px;
+                            font-weight: map.get($font-weights, medium);
+                        }
+                    }
+                }
+            }
+        }
+
+        // --- Section 2: Newsletter & Accordion ---
+        .footer-section2 {
+            display: flex;
+            flex-direction: column;
+
+            .footer-sub1 {
+                // Newsletter
+                text-align: center;
+                margin-bottom: map.get($spacing, xl);
+
+                .footer-sub-cont1 {
+                    // Title
+                    @include typography-h2;
+
+                    font-size: 24px;
+                    line-height: 1.3;
+                    color: $primary-white;
+                    margin-bottom: map.get($spacing, lg);
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: map.get($spacing, md);
+
+                    label {
+                        @extend .sr-only; // Hides label visually, keeps it for screen readers
+                    }
+
+                    input[type="email"] {
+                        background-color: transparent;
+                        border: 1px solid map.get($blue-1, b200);
+                        border-radius: map.get($radius, r8);
+                        padding: map.get($spacing, sm) map.get($spacing, md);
+                        color: $primary-white;
+                        font-family: $poppins;
+                        font-size: 16px;
+
+                        &::placeholder {
+                            color: map.get($old-silver, 100);
+                        }
+                    }
+
+                    .button {
+                        background-color: map.get($button-secondary, default);
+                        color: map.get($button-secondary, text);
+                        border: none;
+                        border-radius: map.get($radius, r8);
+                        padding: map.get($spacing, sm) map.get($spacing, md);
+                        font-family: $poppins;
+                        font-weight: map.get($font-weights, bold);
+                        font-size: 16px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+
+                        &:hover {
+                            background-color: map.get($button-secondary, hover);
+                        }
+                    }
+                }
+            }
+
+            .accordion-wrapper {
+                .accordion-item {
+                    border: none;
+                    background: transparent;
+                    padding: 0;
+
+                    .accordion-item-label {
+                        @include flex-center($justify: space-between);
+
+                        width: 100%;
+                        cursor: pointer;
+                        font-size: 18px;
+                        font-weight: map.get($font-weights, medium);
+                        background: transparent;
+
+                        &::after {
+                            // Custom chevron
+                            content: '';
+                            display: inline-block;
+                            width: 8px;
+                            height: 8px;
+                            background: url('../../icons/direction-down-footer.svg');
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            border: none;
+                            transition: transform 0.3s ease;
+                            transform: rotate(0);
+                        }
+                    }
+
+                    .accordion-item-body {
+                        padding-top: map.get($spacing, md);
+                        background: transparent;
+
+                        ul li {
+                            padding: map.get($spacing, xs) 0;
+                            color: #FFF;
+                        }
+                    }
+                }
+
+                .accordion-item[open]>.accordion-item-label::after {
+                    transform: rotate(180deg);
+
+                }
+            }
+        }
+
+        // --- Section 3: Contact Info ---
+        .footer-section3 .footer-sub1 {
+            border-top: 1px solid map.get($blue-1, b700);
+            padding-top: map.get($spacing, lg);
+
+            .footer-sub-cont1 {
+                // "Contact us" title
+                display: none;
+            }
+
+            .footer-sub-cont2 {
+                // Contact list
+                display: flex;
+                flex-direction: column;
+                gap: map.get($spacing, md);
+
+                li {
+                    @include flex-center($justify: flex-start);
+
+                    gap: map.get($spacing, sm);
+                }
+            }
+        }
+
+        // ========================================================================
+        // DESKTOP STYLES (>= 1025px)
+        // ========================================================================
+        @media (min-width: #{map.get($breakpoints, tab)}) {
+            .footer-container1 {
+                display: grid;
+                grid-template-areas:
+                    "info links"
+                    "contact contact";
+                grid-template-columns: minmax(auto, 190px) 1fr;
+                gap: map.get($spacing, xxl) 80px;
+                padding: 0;
+            }
+
+            // --- Section 1 on Desktop ---
+            .footer-section1 {
+                grid-area: info;
+
+                .footer-sub1 {
+                    align-items: flex-start;
+                    text-align: left;
+                    gap: map.get($spacing, xl);
+
+                    .footer-sub-cont2 {
+                        justify-content: flex-start;
+                    }
+
+                    .footer-sub-cont3 {
+                        flex-direction: column;
+                        gap: map.get($spacing, md);
+                        align-items: center;
+
+                        .section-content1 {
+                            display: block; // Show QR Code
+                        }
+                    }
+                }
+            }
+
+            // --- Section 2 on Desktop ---
+            .footer-section2 {
+                grid-area: links;
+                display: flex;
+                flex-direction: column;
+
+                .footer-sub1 {
+                    text-align: left;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .footer-sub-cont1 {
+                        width: 350px;
+                        font-size: 20px;
+                        margin-bottom: map.get($spacing, md);
+                    }
+
+                    form {
+                        flex-direction: row;
+                        align-items: center;
+
+                        .field-wrapper {
+                            flex-grow: 1;
+
+                            label {
+                                position: absolute;
+                                color: #FFF;
+                            }
+
+                            input {
+                                width: 368px;
+                            }
+                        }
+                    }
+                }
+
+                .accordion-wrapper {
+                    .footer-sub-cont1 {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: map.get($spacing, lg);
+
+                        .accordion-item {
+                            border: none;
+                            padding: 0;
+
+                            .accordion-item-label {
+                                font-weight: map.get($font-weights, bold);
+                                margin: 0;
+                                padding: 0;
+                                cursor: default;
+                                background: transparent;
+
+                                &::after {
+                                    display: none; // Hide chevron
+                                }
+
+                                p {
+                                    padding: 0;
+                                }
+                            }
+
+                            .accordion-item-body {
+                                display: block !important;
+                                background: transparent;
+                                border: none;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // --- Section 3 on Desktop ---
+            .footer-section3 {
+                grid-area: contact;
+
+                .footer-sub1 {
+                    @include flex-center($justify: flex-start);
+
+                    gap: 80px;
+                    padding-top: map.get($spacing, xl);
+
+                    .footer-sub-cont1 {
+                        display: block; // Show "Contact us"
+                        font-weight: map.get($font-weights, bold);
+                    }
+
+                    .footer-sub-cont2 {
+                        // Horizontal list
+                        flex-direction: row;
+                        gap: map.get($spacing, xxl);
+                    }
+                }
+            }
+        }
+    }
+}
