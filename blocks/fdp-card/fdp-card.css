@@ -572,6 +572,19 @@ main {
     text-wrap: nowrap;
   }
 }
+.section.fdp-card-container .item2 .item2-ul li .active {
+  display: flex;
+  height: 40px;
+  padding: 0 12px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #382ad7;
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
 .section.fdp-card-container .item2 .selectedtext-fdp {
   display: none;
 }
@@ -723,7 +736,7 @@ main {
   height: 48px;
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper p strong {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
