@@ -657,7 +657,7 @@
   text-align: left;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   color: #424242;
   font-family: "Poppins", sans-serif;
@@ -857,7 +857,7 @@
   padding: 12px 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   color: #424242;
   font-family: "Poppins", sans-serif;

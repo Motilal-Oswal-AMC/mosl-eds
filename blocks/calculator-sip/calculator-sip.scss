@@ -612,7 +612,7 @@
               transition: background-color 0.2s ease;
               // border-bottom: 1px solid #eee;
 
-              @include font-style(16px,
+              @include font-style(14px,
                 20px,
                 $color-text-body,
                 map.get($font-weights, regular),
@@ -799,7 +799,7 @@
               transition: background-color 0.2s ease;
               // border-bottom: 1px solid #eee;
 
-              @include font-style(16px,
+              @include font-style(14px,
                 20px,
                 $color-text-body,
                 map.get($font-weights, regular),

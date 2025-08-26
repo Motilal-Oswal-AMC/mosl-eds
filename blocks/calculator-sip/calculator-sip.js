@@ -428,9 +428,8 @@ export default function decorate(block) {
       // errorLi.classList.add('no-results'); // Add a class for styling (e.g., to make it non-hoverable)
       // searchResults.appendChild(errorLi);
       calContainer.querySelector('.cancel-btn').style.display = 'block';
-      searchResults.append(li('Fund not found'))
-      // const searchError = document.querySelector('.search-error')
-      // searchError.classList.remove('error-hide')
+      const searchError = document.querySelector('.search-error')
+      searchError.classList.remove('error-hide')
       return; // Stop further execution
     }
     // --- END BLOCK ---
@@ -455,9 +454,16 @@ export default function decorate(block) {
     if (!items.length) return;
     const searchError = document.querySelector('.search-error');
     searchError.classList.add('error-hide')
-    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); } 
-    else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); } 
-    else if (e.key === 'Enter') { e.preventDefault(); if (currentFocus > -1) items[currentFocus].click();} 
+    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); }
+    else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (currentFocus > -1) {
+        items[currentFocus].click();
+      } else if (items.length > 0) {
+        items[0].click();
+      };
+    }
     else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
     else if (e.key === 'Backspace' || e.key === 'Delete') { 
       if (searchInput.value.length === 1) {

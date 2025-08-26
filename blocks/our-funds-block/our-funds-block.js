@@ -222,7 +222,7 @@ function searchFunctionality(block) {
   const listContainer = searchContainer.querySelector('.list-search');
   // const listItems = searchContainer.querySelectorAll('.list-fund-name');
   const cancelButton = searchContainer.querySelector('.cancel-search');
-  const FUND_DATA = dataMapMoObj.funddata.map((fund) => fund.schDetail.schemeName);
+  const FUND_DATA = dataCfObj.map((fund) => fund.schDetail.schemeName);
 
   const populateList = () => {
     listContainer.innerHTML = ''; // Clear list before populating
@@ -286,12 +286,63 @@ function searchFunctionality(block) {
     }
   };
 
-  // searchInput.addEventListener('focus', searchContainer.classList.add('search-active'));
+  searchInput.addEventListener('focus', () => {
+    searchContainer.classList.add('search-active');
+  });
   searchContainer.classList.remove('search-active');
   searchInput.addEventListener('input', (event) => {
     searchContainer.classList.add('search-active');
     filterListItems(event.target.value);
     cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
+  });
+
+  let currentFocusIndex = -1;
+  function updateActiveItem(items) {
+    items.forEach((item, idx) => {
+      if (idx === currentFocusIndex) {
+        item.classList.add('active-search-item');
+        item.scrollIntoView({ block: 'nearest' });
+      } else {
+        item.classList.remove('active-search-item');
+      }
+    });
+  }
+  searchInput.addEventListener('keydown', (event) => {
+    const visibleItems = Array.from(listContainer.querySelectorAll('.list-fund-name'))
+      .filter((item) => item.style.display !== 'none' && !item.classList.contains('no-results-message'));
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      currentFocusIndex = (currentFocusIndex + 1) % visibleItems.length;
+      updateActiveItem(visibleItems);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      currentFocusIndex = (currentFocusIndex - 1 + visibleItems.length) % visibleItems.length;
+      updateActiveItem(visibleItems);
+    } else if (event.key === 'Enter') {
+      if (visibleItems[currentFocusIndex]) {
+        visibleItems[currentFocusIndex].click();
+      } else if (visibleItems.length > 0) {
+        visibleItems[0].click();
+      }
+    } else if (event.key === 'Backspace' || event.key === 'Delete') {
+      currentFocusIndex = -1; // Reset selection on backspace/delete
+      const cardsContainer = block.querySelector('.filter-cards .cards-container');
+    
+      if (cardsContainer && cardsContainer.checkVisibility()) {
+        const datatem = dataCfObj.slice(0, 10);
+        cardsContainer.innerHTML = '';
+        datatem.forEach((elcard) => cardsContainer.append(fundcardblock(elcard)));
+      }
+      const listHeader = block.querySelector('.filter-cards .list-container');
+      if (listHeader && listHeader.checkVisibility()) {
+        if (cardsContainer && cardsContainer.checkVisibility()) {
+          const datatem = dataCfObj.slice(0, 10);
+          listHeader.innerHTML = '';
+          datatem.forEach((elist) => cardsContainer.append(listviewblock(elist)));
+        }
+      }
+    }
   });
 
   listContainer.addEventListener('click', (event) => {
@@ -301,27 +352,22 @@ function searchFunctionality(block) {
       // CARD HIDE LOGIC ON SEARCH
       const cardsContainer = block.querySelector('.filter-cards .cards-container');
       if (cardsContainer && cardsContainer.checkVisibility()) {
-        Array.from(cardsContainer.children).forEach((elment) => {
-          const brandName = elment.querySelector('.brand-name-text').textContent.trim();
-          const schemen = elment.querySelector('.fund-name-title').textContent.trim();
-          const schname = `${brandName} ${schemen}`;
-          elment.style.display = 'block';
-          if (searchInput.value !== schname) {
-            elment.style.display = 'none';
-          }
-        });
+        const datatem = dataCfObj.filter(elsch =>
+          elsch.schDetail.schemeName === searchInput.value);
+          cardsContainer.innerHTML = '';
+        cardsContainer.append(fundcardblock(datatem[0]));
       }
 
       const listHeader = block.querySelector('.filter-cards .list-container');
       if (listHeader && listHeader.checkVisibility()) {
-        Array.from(listHeader.children).forEach((elment) => {
-          const schname = elment.querySelector('.fund-name-container').textContent;
-          elment.style.display = 'block';
-          if (searchInput.value !== schname) {
-            elment.style.display = 'none';
-          }
-        });
+        if (cardsContainer && cardsContainer.checkVisibility()) {
+          const datatem = dataCfObj.filter(elsch =>
+            elsch.schDetail.schemeName === searchInput.value);
+          listHeader.innerHTML = '';
+          listHeader.append(listviewblock(datatem[0]));
+        }
       }
+      cancelButton.style.display = searchInput.value.length > 0 ? 'block' : 'none';
     }
   });
 

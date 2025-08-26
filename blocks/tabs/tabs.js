@@ -432,6 +432,8 @@ export default async function decorate(block) {
   /// //////////////////////first Tab ////////////////////////////
 
   if (block.closest('.page-faq-section')) {
+    const tempnone = block.closest('body').querySelector('footer');
+    tempnone.style.display = 'none';
     dataMapMoObj.CLASS_PREFIXES = [];
     dataMapMoObj.CLASS_PREFIXES = ['itemfaq', 'subitemfaq'];
     dataMapMoObj.addIndexed(block.closest('.page-faq-section'));
@@ -547,7 +549,7 @@ export default async function decorate(block) {
                 const existingNotFound = listContainer.querySelector('.not-found-item');
                 if (existingNotFound) existingNotFound.remove();
                 if (searchTerm === '') {
-                  Array.from(listContainer.children).forEach((itemls) => {
+                  listItems.forEach((itemls) => {
                     itemls.style.display = '';
                     itemls.innerHTML = itemls.textContent;
                   });
@@ -556,7 +558,7 @@ export default async function decorate(block) {
                   return;
                 }
                 const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-                Array.from(listContainer.children).forEach((iteminner) => {
+                listItems.forEach((iteminner) => {
                   const originalText = iteminner.textContent;
                   if (originalText.toLowerCase().includes(searchTerm)) {
                     matchesFound += 1;
