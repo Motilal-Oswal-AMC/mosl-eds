@@ -585,6 +585,12 @@
   transition: 0.4s;
   border-radius: 16.667px;
 }
+@media (max-width: 768px) {
+  .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before,
+  .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before {
+    bottom: 1.5px;
+  }
+}
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch input:checked + .slider::before,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .plan-options-wrapper .plan-type-toggle .toggle-switch input:checked + .slider::before {
   transform: translateX(16.5px);
@@ -1154,6 +1160,7 @@
 }
 .section.fdp-calculator .default-content-wrapper p:nth-child(1) {
   margin-bottom: 20px;
+  /* stylelint-disable-next-line no-descending-specificity */
 }
 .section.fdp-calculator .default-content-wrapper p:nth-child(1) strong {
   font-weight: 400;

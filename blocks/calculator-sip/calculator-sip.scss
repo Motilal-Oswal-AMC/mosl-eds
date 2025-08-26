@@ -239,6 +239,7 @@
           .error-show {
             display: block;
           }
+
           .cancel-btn {
             height: 20px;
             width: 20px;
@@ -284,7 +285,7 @@
 
             &::-webkit-scrollbar-thumb {
               width: 3px;
-              background-color:#eee;
+              background-color: #eee;
             }
 
             @include media(mobile) {
@@ -304,7 +305,7 @@
                 background: #eee;
               }
 
-              strong{
+              strong {
                 font-weight: 500;
               }
             }
@@ -540,6 +541,10 @@
                   background-color: white;
                   transition: 0.4s;
                   border-radius: 16.667px;
+
+                  @include media(mobile) {
+                    bottom: 1.5px;
+                  }
                 }
               }
 
@@ -1128,7 +1133,7 @@
     /* stylelint-disable-next-line no-descending-specificity */
     p:nth-child(1) {
       margin-bottom: 20px;
-
+ /* stylelint-disable-next-line no-descending-specificity */
       strong {
         font-weight: 400;
         color: $primary-blue;
