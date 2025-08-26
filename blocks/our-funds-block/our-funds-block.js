@@ -292,15 +292,15 @@ function searchFunctionality(block) {
       
       // This event fires whenever the viewport is resized or zoomed
       window.visualViewport.addEventListener('resize', () => {
+        window.visualViewport.scale = 1;
+        // console.log('Current zoom scale:', window.visualViewport.scale);
 
-        console.log('Current zoom scale:', window.visualViewport.scale);
-
-        if (window.visualViewport.scale > 1) {
-          console.log('Page is zoomed in!');
-          // You could run code here in response to the zoom
-        } else {
-          console.log('Page is at normal zoom.');
-        }
+        // if (window.visualViewport.scale > 1) {
+        //   console.log('Page is zoomed in!');
+        //   // You could run code here in response to the zoom
+        // } else {
+        //   console.log('Page is at normal zoom.');
+        // }
       });
     }
   });
