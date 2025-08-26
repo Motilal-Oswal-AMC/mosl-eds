@@ -87,3 +87,10 @@ body.modal-open {
     /* padding: 0; */
     height: 100%;
 }
+
+@media (width <=900px) {
+    .modal .close-button {
+        top: 0;
+        right: 0;
+    }
+}

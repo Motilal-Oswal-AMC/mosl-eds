@@ -69,3 +69,9 @@
   top: 4px;
   left: 7px;
 }
+
+@media (width <=900px) {
+  .embed-wrapper {
+    padding: 5px;
+  }
+}
