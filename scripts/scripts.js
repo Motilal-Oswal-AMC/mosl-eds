@@ -19,6 +19,7 @@ import dataMapMoObj from './constant.js';
 import delayed from './delayed.js';
 import { initializeModalHandlers } from '../blocks/modal/modal.js';
 import { a, li, ul } from './dom-helpers.js';
+import { createForm } from '../blocks/form/form.js';
 
 function decorateBreadcrumbItems(title, url, icon = '') {
   // return li(a({ href: url }, title));
@@ -107,6 +108,15 @@ function autolinkFragements(element) {
     }
   });
 }
+
+export function loadAutoBlock(doc) {
+  doc.querySelectorAll('a').forEach((a) => {
+    if (a && a.href && a.href.includes('/forms/')) {
+      decorateForm(a.parentElement);
+    }
+  });
+}
+
 export function moveAttributes(from, to, attributes) {
   let attrs = attributes;
   if (!attrs) {
@@ -120,6 +130,28 @@ export function moveAttributes(from, to, attributes) {
     }
   });
 }
+
+export async function decorateForm(block) {
+  const formLink = block.querySelector('a').href;
+  const submitLink = '/api';
+  // if (!formLink || !submitLink) return;
+  const form = await createForm(formLink, submitLink);
+  block.replaceChildren(form);
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const valid = form.checkValidity();
+    if (valid) {
+      // handleSubmit(form);
+    } else {
+      const firstInvalidEl = form.querySelector(':invalid:not(fieldset)');
+      if (firstInvalidEl) {
+        firstInvalidEl.focus();
+        firstInvalidEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+}
+
 
 /**
  * Move instrumentation attributes from a given element to another given element.
@@ -231,6 +263,7 @@ async function loadEager(doc) {
   }
 }
 
+
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
@@ -238,6 +271,7 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   autolinkVideo(doc);
   // autolinkModals(doc);
+  loadAutoBlock(doc)
   const main = doc.querySelector('main');
   autolinkFragements(doc);
   wrapImgsInLinks(doc);
