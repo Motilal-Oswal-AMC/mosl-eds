@@ -470,9 +470,9 @@
                       transition: all 0.2s ease;
                       background-color: #fff;
                       color: #FFF;
-                      border-radius: 6px;
+                      border-radius: 4px;
                       margin: 2px;
-                      border: 1px solid #9E9E9E;
+                      border: 2px solid #2E2A94;
 
                       &::after {
                         content: "";
@@ -493,7 +493,8 @@
 
                     input[type="checkbox"]:checked+.custom-box {
                       background: #2E2A94;
-                      border: none;
+
+                      // border: none;
 
                       &::after {
                         opacity: 1;

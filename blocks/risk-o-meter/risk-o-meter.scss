@@ -1,7 +1,7 @@
 //  Accessibility Done 
 
-@use '../../styles/common-theme/css/variables_mixins' as *;
-@use '../../styles/common-theme/css/fluid-typography' as *;
+@use '../../styles/common-theme/css/variables_mixins'as *;
+@use '../../styles/common-theme/css/fluid-typography'as *;
 @use 'sass:map';
 
 .modal.block dialog {
@@ -38,9 +38,16 @@
     outline: 3px dashed #FFF;
     outline-offset: 4px;
   }
+
+  .icon.icon-close::before,
+  .icon.icon-close::after {
+    width: 13px;
+    height: 1.5px;
+  }
+
 }
 
-.modal.block dialog > .modal-content {
+.modal.block dialog>.modal-content {
   position: relative;
   max-width: 816px;
   padding: 0;
@@ -54,7 +61,7 @@
 }
 
 .section.risk-o-meter-container {
-//   padding: 24px;
+  //   padding: 24px;
   width: 100%;
   border-radius: 8px;
   background: #FFF;
@@ -65,7 +72,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 80px;
-    margin: 52px 0 40px;
+    margin: 76px 0 40px;
 
     @include media(mobile) {
       flex-direction: column;
@@ -81,6 +88,7 @@
     p {
       margin: 0;
       padding: 0;
+
       @include font-style(14px, 18px, #2E2A94, map.get($font-weights, semibold), $poppins);
     }
 
@@ -105,7 +113,7 @@
     }
   }
 
-  > div:nth-child(2) {
+  >div:nth-child(2) {
     // border-top: 0.5px solid #8695AF;
     padding-top: 16px;
     margin: 0 24px 24px;
@@ -189,7 +197,7 @@
 }
 
 .section.product-label.risk-o-meter-container {
-//   padding: 40px 0;
+  //   padding: 40px 0;
   background: inherit;
   box-shadow: unset;
   display: flex;
@@ -202,7 +210,7 @@
     box-shadow: 0 4px 12px 0 #0000000D;
   }
 
-  > div:first-child {
+  >div:first-child {
     h1 {
       color: #2E2A94;
       font-family: $butlerpro;
@@ -229,7 +237,7 @@
     }
 
     .risk-o-meter-wrapper.risk2 {
-        width: 100%;
+      width: 100%;
 
       .risk-o-meter {
         display: flex;

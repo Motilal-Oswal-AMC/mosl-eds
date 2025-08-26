@@ -448,7 +448,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds>.card-modal-overlay,
     .known-our-funds>.card-modal-overlay {
         position: fixed;
@@ -456,10 +455,10 @@ footer .footer[data-block-status="loaded"] {
         justify-content: center;
         top: 0;
         width: 100%;
-        background-color: #3e3e3a5c;
+        background-color: #37372c8c;
         z-index: 100;
         padding: 0;
-        padding-top: 5px;
+        padding-top: 116px;
     }
 
     /* body.noscroll {
@@ -497,6 +496,18 @@ footer .footer[data-block-status="loaded"] {
     position: relative;
     z-index: 1000;
     background-color: #fff;
+}
+
+@media (width <=768px) {
+
+    .our-popular-funds.modal-active-parent,
+    .known-our-funds.modal-active-parent {
+        max-height: unset;
+        overflow-y: unset;
+        position: unset;
+        z-index: unset;
+        background-color: #fff;
+    }
 }
 
 body.noscroll {
@@ -625,7 +636,7 @@ body.noscroll {
     height: 24px;
 }
 
-.breadcrumbs-fdp > ul > li {
+.breadcrumbs-fdp>ul>li {
     display: flex;
     justify-content: center;
     align-items: center;
