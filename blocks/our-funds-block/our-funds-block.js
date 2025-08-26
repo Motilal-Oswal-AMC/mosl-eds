@@ -294,6 +294,21 @@ function searchFunctionality(block) {
     searchContainer.classList.add('search-active');
     filterListItems(event.target.value);
     cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
+    if (window.visualViewport) {
+
+      // This event fires whenever the viewport is resized or zoomed
+      window.visualViewport.addEventListener('resize', () => {
+
+        console.log('Current zoom scale:', window.visualViewport.scale);
+
+        if (window.visualViewport.scale > 1) {
+          console.log('Page is zoomed in!');
+          // You could run code here in response to the zoom
+        } else {
+          console.log('Page is at normal zoom.');
+        }
+      });
+    }
   });
 
   let currentFocusIndex = -1;
