@@ -966,6 +966,7 @@
 
 .section.welcome-component {
   width: 100%;
+  background-color: #fff;
 }
 .section.welcome-component .welcomemain1 {
   display: flex;
