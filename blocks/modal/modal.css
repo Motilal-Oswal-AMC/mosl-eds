@@ -9,7 +9,8 @@ body.modal-open {
 .modal dialog {
     overscroll-behavior: none;
     overflow-y: hidden;
-    position: relative;
+    
+    /* position: relative; */
     background: transparent;
     max-height: 100%;
     padding: 0;
