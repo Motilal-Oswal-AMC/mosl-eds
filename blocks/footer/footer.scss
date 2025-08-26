@@ -303,6 +303,12 @@
                             label {
                                 position: absolute;
                                 color: #FFF;
+                                text-overflow: ellipsis;
+                                font-family:$poppins;
+                                font-size:  12px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 16px;
                             }
 
                             input {
