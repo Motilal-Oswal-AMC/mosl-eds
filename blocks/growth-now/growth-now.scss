@@ -7,12 +7,14 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 main {
-    background-color: $neutrals-100;
+    // background-color: $neutrals-100;
+    background-color: #fff;
 }
 
 .section.growth-now-container {
     margin: 0;
-    background-color: $neutrals-100;
+    // background-color: $neutrals-100;
+    background-color: #fff;
     padding: 40px 0 50px;
 
     @include media(mobile) {
