@@ -161,7 +161,7 @@ body {
             border-radius: 6px;
             width: 100%;
             margin: 0;
-            height: 352px;
+            max-height: 352px;
             overflow: auto;
             list-style: none;
             display: none;
@@ -171,7 +171,7 @@ body {
             }
 
             @include media(mobile) {
-              height: 372px;
+              max-height: 372px;
             }
 
             &::-webkit-scrollbar {

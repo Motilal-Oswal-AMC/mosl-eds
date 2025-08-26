@@ -299,7 +299,7 @@
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul::-webkit-scrollbar-thumb,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul::-webkit-scrollbar-thumb {
   width: 3px;
-  background-color: #eee;
+  background-color: #464343;
 }
 @media (max-width: 768px) {
   .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul,
@@ -312,6 +312,7 @@
   padding: 12px 16px;
   cursor: pointer;
   font-weight: 400;
+  border-bottom: 1px solid #eee;
 }
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul li:hover,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul li:hover {
@@ -656,8 +657,7 @@
   text-align: left;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  border-bottom: 1px solid #eee;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   color: #424242;
   font-family: "Poppins", sans-serif;
@@ -857,8 +857,7 @@
   padding: 12px 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  border-bottom: 1px solid #eee;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   color: #424242;
   font-family: "Poppins", sans-serif;

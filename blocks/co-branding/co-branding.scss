@@ -141,7 +141,7 @@
 }
 
 .modal.block {
-  display: none;
+  display: block;
   
   @include media(mobile) {
     display: block;

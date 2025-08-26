@@ -97,7 +97,7 @@
 }
 
 .modal.block {
-  display: none;
+  display: block;
 }
 @media (max-width: 768px) {
   .modal.block {

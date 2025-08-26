@@ -2,6 +2,10 @@ import Swiper from '../swiper/swiper-bundle.min.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
+
+  if (window.location.href.includes('author')) {
+    return 1;
+  }
   // 1. Setup main Swiper container
   block.classList.add('swiper');
 

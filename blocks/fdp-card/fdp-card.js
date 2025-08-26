@@ -53,7 +53,7 @@ export default function decorate(block) {
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
     selectedReturn = '3 Years';
-  } else { selectedReturn = dataMapMoObj.selectreturns;}
+  } else { selectedReturn = dataMapMoObj.selectreturns; }
   const returnYear = tempReturns.includes(selectedReturn)
     ? selectedReturn
     : firstReturnYear;
@@ -519,6 +519,9 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.append(cardContainer);
 
+  const activecls = Array.from(item2Ul.children)[0].querySelector('a');
+  activecls.classList.add('active');
+
   const ptagtest = document.querySelector('.selectedtext-fdp');
 
   let currentSelectedText = '';
@@ -601,7 +604,12 @@ export default function decorate(block) {
       document.querySelectorAll(linkSelector).forEach((link) => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
+          Array.from(e.target.closest('.item2-ul').children).forEach((el) => {
+            const linkclass = el.querySelector('a');
+            linkclass.classList.remove('active');
+          });
           const targetId = link.getAttribute('href');
+          e.target.classList.add('active');
           const target = document.querySelector(`.section[data-id="${targetId}"]`);
 
           if (target) {

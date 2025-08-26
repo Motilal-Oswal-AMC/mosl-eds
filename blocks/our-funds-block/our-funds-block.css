@@ -150,7 +150,7 @@
   border-radius: 6px;
   width: 100%;
   margin: 0;
-  height: 352px;
+  max-height: 352px;
   overflow: auto;
   list-style: none;
   display: none;
@@ -160,7 +160,7 @@
 }
 @media (max-width: 768px) {
   .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search {
-    height: 372px;
+    max-height: 372px;
   }
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search::-webkit-scrollbar {
