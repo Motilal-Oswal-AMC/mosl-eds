@@ -288,14 +288,8 @@ function searchFunctionality(block) {
 
   searchInput.addEventListener('focus', () => {
     searchContainer.classList.add('search-active');
-  });
-  searchContainer.classList.remove('search-active');
-  searchInput.addEventListener('input', (event) => {
-    searchContainer.classList.add('search-active');
-    filterListItems(event.target.value);
-    cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
     if (window.visualViewport) {
-
+      
       // This event fires whenever the viewport is resized or zoomed
       window.visualViewport.addEventListener('resize', () => {
 
@@ -309,6 +303,12 @@ function searchFunctionality(block) {
         }
       });
     }
+  });
+  searchContainer.classList.remove('search-active');
+  searchInput.addEventListener('input', (event) => {
+    searchContainer.classList.add('search-active');
+    filterListItems(event.target.value);
+    cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
   });
 
   let currentFocusIndex = -1;
