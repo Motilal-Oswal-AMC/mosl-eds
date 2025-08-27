@@ -1,5 +1,5 @@
 @import "../../../styles/fonts.css";
-.sr-only, .footer-wrapper .footer .footer-section2 .footer-sub1 form label {
+.sr-only {
   position: absolute;
   border-width: 0;
 }
@@ -9,7 +9,7 @@
   color: #FFF;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  padding: 40px 0;
+  padding: 60px 0 0;
 }
 .footer-wrapper .footer a {
   color: #fff;
@@ -183,7 +183,6 @@
 }
 .footer-wrapper .footer .footer-section3 .footer-sub1 {
   border-top: 1px solid #332ab5;
-  padding-top: 24px;
 }
 .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont1 {
   display: none;
@@ -204,7 +203,7 @@
     display: grid;
     grid-template-areas: "info links" "contact contact";
     grid-template-columns: minmax(auto, 190px) 1fr;
-    gap: 40px 80px;
+    gap: 60px 80px;
     padding: 0;
   }
   .footer-wrapper .footer .footer-section1 {
@@ -342,7 +341,7 @@
   .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 40px;
   }
   .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item {
     border: none;
@@ -382,29 +381,71 @@
   .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul li {
     padding: 0;
     color: #FFF;
-    font-family: var(--Body, Poppins);
-    font-size: var(--Paragraph-XSmall-Size, 12px);
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
-    line-height: var(--Paragraph-XSmall-Line-Height, 16px);
-    /* 133.333% */
+    line-height: 1rem;
   }
   .footer-wrapper .footer .footer-section3 {
     grid-area: contact;
+    background: #242177;
+    position: relative;
   }
   .footer-wrapper .footer .footer-section3 .footer-sub1 {
     display: flex;
+    height: 40px;
+    padding: 12px 0;
     align-items: center;
-    justify-content: flex-start;
-    gap: 80px;
-    padding-top: 32px;
+    gap: 225px;
+    align-self: stretch;
   }
   .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont1 {
     display: block;
-    font-weight: 700;
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
   }
   .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 {
     flex-direction: row;
     gap: 40px;
+  }
+  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li {
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+  }
+  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li span {
+    display: flex;
+    width: 16px;
+    height: 16px;
+    padding: 2px 1.334px 2px 1.333px;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-wrapper .footer .footer-section3::after {
+    content: "";
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 40px;
+    background-color: #242177;
+  }
+  .footer-wrapper .footer .footer-section3::before {
+    content: "";
+    position: absolute;
+    display: block;
+    left: -325px;
+    width: 400px;
+    height: 40px;
+    background-color: #242177;
   }
 }/*# sourceMappingURL=footer.css.map */

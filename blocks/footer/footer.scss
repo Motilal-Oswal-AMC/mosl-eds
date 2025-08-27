@@ -226,7 +226,8 @@
         // --- Section 3: Contact Info ---
         .footer-section3 .footer-sub1 {
             border-top: 1px solid map.get($blue-1, b700);
-            padding-top: map.get($spacing, lg);
+
+            // padding-top: map.get($spacing, lg);
 
             .footer-sub-cont1 {
                 // "Contact us" title
@@ -464,7 +465,7 @@
                                     li {
                                         padding: 0;
                                         color: #FFF;
-                                        font-family: $Poppins;
+                                        font-family: $poppins;
                                         font-size: rem(12px);
                                         font-style: normal;
                                         font-weight: 400;
@@ -481,22 +482,69 @@
             .footer-section3 {
                 grid-area: contact;
                 background: #242177;
+                position: relative;
 
                 .footer-sub1 {
-                    gap: 80px;
-
-                    @include flex-center($justify: flex-start);
+                    display: flex;
+                    height: 40px;
+                    padding: 12px 0;
+                    align-items: center;
+                    gap: 225px;
+                    align-self: stretch;
 
                     .footer-sub-cont1 {
                         display: block; // Show "Contact us"
-                        font-weight: map.get($font-weights, bold);
+                        color: #FFF;
+                        font-family: $poppins;
+                        font-size: rem(12px);
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: rem(16px);
                     }
 
                     .footer-sub-cont2 {
-                        // Horizontal list
                         flex-direction: row;
                         gap: map.get($spacing, xxl);
+
+                        li {
+                            color: #FFF;
+                            font-family: $poppins;
+                            font-size: rem(12px);
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: rem(16px);
+
+                            span {
+                                display: flex;
+                                width: 16px;
+                                height: 16px;
+                                padding: 2px 1.334px 2px 1.333px;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        }
                     }
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    right: 0;
+                    top: 0;
+                    width: 100px;
+                    height: 40px;
+                    background-color: #242177;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    left: -325px;
+                    width: 400px;
+                    height: 40px;
+                    background-color: #242177;
                 }
             }
         }
