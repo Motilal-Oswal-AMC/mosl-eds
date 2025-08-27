@@ -369,7 +369,7 @@ function searchFunctionality(block) {
       if (cardsContainer && cardsContainer.checkVisibility()) {
         const datatem = dataCfObj.filter(elsch =>
           elsch.schDetail.schemeName === searchInput.value);
-          cardsContainer.innerHTML = '';
+        cardsContainer.innerHTML = '';
         cardsContainer.append(fundcardblock(datatem[0]));
       }
 
@@ -445,7 +445,7 @@ function checkfilter(block) {
       }
     }
   });
-  if (window.innerWidth > 786) {
+  
     dataMapMoObj.funddata = [];
     dataMapMoObj.funddata = dataCfObj.filter((el, index) => {
       if (tempData.length > 0) {
@@ -453,7 +453,6 @@ function checkfilter(block) {
       }
       return index < 9;
     });
-  }
 
   viewFunction(block);
   function filterGroup(Filterparam) {
@@ -889,10 +888,23 @@ export default function decorate(block) {
                             dataattr: elme[Object.keys(elme)].join('-'),
                             onclick: (event) => {
                               if (window.innerWidth < 786) {
-                                const dataattr = event.target
-                                  .getAttribute('dataattr')
-                                  .split('-');
-                                const tempdata = dataCfObj.filter((el) => (dataattr.includes(el.schcode) ? el : ''));
+                                let temp = [],
+                                  dup = [];
+                                Array.from(block.querySelectorAll('.checkbox-label-container input')).forEach((el) => {
+                                  if (el.checked) {
+                                    let tempel = el.getAttribute('dataattr').split('-')
+                                    temp.push(...tempel);
+                                  }
+                                })
+                                if (temp.length > 0) {
+                                  temp.forEach((scel) => {
+                                    if (!dup.includes(scel)) {
+                                      dup.push(scel);
+                                    }
+                                  });
+                                }
+                                // console.log(dup);
+                                const tempdata = dataCfObj.filter((el) => (dup.includes(el.schcode) ? el : ''));
                                 dataMapMoObj.tempMobReturn = [];
                                 dataMapMoObj.tempMobReturn = tempdata;
                               } else {
@@ -937,13 +949,26 @@ export default function decorate(block) {
                             }
                           }
                           if (window.innerWidth < 786) {
-                            const dataattr = event.target
-                              .getAttribute('dataattr')
-                              .split('-');
-                            const tempdata = dataCfObj.filter((el) => (dataattr.includes(el.schcode) ? el : ''));
-                            dataMapMoObj.tempMobReturn = [];
-                            dataMapMoObj.tempMobReturn = tempdata;
-                          } else {
+                                let temp = [],
+                                  dup = [];
+                                Array.from(block.querySelectorAll('.checkbox-label-container input')).forEach((el) => {
+                                  if (el.checked) {
+                                    let tempel = el.getAttribute('dataattr').split('-')
+                                    temp.push(...tempel);
+                                  }
+                                })
+                                if (temp.length > 0) {
+                                  temp.forEach((scel) => {
+                                    if (!dup.includes(scel)) {
+                                      dup.push(scel);
+                                    }
+                                  });
+                                }
+                                // console.log(dup);
+                                const tempdata = dataCfObj.filter((el) => (dup.includes(el.schcode) ? el : ''));
+                                dataMapMoObj.tempMobReturn = [];
+                                dataMapMoObj.tempMobReturn = tempdata;
+                              } else {
                             checkfilter(block);
                           }
                         },
@@ -1002,16 +1027,28 @@ export default function decorate(block) {
                     onclick: (event) => {
                       // checkfilter(block);
                       if (window.innerWidth < 786) {
-                        const dataattr = event.target
-                          .getAttribute('dataattr')
-                          .split('-');
-                        const tempdata = dataCfObj.filter((el) => dataattr.includes(el.schcode));
-
-                        dataMapMoObj.tempMobReturn = [];
-                        dataMapMoObj.tempMobReturn = tempdata;
-                      } else {
-                        checkfilter(block);
-                      }
+                                let temp = [],
+                                  dup = [];
+                                Array.from(block.querySelectorAll('.checkbox-label-container input')).forEach((el) => {
+                                  if (el.checked) {
+                                    let tempel = el.getAttribute('dataattr').split('-')
+                                    temp.push(...tempel);
+                                  }
+                                })
+                                if (temp.length > 0) {
+                                  temp.forEach((scel) => {
+                                    if (!dup.includes(scel)) {
+                                      dup.push(scel);
+                                    }
+                                  });
+                                }
+                                // console.log(dup);
+                                const tempdata = dataCfObj.filter((el) => (dup.includes(el.schcode) ? el : ''));
+                                dataMapMoObj.tempMobReturn = [];
+                                dataMapMoObj.tempMobReturn = tempdata;
+                              } else {
+                                  checkfilter(block);
+                              }
                       // viewFunction(block);
                     },
                   }),

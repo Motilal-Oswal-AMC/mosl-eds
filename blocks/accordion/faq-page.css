@@ -86,6 +86,9 @@
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .tabs-list::-webkit-scrollbar {
   display: none;
 }
+.section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .tabs-list::-webkit-scrollbar-track {
+  background: #FFF;
+}
 @media (max-width: 768px) {
   .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .tabs-list {
     max-width: 100%;
@@ -171,7 +174,7 @@
   display: none;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper.search-active {
-  border: 1px solid #1887D2;
+  border: 1px solid #9E9E9E;
   padding: 10px 8px;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper.search-active .search-field {
@@ -294,6 +297,12 @@
   border: none;
   position: unset;
   transform: unset;
+}
+@media (max-width: 768px) {
+  .section.page-faq-section .itemfaq2 .subitemfaq1 .tabs-panel .button-container .accordion-container .accordion-wrapper .accordion .accordion-item .accordion-item-label::after {
+    min-width: 16px;
+    height: 16px;
+  }
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tabs-panel .button-container .accordion-container .accordion-wrapper .accordion .accordion-item .accordion-item-label p {
   margin: 0;
