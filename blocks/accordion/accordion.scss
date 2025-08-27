@@ -55,7 +55,8 @@
         height: 6px;
         border: 2px solid;
         border-width: 2px 2px 0 0;
-        transition: transform 0.2s;
+        
+        // transition: transform 0.2s;
       }
     }
 
@@ -196,10 +197,7 @@
           cursor: pointer;
           list-style: none;
           overflow: hidden;
-
-          // transition: all 0.4s ease-in-out;
-
-          // padding-left: 0;
+          transition: all 0.3s ease-in-out;
 
           &:focus,
           &:hover {
@@ -221,8 +219,7 @@
             border-width: unset;
             transform: unset;
             background: url("../../icons/plus-blue.svg");
-
-            // transition: all 0.4s ease-in-out;
+            transition: all 0.3s ease-in-out;
 
             @include media(mobile) {
               top: -2px;
@@ -275,6 +272,7 @@
             border-radius: 0 0 8px 8px;
             background: #242177;
             box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+            transition: all 0.3s ease-in-out;
 
             @include media(mobile) {
               padding: 16px 12px;

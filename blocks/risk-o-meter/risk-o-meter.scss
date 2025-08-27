@@ -108,24 +108,28 @@
         max-width: 100%;
         object-fit: contain;
         alt: ''; // decorative image
-        role: presentation;
+        // role: presentation;
       }
     }
   }
 
   >div:nth-child(2) {
-    // border-top: 0.5px solid #8695AF;
+    border-top: 0.5px solid #8695AF;
     padding-top: 16px;
     margin: 0 24px 24px;
-    // border-top: 0.5px solid #8695AF;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
 
+    @include media (mobile) {
+      margin: 0 16px 24px;
+    }
+
     h3 {
       margin: 0;
       padding: 0;
+
       @include font-style(16px, 20px, #2E2A94, map.get($font-weights, semibold), $poppins);
 
       @include media(mobile) {
@@ -177,6 +181,7 @@
       line-height: 20px;
       margin: 0;
 
+      /* stylelint-disable-next-line no-descending-specificity */
       a {
         color: #5659FA;
         text-decoration: none;
@@ -190,11 +195,21 @@
   }
 }
 
-.modal .close-button .icon.icon-close::before,
-.modal .close-button .icon.icon-close::after {
-  width: 13px;
-  height: 1.5px;
+/* stylelint-disable no-descending-specificity */
+.modal {
+  .close-button {
+    .icon {
+      &.icon-close {
+        &::before,
+        &::after {
+          width: 13px;
+          height: 1.5px;
+        }
+      }
+    }
+  }
 }
+/* stylelint-enable no-descending-specificity */
 
 .section.product-label.risk-o-meter-container {
   //   padding: 40px 0;

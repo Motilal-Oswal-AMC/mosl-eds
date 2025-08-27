@@ -39,7 +39,6 @@
   height: 6px;
   border: 2px solid;
   border-width: 2px 2px 0 0;
-  transition: transform 0.2s;
 }
 .accordion details .accordion-item-body {
   padding: 0 16px;
@@ -158,6 +157,7 @@
   cursor: pointer;
   list-style: none;
   overflow: hidden;
+  transition: all 0.3s ease-in-out;
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details summary:focus, .section.freq-ask-ques .accordion-wrapper .accordion details summary:hover {
   background-color: var(--light-color);
@@ -176,6 +176,7 @@
   border-width: unset;
   transform: unset;
   background: url("../../icons/plus-blue.svg");
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details summary::after {
@@ -224,6 +225,7 @@
   border-radius: 0 0 8px 8px;
   background: #242177;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details[open] .accordion-item-body {
