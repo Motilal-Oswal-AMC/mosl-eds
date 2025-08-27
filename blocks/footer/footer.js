@@ -21,8 +21,25 @@ export default async function decorate(block) {
 
   block.append(footer);
 
-  dataMapMoObj.CLASS_PREFIXES = ['footer-container', 'footer-section', 'footer-sub', 'footer-sub-cont', 'section-content'];
+  // index with your class prefixes
+  dataMapMoObj.CLASS_PREFIXES = [
+    'footer-container',
+    'footer-section',
+    'footer-sub',
+    'footer-sub-cont',
+    'section-content',
+  ];
   dataMapMoObj.addIndexed(block);
+
+  // wrap .footer-sub-cont2 and .footer-sub-cont3 in a container <div>
+  const social = footer.querySelector('.footer-sub-cont2');
+  const store = footer.querySelector('.footer-sub-cont3');
+  if (social && store) {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('footer-sub-wrapper'); // your custom wrapper class
+    social.before(wrapper);
+    wrapper.append(social, store);
+  }
 
   loadAutoBlock(footer);
 }

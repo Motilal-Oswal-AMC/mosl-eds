@@ -21,19 +21,30 @@
         color: #FFF;
         color: $primary-white;
         font-family: $poppins;
-        padding: map.get($spacing, xxl) 0;
+        padding: 60px 0 0;
 
         a {
-            color: $primary-white;
+            color: #fff;
             text-decoration: none;
             transition: opacity 0.3s ease;
+            background: transparent;
+            margin: 0;
+            border: none;
+            border-radius: unset;
+            white-space: unset;
+            padding: 0;
+            line-height: normal;
+            font-family: $poppins;
+            font-weight: 400;
 
-            &:hover {
-                opacity: 0.8;
-            }
+            // &:hover {
+            //     opacity: 0.8;
+            // }
         }
 
-        ul {
+        ul,
+        li,
+        p {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -84,7 +95,7 @@
 
                     gap: map.get($spacing, sm);
                     background: transparent;
-                    padding: map.get($spacing, xs) map.get($spacing, md);
+                    padding: 0;
                     border-radius: map.get($radius, r8);
                     min-width: 180px;
 
@@ -127,9 +138,9 @@
                     flex-direction: column;
                     gap: map.get($spacing, md);
 
-                    label {
-                        @extend .sr-only; // Hides label visually, keeps it for screen readers
-                    }
+                    // label {
+                    //     @extend .sr-only; // Hides label visually, keeps it for screen readers
+                    // }
 
                     input[type="email"] {
                         background-color: transparent;
@@ -246,7 +257,7 @@
                     "info links"
                     "contact contact";
                 grid-template-columns: minmax(auto, 190px) 1fr;
-                gap: map.get($spacing, xxl) 80px;
+                gap: 60px 80px;
                 padding: 0;
             }
 
@@ -255,23 +266,50 @@
                 grid-area: info;
 
                 .footer-sub1 {
+                    height: 100%;
                     align-items: flex-start;
                     text-align: left;
                     gap: map.get($spacing, xl);
 
-                    .footer-sub-cont2 {
-                        justify-content: flex-start;
-                    }
-
-                    .footer-sub-cont3 {
+                    .footer-sub-wrapper {
+                        display: flex;
                         flex-direction: column;
-                        gap: map.get($spacing, md);
-                        align-items: center;
+                        justify-content: space-between;
+                        height: 100%;
 
-                        .section-content1 {
-                            display: block; // Show QR Code
+                        .footer-sub-cont2 {
+                            justify-content: flex-start;
+                            gap: 16px;
+
+                            li {
+                                .icon {
+                                    width: 16px;
+                                    height: 16px;
+                                }
+                            }
+                        }
+
+                        .footer-sub-cont3 {
+                            flex-direction: column;
+                            gap: map.get($spacing, md);
+                            align-items: flex-start;
+
+                            .section-content1 {
+                                display: block;
+
+                                p {
+                                    margin: 0;
+                                    padding: 0;
+
+                                    span {
+                                        width: 86px;
+                                        height: 86px;
+                                    }
+                                }
+                            }
                         }
                     }
+
                 }
             }
 
@@ -286,43 +324,104 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    margin: 0;
+                    padding-bottom: 32px;
+                    border-bottom: 2px solid #FFF3;
+
 
                     .footer-sub-cont1 {
                         width: 350px;
-                        font-size: 20px;
-                        margin-bottom: map.get($spacing, md);
+                        color: #FFF;
+                        font-family: $poppins;
+                        font-size: rem(16px);
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: rem(24px);
+                        margin: 0;
+                        padding: 0;
                     }
 
                     form {
                         flex-direction: row;
                         align-items: center;
+                        gap: 8px;
 
                         .field-wrapper {
+                            position: relative;
                             flex-grow: 1;
 
                             label {
                                 position: absolute;
+                                top: -7px;
+                                left: 8px;
+                                display: flex;
+                                padding: 0 4px;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 10px;
+                                overflow: hidden;
                                 color: #FFF;
                                 text-overflow: ellipsis;
-                                font-family:$poppins;
-                                font-size:  12px;
+                                font-family: $poppins;
+                                font-size: rem(12px);
                                 font-style: normal;
                                 font-weight: 400;
-                                line-height: 16px;
+                                line-height: rem(16px);
+                                background: #2E2A94;
                             }
 
                             input {
                                 width: 368px;
+                                display: flex;
+                                padding: 8px 12px;
+                                flex-direction: column;
+                                justify-content: flex-end;
+                                align-items: flex-start;
+                                gap: 4px;
+                                align-self: stretch;
+                                height: 40px;
+                                color: #FFFFFF80;
+                                font-family: $poppins;
+                                font-size: rem(14px);
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: rem(20px);
+                                border-radius: rem(6px);
+                                border: 1px solid #BDBDBD;
+                            }
+
+                            .button {
+                                display: flex;
+                                width: 128px;
+                                padding: rem(12px);
+                                justify-content: center;
+                                align-items: center;
+                                gap: rem(8px);
+                                color: #2E2A94;
+                                text-align: center;
+                                font-family: $poppins;
+                                font-size: rem(14px);
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: rem(16px);
+                                border-radius: 4px;
+                                background: #FFF;
+                                margin: 0;
+
                             }
                         }
                     }
+                }
+
+                .footer-sub2 {
+                    padding-top: 32px;
                 }
 
                 .accordion-wrapper {
                     .footer-sub-cont1 {
                         display: grid;
                         grid-template-columns: repeat(4, 1fr);
-                        gap: map.get($spacing, lg);
+                        gap: 40px;
 
                         .accordion-item {
                             border: none;
@@ -334,13 +433,19 @@
                                 padding: 0;
                                 cursor: default;
                                 background: transparent;
+                                overflow: initial;
 
                                 &::after {
                                     display: none; // Hide chevron
                                 }
 
                                 p {
-                                    padding: 0;
+                                    color: #FFF;
+                                    font-family: $poppins;
+                                    font-size: rem(12px);
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: rem(16px);
                                 }
                             }
 
@@ -349,6 +454,23 @@
                                 background: transparent;
                                 border: none;
                                 padding: 0;
+                                padding-top: 12px;
+
+                                ul {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 8px;
+
+                                    li {
+                                        padding: 0;
+                                        color: #FFF;
+                                        font-family: $Poppins;
+                                        font-size: rem(12px);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: rem(16px);
+                                    }
+                                }
                             }
                         }
                     }
@@ -358,12 +480,12 @@
             // --- Section 3 on Desktop ---
             .footer-section3 {
                 grid-area: contact;
+                background: #242177;
 
                 .footer-sub1 {
-                    @include flex-center($justify: flex-start);
-
                     gap: 80px;
-                    padding-top: map.get($spacing, xl);
+
+                    @include flex-center($justify: flex-start);
 
                     .footer-sub-cont1 {
                         display: block; // Show "Contact us"
