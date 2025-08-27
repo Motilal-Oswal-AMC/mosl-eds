@@ -28,6 +28,7 @@ export default async function decorate(block) {
     'footer-sub',
     'footer-sub-cont',
     'section-content',
+    'list-items',
   ];
   dataMapMoObj.addIndexed(block);
 
