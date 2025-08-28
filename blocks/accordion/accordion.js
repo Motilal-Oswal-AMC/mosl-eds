@@ -1,25 +1,22 @@
-/*    */
-
-import { isDesktop } from "../header/header.js";
+/* eslint-disable no-param-reassign */
+import { isDesktop } from '../header/header.js';
 
 /**
  * Transforms a content block into an accessible accordion.
- * - The first item is open by default.
- * - Only one item can be open (expanded) at a time.
- * - Initially shows a limited number of items.
- * - Provides a "Load More" / "Show Less" button to toggle visibility of extra items.
- * @param {HTMLElement} block The accordion block element.
+ * - First item is open by default (except mob-accordion on desktop).
+ * - Only one item can be open at a time.
+ * - "Load More" / "Show Less" toggles visibility of extra items.
+ *
+ * @param {HTMLElement} block - The accordion block element.
  */
-
 export default function decorate(block) {
-  if (window.location.href.includes('author')) {
-    return 1;
-  }
-  // Part 1: Convert the initial HTML structure into semantic <details> elements.
+  if (window.location.href.includes('author')) return;
+
+  // --- Part 1: Convert rows to semantic <details>/<summary> ---
   [...block.children].forEach((row) => {
     const [label, body] = row.children;
     if (!label || !body || !body.textContent.trim()) {
-      row.remove(); // Remove malformed or empty rows
+      row.remove();
       return;
     }
 
@@ -29,77 +26,75 @@ export default function decorate(block) {
 
     body.className = 'accordion-item-body';
 
-    const details = document.createElement('details');
-    details.className = 'accordion-item';
-    details.append(summary, body);
-    row.replaceWith(details);
+    const detailsEl = document.createElement('details');
+    detailsEl.className = 'accordion-item';
+    detailsEl.append(summary, body);
 
-    if (block.closest('.mobile-accordion') && isDesktop.matches) {
-      // document.querySelectorAll('details').forEach((detail) => {
-      details.setAttribute('open', '');
-      details.addEventListener('click', (e) => {
-        e.preventDefault();
-      });
-      // });
-    }
+    row.replaceWith(detailsEl);
   });
+
   const allItems = block.querySelectorAll('.accordion-item');
   if (!allItems.length) return;
 
-  // Part 2: Set initial state and "one-at-a-time" expand/collapse functionality.
+  // --- Part 2: Accordion behavior ---
+  if (block.closest('.section.mob-accordion') && isDesktop.matches) {
+    // In mob-accordion + desktop → keep all open but prevent toggling
+    allItems.forEach((item) => {
+      item.setAttribute('open', '');
+      item.addEventListener('click', (e) => e.preventDefault());
+    });
+  } else {
+    // Normal accordion → first item open by default, only one open at a time
+    allItems[0].setAttribute('open', '');
+    allItems.forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          allItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.removeAttribute('open');
+            }
+          });
+        }
+      });
+    });
+  }
 
-  // --- NEW: Set the first item to be open by default ---
-  // allItems[0].open = true;
-
-  // allItems.forEach((item) => {
-  //   item.addEventListener('toggle', () => {
-  //     if (item.open) {
-  //       allItems.forEach((otherItem) => {
-  //         if (otherItem !== item) {
-  //           otherItem.open = false;
-  //         }
-  //       });
-  //     }
-  //   });
-  // });
-  // Part 3: Implement the "Load More" / "Show Less" functionality.
+  // --- Part 3: Load More / Show Less ---
   const itemsToShowInitially = 3;
   const section = block.closest('.section');
   const loadMoreButton = section?.querySelector('.button-container a.button');
 
-  // If there are not enough items to hide or no button is found, do nothing.
-  if (allItems.length <= itemsToShowInitially || !loadMoreButton) {
-    if (loadMoreButton) loadMoreButton.parentElement.remove(); // Remove button if not needed
+  if (!loadMoreButton || allItems.length <= itemsToShowInitially) {
+    if (loadMoreButton) loadMoreButton.parentElement.remove();
     return;
   }
 
-  // Initially hide all items beyond the initial limit.
+  // Hide items beyond initial count
   allItems.forEach((item, index) => {
-    if (index >= itemsToShowInitially) {
-      item.classList.add('hidden');
-    }
+    if (index >= itemsToShowInitially) item.classList.add('hidden');
   });
 
   loadMoreButton.addEventListener('click', (event) => {
     event.preventDefault();
-    const isShowingAll = block.querySelector('.accordion-item.hidden') === null;
+
+    const isShowingAll = !block.querySelector('.accordion-item.hidden');
+
     if (isShowingAll) {
-      // If all are showing, HIDE the extra items.
+      // Hide extras
       allItems.forEach((item, index) => {
         if (index >= itemsToShowInitially) {
           item.classList.add('hidden');
-          item.open = false; // Also close the item when hiding it
+          item.open = false;
         }
       });
       loadMoreButton.textContent = 'Load More';
-      block.scrollIntoView({ behavior: 'smooth' }); // Scroll up for better UX
+      block.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // If some are hidden, SHOW all items.
-      block.querySelectorAll('.accordion-item.hidden').forEach((hiddenItem) => {
-        hiddenItem.classList.remove('hidden');
+      // Show all
+      block.querySelectorAll('.accordion-item.hidden').forEach((item) => {
+        item.classList.remove('hidden');
       });
       loadMoreButton.textContent = 'Show Less';
     }
   });
 }
-

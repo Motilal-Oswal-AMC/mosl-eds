@@ -268,6 +268,7 @@
                             flex-direction: column;
                             gap: 12px;
 
+                            /* stylelint-disable-next-line no-descending-specificity */
                             li {
                                 padding: 0;
                                 color: #FFF;
@@ -322,6 +323,8 @@
                         gap: 8px;
 
                         p {
+
+                            /* stylelint-disable-next-line no-descending-specificity */
                             a {
                                 display: flex;
                                 align-items: center;
@@ -388,6 +391,8 @@
                     gap: 12px;
 
                     li {
+
+                        /* stylelint-disable-next-line no-descending-specificity */
                         a {
                             @include flex-center($justify: flex-start);
 
@@ -399,6 +404,7 @@
                             font-weight: 400;
                             line-height: rem(16px);
 
+                            /* stylelint-disable-next-line no-descending-specificity */
                             span {
                                 display: flex;
                                 width: 16px;
@@ -447,8 +453,10 @@
                 grid-template-areas:
                     "info links"
                     "contact contact";
-                grid-template-columns: minmax(auto, 190px) 1fr;
-                gap: 60px 80px;
+
+                // grid-template-columns: minmax(auto, 190px) 1fr;
+                grid-template-columns: 12.3% 76.3%;
+                gap: 60px 140px;
                 padding: 0;
             }
 
@@ -550,7 +558,7 @@
                 gap: unset;
 
                 .footer-sub1 {
-                    text-align: left;
+                    width: 100%;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -560,7 +568,7 @@
 
 
                     .footer-sub-cont1 {
-                        width: 350px;
+                        width: 37.3%;
                         color: #FFF;
                         font-family: $poppins;
                         font-size: rem(16px);
@@ -571,73 +579,78 @@
                         padding: 0;
                     }
 
-                    form {
-                        flex-direction: row;
-                        align-items: center;
-                        gap: 8px;
+                    /* stylelint-disable-next-line no-descending-specificity */
+                    .footer-sub-cont2 {
+                        width: 53.62%;
 
-                        .field-wrapper {
-                            position: relative;
-                            flex-grow: 1;
+                        form {
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 8px;
 
-                            label {
-                                position: absolute;
-                                top: -7px;
-                                left: 8px;
-                                display: flex;
-                                padding: 0 4px;
-                                justify-content: center;
-                                align-items: center;
-                                gap: 10px;
-                                overflow: hidden;
-                                color: #FFF;
-                                text-overflow: ellipsis;
-                                font-family: $poppins;
-                                font-size: rem(12px);
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: rem(16px);
-                                background: #2E2A94;
-                            }
+                            .field-wrapper {
+                                position: relative;
+                                flex-grow: 1;
 
-                            input {
-                                width: 368px;
-                                display: flex;
-                                padding: 8px 12px;
-                                flex-direction: column;
-                                justify-content: flex-end;
-                                align-items: flex-start;
-                                gap: 4px;
-                                align-self: stretch;
-                                height: 40px;
-                                color: #FFFFFF80;
-                                font-family: $poppins;
-                                font-size: rem(14px);
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: rem(20px);
-                                border-radius: rem(6px);
-                                border: 1px solid #BDBDBD;
-                            }
+                                label {
+                                    position: absolute;
+                                    top: -7px;
+                                    left: 8px;
+                                    display: flex;
+                                    padding: 0 4px;
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: 10px;
+                                    overflow: hidden;
+                                    color: #FFF;
+                                    text-overflow: ellipsis;
+                                    font-family: $poppins;
+                                    font-size: rem(12px);
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: rem(16px);
+                                    background: #2E2A94;
+                                }
 
-                            .button {
-                                display: flex;
-                                width: 128px;
-                                padding: rem(12px);
-                                justify-content: center;
-                                align-items: center;
-                                gap: rem(8px);
-                                color: #2E2A94;
-                                text-align: center;
-                                font-family: $poppins;
-                                font-size: rem(14px);
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: rem(16px);
-                                border-radius: 4px;
-                                background: #FFF;
-                                margin: 0;
+                                input {
+                                    width: 368px;
+                                    display: flex;
+                                    padding: 8px 12px;
+                                    flex-direction: column;
+                                    justify-content: flex-end;
+                                    align-items: flex-start;
+                                    gap: 4px;
+                                    align-self: stretch;
+                                    height: 40px;
+                                    color: #FFFFFF80;
+                                    font-family: $poppins;
+                                    font-size: rem(14px);
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: rem(20px);
+                                    border-radius: rem(6px);
+                                    border: 1px solid #BDBDBD;
+                                }
 
+                                .button {
+                                    display: flex;
+                                    width: 128px;
+                                    padding: rem(12px);
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: rem(8px);
+                                    color: #2E2A94;
+                                    text-align: center;
+                                    font-family: $poppins;
+                                    font-size: rem(14px);
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: rem(16px);
+                                    border-radius: 4px;
+                                    background: #FFF;
+                                    margin: 0;
+
+                                }
                             }
                         }
                     }
@@ -688,6 +701,8 @@
 
                                 ul {
                                     li {
+
+                                        /* stylelint-disable-next-line no-descending-specificity */
                                         a {
                                             font-family: $poppins;
                                             font-size: rem(12px);
@@ -729,11 +744,14 @@
                         line-height: rem(16px);
                     }
 
+                    /* stylelint-disable-next-line no-descending-specificity */
                     .footer-sub-cont2 {
                         flex-direction: row;
                         gap: map.get($spacing, xxl);
 
                         li {
+
+                            /* stylelint-disable-next-line no-descending-specificity */
                             a {
                                 gap: 4px;
                                 color: #FFF;
@@ -743,11 +761,12 @@
                                 font-weight: 400;
                                 line-height: rem(16px);
 
-                                span {
+                                /* stylelint-disable-next-line no-descending-specificity */
+                                .icon {
                                     display: flex;
                                     width: 16px;
                                     height: 16px;
-                                    padding: 2px 1.334px 2px 1.333px;
+                                    padding: 1.334px 1.333px;
                                     justify-content: center;
                                     align-items: center;
                                 }
