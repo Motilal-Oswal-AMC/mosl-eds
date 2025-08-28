@@ -3,12 +3,20 @@ import {
   buildBlock, decorateBlock, loadBlock, loadCSS,
 } from '../../scripts/aem.js';
 
+import {
+  div,
+  p,
+  input,
+} from '../../scripts/dom-helpers.js';
+
 export async function createModal(contentNodes) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
-  let contentNodesClass = [...contentNodes].filter((node) => node.classList && node.classList.contains('risk-o-meter-container'));
+  let contentNodesClass = [...contentNodes].filter(
+    (node) => node.classList && node.classList.contains('risk-o-meter-container'),
+  );
   if (contentNodesClass.length === 0) {
     contentNodesClass = [...contentNodes].filter(
-      (node) => node.classList && node.classList.contains("live-streaming")
+      (node) => node.classList && node.classList.contains('live-streaming'),
     );
   }
   const dialog = document.createElement('dialog');
@@ -79,9 +87,25 @@ export async function openModal(fragmentUrl) {
 // --- Specialized function for On-Card Modals ---
 async function openModalOnElement(fragmentUrl, clickedElement) {
   // **IMPORTANT**: Replace '.your-card-class' with the actual class of your fund card!
-  const schcodeactive = clickedElement.parentElement.parentElement.parentElement.querySelector('.star').attributes.schcode.value;
+  let schcodeactive;
+  if (
+    clickedElement.parentElement.parentElement.parentElement.querySelector(
+      '.star',
+    ) !== null
+  ) {
+    schcodeactive = clickedElement.parentElement.parentElement.parentElement.querySelector(
+      '.star',
+    ).attributes.schcode.value;
+  } else {
+    const carwrapp = clickedElement.closest('.card-wrapper');
+    schcodeactive = carwrapp
+      .querySelector('.fund-name-title')
+      .getAttribute('schcode');
+  }
   localStorage.setItem('schcodeactive', schcodeactive);
-  const card = clickedElement.closest('.our-popular-funds') || clickedElement.closest('.known-our-funds');
+  const card = clickedElement.closest('.our-popular-funds')
+    || clickedElement.closest('.known-our-funds')
+    || clickedElement.closest('.fdp-card-container');
   if (!card) {
     // console.error('On-card modal: Could not find parent card with class ".your-card-class".');
     return;
@@ -141,7 +165,7 @@ export function initializeModalHandlers() {
       e.preventDefault();
 
       // If it's our special card button, use the on-card logic
-      if (link.classList.contains('invest-now') && link.classList.contains('card-btn')) {
+      if (link.classList.contains('invest-now') || link.classList.contains('card-btn') || link.classList.contains('submit')) {
         e.stopPropagation(); // Stop other listeners!
         await openModalOnElement(link.href, link);
       } else {
@@ -151,3 +175,29 @@ export function initializeModalHandlers() {
     }
   });
 }
+
+//  FDP PAN FUND
+
+document.addEventListener('DOMContentLoaded', () => {
+  const demo = Array.from(document.querySelectorAll('.pan-details-modal p'));
+  const inputLable = demo[0];
+  if (!inputLable) {
+    // console.warn('No <p> elements found inside .pan-details-modal');
+    return;
+  }
+
+  inputLable.innerHTML = '';
+
+  const addInputDiv = div(
+    { class: 'input-wrapper' },
+    p({ class: 'panlabel' }, 'Pan Number'),
+    input('input', {
+      type: 'text',
+      placeholder: 'Enter PAN Number',
+      name: 'pan',
+      class: 'iptpanfld',
+    }),
+  );
+
+  inputLable.appendChild(addInputDiv);
+});

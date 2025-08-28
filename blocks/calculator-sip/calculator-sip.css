@@ -313,6 +313,7 @@
   cursor: pointer;
   font-weight: 400;
   border-bottom: 1px solid #eee;
+  font-size: 14px;
 }
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul li:hover,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .search-results-wrapper ul li:hover {

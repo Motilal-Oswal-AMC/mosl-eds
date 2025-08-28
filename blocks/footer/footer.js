@@ -32,6 +32,12 @@ export default async function decorate(block) {
   ];
   dataMapMoObj.addIndexed(block);
 
+  const acccontain = block.querySelector('.footer-sub2 .accordion').children;
+  Array.from(acccontain).forEach((itemel) => {
+    if (itemel.getAttribute('open') === null) {
+      itemel.setAttribute('open', '');
+    }
+  });
   // wrap .footer-sub-cont2 and .footer-sub-cont3 in a container <div>
   const social = footer.querySelector('.footer-sub-cont2');
   const store = footer.querySelector('.footer-sub-cont3');

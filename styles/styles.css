@@ -499,6 +499,38 @@ footer .footer[data-block-status="loaded"] {
     background-color: #fff;
 }
 
+/*fdp-model*/
+
+/* .fdp-card-container {
+    position: relative;
+} */
+
+.fdp-card-container .invest-now-container {
+    width: 400px;
+    height: 700px;
+}
+
+.fdp-card-container .card-modal-overlay {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 200px;
+    right: 0;
+    height: 100vh;
+    z-index: 1000;
+    background: #0009;
+
+}
+
+.fdp-card-container .invest-now-homepage-container>.invest-now-homepage-wrapper {
+    background: unset;
+}
+
+
+
+
 @media (width <=768px) {
 
     .our-popular-funds.modal-active-parent,
@@ -682,4 +714,147 @@ body.noscroll {
     .section.breadcrumbs-fdp>ul {
         display: none;
     }
+}
+
+
+/* pan modal */
+.pan-details-modal {
+    max-width: 100%;
+    width: 100%;
+    background: #0009;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.pan-details-modal .default-content-wrapper {
+    display: flex;
+    width: 400px;
+    height: 600px;
+    padding: 64px 16px;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 32px;
+    flex-shrink: 0;
+    background: #FFF;
+    position: relative;
+}
+
+.pan-details-modal .default-content-wrapper h5 {
+    color: #2E2A94;
+    font-family: ButlerPro;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    margin: 0;
+    /* 114.286% */
+
+}
+
+.pan-details-modal .default-content-wrapper ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.pan-details-modal .default-content-wrapper ul li:nth-child(1) {
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 4px;
+    background: #2E2A94;
+    cursor: pointer;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.pan-details-modal .default-content-wrapper ul li:nth-child(2) {
+    color: #616161;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.pan-details-modal .default-content-wrapper p>span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 90;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
+
+.pan-details-modal .default-content-wrapper p:nth-child(2) {
+    margin: 0;
+    padding: 0;
+}
+
+
+.pan-details-modal .default-content-wrapper p:nth-child(2)>.input-wrapper {
+    display: flex;
+    padding: 8px 12px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 6px;
+    border: 1px solid #9E9E9E;
+    position: relative;
+
+}
+
+.pan-details-modal p:nth-child(2)>.input-wrapper>p {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: #424242;
+    text-overflow: ellipsis;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    padding-left: 6px;
+    position: absolute;
+
+}
+
+.pan-details-modal .default-content-wrapper p:nth-child(2)>.input-wrapper:hover {
+    position: relative;
+}
+
+
+.pan-details-modal .default-content-wrapper p:nth-child(2) > .input-wrapper:hover > p {
+  position: absolute;
+  top: -7px;
+  background: white;
+  padding: 0 4px;
+  transition: top 0.8s ease;
+}
+
+
+.pan-details-modal p:nth-child(2)>.input-wrapper>input {
+    border: none;
+    width: 100%;
+    border-radius: 6px;
+    color: #616161;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
 }

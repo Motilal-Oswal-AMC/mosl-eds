@@ -1,5 +1,5 @@
 /*    */
-const dataCfObj = [
+const dataCfObj =[
     {
         "sebiCategory": "Equity Fund",
         "nfoFaceValue": "10",
@@ -143,9 +143,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -632,9 +632,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -1147,9 +1147,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -1640,9 +1640,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -2133,9 +2133,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -2630,9 +2630,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -3001,6 +3001,10 @@ const dataCfObj = [
         "fundCategorisation": "ETF's",
         "fundIcon": "/content/dam/wknd-shared/fund-icons/MO_India_Defence_ETF.png",
         "fundType": "Mutual Fund",
+        "fundtype": [
+            "motilal-oswal:indian-equity-",
+            "motilal-oswal:sector"
+        ],
         "moAmcCode": "MOSMF",
         "periodicReturns": "<p>NIL</p>\n",
         "redemptionProceeds": "Normally within 3 Business days from acceptance of redemption request.",
@@ -4361,9 +4365,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -6738,9 +6742,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -7218,9 +7222,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -7673,9 +7677,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -9178,9 +9182,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -9624,9 +9628,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -10260,9 +10264,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -10778,9 +10782,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -13011,6 +13015,10 @@ const dataCfObj = [
         "fundCategorisation": "Passive Funds",
         "fundIcon": "/content/dam/wknd-shared/fund-icons/MO_Nifty_Midcap_150_Index_Fund.png",
         "fundType": "Index Fund",
+        "fundtype": [
+            "motilal-oswal:mid-cap",
+            "motilal-oswal:indian-equity-"
+        ],
         "moAmcCode": "MOSMF",
         "sharpeRatio": "1.4 (Annualised)",
         "periodicReturns": "<p>NIL</p>\n",
@@ -16177,9 +16185,9 @@ const dataCfObj = [
                 "sixth_char_name": "D",
                 "planNameOriginal": "Direct Payout",
                 "groupedCode": "PDR",
-                "groupedName": "Direct IDCW Reinvestment",
-                "optionCode": "R",
-                "optionName": "IDCW Reinvestment",
+                "groupedName": "Direct IDCW Payout",
+                "optionCode": "D",
+                "optionName": "IDCW Payout",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -17591,258 +17599,6 @@ const dataCfObj = [
         "schcode": "SQ"
     },
     {
-        "indexFundType": "Indian Equity",
-        "sebiCategory": "ETF Fund",
-        "nfoFaceValue": "10",
-        "dateOfAllotment": "2022-07-29",
-        "sebiSubCategory": "543563",
-        "objective": "Wealth Creation",
-        "fundSubCategorisation": "Indian Equity - Sector",
-        "portfolioTurnoverRatio": "0.15",
-        "marketCap": "MULTI CAP",
-        "methodology": "<p><b>a) Methodology of calculating sale price:</b> The price or NAV, an investor is charged while investing in anopen-ended scheme is called sale or subscription price. Pursuant toSEBI Circular dated June 30, 2009, no entry load will be chargedby the scheme to the investors. Therefore, Sale or Subscriptionprice = Applicable NAV (for respective plan and option of thescheme)</p>\n<p><b>Example:</b> An investor invests Rs.10,000/- and the current NAV isRs. 10/- then the purchase price will be Rs.10/- and the investorreceives 10,000/10 = 1000 units.</p>\n<p><b>b) Methodology of calculating repurchase price of Units:</b> Repurchase or redemption price is the price or NAV at which anopen-ended scheme purchases or redeems its units from theinvestors. It may include exit load, if applicable. The exit load, ifany, shall be charged as a percentage of Net Assets Value (NAV)i.e. applicable load as a percentage of NAV will be deducted fromthe ÒApplicable NAVÓ to calculate the repurchase price.Therefore, Repurchase or Redemption Price = Applicable NAV*(1- Exit Load, if any)</p>\n<p><b>Example: </b>If the Applicable NAV is Rs. 10 and a 2% Exit Load ischarged, the Redemption Price per Unit will be calculated asfollows: = Rs. 10 * (1-0.02) = Rs. 10 * (0.98) = Rs. 9.80</p>\n",
-        "expenseRatioRegular": "0.22",
-        "nseSymbol": "MOHEALTH",
-        "standardDeviation": "20.3",
-        "fundManager": [
-            {
-                "description": "<p>Swapnil has over 12 years of experience in the fund management and product development.</p>\n<p>Motilal Oswal Asset Management Company Ltd. from March 2010 onwards.</p>\n<p>Business Standard, Research Associate from August 2005 to February 2010.</p>\n",
-                "designation": "Fund Manager",
-                "picture": "/content/dam/fund-manager/SwapnilMayekar.jpg",
-                "fundManagerName": "Swapnil Mayekar",
-                "type": "MF",
-                "cfReferencePath": "/content/dam/wknd-shared/fund-manager/swapnil-mayekar"
-            },
-            {
-                "description": "<p>Mr. Rakesh Shetty has more than 13 years of overall experience and expertise in trading in equity, debt segment, Exchange Trade Fund’s management, Corporate Treasury and Banking. Prior to joining Motilal Oswal Asset Management Company Limited, he has worked with Company engaged in Capital Market Business wherein he was in charge of equity and debt ETFs, customized indices and has also been part of product development.</p>\n",
-                "designation": "Fund Manager/Dealer",
-                "picture": "/content/dam/fund-manager/RakeshShetty.jpg",
-                "fundManagerName": "Rakesh Shetty",
-                "type": "MF",
-                "cfReferencePath": "/content/dam/wknd-shared/fund-manager/rakesh-shetty"
-            },
-            {
-                "description": "<p>Mr. Dishant Mehta has more than 11 years of experience and expertise in Financial markets across different segment -Equities, Derivatives, Commodities and Currencies. Managed Institutional and Foreign Portfolio Investment clients. Prior to joining Motilal Oswal Asset Management Company, Mr. Mehta has worked with Emkay Global Financial Services Limited, Anand Rathi Shares &amp; Stock Brokers Limited, Kotak Securities Limited and Angel Broking Limited.</p>\n",
-                "designation": "Manager, Associate Fund Manager and Passive Dealer",
-                "picture": "/content/dam",
-                "fundManagerName": "Dishant Mehta",
-                "type": "MF",
-                "cfReferencePath": "/content/dam/wknd-shared/fund-manager/dishant-mehta"
-            }
-        ],
-        "displalyOnIfHome": "no",
-        "typeOfScheme": "(An open ended fund replicating / tracking the BSE Low Volatility Total Return Index",
-        "fundsTaggingSection": [
-            "motilal-oswal:indian-equity-",
-            "motilal-oswal:etf"
-        ],
-        "cmotsProductCode": "MOSPBSEHCETF",
-        "beta": "0.9",
-        "investmentObjective": "<p>The investment objective of the scheme is to provide returns that, before expenses, correspond to the total returns of the securities as represented by&nbsp;BSE Healthcare TRI, subject to tracking error.&nbsp;However, there is no guarantee or assurance that the investment objective of the scheme will be achieved.</p>\n",
-        "periodicReturnsTc": "<p>Date of inception: 29-July-2022. Incase, the start/end date of the concerned period is non business date (NBD), the NAV of the previous date is considered for computation of returns. The NAV per unit shown in the table is as on the start date of the said period. Past performance may or may not be sustained in the future. Performance is for Regular Plan Growth option. Different plans have different expense structure. For performance of other schemes managed by Mr. Swapnil Mayekar, Mr. Rakesh Shetty and Mr. Dishant Mehta (Data as on 31st October 2024)</p>\n",
-        "benchmark": "BSE Healthcare Total Return Index",
-        "expenseRatioDirect": "NIL",
-        "moSchemeCode": "SHGRG",
-        "indexMethodology": "<p>Index Methodology:&nbsp;<a href=\"https://www.niftyindices.com/indices/equity/broad-based-indices/nifty-500\">Click here</a></p>\n<p>Historic Changes in Index Constituents:&nbsp;<a href=\"https://www.niftyindices.com/media\">Click here</a></p>\n",
-        "fundCategorisation": "ETF's",
-        "nfoKnowMoreUrl": "https://www.motilaloswalmf.com/mf/snp-bse-healthcare-etf-snapshot.html",
-        "fundType": "Exchange Traded Fund",
-        "moAmcCode": "MOSMF",
-        "periodicReturns": "<p>NIL</p>\n",
-        "redemptionProceeds": "As per SEBI Regulations, the Mutual Fund shall despatch redemption proceeds within 10 Business Days of receiving a valid redemption request",
-        "continuousOffer": "Continuos Offer",
-        "schDetail": {
-            "nfoStartDate": "2022-07-14",
-            "cmotsGroupCode": "MO42978",
-            "schemeName": "Motilal Oswal BSE Healthcare ETF",
-            "nfoEndDate": "2022-07-22",
-            "CMOTSAMCCode": "38442"
-        },
-        "risk": {
-            "riskType": "Very High",
-            "benchmarkRisk": "Very High"
-        },
-        "planList": [
-            {
-                "sixth_char_name": "R",
-                "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
-                "groupedName": "Regular-Growth",
-                "optionCode": "G",
-                "optionName": "Growth",
-                "planCode": "GP",
-                "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
-            }
-        ],
-        "aum": [
-            {
-                "latestAum": "32.0845",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
-                "optioncode": "G",
-                "plancode": "GR",
-                "prodcode": "SHGR"
-            }
-        ],
-        "nav": [
-            {
-                "latnav": "45.8972",
-                "optioncode": "G",
-                "plancode": "GR",
-                "prodcode": "SHGR",
-                "nav_date": "16-Jun-2025",
-                "nav_amount": "44.5862",
-                "navpercentchange": ""
-            }
-        ],
-        "benchmarkreturns": [
-            {
-                "type": "BM",
-                "groupName": "BSE Healthcare TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "40107.94",
-                "oneyearrs": "40107.94",
-                "oneYear_marketValue": "10000.0",
-                "oneYear_Ret": "0.0",
-                "threeyearrs": "26004.8",
-                "threeYear_marketValue": "15423.283393834985",
-                "threeYear_Ret": "15.538187459077491",
-                "inceptionrs": "26004.8",
-                "inception_marketValue": "15423.283393834985",
-                "inception_Ret": "15.492619410640373",
-                "bmcode": "2046.0"
-            }
-        ],
-        "returns": [
-            {
-                "oneYear_Ret": "12.39",
-                "oneYear_marketValue": "11238.708571568493",
-                "threeYear_Ret": "26.08",
-                "threeYear_marketValue": "20041.045167149892",
-                "inception_Ret": "26.0",
-                "inception_marketValue": "20041.045167149892",
-                "latNavDate": "2025-07-31",
-                "prodcode": "SHGR",
-                "plancode": "GR",
-                "optioncode": "G",
-                "amfi_schcode": "150445",
-                "cmt_schcode": "42978",
-                "isin": "INF247L01BB1"
-            }
-        ],
-        "holdings": [
-            {
-                "srNo": "1",
-                "nameOfSecurity": "Sun Pharmaceutical Industries Limited",
-                "rating": "Pharmaceuticals & Biotechnology",
-                "isin": "INE044A01036",
-                "quantity": "24092",
-                "marketValue": "403.97",
-                "percentToNAV": "13.26%"
-            },
-            {
-                "srNo": "2",
-                "nameOfSecurity": "Max Healthcare Institute Limited",
-                "rating": "Healthcare Services",
-                "isin": "INE027H01010",
-                "quantity": "16861",
-                "marketValue": "215.01",
-                "percentToNAV": "7.06%"
-            },
-            {
-                "srNo": "3",
-                "nameOfSecurity": "Divi's Laboratories Limited",
-                "rating": "Pharmaceuticals & Biotechnology",
-                "isin": "INE361B01024",
-                "quantity": "2908",
-                "marketValue": "198.08",
-                "percentToNAV": "6.50%"
-            },
-            {
-                "srNo": "4",
-                "nameOfSecurity": "Cipla Limited",
-                "rating": "Pharmaceuticals & Biotechnology",
-                "isin": "INE059A01026",
-                "quantity": "12902",
-                "marketValue": "194.21",
-                "percentToNAV": "6.38%"
-            },
-            {
-                "srNo": "5",
-                "nameOfSecurity": "Dr. Reddy's Laboratories Limited",
-                "rating": "Pharmaceuticals & Biotechnology",
-                "isin": "INE089A01031",
-                "quantity": "13901",
-                "marketValue": "178.45",
-                "percentToNAV": "5.86%"
-            },
-            {
-                "srNo": "6",
-                "nameOfSecurity": "Apollo Hospitals Enterprise Limited",
-                "rating": "Healthcare Services",
-                "isin": "INE437A01024",
-                "quantity": "2297",
-                "marketValue": "166.37",
-                "percentToNAV": "5.46%"
-            },
-            {
-                "srNo": "7",
-                "nameOfSecurity": "Lupin Limited",
-                "rating": "Pharmaceuticals & Biotechnology",
-                "isin": "INE326A01037",
-                "quantity": "5523",
-                "marketValue": "107.02",
-                "percentToNAV": "3.51%"
-            },
-            {
-                "srNo": "8",
-                "nameOfSecurity": "Fortis Healthcare Limited",
-                "rating": "Healthcare Services",
-                "isin": "INE061F01013",
-                "quantity": "11888",
-                "marketValue": "94.43",
-                "percentToNAV": "3.10%"
-            },
-            {
-                "srNo": "9",
-                "nameOfSecurity": "Torrent Pharmaceuticals Limited",
-                "rating": "Pharmaceuticals & Biotechnology",
-                "isin": "INE685A01028",
-                "quantity": "2395",
-                "marketValue": "81.66",
-                "percentToNAV": "2.68%"
-            },
-            {
-                "srNo": "10",
-                "nameOfSecurity": "Aurobindo Pharma Limited",
-                "rating": "Pharmaceuticals & Biotechnology",
-                "isin": "INE406A01037",
-                "quantity": "6363",
-                "marketValue": "72.23",
-                "percentToNAV": "2.37%"
-            }
-        ],
-        "sector": [
-            {
-                "sector": "Pharmaceuticals & Biotechnology",
-                "percentage": "74.41%"
-            },
-            {
-                "sector": "Healthcare Services",
-                "percentage": "24.65%"
-            },
-            {
-                "sector": "Healthcare Equipment & Supplies",
-                "percentage": "0.69%"
-            },
-            {
-                "sector": "Cash & Equivalent",
-                "percentage": "0.25%"
-            }
-        ],
-        "schcode": "SH"
-    },
-    {
         "indexFundType": "Factors",
         "sebiCategory": "ETF Fund",
         "nfoFaceValue": "10",
@@ -18310,6 +18066,10 @@ const dataCfObj = [
         "fundCategorisation": "ETF's",
         "fundIcon": "/content/dam/wknd-shared/fund-icons/MO_Nifty_Midcap_100_ETF.png",
         "fundType": "Exchange Traded Fund",
+        "fundtype": [
+            "motilal-oswal:indian-equity-",
+            "motilal-oswal:mid-cap"
+        ],
         "moAmcCode": "MOSMF",
         "sharpeRatio": "1.5 (Annualised)",
         "periodicReturns": "<p>NIL</p>\n",
@@ -18615,13 +18375,13 @@ const dataCfObj = [
             {
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
+                "groupedCode": "GRG",
                 "groupedName": "Regular-Growth",
                 "optionCode": "G",
                 "optionName": "Growth",
-                "planCode": "GP",
+                "planCode": "GR",
                 "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
             }
         ],
         "aum": [
@@ -18879,6 +18639,11 @@ const dataCfObj = [
         "fundCategorisation": "ETF's",
         "nfoKnowMoreUrl": "https://www.motilaloswalmf.com/mf/snp-bse-healthcare-etf-snapshot.html",
         "fundType": "Exchange Traded Fund",
+        "fundtype": [
+            "motilal-oswal:indian-equity-",
+            "motilal-oswal:large-cap",
+            "motilal-oswal:etf"
+        ],
         "moAmcCode": "MOSMF",
         "sharpeRatio": "0.9 (Annualised)",
         "periodicReturns": "<p>NIL</p>\n",
@@ -18898,13 +18663,13 @@ const dataCfObj = [
             {
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
+                "groupedCode": "GRG",
                 "groupedName": "Regular-Growth",
                 "optionCode": "G",
                 "optionName": "Growth",
-                "planCode": "GP",
+                "planCode": "GR",
                 "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
             }
         ],
         "aum": [
@@ -19192,13 +18957,13 @@ const dataCfObj = [
             {
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
+                "groupedCode": "GRG",
                 "groupedName": "Regular-Growth",
                 "optionCode": "G",
                 "optionName": "Growth",
-                "planCode": "GP",
+                "planCode": "GR",
                 "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
             }
         ],
         "aum": [
@@ -19435,6 +19200,11 @@ const dataCfObj = [
         "indexMethodology": "<p><b>Universe </b>- Companies should form part of Nifty 500 at the time of review. In case, the number of eligible stocks representing a particular sector within Nifty 500 falls below 10, then deficit number of stocks shall be selected from the universe of stocks ranked within top 800 based on both average daily turnover and average daily full market capitalization based on previous six months’ period data used for index rebalancing of Nifty 500.</p>\n<p><b>Sector</b> - Companies should form a part of the Realty sector.</p>\n",
         "fundCategorisation": "ETF's",
         "fundType": "Exchange Traded Fund",
+        "fundtype": [
+            "motilal-oswal:indian-equity-",
+            "motilal-oswal:etf",
+            "motilal-oswal:sector"
+        ],
         "moAmcCode": "MOSMF",
         "periodicReturns": "<p>NIL</p>\n",
         "redemptionProceeds": "Normally within 3 Business days from acceptance of redemption request.",
@@ -19454,13 +19224,13 @@ const dataCfObj = [
             {
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
+                "groupedCode": "GRG",
                 "groupedName": "Regular-Growth",
                 "optionCode": "G",
                 "optionName": "Growth",
-                "planCode": "GP",
+                "planCode": "GR",
                 "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
             }
         ],
         "aum": [
@@ -19696,13 +19466,13 @@ const dataCfObj = [
             {
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
+                "groupedCode": "GRG",
                 "groupedName": "Regular-Growth",
                 "optionCode": "G",
                 "optionName": "Growth",
-                "planCode": "GP",
+                "planCode": "GR",
                 "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
             }
         ],
         "aum": [
@@ -19948,6 +19718,11 @@ const dataCfObj = [
         "fundCategorisation": "ETF's",
         "fundIcon": "/content/dam/wknd-shared/fund-icons/MO_Nifty_Capital_Market_ETF.png",
         "fundType": "Exchange Traded Fund",
+        "fundtype": [
+            "motilal-oswal:indian-equity-",
+            "motilal-oswal:etf",
+            "motilal-oswal:sector"
+        ],
         "moAmcCode": "MOSMF",
         "periodicReturns": "<p>NIL</p>\n",
         "redemptionProceeds": "Normally within 3 Business days from acceptance of redemption request.",
@@ -20200,13 +19975,13 @@ const dataCfObj = [
             {
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
+                "groupedCode": "GRG",
                 "groupedName": "Regular-Growth",
                 "optionCode": "G",
                 "optionName": "Growth",
-                "planCode": "GP",
+                "planCode": "GR",
                 "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
             }
         ],
         "aum": [
@@ -20468,13 +20243,13 @@ const dataCfObj = [
             {
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
+                "groupedCode": "GRG",
                 "groupedName": "Regular-Growth",
                 "optionCode": "G",
                 "optionName": "Growth",
-                "planCode": "GP",
+                "planCode": "GR",
                 "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
             }
         ],
         "aum": [
@@ -20738,13 +20513,13 @@ const dataCfObj = [
             {
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Growth",
-                "groupedCode": "GPG",
+                "groupedCode": "GRG",
                 "groupedName": "Regular-Growth",
                 "optionCode": "G",
                 "optionName": "Growth",
-                "planCode": "GP",
+                "planCode": "GR",
                 "planName": "Regular",
-                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth"
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
             }
         ],
         "aum": [
@@ -21157,6 +20932,259 @@ const dataCfObj = [
             }
         ],
         "schcode": "AA"
+    },
+    {
+        "indexFundType": "Indian Equity",
+        "sebiCategory": "ETF Fund",
+        "nfoFaceValue": "10",
+        "dateOfAllotment": "2022-07-29",
+        "objective": "Wealth Creation",
+        "fundSubCategorisation": "Indian Equity - Sector",
+        "portfolioTurnoverRatio": "0.15",
+        "marketCap": "MULTI CAP",
+        "methodology": "<p><b>a) Methodology of calculating sale price:</b> The price or NAV, an investor is charged while investing in anopen-ended scheme is called sale or subscription price. Pursuant toSEBI Circular dated June 30, 2009, no entry load will be chargedby the scheme to the investors. Therefore, Sale or Subscriptionprice = Applicable NAV (for respective plan and option of thescheme)</p>\n<p><b>Example:</b> An investor invests Rs.10,000/- and the current NAV isRs. 10/- then the purchase price will be Rs.10/- and the investorreceives 10,000/10 = 1000 units.</p>\n<p><b>b) Methodology of calculating repurchase price of Units:</b> Repurchase or redemption price is the price or NAV at which anopen-ended scheme purchases or redeems its units from theinvestors. It may include exit load, if applicable. The exit load, ifany, shall be charged as a percentage of Net Assets Value (NAV)i.e. applicable load as a percentage of NAV will be deducted fromthe ÒApplicable NAVÓ to calculate the repurchase price.Therefore, Repurchase or Redemption Price = Applicable NAV*(1- Exit Load, if any)</p>\n<p><b>Example: </b>If the Applicable NAV is Rs. 10 and a 2% Exit Load ischarged, the Redemption Price per Unit will be calculated asfollows: = Rs. 10 * (1-0.02) = Rs. 10 * (0.98) = Rs. 9.80</p>\n",
+        "expenseRatioRegular": "0.22",
+        "standardDeviation": "20.3",
+        "fundManager": [
+            {
+                "description": "<p>Swapnil has over 12 years of experience in the fund management and product development.</p>\n<p>Motilal Oswal Asset Management Company Ltd. from March 2010 onwards.</p>\n<p>Business Standard, Research Associate from August 2005 to February 2010.</p>\n",
+                "designation": "Fund Manager",
+                "picture": "/content/dam/fund-manager/SwapnilMayekar.jpg",
+                "fundManagerName": "Swapnil Mayekar",
+                "type": "MF",
+                "cfReferencePath": "/content/dam/wknd-shared/fund-manager/swapnil-mayekar"
+            },
+            {
+                "description": "<p>Mr. Dishant Mehta has more than 11 years of experience and expertise in Financial markets across different segment -Equities, Derivatives, Commodities and Currencies. Managed Institutional and Foreign Portfolio Investment clients. Prior to joining Motilal Oswal Asset Management Company, Mr. Mehta has worked with Emkay Global Financial Services Limited, Anand Rathi Shares &amp; Stock Brokers Limited, Kotak Securities Limited and Angel Broking Limited.</p>\n",
+                "designation": "Manager, Associate Fund Manager and Passive Dealer",
+                "picture": "/content/dam",
+                "fundManagerName": "Dishant Mehta",
+                "type": "MF",
+                "cfReferencePath": "/content/dam/wknd-shared/fund-manager/dishant-mehta"
+            },
+            {
+                "description": "<p>Mr. Rakesh Shetty has more than 13 years of overall experience and expertise in trading in equity, debt segment, Exchange Trade Fund’s management, Corporate Treasury and Banking. Prior to joining Motilal Oswal Asset Management Company Limited, he has worked with Company engaged in Capital Market Business wherein he was in charge of equity and debt ETFs, customized indices and has also been part of product development.</p>\n",
+                "designation": "Fund Manager/Dealer",
+                "picture": "/content/dam/fund-manager/RakeshShetty.jpg",
+                "fundManagerName": "Rakesh Shetty",
+                "type": "MF",
+                "cfReferencePath": "/content/dam/wknd-shared/fund-manager/rakesh-shetty"
+            }
+        ],
+        "displalyOnIfHome": "no",
+        "entryLoad": "<p>NIL</p>\n",
+        "typeOfScheme": "(An open ended fund replicating / tracking the BSE Low Volatility Total Return Index",
+        "fundsTaggingSection": [
+            "motilal-oswal:indian-equity-",
+            "motilal-oswal:sector",
+            "motilal-oswal:etf"
+        ],
+        "cmotsProductCode": "MOSPBSEHCETF",
+        "beta": "0.9",
+        "investmentObjective": "<p>The investment objective of the scheme is to provide returns that, before expenses, correspond to the total returns of the securities as represented by&nbsp;BSE Healthcare TRI, subject to tracking error.&nbsp;However, there is no guarantee or assurance that the investment objective of the scheme will be achieved.</p>\n",
+        "periodicReturnsTc": "<p>Date of inception: 29-July-2022. Incase, the start/end date of the concerned period is non business date (NBD), the NAV of the previous date is considered for computation of returns. The NAV per unit shown in the table is as on the start date of the said period. Past performance may or may not be sustained in the future. Performance is for Regular Plan Growth option. Different plans have different expense structure. For performance of other schemes managed by Mr. Swapnil Mayekar, Mr. Rakesh Shetty and Mr. Dishant Mehta (Data as on 31st October 2024)</p>\n",
+        "benchmark": "BSE Healthcare Total Return Index",
+        "expenseRatioDirect": "NA",
+        "moSchemeCode": "SHGRG",
+        "indexMethodology": "<p>Index Methodology:&nbsp;<a href=\"https://www.niftyindices.com/indices/equity/broad-based-indices/nifty-500\">Click here</a></p>\n<p>Historic Changes in Index Constituents:&nbsp;<a href=\"https://www.niftyindices.com/media\">Click here</a></p>\n",
+        "fundCategorisation": "ETF's",
+        "nfoKnowMoreUrl": "https://www.motilaloswalmf.com/mf/snp-bse-healthcare-etf-snapshot.html",
+        "fundIcon": "/content/dam/wknd-shared/fund-icons/MO_S_P_BSE_Healthcare_ETF.png",
+        "fundType": "Exchange Traded Fund",
+        "moAmcCode": "MOSMF",
+        "periodicReturns": "<p><b>This product is suitable for investors who are seeking*</b></p>\n<ul>\n<li>Return that corresponds to the performance of&nbsp;BSE Healthcare Total Return Index subject to tracking error.&nbsp;</li>\n<li>Long term capital growth.</li>\n</ul>\n",
+        "redemptionProceeds": "As per SEBI Regulations, the Mutual Fund shall despatch redemption proceeds within 10 Business Days of receiving a valid redemption request",
+        "continuousOffer": "Continuos Offer",
+        "schDetail": {
+            "nfoStartDate": "2022-07-14",
+            "cmotsGroupCode": "MO42978",
+            "schemeName": "Motilal Oswal BSE Healthcare ETF",
+            "nfoEndDate": "2022-07-22",
+            "CMOTSAMCCode": "38442"
+        },
+        "risk": {
+            "riskType": "Very High",
+            "benchmarkRisk": "Very High"
+        },
+        "planList": [
+            {
+                "sixth_char_name": "R",
+                "planNameOriginal": "Regular Growth",
+                "groupedCode": "GRG",
+                "groupedName": "Regular-Growth",
+                "optionCode": "G",
+                "optionName": "Growth",
+                "planCode": "GR",
+                "planName": "Regular",
+                "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-growth-etf"
+            }
+        ],
+        "aum": [
+            {
+                "latestAum": "32.0845",
+                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "optioncode": "G",
+                "plancode": "GR",
+                "prodcode": "SHGR"
+            }
+        ],
+        "nav": [
+            {
+                "latnav": "45.8972",
+                "optioncode": "G",
+                "plancode": "GR",
+                "prodcode": "SHGR",
+                "nav_date": "16-Jun-2025",
+                "nav_amount": "44.5862",
+                "navpercentchange": ""
+            }
+        ],
+        "benchmarkreturns": [
+            {
+                "type": "BM",
+                "groupName": "BSE Healthcare TRI (PRIMARY)",
+                "latNavDate": "2025-07-31",
+                "latnav": "40107.94",
+                "oneyearrs": "40107.94",
+                "oneYear_marketValue": "10000.0",
+                "oneYear_Ret": "0.0",
+                "threeyearrs": "26004.8",
+                "threeYear_marketValue": "15423.283393834985",
+                "threeYear_Ret": "15.538187459077491",
+                "inceptionrs": "26004.8",
+                "inception_marketValue": "15423.283393834985",
+                "inception_Ret": "15.492619410640373",
+                "bmcode": "2046.0"
+            }
+        ],
+        "returns": [
+            {
+                "oneYear_Ret": "12.39",
+                "oneYear_marketValue": "11238.708571568493",
+                "threeYear_Ret": "26.08",
+                "threeYear_marketValue": "20041.045167149892",
+                "inception_Ret": "26.0",
+                "inception_marketValue": "20041.045167149892",
+                "latNavDate": "2025-07-31",
+                "prodcode": "SHGR",
+                "plancode": "GR",
+                "optioncode": "G",
+                "amfi_schcode": "150445",
+                "cmt_schcode": "42978",
+                "isin": "INF247L01BB1"
+            }
+        ],
+        "holdings": [
+            {
+                "srNo": "1",
+                "nameOfSecurity": "Sun Pharmaceutical Industries Limited",
+                "rating": "Pharmaceuticals & Biotechnology",
+                "isin": "INE044A01036",
+                "quantity": "24092",
+                "marketValue": "403.97",
+                "percentToNAV": "13.26%"
+            },
+            {
+                "srNo": "2",
+                "nameOfSecurity": "Max Healthcare Institute Limited",
+                "rating": "Healthcare Services",
+                "isin": "INE027H01010",
+                "quantity": "16861",
+                "marketValue": "215.01",
+                "percentToNAV": "7.06%"
+            },
+            {
+                "srNo": "3",
+                "nameOfSecurity": "Divi's Laboratories Limited",
+                "rating": "Pharmaceuticals & Biotechnology",
+                "isin": "INE361B01024",
+                "quantity": "2908",
+                "marketValue": "198.08",
+                "percentToNAV": "6.50%"
+            },
+            {
+                "srNo": "4",
+                "nameOfSecurity": "Cipla Limited",
+                "rating": "Pharmaceuticals & Biotechnology",
+                "isin": "INE059A01026",
+                "quantity": "12902",
+                "marketValue": "194.21",
+                "percentToNAV": "6.38%"
+            },
+            {
+                "srNo": "5",
+                "nameOfSecurity": "Dr. Reddy's Laboratories Limited",
+                "rating": "Pharmaceuticals & Biotechnology",
+                "isin": "INE089A01031",
+                "quantity": "13901",
+                "marketValue": "178.45",
+                "percentToNAV": "5.86%"
+            },
+            {
+                "srNo": "6",
+                "nameOfSecurity": "Apollo Hospitals Enterprise Limited",
+                "rating": "Healthcare Services",
+                "isin": "INE437A01024",
+                "quantity": "2297",
+                "marketValue": "166.37",
+                "percentToNAV": "5.46%"
+            },
+            {
+                "srNo": "7",
+                "nameOfSecurity": "Lupin Limited",
+                "rating": "Pharmaceuticals & Biotechnology",
+                "isin": "INE326A01037",
+                "quantity": "5523",
+                "marketValue": "107.02",
+                "percentToNAV": "3.51%"
+            },
+            {
+                "srNo": "8",
+                "nameOfSecurity": "Fortis Healthcare Limited",
+                "rating": "Healthcare Services",
+                "isin": "INE061F01013",
+                "quantity": "11888",
+                "marketValue": "94.43",
+                "percentToNAV": "3.10%"
+            },
+            {
+                "srNo": "9",
+                "nameOfSecurity": "Torrent Pharmaceuticals Limited",
+                "rating": "Pharmaceuticals & Biotechnology",
+                "isin": "INE685A01028",
+                "quantity": "2395",
+                "marketValue": "81.66",
+                "percentToNAV": "2.68%"
+            },
+            {
+                "srNo": "10",
+                "nameOfSecurity": "Aurobindo Pharma Limited",
+                "rating": "Pharmaceuticals & Biotechnology",
+                "isin": "INE406A01037",
+                "quantity": "6363",
+                "marketValue": "72.23",
+                "percentToNAV": "2.37%"
+            }
+        ],
+        "sector": [
+            {
+                "sector": "Pharmaceuticals & Biotechnology",
+                "percentage": "74.41%"
+            },
+            {
+                "sector": "Healthcare Services",
+                "percentage": "24.65%"
+            },
+            {
+                "sector": "Healthcare Equipment & Supplies",
+                "percentage": "0.69%"
+            },
+            {
+                "sector": "Cash & Equivalent",
+                "percentage": "0.25%"
+            }
+        ],
+        "schcode": "SH"
     }
 ];
 export default dataCfObj;

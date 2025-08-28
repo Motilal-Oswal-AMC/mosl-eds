@@ -173,7 +173,7 @@
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search::-webkit-scrollbar-thumb {
   width: 5px;
-  background-color: #2e2a94;
+  background-color: #424242;
   border-radius: 0 6px 6px 0;
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .list-search .list-fund-name {
@@ -182,7 +182,7 @@
   color: #111;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid #eee;
   padding: 12px 36px;
   cursor: pointer;
 }

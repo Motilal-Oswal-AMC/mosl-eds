@@ -8,6 +8,7 @@ import {
   img,
   button,
   input,
+  a,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';
@@ -244,6 +245,7 @@ export default function decorate(block) {
             h2(
               {
                 class: 'fund-name-title',
+                schcode: cfObj[0].schcode,
               },
               cfObj[0].schDetail.schemeName.replace('Motilal Oswal', ''),
             ),
@@ -479,10 +481,11 @@ export default function decorate(block) {
             {
               class: 'btn-wrapper',
             },
-            button(
+            a(
               {
-                class: 'submit',
+                class: 'submit ',
                 type: 'submit',
+                href: 'https://mosldev--eds-cloud--rupeshdept.aem.live/motilalfigma/modals/invest-now-homepage',
               },
               'Invest Now',
             ),
