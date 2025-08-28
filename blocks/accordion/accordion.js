@@ -1,5 +1,7 @@
 /*    */
 
+import { isDesktop } from "../header/header.js";
+
 /**
  * Transforms a content block into an accessible accordion.
  * - The first item is open by default.
@@ -8,7 +10,11 @@
  * - Provides a "Load More" / "Show Less" button to toggle visibility of extra items.
  * @param {HTMLElement} block The accordion block element.
  */
+
 export default function decorate(block) {
+  if (window.location.href.includes('author')) {
+    return 1;
+  }
   // Part 1: Convert the initial HTML structure into semantic <details> elements.
   [...block.children].forEach((row) => {
     const [label, body] = row.children;
@@ -27,28 +33,35 @@ export default function decorate(block) {
     details.className = 'accordion-item';
     details.append(summary, body);
     row.replaceWith(details);
-  });
 
+    if (block.closest('.mobile-accordion') && isDesktop.matches) {
+      // document.querySelectorAll('details').forEach((detail) => {
+      details.setAttribute('open', '');
+      details.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+      // });
+    }
+  });
   const allItems = block.querySelectorAll('.accordion-item');
   if (!allItems.length) return;
 
   // Part 2: Set initial state and "one-at-a-time" expand/collapse functionality.
 
   // --- NEW: Set the first item to be open by default ---
-  allItems[0].open = true;
+  // allItems[0].open = true;
 
-  allItems.forEach((item) => {
-    item.addEventListener('toggle', () => {
-      if (item.open) {
-        allItems.forEach((otherItem) => {
-          if (otherItem !== item) {
-            otherItem.open = false;
-          }
-        });
-      }
-    });
-  });
-
+  // allItems.forEach((item) => {
+  //   item.addEventListener('toggle', () => {
+  //     if (item.open) {
+  //       allItems.forEach((otherItem) => {
+  //         if (otherItem !== item) {
+  //           otherItem.open = false;
+  //         }
+  //       });
+  //     }
+  //   });
+  // });
   // Part 3: Implement the "Load More" / "Show Less" functionality.
   const itemsToShowInitially = 3;
   const section = block.closest('.section');
@@ -70,7 +83,6 @@ export default function decorate(block) {
   loadMoreButton.addEventListener('click', (event) => {
     event.preventDefault();
     const isShowingAll = block.querySelector('.accordion-item.hidden') === null;
-
     if (isShowingAll) {
       // If all are showing, HIDE the extra items.
       allItems.forEach((item, index) => {
@@ -90,3 +102,4 @@ export default function decorate(block) {
     }
   });
 }
+
