@@ -8,7 +8,7 @@ import {
 
 import objData from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';
-import myAPI from '../../scripts/scripts.js';
+// import myAPI from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   let fundManagers;
@@ -17,14 +17,14 @@ export default async function decorate(block) {
   } else {
     fundManagers = objData[0].fundManager;
   }
-  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  const planslabel = planCode.split(':')[1];
-  const request = {
-    'api_name': 'GetFundMangerBySchemeId',
-    'schcode' : planslabel,
-  };
-  const apiResp = await myAPI('POST', 'https://www.motilaloswalmf.com/mutualfund/api/v1/GetFundMangerBySchemeId', request);
-  const { mangerDetails } = apiResp.data.response;
+  // const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  // const planslabel = planCode.split(':')[1];
+  // const request = {
+  //   api_name: 'GetFundMangerBySchemeId',
+  //   schcode: planslabel,
+  // };
+  // const apiResp = await myAPI('POST', 'https://www.motilaloswalmf.com/mutualfund/api/v1/GetFundMangerBySchemeId', request);
+  // const { mangerDetails } = apiResp.data.response;
   const fundTime = block.querySelectorAll('p')[0].textContent.trim();
   const aumText = block.querySelectorAll('p')[1].textContent.trim();
   const fundSvg = block.querySelectorAll('p')[2].firstChild.firstChild.src.trim();
@@ -41,8 +41,8 @@ export default async function decorate(block) {
           div({ class: 'fund-manager-image' }, img({ src: `/icons/fund-managers/${manager.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic' })),
           div(
             { class: 'fund-manager-detail' },
-            p(manager.fundManagerName),//(manager.managerName),
-            p(manager.designation),//(manager.managerDesignation),
+            p(manager.fundManagerName), // (manager.managerName),
+            p(manager.designation), // (manager.managerDesignation),
           ),
         ),
         div(
@@ -50,7 +50,7 @@ export default async function decorate(block) {
           div(
             { class: 'funds-time' },
             p({ class: 'funds-time-text' }, fundTime),
-            span({ class: 'funds-time-year' }, '2024'),//mangerDetails[0].managingSince.split('-')[0]),
+            span({ class: 'funds-time-year' }, '2024'), // mangerDetails[0].managingSince.split('-')[0]),
           ),
           div(
             { class: 'fund-aum' },

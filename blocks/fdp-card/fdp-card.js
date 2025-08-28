@@ -6,7 +6,6 @@ import {
   span,
   p,
   img,
-  button,
   input,
   a,
 } from '../../scripts/dom-helpers.js';
