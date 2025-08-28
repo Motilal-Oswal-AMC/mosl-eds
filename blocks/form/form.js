@@ -109,5 +109,12 @@ export default async function decorate(block) {
   if (block.closest('.growth-now-container')) {
     const phno = block.querySelector('#form-1');
     phno.setAttribute('maxlength', '10');
+
+    const sanitizeInput = (event) => {
+      const inputValue = event.target.value;
+      const sanitizedValue = inputValue.replace(/[^\d]/g, '');
+      event.target.value = sanitizedValue;
+    };
+    phno.addEventListener('input', sanitizeInput);
   }
 }
