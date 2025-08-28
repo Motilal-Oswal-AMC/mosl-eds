@@ -362,7 +362,7 @@ function searchFunctionality(block) {
       listContainer.classList.add('no-search-list');
       const messageItem = document.createElement('li');
       messageItem.className = 'list-fund-name no-results-message';
-      messageItem.textContent = 'No results found';
+      messageItem.textContent = 'No matching results';
       listContainer.appendChild(messageItem);
     }
   };
@@ -612,7 +612,7 @@ function checkfilter(block) {
               const outerLabel = checkboxContainer.querySelector('label') ?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
 
               if (idAttr.includes('index') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) {
-                inp.checked = false;
+                inp.checked = false
               } else if (idAttr.includes('fundtype') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) {
                 inp.checked = false;
               } else if (updatedFilterTag.length === 1 && updatedFilterTag[0] === 'Indian Equity') {
