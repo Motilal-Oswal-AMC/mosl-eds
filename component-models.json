@@ -163,6 +163,10 @@
             "value": "our-popular-funds"
           },
           {
+            "name": "Mobile Accordion Only",
+            "value": "mob-accordion"
+          },
+          {
             "name": "Highlight",
             "value": "highlight"
           },
@@ -395,17 +399,12 @@
     "fields": [
       {
         "component": "multiselect",
-        "name": "classes",
+        "name": "style",
         "label": "Style",
         "options": [
           {
-            "name": "footer Accordion",
-            "children": [
-              {
-                "name": "Mobile Accordion Only",
-                "value": "mobile-accordion"
-              }
-            ]
+            "name": "Mobile Accordion Only",
+            "value": "mob-accordion"
           }
         ]
       }
