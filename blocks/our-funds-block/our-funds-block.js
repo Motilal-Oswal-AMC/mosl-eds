@@ -302,14 +302,28 @@ function searchFunctionality(block) {
   // const listItems = searchContainer.querySelectorAll('.list-fund-name');
   const cancelButton = searchContainer.querySelector('.cancel-search');
 
-  // const flpboolean = document.querySelector('.fund-toggle-wrap input').checked;
-  // const planflow = flpboolean ? 'Regular' : 'Direct';
-  // const datacd = [];
-  // dataCfObj.forEach((elde) => {
-  //   const DirectPlanlistArr = elde.planList.filter((el) => el.planName === planflow ? elde : '');
-  //   datacd.push(DirectPlanlistArr);
-  // });
-  const FUND_DATA = dataCfObj.map((fund) => fund.schDetail.schemeName);
+  const flpboolean = document.querySelector('.fund-toggle-wrap input').checked;
+  const planflow = flpboolean ? 'Regular' : 'Direct';
+  let datacd = [];
+  const dataouter = [];
+  dataCfObj.forEach((elde, indexde) => {
+    elde.planList.forEach((elplan) => {
+      if (elplan.planName === planflow) {
+        if (!datacd.includes(elplan.planName)) {
+          datacd.push(elplan.planName);
+        }
+      }
+    });
+    if (datacd.length > 0) {
+      datacd = [];
+      dataouter.push({
+        [indexde]: datacd,
+        ['schemeName']: elde.schDetail.schemeName,
+      });
+    }
+  });
+  // console.log(dataouter);
+  const FUND_DATA = dataouter.map((fund) => fund.schemeName);
 
   const populateList = () => {
     listContainer.innerHTML = ''; // Clear list before populating
@@ -459,7 +473,9 @@ function searchFunctionality(block) {
       const cardsContainercd = block.querySelector('.filter-cards');
       const cardsContainer = cardsContainercd.querySelector('.cards-container');
       if (cardsContainer && cardsContainer.checkVisibility()) {
-        const datatem = dataCfObj.filter((elsch) => (elsch.schDetail.schemeName === searchInput.value));
+        const datatem = dataCfObj.filter(
+          (elsch) => elsch.schDetail.schemeName === searchInput.value,
+        );
         cardsContainer.innerHTML = '';
         cardsContainer.append(fundcardblock(datatem[0]));
       }
@@ -468,7 +484,9 @@ function searchFunctionality(block) {
       const listHeader = listHeadercd.querySelector('.list-container');
       if (listHeader && listHeader.checkVisibility()) {
         if (cardsContainer && cardsContainer.checkVisibility()) {
-          const datatem = dataCfObj.filter((elsch) => (elsch.schDetail.schemeName === searchInput.value));
+          const datatem = dataCfObj.filter(
+            (elsch) => (elsch.schDetail.schemeName === searchInput.value),
+          );
           listHeader.innerHTML = '';
           listHeader.append(listviewblock(datatem[0]));
         }
