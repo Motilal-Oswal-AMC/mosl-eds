@@ -569,6 +569,7 @@
     padding-top: 12px;
   }
   .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul li {
+    opacity: 0.8;
     /* stylelint-disable-next-line no-descending-specificity */
   }
   .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul li a {
