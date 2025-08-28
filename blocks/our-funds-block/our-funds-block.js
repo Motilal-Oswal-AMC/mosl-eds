@@ -17,53 +17,103 @@ import listviewblock from '../list-view-card/list-view-card.js';
 function dataFilterfun(param) {
   const dataMapObj = {
     schemeName: [],
-    fundCategory: [
-      { 'indian-equity': [] },
-      { 'international-equity': [] },
-      { 'hybrid-&-balanced': [] },
-      { 'multi-asset': [] },
-      { commodity: [] },
-      { 'debt-&-liquid': [] },
+    fundCategory: [{
+        'indian-equity': []
+      },
       {
-        indianEquitySub: [
-          { 'Indian Equity - Large and Mid Cap': [] },
-          { 'Indian Equity - Large Cap': [] },
-          { 'Indian Equity - Mid Cap': [] },
-          { 'Indian Equity - Small Cap': [] },
-          { 'Indian Equity - Sector': [] },
-          { 'Indian Equity - Factor': [] },
-          { 'Indian Equity - Tax Saver (ELSS)': [] },
-          { 'Indian Equity - Multi Cap': [] },
+        'international-equity': []
+      },
+      {
+        'hybrid-&-balanced': []
+      },
+      {
+        'multi-asset': []
+      },
+      {
+        commodity: []
+      },
+      {
+        'debt-&-liquid': []
+      },
+      {
+        indianEquitySub: [{
+            'large-and-mid-cap': [],
+          },
+          {
+            'large-cap': [],
+          },
+          {
+            'mid-cap': [],
+          },
+          {
+            'small-cap': [],
+          },
+          {
+            sector: [],
+          },
+          {
+            factor: [],
+          },
+          {
+            'tax-saver-(elss)': [],
+          },
+          {
+            'multi-cap-fund': [],
+          },
         ],
       },
     ],
-    fundType: [
-      { active: [] },
-      { 'index-funds': [] },
-      { etf: [] },
-    ],
-    sort: [
+    fundType: [{
+        active: []
+      },
       {
-        ListDropdown: [
-          { text: 'Popular', value: 'inception_Ret' },
-          { text: '1 Year Returns', value: 'oneYear_Ret' },
-          { text: '3 Year Returns', value: 'threeYear_Ret' },
-          { text: '5 Year Returns', value: 'fiveYear_Ret' },
-          { text: '7 Year Returns', value: 'sevenYear_Ret' },
-          { text: '10 Year Returns', value: 'tenYear_Ret' },
-        ],
-        inception_Ret: [],
-        oneYear_Ret: [],
-        threeYear_Ret: [],
-        fiveYear_Ret: [],
-        sevenYear_Ret: [],
-        tenYear_Ret: [],
+        'index-funds': []
+      },
+      {
+        etf: []
       },
     ],
+    sort: [{
+      ListDropdown: [{
+          text: 'Popular',
+          value: 'inception_Ret'
+        },
+        {
+          text: '1 Year Returns',
+          value: 'oneYear_Ret'
+        },
+        {
+          text: '3 Year Returns',
+          value: 'threeYear_Ret'
+        },
+        {
+          text: '5 Year Returns',
+          value: 'fiveYear_Ret'
+        },
+        {
+          text: '7 Year Returns',
+          value: 'sevenYear_Ret'
+        },
+        {
+          text: '10 Year Returns',
+          value: 'tenYear_Ret'
+        },
+      ],
+      inception_Ret: [],
+      oneYear_Ret: [],
+      threeYear_Ret: [],
+      fiveYear_Ret: [],
+      sevenYear_Ret: [],
+      tenYear_Ret: [],
+    }, ],
   };
 
-  const { fundCategory } = dataMapObj;
-  const { fundType } = dataMapObj;
+  const {
+    fundCategory
+  } = dataMapObj;
+  const {
+    fundType
+  } = dataMapObj;
   const fundSort = dataMapObj.sort[0];
   const equitySub = fundCategory[fundCategory.length - 1].indianEquitySub;
 
@@ -91,10 +141,33 @@ function dataFilterfun(param) {
   ];
   const typeValues = ['active', 'index-funds', 'etf'];
 
+  const subcategoryMapKeys = [
+    'motilal-oswal:large-and-mid-cap',
+    'motilal-oswal:large-cap',
+    'motilal-oswal:mid-cap',
+    'motilal-oswal:small-cap',
+    'motilal-oswal:sector',
+    'motilal-oswal:factor',
+    'motilal-oswal:tax-saver-(elss)',
+    'motilal-oswal:multi-cap-fund',
+  ];
+  const subcategoryValues = [
+    'large-and-mid-cap',
+    'large-cap',
+    'mid-cap',
+    'small-cap',
+    'sector',
+    'factor',
+    'tax-saver-(elss)',
+    'multi-cap-fund',
+  ];
+
   for (let i = 0; i < param.length; i += 1) {
     const name = param[i];
     const tags = name.fundsTaggingSection;
-    const { schcode } = name;
+    const {
+      schcode
+    } = name;
 
     // Category matching
     for (let k = 0; k < categoryMapKeys.length; k += 1) {
@@ -122,19 +195,23 @@ function dataFilterfun(param) {
       }
     }
 
-    // Sub-categorization
-    const subCat = name.fundSubCategorisation;
-    if (subCat) {
-      for (let j = 0; j < equitySub.length; j += 1) {
-        if (equitySub[j][subCat]) {
-          equitySub[j][subCat].push(schcode);
-          break;
+    // subCate matching
+    for (let k = 0; k < subcategoryMapKeys.length; k += 1) {
+      if (tags.indexOf(subcategoryMapKeys[k]) !== -1) {
+        const type = subcategoryValues[k];
+        for (let j = 0; j < equitySub.length; j += 1) {
+          if (equitySub[j][type]) {
+            equitySub[j][type].push(schcode);
+            break;
+          }
         }
       }
     }
 
     // Returns sorting
-    const { returns } = name;
+    const {
+      returns
+    } = name;
     if (returns && returns.length) {
       for (let r = 0; r < returns.length; r += 1) {
         const ret = returns[r];
@@ -185,7 +262,8 @@ function viewFunction(param) {
       param.querySelector('.list-container').append(listviewblock(el));
     });
     if (dataMapMoObj.deskrightdrp === '') {
-      param.querySelector('.return-select-container p').textContent = 'SINCE INCEPTION';
+      param.querySelector('.return-select-container p').textContent = 'Since Inception';
+      dataMapMoObj.deskrightdrp = 'Since Inception';
     } else {
       param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
     }
@@ -194,7 +272,8 @@ function viewFunction(param) {
       param.querySelector('.cards-container').append(fundcardblock(el));
     });
     if (dataMapMoObj.deskrightdrp === '') {
-      param.querySelector('.return-select-container p').textContent = '3 YEARS';
+      param.querySelector('.return-select-container p').textContent = 'Since Inception';
+      dataMapMoObj.deskrightdrp = 'Since Inception';
     } else {
       param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
     }
@@ -265,7 +344,9 @@ function searchFunctionality(block) {
     let matchesFound = false;
 
     listItems.forEach((item) => {
-      const { originalText } = item.dataset;
+      const {
+        originalText
+      } = item.dataset;
       const match = originalText.match(searchRegex);
       if (match) {
         matchesFound = true;
@@ -289,7 +370,7 @@ function searchFunctionality(block) {
   searchInput.addEventListener('focus', () => {
     searchContainer.classList.add('search-active');
     if (window.visualViewport) {
-      
+
       // This event fires whenever the viewport is resized or zoomed
       window.visualViewport.addEventListener('resize', () => {
         window.visualViewport.scale = 1;
@@ -312,11 +393,14 @@ function searchFunctionality(block) {
   });
 
   let currentFocusIndex = -1;
+
   function updateActiveItem(items) {
     items.forEach((item, idx) => {
       if (idx === currentFocusIndex) {
         item.classList.add('active-search-item');
-        item.scrollIntoView({ block: 'nearest' });
+        item.scrollIntoView({
+          block: 'nearest'
+        });
       } else {
         item.classList.remove('active-search-item');
       }
@@ -343,7 +427,7 @@ function searchFunctionality(block) {
     } else if (event.key === 'Backspace' || event.key === 'Delete') {
       currentFocusIndex = -1; // Reset selection on backspace/delete
       const cardsContainer = block.querySelector('.filter-cards .cards-container');
-    
+
       if (cardsContainer && cardsContainer.checkVisibility()) {
         const datatem = dataCfObj.slice(0, 10);
         cardsContainer.innerHTML = '';
@@ -365,19 +449,21 @@ function searchFunctionality(block) {
       searchInput.value = event.target.dataset.originalText;
       searchContainer.classList.remove('search-active');
       // CARD HIDE LOGIC ON SEARCH
-      const cardsContainer = block.querySelector('.filter-cards .cards-container');
+      const cardsContainercd = block.querySelector('.filter-cards');
+      const cardsContainer = cardsContainercd.querySelector('.cards-container');
       if (cardsContainer && cardsContainer.checkVisibility()) {
-        const datatem = dataCfObj.filter(elsch =>
-          elsch.schDetail.schemeName === searchInput.value);
+        const datatem = dataCfObj.filter((elsch) =>
+          (elsch.schDetail.schemeName === searchInput.value));
         cardsContainer.innerHTML = '';
         cardsContainer.append(fundcardblock(datatem[0]));
       }
 
-      const listHeader = block.querySelector('.filter-cards .list-container');
+      const listHeadercd = block.querySelector('.filter-cards');
+      const listHeader = listHeadercd.querySelector('.list-container');
       if (listHeader && listHeader.checkVisibility()) {
         if (cardsContainer && cardsContainer.checkVisibility()) {
-          const datatem = dataCfObj.filter(elsch =>
-            elsch.schDetail.schemeName === searchInput.value);
+          const datatem = dataCfObj.filter((elsch) =>
+            (elsch.schDetail.schemeName === searchInput.value));
           listHeader.innerHTML = '';
           listHeader.append(listviewblock(datatem[0]));
         }
@@ -416,6 +502,7 @@ function searchFunctionality(block) {
     cancelButton.style.display = 'none';
   }
 }
+
 function checkfilter(block) {
   const filterTag = []; // 5-8-25
   const tempData = [];
@@ -445,16 +532,17 @@ function checkfilter(block) {
       }
     }
   });
-  
-    dataMapMoObj.funddata = [];
-    dataMapMoObj.funddata = dataCfObj.filter((el, index) => {
-      if (tempData.length > 0) {
-        return tempData.includes(el.schcode);
-      }
-      return index < 9;
-    });
+
+  dataMapMoObj.funddata = [];
+  dataMapMoObj.funddata = dataCfObj.filter((el, index) => {
+    if (tempData.length > 0) {
+      return tempData.includes(el.schcode);
+    }
+    return index < 9;
+  });
 
   viewFunction(block);
+
   function filterGroup(Filterparam) {
     const appliedList = block.querySelector('.applied-filter-list');
     appliedList.innerHTML = '';
@@ -521,7 +609,7 @@ function checkfilter(block) {
             const inp = item.querySelector('input');
             if (inp) {
               const idAttr = inp.getAttribute('id');
-              const outerLabel = checkboxContainer.querySelector('label')?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
+              const outerLabel = checkboxContainer.querySelector('label') ?.textContent.replace(/\d+/g, '').replaceAll('()', '').trim();
 
               if (idAttr.includes('index') && outerLabel && updatedFilterTag.indexOf(outerLabel) === -1) {
                 inp.checked = false;
@@ -561,7 +649,9 @@ function applyFunction(block) {
   }
   block.closest('body').classList.remove('scroll-lock');
   if (window.innerWidth < 786) {
-    block.scrollIntoView({ behavior: 'smooth' });
+    block.scrollIntoView({
+      behavior: 'smooth'
+    });
   }
 }
 
@@ -613,25 +703,20 @@ export default function decorate(block) {
   if (funddata === undefined) {
     dataMapMoObj.funddata = dataCfObj.slice(0, 10); //.slice(0, 11);;
   }
-  const divfund = div(
-    {
+  const divfund = div({
       class: 'blockwrapper',
     },
-    div(
-      {
+    div({
         class: 'upper-container',
       },
-      div(
-        {
+      div({
           class: 'fundcontainer',
         },
         block.querySelector('.block-subitem1'),
-        div(
-          {
+        div({
             class: 'search-trending-wrapper',
           },
-          div(
-            {
+          div({
               class: 'search-input',
             },
             input({
@@ -640,8 +725,7 @@ export default function decorate(block) {
                 .querySelector('.block-subitem2 .block-subitem-finelsub1')
                 .textContent.trim(),
             }),
-            div(
-              {
+            div({
                 class: 'cancel-search',
               },
               img({
@@ -650,12 +734,10 @@ export default function decorate(block) {
                 alt: 'cancel button',
               }),
             ),
-            ul(
-              {
+            ul({
                 class: 'list-search',
               },
-              ...dataMapMoObj.funddata.map((el) => li(
-                {
+              ...dataMapMoObj.funddata.map((el) => li({
                   class: 'list-fund-name',
                   schcode: el.schcode,
                 },
@@ -663,12 +745,10 @@ export default function decorate(block) {
               )),
             ),
           ),
-          div(
-            {
+          div({
               class: 'watchlist',
             },
-            div(
-              {
+            div({
                 class: 'staricon',
               },
               block.querySelector(
@@ -678,23 +758,20 @@ export default function decorate(block) {
                 '.block-subitem2 .block-subitem-finelsub3 span',
               ),
             ),
-            div(
-              {
+            div({
                 class: 'watchlisttext',
               },
               span(
                 block
-                  .querySelector('.block-subitem2 .block-subitem-finelsub3')
-                  .textContent.trim(),
+                .querySelector('.block-subitem2 .block-subitem-finelsub3')
+                .textContent.trim(),
               ),
             ),
           ),
-          div(
-            {
+          div({
               class: 'trending-container',
             },
-            div(
-              {
+            div({
                 class: 'trendinglabel',
               },
               p(
@@ -702,15 +779,15 @@ export default function decorate(block) {
                   '.block-subitem2 .block-subitem-finelsub4 span',
                 ),
               ),
-              span(
-                { class: 'trending-text' },
+              span({
+                  class: 'trending-text'
+                },
                 block
-                  .querySelector('.block-subitem2 .block-subitem-finelsub5')
-                  .textContent.trim(),
+                .querySelector('.block-subitem2 .block-subitem-finelsub5')
+                .textContent.trim(),
               ),
             ),
-            div(
-              {
+            div({
                 class: 'trendingmostlist',
               },
               block.querySelector('.block-subitem2 .block-subitem-finelsub6'),
@@ -719,24 +796,19 @@ export default function decorate(block) {
         ),
       ),
     ),
-    div(
-      {
+    div({
         class: 'filter-cards',
       },
-      div(
-        {
+      div({
           class: 'left-container',
         },
-        div(
-          {
+        div({
             class: 'fundcategory-container',
           },
-          div(
-            {
+          div({
               class: 'filter-sort-container',
             },
-            div(
-              {
+            div({
                 class: 'filter-wrapper',
                 onclick: () => {
                   block
@@ -754,8 +826,7 @@ export default function decorate(block) {
                   }
                 },
               },
-              div(
-                {
+              div({
                   class: 'filter-text',
                 },
                 block.querySelector(
@@ -763,12 +834,11 @@ export default function decorate(block) {
                 ),
                 p(
                   block
-                    .querySelector('.block-item2 .block-subitem-finelsub2')
-                    .textContent.trim(),
+                  .querySelector('.block-item2 .block-subitem-finelsub2')
+                  .textContent.trim(),
                 ),
               ),
-              button(
-                {
+              button({
                   class: 'clearall-btn',
                   onclick: () => {
                     Array.from(
@@ -776,8 +846,8 @@ export default function decorate(block) {
                     ).forEach((el) => {
                       if (
                         el
-                          .closest('.checkbox-label-container')
-                          .querySelector('.innerindianequity')
+                        .closest('.checkbox-label-container')
+                        .querySelector('.innerindianequity')
                       ) {
                         el.closest('.checkbox-label-container')
                           .querySelectorAll('.innerindianequity input')
@@ -796,8 +866,7 @@ export default function decorate(block) {
                 'Clear All',
               ),
             ),
-            div(
-              {
+            div({
                 class: 'sort-wrapper',
                 onclick: () => {
                   block.querySelector('.sort-overlay').classList.add('active');
@@ -816,26 +885,22 @@ export default function decorate(block) {
               block.querySelector('.block-item2 .block-subitem-finelsub3 span'),
               p(
                 block
-                  .querySelector('.block-item2 .block-subitem-finelsub4')
-                  .textContent.trim(),
+                .querySelector('.block-item2 .block-subitem-finelsub4')
+                .textContent.trim(),
               ),
             ),
           ),
-          div(
-            {
+          div({
               class: 'filter-overlay',
             },
-            div(
-              {
+            div({
                 class: 'filter-container',
               },
-              div(
-                {
+              div({
                   class: 'clearall-wrapper',
                 },
                 span('Filters'),
-                button(
-                  {
+                button({
                     class: 'clearall-btn',
                     onclick: () => {
                       Array.from(
@@ -843,8 +908,8 @@ export default function decorate(block) {
                       ).forEach((el) => {
                         if (
                           el
-                            .closest('.checkbox-label-container')
-                            .querySelector('.innerindianequity')
+                          .closest('.checkbox-label-container')
+                          .querySelector('.innerindianequity')
                         ) {
                           el.closest('.checkbox-label-container')
                             .querySelectorAll('.innerindianequity input')
@@ -860,25 +925,20 @@ export default function decorate(block) {
                   'Clear All',
                 ),
               ),
-              div(
-                {
+              div({
                   class: 'filter-list-wrapper',
                 },
                 ...dataMapMoObj.data.fundCategory.map((element, index) => {
                   const indexeq = index === 0 ? 'indaneqsub' : '';
                   if (capitalizeEachWord(Object.keys(element)[0].replaceAll('-', ' ')) === 'Indian Equity') {
-                    dataMapMoObj[`${index}ArrayDoc`] = div(
-                      {
+                    dataMapMoObj[`${index}ArrayDoc`] = div({
                         class: 'indian-equity-container',
                       },
                       ...dataMapMoObj.data.fundCategory[
                         dataMapMoObj.data.fundCategory.length - 1
                       ].indianEquitySub.map((elme, ind) => {
-                        const sublabel = Object.keys(elme)[0]
-                          .split('-')[1]
-                          .trim();
-                        return div(
-                          {
+                        const sublabel = Object.keys(elme)[0].replaceAll('-', ' ');
+                        return div({
                             class: 'checkbox-label-container',
                           },
                           input({
@@ -886,16 +946,16 @@ export default function decorate(block) {
                             type: 'checkbox',
                             id: `ind${ind + 1}`,
                             dataattr: elme[Object.keys(elme)].join('-'),
-                            onclick: (event) => {
+                            onclick: () => {
                               if (window.innerWidth < 786) {
-                                let temp = [],
-                                  dup = [];
+                                const temp = [];
+                                const dup = [];
                                 Array.from(block.querySelectorAll('.checkbox-label-container input')).forEach((el) => {
                                   if (el.checked) {
-                                    let tempel = el.getAttribute('dataattr').split('-')
+                                    const tempel = el.getAttribute('dataattr').split('-');
                                     temp.push(...tempel);
                                   }
-                                })
+                                });
                                 if (temp.length > 0) {
                                   temp.forEach((scel) => {
                                     if (!dup.includes(scel)) {
@@ -912,20 +972,21 @@ export default function decorate(block) {
                               }
                             },
                           }),
-                          label(
-                            {
+                          label({
                               for: `ind${ind + 1}`,
                             },
-                            sublabel,
-                            span({class: 'fund-length'}, `(${elme[Object.keys(elme)[0]].length})`),
+                            capitalizeEachWord(sublabel),
+                            span({
+                              class: 'fund-length',
+                            }, `(${elme[Object.keys(elme)[0]].length})`),
                           ),
                         );
                       }),
                     );
                   }
-                  return Object.keys(element)[0] !== 'indianEquitySub'
-                    ? div(
-                      {
+                  const indetempcount = Object.keys(element)[0] === 'indian-equity' ? '43' : element[Object.keys(element)[0]].length;
+                  return Object.keys(element)[0] !== 'indianEquitySub' ?
+                    div({
                         class: `checkbox-label-container ${indexeq}`,
                       },
                       input({
@@ -949,73 +1010,72 @@ export default function decorate(block) {
                             }
                           }
                           if (window.innerWidth < 786) {
-                                let temp = [],
-                                  dup = [];
-                                Array.from(block.querySelectorAll('.checkbox-label-container input')).forEach((el) => {
-                                  if (el.checked) {
-                                    let tempel = el.getAttribute('dataattr').split('-')
-                                    temp.push(...tempel);
-                                  }
-                                })
-                                if (temp.length > 0) {
-                                  temp.forEach((scel) => {
-                                    if (!dup.includes(scel)) {
-                                      dup.push(scel);
-                                    }
-                                  });
+                            const temp = [];
+                            const dup = [];
+                            Array.from(block.querySelectorAll('.checkbox-label-container input')).forEach((el) => {
+                              if (el.checked) {
+                                const tempel = el.getAttribute('dataattr').split('-');
+                                temp.push(...tempel);
+                              }
+                            });
+                            if (temp.length > 0) {
+                              temp.forEach((scel) => {
+                                if (!dup.includes(scel)) {
+                                  dup.push(scel);
                                 }
-                                // console.log(dup);
-                                const tempdata = dataCfObj.filter((el) => (dup.includes(el.schcode) ? el : ''));
-                                dataMapMoObj.tempMobReturn = [];
-                                dataMapMoObj.tempMobReturn = tempdata;
-                              } else {
+                              });
+                            }
+                            // console.log(dup);
+                            const tempdata = dataCfObj.filter((el) => (dup.includes(el.schcode) ? el : ''));
+                            dataMapMoObj.tempMobReturn = [];
+                            dataMapMoObj.tempMobReturn = tempdata;
+                          } else {
                             checkfilter(block);
                           }
                         },
                       }),
-                      div(
-                        { class: 'label-tooltip-wrap' },
-                        label(
-                          {
+                      div({
+                          class: 'label-tooltip-wrap'
+                        },
+                        label({
                             for: `index${index + 1}`,
                           },
                           capitalizeEachWord(
                             Object.keys(element)[0].replaceAll('-', ' '),
                           ),
-                          span(
-                            {
+                          span({
                               class: 'fund-length',
                             },
-                            `(${element[Object.keys(element)[0]].length})`,
+                            `(${indetempcount})`,
                           ),
                         ),
-                        div(
-                          { class: 'tooltip-wrap' },
+                        div({
+                            class: 'tooltip-wrap'
+                          },
                           img({
                             src: '../../icons/filter-info.svg',
                             alt: 'Filter Info Icon',
                           }),
-                          p(
-                            { class: 'tooltip-text' },
+                          p({
+                              class: 'tooltip-text'
+                            },
                             'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
                           ),
                         ),
                       ),
                       capitalizeEachWord(
                         Object.keys(element)[0].replaceAll('-', ' '),
-                      ) === 'Indian Equity'
-                        ? div(
-                          {
-                            class: 'innerindianequity',
-                          },
-                          dataMapMoObj[`${index}ArrayDoc`],
-                        )
-                        : '',
-                    )
-                    : '';
+                      ) === 'Indian Equity' ?
+                      div({
+                          class: 'innerindianequity',
+                        },
+                        dataMapMoObj[`${index}ArrayDoc`],
+                      ) :
+                      '',
+                    ) :
+                    '';
                 }),
-                ...dataMapMoObj.data.fundType.map((element, index) => div(
-                  {
+                ...dataMapMoObj.data.fundType.map((element, index) => div({
                     class: 'checkbox-label-container',
                   },
                   input({
@@ -1024,38 +1084,38 @@ export default function decorate(block) {
                     id: `fundtype${index + 1}`,
                     dataattr: element[Object.keys(element)[0]].join('-'),
                     datakey: Object.keys(element)[0],
-                    onclick: (event) => {
+                    onclick: () => {
                       // checkfilter(block);
                       if (window.innerWidth < 786) {
-                                let temp = [],
-                                  dup = [];
-                                Array.from(block.querySelectorAll('.checkbox-label-container input')).forEach((el) => {
-                                  if (el.checked) {
-                                    let tempel = el.getAttribute('dataattr').split('-')
-                                    temp.push(...tempel);
-                                  }
-                                })
-                                if (temp.length > 0) {
-                                  temp.forEach((scel) => {
-                                    if (!dup.includes(scel)) {
-                                      dup.push(scel);
-                                    }
-                                  });
-                                }
-                                // console.log(dup);
-                                const tempdata = dataCfObj.filter((el) => (dup.includes(el.schcode) ? el : ''));
-                                dataMapMoObj.tempMobReturn = [];
-                                dataMapMoObj.tempMobReturn = tempdata;
-                              } else {
-                                  checkfilter(block);
-                              }
+                        const temp = [];
+                        const dup = [];
+                        Array.from(block.querySelectorAll('.checkbox-label-container input')).forEach((el) => {
+                          if (el.checked) {
+                            const tempel = el.getAttribute('dataattr').split('-');
+                            temp.push(...tempel);
+                          }
+                        });
+                        if (temp.length > 0) {
+                          temp.forEach((scel) => {
+                            if (!dup.includes(scel)) {
+                              dup.push(scel);
+                            }
+                          });
+                        }
+                        // console.log(dup);
+                        const tempdata = dataCfObj.filter((el) => (dup.includes(el.schcode) ? el : ''));
+                        dataMapMoObj.tempMobReturn = [];
+                        dataMapMoObj.tempMobReturn = tempdata;
+                      } else {
+                        checkfilter(block);
+                      }
                       // viewFunction(block);
                     },
                   }),
-                  div(
-                    { class: 'label-tooltip-wrap' },
-                    label(
-                      {
+                  div({
+                      class: 'label-tooltip-wrap'
+                    },
+                    label({
                         for: `fundtype${index + 1}`,
                       },
                       capitalizeEachWord(
@@ -1065,26 +1125,26 @@ export default function decorate(block) {
                         `(${element[Object.keys(element)[0]].length})`,
                       ),
                     ),
-                    div(
-                      { class: 'tooltip-wrap' },
+                    div({
+                        class: 'tooltip-wrap'
+                      },
                       img({
                         src: '../../icons/filter-info.svg',
                         alt: 'Filter Info Icon',
                       }),
-                      p(
-                        { class: 'tooltip-text' },
+                      p({
+                          class: 'tooltip-text'
+                        },
                         'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
                       ),
                     ),
                   ),
                 )),
               ),
-              div(
-                {
+              div({
                   class: 'apply-wrapper',
                 },
-                button(
-                  {
+                button({
                     class: 'close-btn',
                     onclick: () => {
                       block
@@ -1098,8 +1158,7 @@ export default function decorate(block) {
                   },
                   'Close',
                 ),
-                button(
-                  {
+                button({
                     class: 'apply-btn',
                     onclick: () => {
                       applyFunction(block);
@@ -1110,16 +1169,13 @@ export default function decorate(block) {
               ),
             ),
           ),
-          div(
-            {
+          div({
               class: 'sort-overlay',
             },
-            div(
-              {
+            div({
                 class: 'sort-container',
               },
-              div(
-                {
+              div({
                   class: 'sort-label',
                 },
                 // span(label(
@@ -1127,25 +1183,21 @@ export default function decorate(block) {
                 // ))
                 span(
                   block
-                    .querySelector('.block-item3 .block-subitem-finelsub1')
-                    .textContent.trim(),
+                  .querySelector('.block-item3 .block-subitem-finelsub1')
+                  .textContent.trim(),
                 ),
               ),
-              div(
-                {
+              div({
                   class: 'arrange-returns',
                 },
-                div(
-                  {
+                div({
                     class: 'arrange-container',
                   },
                   span('Arrange by'),
-                  div(
-                    {
+                  div({
                       class: 'radio-label-container',
                     },
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1153,15 +1205,13 @@ export default function decorate(block) {
                         id: 'popular',
                         name: 'arrange',
                       }),
-                      label(
-                        {
+                      label({
                           for: 'popular',
                         },
                         'Popular',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1169,15 +1219,13 @@ export default function decorate(block) {
                         id: 'lastnav',
                         name: 'arrange',
                       }),
-                      label(
-                        {
+                      label({
                           for: 'lastnav',
                         },
                         'Latest NAV',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1185,15 +1233,13 @@ export default function decorate(block) {
                         id: 'lastnavone',
                         name: 'arrange',
                       }),
-                      label(
-                        {
+                      label({
                           for: 'lastnavone',
                         },
                         'Latest by 1 day',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1201,15 +1247,13 @@ export default function decorate(block) {
                         id: 'oldnew',
                         name: 'arrange',
                       }),
-                      label(
-                        {
+                      label({
                           for: 'oldnew',
                         },
                         'Oldest to Newest',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1217,8 +1261,7 @@ export default function decorate(block) {
                         id: 'newold',
                         name: 'arrange',
                       }),
-                      label(
-                        {
+                      label({
                           for: 'newold',
                         },
                         'Newest to Oldest',
@@ -1226,17 +1269,14 @@ export default function decorate(block) {
                     ),
                   ),
                 ),
-                div(
-                  {
+                div({
                     class: 'return-container',
                   },
                   span('Returns Period'),
-                  div(
-                    {
+                  div({
                       class: 'radio-label-container',
                     },
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1245,15 +1285,13 @@ export default function decorate(block) {
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
                       }),
-                      label(
-                        {
+                      label({
                           for: 'sinceinp',
                         },
                         'Since Inception',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1262,15 +1300,13 @@ export default function decorate(block) {
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
                       }),
-                      label(
-                        {
+                      label({
                           for: 'oneyear',
                         },
                         '1 year',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1279,15 +1315,13 @@ export default function decorate(block) {
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].threeYear_Ret.join('-'),
                       }),
-                      label(
-                        {
+                      label({
                           for: 'threeyear',
                         },
-                        '3 years',
+                        'Since Inception',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1296,15 +1330,13 @@ export default function decorate(block) {
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].fiveYear_Ret.join('-'),
                       }),
-                      label(
-                        {
+                      label({
                           for: 'fiveyear',
                         },
                         '5 years',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1313,15 +1345,13 @@ export default function decorate(block) {
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
                       }),
-                      label(
-                        {
+                      label({
                           for: 'tenyear',
                         },
                         '7 years',
                       ),
                     ),
-                    div(
-                      {
+                    div({
                         class: 'radio-label',
                       },
                       input({
@@ -1330,8 +1360,7 @@ export default function decorate(block) {
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                       }),
-                      label(
-                        {
+                      label({
                           for: 'tenyear',
                         },
                         '10 years',
@@ -1340,12 +1369,10 @@ export default function decorate(block) {
                   ),
                 ),
               ),
-              div(
-                {
+              div({
                   class: 'close-apply-btn',
                 },
-                button(
-                  {
+                button({
                     class: 'closebtn',
                     onclick: () => {
                       block
@@ -1359,8 +1386,7 @@ export default function decorate(block) {
                   },
                   'close',
                 ),
-                button(
-                  {
+                button({
                     class: 'applybtn',
                     onclick: () => {
                       applyFunction(block);
@@ -1373,34 +1399,29 @@ export default function decorate(block) {
           ),
         ),
       ),
-      div(
-        {
+      div({
           class: 'right-container',
         },
-        div(
-          {
+        div({
             class: 'sort-pop-container',
           },
-          div(
-            {
+          div({
               class: 'sort-popular',
             },
-            div(
-              {
+            div({
                 class: 'sort-container',
               },
-              span(
-                { class: 'sort-pop-label' },
+              span({
+                  class: 'sort-pop-label'
+                },
                 block
-                  .querySelector('.block-item3 .block-subitem-finelsub1')
-                  .textContent.trim(),
+                .querySelector('.block-item3 .block-subitem-finelsub1')
+                .textContent.trim(),
               ),
-              div(
-                {
+              div({
                   class: 'sort-select-container',
                 },
-                p(
-                  {
+                p({
                     class: 'selectedtext',
                     onclick: (event) => {
                       if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
@@ -1412,8 +1433,7 @@ export default function decorate(block) {
                   },
                   'Popular',
                 ),
-                ul(
-                  {
+                ul({
                     class: 'dropdown-list',
                     onclick: (event) => {
                       event.target
@@ -1458,22 +1478,20 @@ export default function decorate(block) {
                 ),
               ),
             ),
-            div(
-              {
+            div({
                 class: 'popular-container',
               },
-              span(
-                { class: 'sort-pop-label' },
+              span({
+                  class: 'sort-pop-label'
+                },
                 block
-                  .querySelector('.block-item3 .block-subitem-finelsub2')
-                  .textContent.trim(),
+                .querySelector('.block-item3 .block-subitem-finelsub2')
+                .textContent.trim(),
               ),
-              div(
-                {
+              div({
                   class: 'return-select-container',
                 },
-                p(
-                  {
+                p({
                     class: 'selectedtext',
                     onclick: (event) => {
                       if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
@@ -1483,10 +1501,9 @@ export default function decorate(block) {
                       }
                     },
                   },
-                  '3 Years',
+                  'Since Inception',
                 ),
-                ul(
-                  {
+                ul({
                     class: 'dropdown-list',
                     onclick: (event) => {
                       event.target
@@ -1510,38 +1527,32 @@ export default function decorate(block) {
                       viewFunction(block);
                     },
                   },
-                  li(
-                    {
+                  li({
                       dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
                     },
                     '1 Year',
                   ),
-                  li(
-                    {
+                  li({
                       dataattr: dataMapMoObj.data.sort[0].threeYear_Ret.join('-'),
                     },
                     '3 Years',
                   ),
-                  li(
-                    {
+                  li({
                       dataattr: dataMapMoObj.data.sort[0].fiveYear_Ret.join('-'),
                     },
                     '5 Years',
                   ),
-                  li(
-                    {
+                  li({
                       dataattr: dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
                     },
                     '7 Years',
                   ),
-                  li(
-                    {
+                  li({
                       dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                     },
                     '10 Years',
                   ),
-                  li(
-                    {
+                  li({
                       dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
                     },
                     'Since Inception',
@@ -1550,16 +1561,13 @@ export default function decorate(block) {
               ),
             ),
           ),
-          div(
-            {
+          div({
               class: 'group-view-container',
             },
-            div(
-              {
+            div({
                 class: 'view-container',
               },
-              div(
-                {
+              div({
                   class: 'squareby-container grid-view-active',
                   onclick: (event) => {
                     event.currentTarget.classList.add('grid-view-active');
@@ -1575,8 +1583,7 @@ export default function decorate(block) {
                 },
                 block.querySelector('.block-item3 .block-subitem-finelsub3'),
               ),
-              div(
-                {
+              div({
                   class: 'listby-container',
                   onclick: (event) => {
                     event.currentTarget.classList.add('list-view-active');
@@ -1593,13 +1600,13 @@ export default function decorate(block) {
                 block.querySelector('.block-item3 .block-subitem-finelsub4'),
               ),
             ),
-            div(
-              {
+            div({
                 class: 'togglebtn',
               },
-              p({ class: 'toggle-text' }, 'Direct'),
-              div(
-                {
+              p({
+                class: 'toggle-text'
+              }, 'Direct'),
+              div({
                   class: 'fund-toggle-wrap',
                 },
                 input({
@@ -1616,26 +1623,24 @@ export default function decorate(block) {
                   for: 'toggle',
                 }),
               ),
-              p({ class: 'toggle-text' }, 'Regular'),
+              p({
+                class: 'toggle-text'
+              }, 'Regular'),
             ),
-            div(
-              {
+            div({
                 class: 'compare-btn',
               },
               button('Compare'),
             ),
           ),
         ),
-        div(
-          {
+        div({
             class: 'applied-filter-wrap',
           },
-          ul(
-            {
+          ul({
               class: 'applied-filter-list',
             },
-            li(
-              {
+            li({
                 class: 'applied-filter-name',
               },
               span('Large Cap'),
@@ -1645,8 +1650,7 @@ export default function decorate(block) {
                 alt: 'cross icon',
               }),
             ),
-            li(
-              {
+            li({
                 class: 'applied-filter-name',
               },
               span('Tax saver (ELSS)'),
@@ -1655,8 +1659,7 @@ export default function decorate(block) {
                 alt: 'cross icon',
               }),
             ),
-            li(
-              {
+            li({
                 class: 'applied-filter-name',
               },
               span('Hybrid & Balanced'),
@@ -1667,19 +1670,16 @@ export default function decorate(block) {
             ),
           ),
         ),
-        div(
-          {
+        div({
             class: 'cards-container',
           },
           ...dataMapMoObj.funddata.map((el) => fundcardblock(el)),
         ),
-        div(
-          {
+        div({
             class: 'list-view-header',
             style: 'display:none',
           },
-          div(
-            {
+          div({
               class: 'list-header',
             },
             block.closest('.section').querySelector('.item2'),
@@ -1739,19 +1739,25 @@ export default function decorate(block) {
     });
   });
   // added wrapper
-  const divmop = div(
-    {
+  const divmop = div({
       class: 'indanequity-wrapper',
     },
     block.querySelector('.indaneqsub #index1'),
-    div(
-      { class: 'label-tooltip-wrap' },
+    div({
+        class: 'label-tooltip-wrap'
+      },
       block.querySelector(".indaneqsub [for='index1']"),
-      div(
-        { class: 'tooltip-wrap' },
-        img({ class: 'filter-info-icon', src: '../../icons/filter-info.svg', alt: 'Filter Info Icon' }),
-        p(
-          { class: 'tooltip-text' },
+      div({
+          class: 'tooltip-wrap'
+        },
+        img({
+          class: 'filter-info-icon',
+          src: '../../icons/filter-info.svg',
+          alt: 'Filter Info Icon'
+        }),
+        p({
+            class: 'tooltip-text'
+          },
           'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
         ),
       ),
@@ -1784,6 +1790,17 @@ export default function decorate(block) {
       } else {
         el.checked = true;
       }
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!block.querySelector('.sort-select-container').contains(event.target)) {
+      const sortcont = block.querySelector('.sort-select-container .dropdown-list');
+      sortcont.classList.remove('dropdown-active');
+    }
+    if (!block.querySelector('.return-select-container').contains(event.target)) {
+      const sortcont = block.querySelector('.return-select-container .dropdown-list');
+      sortcont.classList.remove('dropdown-active');
     }
   });
 }

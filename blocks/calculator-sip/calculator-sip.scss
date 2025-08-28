@@ -296,6 +296,7 @@
               cursor: pointer;
               font-weight: 400;
               border-bottom: 1px solid #eee;
+              font-size: 14px;
 
               &:hover {
                 background: map.get($old-silver, 50);
