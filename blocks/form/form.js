@@ -2,7 +2,9 @@
 import createField from './form-fields.js';
 
 export async function createForm(formHref, submitHref) {
-  const { pathname } = new URL(formHref);
+  const {
+    pathname
+  } = new URL(formHref);
   const resp = await fetch(pathname);
   const json = await resp.json();
 
@@ -56,7 +58,9 @@ async function handleSubmit(form) {
     const payload = generatePayload(form);
     const response = await fetch(form.dataset.action, {
       method: 'POST',
-      body: JSON.stringify({ data: payload }),
+      body: JSON.stringify({
+        data: payload
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -83,7 +87,7 @@ export default async function decorate(block) {
   // const submitLink = links.find((link) => link !== formLink);
   // if (!formLink || !submitLink) return;
 
-  const form = await createForm(formLink);// , submitLink);
+  const form = await createForm(formLink); // , submitLink);
   block.replaceChildren(form);
 
   form.addEventListener('submit', (e) => {
@@ -95,8 +99,15 @@ export default async function decorate(block) {
       const firstInvalidEl = form.querySelector(':invalid:not(fieldset)');
       if (firstInvalidEl) {
         firstInvalidEl.focus();
-        firstInvalidEl.scrollIntoView({ behavior: 'smooth' });
+        firstInvalidEl.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }
   });
+
+  if (block.closest('.growth-now-container')) {
+    const phno = block.querySelector('#form-1');
+    phno.setAttribute('maxlength', '10');
+  }
 }

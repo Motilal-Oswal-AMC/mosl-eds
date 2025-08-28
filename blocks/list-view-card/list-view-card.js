@@ -53,7 +53,13 @@ export default function decorate(block) {
   const cagrValve = block.returns.filter(
     (el) => el.plancode + el.optioncode === groupedCodeToMatch,
   );
-  const cagrval = cagrValve.length !== 0 ? cagrValve[0].inception_Ret : 'N/A';
+  let ret;
+  if (dataMapMoObj.selectreturns !== '') {
+    ret = dataMapMoObj.ObjTemp[dataMapMoObj.selectreturns];
+  } else {
+    ret = 'inception_Ret';
+  }
+  const cagrval = cagrValve.length !== 0 ? cagrValve[0][ret] : 'N/A';
   const stylecagrval = cagrval === 'N/A' ? 'none' : 'flex';
 
   const starClass = dataMapMoObj.schstar.includes(block.schcode)
