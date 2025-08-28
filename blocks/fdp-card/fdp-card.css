@@ -93,9 +93,7 @@ main {
   height: 100%;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .brandlogo-callicons .contanct-share-icon {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  display: none;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .brandlogo-callicons .contanct-share-icon .contactus-icon,
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .brandlogo-callicons .contanct-share-icon .share-icon {
@@ -397,6 +395,7 @@ main {
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv .form-wrapper .input-wrapper {
   position: relative;
+  display: none;
   width: calc(100% - 125px);
   border-radius: 4px;
   border: 1px solid #8695af;
@@ -442,7 +441,7 @@ main {
   line-height: 0;
   z-index: 2;
   margin-left: -7px;
-  max-width: 132px;
+  max-width: 100%;
   width: 100%;
 }
 @media (max-width: 1025px) {
@@ -453,12 +452,15 @@ main {
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv .form-wrapper .btn-wrapper {
-    max-width: 124px;
+    max-width: 100%;
     margin-left: -7px;
   }
 }
-.section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv .form-wrapper .btn-wrapper button.submit {
+.section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv .form-wrapper .btn-wrapper a.submit {
+  display: block;
   width: 100%;
+  text-align: center;
+  justify-content: center;
   margin: 0;
   border: none;
   padding: 12px;
@@ -514,7 +516,7 @@ main {
   }
 }
 .section.fdp-card-container .item2 .item2-ul {
-  z-index: 12;
+  z-index: 8;
   width: 100%;
   height: 40px;
   justify-content: space-between;
@@ -524,7 +526,7 @@ main {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid #BDBDBD;
+  border-bottom: 1px solid #bdbdbd;
   background-color: #f5f5f5;
   overflow: auto hidden;
   scrollbar-width: none;

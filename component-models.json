@@ -167,6 +167,10 @@
             "value": "highlight"
           },
           {
+            "name": "pan-details-modal",
+            "value": "pan-details-modal"
+          },
+          {
             "name": "breadcrumbs-fdp",
             "value": "breadcrumbs-fdp"
           },
