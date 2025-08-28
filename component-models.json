@@ -391,6 +391,27 @@
     ]
   },
   {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "footer Accordion",
+            "children": [
+              {
+                "name": "Mobile Accordion Only",
+                "value": "mobile-accordion"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "accordion-item",
     "type": "accordion/text",
     "fields": [
