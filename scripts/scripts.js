@@ -1,4 +1,6 @@
-import { loadEmbed } from '../blocks/embed/embed.js';
+import {
+  loadEmbed
+} from '../blocks/embed/embed.js';
 import {
   loadHeader,
   loadFooter,
@@ -15,7 +17,13 @@ import {
 } from './aem.js';
 
 import dataMapMoObj from './constant.js';
-import { createForm } from '../blocks/form/form.js';
+
+import {
+  initializeModalHandlers
+} from '../blocks/modal/modal.js';
+import {
+  createForm
+} from '../blocks/form/form.js';
 
 // import delayed from './delayed.js';
 // import { initializeModalHandlers } from '../blocks/modal/modal.js';
@@ -154,6 +162,18 @@ async function loadFonts() {
 
 // loadEmbed(block,link)
 
+function autolinkVideo(element) {
+  const origin = element.querySelector('a');
+
+  if (origin && origin.href && origin.href.includes('/www.youtube.com/')) {
+    // e.preventDefault();
+    // const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+    // openModal(origin.href);
+    loadEmbed(origin, origin.href);
+  }
+  // });
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -257,6 +277,7 @@ async function loadEager(doc) {
 }
 
 async function loadLazy(doc) {
+  autolinkVideo(doc);
   const main = doc.querySelector('main');
   wrapImgsInLinks(doc);
   await loadSections(main);
@@ -378,7 +399,9 @@ export async function decorateForm(block) {
       const firstInvalidEl = form.querySelector(':invalid:not(fieldset)');
       if (firstInvalidEl) {
         firstInvalidEl.focus();
-        firstInvalidEl.scrollIntoView({ behavior: 'smooth' });
+        firstInvalidEl.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }
   });
@@ -391,6 +414,8 @@ export function loadAutoBlock(doc) {
     }
   });
 }
+
+initializeModalHandlers();
 /* -------------------------
    API UTILS COMMENTED OUT
 ------------------------- */
