@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { isDesktop } from '../header/header.js';
 
 /**

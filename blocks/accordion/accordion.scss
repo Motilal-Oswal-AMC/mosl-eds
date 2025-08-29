@@ -30,7 +30,7 @@
       cursor: pointer;
       list-style: none;
       overflow: auto;
-      
+
       // transition: background-color 0.2s;
 
       &:focus,
@@ -222,13 +222,20 @@
           padding: 0 16px;
         }
 
-        &[open] {
+        &.accordion-item[open] {
+          background: #242177;
+          -webkit-tap-highlight-color: transparent;
+          border-radius: 8px;
+          transition: transform 0.2s;
+
           summary {
             color: #fff;
-            background: #242177;
+
+            // background: #242177;
             border-radius: 8px 8px 0 0;
             padding: 16px;
             padding-bottom: 8px;
+            background-color: transparent;
 
             @include media(mobile) {
               padding: 16px 12px;
@@ -260,8 +267,10 @@
             padding: 16px;
             padding-top: 0;
             border-radius: 0 0 8px 8px;
-            background: #242177;
+
+            // background: #242177;
             box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+            background-color: transparent;
 
             // transition: all 0.3s ease-in-out;
 
