@@ -15,6 +15,7 @@ import {
 } from './aem.js';
 
 import dataMapMoObj from './constant.js';
+import { createForm } from '../blocks/form/form.js';
 
 // import delayed from './delayed.js';
 // import { initializeModalHandlers } from '../blocks/modal/modal.js';
@@ -361,6 +362,35 @@ initComponent('.welcome-component', [
   'welcomemain', 'welcomemain-sub', 'welcomemain-sub-wrp',
   'welcomeactmain', 'welcomeinnactmain', 'welcomeaqweactmain',
 ]);
+
+export async function decorateForm(block) {
+  const formLink = block.querySelector('a').href;
+  const submitLink = '/api';
+  // if (!formLink || !submitLink) return;
+  const form = await createForm(formLink, submitLink);
+  block.replaceChildren(form);
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const valid = form.checkValidity();
+    if (valid) {
+      // handleSubmit(form);
+    } else {
+      const firstInvalidEl = form.querySelector(':invalid:not(fieldset)');
+      if (firstInvalidEl) {
+        firstInvalidEl.focus();
+        firstInvalidEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+}
+
+export function loadAutoBlock(doc) {
+  doc.querySelectorAll('a').forEach((ael) => {
+    if (ael && ael.href && ael.href.includes('/forms/')) {
+      decorateForm(ael.parentElement);
+    }
+  });
+}
 /* -------------------------
    API UTILS COMMENTED OUT
 ------------------------- */
