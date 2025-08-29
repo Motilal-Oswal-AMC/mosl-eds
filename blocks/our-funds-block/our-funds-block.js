@@ -1974,13 +1974,6 @@ export default function decorate(block) {
     });
   });
 
-  Array.from(block.querySelectorAll('.filter-info-icon')).forEach((eltoo) => {
-    if (eltoo.nextElementSibling.style.display === 'block') {
-      eltoo.nextElementSibling.style.display = 'none';
-    } else {
-      eltoo.nextElementSibling.style.display = 'block';
-    }
-  });
   // added wrapper
   const divmop = div(
     {
@@ -2048,6 +2041,14 @@ export default function decorate(block) {
     if (!block.querySelector('.return-select-container').contains(event.target)) {
       const sortcont = block.querySelector('.return-select-container .dropdown-list');
       sortcont.classList.remove('dropdown-active');
+    }
+  });
+
+  Array.from(block.querySelectorAll('.filter-info-icon')).forEach((eltoo) => {
+    if (eltoo.nextElementSibling.style.display === 'block') {
+      eltoo.nextElementSibling.style.display = 'none';
+    } else {
+      eltoo.nextElementSibling.style.display = 'block';
     }
   });
 }
