@@ -694,17 +694,21 @@ body {
                     .tooltip-text {
                       display: none;
                       position: absolute;
-                      left: 50%;
-                      bottom: 33px;
-                      z-index: 10;
-                      transform: translateX(-50%);
+                      top: 16px;
+                      right: 0;
+                      z-index: 12;
                       margin: 0;
-                      width: 418px;
+                      width: 259px;
                       border-radius: 8px;
-                      border: 1px solid $neutrals-200;
-                      background-color: $neutrals-50;
-                      padding: 12px;
-                      text-align: center;
+                      border: 0.5px solid #9E9E9E;
+                      background-color: #FFF;
+                      padding: 8px;
+                      text-align: left;
+                      font-size: 12px;
+                      line-height: 16px;
+                      color: #616161;
+                      font-family: $poppins;
+                      font-weight: 400;
 
                       @include font-style(12px,
                         16px,
@@ -712,41 +716,41 @@ body {
                         400,
                         $poppins);
 
-                      &::after {
-                        content: "";
-                        width: 20px;
-                        height: 20px;
-                        border: solid $neutrals-200;
-                        border-width: 0 1px 1px 0;
-                        border-radius: 0 0 8px;
-                        display: block;
-                        position: absolute;
-                        left: 49.5%;
-                        transform: rotate(45deg) translateX(-50%);
-                        bottom: -17px;
-                        background-color: $neutrals-50;
-                      }
+                      // &::after {
+                      //   content: "";
+                      //   width: 20px;
+                      //   height: 20px;
+                      //   border: solid $neutrals-200;
+                      //   border-width: 0 1px 1px 0;
+                      //   border-radius: 0 0 8px;
+                      //   display: block;
+                      //   position: absolute;
+                      //   left: 49.5%;
+                      //   transform: rotate(45deg) translateX(-50%);
+                      //   bottom: -17px;
+                      //   background-color: $neutrals-50;
+                      // }
 
                       @include media(mobile) {
-                        right: -5px;
+                        right: 3px;
                         left: unset;
                         transform: unset;
                         bottom: unset;
-                        top: 26.5px;
-                        width: 292px;
+                        top: 26px;
+                        width: 293px;
                         padding: 8px;
-                        text-align: right;
+                        text-align: left;
 
-                        &::after {
-                          transform: rotate(-135deg) translateX(-50%);
-                          bottom: unset;
-                          top: -8.8px;
-                          left: unset;
-                          right: 12px;
-                          width: 9.5px;
-                          height: 9.5px;
-                          border-radius: 0 0 4px;
-                        }
+                        // &::after {
+                        //   transform: rotate(-135deg) translateX(-50%);
+                        //   bottom: unset;
+                        //   top: -8.8px;
+                        //   left: unset;
+                        //   right: 12px;
+                        //   width: 9.5px;
+                        //   height: 9.5px;
+                        //   border-radius: 0 0 4px;
+                        // }
                       }
                     }
 

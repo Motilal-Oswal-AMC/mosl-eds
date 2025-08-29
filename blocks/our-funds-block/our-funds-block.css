@@ -1,4 +1,5 @@
 /* Reset */
+@import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
 @media (max-width: 768px) {
   body .scroll-lock {
@@ -645,57 +646,37 @@
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text {
   display: none;
   position: absolute;
-  left: 50%;
-  bottom: 33px;
-  z-index: 10;
-  transform: translateX(-50%);
+  top: 16px;
+  right: 0;
+  z-index: 12;
   margin: 0;
-  width: 418px;
+  width: 259px;
   border-radius: 8px;
-  border: 1px solid #EEE;
-  background-color: #FAFAFA;
-  padding: 12px;
-  text-align: center;
+  border: 0.5px solid #9E9E9E;
+  background-color: #FFF;
+  padding: 8px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 16px;
+  color: #616161;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
   color: #616161;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
-.section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text::after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  border: solid #EEE;
-  border-width: 0 1px 1px 0;
-  border-radius: 0 0 8px;
-  display: block;
-  position: absolute;
-  left: 49.5%;
-  transform: rotate(45deg) translateX(-50%);
-  bottom: -17px;
-  background-color: #FAFAFA;
-}
 @media (max-width: 768px) {
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text {
-    right: -5px;
+    right: 3px;
     left: unset;
     transform: unset;
     bottom: unset;
-    top: 26.5px;
-    width: 292px;
+    top: 26px;
+    width: 293px;
     padding: 8px;
-    text-align: right;
-  }
-  .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap .tooltip-text::after {
-    transform: rotate(-135deg) translateX(-50%);
-    bottom: unset;
-    top: -8.8px;
-    left: unset;
-    right: 12px;
-    width: 9.5px;
-    height: 9.5px;
-    border-radius: 0 0 4px;
+    text-align: left;
   }
 }
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .tooltip-wrap:hover .tooltip-text {
