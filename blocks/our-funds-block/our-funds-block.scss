@@ -175,25 +175,26 @@ body {
             }
 
             &::-webkit-scrollbar {
-              width: 5px;
+              width: 3px;
+              background-color: #464343;
             }
 
             &::-webkit-scrollbar-track {
-              width: 5px;
+              width: 3px;
               background-color: $primary-white;
               border-radius: 0 6px 6px 0;
             }
 
             &::-webkit-scrollbar-thumb {
-              width: 5px;
-              background-color: #424242;//$primary-blue;
-              border-radius: 0 6px 6px 0;
+              width: 3px;
+              background-color: #424242; //$primary-blue;
+              border-radius: 0 1px 1px 0;
             }
 
             .list-fund-name {
               @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
 
-              border-bottom: 1px solid #eee;//$neutrals-200;
+              // border-bottom: 1px solid $neutrals-200;
               padding: 12px 36px;
               cursor: pointer;
             }
