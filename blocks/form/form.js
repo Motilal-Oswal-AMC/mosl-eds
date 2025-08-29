@@ -3,7 +3,7 @@ import createField from './form-fields.js';
 
 export async function createForm(formHref, submitHref) {
   const {
-    pathname
+    pathname,
   } = new URL(formHref);
   const resp = await fetch(pathname);
   const json = await resp.json();
@@ -59,7 +59,7 @@ async function handleSubmit(form) {
     const response = await fetch(form.dataset.action, {
       method: 'POST',
       body: JSON.stringify({
-        data: payload
+        data: payload,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export default async function decorate(block) {
       if (firstInvalidEl) {
         firstInvalidEl.focus();
         firstInvalidEl.scrollIntoView({
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     }

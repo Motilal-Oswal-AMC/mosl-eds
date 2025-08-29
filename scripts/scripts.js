@@ -110,9 +110,9 @@ function autolinkFragements(element) {
 }
 
 export function loadAutoBlock(doc) {
-  doc.querySelectorAll('a').forEach((a) => {
-    if (a && a.href && a.href.includes('/forms/')) {
-      decorateForm(a.parentElement);
+  doc.querySelectorAll('a').forEach((ael) => {
+    if (ael && ael.href && ael.href.includes('/forms/')) {
+      decorateForm(ael.parentElement);
     }
   });
 }
@@ -151,7 +151,6 @@ export async function decorateForm(block) {
     }
   });
 }
-
 
 /**
  * Move instrumentation attributes from a given element to another given element.
@@ -263,7 +262,6 @@ async function loadEager(doc) {
   }
 }
 
-
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
@@ -271,7 +269,7 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   autolinkVideo(doc);
   // autolinkModals(doc);
-  loadAutoBlock(doc)
+  loadAutoBlock(doc);
   const main = doc.querySelector('main');
   autolinkFragements(doc);
   wrapImgsInLinks(doc);

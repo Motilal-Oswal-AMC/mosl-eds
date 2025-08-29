@@ -630,13 +630,11 @@ export default async function decorate(block) {
                   case 'Backspace':
                     if (searchInput.value.length === 1) {
                       searchFireld.closest('.search-wrapper').classList.remove('search-active');
-                    } else {
-                      if (searchInput.value.length > 1) {
-                        searchFireld.closest('.search-wrapper').classList.add('search-active'); 
-                      } else if (searchInput.value === '') {
+                    } else if (searchInput.value.length > 1) {
+                      searchFireld.closest('.search-wrapper').classList.add('search-active');
+                    } else if (searchInput.value === '') {
                       dropdown.classList.add('dropdown-active');
                     }
-                    } 
                     break;
                   case 'Delete':
                     event.preventDefault();
@@ -644,12 +642,10 @@ export default async function decorate(block) {
                     updateActiveItem();
                     if (searchInput.value.length === 1) {
                       searchFireld.closest('.search-wrapper').classList.remove('search-active');
-                    } else {
-                      if (searchInput.value.length > 1) {
-                        searchFireld.closest('.search-wrapper').classList.add('search-active'); 
-                      }else if (searchInput.value === '') {
+                    } else if (searchInput.value.length > 1) {
+                      searchFireld.closest('.search-wrapper').classList.add('search-active');
+                    } else if (searchInput.value === '') {
                       dropdown.classList.add('dropdown-active');
-                    }
                     }
                     break;
                   default:

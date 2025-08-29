@@ -172,8 +172,8 @@ function planListEvent(param, block) {
       },
       span(
         { class: 'cagr-desc-text' },
-        'Return is not provided because thescheme has not completed 6 months'
-      )
+        'Return is not provided because thescheme has not completed 6 months',
+      ),
     );
     param.target
       .closest('.card-wrapper')
@@ -295,15 +295,13 @@ export default function decorate(block) {
               { class: 'fund-tagging' },
               ul(
                 { class: 'fundtagging-list' },
-                ...fundsTaggingSection.map((eloption) =>
-                  li(
-                    { class: 'fundtagging-list-name' },
-                    eloption
-                      .replaceAll('motilal-oswal:', '')
-                      .replaceAll('-', ' ')
-                      .toUpperCase()
-                  ),
-                ),
+                ...fundsTaggingSection.map((eloption) => li(
+                  { class: 'fundtagging-list-name' },
+                  eloption
+                    .replaceAll('motilal-oswal:', '')
+                    .replaceAll('-', ' ')
+                    .toUpperCase(),
+                )),
               ),
             ),
             div(
@@ -323,28 +321,25 @@ export default function decorate(block) {
               ),
               ul(
                 { class: 'dropdown-list' },
-                ...DirectPlanlistArr.map((el) =>
-                  li(
-                    {
-                      value: el.groupedCode,
-                      onclick: (event) => {
-                        const clodrp =
-                          event.currentTarget.closest('.dropdown-list');
-                        clodrp.classList.remove('dropdown-active');
+                ...DirectPlanlistArr.map((el) => li(
+                  {
+                    value: el.groupedCode,
+                    onclick: (event) => {
+                      const clodrp = event.currentTarget.closest('.dropdown-list');
+                      clodrp.classList.remove('dropdown-active');
 
-                        const name = event.currentTarget.textContent.trim();
-                        const plandrp = event.currentTarget.closest('.planlist-dropdown');
+                      const name = event.currentTarget.textContent.trim();
+                      const plandrp = event.currentTarget.closest('.planlist-dropdown');
 
-                        const pElement = plandrp.querySelector('p');
-                        if (pElement) {
-                          pElement.innerText = name;
-                        }
-                        // planListEvent(event,block)
-                      },
+                      const pElement = plandrp.querySelector('p');
+                      if (pElement) {
+                        pElement.innerText = name;
+                      }
+                      // planListEvent(event,block)
                     },
-                    el.optionName,
-                  ),
-                ),
+                  },
+                  el.optionName,
+                )),
               ),
             ),
             div(
@@ -371,13 +366,13 @@ export default function decorate(block) {
               { class: 'timing-nfo-value' },
               div(
                 { class: 'nfo-container' },
-                span({ class: 'label-nfo' }, 'NFO')
+                span({ class: 'label-nfo' }, 'NFO'),
               ),
               div(
                 { class: 'timing-container' },
-                p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment))
-              )
-            )
+                p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment)),
+              ),
+            ),
           ),
           div(
             { class: 'button-container' },
@@ -432,7 +427,7 @@ export default function decorate(block) {
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
-                      'star-filled'
+                      'star-filled',
                     )
                   ) {
                     event.target.parentElement.classList.add('star-filled');
@@ -462,7 +457,7 @@ export default function decorate(block) {
             p({ class: 'brand-name-text' }, 'Motilal Oswal'),
             h2(
               { class: 'fund-name-title' },
-              block.schDetail.schemeName.replaceAll('Motilal Oswal', '')
+              block.schDetail.schemeName.replaceAll('Motilal Oswal', ''),
             ),
           ),
         ),
@@ -478,16 +473,14 @@ export default function decorate(block) {
               {
                 class: 'fundtagging-list',
               },
-              ...fundsTaggingSection.map((eloption) =>
-                li(
-                  { class: 'fundtagging-list-name' },
-                  toTitleCase(
-                    eloption
-                      .replaceAll('motilal-oswal:', '')
-                      .replaceAll('-', ' '),
-                  ),
+              ...fundsTaggingSection.map((eloption) => li(
+                { class: 'fundtagging-list-name' },
+                toTitleCase(
+                  eloption
+                    .replaceAll('motilal-oswal:', '')
+                    .replaceAll('-', ' '),
                 ),
-              ),
+              )),
             ),
           ),
           div(
@@ -507,30 +500,28 @@ export default function decorate(block) {
             ),
             ul(
               { class: 'dropdown-list' },
-              ...DirectPlanlistArr.map((el) =>
-                li(
-                  {
-                    value: el.groupedCode,
-                    onclick: (event) => {
-                      const dropdown = event.currentTarget.closest('.planlist-dropdown');
+              ...DirectPlanlistArr.map((el) => li(
+                {
+                  value: el.groupedCode,
+                  onclick: (event) => {
+                    const dropdown = event.currentTarget.closest('.planlist-dropdown');
 
-                      event.currentTarget
-                        .closest('.dropdown-list')
-                        .classList.remove('dropdown-active');
+                    event.currentTarget
+                      .closest('.dropdown-list')
+                      .classList.remove('dropdown-active');
 
-                      if (dropdown) {
-                        const ptags = dropdown.querySelector('p');
-                        if (ptags) {
-                          ptags.innerText = event.currentTarget.textContent.trim();
-                        }
+                    if (dropdown) {
+                      const ptags = dropdown.querySelector('p');
+                      if (ptags) {
+                        ptags.innerText = event.currentTarget.textContent.trim();
                       }
+                    }
 
-                      planListEvent(event, block);
-                    },
+                    planListEvent(event, block);
                   },
-                  el.optionName,
-                ),
-              ),
+                },
+                el.optionName,
+              )),
             ),
           ),
         ),
@@ -631,7 +622,7 @@ export default function decorate(block) {
             },
             span(
               { class: 'cagr-desc-text' },
-              'Return is not provided because thescheme has not completed 6 months'
+              'Return is not provided because thescheme has not completed 6 months',
             ),
           ),
         ),
@@ -641,7 +632,7 @@ export default function decorate(block) {
             style: 'display:none',
           },
           span({ class: 'risk-label' }, 'Risk Factor'),
-          span({ class: 'risk-text' }, block.risk.riskType)
+          span({ class: 'risk-text' }, block.risk.riskType),
         ),
         div(
           {
@@ -661,12 +652,12 @@ export default function decorate(block) {
                 src: '../../icons/Icon.svg',
                 alt: 'person',
               }),
-              span({ class: 'investor-txt' }, '2.7L Investors')
+              span({ class: 'investor-txt' }, '2.7L Investors'),
             ),
             a(
               {
                 href: '/motilalfigma/modals/risk-o-meter',
-                onclick:(event)=>{
+                onclick: (event) => {
                   const clasName = event.target.closest('body');
                   clasName.classList.add('scroll-lock');
                 },
@@ -675,9 +666,9 @@ export default function decorate(block) {
                 class: 'riskfactor-icon',
                 src: `../../icons/risk-icon/${iconsvg}`,
                 alt: 'risk icon',
-              })
-            )
-          )
+              }),
+            ),
+          ),
         ),
         div(
           { class: 'button-container' },
@@ -697,7 +688,7 @@ export default function decorate(block) {
                 const cardWrapperSh = cardWrapperStar.getAttribute('schcode');
                 localStorage.setItem(
                   'planCode',
-                  `${planFlowsec}:${cardWrapperSh}`
+                  `${planFlowsec}:${cardWrapperSh}`,
                 );
                 window.location.href = `${window.location.origin}/motilalfigma/our-funds/funds-details-page`;
               },

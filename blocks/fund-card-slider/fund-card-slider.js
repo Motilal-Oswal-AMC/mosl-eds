@@ -9,11 +9,12 @@ export default function decorate(block) {
   dataMapMoObj.addIndexed(block);
 
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  const [planFlow, planslabel] = planCode.split(':');
+  const planslabel = planCode.split(':')[1];
   const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
   const plantag = planObj[0].fundsTaggingSection[0];
-  const cardtemp = dataCfObj.filter((el) =>
-    (plantag === el.fundsTaggingSection[0] && el.schcode !== planslabel));
+  const cardtemp = dataCfObj.filter(
+    (el) => (plantag === el.fundsTaggingSection[0] && el.schcode !== planslabel),
+  );
   let data;
   if (cardtemp.length < 5) {
     data = cardtemp;
