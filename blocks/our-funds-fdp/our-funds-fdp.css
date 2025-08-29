@@ -1,36 +1,41 @@
-@import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
+
 .section.our-funds-fdp-container {
   padding: 40px 0;
 }
+
 @media (width <= 768px) {
   .section.our-funds-fdp-container {
     padding: 0 16px;
   }
 }
+
 .section.our-funds-fdp-container .default-content-wrapper h4 {
   font-size: 2rem;
   line-height: 2.5rem;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: ButlerPro, sans-serif;
   font-weight: 700;
   margin: 0 0 2.5rem;
 }
+
 @media (width <= 768px) {
   .section.our-funds-fdp-container .default-content-wrapper h4 {
     font-size: 1.5rem;
     line-height: 1.75rem;
   }
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container {
   display: flex;
   background-color: #fff;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   border-radius: 0.5rem;
   padding: 1rem;
   flex-direction: column;
@@ -38,15 +43,18 @@
   align-items: flex-start;
   gap: 1rem;
 }
-.section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container[role=region] {
+
+.section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container[role="region"] {
   aria-label: "Fund details";
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
 }
+
 @media (width <= 768px) {
   .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper {
     flex-direction: column;
@@ -54,6 +62,7 @@
     align-items: flex-start;
   }
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager {
   display: flex;
   max-width: 399px;
@@ -61,51 +70,60 @@
   align-items: center;
   gap: 1rem;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-image {
   width: 61px;
   height: 64px;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
+  object-fit: cover;
      object-fit: cover;
   border-radius: 4px;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p {
   margin: 0;
   padding: 0;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p:nth-child(1) {
   font-size: 1.125rem;
   line-height: 1.5rem;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 600;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p:nth-child(2) {
   font-size: 1rem;
   line-height: 1.5rem;
   color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
 }
+
 @media (width <= 768px) {
   .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p:nth-child(2) {
     font-size: 0.75rem;
     line-height: 1rem;
   }
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list .funds-time {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list .funds-time .funds-time-text,
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list .funds-time .funds-time-year {
   margin: 0;
@@ -113,52 +131,58 @@
   font-size: 0.875rem;
   line-height: 1rem;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list .fund-aum {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list .fund-aum .fund-aum-text {
   margin: 0;
   padding: 0;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list .fund-aum .fund-aum-rupee {
   margin: 0;
   padding: 0;
   font-size: 1rem;
   line-height: 1.25rem;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 600;
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-links a {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: #4338f3;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
-  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   padding: 0 5rem;
 }
+
 @media (width <= 768px) {
   .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-links a {
     padding: 0;
   }
 }
+
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-links a:focus-visible {
   outline: 2px dashed #332ab5;
   outline-offset: 4px;
-}/*# sourceMappingURL=our-funds-fdp.css.map */
+}

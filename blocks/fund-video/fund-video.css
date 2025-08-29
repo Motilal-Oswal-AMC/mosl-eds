@@ -1,14 +1,15 @@
-@import "../../../styles/fonts.css";
-@import "../../../styles/fonts.css";
 @import "../swiper/swiper-bundle.min.css";
+
 /* Reset */
 .section.live-streaming-carousel-container {
   margin: 24px 16px;
 }
+
 .section.live-streaming-carousel-container .default-content-wrapper {
   padding: 0;
   margin: 0 auto;
 }
+
 .section.live-streaming-carousel-container .default-content-wrapper h1,
 .section.live-streaming-carousel-container .default-content-wrapper h2,
 .section.live-streaming-carousel-container .default-content-wrapper h3,
@@ -19,10 +20,11 @@
   font-size: 16px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .section.live-streaming-carousel-container .default-content-wrapper h1,
   .section.live-streaming-carousel-container .default-content-wrapper h2,
   .section.live-streaming-carousel-container .default-content-wrapper h3,
@@ -33,23 +35,27 @@
     line-height: 16px;
   }
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel {
   max-width: 1100px;
   margin: 0;
   margin-right: 140px;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel {
     max-width: 100%;
     margin-right: 87px;
   }
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper {
   padding: 0;
   margin: 0 auto;
   position: relative;
-  border-top: 1px solid rgba(66, 82, 110, 0.2);
+  border-top: 1px solid rgb(66 82 110 / 20%);
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination {
@@ -62,7 +68,8 @@
   display: block;
   opacity: 1;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next,
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev,
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination {
@@ -73,6 +80,7 @@
     display: none;
   }
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination::after {
@@ -85,6 +93,7 @@
   height: 20px;
   display: block;
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next.swiper-button-disabled::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev.swiper-button-disabled::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination.swiper-button-disabled::after {
@@ -93,19 +102,24 @@
   background-repeat: no-repeat;
   background-size: 25px;
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next::after {
   transform: rotate(180deg);
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev {
   right: 104px;
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination {
   display: none;
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination::after {
   content: unset;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination {
     display: flex;
     position: absolute;
@@ -118,6 +132,7 @@
     border-radius: 10px;
     background-color: #E0E0E0;
   }
+
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination-bullet {
     background-color: transparent;
     opacity: unset;
@@ -125,12 +140,14 @@
     height: 2px;
     border-radius: 10px;
   }
+
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-pagination-bullet-active {
     background-color: #2e2a94;
   }
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination {
-  max-width: -moz-max-content;
+  max-width: max-content;
   max-width: max-content;
   width: unset;
   height: unset;
@@ -140,26 +157,31 @@
   display: flex;
   padding: 2px 0;
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination::after {
   content: unset;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination {
     right: 0;
     bottom: 8px;
   }
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination .current-slide, .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination .total-slide {
   margin: 0;
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination .total-slide {
   color: #757575;
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel ul {
   padding: 16px 0 0;
   margin: 0;
@@ -168,7 +190,8 @@
   align-items: start;
   gap: 16px;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel ul {
     flex-direction: column;
     align-items: start;
@@ -176,41 +199,46 @@
     gap: 8px;
   }
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel ul li:first-of-type {
   font-size: 16px;
   line-height: 24px;
   color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel ul li:first-of-type {
     font-size: 12px;
     line-height: 16px;
   }
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel ul li:last-of-type {
   display: flex;
   align-items: center;
   gap: 8px;
-  min-width: -moz-max-content;
+  min-width: max-content;
   min-width: max-content;
   font-size: 16px;
   line-height: 20px;
-  color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   color: #3025e0;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .section.live-streaming-carousel-container .live-streaming-carousel ul li:last-of-type {
     font-size: 14px;
     line-height: 16px;
   }
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel ul li:last-of-type a {
   color: unset;
 }
+
 .section.live-streaming-carousel-container .live-streaming-carousel .swiper-slide:first-of-type ul li:last-of-type::before {
   content: "";
   width: 9px;
@@ -226,16 +254,19 @@
   padding: 40px 16px;
   border-radius: 8px;
 }
+
 @media (width <= 768px) {
   .section.fund-video-container {
     border-radius: 0;
   }
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 @media (width <= 768px) {
   .section.fund-video-container .fund-video-wrapper .fund-video {
     flex-direction: column;
@@ -243,25 +274,30 @@
     align-items: baseline;
   }
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain1 {
   max-width: 288px;
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain1 div p {
   font-size: 22px;
   line-height: 32px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 600;
   margin: 0;
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 {
   position: relative;
   display: flex;
   gap: 24px;
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain1 {
   margin: 0;
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain1 img {
   border-radius: 3.333px;
   opacity: 0.6;
@@ -270,53 +306,61 @@
   height: 90px;
   margin: 0;
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain2 {
   position: absolute;
   margin: 0;
   top: 23%;
   left: 11%;
 }
+
 @media (width <= 768px) {
   .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain2 {
     left: 15%;
   }
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain2 a {
   margin: 0;
   background: none;
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain2 a span {
   width: 16px;
   height: 16px;
 }
+
 @media (width <= 768px) {
   .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain2 a span {
     width: 10px;
     height: 10px;
   }
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundvedsubmain1 p {
   max-width: 255px;
   margin: 10px 0;
   font-size: 14px;
   line-height: 20px;
   color: #D5DEFF;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   display: flex;
   flex-direction: column;
 }
+
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundvedsubmain1 p strong {
   font-size: 16px;
   line-height: 20px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 600;
 }
+
 @media (width <= 768px) {
   .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundvedsubmain1 p {
     font-size: 14px;
     width: 158px;
     margin: 0;
   }
-}/*# sourceMappingURL=fund-video.css.map */
+}
