@@ -15,8 +15,12 @@
         color: #FFF;
         color: $primary-white;
         font-family: $poppins;
-        padding: 60px 0 0;
+        padding: 60px 24px 0;
         overflow: hidden;
+
+        @include media (mobile) {
+            padding: 60px 0 0;
+        }
 
         a {
             color: #fff;
@@ -31,10 +35,6 @@
             line-height: normal;
             font-family: $poppins;
             font-weight: 400;
-
-            // &:hover {
-            //     opacity: 0.8;
-            // }
         }
 
         ul,
@@ -53,7 +53,7 @@
             padding: 0 16px;
             display: flex;
             flex-direction: column;
-            gap: map.get($spacing, xxl);
+            row-gap: 40px;
         }
 
         // --- Section 1: Logo, Social, App Stores ---
@@ -137,73 +137,80 @@
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+                    justify-content: space-between;
                     gap: 8px;
 
                     .field-wrapper {
                         position: relative;
 
-                        label {
-                            position: absolute;
-                            top: -7px;
-                            left: 8px;
-                            display: flex;
-                            padding: 0 4px;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 10px;
-                            overflow: hidden;
-                            color: #FFF;
-                            text-overflow: ellipsis;
-                            font-family: $poppins;
-                            font-size: rem(12px);
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: rem(16px);
-                            background: #2E2A94;
+                        &.email-wrapper {
+                            flex-grow: 1;
+
+                            label {
+                                position: absolute;
+                                top: -7px;
+                                left: 8px;
+                                display: flex;
+                                padding: 0 4px;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 10px;
+                                overflow: hidden;
+                                color: #FFF;
+                                text-overflow: ellipsis;
+                                font-family: $poppins;
+                                font-size: rem(12px);
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: rem(16px);
+                                background: #2E2A94;
+                            }
+
+                            input {
+                                width: 100%;
+                                min-width: 240px;
+                                display: flex;
+                                padding: 8px 12px;
+                                flex-direction: column;
+                                justify-content: flex-end;
+                                align-items: flex-start;
+                                gap: 4px;
+                                align-self: stretch;
+                                height: 40px;
+                                color: #FFFFFF80;
+                                font-family: $poppins;
+                                font-size: rem(14px);
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: rem(20px);
+                                border-radius: rem(6px);
+                                border: 1px solid #BDBDBD;
+                                background: transparent;
+                            }
                         }
 
-                        input {
-                            width: 100%;
-                            min-width: 240px;
-                            display: flex;
-                            padding: 8px 12px;
-                            flex-direction: column;
-                            justify-content: flex-end;
-                            align-items: flex-start;
-                            gap: 4px;
-                            align-self: stretch;
-                            height: 40px;
-                            color: #FFFFFF80;
-                            font-family: $poppins;
-                            font-size: rem(14px);
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: rem(20px);
-                            border-radius: rem(6px);
-                            border: 1px solid #BDBDBD;
-                            background: transparent;
-                        }
+                        &.submit-btn {
+                            .button {
+                                display: flex;
 
-                        .button {
-                            display: flex;
+                                // width: 128px;
+                                padding: rem(12px);
+                                justify-content: center;
+                                align-items: center;
+                                color: #2E2A94;
+                                text-align: center;
+                                font-family: $poppins;
+                                font-size: rem(14px);
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: rem(16px);
+                                border-radius: 4px;
+                                background: #FFF;
+                                margin: 0;
+                                height: 40px;
+                                border: none;
 
-                            // width: 128px;
-                            padding: rem(12px);
-                            justify-content: center;
-                            align-items: center;
-                            color: #2E2A94;
-                            text-align: center;
-                            font-family: $poppins;
-                            font-size: rem(14px);
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: rem(16px);
-                            border-radius: 4px;
-                            background: #FFF;
-                            margin: 0;
-                            height: 40px;
-                            border: none;
-
+                            }
                         }
                     }
                 }
@@ -445,9 +452,9 @@
         }
 
         // ========================================================================
-        // DESKTOP STYLES (>= 1025px)
+        // DESKTOP STYLES (>= 900px)
         // ========================================================================
-        @media (min-width: #{map.get($breakpoints, tab)}) {
+        @media (width >=900px) {
             .footer-container1 {
                 display: grid;
                 grid-template-areas:
@@ -456,7 +463,8 @@
 
                 // grid-template-columns: minmax(auto, 190px) 1fr;
                 grid-template-columns: 12.3% 76.3%;
-                gap: 60px 140px;
+                row-gap: 60px;
+                justify-content: space-between;
                 padding: 0;
             }
 
@@ -586,70 +594,78 @@
                         form {
                             flex-direction: row;
                             align-items: center;
+                            justify-content: space-between;
                             gap: 8px;
 
                             .field-wrapper {
                                 position: relative;
-                                flex-grow: 1;
 
-                                label {
-                                    position: absolute;
-                                    top: -7px;
-                                    left: 8px;
-                                    display: flex;
-                                    padding: 0 4px;
-                                    justify-content: center;
-                                    align-items: center;
-                                    gap: 10px;
-                                    overflow: hidden;
-                                    color: #FFF;
-                                    text-overflow: ellipsis;
-                                    font-family: $poppins;
-                                    font-size: rem(12px);
-                                    font-style: normal;
-                                    font-weight: 400;
-                                    line-height: rem(16px);
-                                    background: #2E2A94;
+                                &.email-wrapper {
+                                    flex-grow: 1;
+
+                                    label {
+                                        position: absolute;
+                                        top: -7px;
+                                        left: 8px;
+                                        display: flex;
+                                        padding: 0 4px;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 10px;
+                                        overflow: hidden;
+                                        color: #FFF;
+                                        text-overflow: ellipsis;
+                                        font-family: $poppins;
+                                        font-size: rem(12px);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: rem(16px);
+                                        background: #2E2A94;
+                                    }
+
+                                    input {
+                                        // width: 100%;
+                                        display: flex;
+                                        padding: 8px 12px;
+                                        flex-direction: column;
+                                        justify-content: flex-end;
+                                        align-items: flex-start;
+                                        gap: 4px;
+                                        align-self: stretch;
+                                        height: 40px;
+                                        color: #FFFFFF80;
+                                        font-family: $poppins;
+                                        font-size: rem(14px);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: rem(20px);
+                                        border-radius: rem(6px);
+                                        border: 1px solid #BDBDBD;
+                                    }
                                 }
 
-                                input {
-                                    width: 368px;
-                                    display: flex;
-                                    padding: 8px 12px;
-                                    flex-direction: column;
-                                    justify-content: flex-end;
-                                    align-items: flex-start;
-                                    gap: 4px;
-                                    align-self: stretch;
-                                    height: 40px;
-                                    color: #FFFFFF80;
-                                    font-family: $poppins;
-                                    font-size: rem(14px);
-                                    font-style: normal;
-                                    font-weight: 400;
-                                    line-height: rem(20px);
-                                    border-radius: rem(6px);
-                                    border: 1px solid #BDBDBD;
-                                }
+                                &.submit-btn {
+                                    // flex-grow: 1;
 
-                                .button {
-                                    display: flex;
-                                    width: 128px;
-                                    padding: rem(12px);
-                                    justify-content: center;
-                                    align-items: center;
-                                    gap: rem(8px);
-                                    color: #2E2A94;
-                                    text-align: center;
-                                    font-family: $poppins;
-                                    font-size: rem(14px);
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: rem(16px);
-                                    border-radius: 4px;
-                                    background: #FFF;
-                                    margin: 0;
+                                    .button {
+                                        display: flex;
+                                        width: 128px;
+                                        padding: rem(12px);
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: rem(8px);
+                                        color: #2E2A94;
+                                        text-align: center;
+                                        font-family: $poppins;
+                                        font-size: rem(14px);
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: rem(16px);
+                                        border-radius: 4px;
+                                        background: #FFF;
+                                        margin: 0;
 
+                                    }
                                 }
                             }
                         }
@@ -803,21 +819,63 @@
         }
     }
 
-    &::after {
-        content: "";
-        position: absolute;
-        display: block;
-        right: 60px;
-        top: -30px;
-        width: 56px;
-        height: 56px;
-        background: url('../../icons/Back-to-top.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 100%;
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     display: block;
+    //     right: 60px;
+    //     top: -30px;
+    //     width: 56px;
+    //     height: 56px;
+    //     background: url('../../icons/Back-to-top.svg');
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     background-size: 100%;
 
-        @include media(mobile) {
-            right: 0;
-        }
+    //     @include media(mobile) {
+    //         right: 0;
+    //     }
+    // }
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    background-color: #9DADFE;
+    box-shadow: 0 0 13.2px 0 #00000014;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+    margin: 0;
+    border: none;
+    padding: 0;
+    line-height: normal;
+    white-space: unset;
+
+    @include media (mobile) {
+        right: 16px;
     }
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-to-top:hover {
+    background: #7E97FD;
+}
+
+.scroll-to-top-icon path {
+    stroke-width: 2px;
+    stroke: #2E2A94;
 }
