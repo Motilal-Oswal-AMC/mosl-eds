@@ -693,6 +693,12 @@ function applyFunction(block) {
     dataMapMoObj.tempMobReturn = [];
     block.querySelector('.sort-overlay').classList.remove('active');
     dataMapMoObj.selectreturns = dataMapMoObj.selectreturnstemp;
+
+    const searInp = block.querySelector('.search-input input');
+    searInp.value = '';
+    const cancelBtn = block.querySelector('.cancel-search');
+    cancelBtn.style.display = 'none';
+    
     viewFunction(block);
   }
   block.closest('body').classList.remove('scroll-lock');
@@ -1601,6 +1607,10 @@ export default function decorate(block) {
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
                       }
+                        const searInp = block.querySelector('.search-input input');
+                        searInp.value = '';
+                        const cancelBtn = block.querySelector('.cancel-search');
+                        cancelBtn.style.display = 'none';
                       viewFunction(block);
                       // planListEvent(event,block)
                     },
@@ -1664,6 +1674,12 @@ export default function decorate(block) {
                       dataMapMoObj.funddata = [];
                       dataMapMoObj.funddata = tempdata;
                       dataMapMoObj.deskrightdrp = name;
+
+                      const searInp = block.querySelector('.search-input input');
+                      searInp.value = '';
+                      const cancelBtn = block.querySelector('.cancel-search');
+                      cancelBtn.style.display = 'none';
+
                       viewFunction(block);
                     },
                   },
