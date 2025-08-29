@@ -598,6 +598,7 @@ body.noscroll {
     flex-direction: row-reverse;
     justify-content: space-between;
     padding-top: 24px;
+    position: relative;
 }
 
 .breadcrumbs-fdp>.default-content-wrapper {
@@ -642,11 +643,26 @@ body.noscroll {
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
-
+    background: none;
+    margin: 0;
+    padding: 0;
     /* 142.857% */
 }
 
-.breadcrumbs-fdp>ul>li:nth-child(3)>a {
+.breadcrumbs-fdp > .default-content-wrapper > ul > li p {
+    color: #424242;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumbs-fdp > ul > li:nth-child(3) > a {
     color: #616161;
 
     /* Desktop/Paragraph/Xsmall */
@@ -713,9 +729,60 @@ body.noscroll {
     line-height: 16px;
 }
 
+.breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) .breadcrbmain2 {
+    max-width: 170px;
+    width: 100%;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    list-style: none;
+    position: absolute;
+    top: 71%;
+    right: 15%;
+    z-index: 10;
+    display: none;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+}
+
+.breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) .ul-active {
+    display: block;
+}
+
+.breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) ul > li {
+    width: 100%;
+}
+
+.breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) ul > li > a {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    color: #616161;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    padding: 12px;
+    align-items: center;
+}
+
+/* 
+.breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2)>li{
+position: relative;
+} */
+
 @media (width <=786px) {
     .section.breadcrumbs-fdp>ul {
         display: none;
+    }
+
+    .breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) .breadcrbmain2 {
+        top: 60%;
+        right: 24%;
     }
 }
 
@@ -740,7 +807,7 @@ body.noscroll {
     /* align-items: center; */
     gap: 32px;
     flex-shrink: 0;
-    background: #FFF;
+    background: #fff;
     position: relative;
 }
 

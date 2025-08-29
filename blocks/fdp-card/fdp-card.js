@@ -675,11 +675,33 @@ export default function decorate(block) {
   document.addEventListener('click', (event) => {
     const dropdownmidle = block.querySelector('.dropdownmidle');
     const dropdown = block.querySelector('.dropdown');
+    // const temp = block.closest('body').querySelector('.breadcrumbs-fdp');
+    // const sharlist = temp.querySelector('.innerbreadcrb2');
     if (!dropdownmidle.contains(event.target)) {
       dropdownmidle.querySelector('.dropdownlist').classList.remove('dropdown-active');
     }
     if (!dropdown.contains(event.target)) {
       dropdown.querySelector('.dropdownlist').classList.remove('dropdown-active');
     }
+    // if (!sharlist.contains(event.target)) {
+    //   sharlist.querySelector('.breadcrbmain2').style.display = 'none';
+    // }
   });
+
+  // changes for given class ul li
+
+  const ulElement = document.querySelector('.breadcrumbs-fdp');
+  dataMapMoObj.CLASS_PREFIXES = ['mainbreadcrb', 'subbreadcrb', 'innerbreadcrb', 'breadcrbmain'];
+  dataMapMoObj.addIndexed(ulElement);
+
+  document.querySelector('.subbreadcrb2').addEventListener('click', () => {
+    const breadcrumb = document.querySelector('.breadcrbmain2');
+    if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
+      breadcrumb.style.display = 'block';
+    } else {
+      breadcrumb.style.display = 'none';
+    }
+  });
+
+  
 }
