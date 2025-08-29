@@ -1974,13 +1974,6 @@ export default function decorate(block) {
     });
   });
 
-  Array.from(block.querySelectorAll('.filter-info-icon')).forEach((eltoo) => {
-    if (eltoo.nextElementSibling.style.display === 'block') {
-      eltoo.nextElementSibling.style.display = 'none';
-    } else {
-      eltoo.nextElementSibling.style.display = 'block';
-    }
-  });
   // added wrapper
   const divmop = div(
     {
@@ -2049,5 +2042,15 @@ export default function decorate(block) {
       const sortcont = block.querySelector('.return-select-container .dropdown-list');
       sortcont.classList.remove('dropdown-active');
     }
+  });
+
+  Array.from(block.querySelectorAll('.filter-info-icon')).forEach((eltoo) => {
+    eltoo.addEventListener('click', (event) => {
+      if (event.target.nextElementSibling.style.display === 'block') {
+      event.target.nextElementSibling.style.display = 'none';
+    } else {
+      event.target.nextElementSibling.style.display = 'block';
+    }
+    });
   });
 }
