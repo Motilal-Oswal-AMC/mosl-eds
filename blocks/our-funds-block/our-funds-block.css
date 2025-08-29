@@ -1,5 +1,4 @@
 /* Reset */
-@import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
 @media (max-width: 768px) {
   body .scroll-lock {

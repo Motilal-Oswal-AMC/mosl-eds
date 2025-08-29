@@ -318,7 +318,7 @@ function searchFunctionality(block) {
       datacd = [];
       dataouter.push({
         [indexde]: datacd,
-        ['schemeName']: elde.schDetail.schemeName,
+        schemeName: elde.schDetail.schemeName,
       });
     }
   });
@@ -698,7 +698,7 @@ function applyFunction(block) {
     searInp.value = '';
     const cancelBtn = block.querySelector('.cancel-search');
     cancelBtn.style.display = 'none';
-    
+
     viewFunction(block);
   }
   block.closest('body').classList.remove('scroll-lock');
@@ -1607,10 +1607,10 @@ export default function decorate(block) {
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
                       }
-                        const searInp = block.querySelector('.search-input input');
-                        searInp.value = '';
-                        const cancelBtn = block.querySelector('.cancel-search');
-                        cancelBtn.style.display = 'none';
+                      const searInp = block.querySelector('.search-input input');
+                      searInp.value = '';
+                      const cancelBtn = block.querySelector('.cancel-search');
+                      cancelBtn.style.display = 'none';
                       viewFunction(block);
                       // planListEvent(event,block)
                     },
