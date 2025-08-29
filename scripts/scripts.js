@@ -1,5 +1,5 @@
 import {
-  loadEmbed
+  loadEmbed,
 } from '../blocks/embed/embed.js';
 import {
   loadHeader,
@@ -19,10 +19,10 @@ import {
 import dataMapMoObj from './constant.js';
 
 import {
-  initializeModalHandlers
+  initializeModalHandlers,
 } from '../blocks/modal/modal.js';
 import {
-  createForm
+  createForm,
 } from '../blocks/form/form.js';
 
 // import delayed from './delayed.js';
@@ -109,7 +109,7 @@ export function moveAttributes(from, to, attributes) {
   let attrs = attributes;
   if (!attrs) {
     attrs = [...from.attributes].map(({
-      nodeName
+      nodeName,
     }) => nodeName);
   }
   attrs.forEach((attr) => {
@@ -126,12 +126,12 @@ export function moveInstrumentation(from, to) {
     from,
     to,
     [...from.attributes]
-    .map(({
-      nodeName
-    }) => nodeName)
-    .filter(
-      (attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'),
-    ),
+      .map(({
+        nodeName,
+      }) => nodeName)
+      .filter(
+        (attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'),
+      ),
   );
 }
 
@@ -283,7 +283,7 @@ async function loadLazy(doc) {
   await loadSections(main);
 
   const {
-    hash
+    hash,
   } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
@@ -400,7 +400,7 @@ export async function decorateForm(block) {
       if (firstInvalidEl) {
         firstInvalidEl.focus();
         firstInvalidEl.scrollIntoView({
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     }

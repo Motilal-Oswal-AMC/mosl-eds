@@ -89,7 +89,7 @@
   font-size: 40px;
   line-height: 48px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: ButlerPro, sans-serif;
   font-weight: 700;
   margin: 0;
   padding-bottom: 24px;
@@ -166,7 +166,7 @@
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 600;
   text-decoration: none;
   display: block;
@@ -198,19 +198,16 @@
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
 
 }
 
-.tabdiv .tabs-wrapper .tabs .tabs-list .tabs-tab[aria-selected=true] {
-      border: none;
-    background-color: transparent;
-    padding: 12px;
+.tabdiv .tabs-wrapper .tabs .tabs-list .tabs-tab[aria-selected="true"] {
     font-size: 14px;
     line-height: 16px;
     color: #2e2a94;
-    font-family: "Poppins", sans-serif;
+    font-family: Poppins, sans-serif;
     font-weight: 500;
     padding: 8px 12px;
     border: 1px solid #382AD7;
@@ -219,15 +216,8 @@
 }
 
 
-.tabdiv .tabs-wrapper .tabs .tabs-list .tabs-tab[aria-selected=false] {
-  border: none;
-  background-color: transparent;
-  padding: 12px;
+.tabdiv .tabs-wrapper .tabs .tabs-list .tabs-tab[aria-selected="false"] {
   font-size: 14px;
-  line-height: 16px;
-  color: #424242;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
     padding: 8px 12px;
   border: 1px solid #BDBDBD;
   background-color: #FAFAFA;
@@ -235,7 +225,7 @@
   color: #424242;
   font-weight: 400;
   line-height: 20px;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 
@@ -243,6 +233,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   /* padding: 12px; */
 }
 
@@ -264,7 +255,7 @@
   font-style: normal;
   font-weight: 400;
   color: #2E2A94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   line-height: 20px;
 }
 
@@ -290,7 +281,7 @@
 
 .chart-wrapper .bar-row .bar-label-right {
   color: #2E2A94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -301,7 +292,7 @@
 
 .tabs-list>.default-content-wrapper p:nth-of-type(1) {
   color: #2E2A94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: ButlerPro, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
@@ -312,7 +303,7 @@
 
 .tabs-list>.default-content-wrapper p:nth-of-type(2) {
   color: #2E2A94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -329,7 +320,7 @@
 
 .schemename {
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -343,18 +334,19 @@
 
 .schDetailnum {
   color: #2E2A94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
+
   /* min-width: 100px; */
       padding: 12px 8px;
 }
 
 .schemenum {
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -369,11 +361,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
-  border-top-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  overflow: hidden;
+  border-radius: 2px;
   box-shadow: 0 4px 10px rgb(0 0 0 / 5%);
   display: flex;
   flex-direction: column;
@@ -389,6 +377,7 @@ table>tbody:nth-child(1)>tr:nth-child(2){
 
 table>tbody>tr{
   /* border-radius: 2px; */
+
   /* max-width: 100%;
   width: 100%; */
 }
@@ -400,13 +389,15 @@ border-top-right-radius: 2px;
 
 .autherth {
   color: #2E2A94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
   text-align: center;
+
   /* position: relative; */
+
   /* right: 16px; */
 }
 
@@ -417,16 +408,15 @@ border-top-right-radius: 2px;
   max-width: 100%;
   width: 100%;
 }
+
 .periodicreturn .tabs-panel>div>table>tbody:nth-child(2),.periodicreturn .tabs-panel>div>table>tbody:nth-child(3){
   background-color: #E0E0E0;
- border-bottom-left-radius: 2px;
-border-top-left-radius: 2px;
-border-bottom-right-radius: 2px;
-border-top-right-radius: 2px;
+ border-radius: 2px;
 }
 
 .authertr :nth-child(1) {
   width: 500px;
+
   /* width: 100%; */
   height: 48px;
 }
@@ -441,23 +431,25 @@ td {
 
 .trbackgroundcolor {
   background: #E0E0E0;
+
   /* border-radius: 4px; */
 }
 
 .trbackgroundcolor .schemename {
   color: #242177;
+
   /* width: 500px; */
   width: 100%;
 }
 
 .tab-extradata>p {
   color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
-  padding: 24px 2px 0 2px;
+  padding: 24px 2px 0;
 }
 
 .periodicreturn .tabs-wrapper {
@@ -542,7 +534,7 @@ td {
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 600;
   text-decoration: none;
   display: block;
@@ -550,13 +542,10 @@ td {
 }
 
 .periodicreturn>.tabs-wrapper>.tabs>.tabs-list>.tab-btn>button[aria-selected="true"]{
-  border: none;
-  background-color: transparent;
-  padding: 12px;
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   padding: 8px 12px;
   border: 1px solid #382AD7;
@@ -566,14 +555,7 @@ td {
 }
 
 .periodicreturn>.tabs-wrapper>.tabs>.tabs-list>.tab-btn>button[aria-selected="false"]{
-  border: none;
-  background-color: transparent;
-  padding: 12px;
   font-size: 14px;
-  line-height: 16px;
-  color: #424242;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
     padding: 8px 12px;
   border: 1px solid #BDBDBD;
   background-color: #FAFAFA;
@@ -581,7 +563,7 @@ td {
   color: #424242;
   font-weight: 400;
   line-height: 20px;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 .periodicreturn>.tabs-wrapper>.tabs>.tabs-list>.tab-btn>button:nth-child(3){

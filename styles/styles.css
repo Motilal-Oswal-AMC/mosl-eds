@@ -499,7 +499,7 @@ footer .footer[data-block-status="loaded"] {
     background-color: #fff;
 }
 
-/*fdp-model*/
+/* fdp-model */
 
 /* .fdp-card-container {
     position: relative;
@@ -532,7 +532,6 @@ footer .footer[data-block-status="loaded"] {
 
 
 @media (width <=768px) {
-
     .our-popular-funds.modal-active-parent,
     .known-our-funds.modal-active-parent {
         max-height: unset;
@@ -643,6 +642,7 @@ body.noscroll {
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
+
     /* 142.857% */
 }
 
@@ -655,6 +655,7 @@ body.noscroll {
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
+
     /* 133.333% */
 }
 
@@ -662,6 +663,7 @@ body.noscroll {
     /* padding: 24px; */
     display: flex;
     gap: 24px;
+
     /* justify-content: center; */
     align-items: center;
     list-style: none;
@@ -674,6 +676,7 @@ body.noscroll {
     justify-content: center;
     align-items: center;
     padding-right: 12px;
+
     /* border-right: 1px solid #616161; */
     position: relative;
 }
@@ -733,6 +736,7 @@ body.noscroll {
     height: 600px;
     padding: 64px 16px;
     flex-direction: column;
+
     /* align-items: center; */
     gap: 32px;
     flex-shrink: 0;
@@ -748,6 +752,7 @@ body.noscroll {
     font-weight: 700;
     line-height: 32px;
     margin: 0;
+
     /* 114.286% */
 
 }
