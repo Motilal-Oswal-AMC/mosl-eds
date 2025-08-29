@@ -307,7 +307,7 @@ function searchFunctionality(block) {
   let datacd = [];
   const dataouter = [];
   dataCfObj.forEach((elde, indexde) => {
-    elde.planList.forEach((elplan) => {
+    elde?.planList.forEach((elplan) => {
       if (elplan.planName === planflow) {
         if (!datacd.includes(elplan.planName)) {
           datacd.push(elplan.planName);
@@ -315,11 +315,11 @@ function searchFunctionality(block) {
       }
     });
     if (datacd.length > 0) {
-      datacd = [];
       dataouter.push({
         [indexde]: datacd,
         schemeName: elde.schDetail.schemeName,
       });
+      datacd = [];
     }
   });
   // console.log(dataouter);
@@ -469,10 +469,14 @@ function searchFunctionality(block) {
     if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
       searchInput.value = event.target.dataset.originalText;
       searchContainer.classList.remove('search-active');
+      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
+        ellim.schDetail.schemeName === searchInput.value);
+      viewFunction(block);
       // CARD HIDE LOGIC ON SEARCH
       const cardsContainercd = block.querySelector('.filter-cards');
       const cardsContainer = cardsContainercd.querySelector('.cards-container');
-      if (cardsContainer && cardsContainer.checkVisibility()) {
+      const squarecard = block.querySelector('.squareby-container');
+      if (Array.from(squarecard.classList).includes('grid-view-active')) {
         const datatem = dataCfObj.filter(
           (elsch) => elsch.schDetail.schemeName === searchInput.value,
         );
@@ -482,7 +486,8 @@ function searchFunctionality(block) {
 
       const listHeadercd = block.querySelector('.filter-cards');
       const listHeader = listHeadercd.querySelector('.list-container');
-      if (listHeader && listHeader.checkVisibility()) {
+      const listcard = block.querySelector('.listby-container');
+      if (Array.from(listcard).includes('list-view-active')) {
         if (cardsContainer && cardsContainer.checkVisibility()) {
           const datatem = dataCfObj.filter(
             (elsch) => (elsch.schDetail.schemeName === searchInput.value),
@@ -586,7 +591,7 @@ function checkfilter(block) {
     if (tempData.length > 0) {
       return tempData.includes(el.schcode);
     }
-    return index < 9;
+    return index < 10;
   });
 
   viewFunction(block);
@@ -1594,7 +1599,8 @@ export default function decorate(block) {
                       if (event.target.textContent.trim() === 'Oldest to Newest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
+                          (a, b) =>
+                          new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1602,7 +1608,8 @@ export default function decorate(block) {
                       if (event.target.textContent.trim() === 'Newest to Oldest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                          (a, b) => 
+                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1611,6 +1618,27 @@ export default function decorate(block) {
                       searInp.value = '';
                       const cancelBtn = block.querySelector('.cancel-search');
                       cancelBtn.style.display = 'none';
+                      const flitwrap = block.querySelector('.applied-filter-wrap');
+                      if (Array.from(flitwrap.classList).includes('filter-active')) {
+                        flitwrap.classList.remove('filter-active');
+                      }
+                      Array.from(block.querySelector('.filter-list-wrapper').children).forEach((el) => {
+                        if (el.closest('.checkbox-label-container').querySelector('.innerindianequity')) {
+                          el.closest('.checkbox-label-container').querySelectorAll('.innerindianequity input').forEach((elemsub) => {
+                            if (elemsub.checked) {
+                              elemsub.checked = false;
+                            }
+                          });
+                        }
+                        if (el.querySelector('input').checked) {
+                          // const moplabel = el.querySelector('input').nextElementSibling;
+                          if (el.querySelector('input').getAttribute('id') !== 'index1') {
+                            if (el.querySelector('input').checked) {
+                              el.querySelector('input').checked = false;
+                            }
+                          }
+                        }
+                      });
                       viewFunction(block);
                       // planListEvent(event,block)
                     },
@@ -1679,7 +1707,26 @@ export default function decorate(block) {
                       searInp.value = '';
                       const cancelBtn = block.querySelector('.cancel-search');
                       cancelBtn.style.display = 'none';
-
+                      if (Array.from(flitwrap.classList).includes('filter-active')) {
+                        flitwrap.classList.remove('filter-active');
+                      }
+                      Array.from(block.querySelector('.filter-list-wrapper').children).forEach((el) => {
+                        if (el.closest('.checkbox-label-container').querySelector('.innerindianequity')) {
+                          el.closest('.checkbox-label-container').querySelectorAll('.innerindianequity input').forEach((elemsub) => {
+                            if (elemsub.checked) {
+                              elemsub.checked = false;
+                            }
+                          });
+                        }
+                        if (el.querySelector('input').checked) {
+                          // const moplabel = el.querySelector('input').nextElementSibling;
+                          if (el.querySelector('input').getAttribute('id') !== 'index1') {
+                            if (el.querySelector('input').checked) {
+                              el.querySelector('input').checked = false;
+                            }
+                          }
+                        }
+                      });
                       viewFunction(block);
                     },
                   },
@@ -1743,6 +1790,12 @@ export default function decorate(block) {
                     event.currentTarget
                       .closest('.right-container')
                       .querySelector('.list-view-header').style.display = 'none';
+
+                    if (block.querySelector('.search-input .search').value !== '') {
+                      const searchval = block.querySelector('.search-input .search').value;
+                      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
+                        ellim.schDetail.schemeName === searchval);
+                    }
                     viewFunction(block);
                   },
                 },
@@ -1760,6 +1813,11 @@ export default function decorate(block) {
                     event.currentTarget
                       .closest('.right-container')
                       .querySelector('.list-view-header').style.display = 'block';
+                    if (block.querySelector('.search-input .search').value !== '') {
+                      const searchval = block.querySelector('.search-input .search').value;
+                      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
+                        ellim.schDetail.schemeName === searchval);
+                    }
                     viewFunction(block);
                   },
                 },
@@ -1876,7 +1934,7 @@ export default function decorate(block) {
       el.addEventListener('click', (event) => {
         if (event.target.textContent.trim() === 'Oldest to Newest') {
           const tempa = dataCfObj.sort(
-            (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
+            (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
           );
           dataMapMoObj.funddata = tempa;
         }
@@ -1899,7 +1957,7 @@ export default function decorate(block) {
       if (sortText.trim() === 'Oldest to Newest') {
         const tempdata = JSON.parse(JSON.stringify(dataCfObj));
         const tempa = tempdata.sort(
-          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
+          (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
         );
         dataMapMoObj.tempMobReturn = tempa;
       }
@@ -1914,6 +1972,14 @@ export default function decorate(block) {
         dataMapMoObj.tempMobReturn = dataCfObj.slice(0, 10);
       }
     });
+  });
+
+  Array.from(block.querySelectorAll('.filter-info-icon')).forEach((eltoo) => {
+    if (eltoo.nextElementSibling.style.display === 'block') {
+      eltoo.nextElementSibling.style.display = 'none';
+    } else {
+      eltoo.nextElementSibling.style.display = 'block';
+    }
   });
   // added wrapper
   const divmop = div(
