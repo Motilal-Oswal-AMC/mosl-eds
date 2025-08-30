@@ -1599,8 +1599,7 @@ export default function decorate(block) {
                       if (event.target.textContent.trim() === 'Oldest to Newest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) =>
-                          new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
+                          (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1707,6 +1706,7 @@ export default function decorate(block) {
                       searInp.value = '';
                       const cancelBtn = block.querySelector('.cancel-search');
                       cancelBtn.style.display = 'none';
+                      const flitwrap = block.querySelector('.applied-filter-wrap');
                       if (Array.from(flitwrap.classList).includes('filter-active')) {
                         flitwrap.classList.remove('filter-active');
                       }
@@ -1933,13 +1933,15 @@ export default function decorate(block) {
     (el) => {
       el.addEventListener('click', (event) => {
         if (event.target.textContent.trim() === 'Oldest to Newest') {
-          const tempa = dataCfObj.sort(
+          const tempdata = JSON.parse(JSON.stringify(dataCfObj));
+          const tempa = tempdata.sort(
             (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
           );
           dataMapMoObj.funddata = tempa;
         }
         if (event.target.textContent.trim() === 'Newest to Oldest') {
-          const tempa = dataCfObj.sort(
+          const tempdata = JSON.parse(JSON.stringify(dataCfObj));
+          const tempa = tempdata.sort(
             (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
           );
           dataMapMoObj.funddata = tempa;
