@@ -262,8 +262,8 @@ function viewFunction(param) {
       param.querySelector('.list-container').append(listviewblock(el));
     });
     if (dataMapMoObj.deskrightdrp === '') {
-      param.querySelector('.return-select-container p').textContent = 'Since Inception';
-      dataMapMoObj.deskrightdrp = 'Since Inception';
+      param.querySelector('.return-select-container p').textContent = '3 Years';
+      dataMapMoObj.deskrightdrp = '3 Years';
     } else {
       param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
     }
@@ -272,8 +272,8 @@ function viewFunction(param) {
       param.querySelector('.cards-container').append(fundcardblock(el));
     });
     if (dataMapMoObj.deskrightdrp === '') {
-      param.querySelector('.return-select-container p').textContent = 'Since Inception';
-      dataMapMoObj.deskrightdrp = 'Since Inception';
+      param.querySelector('.return-select-container p').textContent = '3 Years';
+      dataMapMoObj.deskrightdrp = '3 Years';
     } else {
       param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
     }
@@ -591,8 +591,33 @@ function checkfilter(block) {
     if (tempData.length > 0) {
       return tempData.includes(el.schcode);
     }
-    return index < 10;
+    // return index < 10;
   });
+  if (dataMapMoObj.funddata.length === 0) {
+    const sorttextcont = block.querySelector('.sort-select-container .selectedtext');
+    const sorttext = sorttextcont.textContent.trim();
+    if (sorttext === 'Popular') {
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = dataCfObj.slice(0, 10);
+    }
+    if (sorttext === 'Oldest to Newest') {
+                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
+                        const tempa = tempData.sort(
+                          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
+                        );
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = tempa;
+    }
+    if (sorttext === 'Newest to Oldest') {
+                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
+                        const tempa = tempData.sort(
+                          (a, b) => 
+                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                        );
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = tempa;
+    }
+  }
 
   viewFunction(block);
 
@@ -1447,7 +1472,7 @@ export default function decorate(block) {
                         {
                           for: 'threeyear',
                         },
-                        'Since Inception',
+                        '3 Years',
                       ),
                     ),
                     div(
@@ -1677,7 +1702,7 @@ export default function decorate(block) {
                       }
                     },
                   },
-                  'Since Inception',
+                  '3 Years',
                 ),
                 ul(
                   {
@@ -1697,7 +1722,7 @@ export default function decorate(block) {
                       //   .getAttribute('dataattr')
                       //   .split('-');
                       const sorttextcont = block.querySelector('.sort-select-container .selectedtext');
-                      const sorttext = sorttextcont.textContent.trim();  
+                      const sorttext = sorttextcont.textContent.trim();
                       if (sorttext === 'Popular') {
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = dataCfObj.slice(0, 10);

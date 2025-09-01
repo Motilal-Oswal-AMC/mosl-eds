@@ -21,7 +21,7 @@ function initScrollToTop() {
         <path d="M1 7.8125L7 1.8125M7 1.8125L13 7.8125M7 1.8125V19.8125" />
       </svg>
     `;
-    document.body.appendChild(scrollBtn);
+    document.querySelector('footer').appendChild(scrollBtn);
   }
 
   // Show/hide button
