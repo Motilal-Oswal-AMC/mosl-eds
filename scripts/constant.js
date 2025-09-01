@@ -62,5 +62,20 @@ const dataMapMoObj = {
       this.addIndexed(child, level + 1);
     }
   },
+  myAPI: async (method, url, body = null) => {
+    const options = { method };
+    if (body) {
+      options.headers = { 'Content-Type': 'application/json' };
+      options.body = JSON.stringify(body);
+    }
+    const response = await fetch(url, options);
+    if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+    const text = await response.text();
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      return text;
+    }
+  },
 };
 export default dataMapMoObj;
