@@ -1732,6 +1732,12 @@ export default function decorate(block) {
                   },
                   li(
                     {
+                      dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
+                    },
+                    'Since Inception',
+                  ),
+                  li(
+                    {
                       dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
                     },
                     '1 Year',
@@ -1759,12 +1765,6 @@ export default function decorate(block) {
                       dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                     },
                     '10 Years',
-                  ),
-                  li(
-                    {
-                      dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
-                    },
-                    'Since Inception',
                   ),
                 ),
               ),

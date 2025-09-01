@@ -24,7 +24,9 @@ function planListEvent(param, block) {
     codeTempArr.push(el.plancode + el.optioncode);
     if (param.target.getAttribute('value') === el.plancode + el.optioncode) {
       [...Object.keys(el)].forEach((key) => {
-        if (dataMapMoObj.ObjTemp[key]) {
+        if (key === 'inception_Ret') {
+          tempReturns.unshift(dataMapMoObj.ObjTemp[key]);
+        } else {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
         }
       });
