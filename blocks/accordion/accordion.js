@@ -46,15 +46,26 @@ export default function decorate(block) {
     // Normal accordion → first item open by default, only one open at a time
     allItems[0].setAttribute('open', '');
     allItems.forEach((item) => {
-      item.addEventListener('toggle', () => {
-        if (item.open) {
+      // const classPage = ['faq', 'our-funds'];
+      if (block.closest('.freq-ask-ques')) {
+        item.addEventListener('click', () => {
           allItems.forEach((otherItem) => {
             if (otherItem !== item) {
               otherItem.removeAttribute('open');
             }
           });
-        }
-      });
+        });
+      } else {
+        item.addEventListener('toggle', () => {
+          if (item.open) {
+            allItems.forEach((otherItem) => {
+              if (otherItem !== item) {
+                otherItem.removeAttribute('open');
+              }
+            });
+          }
+        });
+      }
     });
   }
 
