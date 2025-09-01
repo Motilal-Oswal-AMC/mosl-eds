@@ -206,7 +206,11 @@ export default function decorate(block) {
       if (DirectPlanlistArr[0].groupedCode === grp) {
         [...Object.keys(ret)].forEach((key) => {
           if (dataMapMoObj.ObjTemp[key]) {
-            tempReturns.push(dataMapMoObj.ObjTemp[key]);
+            if (key === 'inception_Ret') {
+              tempReturns.unshift(dataMapMoObj.ObjTemp[key]);
+            } else {
+              tempReturns.push(dataMapMoObj.ObjTemp[key]);
+            }
           }
         });
         finPlangrp.push(ret);

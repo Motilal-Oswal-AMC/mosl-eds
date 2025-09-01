@@ -1599,7 +1599,7 @@ export default function decorate(block) {
                       if (event.target.textContent.trim() === 'Oldest to Newest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
+                          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1935,7 +1935,7 @@ export default function decorate(block) {
         if (event.target.textContent.trim() === 'Oldest to Newest') {
           const tempdata = JSON.parse(JSON.stringify(dataCfObj));
           const tempa = tempdata.sort(
-            (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
+            (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
           );
           dataMapMoObj.funddata = tempa;
         }
