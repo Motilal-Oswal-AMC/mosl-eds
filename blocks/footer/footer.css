@@ -33,6 +33,11 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+.footer-wrapper .footer a:hover {
+  text-decoration-line: underline;
+  opacity: 1 !important;
+  color: #fff;
+}
 .footer-wrapper .footer ul,
 .footer-wrapper .footer li,
 .footer-wrapper .footer p {
