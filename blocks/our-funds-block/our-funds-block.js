@@ -1939,6 +1939,7 @@ export default function decorate(block) {
           );
           dataMapMoObj.funddata = tempa;
         }
+        
         if (event.target.textContent.trim() === 'Newest to Oldest') {
           const tempdata = JSON.parse(JSON.stringify(dataCfObj));
           const tempa = tempdata.sort(
