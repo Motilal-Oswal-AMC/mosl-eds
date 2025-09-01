@@ -1599,7 +1599,7 @@ export default function decorate(block) {
                       if (event.target.textContent.trim() === 'Oldest to Newest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
+                          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1693,15 +1693,34 @@ export default function decorate(block) {
                       event.target
                         .closest('.return-select-container')
                         .querySelector('p').innerText = name;
-                      const dataattr = event.target
-                        .getAttribute('dataattr')
-                        .split('-');
-                      const tempdata = dataCfObj.filter((el) => (dataattr.includes(el.schcode) ? el : ''));
-                      dataMapMoObj.selectreturns = name;
-                      dataMapMoObj.funddata = [];
-                      dataMapMoObj.funddata = tempdata;
+                      // const dataattr = event.target
+                      //   .getAttribute('dataattr')
+                      //   .split('-');
+                      const sorttextcont = block.querySelector('.sort-select-container .selectedtext');
+                      const sorttext = sorttextcont.textContent.trim();  
+                      if (sorttext === 'Popular') {
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = dataCfObj.slice(0, 10);
+                      }
+                      if (sorttext === 'Oldest to Newest') {
+                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
+                        const tempa = tempData.sort(
+                          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
+                        );
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = tempa;
+                      }
+                      if (sorttext === 'Newest to Oldest') {
+                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
+                        const tempa = tempData.sort(
+                          (a, b) => 
+                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                        );
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = tempa;
+                      }
                       dataMapMoObj.deskrightdrp = name;
-
+                      dataMapMoObj.selectreturns = name;
                       const searInp = block.querySelector('.search-input input');
                       searInp.value = '';
                       const cancelBtn = block.querySelector('.cancel-search');
@@ -1732,6 +1751,12 @@ export default function decorate(block) {
                   },
                   li(
                     {
+                      dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
+                    },
+                    'Since Inception',
+                  ),
+                  li(
+                    {
                       dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
                     },
                     '1 Year',
@@ -1759,12 +1784,6 @@ export default function decorate(block) {
                       dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                     },
                     '10 Years',
-                  ),
-                  li(
-                    {
-                      dataattr: dataMapMoObj.data.sort[0].inception_Ret.join('-'),
-                    },
-                    'Since Inception',
                   ),
                 ),
               ),
@@ -1935,10 +1954,10 @@ export default function decorate(block) {
         if (event.target.textContent.trim() === 'Oldest to Newest') {
           const tempdata = JSON.parse(JSON.stringify(dataCfObj));
           const tempa = tempdata.sort(
-            (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
+            (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
           );
           dataMapMoObj.funddata = tempa;
-        }
+        } 
         if (event.target.textContent.trim() === 'Newest to Oldest') {
           const tempdata = JSON.parse(JSON.stringify(dataCfObj));
           const tempa = tempdata.sort(

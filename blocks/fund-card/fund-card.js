@@ -24,7 +24,9 @@ function planListEvent(param, block) {
     codeTempArr.push(el.plancode + el.optioncode);
     if (param.target.getAttribute('value') === el.plancode + el.optioncode) {
       [...Object.keys(el)].forEach((key) => {
-        if (dataMapMoObj.ObjTemp[key]) {
+        if (key === 'inception_Ret') {
+          tempReturns.unshift(dataMapMoObj.ObjTemp[key]);
+        } else {
           tempReturns.push(dataMapMoObj.ObjTemp[key]);
         }
       });
@@ -206,7 +208,11 @@ export default function decorate(block) {
       if (DirectPlanlistArr[0].groupedCode === grp) {
         [...Object.keys(ret)].forEach((key) => {
           if (dataMapMoObj.ObjTemp[key]) {
-            tempReturns.push(dataMapMoObj.ObjTemp[key]);
+            if (key === 'inception_Ret') {
+              tempReturns.unshift(dataMapMoObj.ObjTemp[key]);
+            } else {
+              tempReturns.push(dataMapMoObj.ObjTemp[key]);
+            }
           }
         });
         finPlangrp.push(ret);
