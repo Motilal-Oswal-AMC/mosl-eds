@@ -5,6 +5,10 @@
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
+// body::-webkit-scrollbar{
+//   display: none;
+// }
+
 .section.page-faq-section {
   max-width: 1232px;
   margin: 0 auto;
@@ -171,10 +175,10 @@
               outline: none;
               background-color: transparent;
 
-              @include font-style(14px,
+              @include font-style(16px,
                 20px,
-                $text-body-2,
-                map.get($font-weights, regular),
+                #2e2a94,//$text-body-2,
+                map.get($font-weights, medium),
                 $poppins);
             }
 
@@ -263,7 +267,6 @@
 
             .active {
               background-color: #f3f3f3;
-              // color: white;
               cursor: pointer;
             }
           }

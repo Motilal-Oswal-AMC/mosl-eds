@@ -161,11 +161,11 @@
   border: none;
   outline: none;
   background-color: transparent;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
-  color: #616161;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper .cancel-btn {
   max-width: 24px;
