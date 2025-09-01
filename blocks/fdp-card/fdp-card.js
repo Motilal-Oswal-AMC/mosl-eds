@@ -521,6 +521,9 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.append(cardContainer);
 
+  dataMapMoObj.CLASS_PREFIXES = ['tab-li-item'];
+  dataMapMoObj.addIndexed(item2Ul);
+
   const activecls = Array.from(item2Ul.children)[0].querySelector('a');
   activecls.classList.add('active');
 
