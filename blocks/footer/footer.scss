@@ -96,8 +96,7 @@
                     background: transparent;
                     padding: 0;
                     border-radius: map.get($radius, r8);
-
-                    // min-width: 180px;
+                    min-height: 38px;
 
                     ul {
                         text-align: left;
