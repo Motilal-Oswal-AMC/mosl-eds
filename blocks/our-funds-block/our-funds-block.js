@@ -262,8 +262,8 @@ function viewFunction(param) {
       param.querySelector('.list-container').append(listviewblock(el));
     });
     if (dataMapMoObj.deskrightdrp === '') {
-      param.querySelector('.return-select-container p').textContent = 'Since Inception';
-      dataMapMoObj.deskrightdrp = 'Since Inception';
+      param.querySelector('.return-select-container p').textContent = '3 Years';
+      dataMapMoObj.deskrightdrp = '3 Years';
     } else {
       param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
     }
@@ -272,8 +272,8 @@ function viewFunction(param) {
       param.querySelector('.cards-container').append(fundcardblock(el));
     });
     if (dataMapMoObj.deskrightdrp === '') {
-      param.querySelector('.return-select-container p').textContent = 'Since Inception';
-      dataMapMoObj.deskrightdrp = 'Since Inception';
+      param.querySelector('.return-select-container p').textContent = '3 Years';
+      dataMapMoObj.deskrightdrp = '3 Years';
     } else {
       param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
     }
@@ -1472,7 +1472,7 @@ export default function decorate(block) {
                         {
                           for: 'threeyear',
                         },
-                        'Since Inception',
+                        '3 Years',
                       ),
                     ),
                     div(
@@ -1702,7 +1702,7 @@ export default function decorate(block) {
                       }
                     },
                   },
-                  'Since Inception',
+                  '3 Years',
                 ),
                 ul(
                   {
