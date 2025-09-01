@@ -54,7 +54,6 @@ main {
       }
 
       .card-wrapper {
-
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -136,11 +135,13 @@ main {
             .brand-name-text {
               margin: 0;
 
-              @include font-style(12px,
+              @include font-style(
+                12px,
                 16px,
                 map.get($blue-1, b400),
                 500,
-                $poppins );
+                $poppins
+              );
 
               @include media(mobile) {
                 font-weight: 400;
@@ -217,7 +218,8 @@ main {
 
                 &::after {
                   content: "";
-                  background: url("../../icons/direction-right.svg") center / cover no-repeat;
+                  background: url("../../icons/direction-right.svg") center /
+                    cover no-repeat;
                   min-width: 16px;
                   height: 16px;
                   display: block;
@@ -256,11 +258,13 @@ main {
               }
 
               .return-text {
-                @include font-style(12px,
+                @include font-style(
+                  12px,
                   16px,
                   $color-text-body,
                   400,
-                  $poppins );
+                  $poppins
+                );
               }
 
               .dropdown {
@@ -337,11 +341,13 @@ main {
               }
 
               .nav-label {
-                @include font-style(12px,
+                @include font-style(
+                  12px,
                   16px,
                   $color-text-body,
                   400,
-                  $poppins );
+                  $poppins
+                );
 
                 margin: 0 0 4px;
               }
@@ -446,11 +452,13 @@ main {
                 bottom: -13px;
                 left: 8px;
 
-                @include font-style(8px,
+                @include font-style(
+                  8px,
                   12px,
                   map.get($danger, 300),
                   400,
-                  $poppins );
+                  $poppins
+                );
 
                 &.show-error {
                   display: block;
@@ -475,7 +483,7 @@ main {
                 margin-left: -7px;
               }
 
-             a.submit {
+              a.submit {
                 display: block;
                 width: 100%;
                 text-align: center;
@@ -571,18 +579,37 @@ main {
         justify-content: center;
         align-items: center;
         gap: 20px;
+        background-color: $primary-white;
+        border: none;
       }
 
       li {
         text-align: start;
         white-space: nowrap;
 
+        &.tab-li-item2,
+        &.tab-li-item3,
+        &.tab-li-item5,
+        &.tab-li-item10,
+        &.tab-li-item11,
+        &.tab-li-item12 {
+          display: none;
+
+          @include media(mobile) {
+            display: block;
+          }
+        }
+
         @media (width <=768px) {
           margin: 0 auto;
-          margin-top: 10px;
+          margin-bottom: 10px;
           background: $primary-white;
-          padding: 10px;
+          padding: 16px;
           cursor: pointer;
+
+          &:last-of-type{
+            margin: 0;
+          }
         }
 
         a {
@@ -593,6 +620,9 @@ main {
 
           @media (width <=768px) {
             text-wrap: nowrap;
+            font-size: 16px;
+            line-height: 24px;
+            padding: 0;
           }
         }
 
@@ -613,30 +643,47 @@ main {
       display: none;
 
       @media (width <=768px) {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         max-width: 100%;
-        text-align: start;
         background: $primary-white;
         margin: 0 auto;
         padding: 16px;
-
-        @include font-style(14px, 16px, $primary-blue, 600, $poppins);
-
         position: relative;
-      }
-    }
+        cursor: pointer;
 
-    .selectedtext-fdp::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: 15px;
-      width: 6px;
-      height: 6px;
-      border-right: 2px solid #3f51b5;
-      /* dark blue color */
-      border-bottom: 2px solid #3f51b5;
-      transform: translateY(-50%) rotate(45deg);
+        @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+
+        &::after {
+          content: "";
+          background-image: url("../../icons/arrow-left.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 16px;
+          height: 16px;
+          display: block;
+          transform: rotate(-90deg);
+          transition: all 0.3s;
+
+          // position: absolute;
+          // top: 50%;
+          // right: 15px;
+          // width: 6px;
+          // height: 6px;
+          // border-right: 2px solid #3f51b5;
+          // dark blue color
+          // border-bottom: 2px solid #3f51b5;
+          // transform: translateY(-50%) rotate(45deg);
+        }
+
+        &.active{
+          &::after{
+            transform: rotate(90deg);
+          }
+        }
+      }
     }
 
     /* why fund section */
@@ -699,7 +746,7 @@ main {
     //               24px,
     //               $text-body-2,
     //               400,
-    //               $poppins 
+    //               $poppins
     //               );
 
     //             line-height: 24px;
@@ -819,7 +866,7 @@ main {
               li:nth-child(2) {
                 @include font-style(16px, 24px, $text-body-2, 400, $poppins);
 
-                 @media (width <=768px) {
+                @media (width <=768px) {
                   font-size: 14px;
                   line-height: 20px;
                 }
@@ -863,6 +910,5 @@ main {
         }
       }
     }
-
   }
 }
