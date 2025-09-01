@@ -698,11 +698,10 @@
     z-index: -1;
   }
 }
-
-.scroll-to-top {
-  position: fixed;
-  bottom: 60px;
-  right: 60px;
+.footer-wrapper .scroll-to-top {
+  position: absolute;
+  right: 67px;
+  top: -28px;
   width: 56px;
   height: 56px;
   border-radius: 28px;
@@ -715,7 +714,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.2s ease;
-  z-index: 1000;
+  z-index: 10;
   margin: 0;
   border: none;
   padding: 0;
@@ -723,21 +722,18 @@
   white-space: unset;
 }
 @media (max-width: 768px) {
-  .scroll-to-top {
+  .footer-wrapper .scroll-to-top {
     right: 16px;
   }
 }
-
-.scroll-to-top.visible {
+.footer-wrapper .scroll-to-top.visible {
   opacity: 1;
   pointer-events: auto;
 }
-
-.scroll-to-top:hover {
+.footer-wrapper .scroll-to-top:hover {
   background: #7E97FD;
 }
-
-.scroll-to-top-icon path {
+.footer-wrapper .scroll-to-top-icon path {
   stroke-width: 2px;
   stroke: #2E2A94;
 }/*# sourceMappingURL=footer.css.map */
