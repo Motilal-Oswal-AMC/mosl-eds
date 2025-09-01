@@ -13,6 +13,14 @@ const dataMapMoObj = {
     '7 Years': 'sevenYear_Ret',
     '10 Years': 'tenYear_Ret',
   },
+  objtempdrop: {
+    'Since Inception': 'Since Inception',
+    '1 year': '1 Year',
+    '3 Years': '3 Years',
+    '5 years': '5 Years',
+    '7 years': '7 Years',
+    '10 years': '10 Years',
+  },
   icons: {
     'very-high': 'very-high-risk',
     'low-to-moderate': 'moderately-low-risk',

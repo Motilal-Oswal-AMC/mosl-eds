@@ -722,7 +722,7 @@ function applyFunction(block) {
     dataMapMoObj.funddata = dataMapMoObj.tempMobReturn;
     dataMapMoObj.tempMobReturn = [];
     block.querySelector('.sort-overlay').classList.remove('active');
-    dataMapMoObj.selectreturns = dataMapMoObj.selectreturnstemp;
+    dataMapMoObj.selectreturns = dataMapMoObj.objtempdrop[dataMapMoObj.selectreturnstemp];
 
     const searInp = block.querySelector('.search-input input');
     searInp.value = '';
