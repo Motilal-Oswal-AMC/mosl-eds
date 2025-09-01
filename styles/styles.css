@@ -592,13 +592,16 @@ body.noscroll {
 .section.breadcrumbs-fdp {
     max-width: 1232px;
     width: 100%;
-    margin: 24px auto;
+    margin: 0 auto;
     margin-top: 120px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    padding-top: 24px;
-    position: relative;
+    padding: 24px;
+    position: sticky;
+    top: 124px;
+    background-color: #f5f5f5;
+    z-index: 10;
 }
 
 .breadcrumbs-fdp>.default-content-wrapper {
@@ -611,8 +614,9 @@ body.noscroll {
     word-break: unset;
     align-items: center;
     gap: 16px;
-
-
+}
+.breadcrumbs-fdp > .default-content-wrapper::-webkit-scrollbar{
+display: none;
 }
 
 .breadcrumbs-fdp>.default-content-wrapper>ul {
@@ -739,8 +743,8 @@ body.noscroll {
     align-self: stretch;
     list-style: none;
     position: absolute;
-    top: 71%;
-    right: 15%;
+    top: 52%;
+    right: 17%;
     z-index: 10;
     display: none;
     border-radius: 6px;
@@ -783,6 +787,11 @@ position: relative;
     .breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) .breadcrbmain2 {
         top: 60%;
         right: 24%;
+    }
+
+    .section.breadcrumbs-fdp {
+        top: 104px;
+        padding: 16px;
     }
 }
 
