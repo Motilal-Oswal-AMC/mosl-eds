@@ -69,7 +69,7 @@
             .footer-sub-cont2 {
                 @include flex-center;
 
-                gap: map.get($spacing, lg);
+                gap: 22.79px;
 
                 li {
                     .icon {
@@ -821,6 +821,7 @@
                         flex-direction: row;
                         gap: map.get($spacing, xxl);
 
+                        /* stylelint-disable-next-line no-descending-specificity */
                         li {
                             line-height: rem(16px);
 
