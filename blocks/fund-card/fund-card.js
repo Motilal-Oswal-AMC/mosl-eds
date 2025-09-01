@@ -211,7 +211,6 @@ export default function decorate(block) {
             } else {
               tempReturns.push(dataMapMoObj.ObjTemp[key]);
             }
-            
           }
         });
         finPlangrp.push(ret);
