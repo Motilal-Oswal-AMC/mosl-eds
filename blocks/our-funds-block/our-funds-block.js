@@ -1693,15 +1693,34 @@ export default function decorate(block) {
                       event.target
                         .closest('.return-select-container')
                         .querySelector('p').innerText = name;
-                      const dataattr = event.target
-                        .getAttribute('dataattr')
-                        .split('-');
-                      const tempdata = dataCfObj.filter((el) => (dataattr.includes(el.schcode) ? el : ''));
-                      dataMapMoObj.selectreturns = name;
-                      dataMapMoObj.funddata = [];
-                      dataMapMoObj.funddata = tempdata;
+                      // const dataattr = event.target
+                      //   .getAttribute('dataattr')
+                      //   .split('-');
+                      const sorttextcont = block.querySelector('.sort-select-container .selectedtext');
+                      const sorttext = sorttextcont.textContent.trim();  
+                      if (sorttext === 'Popular') {
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = dataCfObj.slice(0, 10);
+                      }
+                      if (sorttext === 'Oldest to Newest') {
+                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
+                        const tempa = tempData.sort(
+                          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
+                        );
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = tempa;
+                      }
+                      if (sorttext === 'Newest to Oldest') {
+                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
+                        const tempa = tempData.sort(
+                          (a, b) => 
+                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                        );
+                        dataMapMoObj.funddata = '';
+                        dataMapMoObj.funddata = tempa;
+                      }
                       dataMapMoObj.deskrightdrp = name;
-
+                      dataMapMoObj.selectreturns = name;
                       const searInp = block.querySelector('.search-input input');
                       searInp.value = '';
                       const cancelBtn = block.querySelector('.cancel-search');
