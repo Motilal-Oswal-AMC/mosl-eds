@@ -36,6 +36,7 @@ const dataMapMoObj = {
     low: 'low-risk',
   },
   selectreturns: '3 Years',
+  schmenmob: 'Popular',
   schstar: [],
   tempMobReturn: [],
   selectreturnstemp: '',

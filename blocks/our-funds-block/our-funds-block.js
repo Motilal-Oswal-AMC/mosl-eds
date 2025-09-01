@@ -723,6 +723,10 @@ function applyFunction(block) {
     dataMapMoObj.tempMobReturn = [];
     block.querySelector('.sort-overlay').classList.remove('active');
     dataMapMoObj.selectreturns = dataMapMoObj.objtempdrop[dataMapMoObj.selectreturnstemp];
+    block.querySelector('.sort-select-container .selectedtext').textContent = '';
+    block.querySelector('.sort-select-container .selectedtext').textContent = dataMapMoObj.schmenmob;
+    block.querySelector('.return-select-container .selectedtext').textContent = '';
+    block.querySelector('.return-select-container .selectedtext').textContent = dataMapMoObj.selectreturns;
 
     const searInp = block.querySelector('.search-input input');
     searInp.value = '';
@@ -2014,7 +2018,7 @@ export default function decorate(block) {
       if (sortText.trim() === 'Oldest to Newest') {
         const tempdata = JSON.parse(JSON.stringify(dataCfObj));
         const tempa = tempdata.sort(
-          (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
+          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
         );
         dataMapMoObj.tempMobReturn = tempa;
       }
@@ -2028,6 +2032,7 @@ export default function decorate(block) {
       if (sortText.trim() === 'Popular') {
         dataMapMoObj.tempMobReturn = dataCfObj.slice(0, 10);
       }
+      dataMapMoObj.schmenmob = sortText;
     });
   });
 
