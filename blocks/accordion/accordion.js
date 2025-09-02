@@ -40,7 +40,7 @@ export default function decorate(block) {
     // In mob-accordion + desktop → keep all open but prevent toggling
     allItems.forEach((item) => {
       item.setAttribute('open', '');
-      item.addEventListener('click', (e) => e.preventDefault());
+      // item.addEventListener('click', (e) => e.preventDefault());
     });
   } else {
     // Normal accordion → first item open by default, only one open at a time
