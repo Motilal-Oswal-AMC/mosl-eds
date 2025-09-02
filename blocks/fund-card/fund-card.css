@@ -38,6 +38,12 @@
   height: 20px;
   display: block;
 }
+.section .card-container .card-wrapper .selectedtext.no-dropdown {
+  cursor: auto;
+}
+.section .card-container .card-wrapper .selectedtext.no-dropdown::after {
+  content: unset;
+}
 .section .card-container .card-wrapper .dropdown-list {
   display: none;
   position: absolute;
