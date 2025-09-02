@@ -798,7 +798,7 @@ position: relative;
 
 /* pan modal */
 .pan-details-modal {
-    max-width: 100%;
+    max-width:  400px;
     /* width: 100%; */
     /* background: #0009; */
     display: none;
@@ -806,7 +806,7 @@ position: relative;
 
 }
 
-.pan-details-modal .default-content-wrapper {
+.pan-details-modal .mainpandts1{
     display: flex;
     width: 400px;
     height: 600px;
