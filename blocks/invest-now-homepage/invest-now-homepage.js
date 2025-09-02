@@ -16,8 +16,9 @@ import {
 import "../../scripts/flatpickr.js";
 import dataCfObj from "../../scripts/dataCfObj.js";
 import dataMapMoObj from "../../scripts/constant.js";
+import { myAPI } from "../../scripts/scripts.js";
 
-export function existingUser() {
+export async function existingUser() {
   const demo = Array.from(document.querySelectorAll(".pan-details-modal p"));
   const inputLable = demo[0];
   if (!inputLable) {
@@ -30,7 +31,7 @@ export function existingUser() {
   const addInputDiv = div(
     { class: "input-wrapper" },
     p({ class: "panlabel" }, "Pan Number"),
-    input("input", {
+    input({
       type: "text",
       placeholder: "Enter PAN Number",
       name: "pan",
@@ -40,33 +41,58 @@ export function existingUser() {
 
   inputLable.appendChild(addInputDiv);
 
-  // give class name for click ;
+  // api call for otp
+  // "AEEPW9969G",
+
+  async function apiCall(userPanNumber) {
+    const request = {
+      panNo: userPanNumber,
+    };
+    const rejsin = await myAPI(
+      "POST",
+      "https://api.moamc.com/LoginAPI/api/Login/GetClientType",
+      request
+    );
+    console.log(rejsin);
+
+    const isSuccess = rejsin.data.existingClient === "" ? false : true;
+
+    const kycForm = document.querySelector(".fdp-kyc-form");
+    const panForm = document.querySelector(".pan-details-modal");
+    const pansuccessForm = document.querySelector(".otp-fdp");
+    if (isSuccess) {
+      kycForm.style.display = "none"; // display none kycform
+      panForm.style.display = "none"; // display none panform
+      pansuccessForm.style.display = "block"; // display block otp form
+    } else {
+      kycForm.style.display = "block";
+      panForm.style.display = "none";
+      pansuccessForm.style.display = "none";
+    }
+  }
 
   const parentElements = document.querySelector(".pan-details-modal");
   dataMapMoObj.CLASS_PREFIXES = ["mainpandts", "subpandts", "innerpandts"];
   dataMapMoObj.addIndexed(parentElements);
 
-  // give click evenrt
-
-  // const authenticateClick = document.querySelector('.innerpandts1');
-
-  // authenticateClick.addEventListener('click',(e)=>{
-  //   document.querySelector('.fdp-kyc-form').style.display = 'none'
-  // });
-
+  //Authenciate click
   const authenticateClick = document.querySelector(".subpandts3 .innerpandts1");
 
   authenticateClick.addEventListener("click", (e) => {
-    const kycForm = document.querySelector(".fdp-kyc-form");
-    const panForm = document.querySelector(".pan-details-modal");
 
-    if (kycForm.style.display === "none" || kycForm.style.display === "") {
-      kycForm.style.display = "block";
-      panForm.style.display = "none";
-    } else {
-      kycForm.style.display = "none";
-      panForm.style.display = "block";
-    }
+  const checkInput = document.querySelector('.error-pan');
+  const userPanNumber = document.querySelector('.iptpanfld').value;
+    console.log(userPanNumber);
+if (userPanNumber === "") {
+  checkInput.classList.add('show-error');
+}
+if (!checkInput.classList.contains('show-error')) {
+  apiCall(userPanNumber);  // Only called if no error
+} else {
+  console.log('PAN number is invalid. API call blocked.');
+
+}
+
   });
 
   // Create the error message element once
@@ -95,7 +121,7 @@ export function existingUser() {
     }
   });
 
-  // this function for hide modal forms 
+  // this function for hide modal forms
 
   const mod = document.querySelector(".pan-details-modal .icon-modal-btn");
   const mod2 = document.querySelector(".fdp-kyc-form .icon-modal-btn");
@@ -105,7 +131,7 @@ export function existingUser() {
       document.querySelector(".our-popular-funds") ||
       document.querySelector(".known-our-funds") ||
       document.querySelector(".fdp-card-container");
-      btn.addEventListener("click", (e) => {
+    btn.addEventListener("click", (e) => {
       e.stopPropagation(); // Stop click from bubbling further
       document.body.classList.remove("noscroll");
       card2.classList.remove("modal-active-parent");
@@ -330,11 +356,11 @@ export default function decorate(block) {
           )
         )
       ),
-       div(
-       { class: "modal-cta" },
-      button({ class: "buy-now-btn" }, "BUY NOW"),
-      button({ class: "start-now" }, "Start Now")
-    ),  
+      div(
+        { class: "modal-cta" },
+        button({ class: "buy-now-btn" }, "BUY NOW"),
+        button({ class: "start-now" }, "Start Now")
+      )
     )
   );
 

@@ -345,12 +345,29 @@ export function wishlist() {
   }
 }
 
+/* ---------------- Fetch Call ---------------- */
+export async function myAPI(method, url, body = null) {
+  const options = { method };
+  if (body) {
+    options.headers = { 'Content-Type': 'application/json' };
+    options.body = JSON.stringify(body);
+  }
+  const response = await fetch(url, options);
+  if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+  const text = await response.text();
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    return text;
+  }
+}
 /* ---------------- Expose to window ---------------- */
 window.hlx = window.hlx || {};
 window.hlx.utils = {
   getTimeLeft,
   evaluateByDays,
   wishlist,
+  myAPI,
 };
 
 /* ---------------- Initialize ---------------- */
