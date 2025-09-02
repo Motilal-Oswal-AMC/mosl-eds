@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "fdp-kyc-form",
+            "value": "fdp-kyc-form"
+          },
+          {
             "name": "pan-details-modal",
             "value": "pan-details-modal"
           },
