@@ -859,6 +859,12 @@ position: relative;
     line-height: 20px;
 }
 
+/*hide pan kyc form */
+
+.fdp-kyc-form{
+    display: none;
+}
+
 .pan-details-modal .default-content-wrapper ul li:nth-child(2) {
     color: #616161;
     font-family: Poppins;
