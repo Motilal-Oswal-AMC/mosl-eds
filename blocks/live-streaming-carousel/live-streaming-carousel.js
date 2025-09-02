@@ -41,6 +41,21 @@ export default function decorate(block) {
     totalSlide.textContent = allSlides.length;
   }
 
+  // const wrapper = document.querySelector('.live-streaming-carousel-wrapper');
+  const swiperEl = wrapper.querySelector('.swiper');
+  const lis = swiperEl.querySelectorAll('.swiper-slide ul li');
+  lis.forEach(li => {
+    const link = li.querySelector('a');
+    const text = li.textContent.trim();
+    if (link && link.hasAttribute('href')) {
+      console.log('Has href:', link.getAttribute('href'));
+    } else {
+      if (text === 'Watch Live Streaming') {
+        li.style.display = 'none';
+      }
+    }
+  });
+
   Swiper(block, {
     loop: true,
     autoplay: {

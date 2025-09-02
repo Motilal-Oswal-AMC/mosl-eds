@@ -483,7 +483,7 @@
         justify-content: center;
         align-items: center;
         gap: 4px;
-        border-radius: map.get($radius, r8);
+        border-radius: map.get($radius, r4);
         background: map.get($button-primary, default);
         height: 44px;
 
@@ -1227,6 +1227,8 @@
         }
 
         .welcomemain-sub-wrp4 {
+          position: unset;
+
           .welcomeactmain1 {
             display: flex;
             width: 176px;
