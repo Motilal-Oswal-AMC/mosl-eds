@@ -200,4 +200,29 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   inputLable.appendChild(addInputDiv);
+  // Create the error message element once
+
+  const errorPanEl = document.createElement('p');
+  errorPanEl.className = 'error-pan hide-error'; // initially hidden
+  errorPanEl.textContent = 'Invalid PAN number';
+  inputLable.appendChild(errorPanEl); // append it once
+
+  inputLable.addEventListener('input', (e) => {
+    const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+    const inputValue = e.target.value.toUpperCase();
+
+    if (inputValue === '') {
+    // If empty, hide the error
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+    } else if (panRegex.test(inputValue)) {
+    // If valid PAN, hide error
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+    } else {
+    // If invalid PAN, show error
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
+    }
+  });
 });

@@ -100,16 +100,16 @@ export default function decorate(block) {
               },
               div(
                 { class: 'radio-1' },
-                label({ class: 'rad-label', for: 'opt1' }, span(listraio[0].textContent.trim())),
+                label({ class: 'rad-label', for: 'opt1' }, listraio[0].textContent.trim()),
                 input({
-                  type: 'radio', name: 'radio-click', for: 'opt1',
+                  type: 'radio', name: 'radio-click', id: 'opt1',
                 }),
               ),
               div(
                 { class: 'radio-2' },
-                label({ class: 'rad-label', for: 'opt2' }, span(listraio[1].textContent.trim())),
+                label({ class: 'rad-label', for: 'opt2' }, listraio[1].textContent.trim()),
                 input({
-                  type: 'radio', name: 'radio-click', for: 'opt2',
+                  type: 'radio', name: 'radio-click', id: 'opt2',
                 }),
               ),
             ),
@@ -139,7 +139,7 @@ export default function decorate(block) {
         },
         div(
           {
-            class: 'name-label',
+            class: 'name-label pan-fields',
           },
           label(
             {
@@ -156,7 +156,7 @@ export default function decorate(block) {
         ),
         div(
           {
-            class: 'number-label',
+            class: 'number-label pan-fields',
           },
           label(
             {
@@ -170,10 +170,11 @@ export default function decorate(block) {
             id: '',
             placeholder: 'Add Number',
           }),
+          p({ class: 'country-code' }, '+91'),
         ),
         div(
           {
-            class: 'email-label',
+            class: 'email-label pan-fields',
           },
           ul(
             { class: 'list-of-options' },
@@ -237,9 +238,9 @@ export default function decorate(block) {
     });
   });
 
-  document.addEventListener('click', (event)=> {
+  document.addEventListener('click', (event) => {
     if (!block.querySelector('.email-label').contains(event.target)) {
-        block.querySelector('.list-of-options').style.display = 'none';
+      block.querySelector('.list-of-options').style.display = 'none';
     }
   });
 }

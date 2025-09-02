@@ -13,7 +13,7 @@
     display: flex;
     max-width: 400px;
     width: 100%;
-    height: 665px;
+    height: 100vh;
     padding: 64px 16px;
     flex-direction: column;
     gap: 32px;
@@ -223,13 +223,13 @@
       flex-direction: column;
       gap: 32px;
 
-      div {
+      .pan-fields {
         display: flex;
         padding: 8px 12px;
-        flex-direction: column;
+        flex-direction: row-reverse;
         justify-content: flex-end;
         align-items: flex-start;
-        gap: 4px;
+        gap: 10px;
         align-self: stretch;
         border-radius: 6px;
         border: 1px solid #9e9e9e;
@@ -261,6 +261,29 @@
           cursor: pointer;
 
           @include font-style(16px, 20px, $neutrals-black, 500, $poppins);
+        }
+        .country-code {
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-right: 10px;
+          border-radius: 3px 0 0 3px;
+          border-right: 1px solid #6d798e;
+
+          @include font-style(14px, 19.6px, $neutrals-black, 400, $poppins);
+        }
+
+        .country-code::before {
+          content: "";
+          display: inline-block; /* Make sure it shows up */
+          width: 16px; /* Set width and height */
+          height: 12px;
+          background-image: url("/icons/india-flag.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-right: 4px; /* Optional spacing */
         }
       }
 
@@ -327,6 +350,10 @@
   }
 
   .tnc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
     .panvalidsubinner3 {
       margin: 0;
 
