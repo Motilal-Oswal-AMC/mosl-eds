@@ -141,7 +141,6 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     await decorateBlock(block);
     await loadBlock(block);
   }
-
   const closeButton = overlay.querySelector('.modal-btn');
   if (closeButton) {
     document.body.classList.add('noscroll');
@@ -177,52 +176,3 @@ export function initializeModalHandlers() {
 }
 
 //  FDP PAN FUND
-
-document.addEventListener('DOMContentLoaded', () => {
-  const demo = Array.from(document.querySelectorAll('.pan-details-modal p'));
-  const inputLable = demo[0];
-  if (!inputLable) {
-    // console.warn('No <p> elements found inside .pan-details-modal');
-    return;
-  }
-
-  inputLable.innerHTML = '';
-
-  const addInputDiv = div(
-    { class: 'input-wrapper' },
-    p({ class: 'panlabel' }, 'Pan Number'),
-    input('input', {
-      type: 'text',
-      placeholder: 'Enter PAN Number',
-      name: 'pan',
-      class: 'iptpanfld',
-    }),
-  );
-
-  inputLable.appendChild(addInputDiv);
-  // Create the error message element once
-
-  const errorPanEl = document.createElement('p');
-  errorPanEl.className = 'error-pan hide-error'; // initially hidden
-  errorPanEl.textContent = 'Invalid PAN number';
-  inputLable.appendChild(errorPanEl); // append it once
-
-  inputLable.addEventListener('input', (e) => {
-    const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
-    const inputValue = e.target.value.toUpperCase();
-
-    if (inputValue === '') {
-    // If empty, hide the error
-      errorPanEl.classList.remove('show-error');
-      errorPanEl.classList.add('hide-error');
-    } else if (panRegex.test(inputValue)) {
-    // If valid PAN, hide error
-      errorPanEl.classList.remove('show-error');
-      errorPanEl.classList.add('hide-error');
-    } else {
-    // If invalid PAN, show error
-      errorPanEl.classList.remove('hide-error');
-      errorPanEl.classList.add('show-error');
-    }
-  });
-});

@@ -16,6 +16,66 @@ import {
 import '../../scripts/flatpickr.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 
+export function existingUser() {
+  const demo = Array.from(document.querySelectorAll('.pan-details-modal p'));
+  const inputLable = demo[0];
+  if (!inputLable) {
+    // console.warn('No <p> elements found inside .pan-details-modal');
+    return;
+  }
+
+  inputLable.innerHTML = '';
+
+  const addInputDiv = div(
+    { class: 'input-wrapper' },
+    p({ class: 'panlabel' }, 'Pan Number'),
+    input('input', {
+      type: 'text',
+      placeholder: 'Enter PAN Number',
+      name: 'pan',
+      class: 'iptpanfld',
+    }),
+  );
+
+  inputLable.appendChild(addInputDiv);
+  // Create the error message element once
+
+  const errorPanEl = document.createElement('p');
+  errorPanEl.className = 'error-pan hide-error'; // initially hidden
+  errorPanEl.textContent = 'Invalid PAN number';
+  inputLable.appendChild(errorPanEl); // append it once
+
+  inputLable.addEventListener('input', (e) => {
+    const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+    const inputValue = e.target.value.toUpperCase();
+
+    if (inputValue === '') {
+    // If empty, hide the error
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+    } else if (panRegex.test(inputValue)) {
+    // If valid PAN, hide error
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+    } else {
+    // If invalid PAN, show error
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
+    }
+  });
+
+  const mod = document.querySelector('.pan-details-modal .icon-modal-btn');
+  const card = document.querySelector('.our-popular-funds')
+    || document.querySelector('.known-our-funds')
+    || document.querySelector('.fdp-card-container');
+  mod.addEventListener('click', (e) => {
+      e.stopPropagation(); // Stop click from bubbling further
+      document.body.classList.remove('noscroll');
+      card.classList.remove('modal-active-parent');
+      document.querySelector('.card-modal-overlay').remove();
+    });
+}
+
 function loadCSS(href) {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
@@ -273,6 +333,13 @@ export default function decorate(block) {
     tooltip
   );
   block.append(modalContainer);
+
+  modal.querySelector('.start-now').addEventListener('click', ()=>{
+    const mainmo = block.closest('.card-modal-overlay');
+    mainmo.querySelector('.invest-now-homepage-container').style.display = 'none';
+    mainmo.querySelector('.pan-details-modal').style.display = 'block';
+    existingUser();
+  })
 
   const container = document.querySelector('.modal-cta');
 
