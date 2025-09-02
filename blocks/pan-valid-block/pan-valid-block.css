@@ -10,7 +10,7 @@
   display: flex;
   max-width: 400px;
   width: 100%;
-  height: 665px;
+  height: 100vh;
   padding: 64px 16px;
   flex-direction: column;
   gap: 32px;
@@ -170,19 +170,19 @@
   flex-direction: column;
   gap: 32px;
 }
-.pan-valid-block .form-container .name-container div {
+.pan-valid-block .form-container .name-container .pan-fields {
   display: flex;
   padding: 8px 12px;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: flex-start;
-  gap: 4px;
+  gap: 10px;
   align-self: stretch;
   border-radius: 6px;
   border: 1px solid #9e9e9e;
   position: relative;
 }
-.pan-valid-block .form-container .name-container div label {
+.pan-valid-block .form-container .name-container .pan-fields label {
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -200,7 +200,7 @@
   background: white;
   transition: top 0.8s ease;
 }
-.pan-valid-block .form-container .name-container div input {
+.pan-valid-block .form-container .name-container .pan-fields input {
   border: none;
   width: 100%;
   border-radius: 6px;
@@ -210,6 +210,31 @@
   color: #111;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+.pan-valid-block .form-container .name-container .pan-fields .country-code {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+  border-radius: 3px 0 0 3px;
+  border-right: 1px solid #6d798e;
+  font-size: 14px;
+  line-height: 19.6px;
+  color: #111;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.pan-valid-block .form-container .name-container .pan-fields .country-code::before {
+  content: "";
+  display: inline-block; /* Make sure it shows up */
+  width: 16px; /* Set width and height */
+  height: 12px;
+  background-image: url("/icons/india-flag.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 4px; /* Optional spacing */
 }
 .pan-valid-block .form-container .name-container .email-label {
   position: relative;
@@ -265,6 +290,11 @@
   position: absolute;
   right: 12px;
   cursor: pointer;
+}
+.pan-valid-block .tnc-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .pan-valid-block .tnc-container .panvalidsubinner3 {
   margin: 0;

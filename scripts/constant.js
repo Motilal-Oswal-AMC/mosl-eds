@@ -13,6 +13,14 @@ const dataMapMoObj = {
     '7 Years': 'sevenYear_Ret',
     '10 Years': 'tenYear_Ret',
   },
+  objtempdrop: {
+    'Since Inception': 'Since Inception',
+    '1 year': '1 Year',
+    '3 Years': '3 Years',
+    '5 years': '5 Years',
+    '7 years': '7 Years',
+    '10 years': '10 Years',
+  },
   icons: {
     'very-high': 'very-high-risk',
     'low-to-moderate': 'moderately-low-risk',
@@ -28,6 +36,7 @@ const dataMapMoObj = {
     low: 'low-risk',
   },
   selectreturns: '3 Years',
+  schmenmob: 'Popular',
   schstar: [],
   tempMobReturn: [],
   selectreturnstemp: '',
@@ -51,6 +60,21 @@ const dataMapMoObj = {
       const index = i + 1; // Class names are typically 1-based.
       child.classList.add(`${prefix}${index}`);
       this.addIndexed(child, level + 1);
+    }
+  },
+  myAPI: async (method, url, body = null) => {
+    const options = { method };
+    if (body) {
+      options.headers = { 'Content-Type': 'application/json' };
+      options.body = JSON.stringify(body);
+    }
+    const response = await fetch(url, options);
+    if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+    const text = await response.text();
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      return text;
     }
   },
 };

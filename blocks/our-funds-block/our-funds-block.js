@@ -603,16 +603,16 @@ function checkfilter(block) {
     const sorttextcont = block.querySelector('.sort-select-container .selectedtext');
     const sorttext = sorttextcont.textContent.trim();
     if (sorttext === 'Popular') {
-                        dataMapMoObj.funddata = '';
-                        dataMapMoObj.funddata = dataCfObj.slice(0, 10);
+      dataMapMoObj.funddata = '';
+      dataMapMoObj.funddata = dataCfObj.slice(0, 10);
     }
     if (sorttext === 'Oldest to Newest') {
-                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
-                        const tempa = tempData.sort(
-                          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
-                        );
-                        dataMapMoObj.funddata = '';
-                        dataMapMoObj.funddata = tempa;
+      const tempData = JSON.parse(JSON.stringify(dataCfObj));
+      const tempa = tempData.sort(
+        (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
+      );
+      dataMapMoObj.funddata = '';
+      dataMapMoObj.funddata = tempa;
     }
     if (sorttext === 'Newest to Oldest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
@@ -728,7 +728,11 @@ function applyFunction(block) {
     dataMapMoObj.funddata = dataMapMoObj.tempMobReturn;
     dataMapMoObj.tempMobReturn = [];
     block.querySelector('.sort-overlay').classList.remove('active');
-    dataMapMoObj.selectreturns = dataMapMoObj.selectreturnstemp;
+    dataMapMoObj.selectreturns = dataMapMoObj.objtempdrop[dataMapMoObj.selectreturnstemp];
+    block.querySelector('.sort-select-container .selectedtext').textContent = '';
+    block.querySelector('.sort-select-container .selectedtext').textContent = dataMapMoObj.schmenmob;
+    block.querySelector('.return-select-container .selectedtext').textContent = '';
+    block.querySelector('.return-select-container .selectedtext').textContent = dataMapMoObj.selectreturns;
 
     const searInp = block.querySelector('.search-input input');
     searInp.value = '';
@@ -1669,6 +1673,11 @@ export default function decorate(block) {
                           }
                         }
                       });
+                      block.querySelectorAll('.arrange-container input').forEach((el) => {
+                        if (el.nextElementSibling.textContent === name) {
+                          el.click();
+                        }
+                      });
                       viewFunction(block);
                       // planListEvent(event,block)
                     },
@@ -1775,6 +1784,12 @@ export default function decorate(block) {
                               el.querySelector('input').checked = false;
                             }
                           }
+                        }
+                      });
+                      block.querySelectorAll('.return-container input').forEach((elre) => {
+                        const tempret = elre.nextElementSibling.textContent;
+                        if (tempret.toLowerCase() === name.toLowerCase()) {
+                          elre.click();
                         }
                       });
                       viewFunction(block);
@@ -2010,7 +2025,7 @@ export default function decorate(block) {
       if (sortText.trim() === 'Oldest to Newest') {
         const tempdata = JSON.parse(JSON.stringify(dataCfObj));
         const tempa = tempdata.sort(
-          (a, b) => new Date(a.dateOfAllotment).getFullYear() - new Date(b.dateOfAllotment).getFullYear(),
+          (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
         );
         dataMapMoObj.tempMobReturn = tempa;
       }
@@ -2024,6 +2039,7 @@ export default function decorate(block) {
       if (sortText.trim() === 'Popular') {
         dataMapMoObj.tempMobReturn = dataCfObj.slice(0, 10);
       }
+      dataMapMoObj.schmenmob = sortText;
     });
   });
 
@@ -2068,11 +2084,12 @@ export default function decorate(block) {
 
       dataMapMoObj.tempMobReturn = [];
       dataMapMoObj.tempMobReturn = tempdata;
-      dataMapMoObj.selectreturnstemp = event.target.nextSibling.textContent.toUpperCase();
+      dataMapMoObj.selectreturnstemp = event.target.nextSibling.textContent;
       // viewFunction(block);
     });
   });
-
+  block.querySelectorAll('.arrange-container input')[0].click();
+  block.querySelectorAll('.return-container input')[2].click();
   Array.from(block.querySelectorAll('.filter-list-wrapper input')).forEach((el) => {
     if (el.getAttribute('datakey') !== null && checkboxSel === el.getAttribute('datakey')) {
       if (checkboxSel === 'indian-equity') {
@@ -2100,10 +2117,10 @@ export default function decorate(block) {
   Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
     eltoo.addEventListener('click', (event) => {
       if (event.target.nextElementSibling.style.display === 'block') {
-      event.target.nextElementSibling.style.display = 'none';
-    } else {
-      event.target.nextElementSibling.style.display = 'block';
-    }
+        event.target.nextElementSibling.style.display = 'none';
+      } else {
+        event.target.nextElementSibling.style.display = 'block';
+      }
     });
   });
 }

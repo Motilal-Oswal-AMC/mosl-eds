@@ -1,3 +1,4 @@
+@import "../../../styles/fonts.css";
 .modal.block dialog {
   width: 100%;
   height: 100%;
@@ -6,7 +7,6 @@
   justify-content: center;
   padding: 16px;
 }
-
 .modal.block dialog:focus-visible {
   outline: 3px solid #2E2A94;
   outline-offset: 4px;
@@ -28,12 +28,10 @@
   z-index: 10;
   cursor: pointer;
 }
-
 .modal.block dialog .close-button:focus-visible {
   outline: 3px dashed #FFF;
   outline-offset: 4px;
 }
-
 .modal.block dialog .close-button .icon.icon-close::before,
 .modal.block dialog .close-button .icon.icon-close::after {
   width: 13px;
@@ -49,7 +47,7 @@
   justify-content: center;
   border-radius: 8px;
   background: #FFF;
-  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   height: auto;
 }
 
@@ -57,9 +55,8 @@
   width: 100%;
   border-radius: 8px;
   background: #FFF;
-  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 }
-
 .section.risk-o-meter-container .risk-o-meter {
   display: flex;
   justify-content: space-between;
@@ -67,20 +64,17 @@
   padding: 0 80px;
   margin: 76px 0 40px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.risk-o-meter-container .risk-o-meter {
     flex-direction: column;
     padding: 0;
     gap: 24px;
   }
 }
-
 .section.risk-o-meter-container .corner-1,
 .section.risk-o-meter-container .corner-2 {
   text-align: center;
 }
-
 .section.risk-o-meter-container .corner-1 p,
 .section.risk-o-meter-container .corner-2 p {
   margin: 0;
@@ -88,36 +82,31 @@
   font-size: 14px;
   line-height: 18px;
   color: #2E2A94;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-
 .section.risk-o-meter-container .corner-1 .column-1,
 .section.risk-o-meter-container .corner-2 .column-1 {
   padding-bottom: 10px;
 }
-
 .section.risk-o-meter-container .corner-1 .column-2,
 .section.risk-o-meter-container .corner-2 .column-2 {
   height: 160px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.risk-o-meter-container .corner-1 .column-2,
   .section.risk-o-meter-container .corner-2 .column-2 {
     height: 120px;
   }
 }
-
 .section.risk-o-meter-container .corner-1 .column-2 img,
 .section.risk-o-meter-container .corner-2 .column-2 img {
   height: 100%;
   max-width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
      object-fit: contain;
   alt: "";
 }
-
 .section.risk-o-meter-container > div:nth-child(2) {
   border-top: 0.5px solid #8695AF;
   padding-top: 16px;
@@ -127,89 +116,76 @@
   align-items: flex-start;
   gap: 10px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.risk-o-meter-container > div:nth-child(2) {
     margin: 0 16px 24px;
   }
 }
-
 .section.risk-o-meter-container > div:nth-child(2) h3 {
   margin: 0;
   padding: 0;
   font-size: 16px;
   line-height: 20px;
   color: #2E2A94;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.risk-o-meter-container > div:nth-child(2) h3 {
     font-size: 14px;
     line-height: 18px;
   }
 }
-
 .section.risk-o-meter-container > div:nth-child(2) h3 a {
   font-size: 18px;
   line-height: 24px;
   color: #5659FA;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.risk-o-meter-container > div:nth-child(2) h3 a {
     font-size: 14px;
     line-height: 18px;
   }
 }
-
 .section.risk-o-meter-container > div:nth-child(2) h3 a:focus-visible {
   outline: 2px dashed #2E2A94;
   outline-offset: 4px;
 }
-
 .section.risk-o-meter-container > div:nth-child(2) ul {
   padding-left: 24px;
   margin: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.risk-o-meter-container > div:nth-child(2) ul {
     margin: 0;
   }
 }
-
 .section.risk-o-meter-container > div:nth-child(2) ul li {
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 20px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.risk-o-meter-container > div:nth-child(2) ul li {
     font-size: 12px;
     line-height: 16px;
   }
 }
-
 .section.risk-o-meter-container > div:nth-child(2) p {
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 20px;
   margin: 0;
   /* stylelint-disable-next-line no-descending-specificity */
 }
-
 .section.risk-o-meter-container > div:nth-child(2) p a {
   color: #5659FA;
   text-decoration: none;
 }
-
 .section.risk-o-meter-container > div:nth-child(2) p a:focus-visible {
   outline: 2px dashed #5659FA;
   outline-offset: 3px;
@@ -229,46 +205,40 @@
   flex-direction: column;
   gap: 24px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.product-label.risk-o-meter-container {
     padding: 40px 16px;
     background: #FFF;
-    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5.1%);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.0509803922);
   }
 }
-
 .section.product-label.risk-o-meter-container > div:first-child h1 {
   color: #2E2A94;
-  font-family: ButlerPro, sans-serif;
+  font-family: "ButlerPro", sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 40px;
   margin: 0;
 }
-
 .section.product-label.risk-o-meter-container .risk-wrapper {
   display: flex;
   flex-direction: column-reverse;
   gap: 16px;
   border-radius: 8px;
   background: #FFF;
-  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   padding: 24px 16px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.product-label.risk-o-meter-container .risk-wrapper {
     padding: 0;
     background: inherit;
     box-shadow: none;
   }
 }
-
 .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 {
   width: 100%;
 }
-
 .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 .risk-o-meter {
   display: flex;
   justify-content: space-between;
@@ -276,33 +246,29 @@
   padding: 0 40px;
   margin: 32px 0 8px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 .risk-o-meter {
     gap: 40px;
     margin-bottom: 32px;
   }
 }
-
 .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 .risk-o-meter .risk-meter-cont.corner-1 .column-1 p,
 .section.product-label.risk-o-meter-container .risk-wrapper .risk-o-meter-wrapper.risk2 .risk-o-meter .risk-meter-cont.corner-2 .column-1 p {
   color: #242177;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
 }
-
 .section.product-label.risk-o-meter-container .risk-wrapper .risk3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
 }
-
 .section.product-label.risk-o-meter-container .risk-wrapper .risk3 h3 {
   font-size: 18px;
   line-height: 24px;
   color: #242177;
-  font-family: Poppins, sans-serif;
-}
+  font-family: "Poppins", sans-serif;
+}/*# sourceMappingURL=risk-o-meter.css.map */

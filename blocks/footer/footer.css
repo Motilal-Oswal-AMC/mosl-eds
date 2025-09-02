@@ -33,6 +33,11 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+.footer-wrapper .footer a:hover {
+  text-decoration-line: underline;
+  opacity: 1 !important;
+  color: #fff;
+}
 .footer-wrapper .footer ul,
 .footer-wrapper .footer li,
 .footer-wrapper .footer p {
@@ -64,7 +69,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 22.79px;
 }
 .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-cont2 li .icon {
   width: 20px;
@@ -640,6 +645,7 @@
   .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 {
     flex-direction: row;
     gap: 40px;
+    /* stylelint-disable-next-line no-descending-specificity */
     /* stylelint-disable-next-line no-descending-specificity */
     /* stylelint-disable-next-line no-descending-specificity */
     /* stylelint-disable-next-line no-descending-specificity */

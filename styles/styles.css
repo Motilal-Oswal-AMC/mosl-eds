@@ -881,6 +881,7 @@ position: relative;
 .pan-details-modal .default-content-wrapper p:nth-child(2) {
     margin: 0;
     padding: 0;
+    height: 24px;
 }
 
 
@@ -914,17 +915,42 @@ position: relative;
 
 }
 
-.pan-details-modal .default-content-wrapper p:nth-child(2)>.input-wrapper:hover {
+/* .pan-details-modal
+    .default-content-wrapper
+    p:nth-child(2)
+    > .input-wrapper:hover {
     position: relative;
+} */
+
+.pan-details-modal
+    .default-content-wrapper
+    p:nth-child(2)
+    > .input-wrapper
+    > .panlabel  {
+    position: absolute;
+    top: -7px;
+    background: white;
+    padding: 0 4px;
+    transition: top 0.8s ease;
 }
 
+.pan-details-modal
+    .default-content-wrapper
+    p:nth-child(2)
+    >.show-error{
+    display: block;
+    color: red;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: Poppins;
+    padding-top: 10px;
+}
 
-.pan-details-modal .default-content-wrapper p:nth-child(2) > .input-wrapper:hover > p {
-  position: absolute;
-  top: -7px;
-  background: white;
-  padding: 0 4px;
-  transition: top 0.8s ease;
+.pan-details-modal
+    .default-content-wrapper
+    p:nth-child(2)
+    >.hide-error{
+    display: none;
 }
 
 
@@ -938,4 +964,5 @@ position: relative;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
+    text-transform: uppercase;
 }

@@ -1,10 +1,20 @@
 /* eslint-disable*/
 import {
-  div, p, h3, img, button, input, label, select, option, span, ul, li
+  div,
+  p,
+  h3,
+  img,
+  button,
+  input,
+  label,
+  select,
+  option,
+  span,
+  ul,
+  li,
 } from '../../scripts/dom-helpers.js';
 import '../../scripts/flatpickr.js';
-import dataCfObj from '../../scripts/dataCfObj.js'
-
+import dataCfObj from '../../scripts/dataCfObj.js';
 
 function loadCSS(href) {
   const link = document.createElement('link');
@@ -23,28 +33,30 @@ function getTodaysDateFormatted() {
 
 // Helper function to create a custom dropdown
 function createCustomDropdown(id, labelText, options, defaultValue) {
-  return div({ class: 'custom-select-wrapper', id: `custom-select-${id}` },
+  return div(
+    { class: 'custom-select-wrapper', id: `custom-select-${id}` },
     label(labelText),
     div({ class: 'select-selected' }, defaultValue),
-    div({ class: 'select-options' },
-      ul(
-        ...options.map((opt) =>
-          li({ 'data-value': opt }, opt)
-        )
-      ),
+    div(
+      { class: 'select-options' },
+      ul(...options.map((opt) => li({ 'data-value': opt }, opt)))
     ),
-    input({ type: 'hidden', id, value: defaultValue }),
+    input({ type: 'hidden', id, value: defaultValue })
   );
 }
 
 export default function decorate(block) {
-
   loadCSS('../../scripts/flatpickr.min.css');
   const schcodeFromStorage = localStorage.getItem('schcodeactive');
-  const fundData = dataCfObj.find(fund => fund.schcode === schcodeFromStorage);
+  const fundData = dataCfObj.find(
+    (fund) => fund.schcode === schcodeFromStorage
+  );
   if (fundData) {
     console.log('Found Fund Data:', fundData);
-    var fundNameFromData = fundData.schDetail.schemeName.replaceAll('Motilal Oswal', '');
+    var fundNameFromData = fundData.schDetail.schemeName.replaceAll(
+      'Motilal Oswal',
+      ''
+    );
     const benchmarkFromData = fundData.benchmark;
     console.log('Fund Name:', fundNameFromData);
   } else {
@@ -60,138 +72,230 @@ export default function decorate(block) {
 
   // const defaultAmount = col2[0]?.textContent || '';
   const rawAmount = col2[0]?.textContent || '';
-  const defaultAmount = rawAmount ? Number(rawAmount).toLocaleString('en-IN') : '';
-  const formattedSuggestions = [col2[1], col2[2], col2[3]].map(p => p?.textContent || '');
-  const suggestions = formattedSuggestions.map(s => Number(s).toLocaleString('en-IN'));
-
+  const defaultAmount = rawAmount
+    ? Number(rawAmount).toLocaleString('en-IN')
+    : '';
+  const formattedSuggestions = [col2[1], col2[2], col2[3]].map(
+    (p) => p?.textContent || ''
+  );
+  const suggestions = formattedSuggestions.map((s) =>
+    Number(s).toLocaleString('en-IN')
+  );
 
   const frequency = col3[0]?.textContent || '';
   const endDate = col3[1]?.textContent || '';
   const ctaLabel = col3[2]?.textContent || '';
 
-
   // Frequency options (mirror your JSON)
   const brandName = 'Motilal Oswal';
   // const logoSrc = '../../icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
-  const logoSrc = `../../icons/iconfund/${mop}`
+  const logoSrc = `../../icons/iconfund/${mop}`;
   const calendarIconSrc = '../../icons/calendar.svg'; // Replace with your real calendar icon path
   const infotoolsrc = '../../icons/infotooltip.svg';
   const closesrc = '../../icons/cross.svg';
-  const frequencyOptions = ['Annual', 'Daily', 'Fortnightly', 'Monthly', 'Quarterly', 'Weekly'];
+  const frequencyOptions = [
+    'Annual',
+    'Daily',
+    'Fortnightly',
+    'Monthly',
+    'Quarterly',
+    'Weekly',
+  ];
   const endDateOptions = ['End Date', 'Until I cancel', 'Select Date'];
 
   block.innerHTML = '';
 
   // Close Button
-  const closebtn = div({ class: 'modal-btn' },
-    span({ class: 'close-btn', },
-      img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' })),
-  )
+  const closebtn = div(
+    { class: 'modal-btn' },
+    span(
+      { class: 'close-btn' },
+      img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' })
+    )
+  );
 
   // Build modal
-  const modal = div({ class: 'invest-now-modal' },
-    div({ class: 'modal-header-container' },
-      div({ class: 'modal-header' },
-        div({ class: 'modal-header-logo' },
+
+  const fdpPage = window.location.href.includes('funds-details-page');
+  let fdpclass;
+ let fdpBtns;
+  if(fdpPage){
+     fdpBtns = div({class : 'modal-cta'}  ,  button({ class: 'buy-now-btn' }, 'BUY NOW'),button({ class: 'start-now' }, 'Start Now'),);
+    fdpclass = 'fdp-sip-modal'
+  }else{
+     fdpBtns= div({class : 'modal-cta'}  , button({ class: 'invest-btn' }, ctaLabel))
+     fdpclass = ''
+
+  }
+  const modal = div(
+    { class: `invest-now-modal ${fdpclass}` },
+    div(
+
+      { class: 'modal-header-container' },
+      div(
+        { class: 'modal-header' },
+        div(
+          { class: 'modal-header-logo' },
           img({ class: 'brandlogo', src: logoSrc, alt: 'BrandLogo' })
         ),
-        div({ class: 'modal-header-subtitle' },
+        div(
+          { class: 'modal-header-subtitle' },
           p({ class: 'brandname' }, brandName),
           h3({ class: 'fund-name' }, fundNameFromData)
         )
       ),
-      div({ class: 'modal-toggle' },
-        div({ class: 'modal-btn-lumpsum active' },
-          button({ class: 'lumpsum-btn' }, lumpsumLabel)),
-        div({ class: 'modal-btn-sip' },
-          button({ class: 'sip-btn' }, sipLabel)),
-      )),
-    div({ class: "modal-inputs-container" },
-      div({ class: "modal-inputs-subcontainer" },
-        div({ class: 'modal-inputs' },
-          div({ class: 'modal-input' },
-            label(inputLabel),
-            div({ class: 'modal-input-symbol' },
-              // input({ type: 'number', value: defaultAmount, class: 'amount-input' })),
-              input({ type: 'tel', inputmode: 'numeric', pattern: '[0-9]*', value: defaultAmount, class: 'amount-input' }),
-              span({ class: 'amount-error error-hide' }, 'Amount must be between 500 and 1000000'),
-            ),
-          ),
-          div({ class: 'modal-suggestions' },
-            ...suggestions.map(s => button({ class: 'suggestion-btn' }, `₹ ` + s)),
-          ),
+      div(
+        { class: 'modal-toggle' },
+        div(
+          { class: 'modal-btn-lumpsum active' },
+          button({ class: 'lumpsum-btn' }, lumpsumLabel)
         ),
-        div({ class: 'modal-input-fields hidden' },
-          div({ class: 'modal-sip' },
-            div({ class: 'modal-sip-starts' },
-              div({ class: 'sip-starts-maintext' },
-                p({ class: 'sip-starts-text' }, 'SIP starts from ')),
-              div({ class: 'sip-starts-maindate' },
+        div({ class: 'modal-btn-sip' }, button({ class: 'sip-btn' }, sipLabel))
+      )
+    ),
+    div(
+      { class: 'modal-inputs-container' },
+      div(
+        { class: 'modal-inputs-subcontainer' },
+        div(
+          { class: 'modal-inputs' },
+          div(
+            { class: 'modal-input' },
+            label(inputLabel),
+            div(
+              { class: 'modal-input-symbol' },
+              // input({ type: 'number', value: defaultAmount, class: 'amount-input' })),
+              input({
+                type: 'tel',
+                inputmode: 'numeric',
+                pattern: '[0-9]*',
+                value: defaultAmount,
+                class: 'amount-input',
+              }),
+              span(
+                { class: 'amount-error error-hide' },
+                'Amount must be between 500 and 1000000'
+              )
+            )
+          ),
+          div(
+            { class: 'modal-suggestions' },
+            ...suggestions.map((s) =>
+              button({ class: 'suggestion-btn' }, `₹ ` + s)
+            )
+          )
+        ),
+        div(
+          { class: 'modal-input-fields hidden' },
+          div(
+            { class: 'modal-sip' },
+            div(
+              { class: 'modal-sip-starts' },
+              div(
+                { class: 'sip-starts-maintext' },
+                p({ class: 'sip-starts-text' }, 'SIP starts from ')
+              ),
+              div(
+                { class: 'sip-starts-maindate' },
                 p({ class: 'sip-starts-date' }, getTodaysDateFormatted()),
                 // button({ class: 'calendar-btn' },
                 //   img({ src: calendarIconSrc, alt: 'Calendar Icon' })
                 // ))
-                img({ class: 'calendar-btn', src: calendarIconSrc, alt: 'Calendar Icon', 'aria-label': 'Select start date' }))
-
+                img({
+                  class: 'calendar-btn',
+                  src: calendarIconSrc,
+                  alt: 'Calendar Icon',
+                  'aria-label': 'Select start date',
+                })
+              )
             ),
-            div({ class: 'modal-start-today' },
+            div(
+              { class: 'modal-start-today' },
               label(
                 input({ type: 'checkbox', class: 'start-today-checkbox' }),
                 span({ class: 'custom-box' }),
                 span(' Start Today')
               ),
-              div({ class: 'start-today-note' },
-                p({ class: 'sip-note' }, 'Your 1st SIP Installment will be debited today '),
-                span({ class: 'sip-note-highlight' }, img({ class: '', src: infotoolsrc, alt: 'information' }))
+              div(
+                { class: 'start-today-note' },
+                p(
+                  { class: 'sip-note' },
+                  'Your 1st SIP Installment will be debited today '
+                ),
+                span(
+                  { class: 'sip-note-highlight' },
+                  img({ class: '', src: infotoolsrc, alt: 'information' })
+                )
               )
-            )),
-          // div({ class: 'modal-dropdown-frequency' },
-          //   label('Frequency'),
-          //   select(
-          //     {},
-          //     ...frequencyOptions.map(opt =>
-          //       option({ selected: opt === frequency }, opt)
-          //     )
-          //   ),
-          // ),
-          // div({ class: 'modal-dropdowns-enddate' },
-          //   label('End Date'),
-          //   select(
-          //     {},
-          //     ...endDateOptions.map(opt =>
-          //       option({ selected: opt === endDate }, opt)
-          //     )
-          //   ),
-          // )
-
-          createCustomDropdown('frequency', 'Frequency', frequencyOptions, frequency),
-          createCustomDropdown('endDate', 'End Date', endDateOptions, endDate),
-
-        ),
+            )
+          ),
+          div({class : 'date-drop-down'},
+          createCustomDropdown('frequency','Frequency',frequencyOptions,frequency),
+          createCustomDropdown('endDate', 'End Date', endDateOptions, endDate)),
+        )
       ),
-      div({ class: 'modal-cta' },
-        button({ class: 'invest-btn' }, ctaLabel)
-      ))
+      fdpBtns
+    )
   );
+
+  // if(window.location.href.includes('funds-details-page'){
+  //       buyBtn =  button({class : 'buy-now-btn'},'BUY NOW'),
+  //       button({class : 'start-now'},'Start Now'),
+  //       }else{
+  //          button({ class: 'invest-btn' }, ctaLabel),
+  //       })
 
   // Tooltip
   const tooltip = div(
     { class: 'sip-tooltip hide' },
-    div({ class: 'modal-btn tooltip-btn' },
-      span({ class: 'close-btn', },
-        img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' })),
+    div(
+      { class: 'modal-btn tooltip-btn' },
+      span(
+        { class: 'close-btn' },
+        img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' })
+      )
     ),
-    div({ class: 'tooltip-box' },
-      p({ class: 'tooltip-note' }, "Note"),
-      div({ class: 'tooltip-info' },
-        "We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN."
-      )));
+    div(
+      { class: 'tooltip-box' },
+      p({ class: 'tooltip-note' }, 'Note'),
+      div(
+        { class: 'tooltip-info' },
+        'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'
+      )
+    )
+  );
 
-  const modalContainer = div({ class: 'invest-now-container', id: 'invest-now-wrapper-flat' }, closebtn, modal, tooltip)
+  const modalContainer = div(
+    { class: 'invest-now-container', id: 'invest-now-wrapper-flat' },
+    closebtn,
+    modal,
+    tooltip
+  );
   block.append(modalContainer);
 
-  // 1. Add open/close logic 
+  const container = document.querySelector('.modal-cta');
+
+  // if (window.location.href.includes('funds-details-page')) {
+  //   const buyNowBtn = document.createElement('button');
+  //   buyNowBtn.className = 'buy-now-btn';
+  //   buyNowBtn.textContent = 'BUY NOW';
+
+  //   const startNowBtn = document.createElement('button');
+  //   startNowBtn.className = 'start-now';
+  //   startNowBtn.textContent = 'Start Now';
+
+  //   container.appendChild(buyNowBtn);
+  //   container.appendChild(startNowBtn);
+  // } else {
+  //   const investBtn = document.createElement('button');
+  //   investBtn.className = 'invest-btn';
+  //   investBtn.textContent = ctaLabel;
+
+  //   container.appendChild(investBtn);
+  // }
+
+  // 1. Add open/close logic
   const lumpsumBtn = block.querySelector('.modal-btn-lumpsum');
   const sipBtn = block.querySelector('.modal-btn-sip');
   const sipFields = document.querySelector('.modal-input-fields');
@@ -204,9 +308,6 @@ export default function decorate(block) {
     sipBtn.classList.remove('active');
     sipFields.classList.add('hidden');
     sipFields.classList.remove('flex');
-
-
-
   });
 
   sipBtn.addEventListener('click', () => {
@@ -218,7 +319,6 @@ export default function decorate(block) {
     sipFields.classList.add('flex');
   });
 
-
   // 2. Attach event listeners to all suggestion buttons
   const suggestionButtons = block.querySelectorAll('.suggestion-btn');
   const amountInput = block.querySelector('.amount-input');
@@ -226,7 +326,7 @@ export default function decorate(block) {
   suggestionButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       // Remove .active from all buttons
-      suggestionButtons.forEach(b => b.classList.remove('active'));
+      suggestionButtons.forEach((b) => b.classList.remove('active'));
       // Add .active to the clicked button
       btn.classList.add('active');
       const value = btn.textContent.split(' ')[1];
@@ -239,8 +339,8 @@ export default function decorate(block) {
   function syncSuggestionButtonsState() {
     const currentValue = amountInput.value;
     let hasActiveMatch = false;
-    suggestionButtons.forEach(btn => {
-      // Check if button's text (e.g., "₹ 5,000") matches the input's value
+    suggestionButtons.forEach((btn) => {
+      // Check if button's text (e.g., '₹ 5,000') matches the input's value
       if (`₹ ${currentValue}` === btn.textContent) {
         btn.classList.add('active');
         hasActiveMatch = true;
@@ -279,29 +379,24 @@ export default function decorate(block) {
   }
   amountInput.addEventListener('input', handleAmountInput);
 
-
   // This sets the initial active button based on the default amount.
   syncSuggestionButtonsState();
 
   //3. tooltip disaply
   const sipNote = block.querySelector('.sip-note-highlight');
-  const sipText = block.querySelector('.sip-tooltip')
+  const sipText = block.querySelector('.sip-tooltip');
   sipNote.addEventListener('click', () => {
-    sipText.classList.add('show')
-    sipText.classList.remove('hide')
-
+    sipText.classList.add('show');
+    sipText.classList.remove('hide');
   });
 
   const closeTooltip = block.querySelector('.tooltip-btn');
   closeTooltip.addEventListener('click', () => {
-    sipText.classList.add('hide')
-    sipText.classList.remove('show')
+    sipText.classList.add('hide');
+    sipText.classList.remove('show');
   });
 
-
-
-
-  // 4. flat date picker 
+  // 4. flat date picker
   const calendarIcon = block.querySelector('.calendar-btn');
   const sipDateDisplay = block.querySelector('.sip-starts-date');
   const calendarContainer = block.querySelector('.invest-now-container');
@@ -309,7 +404,7 @@ export default function decorate(block) {
   // ADDED: A variable to store the user-selected date
   let originalSipDate = '';
 
-  // 5. Initialize flatpickr 
+  // 5. Initialize flatpickr
   // const fpInstance = window.flatpickr(calendarIcon, {
   //   defaultDate: 'today',
   //   altInput: false,
@@ -351,7 +446,7 @@ export default function decorate(block) {
       if (fp.calendarContainer) {
         fp.calendarContainer.removeAttribute('style');
       } else {
-        console.log("somehting is wrong")
+        console.log('somehting is wrong');
       }
     },
 
@@ -377,10 +472,9 @@ export default function decorate(block) {
 
     // FIX 2: Removed the entire custom 'position' function.
     // Let flatpickr handle its own positioning, as it's more reliable on mobile.
-
   });
 
-  // ADDED: Logic for the "Start Today" checkbox
+  // ADDED: Logic for the 'Start Today' checkbox
   const startTodayCheckbox = block.querySelector('.start-today-checkbox');
 
   // Helper function to get today's date in the correct format
@@ -415,11 +509,13 @@ export default function decorate(block) {
       e.stopPropagation();
       // Close all other dropdowns first
       // 🧰 FIX: Look for the '.open' class on the wrapper, not the options list
-      block.querySelectorAll('.custom-select-wrapper.open').forEach(openWrapper => {
-        if (openWrapper !== wrapper) {
-          openWrapper.classList.remove('open');
-        }
-      });
+      block
+        .querySelectorAll('.custom-select-wrapper.open')
+        .forEach((openWrapper) => {
+          if (openWrapper !== wrapper) {
+            openWrapper.classList.remove('open');
+          }
+        });
       // Toggle the current one
       wrapper.classList.toggle('open');
     });
@@ -437,12 +533,10 @@ export default function decorate(block) {
   // Add a listener to close dropdowns when clicking anywhere else
   block.addEventListener('click', () => {
     // 🧰 FIX: Look for and close any wrapper that has the '.open' class
-    block.querySelectorAll('.custom-select-wrapper.open').forEach(openWrapper => {
-      openWrapper.classList.remove('open');
-    });
+    block
+      .querySelectorAll('.custom-select-wrapper.open')
+      .forEach((openWrapper) => {
+        openWrapper.classList.remove('open');
+      });
   });
 }
-
-
-
-
