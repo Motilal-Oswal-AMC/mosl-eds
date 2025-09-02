@@ -798,15 +798,15 @@ position: relative;
 
 /* pan modal */
 .pan-details-modal {
-    max-width: 100%;
-    width: 100%;
-    background: #0009;
-    display: flex;
+    max-width:  400px;
+    /* width: 100%; */
+    /* background: #0009; */
+    display: none;
     justify-content: flex-end;
 
 }
 
-.pan-details-modal .default-content-wrapper {
+.pan-details-modal .mainpandts1{
     display: flex;
     width: 400px;
     height: 600px;
@@ -857,6 +857,12 @@ position: relative;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
+}
+
+/*hide pan kyc form */
+
+.fdp-kyc-form{
+    display: none;
 }
 
 .pan-details-modal .default-content-wrapper ul li:nth-child(2) {
@@ -965,4 +971,8 @@ position: relative;
     font-weight: 500;
     line-height: 20px;
     text-transform: uppercase;
+}
+
+.otp-fdp{
+    display: none;
 }

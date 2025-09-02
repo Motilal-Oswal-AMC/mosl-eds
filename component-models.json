@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "fdp-kyc-form",
+            "value": "fdp-kyc-form"
+          },
+          {
             "name": "pan-details-modal",
             "value": "pan-details-modal"
           },
@@ -1305,6 +1309,44 @@
         "name": "richtext",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "pan-valid-block",
+    "fields": [{
+        "component": "text",
+        "name": "col_pvpan",
+        "label": "Enter Label For Pan Number Field"
+      },
+      {
+        "component": "richtext",
+        "name": "col_richtext",
+        "value": "",
+        "label": "Enter Context For Resident",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col_pvname",
+        "label": "Enter Label For Name Field"
+      },
+      {
+        "component": "text",
+        "name": "pol_pvmob",
+        "label": "Enter Label For Mobile Number Field"
+      },
+      {
+        "component": "text",
+        "name": "pol_pvemid",
+        "label": "Enter Label For Email Id Field"
+      },
+      {
+        "component": "richtext",
+        "name": "pol_richtext",
+        "value": "",
+        "label": "Enter Context For TNC and Set Button CTA",
         "valueType": "string"
       }
     ]

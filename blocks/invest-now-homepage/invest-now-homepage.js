@@ -12,9 +12,136 @@ import {
   span,
   ul,
   li,
-} from '../../scripts/dom-helpers.js';
-import '../../scripts/flatpickr.js';
-import dataCfObj from '../../scripts/dataCfObj.js';
+} from "../../scripts/dom-helpers.js";
+import "../../scripts/flatpickr.js";
+import dataCfObj from "../../scripts/dataCfObj.js";
+import dataMapMoObj from "../../scripts/constant.js";
+import { myAPI } from "../../scripts/scripts.js";
+
+export async function existingUser() {
+  const demo = Array.from(document.querySelectorAll(".pan-details-modal p"));
+  const inputLable = demo[0];
+  if (!inputLable) {
+    // console.warn('No <p> elements found inside .pan-details-modal');
+    return;
+  }
+
+  inputLable.innerHTML = "";
+
+  const addInputDiv = div(
+    { class: "input-wrapper" },
+    p({ class: "panlabel" }, "Pan Number"),
+    input({
+      type: "text",
+      placeholder: "Enter PAN Number",
+      name: "pan",
+      class: "iptpanfld",
+    })
+  );
+
+  inputLable.appendChild(addInputDiv);
+
+  // api call for otp
+  // "AEEPW9969G",
+
+  async function apiCall(userPanNumber) {
+    const request = {
+      panNo: userPanNumber,
+    };
+    const rejsin = await myAPI(
+      "POST",
+      "https://api.moamc.com/LoginAPI/api/Login/GetClientType",
+      request
+    );
+    console.log(rejsin);
+
+    const isSuccess = rejsin.data.existingClient === "" ? false : true;
+
+    const kycForm = document.querySelector(".fdp-kyc-form");
+    const panForm = document.querySelector(".pan-details-modal");
+    const pansuccessForm = document.querySelector(".otp-fdp");
+    if (isSuccess) {
+      kycForm.style.display = "none"; // display none kycform
+      panForm.style.display = "none"; // display none panform
+      pansuccessForm.style.display = "block"; // display block otp form
+    } else {
+      kycForm.style.display = "block";
+      panForm.style.display = "none";
+      pansuccessForm.style.display = "none";
+    }
+  }
+
+  const parentElements = document.querySelector(".pan-details-modal");
+  dataMapMoObj.CLASS_PREFIXES = ["mainpandts", "subpandts", "innerpandts"];
+  dataMapMoObj.addIndexed(parentElements);
+
+  //Authenciate click
+  const authenticateClick = document.querySelector(".subpandts3 .innerpandts1");
+
+  authenticateClick.addEventListener("click", (e) => {
+
+  const checkInput = document.querySelector('.error-pan');
+  const userPanNumber = document.querySelector('.iptpanfld').value;
+    console.log(userPanNumber);
+if (userPanNumber === "") {
+  checkInput.classList.add('show-error');
+}
+if (!checkInput.classList.contains('show-error')) {
+  apiCall(userPanNumber);  // Only called if no error
+} else {
+  console.log('PAN number is invalid. API call blocked.');
+
+}
+
+  });
+
+  // Create the error message element once
+
+  const errorPanEl = document.createElement("p");
+  errorPanEl.className = "error-pan hide-error"; // initially hidden
+  errorPanEl.textContent = "Invalid PAN number";
+  inputLable.appendChild(errorPanEl); // append it once
+
+  inputLable.addEventListener("input", (e) => {
+    const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+    const inputValue = e.target.value.toUpperCase();
+
+    if (inputValue === "") {
+      // If empty, hide the error
+      errorPanEl.classList.remove("show-error");
+      errorPanEl.classList.add("hide-error");
+    } else if (panRegex.test(inputValue)) {
+      // If valid PAN, hide error
+      errorPanEl.classList.remove("show-error");
+      errorPanEl.classList.add("hide-error");
+    } else {
+      // If invalid PAN, show error
+      errorPanEl.classList.remove("hide-error");
+      errorPanEl.classList.add("show-error");
+    }
+  });
+
+  // this function for hide modal forms
+
+  const mod = document.querySelector(".pan-details-modal .icon-modal-btn");
+  const mod2 = document.querySelector(".fdp-kyc-form .icon-modal-btn");
+
+  function hideFormsClick(btn) {
+    const card2 =
+      document.querySelector(".our-popular-funds") ||
+      document.querySelector(".known-our-funds") ||
+      document.querySelector(".fdp-card-container");
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Stop click from bubbling further
+      document.body.classList.remove("noscroll");
+      card2.classList.remove("modal-active-parent");
+      document.querySelector(".card-modal-overlay").remove();
+    });
+  }
+
+  hideFormsClick(mod2);
+  hideFormsClick(mod);
+}
 
 function loadCSS(href) {
   const link = document.createElement('link');
@@ -116,20 +243,8 @@ export default function decorate(block) {
   );
 
   // Build modal
-
-  const fdpPage = window.location.href.includes('funds-details-page');
-  let fdpclass;
- let fdpBtns;
-  if(fdpPage){
-     fdpBtns = div({class : 'modal-cta'}  ,  button({ class: 'buy-now-btn' }, 'BUY NOW'),button({ class: 'start-now' }, 'Start Now'),);
-    fdpclass = 'fdp-sip-modal'
-  }else{
-     fdpBtns= div({class : 'modal-cta'}  , button({ class: 'invest-btn' }, ctaLabel))
-     fdpclass = ''
-
-  }
   const modal = div(
-    { class: `invest-now-modal ${fdpclass}` },
+    { class: `invest-now-modal fdp-sip-modal` },
     div(
 
       { class: 'modal-header-container' },
@@ -235,7 +350,11 @@ export default function decorate(block) {
           createCustomDropdown('endDate', 'End Date', endDateOptions, endDate)),
         )
       ),
-      fdpBtns
+      div(
+        { class: "modal-cta" },
+        button({ class: "buy-now-btn" }, "BUY NOW"),
+        button({ class: "start-now" }, "Start Now")
+      )
     )
   );
 
@@ -274,7 +393,15 @@ export default function decorate(block) {
   );
   block.append(modalContainer);
 
-  const container = document.querySelector('.modal-cta');
+  modal.querySelector(".start-now").addEventListener("click", () => {
+    const mainmo = block.closest(".card-modal-overlay");
+    mainmo.querySelector(".invest-now-homepage-container").style.display =
+      "none";
+    mainmo.querySelector(".pan-details-modal").style.display = "block";
+    existingUser();
+  });
+
+  const container = document.querySelector(".modal-cta");
 
   // if (window.location.href.includes('funds-details-page')) {
   //   const buyNowBtn = document.createElement('button');

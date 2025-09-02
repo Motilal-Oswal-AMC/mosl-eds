@@ -206,7 +206,7 @@ export default function decorate(block) {
 
   block.append(divpv);
 
-  // ✅ FINAL: Replace label with only the latest selected value (no "Selected:", no multiple)
+  // ✅ FINAL: Replace label with only the latest selected value (no 'Selected:', no multiple)
 
   const emailLabel = block.querySelector('.email-label label');
   emailLabel.style.display = 'none'; // Hide initially
@@ -243,4 +243,83 @@ export default function decorate(block) {
       block.querySelector('.list-of-options').style.display = 'none';
     }
   });
+
+  const mofdp = block.closest('main');
+  dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
+  dataMapMoObj.addIndexed(mofdp.querySelector('.otp-fdp'));
+  const optVar = mofdp.querySelector('.otp-fdp');
+  const divotp = div(
+    { class: 'main-contaienr' },
+    div(
+      { class: 'wrapper-block' },
+      optVar.querySelector('.sub-otp-con1'),
+      div(
+        { class: 'otpfield' },
+        div(
+          { class: 'otp-wrap' },
+          input({
+            type: 'text',
+            class: 'otp-input',
+            'aria-label': 'OTP digit 1 of 6',
+            required: true,
+            pattern: '[0-9]',
+          }),
+        ),
+        div(
+          { class: 'otp-wrap' },
+          input({
+            type: 'text',
+            class: 'otp-input',
+            'aria-label': 'OTP digit 2 of 6',
+            required: true,
+            pattern: '[0-9]',
+          }),
+        ),
+        div(
+          { class: 'otp-wrap' },
+          input({
+            type: 'text',
+            class: 'otp-input',
+            'aria-label': 'OTP digit 3 of 6',
+            required: true,
+            pattern: '[0-9]',
+          }),
+        ),
+        div(
+          { class: 'otp-wrap' },
+          input({
+            type: 'text',
+            class: 'otp-input',
+            'aria-label': 'OTP digit 4 of 6',
+            required: true,
+            pattern: '[0-9]',
+          }),
+        ),
+        div(
+          { class: 'otp-wrap' },
+          input({
+            type: 'text',
+            class: 'otp-input',
+            'aria-label': 'OTP digit 5 of 6',
+            required: true,
+            pattern: '[0-9]',
+          }),
+        ),
+        div(
+          { class: 'otp-wrap' },
+          input({
+            type: 'text',
+            class: 'otp-input',
+            'aria-label': 'OTP digit 6 of 6',
+            required: true,
+            pattern: '[0-9]',
+          }),
+        ),
+      ),
+      optVar.querySelector('.sub-otp-con2'),
+      optVar.querySelector('.sub-otp-con3'),
+      optVar.querySelector('.sub-otp-con4'),
+    ),
+  );
+  optVar.querySelector('.main-otp-con1').append(divotp);
 }
