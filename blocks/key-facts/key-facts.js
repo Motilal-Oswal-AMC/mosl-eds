@@ -57,8 +57,10 @@ export default function decorate(block) {
         ),
         div(
           { class: 'Redemption-Amount' },
-          p(block.querySelector('.block-subitem-finelsub3')),
-          p('₹500/- then ₹1/- increments, up to account balance'),
+          p({class: 'key-facts-amounts-title'},
+            block.querySelector('.block-subitem-finelsub3')),
+          p({class: 'key-facts-amounts-sub'},
+            '₹500/- then ₹1/- increments, up to account balance'),
         ),
       ),
       div(
