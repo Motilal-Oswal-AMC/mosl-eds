@@ -39,35 +39,129 @@ export async function existingUser() {
     })
   );
 
+  dataMapMoObj.panDlts["isGuest"] = "false";
+  dataMapMoObj.panDlts["guestMenuState"] = {
+    guestMenu: false,
+    existingBox: true,
+  };
+  async function kycCall(param) {
+    try {
+      const request = {
+        panNo: param,
+      };
+      const rejsin = await myAPI(
+        "POST",
+        " https://api.moamc.com/InitAPI/api/Init/CVLKYCCheck",
+        request
+      );
+      console.log("kyc api response ", rejsin);
+      let isKyc = rejsin.data.kycStatus === "Y" ? true : false;
+
+      const kycForm = document.querySelector(".fdp-kyc-form");
+      const panForm = document.querySelector(".pan-details-modal");
+      const pansuccessForm = document.querySelector(".otp-fdp");
+      if (isKyc) {
+        kycForm.style.display = "none"; // display none kycform
+        panForm.style.display = "none"; // display none panform
+        pansuccessForm.style.display = "block"; // display block otp form
+        otpCall(param);
+      } else {
+        kycForm.style.display = "block";
+        panForm.style.display = "none";
+        pansuccessForm.style.display = "none";
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async function otpCall(param) {
+    try {
+      const request = {
+        userId: param,
+        loginModeId: 1,
+        credentialModeId: 1,
+        ipV4: "192.168.22.22",
+        otpThroughDIT: false,
+        ditotpType: "",
+        pmsGuest: false,
+        isAIF: false,
+        mfGuest: false,
+        product: "MF",
+      };
+      const rejsin = await myAPI(
+        "POST",
+        "https://api.moamc.com/LoginAPI/api/Login/GenerateOtpNew",
+        request
+      );
+      console.log("kyc api response ", rejsin);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   inputLable.appendChild(addInputDiv);
 
   // api call for otp
   // "AEEPW9969G",
 
   async function apiCall(userPanNumber) {
-    const request = {
-      panNo: userPanNumber,
-    };
-    const rejsin = await myAPI(
-      "POST",
-      "https://api.moamc.com/LoginAPI/api/Login/GetClientType",
-      request
-    );
-    console.log(rejsin);
+    try {
+      dataMapMoObj.panDlts['isIndividualPan'];
+      const request = {
+        panNo: userPanNumber,
+      };
+      const rejsin = await myAPI(
+        "POST",
+        "https://api.moamc.com/LoginAPI/api/Login/GetClientType",
+        request
+      );
+      console.log(rejsin);
 
-    const isSuccess = rejsin.data.existingClient === "" ? false : true;
+      // const isSuccess = rejsin.data.existingClient === "" ? false : true;
+      const tempArray = ["MF", "BOTH"];
+      const exixting = ["ZBF", "REDEEMZBF"];
+      if (rejsin.data.guestClient === "") {
+        dataMapMoObj.panDlts["isNewGuest"] = true;
+      } else if (tempArray.includes(rejsin.data.guestClient)) {
+        dataMapMoObj.panDlts["isGuest"] = true;
+        dataMapMoObj.panDlts["guestMenuState"] = {
+          guestMenu: true,
+          existingBox: false,
+        };
+      } else if (exixting.includes(rejsin.data.existingClient)) {
+        dataMapMoObj.panDlts["isGuest"] = false;
+        dataMapMoObj.panDlts["guestMenuState"] = {
+          guestMenu: true,
+          existingBox: false,
+        };
+      } else if (tempArray.includes(rejsin.data.newClient)) {
+        dataMapMoObj.panDlts["isGuest"] = false;
+         dataMapMoObj.panDlts["guestMenuState"] = {
+          guestMenu: true,
+          existingBox: false,
+        };
+      }
 
-    const kycForm = document.querySelector(".fdp-kyc-form");
-    const panForm = document.querySelector(".pan-details-modal");
-    const pansuccessForm = document.querySelector(".otp-fdp");
-    if (isSuccess) {
-      kycForm.style.display = "none"; // display none kycform
-      panForm.style.display = "none"; // display none panform
-      pansuccessForm.style.display = "block"; // display block otp form
-    } else {
-      kycForm.style.display = "block";
-      panForm.style.display = "none";
-      pansuccessForm.style.display = "none";
+      localStorage.setItem(
+        "UPDATE_GUEST_MENU",
+        JSON.stringify(dataMapMoObj.panDlts["guestMenuState"])
+      );
+      localStorage.setItem("isGuest", dataMapMoObj.panDlts["isGuest"]);
+
+      // const kycForm = document.querySelector(".fdp-kyc-form");
+      // const panForm = document.querySelector(".pan-details-modal");
+      // const pansuccessForm = document.querySelector(".otp-fdp");
+      // if (isSuccess) {
+      // kycForm.style.display = "none"; // display none kycform
+      // panForm.style.display = "none"; // display none panform
+      // pansuccessForm.style.display = "block"; // display block otp form
+      // } else {
+      // kycForm.style.display = "block";
+      // panForm.style.display = "none";
+      // pansuccessForm.style.display = "none";
+      // }
+      kycCall(userPanNumber);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -79,20 +173,23 @@ export async function existingUser() {
   const authenticateClick = document.querySelector(".subpandts3 .innerpandts1");
 
   authenticateClick.addEventListener("click", (e) => {
+    const checkInput = document.querySelector(".error-pan");
+    const userPanNumber = document.querySelector(".iptpanfld").value;
 
-  const checkInput = document.querySelector('.error-pan');
-  const userPanNumber = document.querySelector('.iptpanfld').value;
-    console.log(userPanNumber);
-if (userPanNumber === "") {
-  checkInput.classList.add('show-error');
-}
-if (!checkInput.classList.contains('show-error')) {
-  apiCall(userPanNumber);  // Only called if no error
-} else {
-  console.log('PAN number is invalid. API call blocked.');
+    const userPanNumberShow = document.querySelector(
+      ".sub-otp-con4 .inner-otp-con2 .otp-main-con1"
+    );
+    // added userPanNumber
+    userPanNumberShow.textContent = userPanNumber;
 
-}
-
+    if (userPanNumber === "") {
+      checkInput.classList.add("show-error");
+    }
+    if (!checkInput.classList.contains("show-error")) {
+      apiCall(userPanNumber); // Only called if no error
+    } else {
+      console.log("PAN number is invalid. API call blocked.");
+    }
   });
 
   // Create the error message element once
@@ -125,6 +222,7 @@ if (!checkInput.classList.contains('show-error')) {
 
   const mod = document.querySelector(".pan-details-modal .icon-modal-btn");
   const mod2 = document.querySelector(".fdp-kyc-form .icon-modal-btn");
+  const mod3 = document.querySelector(".otp-fdp .icon-modal-btn");
 
   function hideFormsClick(btn) {
     const card2 =
@@ -141,6 +239,7 @@ if (!checkInput.classList.contains('show-error')) {
 
   hideFormsClick(mod2);
   hideFormsClick(mod);
+  hideFormsClick(mod3);
 }
 
 function loadCSS(href) {
@@ -173,6 +272,7 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 }
 
 export default function decorate(block) {
+  dataMapMoObj.panDlts = {};
   loadCSS("../../scripts/flatpickr.min.css");
   const schcodeFromStorage = localStorage.getItem("schcodeactive");
   const fundData = dataCfObj.find(
