@@ -74,6 +74,7 @@ export default function decorate(block) {
             panlab,
           ),
           input({
+            class: 'user-pan-number',
             type: 'text',
           }),
           img({ class: 'pan-image', src: '../../icons/pencil.svg' }),
@@ -152,6 +153,7 @@ export default function decorate(block) {
             name: '',
             id: '',
             placeholder: 'Name as on PAN',
+            class: 'user-pan-name',
           }),
         ),
         div(
@@ -169,6 +171,7 @@ export default function decorate(block) {
             name: '',
             id: '',
             placeholder: 'Add Number',
+            class: 'user-number',
           }),
           p({ class: 'country-code' }, '+91'),
         ),
@@ -196,6 +199,7 @@ export default function decorate(block) {
               name: '',
               id: '',
               placeholder: 'Type here',
+              class: 'user-email',
             },
           ),
         ),

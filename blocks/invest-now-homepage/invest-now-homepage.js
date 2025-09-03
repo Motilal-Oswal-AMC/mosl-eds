@@ -69,6 +69,14 @@ export async function existingUser() {
         kycForm.style.display = "block";
         panForm.style.display = "none";
         pansuccessForm.style.display = "none";
+        const userLoginPanNumber = document.querySelector(".user-pan-number"); // input
+        userLoginPanNumber.value = dataMapMoObj.panDlts['pannumber'].toUpperCase();
+        userLoginPanNumber.setAttribute('readonly',true);
+
+        const editInput = document.querySelector('.pan-image');
+        editInput.addEventListener('click',()=>{
+           userLoginPanNumber.removeAttribute('readonly');
+        })
       }
     } catch (error) {
       console.log(error);
@@ -98,6 +106,51 @@ export async function existingUser() {
       console.log(error);
     }
   }
+    // ModifyKyc API  start
+  //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
+  
+  async function modiFyKycApi(param,userName,userMobile,userEmail) {
+  
+    try {
+      const request = { 
+    "name": userName, 
+    "email": userEmail, 
+    "phone": userMobile, 
+    "returnUrl": "https://mf.moamc.com/onboarding/personal", 
+    "timeOutUrl": "https://mf.moamc.com/error", 
+    "panNo":param 
+} 
+      const rejsin = await myAPI(
+        "POST",
+        "https://api.moamc.com/prelogin/api/KYC/KYCProcess",
+        request
+      );
+      console.log("this is modiFuykyc Api Response ",rejsin);
+    }
+    catch(error){
+      console.log(error);
+    }
+  };
+
+
+  const ModifyKycForm = document.querySelector('.tnc-container .panvalidsubinner4');
+console.log("wedfrgr",ModifyKycForm);
+ModifyKycForm.addEventListener('click',()=>{
+
+const userPanNumber = document.querySelector(".iptpanfld").value;      // input value
+const userLoginPanNumber = document.querySelector(".user-pan-number").value; // input
+
+  const userLoginPanName = document.querySelector(".user-pan-name").value;
+  const userLoginMobileNumber = document.querySelector(".user-number").value;
+  const userLoginEmail = document.querySelector(".user-email").value;
+
+
+  modiFyKycApi(userLoginPanNumber,userLoginPanName,userLoginMobileNumber,userLoginEmail);
+});
+    // ModifyKyc API  ends
+
+  
+
   inputLable.appendChild(addInputDiv);
 
   // api call for otp
@@ -105,7 +158,8 @@ export async function existingUser() {
 
   async function apiCall(userPanNumber) {
     try {
-      dataMapMoObj.panDlts['isIndividualPan'];
+      dataMapMoObj.panDlts['isIndividualPan'] = userPanNumber;
+      dataMapMoObj.panDlts['pannumber'] = userPanNumber
       const request = {
         panNo: userPanNumber,
       };
@@ -135,7 +189,7 @@ export async function existingUser() {
         };
       } else if (tempArray.includes(rejsin.data.newClient)) {
         dataMapMoObj.panDlts["isGuest"] = false;
-         dataMapMoObj.panDlts["guestMenuState"] = {
+        dataMapMoObj.panDlts["guestMenuState"] = {
           guestMenu: true,
           existingBox: false,
         };
@@ -171,7 +225,6 @@ export async function existingUser() {
 
   //Authenciate click
   const authenticateClick = document.querySelector(".subpandts3 .innerpandts1");
-
   authenticateClick.addEventListener("click", (e) => {
     const checkInput = document.querySelector(".error-pan");
     const userPanNumber = document.querySelector(".iptpanfld").value;
@@ -191,6 +244,7 @@ export async function existingUser() {
       console.log("PAN number is invalid. API call blocked.");
     }
   });
+
 
   // Create the error message element once
 
@@ -217,6 +271,8 @@ export async function existingUser() {
       errorPanEl.classList.add("show-error");
     }
   });
+
+
 
   // this function for hide modal forms
 
@@ -308,7 +364,6 @@ export default function decorate(block) {
   const suggestions = formattedSuggestions.map((s) =>
     Number(s).toLocaleString("en-IN")
   );
-
   const frequency = col3[0]?.textContent || "";
   const endDate = col3[1]?.textContent || "";
   const ctaLabel = col3[2]?.textContent || "";

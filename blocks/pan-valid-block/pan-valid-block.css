@@ -319,10 +319,7 @@
   text-underline-offset: 20%;
   text-underline-position: from-font;
 }
-.pan-valid-block .tnc-container .button-container {
-  margin: 0;
-}
-.pan-valid-block .tnc-container .button-container a {
+.pan-valid-block .tnc-container .panvalidsubinner4 {
   display: flex;
   padding: 12px;
   justify-content: center;

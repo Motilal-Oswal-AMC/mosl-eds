@@ -359,7 +359,7 @@
 
       @include font-style(12px, 16px, $text-body-2, 400, $poppins);
 
-      a {
+      a{
         color: #4338f3;
         font-family: $poppins;
         font-size: 12px;
@@ -375,10 +375,7 @@
       }
     }
 
-    .button-container {
-      margin: 0;
-
-      a {
+      .panvalidsubinner4 {
         display: flex;
         padding: 12px;
         justify-content: center;
@@ -395,7 +392,6 @@
       }
     }
   }
-}
 
 .section.otp-fdp {
   .main-contaienr {
