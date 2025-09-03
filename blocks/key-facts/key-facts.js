@@ -129,7 +129,8 @@ export default function decorate(block) {
         ),
         div(
           { class: 'load-policy' }, // not found
-          p(block.querySelector('.block-subitem3 .block-subitem-finelsub4')),
+          p({class: 'load-policy-para'},
+            block.querySelector('.block-subitem3 .block-subitem-finelsub4')),
           div(
             { class: 'load-policy-list' },
             li(
