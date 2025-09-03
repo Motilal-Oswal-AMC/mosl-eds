@@ -670,8 +670,9 @@
               }
             }
           }
+    
         },
-         {
+        {
           "title": "Pan Valid Block",
           "id": "pan-valid-block",
           "plugins": {

@@ -13,7 +13,7 @@ export default function decorate(block) {
   const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
   const plantag = planObj[0].fundsTaggingSection[0];
   const cardtemp = dataCfObj.filter(
-    (el) => (plantag === el.fundsTaggingSection[0] && el.schcode !== planslabel),
+    (el) => (el.fundsTaggingSection.includes(plantag) && el.schcode !== planslabel),
   );
   let data;
   if (cardtemp.length < 5) {

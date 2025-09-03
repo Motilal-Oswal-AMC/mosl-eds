@@ -395,6 +395,21 @@
   font-weight: 600;
   line-height: 16px;
   margin-left: 4px;
+  position: relative;
+  padding-left: 10px;
+}
+.section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount span::before,
+.secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount span::before {
+  content: "₹";
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  pointer-events: none;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
 }
 .section.compounding .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription,
 .secion.fdp-calculator .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription {

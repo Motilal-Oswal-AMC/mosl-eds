@@ -304,6 +304,12 @@ function searchFunctionality(block) {
 
   const flpboolean = document.querySelector('.fund-toggle-wrap input').checked;
   const planflow = flpboolean ? 'Regular' : 'Direct';
+  const mop = document.querySelector('.fund-toggle-wrap input');
+  if (flpboolean) {
+    mop.closest('.togglebtn').classList.add('toggle-checked');
+  } else {
+    mop.closest('.togglebtn').classList.remove('toggle-checked');
+  }
   let datacd = [];
   const dataouter = [];
   dataCfObj.forEach((elde, indexde) => {
@@ -1898,7 +1904,8 @@ export default function decorate(block) {
                   type: 'checkbox',
                   id: 'toggle',
                   'aria-label': 'Switch between Direct and Regular mode',
-                  onclick: () => {
+                  onclick: (event) => {
+                    // event.target.checked
                     // viewFunction(block);
                     checkfilter(block);
                   },

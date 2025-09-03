@@ -414,14 +414,14 @@
                             font-size: rem(12px);
                             font-style: normal;
                             font-weight: 400;
-                            line-height: rem(16px);
+                            line-height: normal;
 
                             /* stylelint-disable-next-line no-descending-specificity */
                             span {
                                 display: flex;
                                 width: 16px;
                                 height: 16px;
-                                padding: 2px 1.334px 2px 1.333px;
+                                padding: 0 1.334px 2px 1.333px;
                                 justify-content: center;
                                 align-items: center;
                             }

@@ -396,3 +396,195 @@
     }
   }
 }
+
+.section.otp-fdp {
+  .main-contaienr {
+    max-width: 100%;
+    width: 100%;
+    background-color: rgb(0 0 0 / 60%);
+    display: flex;
+    justify-content: end;
+
+    .wrapper-block {
+      display: flex;
+      max-width: 400px;
+      width: 100%;
+      height: 100vh;
+      padding: 64px 16px;
+      flex-direction: column;
+      gap: 24px;
+      flex-shrink: 0;
+      background: #fff;
+      position: relative;
+
+      @include media(mobile) {
+        padding: 64px 0;
+      }
+
+      .sub-otp-con1 {
+        @include font-style(
+          28px,
+          32px,
+          $primary-blue,
+          map.get($font-weights, bold),
+          $butlerpro
+        );
+
+        margin: 0;
+
+        @include media(mobile) {
+          font-size: 24px;
+          line-height: 28px;
+        }
+      }
+
+      .otpfield {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .otp-wrap {
+          position: relative;
+          display: inline-block;
+
+          .otp-input {
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+            border: 1px solid map.get($strokes, default);
+            border-radius: 6px;
+            text-align: center;
+
+            @include font-style(
+              20px,
+              24px,
+              $color-text-body,
+              map.get($font-weights, semibold),
+              $poppins
+            );
+
+            &:focus {
+              border: 2px solid map.get($strokes, typing);
+            }
+          }
+        }
+
+        &.otp-success {
+          .otp-input {
+            border: 1px solid #00a850;
+          }
+        }
+
+        &.otp-failed {
+          .otp-input {
+            border: 2px solid #ee212e;
+          }
+        }
+      }
+
+      .sub-otp-con2 {
+        margin: 20px 0 0;
+        line-height: 0;
+
+        @include media(mobile) {
+          margin: 36px 0 0;
+        }
+
+        .inner-otp-con1 {
+          margin: 0;
+          border-radius: 4px;
+          background-color: $neutrals-300;
+          padding: 12px;
+          width: 100%;
+          cursor: auto;
+          pointer-events: none;
+
+          @include font-style(
+            16px,
+            20px,
+            $text-body-2,
+            map.get($font-weights, medium),
+            $poppins
+          );
+        }
+
+        &.sbmt-active {
+          .inner-otp-con1 {
+            background-color: $primary-blue;
+            color: $primary-white;
+            cursor: pointer;
+            pointer-events: unset;
+          }
+        }
+      }
+
+      .sub-otp-con3 {
+        margin: 0;
+
+        @include font-style(
+          12px,
+          16px,
+          $text-body-2,
+          map.get($font-weights, regular),
+          $poppins
+        );
+
+        strong {
+          font-weight: 400;
+        }
+      }
+
+      .sub-otp-con4 {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        justify-content: space-between;
+        margin: 0;
+        list-style: none;
+
+        .inner-otp-con1 {
+          @include font-style(
+            14px,
+            16px,
+            map.get($blue-1, b500),
+            map.get($font-weights, medium),
+            $poppins
+          );
+
+          .otp-main-con1 {
+            text-decoration-line: underline;
+            text-wrap: nowrap;
+            color: inherit;
+          }
+        }
+
+        .inner-otp-con2 {
+          @include font-style(
+            14px,
+            20px,
+            $color-text-body,
+            map.get($font-weights, regular),
+            $poppins
+          );
+
+          .otp-main-con1 {
+            font-weight: 400;
+          }
+
+          .otp-main-con2 {
+            text-decoration: underline;
+            margin-left: 8px;
+
+            @include font-style(
+              14px,
+              16px,
+              map.get($blue-1, b500),
+              map.get($font-weights, medium),
+              $poppins
+            );
+          }
+        }
+      }
+    }
+  }
+}

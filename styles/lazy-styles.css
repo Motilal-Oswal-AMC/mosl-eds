@@ -427,7 +427,7 @@
   justify-content: center;
   align-items: center;
   gap: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   background: #2e2a94;
   height: 44px;
   font-size: 16px;
@@ -1068,6 +1068,9 @@
     color: #2e2a94;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
+  }
+  .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp4 {
+    position: unset;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp4 .welcomeactmain1 {
     display: flex;

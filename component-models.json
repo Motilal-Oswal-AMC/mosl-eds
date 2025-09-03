@@ -805,13 +805,6 @@
         "label": "Alt Text"
       },
       {
-        "component": "richtext",
-        "name": "col2_text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
         "component": "reference",
         "name": "sndimage",
         "label": "Image",
@@ -823,15 +816,18 @@
         "label": "Alt Text"
       },
       {
-        "component": "reference",
-        "name": "trdimage",
-        "label": "Image",
-        "multi": false
+        "component": "richtext",
+        "name": "cont1_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       },
       {
-        "component": "text",
-        "name": "trdimageAlt",
-        "label": "Alt Text"
+        "component": "richtext",
+        "name": "cont2_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   },

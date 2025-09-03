@@ -378,6 +378,21 @@
               font-weight: 600;
               line-height: 16px;
               margin-left: 4px;
+              position: relative;
+              padding-left: 10px;
+            }
+
+            span::before {
+              content: "₹";
+              position: absolute;
+              left: 3px;
+              top: 0px;
+              pointer-events: none;
+              color: #2e2a94;
+              font-family: $poppins;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 16px;
             }
           }
 
