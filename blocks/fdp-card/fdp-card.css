@@ -510,7 +510,7 @@ main {
   /* ul for second part */
   /* why fund section */
 }
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .section.fdp-card-container .item2 {
     max-width: 100%;
   }
@@ -672,7 +672,7 @@ main {
     line-height: 28px;
   }
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -680,26 +680,42 @@ main {
   flex-direction: column;
 }
 @media (width <= 768px) {
-  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 {
     gap: 0;
   }
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 {
   display: flex;
   gap: 24px;
   padding: 16px 0;
 }
 @media (width <= 768px) {
-  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1,
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2,
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3,
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4,
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 {
     padding: 16px 0;
   }
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1 ol.whyfund-inner-li2,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2 ol.whyfund-inner-li2,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3 ol.whyfund-inner-li2,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4 ol.whyfund-inner-li2,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 ol.whyfund-inner-li2 {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(1) {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1) {
   font-size: 18px;
   line-height: 24px;
   color: #2e2a94;
@@ -707,12 +723,20 @@ main {
   font-weight: 500;
 }
 @media (width <= 768px) {
-  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(1) {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1),
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1),
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1),
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1),
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 ol.whyfund-inner-li2 li.whyfund-innertext-li1:nth-child(1) {
     font-size: 14px;
     line-height: 16px;
   }
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(2) {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2) {
   font-size: 16px;
   line-height: 24px;
   color: #616161;
@@ -720,12 +744,20 @@ main {
   font-weight: 400;
 }
 @media (width <= 768px) {
-  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(2) {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2),
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2),
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2),
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2),
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 ol.whyfund-inner-li2 li.whyfund-innertext-li2:nth-child(2) {
     font-size: 14px;
     line-height: 20px;
   }
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(3) {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1 ol.whyfund-inner-li2 li:nth-child(3),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2 ol.whyfund-inner-li2 li:nth-child(3),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3 ol.whyfund-inner-li2 li:nth-child(3),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4 ol.whyfund-inner-li2 li:nth-child(3),
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 ol.whyfund-inner-li2 li:nth-child(3) {
   font-size: 12px;
   line-height: 16px;
   color: #111;
@@ -735,14 +767,15 @@ main {
   gap: 1px;
   align-items: center;
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li:nth-child(3) strong {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol1 ol.whyfund-inner-li2 li:nth-child(3) strong,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol2 ol.whyfund-inner-li2 li:nth-child(3) strong,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol3 ol.whyfund-inner-li2 li:nth-child(3) strong,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol4 ol.whyfund-inner-li2 li:nth-child(3) strong,
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol.whyfund-li2 li.whyfund-inner-ol5 ol.whyfund-inner-li2 li:nth-child(3) strong {
   color: #2e2a94;
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;
-}
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper ol li ol li {
-  padding: 0;
 }
 .section.fdp-card-container .item2 .why-fund .default-content-wrapper p {
   font-size: 12px;

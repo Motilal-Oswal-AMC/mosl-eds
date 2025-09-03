@@ -217,6 +217,7 @@
   .default-content-wrapper {
     h4 {
       @include font-style(2rem, 2.5rem, $primary-blue, 700, $butlerpro);
+
       margin: 0 0 2.5rem;
 
       @media (width <= 768px) {
@@ -245,7 +246,7 @@
 
         // Add role for screen readers
         &[role="region"] {
-          aria-label: "Fund details";
+          // aria-label: "Fund details";
         }
 
         .fund-wrapper {

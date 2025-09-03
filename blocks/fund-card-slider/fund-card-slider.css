@@ -3,11 +3,11 @@
 @import "../../../styles/fonts.css";
 .section.fund-card-slider-container {
   position: relative;
-  padding: 0 0 40px 0;
+  padding: 0 0 40px;
 }
 @media (width <= 768px) {
   .section.fund-card-slider-container {
-    padding: 0 16px 0 16px;
+    padding: 0 16px;
   }
 }
 .section.fund-card-slider-container .block {
@@ -35,7 +35,7 @@
 }
 @media (max-width: 768px) {
   .section.fund-card-slider-container .block .card-slider-main {
-    padding: 0px 0px 64px 0px;
+    padding: 0 0 64px;
   }
 }
 .section.fund-card-slider-container .block .card-slider-main .btn-wrapper {

@@ -9,7 +9,7 @@ html {
   box-sizing: border-box;
   font-size: rem(16px);
   font-family: $butlerpro;
-  font-weight: map-get($font-weights, regular);
+  font-weight: map.get($font-weights, regular);
 
   // scroll-behavior: smooth;
 }

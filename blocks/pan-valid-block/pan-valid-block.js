@@ -102,7 +102,7 @@ export default function decorate(block) {
                 { class: 'radio-1' },
                 label({ class: 'rad-label', for: 'opt1' }, listraio[0].textContent.trim()),
                 input({
-                  type: 'radio', name: 'radio-click', id: 'opt1',
+                  class: 'radio-btns-input', type: 'radio', name: 'radio-click', id: 'opt1',
                 }),
               ),
               div(
@@ -143,6 +143,7 @@ export default function decorate(block) {
           },
           label(
             {
+              class: 'pan-fields-label',
               for: '',
             },
             namelab,

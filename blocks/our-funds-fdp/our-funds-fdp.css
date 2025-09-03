@@ -38,9 +38,6 @@
   align-items: flex-start;
   gap: 1rem;
 }
-.section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container[role=region] {
-  aria-label: "Fund details";
-}
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper {
   display: flex;
   justify-content: space-between;
