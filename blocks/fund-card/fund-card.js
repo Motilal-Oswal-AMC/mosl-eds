@@ -269,13 +269,13 @@ export default function decorate(block) {
                   onclick: (event) => {
                     if (
                       !Array.from(
-                        event.target.parentElement.classList
+                        event.target.parentElement.classList,
                       ).includes('star-filled')
                     ) {
                       event.target.parentElement.classList.add('star-filled');
                     } else {
                       event.target.parentElement.classList.remove(
-                        'star-filled'
+                        'star-filled',
                       );
                     }
                   },
@@ -298,7 +298,7 @@ export default function decorate(block) {
               p({ class: 'brand-name-text' }, 'Motilal Oswal'),
               h2(
                 { class: 'fund-name-title' },
-                block.schDetail.schemeName.replaceAll('Motilal Oswal', '')
+                block.schDetail.schemeName.replaceAll('Motilal Oswal', ''),
               ),
             ),
           ),
@@ -308,15 +308,13 @@ export default function decorate(block) {
               { class: 'fund-tagging' },
               ul(
                 { class: 'fundtagging-list' },
-                ...fundsTaggingSection.map((eloption) =>
-                  li(
-                    { class: 'fundtagging-list-name' },
-                    eloption
-                      .replaceAll('motilal-oswal:', '')
-                      .replaceAll('-', ' ')
-                      .toUpperCase()
-                  ),
-                ),
+                ...fundsTaggingSection.map((eloption) => li(
+                  { class: 'fundtagging-list-name' },
+                  eloption
+                    .replaceAll('motilal-oswal:', '')
+                    .replaceAll('-', ' ')
+                    .toUpperCase(),
+                )),
               ),
             ),
             div(
@@ -327,15 +325,15 @@ export default function decorate(block) {
                   onclick: (event) => {
                     if (
                       Array.from(
-                        event.target.nextElementSibling.classList
+                        event.target.nextElementSibling.classList,
                       ).includes('dropdown-active')
                     ) {
                       event.target.nextElementSibling.classList.remove(
-                        'dropdown-active'
+                        'dropdown-active',
                       );
                     } else {
                       event.target.nextElementSibling.classList.add(
-                        'dropdown-active'
+                        'dropdown-active',
                       );
                     }
                   },
@@ -344,30 +342,26 @@ export default function decorate(block) {
               ),
               ul(
                 { class: 'dropdown-list', style: `display:${optionNamestyl}` },
-                ...DirectPlanlistArr.map((el) =>
-                  li(
-                    {
-                      value: el.groupedCode,
-                      onclick: (event) => {
-                        const clodrp =
-                          event.currentTarget.closest('.dropdown-list');
-                        clodrp.classList.remove('dropdown-active');
+                ...DirectPlanlistArr.map((el) => li(
+                  {
+                    value: el.groupedCode,
+                    onclick: (event) => {
+                      const clodrp = event.currentTarget.closest('.dropdown-list');
+                      clodrp.classList.remove('dropdown-active');
 
-                        const name = event.currentTarget.textContent.trim();
-                        const plandrp =
-                          event.currentTarget.closest('.planlist-dropdown');
+                      const name = event.currentTarget.textContent.trim();
+                      const plandrp = event.currentTarget.closest('.planlist-dropdown');
 
-                        const pElement = plandrp.querySelector('p');
-                        if (pElement) {
-                          pElement.innerText = name;
-                        }
-                        // planListEvent(event,block)
-                      },
+                      const pElement = plandrp.querySelector('p');
+                      if (pElement) {
+                        pElement.innerText = name;
+                      }
+                      // planListEvent(event,block)
                     },
-                    el.optionName
-                  )
-                )
-              )
+                  },
+                  el.optionName,
+                )),
+              ),
             ),
             div(
               { class: 'dis-investor' },
@@ -375,8 +369,8 @@ export default function decorate(block) {
                 class: 'riskfactor-icon',
                 src: `../../icons/nfo-risk-icon/${nfosvg}`,
                 alt: 'risk icon',
-              })
-            )
+              }),
+            ),
           ),
           div(
             { class: 'banner-timing-container ' },
@@ -397,7 +391,7 @@ export default function decorate(block) {
               ),
               div(
                 { class: 'timing-container' },
-                p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment))
+                p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment)),
               ),
             ),
           ),
@@ -446,7 +440,7 @@ export default function decorate(block) {
                 class: 'logoscheme',
                 src: `../../icons/iconfund/${mop}`,
                 alt: 'BrandLogo',
-              })
+              }),
             ),
             div(
               {
@@ -454,7 +448,7 @@ export default function decorate(block) {
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
-                      'star-filled'
+                      'star-filled',
                     )
                   ) {
                     event.target.parentElement.classList.add('star-filled');
@@ -484,7 +478,7 @@ export default function decorate(block) {
             p({ class: 'brand-name-text' }, 'Motilal Oswal'),
             h2(
               { class: 'fund-name-title' },
-              block.schDetail.schemeName.replaceAll('Motilal Oswal', '')
+              block.schDetail.schemeName.replaceAll('Motilal Oswal', ''),
             ),
           ),
         ),
@@ -500,17 +494,15 @@ export default function decorate(block) {
               {
                 class: 'fundtagging-list',
               },
-              ...fundsTaggingSection.map((eloption) =>
-                li(
-                  { class: 'fundtagging-list-name' },
-                  toTitleCase(
-                    eloption
-                      .replaceAll('motilal-oswal:', '')
-                      .replaceAll('-', ' ')
-                  )
-                )
-              )
-            )
+              ...fundsTaggingSection.map((eloption) => li(
+                { class: 'fundtagging-list-name' },
+                toTitleCase(
+                  eloption
+                    .replaceAll('motilal-oswal:', '')
+                    .replaceAll('-', ' '),
+                ),
+              )),
+            ),
           ),
           div(
             { class: 'planlist-dropdown', style: `display:${classdropdown}` },
@@ -520,51 +512,47 @@ export default function decorate(block) {
                 onclick: (event) => {
                   if (
                     Array.from(
-                      event.target.nextElementSibling.classList
+                      event.target.nextElementSibling.classList,
                     ).includes('dropdown-active')
                   ) {
                     event.target.nextElementSibling.classList.remove(
-                      'dropdown-active'
+                      'dropdown-active',
                     );
                   } else {
                     event.target.nextElementSibling.classList.add(
-                      'dropdown-active'
+                      'dropdown-active',
                     );
                   }
                 },
               },
-              optionName
+              optionName,
             ),
             ul(
               { class: 'dropdown-list', style: `display:${optionNamestyl}` },
-              ...DirectPlanlistArr.map((el) =>
-                li(
-                  {
-                    value: el.groupedCode,
-                    onclick: (event) => {
-                      const dropdown =
-                        event.currentTarget.closest('.planlist-dropdown');
+              ...DirectPlanlistArr.map((el) => li(
+                {
+                  value: el.groupedCode,
+                  onclick: (event) => {
+                    const dropdown = event.currentTarget.closest('.planlist-dropdown');
 
-                      event.currentTarget
-                        .closest('.dropdown-list')
-                        .classList.remove('dropdown-active');
+                    event.currentTarget
+                      .closest('.dropdown-list')
+                      .classList.remove('dropdown-active');
 
-                      if (dropdown) {
-                        const ptags = dropdown.querySelector('p');
-                        if (ptags) {
-                          ptags.innerText =
-                            event.currentTarget.textContent.trim();
-                        }
+                    if (dropdown) {
+                      const ptags = dropdown.querySelector('p');
+                      if (ptags) {
+                        ptags.innerText = event.currentTarget.textContent.trim();
                       }
+                    }
 
-                      planListEvent(event, block);
-                    },
+                    planListEvent(event, block);
                   },
-                  el.optionName
-                )
-              )
-            )
-          )
+                },
+                el.optionName,
+              )),
+            ),
+          ),
         ),
         div(
           {
@@ -585,78 +573,71 @@ export default function decorate(block) {
                   onclick: (event) => {
                     if (
                       Array.from(
-                        event.target.nextElementSibling.classList
+                        event.target.nextElementSibling.classList,
                       ).includes('dropdown-active')
                     ) {
                       event.target.nextElementSibling.classList.remove(
-                        'dropdown-active'
+                        'dropdown-active',
                       );
                     } else {
                       event.target.nextElementSibling.classList.add(
-                        'dropdown-active'
+                        'dropdown-active',
                       );
                     }
                   },
                 },
-                returnYear
+                returnYear,
               ),
               ul(
                 { class: 'dropdown-list' },
-                ...tempReturns.map((eloption) =>
-                  li(
-                    {
-                      class: 'returnyears',
-                      value: dataMapMoObj.ObjTemp[eloption],
-                      onclick: (event) => {
-                        const cgarValue =
-                          finPlangrp[0][event.target.getAttribute('value')];
-                        event.currentTarget
-                          .closest('.dropdown-list')
-                          .classList.remove('dropdown-active');
-                        event.currentTarget
-                          .closest('.cagr-select-wrapper')
-                          .querySelector('p').innerText = '';
-                        event.currentTarget
-                          .closest('.cagr-select-wrapper')
-                          .querySelector('p').innerText =
-                          event.currentTarget.textContent.trim();
-                        event.target
-                          .closest('.cagr-container')
-                          .querySelector('.cagr-value h2').textContent = '';
-                        event.target
-                          .closest('.cagr-container')
-                          .querySelector(
-                            '.cagr-value h2'
-                          ).textContent = `${cgarValue}`;
-                        event.target
-                          .closest('.cagr-container')
-                          .querySelector('.cagr-value h2')
-                          .append(span('%'));
-                        const datedrp =
-                          event.currentTarget.closest('.cagr-dropdown');
-                        if (
-                          event.target.textContent.trim() === 'Since Inception'
-                        ) {
-                          datedrp.querySelector('.cagr-date').style.display =
-                            'block';
-                        } else {
-                          datedrp.querySelector('.cagr-date').style.display =
-                            'none';
-                        }
-                      },
+                ...tempReturns.map((eloption) => li(
+                  {
+                    class: 'returnyears',
+                    value: dataMapMoObj.ObjTemp[eloption],
+                    onclick: (event) => {
+                      const cgarValue = finPlangrp[0][event.target.getAttribute('value')];
+                      event.currentTarget
+                        .closest('.dropdown-list')
+                        .classList.remove('dropdown-active');
+                      event.currentTarget
+                        .closest('.cagr-select-wrapper')
+                        .querySelector('p').innerText = '';
+                      event.currentTarget
+                        .closest('.cagr-select-wrapper')
+                        .querySelector('p').innerText = event.currentTarget.textContent.trim();
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector('.cagr-value h2').textContent = '';
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector(
+                          '.cagr-value h2',
+                        ).textContent = `${cgarValue}`;
+                      event.target
+                        .closest('.cagr-container')
+                        .querySelector('.cagr-value h2')
+                        .append(span('%'));
+                      const datedrp = event.currentTarget.closest('.cagr-dropdown');
+                      if (
+                        event.target.textContent.trim() === 'Since Inception'
+                      ) {
+                        datedrp.querySelector('.cagr-date').style.display = 'block';
+                      } else {
+                        datedrp.querySelector('.cagr-date').style.display = 'none';
+                      }
                     },
-                    eloption
-                  )
-                )
-              )
+                  },
+                  eloption,
+                )),
+              ),
             ),
             p(
               {
                 class: 'cagr-date',
                 style: `display:${dspdate}`,
               },
-              '24 Jul ‘24'
-            )
+              '24 Jul ‘24',
+            ),
           ),
           div(
             {
@@ -668,8 +649,8 @@ export default function decorate(block) {
                 class: 'scheme-yet',
                 style: 'display:none',
               },
-              'Scheme is yet to complete 10 Years'
-            )
+              'Scheme is yet to complete 10 Years',
+            ),
           ),
           div(
             {
@@ -677,9 +658,9 @@ export default function decorate(block) {
             },
             span(
               { class: 'cagr-desc-text' },
-              'Return is not provided because thescheme has not completed 6 months'
-            )
-          )
+              'Return is not provided because thescheme has not completed 6 months',
+            ),
+          ),
         ),
         div(
           {
@@ -687,7 +668,7 @@ export default function decorate(block) {
             style: 'display:none',
           },
           span({ class: 'risk-label' }, 'Risk Factor'),
-          span({ class: 'risk-text' }, block.risk.riskType)
+          span({ class: 'risk-text' }, block.risk.riskType),
         ),
         div(
           {
@@ -707,7 +688,7 @@ export default function decorate(block) {
                 src: '../../icons/Icon.svg',
                 alt: 'person',
               }),
-              span({ class: 'investor-txt' }, '2.7L Investors')
+              span({ class: 'investor-txt' }, '2.7L Investors'),
             ),
             a(
               {
@@ -721,9 +702,9 @@ export default function decorate(block) {
                 class: 'riskfactor-icon',
                 src: `../../icons/risk-icon/${iconsvg}`,
                 alt: 'risk icon',
-              })
-            )
-          )
+              }),
+            ),
+          ),
         ),
         div(
           { class: 'button-container' },
@@ -743,22 +724,22 @@ export default function decorate(block) {
                 const cardWrapperSh = cardWrapperStar.getAttribute('schcode');
                 localStorage.setItem(
                   'planCode',
-                  `${planFlowsec}:${cardWrapperSh}`
+                  `${planFlowsec}:${cardWrapperSh}`,
                 );
                 window.location.href = `${window.location.origin}/motilalfigma/our-funds/funds-details-page`;
               },
             },
-            'Know More'
+            'Know More',
           ),
           a(
             {
               href: '/motilalfigma/modals/invest-now-homepage',
               class: 'invest-now card-btn',
             },
-            'Invest'
-          )
-        )
-      )
+            'Invest',
+          ),
+        ),
+      ),
     );
     return cardContainer;
   }

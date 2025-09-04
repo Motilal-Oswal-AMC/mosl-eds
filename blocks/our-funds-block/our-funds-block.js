@@ -475,8 +475,8 @@ function searchFunctionality(block) {
     if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
       searchInput.value = event.target.dataset.originalText;
       searchContainer.classList.remove('search-active');
-      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
-        ellim.schDetail.schemeName === searchInput.value);
+      dataMapMoObj.funddata = dataCfObj
+        .filter((ellim) => ellim.schDetail.schemeName === searchInput.value);
       viewFunction(block);
       // CARD HIDE LOGIC ON SEARCH
       const cardsContainercd = block.querySelector('.filter-cards');
@@ -593,11 +593,11 @@ function checkfilter(block) {
   });
 
   dataMapMoObj.funddata = [];
-  dataMapMoObj.funddata = dataCfObj.filter((el, index) => {
+  dataMapMoObj.funddata = dataCfObj.filter((el) => {
     if (tempData.length > 0) {
       return tempData.includes(el.schcode);
     }
-    // return index < 10;
+    return [];
   });
   if (dataMapMoObj.funddata.length === 0) {
     const sorttextcont = block.querySelector('.sort-select-container .selectedtext');
@@ -607,21 +607,20 @@ function checkfilter(block) {
       dataMapMoObj.funddata = dataCfObj.slice(0, 10);
     }
     if (sorttext === 'Oldest to Newest') {
-      const tempData = JSON.parse(JSON.stringify(dataCfObj));
-      const tempa = tempData.sort(
+      const tempDataad = JSON.parse(JSON.stringify(dataCfObj));
+      const tempa = tempDataad.sort(
         (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
       );
       dataMapMoObj.funddata = '';
       dataMapMoObj.funddata = tempa;
     }
     if (sorttext === 'Newest to Oldest') {
-                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
-                        const tempa = tempData.sort(
-                          (a, b) => 
-                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
-                        );
-                        dataMapMoObj.funddata = '';
-                        dataMapMoObj.funddata = tempa;
+      const tempDataad = JSON.parse(JSON.stringify(dataCfObj));
+      const tempa = tempDataad.sort(
+        (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+      );
+      dataMapMoObj.funddata = '';
+      dataMapMoObj.funddata = tempa;
     }
   }
 
@@ -1642,8 +1641,7 @@ export default function decorate(block) {
                       if (event.target.textContent.trim() === 'Newest to Oldest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) => 
-                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                          (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1753,8 +1751,7 @@ export default function decorate(block) {
                       if (sorttext === 'Newest to Oldest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) => 
-                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                          (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1858,8 +1855,8 @@ export default function decorate(block) {
 
                     if (block.querySelector('.search-input .search').value !== '') {
                       const searchval = block.querySelector('.search-input .search').value;
-                      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
-                        ellim.schDetail.schemeName === searchval);
+                      dataMapMoObj.funddata = dataCfObj
+                        .filter((ellim) => ellim.schDetail.schemeName === searchval);
                     }
                     viewFunction(block);
                   },
@@ -1880,8 +1877,8 @@ export default function decorate(block) {
                       .querySelector('.list-view-header').style.display = 'block';
                     if (block.querySelector('.search-input .search').value !== '') {
                       const searchval = block.querySelector('.search-input .search').value;
-                      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
-                        ellim.schDetail.schemeName === searchval);
+                      dataMapMoObj.funddata = dataCfObj
+                        .filter((ellim) => ellim.schDetail.schemeName === searchval);
                     }
                     viewFunction(block);
                   },
@@ -1904,7 +1901,7 @@ export default function decorate(block) {
                   type: 'checkbox',
                   id: 'toggle',
                   'aria-label': 'Switch between Direct and Regular mode',
-                  onclick: (event) => {
+                  onclick: () => {
                     // event.target.checked
                     // viewFunction(block);
                     checkfilter(block);
@@ -2004,7 +2001,7 @@ export default function decorate(block) {
             (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
           );
           dataMapMoObj.funddata = tempa;
-        } 
+        }
         if (event.target.textContent.trim() === 'Newest to Oldest') {
           const tempdata = JSON.parse(JSON.stringify(dataCfObj));
           const tempa = tempdata.sort(

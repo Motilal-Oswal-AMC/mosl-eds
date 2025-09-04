@@ -1,6 +1,6 @@
 import dataMapMoObj from '../../scripts/constant.js';
 import {
-  div, input, label, p, img, ul, li, span,
+  div, input, label, p, img, ul, li,
 } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {

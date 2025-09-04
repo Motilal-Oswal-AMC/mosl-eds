@@ -717,6 +717,4 @@ export default function decorate(block) {
       breadcrumb.style.display = 'none';
     }
   });
-
-
 }

@@ -2,7 +2,7 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, table, tr, th, div, input, ul, li, img, p,
+  button, a, div, input, ul, li, img, p,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
@@ -180,132 +180,10 @@ export default async function decorate(block) {
   }
 
   /// ///ak 06-08-25//
-  let tabpanel2;
-  let tab2innerdiv;
-  let tableWrapper;
-  let tab2innerdivpanel2;
-
-  function displaytableCAGR() {
-    
-    tab2innerdiv.innerHTML = '';
-    tab2innerdiv.append(tableWrapper);
-    // A helper function to format the return values safely
-    const formatReturn = (value) => {
-      const numericValue = Number(value);
-
-      // Use Number.isNaN() and check BEFORE calling .toFixed()
-      if (Number.isNaN(numericValue)) {
-        return 'N/A';
-      }
-      return numericValue.toFixed(2);
-    };
-
-    const row1 = `
-      <tr>
-        <td class='schemename'>${cfObj[0].schDetail.schemeName || 'N/A'}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].oneYear_Ret) || 'N/A'}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].threeYear_Ret) || 'N/A'}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].fiveYear_Ret) || 'N/A'}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].sevenYear_Ret) || 'N/A'}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].tenYear_Ret) || 'N/A'}</td>
-        <td class='schDetailnum'>${formatReturn(returnValue[0].inception_Ret) || 'N/A'}</td>
-      </tr>`;
-    tableWrapper.innerHTML += row1;
-
-    cfObj[0].benchmarkreturns.forEach((b) => {
-      const row2 = `<tr class="trbackgroundcolor">
-        <td class='schemename'>${b.groupName}</td>
-        <td class='schemenum'>${Number(b.oneYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.oneYear_Ret).toFixed(2) || 'N/A'}</td>
-        <td class='schemenum'>${Number(b.threeYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.threeYear_Ret).toFixed(2) || 'N/A'}</td>
-        <td class='schemenum'>${Number(b.fiveYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.fiveYear_Ret).toFixed(2) || 'N/A'}</td>
-        <td class='schemenum'>${Number(b.sevenYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.sevenYear_Ret).toFixed(2) || 'N/A'}</td>
-        <td class='schemenum'>${Number(b.tenYear_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.tenYear_Ret).toFixed(2) || 'N/A'}</td>
-        <td class='schemenum'>${Number(b.inception_Ret).toFixed(2) === 'NaN' ? 'N/A' : Number(b.inception_Ret).toFixed(2) || 'N/A'}</td>
-      </tr>
-    `;
-      tableWrapper.innerHTML += row2;
-    });
-  }
-
-  function displaytablecurrentvalue() {
-    const returnValue = [];
-    const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-    const planslabel = planCode.split(':')[1];
-    const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
-    const cfObj = planObj;
-    cfObj[0].returns.forEach((ret) => {
-      if ((ret.plancode + ret.optioncode) === dataMapMoObj.gropcodevalue) {
-        returnValue.push(ret);
-      }
-    });
-
-    const tab2table = table();
-    tab2table.append(tabpanel2);
-    const row3 = `
-      <tr> <td class='schemename'>${cfObj[0].schDetail.schemeName || ''}</td>
-      <td class='schDetailnum'>${Number(returnValue[0].oneYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].oneYear_marketValue).toFixed(2)}</td>
-      <td class='schDetailnum'>${Number(returnValue[0].threeYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].threeYear_marketValue).toFixed(2)}</td>
-      <td class='schDetailnum'>${Number(returnValue[0].fiveYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].fiveYear_marketValue).toFixed(2)}</td>
-      <td class='schDetailnum'>${Number(returnValue[0].sevenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].sevenYear_marketValue).toFixed(2)}</td>
-      <td class='schDetailnum'>${Number(returnValue[0].tenYear_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].tenYear_marketValue).toFixed(2)}</td>
-      <td class='schDetailnum'>${Number(returnValue[0].inception_marketValue).toFixed(2) === 'NaN' ? ' ' : Number(returnValue[0].inception_marketValue).toFixed(2)}</td>
-      </tr>`;
-    tab2table.innerHTML += row3;
-
-    cfObj[0].benchmarkreturns.forEach((b) => {
-      const row4 = `
-      <tr class="trbackgroundcolor"><td class='schemename'>${b.groupName}</td>
-        <td class='schemenum'>${Number(b.oneYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.oneYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.threeYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.threeYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.fiveYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.fiveYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.sevenYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.sevenYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.tenYear_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.tenYear_marketValue).toFixed(2) || ''}</td>
-        <td class='schemenum'>${Number(b.inception_marketValue).toFixed(2) === 'NaN' ? 'N/A' : Number(b.inception_marketValue).toFixed(2) || ''}</td>
-        </tr>`;
-      tab2table.innerHTML += row4;
-    });
-    tab2innerdivpanel2.innerHTML = ' ';
-    tab2innerdivpanel2.append(tab2table);
-  }
 
   if (block.closest('.periodicreturn')) {
-    const divWrapper = document.createElement('div');
-    divWrapper.classList.add('tab-btn');
-    const container = block.closest('.periodicreturn');
-    const defaultwrapper = container.querySelectorAll('.default-content-wrapper');
-    const btnwrapper = container.querySelectorAll('.tabs-tab');
-    const mopAttr = ['_Ret', '_marketValue'];
-    btnwrapper.forEach((el,index) => {
-      divWrapper.appendChild(el);
-      el.setAttribute("dataattr", mopAttr[index]);
-      el.addEventListener('click', (event)=>{
-        const dataattr = event.currentTarget.getAttribute("dataattr");
-        tablegrp(dataattr);
-      });
-    });
-    const listwrapper = container.querySelector('.tabs-list');
-    listwrapper.innerHTML = '';
-    defaultwrapper.forEach((el, index) => (index === 0 ? listwrapper.appendChild(el) : ''));
-    listwrapper.appendChild(divWrapper);
-    // const headertitle = defaultwrapper[1];
-    tab2innerdiv = document.querySelector(
-      '.periodicreturn .tabpanel1 > div',
-    );
-    tab2innerdivpanel2 = document.querySelector(
-      '.periodicreturn .tabpanel2 > div',
-    );
-    dataMapMoObj.CLASS_PREFIXES = ['headgrp', 'headlist'];
-    dataMapMoObj.addIndexed(defaultwrapper[1]);
-    const headtitle = defaultwrapper[1].querySelector(".headgrp1").cloneNode(true);
-    defaultwrapper[1].querySelector(".headgrp1").style.display = 'none';
-    Array.from(headtitle.children).forEach((el) => {
-      el.classList.add('data-name');
-    });
-
     const formatReturn = (value) => {
       const numericValue = Number(value);
-
-      // Use Number.isNaN() and check BEFORE calling .toFixed()
       if (Number.isNaN(numericValue)) {
         return 'N/A';
       }
@@ -314,7 +192,24 @@ export default async function decorate(block) {
       } if (dataMapMoObj.attr === '_marketValue') {
         return `₹${Math.floor(numericValue)}`;
       }
+      return numericValue;
     };
+
+    const divWrapper = document.createElement('div');
+    divWrapper.classList.add('tab-btn');
+    const container = block.closest('.periodicreturn');
+    const defaultwrapper = container.querySelectorAll('.default-content-wrapper');
+    const listwrapper = container.querySelector('.tabs-list');
+    listwrapper.innerHTML = '';
+    defaultwrapper.forEach((el, index) => (index === 0 ? listwrapper.appendChild(el) : ''));
+    listwrapper.appendChild(divWrapper);
+    dataMapMoObj.CLASS_PREFIXES = ['headgrp', 'headlist'];
+    dataMapMoObj.addIndexed(defaultwrapper[1]);
+    const headtitle = defaultwrapper[1].querySelector('.headgrp1').cloneNode(true);
+    defaultwrapper[1].querySelector('.headgrp1').style.display = 'none';
+    Array.from(headtitle.children).forEach((el) => {
+      el.classList.add('data-name');
+    });
 
     const tablegrp = (param) => {
       const returnValue = [];
@@ -328,10 +223,10 @@ export default async function decorate(block) {
           returnValue.push(ret);
         }
       });
-      console.log(cfObj[0]);
-      
-      const divret = div({ class: 'fund-data-table' },
-        div({ class: 'fund-name-value return-funds' },
+      const divret = div(
+        { class: 'fund-data-table' },
+        div(
+          { class: 'fund-name-value return-funds' },
           p({ class: 'fund-name' }, cfObj[0].schDetail.schemeName),
           ul(
             { class: 'fund-data-list' },
@@ -344,69 +239,49 @@ export default async function decorate(block) {
           ),
         ),
         ...cfObj[0].benchmarkreturns.map((el) => div(
-            { class: 'fund-name-value benchmark-funds' },
-            p({ class: 'fund-name' }, el.groupName),
-            ul(
-              { class: 'fund-data-list' },
-              li({ class: 'fund-data' }, formatReturn((el[`oneYear${param}`]))),
+          { class: 'fund-name-value benchmark-funds' },
+          p({ class: 'fund-name' }, el.groupName),
+          ul(
+            { class: 'fund-data-list' },
+            li({ class: 'fund-data' }, formatReturn((el[`oneYear${param}`]))),
             li({ class: 'fund-data' }, formatReturn((el[`threeYear${param}`]))),
             li({ class: 'fund-data' }, formatReturn((el[`fiveYear${param}`]))),
             li({ class: 'fund-data' }, formatReturn((el[`sevenYear${param}`]))),
             li({ class: 'fund-data' }, formatReturn((el[`tenYear${param}`]))),
             li({ class: 'fund-data' }, formatReturn((el[`inception${param}`]))),
-            ),
-          )),
+          ),
+        )),
       );
-       const tabmo = div(
-         { class: 'periodic-returns' },
-         div(
-           { class: 'fund-data-title' },
-           p({ class: 'fund-title' }),
-           headtitle,
-         ),
-         divret
-       );
-       if (param === '_Ret') {
-        block.querySelector(".tabpanel1").innerHTML = '';
+      const tabmo = div(
+        { class: 'periodic-returns' },
+        div(
+          { class: 'fund-data-title' },
+          p({ class: 'fund-title' }),
+          headtitle,
+        ),
+        divret,
+      );
+      if (param === '_Ret') {
+        block.querySelector('.tabpanel1').innerHTML = '';
         block.querySelector('.tabpanel1').append(tabmo);
-       } else {
-        block.querySelector(".tabpanel2").innerHTML = "";
+      } else {
+        block.querySelector('.tabpanel2').innerHTML = '';
         block.querySelector('.tabpanel2').append(tabmo);
-       }
+      }
     };
-    // defaultwrapper[1].style.display = "none";
+    const btnwrapper = container.querySelectorAll('.tabs-tab');
+    const mopAttr = ['_Ret', '_marketValue'];
+    btnwrapper.forEach((el, index) => {
+      divWrapper.appendChild(el);
+      el.setAttribute('dataattr', mopAttr[index]);
+      el.addEventListener('click', (event) => {
+        const dataattr = event.currentTarget.getAttribute('dataattr');
+        tablegrp(dataattr);
+      });
+    });
+    // defaultwrapper[1].style.display = 'none';
     dataMapMoObj.attr = '_Ret';
     tablegrp('_Ret');
-    // tableWrapper = table();
-    // const firsttr = tr();
-    // firsttr.classList.add('authertr');
-    // Array.from(headertitle.querySelectorAll('li')).map((el) => {
-    //   const lith = th(el.textContent.trim());
-    //   lith.classList.add('autherth');
-    //   firsttr.append(lith);
-    //   return lith;
-    // });
-    // tabpanel2 = firsttr.cloneNode(true);
-    // tableWrapper.append(firsttr);
-    // /// ////////last div//////////
-    // const extradatawrappper = document.createElement('div');
-    // extradatawrappper.classList.add('tab-extradata');
-    // headertitle.querySelectorAll('p').forEach((e) => {
-    //   extradatawrappper.append(e);
-    // });
-    // const tabpanelextradata = extradatawrappper.cloneNode(true);
-    // const hideli = document.querySelector('.periodicreturn > .default-content-wrapper >ul');
-    // hideli.style.display = 'none';
-
-    // displaytableCAGR();
-    // tab2innerdiv.append(extradatawrappper);
-    // const tab2pannel2 = document.getElementById(
-    //   'tab-current-value-of-investment-of-10-000',
-    // );
-    // tab2pannel2.addEventListener('click', () => {
-    //   displaytablecurrentvalue();
-    //   tab2innerdivpanel2.append(tabpanelextradata);
-    // });
   }
   /// //////////////////////first Tab ////////////////////////////
   function generateBarChart(data) {
@@ -449,7 +324,7 @@ export default async function decorate(block) {
     return wrapper;
   }
   function generateBarChartHoldings(data) {
-    //   const wrapper = createEl("div", { class: "chart-wrapper" });
+    //   const wrapper = createEl('div', { class: 'chart-wrapper' });
     const wrapper = document.createElement('div');
     wrapper.classList.add('chart-wrapper');
     data.forEach((item) => {

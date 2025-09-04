@@ -48,7 +48,7 @@ export default async function decorate(block) {
   const mainBlock = block.closest('body');
   const download = mainBlock.querySelector('main .download');
   if (download != null) {
-    dataMapMoObj.CLASS_PREFIXES =[
+    dataMapMoObj.CLASS_PREFIXES = [
       'download-p',
       'download-ul',
       'download-li',
@@ -56,7 +56,7 @@ export default async function decorate(block) {
       'download-first-list',
       'download-second-list',
     ];
-      dataMapMoObj.addIndexed(download);
+    dataMapMoObj.addIndexed(download);
   }
   // load footer as fragment
   const footerMeta = getMetadata('footer');
