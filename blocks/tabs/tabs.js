@@ -2,7 +2,7 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, div, input, ul, li, img, p,
+  button, a, table, tr, th, div, input, ul, li, img, p,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
@@ -182,23 +182,16 @@ export default async function decorate(block) {
   /// ///ak 06-08-25//
 
   if (block.closest('.periodicreturn')) {
-    const formatReturn = (value) => {
-      const numericValue = Number(value);
-      if (Number.isNaN(numericValue)) {
-        return 'N/A';
-      }
-      if (dataMapMoObj.attr === '_Ret') {
-        return `${numericValue.toFixed(2)}%`;
-      } if (dataMapMoObj.attr === '_marketValue') {
-        return `₹${Math.floor(numericValue)}`;
-      }
-      return numericValue;
-    };
-
     const divWrapper = document.createElement('div');
     divWrapper.classList.add('tab-btn');
     const container = block.closest('.periodicreturn');
     const defaultwrapper = container.querySelectorAll('.default-content-wrapper');
+    const btnwrapper = container.querySelectorAll('.tabs-tab');
+    const mopAttr = ['_Ret', '_marketValue'];
+    btnwrapper.forEach((el, index) => {
+      divWrapper.appendChild(el);
+      el.setAttribute('dataattr', mopAttr[index]);
+    });
     const listwrapper = container.querySelector('.tabs-list');
     listwrapper.innerHTML = '';
     defaultwrapper.forEach((el, index) => (index === 0 ? listwrapper.appendChild(el) : ''));
@@ -210,6 +203,20 @@ export default async function decorate(block) {
     Array.from(headtitle.children).forEach((el) => {
       el.classList.add('data-name');
     });
+    const formatReturn = (value) => {
+      const numericValue = Number(value);
+
+      // Use Number.isNaN() and check BEFORE calling .toFixed()
+      if (Number.isNaN(numericValue)) {
+        return 'N/A';
+      }
+      if (dataMapMoObj.attr === '_Ret') {
+        return `${numericValue.toFixed(2)}%`;
+      } if (dataMapMoObj.attr === '_marketValue') {
+        return `₹${Math.floor(numericValue)}`;
+      }
+      return numericValue;
+    };
 
     const tablegrp = (param) => {
       const returnValue = [];
@@ -269,19 +276,17 @@ export default async function decorate(block) {
         block.querySelector('.tabpanel2').append(tabmo);
       }
     };
-    const btnwrapper = container.querySelectorAll('.tabs-tab');
-    const mopAttr = ['_Ret', '_marketValue'];
-    btnwrapper.forEach((el, index) => {
-      divWrapper.appendChild(el);
-      el.setAttribute('dataattr', mopAttr[index]);
-      el.addEventListener('click', (event) => {
+
+    // defaultwrapper[1].style.display = 'none';
+    dataMapMoObj.attr = '_Ret';
+    tablegrp('_Ret');
+
+    btnwrapper.forEach((elbtn) => {
+      elbtn.addEventListener('click', (event) => {
         const dataattr = event.currentTarget.getAttribute('dataattr');
         tablegrp(dataattr);
       });
     });
-    // defaultwrapper[1].style.display = 'none';
-    dataMapMoObj.attr = '_Ret';
-    tablegrp('_Ret');
   }
   /// //////////////////////first Tab ////////////////////////////
   function generateBarChart(data) {
