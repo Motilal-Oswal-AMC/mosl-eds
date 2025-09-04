@@ -278,7 +278,8 @@ function viewFunction(param) {
       param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
     }
   }
-  searchFunctionality(param);
+
+  dataMapMoObj.parseFunction(param, 'viewfunc');
 }
 
 function searchFunctionality(block) {
@@ -401,14 +402,6 @@ function searchFunctionality(block) {
       // This event fires whenever the viewport is resized or zoomed
       window.visualViewport.addEventListener('resize', () => {
         window.visualViewport.scale = 1;
-        // console.log('Current zoom scale:', window.visualViewport.scale);
-
-        // if (window.visualViewport.scale > 1) {
-        //   console.log('Page is zoomed in!');
-        //   // You could run code here in response to the zoom
-        // } else {
-        //   console.log('Page is at normal zoom.');
-        // }
       });
     }
   });
@@ -593,12 +586,8 @@ function checkfilter(block) {
   });
 
   dataMapMoObj.funddata = [];
-  dataMapMoObj.funddata = dataCfObj.filter((el) => {
-    if (tempData.length > 0) {
-      return tempData.includes(el.schcode);
-    }
-    return [];
-  });
+  dataMapMoObj.funddata = tempData.length > 0
+    ? dataCfObj.filter((el) => tempData.includes(el.schcode)) : [];
   if (dataMapMoObj.funddata.length === 0) {
     const sorttextcont = block.querySelector('.sort-select-container .selectedtext');
     const sorttext = sorttextcont.textContent.trim();
@@ -709,6 +698,8 @@ function checkfilter(block) {
         }
       });
     }
+
+    return block;
   }
 
   return filterGroup(filterTag);
@@ -748,6 +739,11 @@ function applyFunction(block) {
   }
 }
 
+dataMapMoObj.parseFunction = (param, attrparam) => {
+  if (attrparam === 'viewfunc') {
+    searchFunctionality(param);
+  }
+};
 export default function decorate(block) {
   Array.from(block.closest('.section').children).forEach((el, index) => {
     el.classList.add(`item${index + 1}`);

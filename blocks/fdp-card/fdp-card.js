@@ -584,31 +584,6 @@ export default function decorate(block) {
   document.querySelectorAll('.table-wrapper').forEach((el) => {
     document.querySelector('.item2').append(el);
   });
-  // document.querySelectorAll('.section .item2 ul li a').forEach((link) => {
-  //   link.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     const targetId = link.getAttribute('href'); // scrollMap[];
-  //     const target = document.querySelector(`.section[data-id="${targetId}"]`);
-  //     target?.scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start',
-  //     });
-  //   });
-  // });
-
-  // document.querySelectorAll('.section .navlinks ul li a').forEach((link) => {
-  //   link.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     const targetId = link.getAttribute('href'); // scrollMap[];
-  //     const target = document.querySelector(`.section[data-id="${targetId}"]`);
-  //     target?.scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start',
-  //     });
-  //   });
-  // });
-
-  // chat  1
 
   (function () {
     // Function to calculate the correct header offset based on screen size
@@ -653,39 +628,6 @@ export default function decorate(block) {
       // This works because the scroll is recalculated each click
     });
   }());
-
-  // chat 2
-
-  // debugger;
-  //   (function () {
-  //   document.querySelectorAll("ul.item2-ul > li > a").forEach((link) => {
-  //     link.addEventListener("click", (e) => {
-  //       e.preventDefault();
-
-  //       const targetId = link.getAttribute("href");
-  //       const target = document.querySelector(
-  //         `.section[data-id="${targetId.trim()}"]`
-  //       );
-  //       const clickY = (e.currentTarget.getBoundingClientRect()).y + 40;
-
-  //       if (target) {
-  //         const targetRectY = (target.getBoundingClientRect()).y;
-  //         const targetPosition = targetRectY - clickY;
-
-  //         // Calculate intended final scroll position
-  //         const finalScrollY = window.scrollY + targetPosition;
-
-  //         // Check if we're already close enough (±2px to handle float errors)
-  //         if (Math.abs(window.scrollY - finalScrollY) > 2) {
-  //           window.scrollTo({
-  //             top: finalScrollY,
-  //             behavior: "smooth",
-  //           });
-  //         }
-  //       }
-  //     });
-  //   });
-  // })();
 
   document.addEventListener('click', (event) => {
     const dropdownmidle = block.querySelector('.dropdownmidle');
