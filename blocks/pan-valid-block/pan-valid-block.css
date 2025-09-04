@@ -18,6 +18,12 @@
   background: #fff;
   position: relative;
 }
+@media (max-width: 768px) {
+  .pan-valid-block .maincontainer {
+    padding: 30px 16px;
+    border-radius: 32px 32px 0 0;
+  }
+}
 .pan-valid-block .default-content-wrapper h5 {
   margin: 0;
   font-size: 28px;
@@ -126,7 +132,6 @@
 }
 .pan-valid-block .form-container .pan-container .radio-container .radios .radio-btns div {
   display: flex;
-  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -145,8 +150,8 @@
   width: 16.667px;
   height: 16.667px;
 }
-.pan-valid-block .form-container .pan-container .radio-container .radios .radio-btns div input[type=radio]:checked + label span {
-  color: #1d2eb3 !important;
+.pan-valid-block .form-container .pan-container .radio-container .radios .radio-btns div input[type=radio]:checked + label {
+  color: #2e2a94;
 }
 .pan-valid-block .form-container .pan-container .radio-container .kyc .iscriptin {
   margin: 0;
@@ -359,7 +364,8 @@
 }
 @media (max-width: 768px) {
   .section.otp-fdp .main-contaienr .wrapper-block {
-    padding: 64px 0;
+    padding: 64px 16px;
+    border-radius: 32px 32px 0 0;
   }
 }
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con1 {

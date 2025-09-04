@@ -101,17 +101,17 @@ export default function decorate(block) {
               },
               div(
                 { class: 'radio-1' },
-                label({ class: 'rad-label', for: 'opt1' }, listraio[0].textContent.trim()),
                 input({
                   type: 'radio', name: 'radio-click', id: 'opt1',
                 }),
+                label({ class: 'rad-label', for: 'opt1' }, listraio[0].textContent.trim()),
               ),
               div(
                 { class: 'radio-2' },
-                label({ class: 'rad-label', for: 'opt2' }, listraio[1].textContent.trim()),
                 input({
                   type: 'radio', name: 'radio-click', id: 'opt2',
                 }),
+                label({ class: 'rad-label', for: 'opt2' }, listraio[1].textContent.trim()),
               ),
             ),
           ),

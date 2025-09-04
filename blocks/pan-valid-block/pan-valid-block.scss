@@ -20,6 +20,11 @@
     flex-shrink: 0;
     background: #fff;
     position: relative;
+
+     @include media(mobile) {
+        padding: 30px 16px;
+        border-radius: 32px 32px 0 0;
+      }
   }
 
   .default-content-wrapper {
@@ -146,7 +151,6 @@
 
             div {
               display: flex;
-              flex-direction: row-reverse;
               justify-content: center;
               align-items: center;
               gap: 8px;
@@ -163,15 +167,15 @@
                 );
               }
 
-              input {
+              input{
                 cursor: pointer;
                 accent-color: $primary-blue; /* Blue */
                 width: 16.667px;
                 height: 16.667px;
               }
 
-              input[type="radio"]:checked + label span {
-                color: #1d2eb3 !important; // Blue when selected
+              input[type="radio"]:checked + label  {
+                color: $primary-blue; // Blue when selected
               }
             }
 
@@ -414,7 +418,8 @@
       position: relative;
 
       @include media(mobile) {
-        padding: 64px 0;
+        padding: 64px 16px;
+        border-radius: 32px 32px 0 0;
       }
 
       .sub-otp-con1 {
