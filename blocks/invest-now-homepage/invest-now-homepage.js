@@ -201,18 +201,6 @@ const userLoginPanNumber = document.querySelector(".user-pan-number").value; // 
       );
       localStorage.setItem("isGuest", dataMapMoObj.panDlts["isGuest"]);
 
-      // const kycForm = document.querySelector(".fdp-kyc-form");
-      // const panForm = document.querySelector(".pan-details-modal");
-      // const pansuccessForm = document.querySelector(".otp-fdp");
-      // if (isSuccess) {
-      // kycForm.style.display = "none"; // display none kycform
-      // panForm.style.display = "none"; // display none panform
-      // pansuccessForm.style.display = "block"; // display block otp form
-      // } else {
-      // kycForm.style.display = "block";
-      // panForm.style.display = "none";
-      // pansuccessForm.style.display = "none";
-      // }
       kycCall(userPanNumber);
     } catch (error) {
       console.log(error);
@@ -329,8 +317,8 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 
 export default function decorate(block) {
   dataMapMoObj.panDlts = {};
-  loadCSS("../../scripts/flatpickr.min.css");
-  const schcodeFromStorage = localStorage.getItem("schcodeactive");
+  loadCSS('../../scripts/flatpickr.min.css');
+  const schcodeFromStorage = localStorage.getItem('schcodeactive');
   const fundData = dataCfObj.find(
     (fund) => fund.schcode === schcodeFromStorage
   );
@@ -519,13 +507,6 @@ export default function decorate(block) {
     )
   );
 
-  // if(window.location.href.includes('funds-details-page'){
-  //       buyBtn =  button({class : 'buy-now-btn'},'BUY NOW'),
-  //       button({class : 'start-now'},'Start Now'),
-  //       }else{
-  //          button({ class: 'invest-btn' }, ctaLabel),
-  //       })
-
   // Tooltip
   const tooltip = div(
     { class: "sip-tooltip hide" },
@@ -690,38 +671,7 @@ export default function decorate(block) {
   const calendarContainer = block.querySelector(".invest-now-container");
 
   // ADDED: A variable to store the user-selected date
-  let originalSipDate = "";
-
-  // 5. Initialize flatpickr
-  // const fpInstance = window.flatpickr(calendarIcon, {
-  //   defaultDate: 'today',
-  //   altInput: false,
-  //   onReady: function (_, __, fp) {
-  //     // fp.calendarContainer.removeAttribute('style');
-  //     if (fp.calendarContainer) { // Add this check
-  //       fp.calendarContainer.removeAttribute('style');
-  //     }
-  //   },
-  //   appendTo: calendarContainer,
-  //   onChange: function (selectedDates, dateStr, instance) {
-  //     const selectedDate = selectedDates[0];
-  //     const day = selectedDate.getDate();
-  //     const month = selectedDate.toLocaleString('default', { month: 'short' });
-  //     const year = selectedDate.getFullYear();
-  //     const formattedDate = `${day} ${month} ${year}`;
-
-  //     sipDateDisplay.textContent = formattedDate;
-
-  //     originalSipDate = formattedDate;
-  //   },
-  //   position: (self, node) => {
-  //     const top = self.element.offsetTop + self.element.offsetHeight + 8;
-  //     const left = self.element.offsetLeft;
-
-  //     node.style.top = `${top}px`;
-  //     node.style.left = `${left}px`;
-  //   },
-  // });
+  let originalSipDate = '';
 
   const fpInstance = window.flatpickr(calendarIcon, {
     defaultDate: "today",

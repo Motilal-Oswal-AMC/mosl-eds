@@ -7,10 +7,10 @@
 
 .section.fund-card-slider-container {
   position: relative;
-  padding: 0 0 40px 0;
+  padding: 0 0 40px;
  
 @media (width <= 768px) {
-        padding: 0 16px 0 16px;
+        padding: 0 16px;
   }
 
   .block {
@@ -45,7 +45,7 @@
       position: static;
 
        @include media(mobile) {
-    padding: 0px 0px 64px 0px;
+    padding: 0 0 64px;
   }
 
       .btn-wrapper {

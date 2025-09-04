@@ -17,6 +17,18 @@ function toTitleCase(str) {
 }
 
 export default function decorate(block) {
+  const mainBlock = block.closest('body');
+  const whyFund = mainBlock.querySelector('main .why-fund');
+  if (whyFund != null) {
+    dataMapMoObj.CLASS_PREFIXES = [
+      'whyfund-ol',
+      'whyfund-li',
+      'whyfund-inner-ol',
+      'whyfund-inner-li',
+      'whyfund-innertext-li',
+    ];
+  }
+  dataMapMoObj.addIndexed(whyFund);
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const [planFlow, planslabel] = planCode.split(':');
   const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
@@ -706,5 +718,5 @@ export default function decorate(block) {
     }
   });
 
-  
+
 }

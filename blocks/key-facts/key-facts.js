@@ -37,7 +37,7 @@ export default function decorate(block) {
     { class: 'key-facts-section' },
 
     div(
-      { class: 'Investment-Objective' },
+      { class: 'investment-objective' },
       p(block.querySelector('.block-subitem-finelsub1')),
       p(
         { class: 'investment-discripstion' },
@@ -50,13 +50,17 @@ export default function decorate(block) {
         { class: 'minimum-amount' },
         div(
           { class: 'Application-Amount' },
-          p(block.querySelector('.block-subitem-finelsub2')),
-          p('₹500/- and in multiples of ₹1/- thereafter'),
+          p({class: 'key-facts-amounts-title'},
+            block.querySelector('.block-subitem-finelsub2')),
+          p({class: 'key-facts-amounts-sub'},
+            '₹500/- and in multiples of ₹1/- thereafter'),
         ),
         div(
           { class: 'Redemption-Amount' },
-          p(block.querySelector('.block-subitem-finelsub3')),
-          p('₹500/- then ₹1/- increments, up to account balance'),
+          p({class: 'key-facts-amounts-title'},
+            block.querySelector('.block-subitem-finelsub3')),
+          p({class: 'key-facts-amounts-sub'},
+            '₹500/- then ₹1/- increments, up to account balance'),
         ),
       ),
       div(
@@ -127,7 +131,8 @@ export default function decorate(block) {
         ),
         div(
           { class: 'load-policy' }, // not found
-          p(block.querySelector('.block-subitem3 .block-subitem-finelsub4')),
+          p({class: 'load-policy-para'},
+            block.querySelector('.block-subitem3 .block-subitem-finelsub4')),
           div(
             { class: 'load-policy-list' },
             li(
@@ -157,7 +162,7 @@ export default function decorate(block) {
   // Create preview paragraph
   const previewPara = document.createElement('p');
   if (!preview) {
-    document.querySelector('.Investment-Objective').style.display = 'none';
+    document.querySelector('.investment-objective').style.display = 'none';
   }
   previewPara.innerHTML = preview;
 

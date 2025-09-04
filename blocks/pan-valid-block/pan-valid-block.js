@@ -144,6 +144,7 @@ export default function decorate(block) {
           },
           label(
             {
+              class: 'pan-fields-label',
               for: '',
             },
             namelab,
@@ -162,6 +163,7 @@ export default function decorate(block) {
           },
           label(
             {
+              class: 'pan-fields-label',
               for: '',
             },
             pnlab,
@@ -189,6 +191,7 @@ export default function decorate(block) {
           ),
           label(
             {
+              class: 'pan-fields-label',
               for: '',
             },
             emlab,

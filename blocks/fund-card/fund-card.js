@@ -17,7 +17,7 @@ import {
 
 function planListEvent(param, block) {
   // Planlist onchange with changing cagr container
-  const tempReturns = [];
+  let tempReturns = [];
   const codeTempArr = [];
   const tempreturnsec = [];
   block.returns.forEach((el) => {
@@ -33,6 +33,7 @@ function planListEvent(param, block) {
       tempreturnsec.push(el);
     }
   });
+  tempReturns = tempReturns.filter((temel) => temel);
   const [firstReturnYear] = tempReturns;
   const valRet = dataMapMoObj.selectreturns === '' ? '3 Years' : dataMapMoObj.selectreturns;
   const selectedReturn = valRet; // dataMapMoObj.selectreturns;
@@ -247,20 +248,20 @@ export default function decorate(block) {
         block.risk.riskType.toLowerCase().replaceAll(' ', '-')
       ]}.svg`;
       const NfocardContainer = div(
-        { class: "nfo-card-container card-container" },
+        { class: 'nfo-card-container card-container' },
         div(
-          { class: "card-wrapper" },
+          { class: 'card-wrapper' },
           div(
-            { class: "card-upper-title" },
+            { class: 'card-upper-title' },
             div(
-              { class: "brand-star-wrap" },
+              { class: 'brand-star-wrap' },
               div(
-                { class: "brand-logo" },
+                { class: 'brand-logo' },
                 img({
-                  class: "logoscheme",
+                  class: 'logoscheme',
                   src: `../../icons/iconfund/${mop}`,
-                  alt: "BrandLogo",
-                })
+                  alt: 'BrandLogo',
+                }),
               ),
               div(
                 {
@@ -269,57 +270,57 @@ export default function decorate(block) {
                     if (
                       !Array.from(
                         event.target.parentElement.classList
-                      ).includes("star-filled")
+                      ).includes('star-filled')
                     ) {
-                      event.target.parentElement.classList.add("star-filled");
+                      event.target.parentElement.classList.add('star-filled');
                     } else {
                       event.target.parentElement.classList.remove(
-                        "star-filled"
+                        'star-filled'
                       );
                     }
                   },
                   schcode: block.schcode,
                 },
                 img({
-                  class: "star-icon",
-                  src: "../../icons/not-filled-star.svg",
-                  alt: "star-icon",
+                  class: 'star-icon',
+                  src: '../../icons/not-filled-star.svg',
+                  alt: 'star-icon',
                 }),
                 img({
-                  class: "fillstar-icon",
-                  src: "../../icons/filled-star.svg",
-                  alt: "fillstar-icon",
-                })
-              )
+                  class: 'fillstar-icon',
+                  src: '../../icons/filled-star.svg',
+                  alt: 'fillstar-icon',
+                }),
+              ),
             ),
             div(
-              { class: "brand-fund-wrap" },
-              p({ class: "brand-name-text" }, "Motilal Oswal"),
+              { class: 'brand-fund-wrap' },
+              p({ class: 'brand-name-text' }, 'Motilal Oswal'),
               h2(
-                { class: "fund-name-title" },
-                block.schDetail.schemeName.replaceAll("Motilal Oswal", "")
-              )
-            )
+                { class: 'fund-name-title' },
+                block.schDetail.schemeName.replaceAll('Motilal Oswal', '')
+              ),
+            ),
           ),
           div(
             { class: `card-category ${dropdowndot}` },
             div(
-              { class: "fund-tagging" },
+              { class: 'fund-tagging' },
               ul(
-                { class: "fundtagging-list" },
+                { class: 'fundtagging-list' },
                 ...fundsTaggingSection.map((eloption) =>
                   li(
-                    { class: "fundtagging-list-name" },
+                    { class: 'fundtagging-list-name' },
                     eloption
-                      .replaceAll("motilal-oswal:", "")
-                      .replaceAll("-", " ")
+                      .replaceAll('motilal-oswal:', '')
+                      .replaceAll('-', ' ')
                       .toUpperCase()
-                  )
-                )
-              )
+                  ),
+                ),
+              ),
             ),
             div(
-              { class: "planlist-dropdown", style: `display:${classdropdown}` },
+              { class: 'planlist-dropdown', style: `display:${classdropdown}` },
               p(
                 {
                   class: `selectedtext ${optionNamescls}`,
@@ -327,36 +328,36 @@ export default function decorate(block) {
                     if (
                       Array.from(
                         event.target.nextElementSibling.classList
-                      ).includes("dropdown-active")
+                      ).includes('dropdown-active')
                     ) {
                       event.target.nextElementSibling.classList.remove(
-                        "dropdown-active"
+                        'dropdown-active'
                       );
                     } else {
                       event.target.nextElementSibling.classList.add(
-                        "dropdown-active"
+                        'dropdown-active'
                       );
                     }
                   },
                 },
-                optionName
+                optionName,
               ),
               ul(
-                { class: "dropdown-list", style: `display:${optionNamestyl}` },
+                { class: 'dropdown-list', style: `display:${optionNamestyl}` },
                 ...DirectPlanlistArr.map((el) =>
                   li(
                     {
                       value: el.groupedCode,
                       onclick: (event) => {
                         const clodrp =
-                          event.currentTarget.closest(".dropdown-list");
-                        clodrp.classList.remove("dropdown-active");
+                          event.currentTarget.closest('.dropdown-list');
+                        clodrp.classList.remove('dropdown-active');
 
                         const name = event.currentTarget.textContent.trim();
                         const plandrp =
-                          event.currentTarget.closest(".planlist-dropdown");
+                          event.currentTarget.closest('.planlist-dropdown');
 
-                        const pElement = plandrp.querySelector("p");
+                        const pElement = plandrp.querySelector('p');
                         if (pElement) {
                           pElement.innerText = name;
                         }
@@ -369,82 +370,82 @@ export default function decorate(block) {
               )
             ),
             div(
-              { class: "dis-investor" },
+              { class: 'dis-investor' },
               img({
-                class: "riskfactor-icon",
+                class: 'riskfactor-icon',
                 src: `../../icons/nfo-risk-icon/${nfosvg}`,
-                alt: "risk icon",
+                alt: 'risk icon',
               })
             )
           ),
           div(
-            { class: "banner-timing-container " },
+            { class: 'banner-timing-container ' },
             div(
-              { class: "banner-container" },
+              { class: 'banner-container' },
               img({
-                class: "nfo-img",
-                src: "../../icons/nfo-img.png",
-                alt: "NFO Image",
+                class: 'nfo-img',
+                src: '../../icons/nfo-img.png',
+                alt: 'NFO Image',
               }),
-              span("Grab Them All")
+              span('Grab Them All'),
             ),
             div(
-              { class: "timing-nfo-value" },
+              { class: 'timing-nfo-value' },
               div(
-                { class: "nfo-container" },
-                span({ class: "label-nfo" }, "NFO")
+                { class: 'nfo-container' },
+                span({ class: 'label-nfo' }, 'NFO'),
               ),
               div(
-                { class: "timing-container" },
-                p({ class: "timing-text" }, getTimeLeft(block.dateOfAllotment))
-              )
-            )
+                { class: 'timing-container' },
+                p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment))
+              ),
+            ),
           ),
           div(
-            { class: "button-container" },
+            { class: 'button-container' },
             a(
               {
-                href: "https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund",
-                class: "know-more card-btn",
+                href: 'https://www.motilaloswalmf.com/mutual-funds/motilal-oswal-special-opportunities-fund',
+                class: 'know-more card-btn',
               },
-              "Know More"
+              'Know More',
             ),
             a(
               {
-                href: "/motilalfigma/modals/invest-now-homepage",
-                class: "invest-now card-btn",
+                href: '/motilalfigma/modals/invest-now-homepage',
+                class: 'invest-now card-btn',
               },
-              "Invest"
-            )
-          )
-        )
+              'Invest',
+            ),
+          ),
+        ),
       );
       return NfocardContainer;
     }
     const cardContainer = div(
       {
-        class: "card-container",
+        class: 'card-container',
       },
       div(
         {
-          class: "card-wrapper",
+          class: 'card-wrapper',
         },
         div(
           {
-            class: "card-upper-title",
+            class: 'card-upper-title',
           },
           div(
             {
-              class: "brand-star-wrap",
+              class: 'brand-star-wrap',
             },
             div(
               {
-                class: "brand-logo",
+                class: 'brand-logo',
               },
               img({
-                class: "logoscheme",
+                class: 'logoscheme',
                 src: `../../icons/iconfund/${mop}`,
-                alt: "BrandLogo",
+                alt: 'BrandLogo',
               })
             ),
             div(
@@ -453,39 +454,39 @@ export default function decorate(block) {
                 onclick: (event) => {
                   if (
                     !Array.from(event.target.parentElement.classList).includes(
-                      "star-filled"
+                      'star-filled'
                     )
                   ) {
-                    event.target.parentElement.classList.add("star-filled");
+                    event.target.parentElement.classList.add('star-filled');
                   } else {
-                    event.target.parentElement.classList.remove("star-filled");
+                    event.target.parentElement.classList.remove('star-filled');
                   }
                   wishlist(block);
                 },
                 schcode: block.schcode,
               },
               img({
-                class: "star-icon",
-                src: "../../icons/not-filled-star.svg",
-                alt: "star-icon",
+                class: 'star-icon',
+                src: '../../icons/not-filled-star.svg',
+                alt: 'star-icon',
               }),
               img({
-                class: "fillstar-icon",
-                src: "../../icons/filled-star.svg",
-                alt: "fillstar-icon",
-              })
-            )
+                class: 'fillstar-icon',
+                src: '../../icons/filled-star.svg',
+                alt: 'fillstar-icon',
+              }),
+            ),
           ),
           div(
             {
-              class: "brand-fund-wrap",
+              class: 'brand-fund-wrap',
             },
-            p({ class: "brand-name-text" }, "Motilal Oswal"),
+            p({ class: 'brand-name-text' }, 'Motilal Oswal'),
             h2(
-              { class: "fund-name-title" },
-              block.schDetail.schemeName.replaceAll("Motilal Oswal", "")
-            )
-          )
+              { class: 'fund-name-title' },
+              block.schDetail.schemeName.replaceAll('Motilal Oswal', '')
+            ),
+          ),
         ),
         div(
           {
@@ -493,26 +494,26 @@ export default function decorate(block) {
           },
           div(
             {
-              class: "fund-tagging",
+              class: 'fund-tagging',
             },
             ul(
               {
-                class: "fundtagging-list",
+                class: 'fundtagging-list',
               },
               ...fundsTaggingSection.map((eloption) =>
                 li(
-                  { class: "fundtagging-list-name" },
+                  { class: 'fundtagging-list-name' },
                   toTitleCase(
                     eloption
-                      .replaceAll("motilal-oswal:", "")
-                      .replaceAll("-", " ")
+                      .replaceAll('motilal-oswal:', '')
+                      .replaceAll('-', ' ')
                   )
                 )
               )
             )
           ),
           div(
-            { class: "planlist-dropdown", style: `display:${classdropdown}` },
+            { class: 'planlist-dropdown', style: `display:${classdropdown}` },
             p(
               {
                 class: `selectedtext ${optionNamescls}`,
@@ -520,14 +521,14 @@ export default function decorate(block) {
                   if (
                     Array.from(
                       event.target.nextElementSibling.classList
-                    ).includes("dropdown-active")
+                    ).includes('dropdown-active')
                   ) {
                     event.target.nextElementSibling.classList.remove(
-                      "dropdown-active"
+                      'dropdown-active'
                     );
                   } else {
                     event.target.nextElementSibling.classList.add(
-                      "dropdown-active"
+                      'dropdown-active'
                     );
                   }
                 },
@@ -535,21 +536,21 @@ export default function decorate(block) {
               optionName
             ),
             ul(
-              { class: "dropdown-list", style: `display:${optionNamestyl}` },
+              { class: 'dropdown-list', style: `display:${optionNamestyl}` },
               ...DirectPlanlistArr.map((el) =>
                 li(
                   {
                     value: el.groupedCode,
                     onclick: (event) => {
                       const dropdown =
-                        event.currentTarget.closest(".planlist-dropdown");
+                        event.currentTarget.closest('.planlist-dropdown');
 
                       event.currentTarget
-                        .closest(".dropdown-list")
-                        .classList.remove("dropdown-active");
+                        .closest('.dropdown-list')
+                        .classList.remove('dropdown-active');
 
                       if (dropdown) {
-                        const ptags = dropdown.querySelector("p");
+                        const ptags = dropdown.querySelector('p');
                         if (ptags) {
                           ptags.innerText =
                             event.currentTarget.textContent.trim();
@@ -571,28 +572,28 @@ export default function decorate(block) {
           },
           div(
             {
-              class: "cagr-dropdown",
+              class: 'cagr-dropdown',
             },
-            span({ class: "cagr-txt" }, labelcagr),
+            span({ class: 'cagr-txt' }, labelcagr),
             div(
               {
-                class: "cagr-select-wrapper",
+                class: 'cagr-select-wrapper',
               },
               p(
                 {
-                  class: "selectedtext",
+                  class: 'selectedtext',
                   onclick: (event) => {
                     if (
                       Array.from(
                         event.target.nextElementSibling.classList
-                      ).includes("dropdown-active")
+                      ).includes('dropdown-active')
                     ) {
                       event.target.nextElementSibling.classList.remove(
-                        "dropdown-active"
+                        'dropdown-active'
                       );
                     } else {
                       event.target.nextElementSibling.classList.add(
-                        "dropdown-active"
+                        'dropdown-active'
                       );
                     }
                   },
@@ -600,47 +601,47 @@ export default function decorate(block) {
                 returnYear
               ),
               ul(
-                { class: "dropdown-list" },
+                { class: 'dropdown-list' },
                 ...tempReturns.map((eloption) =>
                   li(
                     {
-                      class: "returnyears",
+                      class: 'returnyears',
                       value: dataMapMoObj.ObjTemp[eloption],
                       onclick: (event) => {
                         const cgarValue =
-                          finPlangrp[0][event.target.getAttribute("value")];
+                          finPlangrp[0][event.target.getAttribute('value')];
                         event.currentTarget
-                          .closest(".dropdown-list")
-                          .classList.remove("dropdown-active");
+                          .closest('.dropdown-list')
+                          .classList.remove('dropdown-active');
                         event.currentTarget
-                          .closest(".cagr-select-wrapper")
-                          .querySelector("p").innerText = "";
+                          .closest('.cagr-select-wrapper')
+                          .querySelector('p').innerText = '';
                         event.currentTarget
-                          .closest(".cagr-select-wrapper")
-                          .querySelector("p").innerText =
+                          .closest('.cagr-select-wrapper')
+                          .querySelector('p').innerText =
                           event.currentTarget.textContent.trim();
                         event.target
-                          .closest(".cagr-container")
-                          .querySelector(".cagr-value h2").textContent = "";
+                          .closest('.cagr-container')
+                          .querySelector('.cagr-value h2').textContent = '';
                         event.target
-                          .closest(".cagr-container")
+                          .closest('.cagr-container')
                           .querySelector(
-                            ".cagr-value h2"
+                            '.cagr-value h2'
                           ).textContent = `${cgarValue}`;
                         event.target
-                          .closest(".cagr-container")
-                          .querySelector(".cagr-value h2")
-                          .append(span("%"));
+                          .closest('.cagr-container')
+                          .querySelector('.cagr-value h2')
+                          .append(span('%'));
                         const datedrp =
-                          event.currentTarget.closest(".cagr-dropdown");
+                          event.currentTarget.closest('.cagr-dropdown');
                         if (
-                          event.target.textContent.trim() === "Since Inception"
+                          event.target.textContent.trim() === 'Since Inception'
                         ) {
-                          datedrp.querySelector(".cagr-date").style.display =
-                            "block";
+                          datedrp.querySelector('.cagr-date').style.display =
+                            'block';
                         } else {
-                          datedrp.querySelector(".cagr-date").style.display =
-                            "none";
+                          datedrp.querySelector('.cagr-date').style.display =
+                            'none';
                         }
                       },
                     },
@@ -651,110 +652,110 @@ export default function decorate(block) {
             ),
             p(
               {
-                class: "cagr-date",
+                class: 'cagr-date',
                 style: `display:${dspdate}`,
               },
-              "24 Jul ‘24"
+              '24 Jul ‘24'
             )
           ),
           div(
             {
-              class: "cagr-value",
+              class: 'cagr-value',
             },
-            h2(`${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`, span("%")),
+            h2(`${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`, span('%')),
             p(
               {
-                class: "scheme-yet",
-                style: "display:none",
+                class: 'scheme-yet',
+                style: 'display:none',
               },
-              "Scheme is yet to complete 10 Years"
+              'Scheme is yet to complete 10 Years'
             )
           ),
           div(
             {
-              class: "cagr-desc",
+              class: 'cagr-desc',
             },
             span(
-              { class: "cagr-desc-text" },
-              "Return is not provided because thescheme has not completed 6 months"
+              { class: 'cagr-desc-text' },
+              'Return is not provided because thescheme has not completed 6 months'
             )
           )
         ),
         div(
           {
-            class: "risk-container",
-            style: "display:none",
+            class: 'risk-container',
+            style: 'display:none',
           },
-          span({ class: "risk-label" }, "Risk Factor"),
-          span({ class: "risk-text" }, block.risk.riskType)
+          span({ class: 'risk-label' }, 'Risk Factor'),
+          span({ class: 'risk-text' }, block.risk.riskType)
         ),
         div(
           {
-            class: "discription",
+            class: 'discription',
           },
           p(
             {
-              class: "dis-choosen",
+              class: 'dis-choosen',
             },
             // 'Chosen by ',
             div(
               {
-                class: "dis-investor",
+                class: 'dis-investor',
               },
               img({
-                class: "icon person",
-                src: "../../icons/Icon.svg",
-                alt: "person",
+                class: 'icon person',
+                src: '../../icons/Icon.svg',
+                alt: 'person',
               }),
-              span({ class: "investor-txt" }, "2.7L Investors")
+              span({ class: 'investor-txt' }, '2.7L Investors')
             ),
             a(
               {
-                href: "/motilalfigma/modals/risk-o-meter",
+                href: '/motilalfigma/modals/risk-o-meter',
                 onclick: (event) => {
-                  const clasName = event.target.closest("body");
-                  clasName.classList.add("scroll-lock");
+                  const clasName = event.target.closest('body');
+                  clasName.classList.add('scroll-lock');
                 },
               },
               img({
-                class: "riskfactor-icon",
+                class: 'riskfactor-icon',
                 src: `../../icons/risk-icon/${iconsvg}`,
-                alt: "risk icon",
+                alt: 'risk icon',
               })
             )
           )
         ),
         div(
-          { class: "button-container" },
+          { class: 'button-container' },
           a(
             {
-              class: "know-more card-btn",
+              class: 'know-more card-btn',
               onclick: (event) => {
                 // href: 'https://mosldev--eds-cloud--rupeshdept.aem.page/motilalfigma/funds-details-page',
-                let planFlowsec = "Direct";
-                if (event.target.closest(".right-container")) {
-                  const flowparent = event.target.closest(".right-container");
-                  const togglebtn = flowparent.querySelector("#toggle").checked;
-                  planFlowsec = togglebtn ? "Regular" : "Direct";
+                let planFlowsec = 'Direct';
+                if (event.target.closest('.right-container')) {
+                  const flowparent = event.target.closest('.right-container');
+                  const togglebtn = flowparent.querySelector('#toggle').checked;
+                  planFlowsec = togglebtn ? 'Regular' : 'Direct';
                 }
-                const cardWrapper = event.target.closest(".card-wrapper");
-                const cardWrapperStar = cardWrapper.querySelector(".star");
-                const cardWrapperSh = cardWrapperStar.getAttribute("schcode");
+                const cardWrapper = event.target.closest('.card-wrapper');
+                const cardWrapperStar = cardWrapper.querySelector('.star');
+                const cardWrapperSh = cardWrapperStar.getAttribute('schcode');
                 localStorage.setItem(
-                  "planCode",
+                  'planCode',
                   `${planFlowsec}:${cardWrapperSh}`
                 );
                 window.location.href = `${window.location.origin}/motilalfigma/our-funds/funds-details-page`;
               },
             },
-            "Know More"
+            'Know More'
           ),
           a(
             {
-              href: "/motilalfigma/modals/invest-now-homepage",
-              class: "invest-now card-btn",
+              href: '/motilalfigma/modals/invest-now-homepage',
+              class: 'invest-now card-btn',
             },
-            "Invest"
+            'Invest'
           )
         )
       )

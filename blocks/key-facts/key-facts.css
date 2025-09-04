@@ -123,7 +123,7 @@
 }
 @media (width <= 768px) {
   .key-facts-container .key-facts {
-    padding: 40px 0 0 0;
+    padding: 40px 0 0;
   }
 }
 .key-facts-container .key-facts .key-facts-section {
@@ -131,17 +131,17 @@
   flex-direction: column;
   gap: 24px;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective {
+.key-facts-container .key-facts .key-facts-section .investment-objective {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 @media (width <= 768px) {
-  .key-facts-container .key-facts .key-facts-section .Investment-Objective {
+  .key-facts-container .key-facts .key-facts-section .investment-objective {
     gap: 12px;
   }
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(1) {
+.key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
@@ -149,7 +149,7 @@
   font-weight: 500;
   margin: 0;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(2) p {
+.key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(2) p {
   font-size: 20px;
   line-height: 24px;
   color: #2e2a94;
@@ -158,15 +158,15 @@
   margin: 0;
 }
 @media (width <= 768px) {
-  .key-facts-container .key-facts .key-facts-section .Investment-Objective p:nth-child(2) p {
+  .key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(2) p {
     padding-right: 10px;
   }
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion {
+.key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion {
   position: relative;
   margin: 0;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion .read-toggle-btn {
+.key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion .read-toggle-btn {
   font-size: 16px;
   line-height: 24px;
   color: #4338f3;
@@ -175,7 +175,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
-.key-facts-container .key-facts .key-facts-section .Investment-Objective .investment-discripstion .read-toggle-btn:focus {
+.key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion .read-toggle-btn:focus {
   outline: 2px dashed #2e2a94;
   outline-offset: 2px;
 }
@@ -202,7 +202,7 @@
   flex-direction: column;
   gap: 4px;
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div p:nth-child(1) {
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-title:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
   color: #242177;
@@ -210,7 +210,7 @@
   font-weight: 500;
   margin: 0;
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div p:nth-child(2) {
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-sub:nth-child(2) {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
@@ -300,7 +300,7 @@
   flex-direction: column;
   gap: 16px;
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy p {
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy p.load-policy-para {
   font-size: 14px;
   line-height: 16px;
   color: #242177;

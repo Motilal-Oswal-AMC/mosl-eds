@@ -57,9 +57,14 @@ export default function decorate(block) {
   if (dataMapMoObj.selectreturns !== '') {
     ret = dataMapMoObj.ObjTemp[dataMapMoObj.selectreturns];
   } else {
-    ret = 'inception_Ret';
+    ret = 'threeYear_Ret';
   }
-  const cagrval = cagrValve.length !== 0 ? cagrValve[0][ret] : 'N/A';
+  let cagrval;
+  if (cagrValve.length !== 0 && cagrValve[0][ret]) {
+    cagrval = cagrValve[0][ret];
+  } else {
+    cagrval = 'N/A';
+  }
   const stylecagrval = cagrval === 'N/A' ? 'none' : 'flex';
 
   const starClass = dataMapMoObj.schstar.includes(block.schcode)

@@ -126,7 +126,7 @@
   }
 
   .default-content-wrapper {
-    > p {
+    > p.download-ul1 {
       color: $primary-blue;
       font-family: $butlerpro;
       font-size: 32px;
@@ -136,7 +136,7 @@
       padding-bottom: 24px;
     }
 
-    > ul {
+    > ul.download-ul2 {
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -147,11 +147,15 @@
         gap: 24px;
       }
  /* stylelint-disable-next-line no-descending-specificity */
-      > li {
+      > li.download-li1,
+      > li.download-li2,
+      > li.download-li3,
+      > li.download-li4,
+      > li.download-li5 {
         list-style-type: none;
         height: 48px;
 
-        > ul {
+        > ul.download-inner-ul1 {
           list-style-type: none;
           display: flex;
           justify-content: space-between;
@@ -159,7 +163,7 @@
           padding: 0;
           align-items: center;
 
-          li {
+          li.download-first-list1 {
             &:first-child {
               display: flex;
               align-items: center;
@@ -178,14 +182,14 @@
             }
           }
 
-          li:nth-child(2) {
+          li.download-first-list2:nth-child(2) {
             cursor: pointer;
           }
         }
 
         // Icon logic for each list item
         @for $i from 1 through 5 {
-          &:nth-child(#{$i}) > ul > li:first-child::before {
+          &:nth-child(#{$i}) > ul.download-inner-ul1 > li.download-first-list1:first-child::before {
             content: "";
             display: inline-block;
             width: 48px;

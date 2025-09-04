@@ -45,6 +45,19 @@ function initScrollToTop() {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
+  const mainBlock = block.closest('body');
+  const download = mainBlock.querySelector('main .download');
+  if (download != null) {
+    dataMapMoObj.CLASS_PREFIXES =[
+      'download-p',
+      'download-ul',
+      'download-li',
+      'download-inner-ul',
+      'download-first-list',
+      'download-second-list',
+    ];
+      dataMapMoObj.addIndexed(download);
+  }
   // load footer as fragment
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta

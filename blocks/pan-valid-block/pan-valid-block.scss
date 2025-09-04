@@ -157,24 +157,26 @@
 
               label {
                 margin: 0;
+                cursor: pointer;
 
-                @include font-style(
-                  14px,
+                @include font-style(14px,
                   16px,
                   $color-text-body,
                   500,
-                  $poppins
-                );
+                  $poppins );
               }
 
               input{
                 cursor: pointer;
-                accent-color: $primary-blue; /* Blue */
+                accent-color: $primary-blue;
+
+                /* Blue */
                 width: 16.667px;
                 height: 16.667px;
               }
 
-              input[type="radio"]:checked + label  {
+              
+                input[type="radio"]:checked + label  {
                 color: $primary-blue; // Blue when selected
               }
             }
@@ -239,7 +241,7 @@
         border: 1px solid #9e9e9e;
         position: relative;
 
-        label {
+        .pan-fields-label {
           margin: 0;
           padding: 0;
           overflow: hidden;
@@ -266,6 +268,7 @@
 
           @include font-style(16px, 20px, $neutrals-black, 500, $poppins);
         }
+
         .country-code {
           margin: 0;
           display: flex;
@@ -280,14 +283,20 @@
 
         .country-code::before {
           content: "";
-          display: inline-block; /* Make sure it shows up */
-          width: 16px; /* Set width and height */
+          display: inline-block;
+
+          /* Make sure it shows up */
+          width: 16px;
+
+          /* Set width and height */
           height: 12px;
           background-image: url("/icons/india-flag.svg");
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
-          margin-right: 4px; /* Optional spacing */
+          margin-right: 4px;
+
+          /* Optional spacing */
         }
       }
 
@@ -305,7 +314,7 @@
           background-color: #fff;
           border-radius: 8px;
           border: 1px solid #eee;
-          box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+          box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
           padding: 10px;
           flex-direction: column;
           gap: 10px;
@@ -357,7 +366,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    
+
     .panvalidsubinner3 {
       margin: 0;
 
@@ -423,13 +432,11 @@
       }
 
       .sub-otp-con1 {
-        @include font-style(
-          28px,
+        @include font-style(28px,
           32px,
           $primary-blue,
           map.get($font-weights, bold),
-          $butlerpro
-        );
+          $butlerpro );
 
         margin: 0;
 
@@ -456,31 +463,33 @@
             border-radius: 6px;
             text-align: center;
 
-            @include font-style(
-              20px,
+            @include font-style(20px,
               24px,
               $color-text-body,
               map.get($font-weights, semibold),
-              $poppins
-            );
+              $poppins );
 
             &:focus {
               border: 2px solid map.get($strokes, typing);
             }
           }
+
+          &.otp-success {
+            .otp-input {
+              border: 1px solid #00a850;
+            }
+          }
+
+          &.otp-failed {
+            .otp-input {
+              border: 2px solid #ee212e;
+            }
+          }
+
+          
         }
 
-        &.otp-success {
-          .otp-input {
-            border: 1px solid #00a850;
-          }
-        }
 
-        &.otp-failed {
-          .otp-input {
-            border: 2px solid #ee212e;
-          }
-        }
       }
 
       .sub-otp-con2 {
@@ -500,13 +509,11 @@
           cursor: auto;
           pointer-events: none;
 
-          @include font-style(
-            16px,
+          @include font-style(16px,
             20px,
             $text-body-2,
             map.get($font-weights, medium),
-            $poppins
-          );
+            $poppins );
         }
 
         &.sbmt-active {
@@ -522,13 +529,11 @@
       .sub-otp-con3 {
         margin: 0;
 
-        @include font-style(
-          12px,
+        @include font-style(12px,
           16px,
           $text-body-2,
           map.get($font-weights, regular),
-          $poppins
-        );
+          $poppins );
 
         strong {
           font-weight: 400;
@@ -544,13 +549,11 @@
         list-style: none;
 
         .inner-otp-con1 {
-          @include font-style(
-            14px,
+          @include font-style(14px,
             16px,
             map.get($blue-1, b500),
             map.get($font-weights, medium),
-            $poppins
-          );
+            $poppins );
 
           .otp-main-con1 {
             text-decoration-line: underline;
@@ -560,13 +563,11 @@
         }
 
         .inner-otp-con2 {
-          @include font-style(
-            14px,
+          @include font-style(14px,
             20px,
             $color-text-body,
             map.get($font-weights, regular),
-            $poppins
-          );
+            $poppins );
 
           .otp-main-con1 {
             font-weight: 400;
@@ -576,13 +577,11 @@
             text-decoration: underline;
             margin-left: 8px;
 
-            @include font-style(
-              14px,
+            @include font-style(14px,
               16px,
               map.get($blue-1, b500),
               map.get($font-weights, medium),
-              $poppins
-            );
+              $poppins );
           }
         }
       }
