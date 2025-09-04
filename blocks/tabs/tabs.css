@@ -975,8 +975,10 @@ td {
   }
 
   .tabs-panel .periodic-returns .fund-title {
-    min-width: 119px;
-    max-width: 119px;
+    /* min-width: 119px;
+    max-width: 119px; */
+    min-width: 140px;
+    max-width: 140px;
   }
 
   .tabs-panel .periodic-returns .headgrp1 {
@@ -992,9 +994,11 @@ td {
   }
 
   .tabs-panel .periodic-returns .fund-name-value .fund-name {
-    min-width: 119px;
-    max-width: 119px;
-    padding: 15px 0;
+    /* min-width: 119px;
+    max-width: 119px; */
+    min-width: 140px;
+    max-width: 140px;
+    padding: 15px 5px 15px 12px;
     font-size: 12px;
     line-height: 20px;
   }
