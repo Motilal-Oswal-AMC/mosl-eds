@@ -305,7 +305,7 @@ function getTodaysDateFormatted() {
 function createCustomDropdown(id, labelText, options, defaultValue) {
   return div(
     { class: "custom-select-wrapper", id: `custom-select-${id}` },
-    label(labelText),
+    label({class:'custom-select-label'},labelText),
     div({ class: "select-selected" }, defaultValue),
     div(
       { class: "select-options" },

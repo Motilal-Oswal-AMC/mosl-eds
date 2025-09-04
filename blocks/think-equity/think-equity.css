@@ -7,7 +7,7 @@
 
 .think-equity-container.section {
   margin: 0 auto;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .think-equity-container {
@@ -22,6 +22,9 @@
 
 .think-equity-container .think-equity-wrapper {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .think-equity-container .columns-wrapper {
@@ -198,12 +201,6 @@
   transform: translateY(-2px);
 }
 
-.think-equity-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .think-equity.block {
   width: 100%;
   display: flex;
@@ -266,7 +263,7 @@
 .think-equity.block .imagelist1 .subimagelist h3 {
   margin: 0;
   padding: 0;
-  color: #2E2A94;
+  color: #2e2a94;
   font-family: ButlerPro, sans-serif;
   font-size: 36px;
   line-height: 44px;

@@ -539,8 +539,7 @@
                   width: 100%;
                   line-height: 0.5px;
 
-                  /* stylelint-disable-next-line no-descending-specificity */
-                  label {
+                  .custom-select-label {
                     align-self: stretch;
                     color: #424242;
                     font-family: $poppins;

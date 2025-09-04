@@ -492,6 +492,52 @@
 
       }
 
+      .sub-otp-con4 {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        justify-content: space-between;
+        margin: 0;
+        list-style: none;
+
+        .inner-otp-con1 {
+          @include font-style(14px,
+            16px,
+            map.get($blue-1, b500),
+            map.get($font-weights, medium),
+            $poppins );
+
+          .otp-main-con1 {
+            text-decoration-line: underline;
+            text-wrap: nowrap;
+            color: inherit;
+          }
+        }
+
+        .inner-otp-con2 {
+          @include font-style(14px,
+            20px,
+            $color-text-body,
+            map.get($font-weights, regular),
+            $poppins );
+
+          .otp-main-con1 {
+            font-weight: 400;
+          }
+
+          .otp-main-con2 {
+            text-decoration: underline;
+            margin-left: 8px;
+
+            @include font-style(14px,
+              16px,
+              map.get($blue-1, b500),
+              map.get($font-weights, medium),
+              $poppins );
+          }
+        }
+      }
+
       .sub-otp-con2 {
         margin: 20px 0 0;
         line-height: 0;
@@ -540,51 +586,7 @@
         }
       }
 
-      .sub-otp-con4 {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        justify-content: space-between;
-        margin: 0;
-        list-style: none;
-
-        .inner-otp-con1 {
-          @include font-style(14px,
-            16px,
-            map.get($blue-1, b500),
-            map.get($font-weights, medium),
-            $poppins );
-
-          .otp-main-con1 {
-            text-decoration-line: underline;
-            text-wrap: nowrap;
-            color: inherit;
-          }
-        }
-
-        .inner-otp-con2 {
-          @include font-style(14px,
-            20px,
-            $color-text-body,
-            map.get($font-weights, regular),
-            $poppins );
-
-          .otp-main-con1 {
-            font-weight: 400;
-          }
-
-          .otp-main-con2 {
-            text-decoration: underline;
-            margin-left: 8px;
-
-            @include font-style(14px,
-              16px,
-              map.get($blue-1, b500),
-              map.get($font-weights, medium),
-              $poppins );
-          }
-        }
-      }
+      
     }
   }
 }

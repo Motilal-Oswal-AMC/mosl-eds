@@ -473,6 +473,51 @@
   border: 2px solid #ee212e;
 }
 
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  margin: 0;
+  list-style: none;
+}
+
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con1 {
+  font-size: 14px;
+  line-height: 16px;
+  color: #4338f3;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+}
+
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con1 .otp-main-con1 {
+  text-decoration-line: underline;
+  text-wrap: nowrap;
+  color: inherit;
+}
+
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con2 {
+  font-size: 14px;
+  line-height: 20px;
+  color: #424242;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+}
+
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con2 .otp-main-con1 {
+  font-weight: 400;
+}
+
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con2 .otp-main-con2 {
+  text-decoration: underline;
+  margin-left: 8px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4338f3;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+}
+
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con2 {
   margin: 20px 0 0;
   line-height: 0;
@@ -517,49 +562,4 @@
 
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con3 strong {
   font-weight: 400;
-}
-
-.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: space-between;
-  margin: 0;
-  list-style: none;
-}
-
-.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con1 {
-  font-size: 14px;
-  line-height: 16px;
-  color: #4338f3;
-  font-family: Poppins, sans-serif;
-  font-weight: 500;
-}
-
-.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con1 .otp-main-con1 {
-  text-decoration-line: underline;
-  text-wrap: nowrap;
-  color: inherit;
-}
-
-.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con2 {
-  font-size: 14px;
-  line-height: 20px;
-  color: #424242;
-  font-family: Poppins, sans-serif;
-  font-weight: 400;
-}
-
-.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con2 .otp-main-con1 {
-  font-weight: 400;
-}
-
-.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con2 .otp-main-con2 {
-  text-decoration: underline;
-  margin-left: 8px;
-  font-size: 14px;
-  line-height: 16px;
-  color: #4338f3;
-  font-family: Poppins, sans-serif;
-  font-weight: 500;
 }

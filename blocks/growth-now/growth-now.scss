@@ -310,9 +310,7 @@ main {
                                 text-align: left;
                                 padding-left: 10px;
 
-                            }
-
-                            input::placeholder {
+                                &::placeholder {
                                 color: #fff;
                                 font-family: $poppins;
                                 font-size: 14px;
@@ -322,50 +320,62 @@ main {
                                 appearance: auto;
                                 padding-right: 4px;
                             }
-
-                            .text-wrapper {
-                                input {
-                                    width: 100%;
-                                    min-width: 111px;
-                                    background: transparent;
-                                    box-shadow: none;
-                                    color: #fff;
-                                    font-family: $poppins;
-                                    font-size: 14px;
-                                    font-style: normal;
-                                    font-weight: 400;
-                                    line-height: 20px;
-                                    padding: 0;
-                                    padding-inline: unset;
-                                    padding-block: unset;
-                                    border: none;
-                                    text-align: left;
-                                    padding-left: 10px;
-
-
-
-                                    &::placeholder {
-                                        color: #fff;
-                                        font-family: $poppins;
-                                        font-size: 14px;
-                                        font-style: normal;
-                                        font-weight: 400;
-                                        line-height: 20px;
-                                    }
-
-                                }
-
-                                // &::after {
-                                //     content: '';
-                                //     background: url(../../icons/close-blue.png);
-                                //     display: flex;
-                                //     width: 24px;
-                                //     height: 24px;
-                                //     padding: 2px;
-                                //     justify-content: center;
-                                //     align-items: center;
-                                // }
                             }
+
+                            // input::placeholder {
+                            //     color: #fff;
+                            //     font-family: $poppins;
+                            //     font-size: 14px;
+                            //     font-style: normal;
+                            //     font-weight: 400;
+                            //     line-height: 20px;
+                            //     appearance: auto;
+                            //     padding-right: 4px;
+                            // }
+
+                            // .text-wrapper {
+                            //     input {
+                            //         width: 100%;
+                            //         min-width: 111px;
+                            //         background: transparent;
+                            //         box-shadow: none;
+                            //         color: #fff;
+                            //         font-family: $poppins;
+                            //         font-size: 14px;
+                            //         font-style: normal;
+                            //         font-weight: 400;
+                            //         line-height: 20px;
+                            //         padding: 0;
+                            //         padding-inline: unset;
+                            //         padding-block: unset;
+                            //         border: none;
+                            //         text-align: left;
+                            //         padding-left: 10px;
+
+
+
+                            //         &::placeholder {
+                            //             color: #fff;
+                            //             font-family: $poppins;
+                            //             font-size: 14px;
+                            //             font-style: normal;
+                            //             font-weight: 400;
+                            //             line-height: 20px;
+                            //         }
+
+                            //     }
+
+                            //     // &::after {
+                            //     //     content: '';
+                            //     //     background: url(../../icons/close-blue.png);
+                            //     //     display: flex;
+                            //     //     width: 24px;
+                            //     //     height: 24px;
+                            //     //     padding: 2px;
+                            //     //     justify-content: center;
+                            //     //     align-items: center;
+                            //     // }
+                            // }
                         }
                     }
 
