@@ -738,11 +738,15 @@ td {
   border: 1px solid #BDBDBD;
   background-color: #FAFAFA;
   padding: 6px 12px;
+}
+
+.section.periodicreturn .tab-btn .tabs-tab p {
   color: #424242;
   font-family: Poppins, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+  margin: 0;
 }
 
 .section.periodicreturn .tab-btn .tabs-tab:first-of-type {
@@ -752,6 +756,9 @@ td {
 .section.periodicreturn .tab-btn .tabs-tab[aria-selected="true"] {
   border: 1px solid #382AD7;
   background: #EDF1FF;
+}
+
+.section.periodicreturn .tab-btn .tabs-tab[aria-selected="true"] p {
   color: #2E2A94;
   font-family: Poppins, sans-serif;
   font-size: 14px;
@@ -765,8 +772,9 @@ td {
   border: none;
 }
 
-.section.periodicreturn .tabpanel .periodic-returns {
-  overflow: auto;
+.section.periodicreturn .tabs-panel .periodic-returns {
+  overflow: auto hidden;
+  scrollbar-width: none;
 }
 
 .section.periodicreturn .tabs-panel .periodic-returns::-webkit-scrollbar {
@@ -774,35 +782,42 @@ td {
 }
 
 .tabs-panel .periodic-returns .fund-data-title {
-  /* background-color: lavender; */
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding: 0 12px;
+  /* padding: 0 12px; */
   margin-bottom: 16px;
 }
 
 .tabs-panel .periodic-returns .fund-title {
-  min-width: 267px;
-  max-width: 267px;
+  /* min-width: 267px;
+  max-width: 267px; */
+  /* min-width: 272px; */
+  /* max-width: 272px; */
+  min-width: 285px;
+  max-width: 285px;
   width: 100%;
-
-  /* padding: 12px 0; */
   margin: 0;
+  background-color: #f5f5f5;
+  position: sticky;
+  left: 0;
+  padding: 0 5px 0 12px;
 }
 
 .tabs-panel .periodic-returns .headgrp1 {
   /* width: 483px; */
-  width: 490px;
+  /* width: 490px; */
+  width: 502px;
   display: flex;
   gap: 24px;
-  padding: 0 17px 0 29px;
+  padding: 0 29px;
   list-style: none;
   margin: 0;
 }
 
 .tabs-panel.tabpanel2 .periodic-returns .headgrp1 {
-  width: 505px;
+  /* width: 505px; */
+  width: 510px;
 }
 
 .tabs-panel .periodic-returns .data-name {
@@ -813,12 +828,12 @@ td {
   font-size: 14px;
   font-weight: 600;
   line-height: 16px;
-  background-color: grey;
+  /* background-color: grey; */
 }
 
 .tabs-panel.tabpanel2 .periodic-returns .data-name {
-  min-width: 64px;
-  max-width: 64px;
+  min-width: 54px;
+  max-width: 54px;
 }
 
 .tabs-panel .periodic-returns .data-name:last-of-type {
@@ -838,7 +853,7 @@ td {
   /* align-items: center; */
   justify-content: space-between;
   gap: 20px;
-  padding: 0 12px;
+  /* padding: 0 12px; */
   border-radius: 2px;
   background-color: #fff;
 }
@@ -849,17 +864,23 @@ td {
 
 .tabs-panel .periodic-returns .fund-name-value .fund-name {
   /* max-width: 33.712%; */
-  min-width: 267px;
-  max-width: 267px;
+  /* min-width: 267px;
+  max-width: 267px; */
+  /* min-width: 272px; */
+  /* max-width: 272px; */
+  min-width: 285px;
+  max-width: 285px;
   width: 100%;
   background-color: #fff;
-  padding: 12px 0;
+  padding: 12px 5px 12px 12px;
   color: #2E2A94;
   font-size: 14px;
   font-family: Poppins, sans-serif;
   font-weight: 500;
   line-height: 16px;
   margin: 0;
+  position: sticky;
+  left: 0;
 }
 
 .tabs-panel .periodic-returns .fund-name-value.benchmark-funds .fund-name {
@@ -871,18 +892,20 @@ td {
 
 .tabs-panel .periodic-returns .fund-name-value .fund-data-list {
   /* width: 483px; */
-  width: 490px;
+  /* width: 490px; */
+  width: 502px;
   background-color: #fff;
   display: flex;
   align-items: center;
   gap: 24px;
   list-style: none;
-  padding: 12px 17px 12px 29px;
+  padding: 12px 29px;
   margin: 0;
 }
 
 .tabs-panel.tabpanel2 .periodic-returns .fund-name-value .fund-data-list {
-  width: 505px;
+  /* width: 505px; */
+  width: 510px;
 }
 
 .tabs-panel .periodic-returns .fund-name-value.benchmark-funds .fund-data-list {
@@ -892,7 +915,7 @@ td {
 .tabs-panel .periodic-returns .fund-data-list .fund-data {
   min-width: 51px;
   max-width: 51px;
-  background-color: grey;
+  /* background-color: grey; */
   color: #2E2A94;
   font-family: Poppins, sans-serif;
   font-size: 14px;
@@ -901,8 +924,8 @@ td {
 }
 
 .tabs-panel.tabpanel2 .periodic-returns .fund-data-list .fund-data {
-  min-width: 64px;
-  max-width: 64px;
+  min-width: 54px;
+  max-width: 54px;
 }
 
 .tabs-panel .periodic-returns .fund-data-list .fund-data:last-of-type {
@@ -922,6 +945,7 @@ td {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
+  margin: 0 16px 0 0;
 }
 
 .section.periodicreturn .default-content-wrapper:last-of-type .headgrp2 .headlist2 {
@@ -936,11 +960,15 @@ td {
   .section.periodicreturn .tabs-list {
     flex-direction: column;
     align-items: start;
+    padding-right: 13px;
   }
 
   .section.periodicreturn .default-content-wrapper:first-of-type p {
     font-size: 24px;
     line-height: 28px;
+  }
+
+  .section.periodicreturn .default-content-wrapper:first-of-type p:first-of-type {
     padding-bottom: 4px;
   }
 
@@ -961,6 +989,10 @@ td {
     padding: 0;
   }
 
+  .tabs-panel .periodic-returns .data-name {
+    font-weight: 500;
+  }
+
   .tabs-panel .periodic-returns .fund-data-table .fund-name-value {
     gap: 18px;
   }
@@ -971,6 +1003,11 @@ td {
     padding: 15px 0;
     font-size: 12px;
     line-height: 20px;
+  }
+
+  .tabs-panel .periodic-returns .fund-name-value.benchmark-funds .fund-name {
+    font-size: 12px;
+    line-height: 16px;
   }
 
   .tabs-panel .periodic-returns .fund-name-value .fund-data-list {

@@ -297,9 +297,9 @@ export default async function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['headgrp', 'headlist'];
     dataMapMoObj.addIndexed(defaultwrapper[1]);
     const headtitle = defaultwrapper[1].querySelector(".headgrp1").cloneNode(true);
-    defaultwrapper[1].querySelector(".headgrp1").style.display = 'none'
+    defaultwrapper[1].querySelector(".headgrp1").style.display = 'none';
     Array.from(headtitle.children).forEach((el) => {
-      el.classList.add("data-name");
+      el.classList.add('data-name');
     });
 
     const formatReturn = (value) => {
@@ -309,11 +309,16 @@ export default async function decorate(block) {
       if (Number.isNaN(numericValue)) {
         return 'N/A';
       }
-      return numericValue.toFixed(2);
+      if (dataMapMoObj.attr === '_Ret') {
+        return `${numericValue.toFixed(2)}%`;
+      } if (dataMapMoObj.attr === '_marketValue') {
+        return `₹${Math.floor(numericValue)}`;
+      }
     };
 
     const tablegrp = (param) => {
       const returnValue = [];
+      dataMapMoObj.attr = param;
       const planCode = localStorage.getItem('planCode') || 'Direct:LM';
       const planslabel = planCode.split(':')[1];
       const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
@@ -370,6 +375,7 @@ export default async function decorate(block) {
        }
     };
     // defaultwrapper[1].style.display = "none";
+    dataMapMoObj.attr = '_Ret';
     tablegrp('_Ret');
     // tableWrapper = table();
     // const firsttr = tr();
