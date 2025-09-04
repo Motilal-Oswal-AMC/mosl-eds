@@ -770,6 +770,7 @@ td {
   margin: 24px 0;
   padding: 0;
   border: none;
+  overflow: hidden;
 }
 
 .section.periodicreturn .tabs-panel .periodic-returns {
@@ -806,7 +807,8 @@ td {
 .tabs-panel .periodic-returns .headgrp1 {
   /* width: 483px; */
   /* width: 490px; */
-  width: 502px;
+  /* width: 502px; */
+  width: auto;
   display: flex;
   gap: 24px;
   padding: 0 29px;
@@ -816,7 +818,8 @@ td {
 
 .tabs-panel.tabpanel2 .periodic-returns .headgrp1 {
   /* width: 505px; */
-  width: 510px;
+  /* width: 510px; */
+  width: auto;
 }
 
 .tabs-panel .periodic-returns .data-name {
@@ -888,7 +891,8 @@ td {
 .tabs-panel .periodic-returns .fund-name-value .fund-data-list {
   /* width: 483px; */
   /* width: 490px; */
-  width: 502px;
+  /* width: 502px; */
+  width: auto;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -900,7 +904,8 @@ td {
 
 .tabs-panel.tabpanel2 .periodic-returns .fund-name-value .fund-data-list {
   /* width: 505px; */
-  width: 510px;
+  /* width: 510px; */
+  width: auto;
 }
 
 .tabs-panel .periodic-returns .fund-name-value.benchmark-funds .fund-data-list {
