@@ -647,7 +647,7 @@ display: none;
 .breadcrumbs-fdp>.default-content-wrapper>ul>li>a {
     color: #424242;
     text-align: center;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -662,7 +662,7 @@ display: none;
 .breadcrumbs-fdp > .default-content-wrapper > ul > li p {
     color: #424242;
     text-align: center;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -676,7 +676,7 @@ display: none;
     color: #616161;
 
     /* Desktop/Paragraph/Xsmall */
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -714,7 +714,7 @@ display: none;
     right: -12px;
     top: 0;
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 300;
@@ -732,7 +732,7 @@ display: none;
 .breadcrumbs-fdp>ul>li>a {
     color: #2e2a94;
     cursor: pointer;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -771,7 +771,7 @@ display: none;
     display: flex;
     gap: 8px;
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -831,7 +831,7 @@ position: relative;
 
 .pan-details-modal .default-content-wrapper h5 {
     color: #2E2A94;
-    font-family: ButlerPro;
+    font-family: ButlerPro , sans-serif;
     font-size: 28px;
     font-style: normal;
     font-weight: 700;
@@ -861,7 +861,7 @@ position: relative;
     background: #2E2A94;
     cursor: pointer;
     color: #FFF;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -876,7 +876,7 @@ position: relative;
 
 .pan-details-modal .default-content-wrapper ul li:nth-child(2) {
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -920,7 +920,7 @@ position: relative;
     overflow: hidden;
     color: #424242;
     text-overflow: ellipsis;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -957,7 +957,7 @@ position: relative;
     color: red;
     font-size: 12px;
     line-height: 16px;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     padding-top: 10px;
 }
 
@@ -974,7 +974,7 @@ position: relative;
     width: 100%;
     border-radius: 6px;
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
