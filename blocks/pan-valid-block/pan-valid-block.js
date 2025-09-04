@@ -74,6 +74,7 @@ export default function decorate(block) {
             panlab,
           ),
           input({
+            class: 'user-pan-number',
             type: 'text',
           }),
           img({ class: 'pan-image', src: '../../icons/pencil.svg' }),
@@ -100,17 +101,17 @@ export default function decorate(block) {
               },
               div(
                 { class: 'radio-1' },
-                label({ class: 'rad-label', for: 'opt1' }, listraio[0].textContent.trim()),
                 input({
-                  class: 'radio-btns-input', type: 'radio', name: 'radio-click', id: 'opt1',
+                  type: 'radio', name: 'radio-click', id: 'opt1',
                 }),
+                label({ class: 'rad-label', for: 'opt1' }, listraio[0].textContent.trim()),
               ),
               div(
                 { class: 'radio-2' },
-                label({ class: 'rad-label', for: 'opt2' }, listraio[1].textContent.trim()),
                 input({
                   type: 'radio', name: 'radio-click', id: 'opt2',
                 }),
+                label({ class: 'rad-label', for: 'opt2' }, listraio[1].textContent.trim()),
               ),
             ),
           ),
@@ -153,6 +154,7 @@ export default function decorate(block) {
             name: '',
             id: '',
             placeholder: 'Name as on PAN',
+            class: 'user-pan-name',
           }),
         ),
         div(
@@ -161,6 +163,7 @@ export default function decorate(block) {
           },
           label(
             {
+              class: 'pan-fields-label',
               for: '',
             },
             pnlab,
@@ -170,6 +173,7 @@ export default function decorate(block) {
             name: '',
             id: '',
             placeholder: 'Add Number',
+            class: 'user-number',
           }),
           p({ class: 'country-code' }, '+91'),
         ),
@@ -187,6 +191,7 @@ export default function decorate(block) {
           ),
           label(
             {
+              class: 'pan-fields-label',
               for: '',
             },
             emlab,
@@ -197,6 +202,7 @@ export default function decorate(block) {
               name: '',
               id: '',
               placeholder: 'Type here',
+              class: 'user-email',
             },
           ),
         ),

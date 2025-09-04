@@ -39,35 +39,171 @@ export async function existingUser() {
     })
   );
 
+  dataMapMoObj.panDlts["isGuest"] = "false";
+  dataMapMoObj.panDlts["guestMenuState"] = {
+    guestMenu: false,
+    existingBox: true,
+  };
+  async function kycCall(param) {
+    try {
+      const request = {
+        panNo: param,
+      };
+      const rejsin = await myAPI(
+        "POST",
+        " https://api.moamc.com/InitAPI/api/Init/CVLKYCCheck",
+        request
+      );
+      console.log("kyc api response ", rejsin);
+      let isKyc = rejsin.data.kycStatus === "Y" ? true : false;
+
+      const kycForm = document.querySelector(".fdp-kyc-form");
+      const panForm = document.querySelector(".pan-details-modal");
+      const pansuccessForm = document.querySelector(".otp-fdp");
+      if (isKyc) {
+        kycForm.style.display = "none"; // display none kycform
+        panForm.style.display = "none"; // display none panform
+        pansuccessForm.style.display = "block"; // display block otp form
+        otpCall(param);
+      } else {
+        kycForm.style.display = "block";
+        panForm.style.display = "none";
+        pansuccessForm.style.display = "none";
+        const userLoginPanNumber = document.querySelector(".user-pan-number"); // input
+        userLoginPanNumber.value = dataMapMoObj.panDlts['pannumber'].toUpperCase();
+        userLoginPanNumber.setAttribute('readonly',true);
+
+        const editInput = document.querySelector('.pan-image');
+        editInput.addEventListener('click',()=>{
+           userLoginPanNumber.removeAttribute('readonly');
+        })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async function otpCall(param) {
+    try {
+      const request = {
+        userId: param,
+        loginModeId: 1,
+        credentialModeId: 1,
+        ipV4: "192.168.22.22",
+        otpThroughDIT: false,
+        ditotpType: "",
+        pmsGuest: false,
+        isAIF: false,
+        mfGuest: false,
+        product: "MF",
+      };
+      const rejsin = await myAPI(
+        "POST",
+        "https://api.moamc.com/LoginAPI/api/Login/GenerateOtpNew",
+        request
+      );
+      console.log("kyc api response ", rejsin);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+    // ModifyKyc API  start
+  //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
+  
+  async function modiFyKycApi(param,userName,userMobile,userEmail) {
+  
+    try {
+      const request = { 
+    "name": userName, 
+    "email": userEmail, 
+    "phone": userMobile, 
+    "returnUrl": "https://mf.moamc.com/onboarding/personal", 
+    "timeOutUrl": "https://mf.moamc.com/error", 
+    "panNo":param 
+} 
+      const rejsin = await myAPI(
+        "POST",
+        "https://api.moamc.com/prelogin/api/KYC/KYCProcess",
+        request
+      );
+      console.log("this is modiFuykyc Api Response ",rejsin);
+    }
+    catch(error){
+      console.log(error);
+    }
+  };
+
+
+  const ModifyKycForm = document.querySelector('.tnc-container .panvalidsubinner4');
+console.log("wedfrgr",ModifyKycForm);
+ModifyKycForm.addEventListener('click',()=>{
+
+const userPanNumber = document.querySelector(".iptpanfld").value;      // input value
+const userLoginPanNumber = document.querySelector(".user-pan-number").value; // input
+
+  const userLoginPanName = document.querySelector(".user-pan-name").value;
+  const userLoginMobileNumber = document.querySelector(".user-number").value;
+  const userLoginEmail = document.querySelector(".user-email").value;
+
+
+  modiFyKycApi(userLoginPanNumber,userLoginPanName,userLoginMobileNumber,userLoginEmail);
+});
+    // ModifyKyc API  ends
+
+  
+
   inputLable.appendChild(addInputDiv);
 
   // api call for otp
   // "AEEPW9969G",
 
   async function apiCall(userPanNumber) {
-    const request = {
-      panNo: userPanNumber,
-    };
-    const rejsin = await myAPI(
-      "POST",
-      "https://api.moamc.com/LoginAPI/api/Login/GetClientType",
-      request
-    );
-    console.log(rejsin);
+    try {
+      dataMapMoObj.panDlts['isIndividualPan'] = userPanNumber;
+      dataMapMoObj.panDlts['pannumber'] = userPanNumber
+      const request = {
+        panNo: userPanNumber,
+      };
+      const rejsin = await myAPI(
+        "POST",
+        "https://api.moamc.com/LoginAPI/api/Login/GetClientType",
+        request
+      );
+      console.log(rejsin);
 
-    const isSuccess = rejsin.data.existingClient === "" ? false : true;
+      // const isSuccess = rejsin.data.existingClient === "" ? false : true;
+      const tempArray = ["MF", "BOTH"];
+      const exixting = ["ZBF", "REDEEMZBF"];
+      if (rejsin.data.guestClient === "") {
+        dataMapMoObj.panDlts["isNewGuest"] = true;
+      } else if (tempArray.includes(rejsin.data.guestClient)) {
+        dataMapMoObj.panDlts["isGuest"] = true;
+        dataMapMoObj.panDlts["guestMenuState"] = {
+          guestMenu: true,
+          existingBox: false,
+        };
+      } else if (exixting.includes(rejsin.data.existingClient)) {
+        dataMapMoObj.panDlts["isGuest"] = false;
+        dataMapMoObj.panDlts["guestMenuState"] = {
+          guestMenu: true,
+          existingBox: false,
+        };
+      } else if (tempArray.includes(rejsin.data.newClient)) {
+        dataMapMoObj.panDlts["isGuest"] = false;
+        dataMapMoObj.panDlts["guestMenuState"] = {
+          guestMenu: true,
+          existingBox: false,
+        };
+      }
 
-    const kycForm = document.querySelector(".fdp-kyc-form");
-    const panForm = document.querySelector(".pan-details-modal");
-    const pansuccessForm = document.querySelector(".otp-fdp");
-    if (isSuccess) {
-      kycForm.style.display = "none"; // display none kycform
-      panForm.style.display = "none"; // display none panform
-      pansuccessForm.style.display = "block"; // display block otp form
-    } else {
-      kycForm.style.display = "block";
-      panForm.style.display = "none";
-      pansuccessForm.style.display = "none";
+      localStorage.setItem(
+        "UPDATE_GUEST_MENU",
+        JSON.stringify(dataMapMoObj.panDlts["guestMenuState"])
+      );
+      localStorage.setItem("isGuest", dataMapMoObj.panDlts["isGuest"]);
+
+      kycCall(userPanNumber);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -79,20 +215,23 @@ export async function existingUser() {
   const authenticateClick = document.querySelector(".subpandts3 .innerpandts1");
 
   authenticateClick.addEventListener("click", (e) => {
+    const checkInput = document.querySelector(".error-pan");
+    const userPanNumber = document.querySelector(".iptpanfld").value;
 
-  const checkInput = document.querySelector('.error-pan');
-  const userPanNumber = document.querySelector('.iptpanfld').value;
-    console.log(userPanNumber);
-if (userPanNumber === "") {
-  checkInput.classList.add('show-error');
-}
-if (!checkInput.classList.contains('show-error')) {
-  apiCall(userPanNumber);  // Only called if no error
-} else {
-  console.log('PAN number is invalid. API call blocked.');
+    const userPanNumberShow = document.querySelector(
+      ".sub-otp-con4 .inner-otp-con2 .otp-main-con1"
+    );
+    // added userPanNumber
+    userPanNumberShow.textContent = userPanNumber;
 
-}
-
+    if (userPanNumber === "") {
+      checkInput.classList.add("show-error");
+    }
+    if (!checkInput.classList.contains("show-error")) {
+      apiCall(userPanNumber); // Only called if no error
+    } else {
+      console.log("PAN number is invalid. API call blocked.");
+    }
   });
 
   // Create the error message element once
@@ -125,6 +264,7 @@ if (!checkInput.classList.contains('show-error')) {
 
   const mod = document.querySelector(".pan-details-modal .icon-modal-btn");
   const mod2 = document.querySelector(".fdp-kyc-form .icon-modal-btn");
+  const mod3 = document.querySelector(".otp-fdp .icon-modal-btn");
 
   function hideFormsClick(btn) {
     const card2 =
@@ -141,6 +281,7 @@ if (!checkInput.classList.contains('show-error')) {
 
   hideFormsClick(mod2);
   hideFormsClick(mod);
+  hideFormsClick(mod3);
 }
 
 function loadCSS(href) {
@@ -173,6 +314,7 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 }
 
 export default function decorate(block) {
+  dataMapMoObj.panDlts = {};
   loadCSS('../../scripts/flatpickr.min.css');
   const schcodeFromStorage = localStorage.getItem('schcodeactive');
   const fundData = dataCfObj.find(
@@ -358,13 +500,6 @@ export default function decorate(block) {
     )
   );
 
-  // if(window.location.href.includes('funds-details-page'){
-  //       buyBtn =  button({class : 'buy-now-btn'},'BUY NOW'),
-  //       button({class : 'start-now'},'Start Now'),
-  //       }else{
-  //          button({ class: 'invest-btn' }, ctaLabel),
-  //       })
-
   // Tooltip
   const tooltip = div(
     { class: 'sip-tooltip hide' },
@@ -530,37 +665,6 @@ export default function decorate(block) {
 
   // ADDED: A variable to store the user-selected date
   let originalSipDate = '';
-
-  // 5. Initialize flatpickr
-  // const fpInstance = window.flatpickr(calendarIcon, {
-  //   defaultDate: 'today',
-  //   altInput: false,
-  //   onReady: function (_, __, fp) {
-  //     // fp.calendarContainer.removeAttribute('style');
-  //     if (fp.calendarContainer) { // Add this check
-  //       fp.calendarContainer.removeAttribute('style');
-  //     }
-  //   },
-  //   appendTo: calendarContainer,
-  //   onChange: function (selectedDates, dateStr, instance) {
-  //     const selectedDate = selectedDates[0];
-  //     const day = selectedDate.getDate();
-  //     const month = selectedDate.toLocaleString('default', { month: 'short' });
-  //     const year = selectedDate.getFullYear();
-  //     const formattedDate = `${day} ${month} ${year}`;
-
-  //     sipDateDisplay.textContent = formattedDate;
-
-  //     originalSipDate = formattedDate;
-  //   },
-  //   position: (self, node) => {
-  //     const top = self.element.offsetTop + self.element.offsetHeight + 8;
-  //     const left = self.element.offsetLeft;
-
-  //     node.style.top = `${top}px`;
-  //     node.style.left = `${left}px`;
-  //   },
-  // });
 
   const fpInstance = window.flatpickr(calendarIcon, {
     defaultDate: 'today',
