@@ -98,6 +98,7 @@
   font-family: ButlerPro, sans-serif;
   font-weight: 700;
   margin: 0;
+
   /* padding-bottom: 24px; */
 }
 
@@ -110,6 +111,7 @@
   .tabdiv.tabs-container .default-content-wrapper h4 {
     font-size: 24px;
     line-height: 28px;
+
     /* padding-bottom: 16px; */
   }
 }
@@ -513,7 +515,7 @@ td {
 
 .tabdiv>.default-content-wrapper>p u {
   color: #4338F3;
-  font-family: 'poppins';
+  font-family: poppins;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -667,6 +669,7 @@ td {
 
 
   /* ///////second Tab/////////////// */
+
   /* .periodicreturn .tabs-list {
     display: flex;
     flex-direction: column;
@@ -791,7 +794,9 @@ td {
 .tabs-panel .periodic-returns .fund-title {
   /* min-width: 267px;
   max-width: 267px; */
+
   /* min-width: 272px; */
+
   /* max-width: 272px; */
   min-width: 285px;
   max-width: 285px;
@@ -805,6 +810,7 @@ td {
 
 .tabs-panel .periodic-returns .headgrp1 {
   /* width: 483px; */
+
   /* width: 490px; */
   width: 502px;
   display: flex;
@@ -859,9 +865,12 @@ td {
 
 .tabs-panel .periodic-returns .fund-name-value .fund-name {
   /* max-width: 33.712%; */
+
   /* min-width: 267px;
   max-width: 267px; */
+
   /* min-width: 272px; */
+
   /* max-width: 272px; */
   min-width: 285px;
   max-width: 285px;
@@ -887,6 +896,7 @@ td {
 
 .tabs-panel .periodic-returns .fund-name-value .fund-data-list {
   /* width: 483px; */
+
   /* width: 490px; */
   width: 502px;
   background-color: #fff;
