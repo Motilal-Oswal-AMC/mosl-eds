@@ -1,27 +1,21 @@
-/*    */
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
 export const isDesktop = window.matchMedia('(min-width: 900px)');
 
-function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', expanded);
-  });
-}
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
     if (navSectionExpanded && isDesktop.matches) {
-      //   -next-line no-use-before-define
+      // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections);
       navSectionExpanded.focus();
     } else if (!isDesktop.matches) {
-      //   -next-line no-use-before-define
-      toggleMenu(nav, navSections); //eslint-disable-line
+      // eslint-disable-next-line no-use-before-define
+      toggleMenu(nav, navSections);
       nav.querySelector('button').focus();
     }
   }
@@ -33,11 +27,11 @@ function closeOnFocusLost(e) {
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
     if (navSectionExpanded && isDesktop.matches) {
-      //   -next-line no-use-before-define
+      // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections, false);
     } else if (!isDesktop.matches) {
-      //   -next-line no-use-before-define
-      toggleMenu(nav, navSections, false); //eslint-disable-line
+      // eslint-disable-next-line no-use-before-define
+      toggleMenu(nav, navSections, false);
     }
   }
 }
@@ -47,7 +41,7 @@ function openOnKeydown(e) {
   const isNavDrop = focused.className === 'nav-drop';
   if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
     const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
-    //   -next-line no-use-before-define
+    // eslint-disable-next-line no-use-before-define
     toggleAllNavSections(focused.closest('.nav-sections'));
     focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
   }
@@ -62,6 +56,11 @@ function focusNavSection() {
  * @param {Element} sections The container element
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
+function toggleAllNavSections(sections, expanded = false) {
+  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+    section.setAttribute('aria-expanded', expanded);
+  });
+}
 
 /**
  * Toggles the entire nav
@@ -164,32 +163,4 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
-
-  // Language Dropdown
-
-  function initializeLanguageDropdown() {
-    const langDropdownLI = nav.querySelector('.header-top li:has(> p > .icon-arrow-black-down)');
-
-    if (langDropdownLI) {
-      const trigger = langDropdownLI.querySelector('p');
-      langDropdownLI.classList.add('language-dropdown');
-
-      trigger.addEventListener('click', (event) => {
-        event.stopPropagation();
-        langDropdownLI.classList.toggle('dropdown-active');
-      });
-
-      document.addEventListener('click', () => {
-        if (langDropdownLI.classList.contains('dropdown-active')) {
-          langDropdownLI.classList.remove('dropdown-active');
-        }
-      });
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeLanguageDropdown);
-  } else {
-    initializeLanguageDropdown();
-  }
 }
