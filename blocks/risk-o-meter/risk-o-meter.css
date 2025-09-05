@@ -119,7 +119,7 @@
   alt: "";
 }
 
-.section.risk-o-meter-container > div:nth-child(2) {
+.section.risk-o-meter-container > .default-content-wrapper {
   border-top: 0.5px solid #8695AF;
   padding-top: 16px;
   margin: 0 24px 24px;
@@ -130,12 +130,12 @@
 }
 
 @media (width <= 768px) {
-  .section.risk-o-meter-container > div:nth-child(2) {
+  .section.risk-o-meter-container > .default-content-wrapper {
     margin: 0 16px 24px;
   }
 }
 
-.section.risk-o-meter-container > div:nth-child(2) h3 {
+.section.risk-o-meter-container > .default-content-wrapper h3.defone1 {
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -146,13 +146,13 @@
 }
 
 @media (width <= 768px) {
-  .section.risk-o-meter-container > div:nth-child(2) h3 {
+  .section.risk-o-meter-container > .default-content-wrapper h3.defone1 {
     font-size: 14px;
     line-height: 18px;
   }
 }
 
-.section.risk-o-meter-container > div:nth-child(2) h3 a {
+.section.risk-o-meter-container > .default-content-wrapper h3.defone1 a {
   font-size: 18px;
   line-height: 24px;
   color: #5659FA;
@@ -161,29 +161,29 @@
 }
 
 @media (width <= 768px) {
-  .section.risk-o-meter-container > div:nth-child(2) h3 a {
+  .section.risk-o-meter-container > .default-content-wrapper h3.defone1 a {
     font-size: 14px;
     line-height: 18px;
   }
 }
 
-.section.risk-o-meter-container > div:nth-child(2) h3 a:focus-visible {
+.section.risk-o-meter-container > .default-content-wrapper h3.defone1 a:focus-visible {
   outline: 2px dashed #2E2A94;
   outline-offset: 4px;
 }
 
-.section.risk-o-meter-container > div:nth-child(2) ul {
+.section.risk-o-meter-container > .default-content-wrapper ul.defone2 {
   padding-left: 24px;
   margin: 0;
 }
 
 @media (width <= 768px) {
-  .section.risk-o-meter-container > div:nth-child(2) ul {
+  .section.risk-o-meter-container > .default-content-wrapper ul.defone2 {
     margin: 0;
   }
 }
 
-.section.risk-o-meter-container > div:nth-child(2) ul li {
+.section.risk-o-meter-container > .default-content-wrapper ul.defone2 li.defli {
   color: #616161;
   font-family: Poppins, sans-serif;
   font-size: 14px;
@@ -191,38 +191,30 @@
 }
 
 @media (width <= 768px) {
-  .section.risk-o-meter-container > div:nth-child(2) ul li {
+  .section.risk-o-meter-container > .default-content-wrapper ul.defone2 li.defli {
     font-size: 12px;
     line-height: 16px;
   }
 }
 
-.section.risk-o-meter-container > div:nth-child(2) p {
+.section.risk-o-meter-container > .default-content-wrapper p.defone3 {
   color: #616161;
   font-family: Poppins, sans-serif;
   font-size: 14px;
   line-height: 20px;
   margin: 0;
-  /* stylelint-disable-next-line no-descending-specificity */
 }
 
-.section.risk-o-meter-container > div:nth-child(2) p a {
+.section.risk-o-meter-container > .default-content-wrapper p.defone3 a.deftwo1 {
   color: #5659FA;
   text-decoration: none;
 }
 
-.section.risk-o-meter-container > div:nth-child(2) p a:focus-visible {
+.section.risk-o-meter-container > .default-content-wrapper p.defone3 a.deftwo1:focus-visible {
   outline: 2px dashed #5659FA;
   outline-offset: 3px;
 }
 
-/* stylelint-disable no-descending-specificity */
-.modal .close-button .icon.icon-close::before, .modal .close-button .icon.icon-close::after {
-  width: 13px;
-  height: 1.5px;
-}
-
-/* stylelint-enable no-descending-specificity */
 .section.product-label.risk-o-meter-container {
   background: inherit;
   box-shadow: unset;

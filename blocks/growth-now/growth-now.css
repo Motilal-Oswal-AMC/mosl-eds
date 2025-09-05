@@ -111,7 +111,9 @@ main {
     width: 142px;
     height: 173px;
     margin-bottom: -10px;
+    object-fit: cover;
        object-fit: cover;
+    object-position: bottom;
        object-position: bottom;
   }
 }
@@ -259,6 +261,8 @@ main {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  appearance: auto;
+     appearance: auto;
           appearance: auto;
   padding-right: 4px;
 }
@@ -299,6 +303,7 @@ main {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  appearance: auto;
        appearance: auto;
   padding-right: 4px;
 }
@@ -310,6 +315,8 @@ main {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  appearance: auto;
+     appearance: auto;
           appearance: auto;
   padding-right: 4px;
 }
@@ -371,6 +378,7 @@ main {
     right: 24px;
     overflow: hidden;
     height: max-content;
+    height: max-content;
   }
 }
 
@@ -413,7 +421,7 @@ main {
   }
 }
 
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -423,28 +431,28 @@ main {
 }
 
 @media (width <= 768px) {
-  .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child {
+  .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child {
     gap: 12px;
   }
 }
 
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li {
   display: flex;
   align-items: flex-start;
   gap: 8px;
 }
 
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li ul {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li ul li:first-child {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul li:first-child {
   line-height: 0.1px;
 }
 
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li ul li:first-child a {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul li:first-child a.ahreg {
   color: #FFF;
   font-family: Poppins, sans-serif;
   font-size: 12px;
@@ -454,34 +462,13 @@ main {
   cursor: pointer;
 }
 
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li ul li:first-child a:hover {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul li:first-child a.ahreg:hover {
   text-decoration-line: underline;
   opacity: 1 !important;
   color: #fff;
 }
 
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li ul li:nth-child(2) {
-  line-height: 0.1px;
-  /* stylelint-disable-next-line no-descending-specificity */
-}
-
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li ul li:nth-child(2) a {
-  color: #FFF;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 16px;
-  cursor: pointer;
-}
-
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li ul li:nth-child(2) a:hover {
-  text-decoration-line: underline;
-  opacity: 1 !important;
-  color: #fff;
-}
-
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul:first-child > li .icon {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li .icon {
   width: 21px;
   height: 24px;
 }

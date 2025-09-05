@@ -559,7 +559,7 @@
                             // gap: map.get($spacing, md);
                             align-items: flex-start;
 
-                            .section-content1 {
+                            .section-content1{
                                 display: block;
                                 padding-bottom: 18px;
                                 line-height: 0;
@@ -763,10 +763,10 @@
                             .accordion-item-body {
                                 padding-top: 12px;
 
-                                ul {
+                                ul.list-inneritem-1 {
                                     gap: 8px;
 
-                                    li {
+                                    li.list-innerlist {
                                         opacity: 0.8;
 
                                         a {
@@ -814,14 +814,14 @@
                         line-height: rem(16px);
                     }
 
-                    .footer-sub-cont2 {
+                    ul.footer-sub-cont2 {
                         flex-direction: row;
                         gap: map.get($spacing, xxl);
 
                         li {
                             line-height: rem(16px);
 
-                            a {
+                            a.list-items1 {
                                 gap: 4px;
                                 color: #FFF;
                                 font-family: $poppins;
@@ -841,15 +841,15 @@
                             }
                         }
 
-                        .section-content1 {
+                        .section-content1.footerthr {
                             order: unset;
                         }
 
-                        .section-content2 {
+                        .section-content.footerthr {
                             order: unset;
                         }
 
-                        .section-content3 {
+                        .section-content3.footerthr {
                             order: unset;
                         }
                     }

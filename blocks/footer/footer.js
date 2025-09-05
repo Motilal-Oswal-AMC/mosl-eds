@@ -122,4 +122,9 @@ export default async function decorate(block) {
 
   // Init scroll-to-top button
   initScrollToTop();
+  const footercls = block.closest(".footer");
+  Array.from(
+    footercls.querySelector(".footer-section3 .footer-sub-cont2").children).forEach((efthre)=>{
+    efthre.classList.add('footerthr');
+  })
 }
