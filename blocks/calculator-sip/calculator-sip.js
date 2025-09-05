@@ -28,66 +28,80 @@ export default function decorate(block) {
   // ✅ 2. BUILD MAIN CALCULATOR UI
   // -------------------------------
   const calContainer = div(
-    { class: 'cal-container' },
+    { class: "cal-container" },
     // 🔍 Fund search input
     div(
-      { class: 'search-bar-wrapper' },
+      { class: "search-bar-wrapper" },
       span(col1[0].textContent.trim()),
       input({
         value: selectedFund.schDetail.schemeName,
-        type: 'text',
-        placeholder: 'Search a fund',
-        id: 'searchFundInput',
-        role: 'combobox',
-        'aria-label': 'Search for products',
-        'aria-autocomplete': 'list',
-        'aria-expanded': 'false',
-        autocomplete: 'off',
+        type: "text",
+        placeholder: "Search a fund",
+        id: "searchFundInput",
+        role: "combobox",
+        "aria-label": "Search for products",
+        "aria-autocomplete": "list",
+        "aria-expanded": "false",
+        autocomplete: "off",
+        class: "search-bar-inp",
       }),
       img({
-        class: 'cancel-btn',
-        src: '../../icons/input-cancel.svg',
-        alt: 'cancel button',
+        class: "cancel-btn",
+        src: "../../icons/input-cancel.svg",
+        alt: "cancel button",
       }),
-      div({ class: 'search-results-wrapper' }, ul({ id: 'searchResults', role: 'listbox' })),
-      span({ class: 'search-error error-hide' }, 'Fund not found'),
+      div(
+        { class: "search-results-wrapper" },
+        ul({ id: "searchResults", role: "listbox" })
+      ),
+      span({ class: "search-error error-hide" }, "Fund not found")
     ),
 
     div(
-      { class: 'spi-wrapper' },
+      { class: "spi-wrapper" },
       // 🔄 SIP & Lumpsum toggle
       div(
-        { class: 'scheme-btns-wrapper' },
-        button({ class: 'sip-btn active' }, col1[2].textContent.trim()),
-        button({ class: 'lumpsum-btn' }, col1[3].textContent.trim()),
+        { class: "scheme-btns-wrapper" },
+        button(
+          { class: "sip-btn active scheme-btn" },
+          col1[2].textContent.trim()
+        ),
+        button({ class: "lumpsum-btn scheme-btn" }, col1[3].textContent.trim())
       ),
 
       // 🔀 Direct/Regular toggle & plan options
       div(
-        { class: 'plan-options-wrapper' },
+        { class: "plan-options-wrapper" },
         div(
-          { class: 'plan-type-toggle' },
-          span({ class: 'toggle-label active' }, 'Direct'),
-          label({ class: 'toggle-switch' }, input({ type: 'checkbox', id: 'planToggle' }), span({ class: 'slider' })),
-          span({ class: 'toggle-label' }, 'Regular'),
+          { class: "plan-type-toggle" },
+          span({ class: "toggle-label active" }, "Direct"),
+          label(
+            { class: "toggle-switch" },
+            input({ type: "checkbox", id: "planToggle" }),
+            span({ class: "slider" })
+          ),
+          span({ class: "toggle-label" }, "Regular")
         ),
         div(
-          { class: 'plan-option-select custom-select-plan' },
-          div({ class: 'select-selected-plan' }, 'Growth'),
-          div({ class: 'select-options-plan' }),
-          input({ type: 'hidden', id: 'planOption', value: 'Growth' }),
-        ),
+          { class: "plan-option-select custom-select-plan" },
+          div({ class: "select-selected-plan" }, "Growth"),
+          div({ class: "select-options-plan" }),
+          input({ type: "hidden", id: "planOption", value: "Growth" })
+        )
       ),
 
       // 💰 Amount input & tenure dropdown
       div(
-        { class: 'investment-wrapper' },
+        { class: "investment-wrapper" },
         div(
-          { class: 'sip-wrapper' },
-          label({ class: 'labelforsip' }, col2[0].textContent.trim()),
-          label({ class: 'labelforlumsum', style: 'display:none' }, col2[1].textContent.trim()),
+          { class: "sip-wrapper" },
+          label({ class: "labelforsip" }, col2[0].textContent.trim()),
+          label(
+            { class: "labelforlumsum", style: "display:none" },
+            col2[1].textContent.trim()
+          ),
           div(
-            { class: 'input-with-symbol' },
+            { class: "input-with-symbol" },
             // input({
             //   type: 'number',
             //   value: col2[2].textContent.trim(),
@@ -95,48 +109,58 @@ export default function decorate(block) {
             //   placeholder: 'Enter amount',
             // }),
             input({
-              type: 'text', // Changed from 'number'
-              inputmode: 'numeric', // Keeps numeric keyboard on mobile
-              value: Number(col2[2].textContent.trim()).toLocaleString('en-IN'), // Format the initial value
-              id: 'investmentAmount',
-              placeholder: 'Enter amount',
-            }),
+              type: "text", // Changed from 'number'
+              inputmode: "numeric", // Keeps numeric keyboard on mobile
+              value: Number(col2[2].textContent.trim()).toLocaleString("en-IN"), // Format the initial value
+              id: "investmentAmount",
+              placeholder: "Enter amount",
+              class: "investment-inp",
+            })
           ),
-          span({ class: 'amount-error error-hide' }, 'Amount must be between 500 and 1000000'),
-
+          span(
+            { class: "amount-error error-hide" },
+            "Amount must be between 500 and 1000000"
+          )
         ),
         div(
-          { class: 'tenure-wrapper custom-select' },
-          label(col2[3].textContent.trim()),
-          div({ class: 'select-selected' }, `${col3[0].textContent.trim()} Years`),
-          div({ class: 'select-options', role: 'listbox' }),
-          input({ type: 'hidden', id: 'investmentTenure', value: col3[0].textContent.trim() }),
-        ),
-      ),
+          { class: "tenure-wrapper custom-select" },
+          label({ class: "tenure-label" }, col2[3].textContent.trim()),
+          div(
+            { class: "select-selected" },
+            `${col3[0].textContent.trim()} Years`
+          ),
+          div({ class: "select-options", role: "listbox" }),
+          input({
+            type: "hidden",
+            id: "investmentTenure",
+            value: col3[0].textContent.trim(),
+          })
+        )
+      )
     ),
     div(
-      { class: 'incal-wrapper' },
+      { class: "incal-wrapper" },
       // 📈 Invested amount & calculation
       div(
-        { class: 'invested-amount' },
-        label(col3[1].textContent.trim()),
-        span({ class: 'invested-amount-value' }, col3[2].textContent.trim()),
+        { class: "invested-amount" },
+        label({ class: "invested-label" }, col3[1].textContent.trim()),
+        span({ class: "invested-amount-value" }, col3[2].textContent.trim())
       ),
       div(
-        { class: 'cal-discription' },
+        { class: "cal-discription" },
         div(
-          { class: 'current-value-wrapper' },
+          { class: "current-value-wrapper" },
           label(col3[3].textContent.trim()),
-          span({ class: 'current-value' }, '0'),
+          span({ class: "current-value" }, "0")
         ),
         div(
-          { class: 'return-cagr-wrapper' },
+          { class: "return-cagr-wrapper" },
           label(col4[1].textContent.trim()),
-          span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}  %`),
+          span({ class: "return-cagr" }, `${returnCAGR.toFixed(2)}  %`)
         ),
-        div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
-      ),
-    ),
+        div({ class: "start-sip-btn" }, button(col4[3].textContent.trim()))
+      )
+    )
   );
 
   // 🔗 View other calculators

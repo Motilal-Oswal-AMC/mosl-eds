@@ -313,6 +313,11 @@ const initComponent = (selector, prefixes) => {
     dataMapMoObj.CLASS_PREFIXES = prefixes;
     dataMapMoObj.addIndexed(el);
   }
+  if (document.querySelector(".quicksubactmain2") !== null) {
+    Array.from(document.querySelector(".quicksubactmain2").children).forEach((elmain) => {
+      elmain.classList.add("quicksubactlist");
+    });
+  }
 };
 
 function loadDelayed() {

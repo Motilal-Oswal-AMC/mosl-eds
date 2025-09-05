@@ -209,7 +209,7 @@
               $poppins);
           }
 
-          input {
+          .search-bar-inp {
             width: 100%;
             color: #2e2a94;
             font-family: $poppins;
@@ -317,7 +317,7 @@
           display: flex;
           gap: map.get($spacing, sm);
 
-          button {
+          .scheme-btn {
             display: flex;
             width: 104px;
             height: 32px;
@@ -363,7 +363,7 @@
             gap: map.get($spacing, xxs);
             align-self: stretch;
 
-            label {
+            .invested-label {
               @include font-style(12px,
                 16px,
                 $color-text-body,
@@ -663,8 +663,8 @@
           //   }
           // }
 
-          /* stylelint-disable-next-line no-descending-specificity */
-          label {
+          .labelforsip,
+          .tenure-label {
             @include font-style(12px,
               16px,
               $color-text-body,
@@ -676,8 +676,7 @@
             }
           }
 
-          /* stylelint-disable-next-line no-descending-specificity */
-          input,
+          .investment-inp,
           select {
             border: none;
             background-color: transparent;
@@ -891,7 +890,6 @@
     gap: 0;
   }
 
-  /* stylelint-disable-next-line no-descending-specificity */
   .compounding-two-inner {
     max-width: 100%;
     width: 100%;
@@ -903,11 +901,9 @@
       gap: 24px;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
     .default-content-wrapper {
       width: 100%;
 
-      /* stylelint-disable-next-line no-descending-specificity */
       .icon {
         width: 48px;
         height: 48px;
@@ -948,7 +944,6 @@
         }
       }
 
-      /* stylelint-disable-next-line no-descending-specificity */
       p {
         display: none;
 
@@ -979,16 +974,13 @@
 
       }
 
-      /* stylelint-disable-next-line no-descending-specificity */
       .cal-container {
         max-width: 100%;
         width: 100%;
         padding: 0;
 
         .search-bar-wrapper {
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          input {
+          .search-bar-inp {
             color: #2e2a94;
             background: url('../../icons/search-icon.svg') no-repeat right 12px center;
 
@@ -999,8 +991,6 @@
         }
 
         .search-results-wrapper {
-
-          /* stylelint-disable-next-line no-descending-specificity */
           ul {
             font-family: Poppins, sans-serif;
             border: 1px solid #eee;
@@ -1008,17 +998,14 @@
           }
         }
 
-        /* stylelint-disable-next-line no-descending-specificity */
         .scheme-btns-wrapper {
           display: flex;
           gap: 8px;
 
-          /* stylelint-disable-next-line no-descending-specificity */
-          button {
+          .scheme-btn {
             border: 1px solid #bdbdbd;
             background: #fafafa;
 
-            /* stylelint-disable-next-line no-descending-specificity */
             &.active {
               background: #edf1ff;
               color: #2e2a94;
@@ -1028,15 +1015,12 @@
         }
 
         .invested-amount {
-
-          /* stylelint-disable-next-line no-descending-specificity */
           span {
             color: #2b2e8c;
             position: relative;
             padding-left: 10px;
           }
 
-          /* stylelint-disable-next-line no-descending-specificity */
           span::before {
             content: "₹";
             position: absolute;
@@ -1053,8 +1037,6 @@
         .plan-options-wrapper {
           .plan-type-toggle {
             .toggle-switch {
-
-              /* stylelint-disable-next-line no-descending-specificity */
               .slider {
                 inset: 0;
                 transition: 0.4s;
@@ -1063,7 +1045,6 @@
           }
         }
 
-        /* stylelint-disable-next-line no-descending-specificity */
         .investment-wrapper {
           @include media(mobile) {
             flex-direction: column;
@@ -1071,13 +1052,11 @@
             text-align: left;
           }
 
-          /* stylelint-disable-next-line no-descending-specificity */
           .tenure-wrapper select {
             padding-right: 32px;
             cursor: pointer;
           }
 
-          /* stylelint-disable-next-line no-descending-specificity */
           .cal-discription {
             display: flex;
             flex-wrap: wrap;
@@ -1104,14 +1083,12 @@
               }
             }
 
-            /* stylelint-disable-next-line no-descending-specificity */
             .start-sip-btn {
               @include media(mobile) {
                 position: static;
                 width: 100%;
               }
 
-              /* stylelint-disable-next-line no-descending-specificity */
               button {
                 position: absolute;
                 right: 0;
@@ -1128,7 +1105,6 @@
         }
       }
 
-      /* stylelint-disable-next-line no-descending-specificity */
       .view-btn-cal {
         display: none;
 
@@ -1142,16 +1118,14 @@
     }
   }
 
-  /* stylelint-disable-next-line no-descending-specificity */
   .default-content-wrapper {
     @include media(mobile) {
       padding-top: 16px;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
     p:nth-child(1) {
       margin-bottom: 20px;
- /* stylelint-disable-next-line no-descending-specificity */
+
       strong {
         font-weight: 400;
         color: $primary-blue;
@@ -1168,7 +1142,6 @@
         $poppins);
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
     ul {
       padding-left: map.get($spacing, md);
     }

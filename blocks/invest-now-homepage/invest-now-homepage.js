@@ -253,6 +253,7 @@ export async function existingUser(paramblock) {
   const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');
   const mod2 = closestParam.querySelector('.fdp-kyc-form .icon-modal-btn');
   const mod3 = closestParam.querySelector('.otp-fdp .icon-modal-btn');
+  closestParam.querySelector(".pan-details-modal")
 
   function hideFormsClick(btn) {
     const card2 = closestParam.querySelector('.our-popular-funds')

@@ -125,16 +125,6 @@
   height: 265px;
 }
 
-.broaden-your-research-container .broaden-your-research__title {
-  width: 100%;
-  margin-bottom: 40px;
-  font-family: ButlerPro, sans-serif;
-  color: #2e2a94;
-  font-weight: 700;
-  line-height: 1.2;
-  font-size: clamp(2rem, 5vw, 2.75rem);
-}
-
 .broaden-your-research-container .broaden-your-research .card-wrap {
   display: flex;
   flex-direction: column;
@@ -245,12 +235,12 @@
   height: 20px;
 }
 
-.broaden-your-research-container .broaden-your-research .card-wrap--promoted {
+.broaden-your-research-container .broaden-your-research .card-wrap-promoted {
   transform: translateY(-32px);
 }
 
 @media (width <= 768px) {
-  .broaden-your-research-container .broaden-your-research .card-wrap--promoted {
+  .broaden-your-research-container .broaden-your-research .card-wrap-promoted {
     transform: unset;
   }
 }

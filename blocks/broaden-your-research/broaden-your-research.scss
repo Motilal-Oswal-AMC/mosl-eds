@@ -111,12 +111,12 @@
             }
         }
 
-        &__title {
-            width: 100%;
-            margin-bottom: map.get($spacing, 'xxl');
+        // &__title {
+        //     width: 100%;
+        //     margin-bottom: map.get($spacing, 'xxl');
 
-            @include typography-h2;
-        }
+        //     @include typography-h2;
+        // }
 
         // --- Card Component ---
         .card-wrap {
@@ -231,7 +231,7 @@
                 }
             }
 
-            &--promoted {
+            &-promoted {
                 transform: translateY(calc(-1 * map.get($spacing, 'xl')));
 
                 @include media(mobile) {
