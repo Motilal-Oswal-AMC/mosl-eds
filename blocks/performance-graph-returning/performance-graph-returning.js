@@ -1,10 +1,12 @@
-/* eslint-disable */
+/*  */
 import {
   div, p, span, a, button,
 } from '../../scripts/dom-helpers.js';
-import * as am5 from '../../scripts/index.js';
-import * as am5xy from '../../scripts/xy.js';
 // eslint-disable-next-line no-unused-vars
+import * as am5 from '../../scripts/index.js';
+// eslint-disable-next-line no-unused-vars
+import * as am5xy from '../../scripts/xy.js';
+// eslint-disable-next-line no-unused-vars, camelcase
 import * as am5themes_Animated from '../../scripts/Animated.js';
 import chartsDataReturn from './datareturn.js';
 import { initObserver, myAPI } from '../../scripts/scripts.js';
@@ -267,10 +269,10 @@ export default function decorate(block) {
       let key; let
         chartArray;
       if (useLiveAPI) {
-        key = Object.keys(parsedChartData.data.response)[0];
+        [key] = Object.keys(parsedChartData.data.response);
         chartArray = parsedChartData.data.response[key];
       } else {
-        key = Object.keys(parsedChartData)[0];
+        [key] = Object.keys(parsedChartData);
         chartArray = parsedChartData[key];
       }
       const filteredData = filterChartData(chartArray, filter);
@@ -292,7 +294,7 @@ export default function decorate(block) {
         renderGraph(chartData);
       });
     } catch (error) {
-      console.error('Error loading chart data:', error);
+      // console.error('Error loading chart data:', error);
     }
   }
   // ---------- FILTER BAR ----------

@@ -5,7 +5,7 @@ import chartsData from './data.js';
 import * as am5 from '../../scripts/index.js';
 // eslint-disable-next-line no-unused-vars
 import * as am5xy from '../../scripts/xy.js';
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars, camelcase
 import * as am5themes_Animated from '../../scripts/Animated.js';
 import {
   div, p, h4, span,
