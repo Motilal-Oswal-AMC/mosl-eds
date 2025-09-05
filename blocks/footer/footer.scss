@@ -274,12 +274,11 @@
                         padding: 0;
                         padding-bottom: 24px;
 
-                        ul {
+                        ul.list-inneritem-1 {
                             display: flex;
                             flex-direction: column;
                             gap: 12px;
 
-                            /* stylelint-disable-next-line no-descending-specificity */
                             li {
                                 padding: 0;
                                 color: #FFF;
@@ -334,10 +333,8 @@
                         align-items: center;
                         gap: 8px;
 
-                        p {
-
-                            /* stylelint-disable-next-line no-descending-specificity */
-                            a {
+                        p.list-items1 {
+                            a.list-inneritem-1 {
                                 display: flex;
                                 align-items: center;
 
@@ -349,8 +346,8 @@
                         }
 
                         .list-items2 {
-                            li {
-                                a {
+                            li.item-list {
+                                a.item-anchor {
                                     color: #FFF;
                                     font-family: $poppins;
                                     font-size: rem(12px);
@@ -403,9 +400,7 @@
                     gap: 12px 32px;
 
                     li {
-
-                        /* stylelint-disable-next-line no-descending-specificity */
-                        a {
+                        a.list-items1 {
                             @include flex-center($justify: flex-start);
 
                             gap: 4px;
@@ -416,8 +411,7 @@
                             font-weight: 400;
                             line-height: normal;
 
-                            /* stylelint-disable-next-line no-descending-specificity */
-                            span {
+                            span.list-inneritem-1 {
                                 display: flex;
                                 width: 16px;
                                 height: 16px;
@@ -656,8 +650,7 @@
                         padding: 0;
                     }
 
-                    /* stylelint-disable-next-line no-descending-specificity */
-                    .footer-sub-cont2 {
+                    ul.footer-sub-cont2 {
                         width: 53.62%;
 
                         form {
@@ -776,7 +769,6 @@
                                     li {
                                         opacity: 0.8;
 
-                                        /* stylelint-disable-next-line no-descending-specificity */
                                         a {
                                             font-family: $poppins;
                                             font-size: rem(12px);
@@ -822,16 +814,13 @@
                         line-height: rem(16px);
                     }
 
-                    /* stylelint-disable-next-line no-descending-specificity */
                     .footer-sub-cont2 {
                         flex-direction: row;
                         gap: map.get($spacing, xxl);
 
-                        /* stylelint-disable-next-line no-descending-specificity */
                         li {
                             line-height: rem(16px);
 
-                            /* stylelint-disable-next-line no-descending-specificity */
                             a {
                                 gap: 4px;
                                 color: #FFF;
@@ -841,7 +830,6 @@
                                 font-weight: 400;
                                 line-height: normal;
 
-                                /* stylelint-disable-next-line no-descending-specificity */
                                 .icon {
                                     display: flex;
                                     width: 16px;
@@ -853,17 +841,14 @@
                             }
                         }
 
-                        /* stylelint-disable-next-line no-descending-specificity */
                         .section-content1 {
                             order: unset;
                         }
 
-                        /* stylelint-disable-next-line no-descending-specificity */
                         .section-content2 {
                             order: unset;
                         }
 
-                        /* stylelint-disable-next-line no-descending-specificity */
                         .section-content3 {
                             order: unset;
                         }

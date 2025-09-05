@@ -80,8 +80,23 @@ export default async function decorate(block) {
     'footer-sub-cont',
     'section-content',
     'list-items',
+    'list-inneritem-',
   ];
   dataMapMoObj.addIndexed(block);
+
+  block.querySelectorAll('.accordion-item-body .list-inneritem-1').forEach((ele)=>{
+    Array.from(ele.children).forEach((el)=>{
+      el.classList.add('list-innerlist');
+    })
+  })
+
+  Array.from(block.querySelector(".list-items2").children).forEach((lieltwo) => {
+    lieltwo.classList.add('item-list');
+    Array.from(lieltwo.children).forEach((elrt) => {
+      elrt.classList.add('item-anchor');
+    });
+  });
+  
 
   // open all footer accordions by default
   const acccontain = block.querySelector('.footer-sub2 .accordion')?.children;
