@@ -1,11 +1,13 @@
 /* eslint-disable */
-import { div, p, span, a, button } from '../../scripts/dom-helpers.js';
+import {
+  div, p, span, a, button,
+} from '../../scripts/dom-helpers.js';
 import * as am5 from '../../scripts/index.js';
 import * as am5xy from '../../scripts/xy.js';
 // eslint-disable-next-line no-unused-vars
 import * as am5themes_Animated from '../../scripts/Animated.js';
-import chartsDataReturn from '../performance-graph-returning/datareturn.js';
-import { initObserver } from '../../scripts/scripts.js';
+import chartsDataReturn from './datareturn.js';
+import { initObserver, myAPI } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   // Extract authored content
@@ -13,14 +15,14 @@ export default function decorate(block) {
   if (container) {
     const defaultContent = container.querySelector('.default-content-wrapper');
     const performanceWrapper = container.querySelector(
-      '.performance-graph-returning-wrapper'
+      '.performance-graph-returning-wrapper',
     );
 
     if (
-      defaultContent &&
-      performanceWrapper &&
-      !defaultContent.parentElement.classList.contains(
-        'performance-graph-wrapper'
+      defaultContent
+      && performanceWrapper
+      && !defaultContent.parentElement.classList.contains(
+        'performance-graph-wrapper',
       )
     ) {
       const newWrapper = document.createElement('div');
@@ -41,176 +43,6 @@ export default function decorate(block) {
   let root = null;
   const useLiveAPI = true;
 
-  // ---------- FILTER BAR ----------
-  const filterBar = div({ class: 'chart-filter-bar' });
-  const filters = ['1M', '3M', '6M', '1Y', '3Y', '5Y', 'All'];
-  let activeFilter = 'All';
-
-  filters.forEach((filter) => {
-    const btn = button({ class: 'filter-btn' }, filter);
-    if (filter === activeFilter) btn.classList.add('active');
-
-    btn.addEventListener('click', () => {
-      activeFilter = filter;
-      filterBar
-        .querySelectorAll('button')
-        .forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      showGraph(activeFilter);
-    });
-    // filterBar.append(btn);
-  });
-
-  // ---------- FUND HEADER ----------
-  const fundHeader = div(
-    { class: 'fund-header' },
-    div(
-      { class: 'fund-details' },
-      div(
-        { class: 'fund-identity' },
-        p({ class: 'fund-note' }, fundNote),
-        p({ class: 'fund-name' }, fundName)
-      ),
-      div(
-        { class: 'fund-meta' },
-        div(
-          { class: 'fund-tags-wrapper' },
-          div(
-            { class: 'fund-tags-main' },
-            span({ class: 'fund-tag' }, 'Indian Equity')
-          ),
-          div(
-            { class: 'fund-tags-main' },
-            span({ class: 'fund-tag' }, 'Large and Mid Cap')
-          )
-        ),
-        div(
-          { class: 'fund-returns-main' },
-          // p({ class: 'fund-returns' },
-          //   'Returns ',
-          //   span({ class: 'value' }, '15.28%'),
-          // )
-          span({ class: 'fund-returns' }, 'Returns '),
-          span({ class: 'value' }, '15.28%')
-        )
-      )
-    ),
-    div(
-      { class: 'invest-now-btn' },
-      a({ href: ctaLink, class: 'button button-desktop' }, ctaText)
-    )
-  );
-
-  const mobileInvestButton = div(
-    { class: 'invest-now-btn-mobile' },
-    a({ href: ctaLink, class: 'button button-mobile' }, ctaText)
-  );
-
-  // ---------- CHART DIV ----------
-  const chartDiv1 = div({ id: 'chartdiv1' });
-  chartDiv1.style.width = '100%';
-
-  block.innerHTML = '';
-  block.append(fundHeader, filterBar, chartDiv1, mobileInvestButton);
-
-  // ---------- FILTER FUNCTION ----------
-
-  function filterChartData(data, filter) {
-    if (!data || data.length === 0) return [];
-    const sortedData = data.sort(
-      (a, b) => new Date(a.navdate) - new Date(b.navdate)
-    );
-    if (filter === 'All') return sortedData;
-    const latestDate = new Date(sortedData[sortedData.length - 1].navdate);
-    const daysMap = {
-      '1M': 30,
-      '3M': 90,
-      '6M': 180,
-      '1Y': 365,
-      '3Y': 1095,
-      '5Y': 1825,
-    };
-    const days = daysMap[filter];
-    if (!days) return sortedData;
-    const cutoffDate = new Date(
-      latestDate.getTime() - days * 24 * 60 * 60 * 1000
-    );
-    const filtered = sortedData.filter(
-      (item) => new Date(item.navdate) >= cutoffDate
-    );
-    return filtered.length > 0 ? filtered : sortedData;
-  }
-
-  // ---------- API CALL (Modernized with fetch) ----------
-  async function myAPI(method, url, body = null) {
-    const options = { method };
-    if (body) {
-      options.headers = { 'Content-Type': 'application/json' };
-      options.body = JSON.stringify(body);
-    }
-    const response = await fetch(url, options);
-    if (!response.ok) throw new Error(`Request failed: ${response.status}`);
-    const text = await response.text();
-    try {
-      return JSON.parse(text);
-    } catch (e) {
-      return text;
-    }
-  }
-
-  // ---------- LOAD DATA ----------
-  async function showGraph(filter) {
-    try {
-      let parsedChartData;
-      if (useLiveAPI) {
-        const requestData = {
-          api_name: 'PerformanceGraphNew',
-          cmt_schcode: '26136',
-          graphType: 'Lumpsum',
-          invamount: '10000',
-          isCompare: '',
-          isin: 'INF247L01502',
-          period: 'Y',
-          schcode: 'CP',
-        };
-        parsedChartData = await myAPI(
-          'POST',
-          'https://www.motilaloswalmf.com/mutualfund/api/v1/PerformanceGraphNew',
-          requestData
-        );
-      } else {
-        parsedChartData = chartsDataReturn;
-      }
-      if (useLiveAPI) {
-        var key = Object.keys(parsedChartData.data.response)[0];
-        var chartArray = parsedChartData.data.response[key];
-      } else {
-        var key = Object.keys(parsedChartData)[0];
-        var chartArray = parsedChartData[key];
-      }
-      const filteredData = filterChartData(chartArray, filter);
-
-      // // ✅ Add this line to downsample the data
-      // const sampledData = downsampleData(filteredData, 30);
-
-      // // ✅ Use the new sampledData array here
-      // const chartData = sampledData.map((item) => ({
-      //   date: new Date(item.navdate).getTime(),
-      //   value1: parseFloat(item.marketValue_Scheme),
-      // }));
-
-      const chartData = filteredData.map((item) => ({
-        date: new Date(item.navdate).getTime(),
-        value1: parseFloat(item.marketValue_Scheme),
-      }));
-      initObserver(block, () => {
-        renderGraph(chartData);
-      });
-    } catch (error) {
-      console.error('Error loading chart data:', error);
-    }
-  }
-
   // ---------- RENDER GRAPH (Corrected & Cleaned) ----------
 
   function renderGraph(chartData) {
@@ -228,7 +60,7 @@ export default function decorate(block) {
         wheelX: 'panX',
         wheelY: 'zoomX',
         pinchZoomX: true,
-      })
+      }),
     );
 
     // ✅ Set the cursor to a pointer on hover
@@ -239,14 +71,14 @@ export default function decorate(block) {
       window.am5xy.XYCursor.new(root, {
         lineY: { visible: false },
         lineX: { visible: true }, // ✅ Enable the vertical line
-      })
+      }),
     );
 
     // --- Y-Axis Configuration
     const yAxis = chart.yAxes.push(
       window.am5xy.ValueAxis.new(root, {
         renderer: window.am5xy.AxisRendererY.new(root, {}),
-      })
+      }),
     );
     const yRenderer = yAxis.get('renderer');
     yRenderer.labels.template.set('forceHidden', true);
@@ -271,7 +103,7 @@ export default function decorate(block) {
           // ✨ Set the format for the tooltip when hovering over the axis
           dateFormat: 'MMM yyyy',
         }),
-      })
+      }),
     );
 
     const xRenderer = xAxis.get('renderer');
@@ -318,7 +150,7 @@ export default function decorate(block) {
         valueYField: 'value1',
         valueXField: 'date',
         tensionX: 0.8,
-      })
+      }),
     );
 
     // series.strokes.template.setAll({
@@ -340,7 +172,7 @@ export default function decorate(block) {
     // --- Tooltip Configuration ---
     const tooltip = window.am5.Tooltip.new(root, {
       // labelText: 'NAV on {valueX.formatDate('dd MMM yyyy')}\n• {valueY}',
-      labelHTML: `NAV on {valueX.formatDate('dd MMM yyyy')}<br><span style='color: #7986FD; font-weight: bold;'>●</span> {valueY}`,
+      labelHTML: 'NAV on {valueX.formatDate(\'dd MMM yyyy\')}<br><span style=\'color: #7986FD; font-weight: bold;\'>●</span> {valueY}',
       getFillFromSprite: false,
       getStrokeFromSprite: false,
       autoTextColor: false,
@@ -381,6 +213,176 @@ export default function decorate(block) {
     series.appear(1000);
     chart.appear(1000, 100);
   }
+
+  // ---------- FILTER FUNCTION ----------
+  function filterChartData(data, filter) {
+    if (!data || data.length === 0) return [];
+    const sortedData = data.sort(
+      (ato, b) => new Date(ato.navdate) - new Date(b.navdate),
+    );
+    if (filter === 'All') return sortedData;
+    const latestDate = new Date(sortedData[sortedData.length - 1].navdate);
+    const daysMap = {
+      '1M': 30,
+      '3M': 90,
+      '6M': 180,
+      '1Y': 365,
+      '3Y': 1095,
+      '5Y': 1825,
+    };
+    const days = daysMap[filter];
+    if (!days) return sortedData;
+    const cutoffDate = new Date(
+      latestDate.getTime() - days * 24 * 60 * 60 * 1000,
+    );
+    const filtered = sortedData.filter(
+      (item) => new Date(item.navdate) >= cutoffDate,
+    );
+    return filtered.length > 0 ? filtered : sortedData;
+  }
+
+  // ---------- LOAD DATA ----------
+  async function showGraph(filter) {
+    try {
+      let parsedChartData;
+      if (useLiveAPI) {
+        const requestData = {
+          api_name: 'PerformanceGraphNew',
+          cmt_schcode: '26136',
+          graphType: 'Lumpsum',
+          invamount: '10000',
+          isCompare: '',
+          isin: 'INF247L01502',
+          period: 'Y',
+          schcode: 'CP',
+        };
+        parsedChartData = await myAPI(
+          'POST',
+          'https://www.motilaloswalmf.com/mutualfund/api/v1/PerformanceGraphNew',
+          requestData,
+        );
+      } else {
+        parsedChartData = chartsDataReturn;
+      }
+      let key; let
+        chartArray;
+      if (useLiveAPI) {
+        key = Object.keys(parsedChartData.data.response)[0];
+        chartArray = parsedChartData.data.response[key];
+      } else {
+        key = Object.keys(parsedChartData)[0];
+        chartArray = parsedChartData[key];
+      }
+      const filteredData = filterChartData(chartArray, filter);
+
+      // // ✅ Add this line to downsample the data
+      // const sampledData = downsampleData(filteredData, 30);
+
+      // // ✅ Use the new sampledData array here
+      // const chartData = sampledData.map((item) => ({
+      //   date: new Date(item.navdate).getTime(),
+      //   value1: parseFloat(item.marketValue_Scheme),
+      // }));
+
+      const chartData = filteredData.map((item) => ({
+        date: new Date(item.navdate).getTime(),
+        value1: parseFloat(item.marketValue_Scheme),
+      }));
+      initObserver(block, () => {
+        renderGraph(chartData);
+      });
+    } catch (error) {
+      console.error('Error loading chart data:', error);
+    }
+  }
+  // ---------- FILTER BAR ----------
+  const filterBar = div({ class: 'chart-filter-bar' });
+  const filters = ['1M', '3M', '6M', '1Y', '3Y', '5Y', 'All'];
+  let activeFilter = 'All';
+
+  filters.forEach((filter) => {
+    const btn = button({ class: 'filter-btn' }, filter);
+    if (filter === activeFilter) btn.classList.add('active');
+
+    btn.addEventListener('click', () => {
+      activeFilter = filter;
+      filterBar
+        .querySelectorAll('button')
+        .forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      showGraph(activeFilter);
+    });
+    // filterBar.append(btn);
+  });
+
+  // ---------- FUND HEADER ----------
+  const fundHeader = div(
+    { class: 'fund-header' },
+    div(
+      { class: 'fund-details' },
+      div(
+        { class: 'fund-identity' },
+        p({ class: 'fund-note' }, fundNote),
+        p({ class: 'fund-name' }, fundName),
+      ),
+      div(
+        { class: 'fund-meta' },
+        div(
+          { class: 'fund-tags-wrapper' },
+          div(
+            { class: 'fund-tags-main' },
+            span({ class: 'fund-tag' }, 'Indian Equity'),
+          ),
+          div(
+            { class: 'fund-tags-main' },
+            span({ class: 'fund-tag' }, 'Large and Mid Cap'),
+          ),
+        ),
+        div(
+          { class: 'fund-returns-main' },
+          // p({ class: 'fund-returns' },
+          //   'Returns ',
+          //   span({ class: 'value' }, '15.28%'),
+          // )
+          span({ class: 'fund-returns' }, 'Returns '),
+          span({ class: 'value' }, '15.28%'),
+        ),
+      ),
+    ),
+    div(
+      { class: 'invest-now-btn' },
+      a({ href: ctaLink, class: 'button button-desktop' }, ctaText),
+    ),
+  );
+
+  const mobileInvestButton = div(
+    { class: 'invest-now-btn-mobile' },
+    a({ href: ctaLink, class: 'button button-mobile' }, ctaText),
+  );
+
+  // ---------- CHART DIV ----------
+  const chartDiv1 = div({ id: 'chartdiv1' });
+  chartDiv1.style.width = '100%';
+
+  block.innerHTML = '';
+  block.append(fundHeader, filterBar, chartDiv1, mobileInvestButton);
+
+  // ---------- API CALL (Modernized with fetch) ----------
+  // async function myAPI(method, url, body = null) {
+  //   const options = { method };
+  //   if (body) {
+  //     options.headers = { 'Content-Type': 'application/json' };
+  //     options.body = JSON.stringify(body);
+  //   }
+  //   const response = await fetch(url, options);
+  //   if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+  //   const text = await response.text();
+  //   try {
+  //     return JSON.parse(text);
+  //   } catch (e) {
+  //     return text;
+  //   }
+  // }
 
   // ---------- INITIAL LOAD ----------
   showGraph(activeFilter);
