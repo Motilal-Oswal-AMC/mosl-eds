@@ -147,67 +147,25 @@ export default async function decorate(block) {
   }
   const dropdownTrigger = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
   const dropdownMenu = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
-  // debugger;
+
   if (dropdownTrigger && dropdownMenu) {
-    // 1. When the trigger is clicked, toggle the dropdown
     dropdownTrigger.addEventListener('click', (event) => {
-      // Stop this click from bubbling up to the document
       event.stopPropagation();
       dropdownMenu.classList.toggle('open');
+      dropdownTrigger.classList.toggle('active');
     });
 
-    // 2. When the dropdown menu itself is clicked, do nothing (and stop the click)
     dropdownMenu.addEventListener('click', (event) => {
-      // This prevents the menu from closing when you click inside it
       event.stopPropagation();
     });
 
-    // 3. CORRECTED: When anywhere else on the page is clicked, close the menu
     document.addEventListener('click', () => {
-      // If the menu is open, close it
       if (dropdownMenu.classList.contains('open')) {
         dropdownMenu.classList.remove('open');
+        dropdownTrigger.classList.remove('active');
       }
     });
   }
-
-  // const triggers = document.querySelectorAll('.navbrand-inner-net1');
-
-  // for (let i = 0; i < triggers.length; i++) {
-  //   const trigger = triggers[i];
-  //   const parent = trigger.closest('.navbrand-sub1');
-  //   const dropdown = parent.querySelector('.navbrand-inner-net2');
-
-  //   if (!dropdown) continue;
-
-  //   trigger.addEventListener('click', (e) => {
-  //     e.preventDefault();
-
-  //     // Close other dropdowns
-  //     const openMenus = document.querySelectorAll('.navbrand-inner-net2.open');
-  //     for (let j = 0; j < openMenus.length; j++) {
-  //       if (openMenus[j] !== dropdown) {
-  //         openMenus[j].classList.remove('open');
-  //       }
-  //     }
-
-  //     // Toggle this dropdown
-  //     dropdown.classList.toggle('open');
-
-  //     // Auto-select first item when opening
-  //     if (dropdown.classList.contains('open')) {
-  //       const firstLink = dropdown.querySelector('a');
-  //       if (firstLink) {
-  //         const allLinks = dropdown.querySelectorAll('a');
-  //         for (let k = 0; k < allLinks.length; k++) {
-  //           allLinks[k].classList.remove('active');
-  //         }
-  //         firstLink.classList.add('active');
-  //       }
-  //     }
-  //   });
-  // }
-
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -220,9 +178,22 @@ export default async function decorate(block) {
         }
       });
     });
+    dataMapMoObj.CLASS_PREFIXES = [
+      'nav-sec-cont',
+      'nav-sec-sec',
+      'nav-sec-sub',
+      'nav-sec-inner-text',
+      'nav-sec-list',
+      'nav-sec-list-content',
+    ];
+    dataMapMoObj.addIndexed(navSections);
   }
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
+    const search = navTools.querySelector('a[href*="search"]');
+    if (search && search.textContent === '') {
+      search.setAttribute('aria-label', 'Search');
+    }
     dataMapMoObj.CLASS_PREFIXES = [
       'nav-tools-cont',
       'nav-tools-sec',
@@ -245,6 +216,27 @@ export default async function decorate(block) {
     ];
     dataMapMoObj.addIndexed(headerTop);
   }
+  const dropTrigger = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text1');
+  const dropMenu = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text2');
+
+  if (dropTrigger && dropMenu) {
+    dropTrigger.addEventListener('click', (event) => {
+      event.stopPropagation();
+      dropMenu.classList.toggle('open');
+      dropTrigger.classList.toggle('active');
+    });
+
+    dropMenu.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+
+    document.addEventListener('click', () => {
+      if (dropMenu.classList.contains('open')) {
+        dropMenu.classList.remove('open');
+        dropTrigger.classList.remove('active');
+      }
+    });
+  }
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
@@ -263,6 +255,8 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
-
+  // if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
+  //   navWrapper.append(await buildBreadcrumbs());
+  // }
   // loadAutoBlock();
 }
