@@ -82,10 +82,71 @@ export async function existingUser(paramblock) {
       const kycForm = closestParam.querySelector('.fdp-kyc-form');
       const panForm = closestParam.querySelector('.pan-details-modal');
       const pansuccessForm = closestParam.querySelector('.otp-fdp');
+      const chclick = pansuccessForm.querySelector('.otp-main-con2');
+      const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
+      chclick.removeAttribute('href');
+      chclick.addEventListener('click', () => {
+        kycForm.style.display = 'none'; // display none kycform
+        panForm.style.display = 'block'; // display none panform
+        pansuccessForm.style.display = 'none'; // display block otp form
+      });
+      resentBtn.removeAttribute('href');
+      resentBtn.addEventListener('click', () => {
+        otpCall();
+      });
       if (isKyc) {
         kycForm.style.display = 'none'; // display none kycform
         panForm.style.display = 'none'; // display none panform
         pansuccessForm.style.display = 'block'; // display block otp form
+        const paninp = pansuccessForm.querySelector('.otp-wrap input');
+        paninp.focus();
+
+        const inputs = pansuccessForm.querySelectorAll('.otp-wrap input');
+        inputs.forEach((inputel, index) => {
+          inputel.setAttribute('maxLength', 1);
+          inputel.addEventListener('input', () => {
+            inputel.value = inputel.value.replace(/[^0-9]/g, '');
+            if (inputel.value.length === 1 && index < inputs.length - 1) {
+              inputs[index + 1].focus();
+            }
+          });
+          inputel.addEventListener('keydown', (event) => {
+            const totalInputs = inputs.length;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+              event.preventDefault();
+            }
+            switch (event.key) {
+              case 'Tab':
+                if (!event.shiftKey && index === totalInputs - 1) {
+                  event.preventDefault();
+                  inputs[0].focus();
+                } else if (event.shiftKey && index === 0) {
+                  event.preventDefault();
+                  inputs[totalInputs - 1].focus();
+                }
+                break;
+
+              case 'ArrowRight':
+                const nextIndex = (index + 1) % totalInputs;
+                inputs[nextIndex].focus();
+                break;
+
+              case 'ArrowLeft':
+                // Move to the previous input, or wrap to the last
+                const prevIndex = (index - 1 + totalInputs) % totalInputs;
+                inputs[prevIndex].focus();
+                break;
+              case 'Backspace':
+                if (inputel.value.length === 0 && index > 0) {
+                  inputs[index - 1].focus();
+                }
+                break;
+              default:
+                break;
+            }
+          });
+        });
+
         otpCall(param);
       } else {
         kycForm.style.display = 'block';
@@ -210,7 +271,7 @@ export async function existingUser(paramblock) {
       '.sub-otp-con4 .inner-otp-con2 .otp-main-con1',
     );
     // added userPanNumber
-    userPanNumberShow.textContent = userPanNumber;
+    userPanNumberShow.textContent = userPanNumber.toUpperCase();
 
     if (userPanNumber === '') {
       checkInput.classList.add('show-error');
@@ -253,7 +314,7 @@ export async function existingUser(paramblock) {
   const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');
   const mod2 = closestParam.querySelector('.fdp-kyc-form .icon-modal-btn');
   const mod3 = closestParam.querySelector('.otp-fdp .icon-modal-btn');
-  closestParam.querySelector(".pan-details-modal")
+  closestParam.querySelector('.pan-details-modal');
 
   function hideFormsClick(btn) {
     const card2 = closestParam.querySelector('.our-popular-funds')

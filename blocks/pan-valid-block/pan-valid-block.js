@@ -270,6 +270,7 @@ export default function decorate(block) {
             'aria-label': 'OTP digit 1 of 6',
             required: true,
             pattern: '[0-9]',
+            tabindex: 1,
           }),
         ),
         div(
@@ -280,6 +281,7 @@ export default function decorate(block) {
             'aria-label': 'OTP digit 2 of 6',
             required: true,
             pattern: '[0-9]',
+            tabindex: 1,
           }),
         ),
         div(
@@ -290,6 +292,7 @@ export default function decorate(block) {
             'aria-label': 'OTP digit 3 of 6',
             required: true,
             pattern: '[0-9]',
+            tabindex: 1,
           }),
         ),
         div(
@@ -300,6 +303,7 @@ export default function decorate(block) {
             'aria-label': 'OTP digit 4 of 6',
             required: true,
             pattern: '[0-9]',
+            tabindex: 1,
           }),
         ),
         div(
@@ -310,6 +314,7 @@ export default function decorate(block) {
             'aria-label': 'OTP digit 5 of 6',
             required: true,
             pattern: '[0-9]',
+            tabindex: 1,
           }),
         ),
         div(
@@ -320,6 +325,7 @@ export default function decorate(block) {
             'aria-label': 'OTP digit 6 of 6',
             required: true,
             pattern: '[0-9]',
+            tabindex: 1,
           }),
         ),
       ),
