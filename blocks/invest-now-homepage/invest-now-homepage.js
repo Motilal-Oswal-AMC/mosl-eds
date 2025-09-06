@@ -406,7 +406,7 @@ export default function decorate(block) {
     'Quarterly',
     'Weekly',
   ];
-  const endDateOptions = ['End Date', 'Until I cancel', 'Select Date'];
+  const endDateOptions = ['Until I cancel', 'Select Date'];
 
   block.innerHTML = '';
 
@@ -683,66 +683,101 @@ export default function decorate(block) {
   const calendarIcon = block.querySelector('.calendar-btn');
   const sipDateDisplay = block.querySelector('.sip-starts-date');
   const calendarContainer = block.querySelector('.invest-now-container');
+  const selDate = block.querySelector('#custom-select-endDate .select-options');
+  const finsel = selDate.querySelector('[data-value="Select Date"]');
+  const dateSel = block.querySelector('#custom-select-endDate .select-selected');
+  function flakterDate(datelement, displayDate) {
+    // ADDED: A variable to store the user-selected date
+    let originalSipDate = '';
+    let oneYearFromNow = new Date();
+    let disabfunc = '';
+    const recurringDay = new Date().getDate();
+    if (datelement.getAttribute('data-value')) {
+      oneYearFromNow.setFullYear(oneYearFromNow.getMonth() + 12);
+      disabfunc = [
+        function (date) {
+          // This function runs for every date in the calendar.
 
-  // ADDED: A variable to store the user-selected date
-  let originalSipDate = '';
+          // A. Find the last day of the month for the date being checked.
+          const year = date.getFullYear();
+          const month = date.getMonth();
+          const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
 
-  const fpInstance = window.flatpickr(calendarIcon, {
-    defaultDate: 'today',
-    altInput: false,
-    appendTo: calendarContainer,
-    disableMobile: true,
+          // B. Determine the correct target day for this month.
+          // If the recurring day (e.g., 31) is greater than the last day of the
+          // current month (e.g., 30 for April), use the last day.
+          const targetDay = Math.min(recurringDay, lastDayOfMonth);
 
-    // FIX 1: Added a safety check to prevent the crash on mobile.
-    onReady(_, __, fp) {
-      if (fp.calendarContainer) {
-        fp.calendarContainer.removeAttribute('style');
-      } else {
-        console.log('somehting is wrong');
-      }
-    },
-    onChange(selectedDates) { // (selectedDates, dateStr, instance) {
-      const selectedDate = selectedDates[0];
-      const day = selectedDate.getDate();
-      const month = selectedDate.toLocaleString('default', { month: 'short' });
-      const year = selectedDate.getFullYear();
-      const formattedDate = `${day} ${month} ${year}`;
+          // C. Disable the date if its day is not the target day.
+          // It returns 'true' (disable) if the days don't match.
+          return date.getDate() !== targetDay;
+        },
+      ];
+    } else {
+      oneYearFromNow = '';
+      disabfunc = true;
+    }
 
-      sipDateDisplay.textContent = formattedDate;
+    const fpInstance = window.flatpickr(datelement, {
+      defaultDate: 'today',
+      minDate: oneYearFromNow,
+      altInput: false,
+      appendTo: calendarContainer,
+      disableMobile: true,
+      // disable: disabfunc,
 
-      // Update the stored date whenever the user picks a new one
-      originalSipDate = formattedDate;
-    },
-    position: (self, node) => {
-      const top = self.element.offsetTop + self.element.offsetHeight + 8;
-      const left = self.element.offsetLeft;
+      // FIX 1: Added a safety check to prevent the crash on mobile.
+      onReady(_, __, fp) {
+        if (fp.calendarContainer) {
+          fp.calendarContainer.removeAttribute('style');
+        } else {
+          console.log('somehting is wrong');
+        }
+      },
+      onChange(selectedDates) { // (selectedDates, dateStr, instance) {
+        const selectedDate = selectedDates[0];
+        const day = selectedDate.getDate();
+        const month = selectedDate.toLocaleString('default', { month: 'short' });
+        const year = selectedDate.getFullYear();
+        const formattedDate = `${day} ${month} ${year}`;
 
-      node.style.top = `${top}px`;
-      node.style.left = `${left}px`;
-    },
+        displayDate.textContent = formattedDate;
+
+        // Update the stored date whenever the user picks a new one
+        originalSipDate = formattedDate;
+      },
+      position: (self, node) => {
+        const top = self.element.offsetTop + self.element.offsetHeight + 8;
+        const left = self.element.offsetLeft;
+
+        node.style.top = `${top}px`;
+        node.style.left = `${left}px`;
+      },
 
     // FIX 2: Removed the entire custom 'position' function.
     // Let flatpickr handle its own positioning, as it's more reliable on mobile.
-  });
-  console.log(fpInstance);
-  // ADDED: Logic for the 'Start Today' checkbox
-  const startTodayCheckbox = block.querySelector('.start-today-checkbox');
+    });
+    console.log(fpInstance);
+    // ADDED: Logic for the 'Start Today' checkbox
+    const startTodayCheckbox = block.querySelector('.start-today-checkbox');
 
-  // Helper function to get today's date in the correct format
+    // Helper function to get today's date in the correct format
 
-  // Initialize the originalSipDate with the value set by flatpickr on load
-  originalSipDate = sipDateDisplay.textContent;
+    // Initialize the originalSipDate with the value set by flatpickr on load
+    originalSipDate = sipDateDisplay.textContent;
 
-  startTodayCheckbox.addEventListener('change', () => {
-    if (startTodayCheckbox.checked) {
+    startTodayCheckbox.addEventListener('change', () => {
+      if (startTodayCheckbox.checked) {
       // If checked, display today's date
-      sipDateDisplay.textContent = getTodaysDateFormatted();
-    } else {
+        sipDateDisplay.textContent = getTodaysDateFormatted();
+      } else {
       // If unchecked, revert to the user's selected date
-      sipDateDisplay.textContent = originalSipDate;
-    }
-  });
-
+        sipDateDisplay.textContent = originalSipDate;
+      }
+    });
+  }
+  flakterDate(calendarIcon, sipDateDisplay);
+  flakterDate(finsel, dateSel);
   // --- CORRECTED CUSTOM DROPDOWN LOGIC ---
   block.querySelectorAll('.custom-select-wrapper').forEach((wrapper) => {
     const selected = wrapper.querySelector('.select-selected');
@@ -767,6 +802,9 @@ export default function decorate(block) {
         selected.textContent = option.textContent;
         hiddenInput.value = option.getAttribute('data-value');
         wrapper.classList.remove('open');
+        if (option.textContent === 'Select Date') {
+          // flakterDate(selected);
+        }
       });
     });
   });
