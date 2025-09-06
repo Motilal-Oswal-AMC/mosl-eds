@@ -347,9 +347,9 @@ main>.section>div {
     /* padding: 0 24px; */
 }
 
-main>.section:first-of-type {
+/* main>.section:first-of-type {
     margin-top: 60px;
-}
+} */
 
 @media (width <=1279px) {
     main>.section>div {
@@ -363,11 +363,11 @@ main>.section:first-of-type {
     }
 }
 
-@media (width <=768px) {
+/* @media (width <=768px) {
     main>.section:first-of-type {
         margin-top: 40px;
     }
-}
+} */
 
 main .section.light,
 main .section.highlight {
@@ -393,9 +393,9 @@ main img {
     width: 100%;
 }
 
-header {
+/* header {
     height: var(--nav-height);
-}
+} */
 
 header .header,
 footer .footer {
@@ -528,9 +528,6 @@ footer .footer[data-block-status="loaded"] {
     background: unset;
 }
 
-
-
-
 @media (width <=768px) {
     .our-popular-funds.modal-active-parent,
     .known-our-funds.modal-active-parent {
@@ -541,7 +538,7 @@ footer .footer[data-block-status="loaded"] {
         background-color: #fff;
     }
 
-    .fdp-card-container .card-modal-overlay{
+    .fdp-card-container .card-modal-overlay {
         padding: 0;
     }
 }
@@ -619,8 +616,9 @@ body.noscroll {
     align-items: center;
     gap: 16px;
 }
-.breadcrumbs-fdp > .default-content-wrapper::-webkit-scrollbar{
-display: none;
+
+.breadcrumbs-fdp>.default-content-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .breadcrumbs-fdp>.default-content-wrapper>ul {
@@ -654,10 +652,9 @@ display: none;
     background: none;
     margin: 0;
     padding: 0;
-    /* 142.857% */
 }
 
-.breadcrumbs-fdp > .default-content-wrapper > ul > li p {
+.breadcrumbs-fdp>.default-content-wrapper>ul>li p {
     color: #424242;
     text-align: center;
     font-family: Poppins;
@@ -670,7 +667,7 @@ display: none;
     padding: 0;
 }
 
-.breadcrumbs-fdp > ul > li:nth-child(3) > a {
+.breadcrumbs-fdp>ul>li:nth-child(3)>a {
     color: #616161;
 
     /* Desktop/Paragraph/Xsmall */
@@ -737,7 +734,7 @@ display: none;
     line-height: 16px;
 }
 
-.breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) .breadcrbmain2 {
+.breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
     max-width: 170px;
     width: 100%;
     background-color: #fff;
@@ -756,15 +753,15 @@ display: none;
     box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
 
-.breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) .ul-active {
+.breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .ul-active {
     display: block;
 }
 
-.breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) ul > li {
+.breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li {
     width: 100%;
 }
 
-.breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) ul > li > a {
+.breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
     width: 100%;
     display: flex;
     gap: 8px;
@@ -788,7 +785,7 @@ position: relative;
         display: none;
     }
 
-    .breadcrumbs-fdp > .default-content-wrapper > ul:nth-child(2) .breadcrbmain2 {
+    .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
         top: 60%;
         right: 24%;
     }
@@ -802,7 +799,7 @@ position: relative;
 
 /* pan modal */
 .pan-details-modal {
-    max-width:  400px;
+    max-width: 400px;
     /* width: 100%; */
     /* background: #0009; */
     display: none;
@@ -810,7 +807,7 @@ position: relative;
 
 }
 
-.pan-details-modal .mainpandts1{
+.pan-details-modal .mainpandts1 {
     display: flex;
     max-width: 400px;
     width: 100%;
@@ -866,7 +863,7 @@ position: relative;
 
 /*hide pan kyc form */
 
-.fdp-kyc-form{
+.fdp-kyc-form {
     display: none;
 }
 
@@ -933,11 +930,7 @@ position: relative;
     position: relative;
 } */
 
-.pan-details-modal
-    .default-content-wrapper
-    p:nth-child(2)
-    > .input-wrapper
-    > .panlabel  {
+.pan-details-modal .default-content-wrapper p:nth-child(2)>.input-wrapper>.panlabel {
     position: absolute;
     top: -7px;
     background: white;
@@ -945,10 +938,7 @@ position: relative;
     transition: top 0.8s ease;
 }
 
-.pan-details-modal
-    .default-content-wrapper
-    p:nth-child(2)
-    >.show-error{
+.pan-details-modal .default-content-wrapper p:nth-child(2)>.show-error {
     display: block;
     color: red;
     font-size: 12px;
@@ -957,10 +947,7 @@ position: relative;
     padding-top: 10px;
 }
 
-.pan-details-modal
-    .default-content-wrapper
-    p:nth-child(2)
-    >.hide-error{
+.pan-details-modal .default-content-wrapper p:nth-child(2)>.hide-error {
     display: none;
 }
 
@@ -978,15 +965,15 @@ position: relative;
     text-transform: uppercase;
 }
 
-.otp-fdp{
+.otp-fdp {
     display: none;
 }
 
-.otp-fdp>.main-otp-con1{
+.otp-fdp>.main-otp-con1 {
     position: relative;
 }
 
-.otp-fdp>.main-otp-con1>.sub-otp-con5{
+.otp-fdp>.main-otp-con1>.sub-otp-con5 {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -996,14 +983,14 @@ position: relative;
     cursor: pointer;
 }
 
-.otp-fdp>.main-otp-con1>.sub-otp-con5>.icon{
-     width: 36px;
+.otp-fdp>.main-otp-con1>.sub-otp-con5>.icon {
+    width: 36px;
     height: 36px;
 }
 
 
 @media (width <=786px) {
-    .pan-details-modal .mainpandts1{
+    .pan-details-modal .mainpandts1 {
         padding: 64px 16px;
         border-radius: 32px 32px 0 0;
     }
