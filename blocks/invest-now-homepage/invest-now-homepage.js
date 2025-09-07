@@ -77,8 +77,10 @@ export async function existingUser(paramblock) {
         request,
       );
       console.log('kyc api response ', rejsin);
-      const isKyc = rejsin.data.kycStatus === 'Y';
-
+      const kycres = rejsin.data.kycStatus;
+      const isKyc = kycres === 'Y';
+      const boolkyc = kycres === 'Y' ? 'true' : 'false';
+      localStorage.setItem('kycstatus', boolkyc);
       const kycForm = closestParam.querySelector('.fdp-kyc-form');
       const panForm = closestParam.querySelector('.pan-details-modal');
       const pansuccessForm = closestParam.querySelector('.otp-fdp');
@@ -311,6 +313,25 @@ export async function existingUser(paramblock) {
         };
       }
 
+      if (window.location.href.includes('/our-funds/funds-details-page')) {
+        const planCodesh = localStorage.getItem('planCode') || 'Direct:LM';
+        const planslabel = planCodesh.split(':')[1];
+        const schemeCode = planslabel;
+        const parcloset = closestParam.querySelector('.fdp-card-container');
+        const paranearby = parcloset.querySelector('.dropdownmidle .selecttext');
+        const planCodenearby = paranearby.getAttribute('dataattr');
+        const dataplan = dataCfObj.filter((eldata) => eldata.schcode === schemeCode);
+        const amcPlanCode = dataplan[0].moAmcCode;
+        const optioncode = dataplan[0].planList
+        .filter((elop) => elop.groupedCode === planCodenearby);
+        const sOptCode = optioncode[0].optionCode; //
+        const { planCode } = optioncode[0];
+        const existingQueryParams = '?';
+
+        const redirectURL = `/quickbuy?fund=${schemeCode}&plan=${planCode}&amcPlan=${amcPlanCode}&option=${sOptCode}${existingQueryParams}&landingPage=true`;
+        localStorage.setItem('prelogin-to-postlogin-redirect-url', redirectURL);
+        localStorage.setItem('prelogin-to-postlogin-clientType', JSON.stringify(rejsin.data));
+      }
       localStorage.setItem(
         'UPDATE_GUEST_MENU',
         JSON.stringify(dataMapMoObj.panDlts.guestMenuState),

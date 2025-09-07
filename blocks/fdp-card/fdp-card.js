@@ -167,6 +167,11 @@ export default function decorate(block) {
       navValue.innerHTML = '';
       navValue.append(Number(navlistarray[0].latnav).toFixed(2));
       navValue.append(span({ class: 'percent' }, '%'));
+
+      const navper = middlediv.querySelector('.nav-percent');
+      navper.textContent = '';
+      navper.textContent = navlistarray[0].navchngper;
+      navper.append(span({ class: 'navper' }, '%'));
     } else {
       const navdiv = middlediv.querySelector('.nav-return-grp .nav-label');
       navdiv.innerHTML = '';
@@ -176,6 +181,11 @@ export default function decorate(block) {
       navValue.innerHTML = '';
       navValue.append(Number(navlistarray[0].latnav).toFixed(2));
       navValue.append(span({ class: 'percent' }, '%'));
+
+      const navper = middlediv.querySelector('.nav-percent');
+      navper.textContent = '';
+      navper.textContent = navlistarray[0].navchngper;
+      navper.append(span({ class: 'navper' }, '%'));
     }
   }
 
@@ -462,7 +472,10 @@ export default function decorate(block) {
                   {
                     class: 'nav-percent',
                   },
-                  '0.41%',
+                  Number(navlistArr[0].navchngper),
+                  span({
+                    class: 'navper',
+                  }, '%'),
                 ),
               ),
             ),
