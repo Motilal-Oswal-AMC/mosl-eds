@@ -64,20 +64,24 @@ export default function decorate(block) {
           class: 'pan-container',
         },
         div(
-          {
-            class: 'pan-input',
-          },
-          label(
+          { class: 'input-wrap' },
+          div(
             {
-              for: '',
+              class: 'pan-input',
             },
-            panlab,
+            label(
+              {
+                for: '',
+              },
+              panlab,
+            ),
+            input({
+              class: 'user-pan-number',
+              type: 'text',
+            }),
+            img({ class: 'pan-image', src: '../../icons/pencil.svg' }),
           ),
-          input({
-            class: 'user-pan-number',
-            type: 'text',
-          }),
-          img({ class: 'pan-image', src: '../../icons/pencil.svg' }),
+          p({ class: 'show-pan-error' }, 'Invalid PAN Number'),
         ),
         div(
           {
@@ -139,72 +143,84 @@ export default function decorate(block) {
           class: 'name-container',
         },
         div(
-          {
-            class: 'name-label pan-fields',
-          },
-          label(
+          { class: 'fdp-inp-wrap' },
+          div(
             {
-              class: 'pan-fields-label',
-              for: '',
+              class: 'name-label pan-fields',
             },
-            namelab,
-          ),
-          input({
-            type: 'text',
-            name: '',
-            id: '',
-            placeholder: 'Name as on PAN',
-            class: 'user-pan-name fdp-valid-form',
-          }),
-        ),
-        div(
-          {
-            class: 'number-label pan-fields',
-          },
-          label(
-            {
-              class: 'pan-fields-label',
-              for: '',
-            },
-            pnlab,
-          ),
-          input({
-            type: 'text',
-            name: '',
-            id: '',
-            placeholder: 'Add Number',
-            class: 'user-number fdp-valid-form',
-          }),
-          p({ class: 'country-code' }, '+91'),
-        ),
-        div(
-          {
-            class: 'email-label pan-fields',
-          },
-          ul(
-            { class: 'list-of-options' },
-            li({ class: 'email' }, 'Email'),
-            li({ class: 'google' }, 'Google'),
-            li({ class: 'Phone' }, 'Phone Number'),
-            li({ class: 'etc' }, 'ETC'),
-            li({ class: 'email' }, 'Email'),
-          ),
-          label(
-            {
-              class: 'pan-fields-label',
-              for: '',
-            },
-            emlab,
-          ),
-          input(
-            {
-              type: 'email',
+            label(
+              {
+                class: 'pan-fields-label',
+                for: '',
+              },
+              namelab,
+            ),
+            input({
+              type: 'text',
               name: '',
               id: '',
-              placeholder: 'Type here',
-              class: 'user-email fdp-valid-form',
-            },
+              placeholder: 'Name as on PAN',
+              class: 'user-pan-name',
+            }),
           ),
+          p({ class: 'name-error error' }, 'Invalid Name'),
+        ),
+        div(
+          { class: 'fdp-inp-wrap' },
+          div(
+            {
+              class: 'number-label pan-fields',
+            },
+            label(
+              {
+                class: 'pan-fields-label',
+                for: '',
+              },
+              pnlab,
+            ),
+            input({
+              type: 'text',
+              name: '',
+              id: '',
+              placeholder: 'Add Number',
+              class: 'user-number',
+            }),
+            p({ class: 'country-code' }, '+91'),
+          ),
+          p({ class: 'number-error error' }, 'Invalid Number'),
+        ),
+        div(
+          { class: 'fdp-inp-wrap' },
+          div(
+            {
+              class: 'email-label pan-fields',
+            },
+            ul(
+              { class: 'list-of-options' },
+              li({ class: 'email' }, 'Email'),
+              li({ class: 'google' }, 'Google'),
+              li({ class: 'Phone' }, 'Phone Number'),
+              li({ class: 'etc' }, 'ETC'),
+              li({ class: 'email' }, 'Email'),
+            ),
+            label(
+              {
+                class: 'pan-fields-label',
+                for: '',
+              },
+              emlab,
+            ),
+            input(
+              {
+                type: 'email',
+                name: '',
+                id: '',
+                placeholder: 'Type here',
+                class: 'user-email',
+              },
+            ),
+          ),
+          p({ class: 'email-error error' }, 'Invalid Email'),
         ),
       ),
     ),

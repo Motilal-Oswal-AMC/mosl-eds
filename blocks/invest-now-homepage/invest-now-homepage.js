@@ -82,6 +82,7 @@ export async function existingUser(paramblock) {
       const kycForm = closestParam.querySelector('.fdp-kyc-form');
       const panForm = closestParam.querySelector('.pan-details-modal');
       const pansuccessForm = closestParam.querySelector('.otp-fdp');
+
       const chclick = pansuccessForm.querySelector('.otp-main-con2');
       const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
       chclick.removeAttribute('href');
@@ -126,16 +127,17 @@ export async function existingUser(paramblock) {
                 }
                 break;
 
-              case 'ArrowRight':
+              case 'ArrowRight': {
                 const nextIndex = (index + 1) % totalInputs;
                 inputs[nextIndex].focus();
                 break;
-
-              case 'ArrowLeft':
+              }
+              case 'ArrowLeft': {
                 // Move to the previous input, or wrap to the last
                 const prevIndex = (index - 1 + totalInputs) % totalInputs;
                 inputs[prevIndex].focus();
                 break;
+              }
               case 'Backspace':
                 if (inputel.value.length === 0 && index > 0) {
                   inputs[index - 1].focus();
@@ -152,13 +154,77 @@ export async function existingUser(paramblock) {
         kycForm.style.display = 'block';
         panForm.style.display = 'none';
         pansuccessForm.style.display = 'none';
-        const userLoginPanNumber = closestParam.querySelector('.user-pan-number'); // input
+        const userLoginPanNumber = closestParam.querySelector('.user-pan-number');
         userLoginPanNumber.value = dataMapMoObj.panDlts.pannumber.toUpperCase();
         userLoginPanNumber.setAttribute('readonly', true);
-
+        const userNm = closestParam.querySelector('.user-pan-name');
+        const userNo = closestParam.querySelector('.user-number');
+        const userem = closestParam.querySelector('.user-email');
+        closestParam.querySelector('#opt1').click();
         const editInput = closestParam.querySelector('.pan-image');
+        userLoginPanNumber.setAttribute('maxLength', 10);
+        userNo.setAttribute('maxLength', 10);
+        userNm.classList.add('fdp-valid-form');
+        userNo.classList.add('fdp-valid-form');
+        userem.classList.add('fdp-valid-form');
         editInput.addEventListener('click', () => {
           userLoginPanNumber.removeAttribute('readonly');
+          userLoginPanNumber.focus();
+        });
+        userLoginPanNumber.addEventListener('input', (e) => {
+          const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.closest('.pan-input');
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userNm.addEventListener('input', (e) => {
+          const panRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userNo.addEventListener('input', (e) => {
+          const panRegex = /^\d{10}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userem.addEventListener('input', (e) => {
+          const panRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
         });
       }
     } catch (error) {
@@ -204,7 +270,7 @@ export async function existingUser(paramblock) {
   inputLable.appendChild(addInputDiv);
 
   // api call for otp
-  // "AEEPW9969G",
+  // 'AEEPW9969G',
 
   async function apiCall(userPanNumber) {
     try {
@@ -220,7 +286,7 @@ export async function existingUser(paramblock) {
       );
       console.log(rejsin);
 
-      // const isSuccess = rejsin.data.existingClient === "" ? false : true;
+      // const isSuccess = rejsin.data.existingClient === '' ? false : true;
       const tempArray = ['MF', 'BOTH'];
       const exixting = ['ZBF', 'REDEEMZBF'];
       if (rejsin.data.guestClient === '') {
@@ -689,43 +755,11 @@ export default function decorate(block) {
   function flakterDate(datelement, displayDate) {
     // ADDED: A variable to store the user-selected date
     let originalSipDate = '';
-    let oneYearFromNow = new Date();
-    let disabfunc = '';
-    const recurringDay = new Date().getDate();
-    if (datelement.getAttribute('data-value')) {
-      oneYearFromNow.setFullYear(oneYearFromNow.getMonth() + 12);
-      disabfunc = [
-        function (date) {
-          // This function runs for every date in the calendar.
-
-          // A. Find the last day of the month for the date being checked.
-          const year = date.getFullYear();
-          const month = date.getMonth();
-          const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
-
-          // B. Determine the correct target day for this month.
-          // If the recurring day (e.g., 31) is greater than the last day of the
-          // current month (e.g., 30 for April), use the last day.
-          const targetDay = Math.min(recurringDay, lastDayOfMonth);
-
-          // C. Disable the date if its day is not the target day.
-          // It returns 'true' (disable) if the days don't match.
-          return date.getDate() !== targetDay;
-        },
-      ];
-    } else {
-      oneYearFromNow = '';
-      disabfunc = true;
-    }
-
     const fpInstance = window.flatpickr(datelement, {
       defaultDate: 'today',
-      minDate: oneYearFromNow,
       altInput: false,
       appendTo: calendarContainer,
       disableMobile: true,
-      // disable: disabfunc,
-
       // FIX 1: Added a safety check to prevent the crash on mobile.
       onReady(_, __, fp) {
         if (fp.calendarContainer) {
@@ -753,9 +787,6 @@ export default function decorate(block) {
         node.style.top = `${top}px`;
         node.style.left = `${left}px`;
       },
-
-    // FIX 2: Removed the entire custom 'position' function.
-    // Let flatpickr handle its own positioning, as it's more reliable on mobile.
     });
     console.log(fpInstance);
     // ADDED: Logic for the 'Start Today' checkbox
@@ -776,8 +807,136 @@ export default function decorate(block) {
       }
     });
   }
+
+  function flakterDateV2(datelement, displayDate, dropdownVal) {
+    let disableRule = [];
+    const defaultDate = new Date(); // Initialize with today
+
+    // Use a single 'today' constant for all calculations
+    const today = new Date();
+    // Set time to 0 to avoid time-related comparison issues
+    today.setHours(0, 0, 0, 0);
+
+    switch (dropdownVal) {
+      case 'Monthly': {
+        const recurringDay = today.getDate();
+        defaultDate.setMonth(today.getMonth() + 1);
+
+        const year = defaultDate.getFullYear();
+        const nextMonth = defaultDate.getMonth() + 1;
+        const lastDayOfNextMonth = new Date(year, nextMonth, 0).getDate();
+        const targetDay = Math.min(recurringDay, lastDayOfNextMonth);
+        defaultDate.setDate(targetDay);
+
+        disableRule = [
+          function (date) {
+            const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            const targetDayInMonth = Math.min(recurringDay, lastDayOfMonth);
+            return date.getDate() !== targetDayInMonth;
+          },
+        ];
+        break;
+      }
+      case 'Annual': {
+        const recurringDay = today.getDate();
+        const recurringMonth = today.getMonth();
+        defaultDate.setFullYear(today.getFullYear() + 1);
+
+        disableRule = [
+          function (date) {
+            return date.getDate() !== recurringDay || date.getMonth() !== recurringMonth;
+          },
+        ];
+        break;
+      }
+      case 'Weekly': {
+        const recurringDayOfWeek = today.getDay();
+        defaultDate.setDate(today.getDate() + 7);
+
+        disableRule = [
+          function (date) {
+            return date.getDay() !== recurringDayOfWeek;
+          },
+        ];
+        break;
+      }
+      case 'Fortnightly': { // <-- CORRECTED LOGIC
+        const startTime = today.getTime();
+        defaultDate.setDate(today.getDate() + 14);
+
+        disableRule = [
+          function (date) {
+            // Calculate difference in whole days for reliability
+            const diffDays = Math.round((date.getTime() - startTime) / (1000 * 60 * 60 * 24));
+            return diffDays % 14 !== 0;
+          },
+        ];
+        break;
+      }
+      case 'Quarterly': {
+        const startDay = today.getDate();
+        const startMonth = today.getMonth();
+        defaultDate.setMonth(today.getMonth() + 3);
+
+        disableRule = [
+          function (date) {
+            const yearDiffInMonths = (date.getFullYear() - today.getFullYear()) * 12;
+            const monthDiffInMonths = date.getMonth() - startMonth;
+            const monthDiff = yearDiffInMonths + monthDiffInMonths;
+            const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            const targetDay = Math.min(startDay, lastDayOfMonth);
+            return date.getDate() !== targetDay || monthDiff % 3 !== 0;
+          },
+        ];
+        break;
+      }
+      case 'Daily': { // <-- CORRECTED LOGIC
+        defaultDate.setDate(today.getDate() + 1);
+        // No custom disable rules are needed for 'Daily'. 'minDate' handles it.
+        disableRule = [];
+        break;
+      }
+      default:
+        // Default case with no rules
+        disableRule = [];
+        break;
+    }
+
+    const fpInstance = window.flatpickr(datelement, {
+      defaultDate,
+      altInput: false,
+      appendTo: calendarContainer,
+      disableMobile: true,
+      disable: disableRule,
+      minDate: today, // Consistently prevent past dates for all cases
+
+      onReady(_, __, fp) {
+        if (fp.calendarContainer) {
+          fp.calendarContainer.removeAttribute('style');
+        }
+      },
+      onChange(selectedDates) {
+        if (!selectedDates[0]) return;
+        const selectedDate = selectedDates[0];
+        const day = selectedDate.getDate();
+        const month = selectedDate.toLocaleString('default', { month: 'short' });
+        const year = selectedDate.getFullYear();
+        const formattedDate = `${day} ${month} ${year}`;
+        displayDate.textContent = formattedDate;
+        // originalSipDate = formattedDate;
+      },
+    });
+    console.log(fpInstance);
+    // Manually set the initial display text after initialization
+    if (defaultDate) {
+      const day = defaultDate.getDate();
+      const month = defaultDate.toLocaleString('default', { month: 'short' });
+      const year = defaultDate.getFullYear();
+      displayDate.textContent = `${day} ${month} ${year}`;
+    }
+  }
   flakterDate(calendarIcon, sipDateDisplay);
-  flakterDate(finsel, dateSel);
+  // flakterDateV2(finsel, dateSel, 'Monthly');
   // --- CORRECTED CUSTOM DROPDOWN LOGIC ---
   block.querySelectorAll('.custom-select-wrapper').forEach((wrapper) => {
     const selected = wrapper.querySelector('.select-selected');
@@ -802,8 +961,23 @@ export default function decorate(block) {
         selected.textContent = option.textContent;
         hiddenInput.value = option.getAttribute('data-value');
         wrapper.classList.remove('open');
-        if (option.textContent === 'Select Date') {
-          // flakterDate(selected);
+        if (selected.closest('#custom-select-frequency')) {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          flakterDateV2(finsel, dateSel, option.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[1].classList.add('open');
+        }
+        if (selected.textContent === 'Select Date') {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          const parSel = selected.closest('.date-drop-down');
+          const paraText = parSel.querySelector('#custom-select-frequency .select-selected');
+          flakterDateV2(finsel, dateSel, paraText.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[1].classList.add('open');
         }
       });
     });
