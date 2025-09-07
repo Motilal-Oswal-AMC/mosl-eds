@@ -363,11 +363,11 @@ main>.section:first-of-type {
     }
 }
 
-/* @media (width <=768px) {
+@media (width <=768px) {
     main>.section:first-of-type {
         margin-top: 10px;
     }
-} */
+}
 
 main .section.light,
 main .section.highlight {
@@ -393,9 +393,9 @@ main img {
     width: 100%;
 }
 
-/* header {
+header {
     height: var(--nav-height);
-} */
+}
 
 header .header,
 footer .footer {
@@ -528,6 +528,9 @@ footer .footer[data-block-status="loaded"] {
 .fdp-card-container .invest-now-homepage-container>.invest-now-homepage-wrapper {
     background: unset;
 }
+
+
+
 
 @media (width <=768px) {
 
