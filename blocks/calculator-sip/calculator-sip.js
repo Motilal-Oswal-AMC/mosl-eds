@@ -32,7 +32,7 @@ export default function decorate(block) {
     // 🔍 Fund search input
     div(
       { class: "search-bar-wrapper" },
-      span(col1[0].textContent.trim()),
+      label({ class: "search-bar-label" }, col1[0].textContent.trim()),
       input({
         value: selectedFund.schDetail.schemeName,
         type: "text",
@@ -52,7 +52,7 @@ export default function decorate(block) {
       }),
       div(
         { class: "search-results-wrapper" },
-        ul({ id: "searchResults", role: "listbox" })
+        ul({ id: "searchResults", role: "listbox", class: "search-result-ul" })
       ),
       span({ class: "search-error error-hide" }, "Fund not found")
     ),
@@ -77,7 +77,7 @@ export default function decorate(block) {
           span({ class: "toggle-label active" }, "Direct"),
           label(
             { class: "toggle-switch" },
-            input({ type: "checkbox", id: "planToggle" }),
+            input({ type: "checkbox", id: "planToggle", class: "toggle-inp" }),
             span({ class: "slider" })
           ),
           span({ class: "toggle-label" }, "Regular")
@@ -143,22 +143,25 @@ export default function decorate(block) {
       // 📈 Invested amount & calculation
       div(
         { class: "invested-amount" },
-        label({ class: "invested-label" }, col3[1].textContent.trim()),
+        span({ class: "invested-label" }, col3[1].textContent.trim()),
         span({ class: "invested-amount-value" }, col3[2].textContent.trim())
       ),
       div(
         { class: "cal-discription" },
         div(
           { class: "current-value-wrapper" },
-          label(col3[3].textContent.trim()),
-          span({ class: "current-value" }, "0")
+          label({ class: "cal-desc-label" }, col3[3].textContent.trim()),
+          span({ class: "current-value cal-desc-value" }, "0")
         ),
         div(
           { class: "return-cagr-wrapper" },
-          label(col4[1].textContent.trim()),
-          span({ class: "return-cagr" }, `${returnCAGR.toFixed(2)}  %`)
+          label({ class: "cal-desc-label" }, col4[1].textContent.trim()),
+          span(
+            { class: "return-cagr cal-desc-value" },
+            `${returnCAGR.toFixed(2)}  %`
+          )
         ),
-        div({ class: "start-sip-btn" }, button(col4[3].textContent.trim()))
+        div({ class: "start-sip-btn" }, button({class:'sip-btn'},col4[3].textContent.trim()))
       )
     )
   );
@@ -572,6 +575,15 @@ export default function decorate(block) {
       section.insertBefore(wrapper, heroWrap);
       wrapper.append(heroWrap, calcWrap);
     }
+  }
+  try {
+    Array.from(
+      section.querySelectorAll('.default-content-wrapper')[1].children,
+    ).forEach((el, i) => {
+      el.classList.add(`disc-child-${i + 1}`);
+    });
+  } catch (error) {
+    console.log(error);
   }
 
   // -------------------------------
