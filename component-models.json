@@ -1375,7 +1375,7 @@
         "component": "text",
         "name": "col_benchmark",
         "label": "Enter Label Benchmark"
-      },
+      }
     ]
   }
 ]
