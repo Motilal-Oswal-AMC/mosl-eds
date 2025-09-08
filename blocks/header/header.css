@@ -12,6 +12,12 @@ header .nav-wrapper {
   padding: 12px 16px;
 }
 
+header nav .nav-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 header nav {
   box-sizing: border-box;
   display: grid;
@@ -516,7 +522,7 @@ header nav .header-top {
   } */
 
   header nav .nav-sections .nav-sec-sec1 li {
-    position: relative;
+    /* position: relative; */
 
     /* padding-right: 16px; */
     cursor: pointer;
@@ -542,23 +548,23 @@ header nav .header-top {
     /* transform: rotate(180deg); */
   }
 
-  header nav .nav-sections ul {
+  header nav .nav-sections .nav-sec-sec1 {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+
+    /* justify-content: flex-end; */
     gap: 22px;
     margin: 0;
   }
 
-  header nav .nav-sections .default-content-wrapper>ul>li {
+  header nav .nav-sections .nav-sec-cont1 .nav-sec-sec1>li {
     flex: 0 1 auto;
-    position: relative;
     display: flex;
     align-items: center;
     gap: 4px;
   }
 
-  header nav .nav-sections .default-content-wrapper .nav-sec-sec1>li a {
+  header nav .nav-sections .default-content-wrapper .nav-sec-sec1 .nav-drop[aria-expanded='false'] {
     color: #FFF;
     font-family: Poppins, sans-serif;
     font-size: 14px;
@@ -567,9 +573,44 @@ header nav .header-top {
     line-height: 20px;
   }
 
-  header nav .nav-sections .nav-sec-sec1 li[aria-expanded='true'] a {
+  header nav .nav-sections .nav-sec-cont1 .nav-sec-sec1 .nav-drop[aria-expanded='true'] {
     color: #FFCF00;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
   }
+
+  header nav .nav-sections .nav-sec-cont1 .nav-sec-sec1 li[aria-expanded='false'] {
+    color: #111;
+  }
+
+  /* Nav section our-funds-header css start */
+  .section.our-funds-header .default-content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .section.our-funds-header .default-content-wrapper>ul {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  header nav .nav-sections .section.our-funds-header .default-content-wrapper>ul>li {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  header nav .nav-sections .section.our-funds-header .default-content-wrapper>ul>li:last-child {
+    flex-basis: 100%;
+  }
+
+
+
+  /* Nav section our-funds-header css End */
 
   header nav .nav-tools {
     display: flex;
@@ -640,17 +681,18 @@ header nav .header-top {
 
   /* Nav-section */
 
-  header nav .nav-sections .default-content-wrapper>ul>li>ul {
+  header nav .nav-sections .default-content-wrapper>.nav-sec-sec1>li>ul {
     display: none;
-    position: relative;
+
+    /* position: relative; */
   }
 
   header nav .nav-sections .default-content-wrapper>ul>li[aria-expanded='true']>ul {
     display: block;
     position: absolute;
-    left: -24px;
-    width: 200px;
-    top: 150%;
+    left: 0;
+    width: 100%;
+    top: 100%;
     padding: 16px;
     background-color: var(--light-color);
     white-space: initial;

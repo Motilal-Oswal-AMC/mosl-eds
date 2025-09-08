@@ -245,6 +245,7 @@ export default async function decorateFragment(block) {
 function decorateAutoBlock(element) {
   element.querySelectorAll('a').forEach((origin) => {
     if (origin && origin.href && origin.href.includes('/fragment/')) {
+      debugger;
       const parent = origin.parentElement;
       const div = document.createElement('div');
       div.append(origin);

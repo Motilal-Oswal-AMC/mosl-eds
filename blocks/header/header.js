@@ -1,5 +1,9 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
+import {
+  getMetadata
+} from '../../scripts/aem.js';
+import {
+  loadFragment
+} from '../fragment/fragment.js';
 // import { loadAutoBlock } from '../../scripts/scripts.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
@@ -27,14 +31,14 @@ function closeOnFocusLost(e) {
   const nav = e.currentTarget;
   if (!nav.contains(e.relatedTarget)) {
     const navSections = nav.querySelector('.nav-sections');
-    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections, false);
-    } else if (!isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections, false);
-    }
+    // const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
+    // if (navSectionExpanded && isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleAllNavSections(navSections, false);
+    // } else if (!isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleMenu(nav, navSections, false);
+    // }
   }
 }
 
@@ -168,8 +172,15 @@ export default async function decorate(block) {
   }
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection) => {
+      if (navSection.querySelector('ul')) {
+        navSection.classList.add('nav-drop');
+        const hrefnaf = navSection.querySelector('ul li');
+        const frgnav = await loadFragment(hrefnaf.children[0].getAttribute('href'));
+        hrefnaf.innerHTML = '';
+        // debugger
+        hrefnaf.append(frgnav.children[0]);
+      }
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
