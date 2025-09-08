@@ -1355,13 +1355,6 @@
     "id": "fm-portfolio",
     "fields": [
       {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
         "component": "text",
         "name": "col_schemename",
         "label": "Enter Label Scheme Name"
