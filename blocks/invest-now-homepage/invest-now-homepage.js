@@ -751,7 +751,7 @@ export default function decorate(block) {
     tooltip,
   );
   block.append(modalContainer);
-
+  debugger;
   modal.querySelector('.start-now').addEventListener('click', () => {
     const mainmo = block.closest('.card-modal-overlay');
     mainmo.querySelector('.invest-now-homepage-container').style.display = 'none';
