@@ -405,6 +405,11 @@ export async function existingUser(paramblock) {
   const mod2 = closestParam.querySelector('.fdp-kyc-form .icon-modal-btn');
   const mod3 = closestParam.querySelector('.otp-fdp .icon-modal-btn');
   closestParam.querySelector('.pan-details-modal');
+  const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+  async function removeClassAfterDelay() {
+    await delay(1200);
+    closestParam.querySelector('.card-modal-overlay').remove();
+  }
 
   function hideFormsClick(btn) {
     const card2 = closestParam.querySelector('.our-popular-funds')
@@ -414,7 +419,7 @@ export async function existingUser(paramblock) {
       e.stopPropagation(); // Stop click from bubbling further
       document.body.classList.remove('noscroll');
       card2.classList.remove('modal-active-parent');
-      closestParam.querySelector('.card-modal-overlay').remove();
+      removeClassAfterDelay();
     });
   }
 
@@ -664,7 +669,15 @@ export default function decorate(block) {
     tooltip,
   );
   block.append(modalContainer);
-  debugger;
+
+  const classAdd = block.closest('.invest-now-homepage-container');
+  if (Array.from(classAdd.classList).includes('hide-modal')) {
+    classAdd.classList.remove('hide-modal');
+  }
+  if (classAdd) {
+    classAdd.classList.add('modal-show');
+    classAdd.classList.remove('hide-modal');
+  }
   modal.querySelector('.start-now').addEventListener('click', () => {
     const mainmo = block.closest('.card-modal-overlay');
     mainmo.querySelector('.invest-now-homepage-container').style.display = 'none';

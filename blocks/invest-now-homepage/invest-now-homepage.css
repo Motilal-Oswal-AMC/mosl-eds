@@ -85,16 +85,15 @@
 }
 
 .invest-now-homepage-container {
-  width: 360px;
   max-width: 100%;
   position: fixed;
   top: 0;
-  right: -400px; /* Hide it outside the screen */
+  right: 0; /* Hide it outside the screen */
   width: 400px;
   height: 100%;
   background-color: white;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
-  transition: right 0.5s ease-in-out;
+  transition: right 0.1s ease-in-out;
   z-index: 1000;
 }
 @media (max-width: 768px) {
@@ -779,4 +778,30 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .show {
   display: block;
+}
+
+.modal-show {
+  right: 0;
+  animation: slide-in 1.2s forwards;
+}
+
+.hide-modal {
+  animation: slide-out 1.2s forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }/*# sourceMappingURL=invest-now-homepage.css.map */

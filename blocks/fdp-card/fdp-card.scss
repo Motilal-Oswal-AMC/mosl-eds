@@ -921,6 +921,18 @@ main {
       }
     }
   }
+
+  .hide-overplay{
+    // transition: opacity 1s ease;
+    animation: hide-overlay 1.2s ease forwards;
+    // animation-delay: 7s;
+  }
+
+   @keyframes hide-overlay {
+    to {
+      display:none;
+    }
+  }
 }
 
 // stky

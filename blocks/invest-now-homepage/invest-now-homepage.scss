@@ -14,7 +14,7 @@
   height: 100%;
   background-color: white;
   box-shadow: -2px 0 10px rgb(0 0 0 / 30%);
-  transition: right 0.5s ease-in-out;
+  transition: right 0.10s ease-in-out;
   z-index: 1000;
 
   @include media(mobile) {
@@ -799,5 +799,40 @@
       }
     }
 
+  }
+}
+
+.modal-show{
+  right: 0;
+  animation: slide-in 1.2s forwards;
+}
+
+.hide-modal{
+  // right:/ -400px;
+  animation: slide-out 1.2s forwards;
+}
+
+
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+
+  }
+
+  to {
+    transform: translateX(0);
+    // transform: translateY(0);
+  }
+}
+
+// * Slide-out keyframes */
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
   }
 }

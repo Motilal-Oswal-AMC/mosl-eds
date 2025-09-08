@@ -676,4 +676,12 @@ export default function decorate(block) {
       breadcrumb.style.display = 'none';
     }
   });
+
+  // const demo = block.querySelector('.btn-wrapper .submit');
+  // demo.addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   const neelem = block.closest('main');
+  //   const neelemv2 = neelem.querySelector('.invest-now-homepage-container');
+  //   neelemv2.classList.add('modal-show');
+  // });
 }

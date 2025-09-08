@@ -797,6 +797,14 @@ main {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+.section.fdp-card-container .hide-overplay {
+  animation: hide-overlay 1.2s ease forwards;
+}
+@keyframes hide-overlay {
+  to {
+    display: none;
+  }
+}
 
 .section.fdp-sticky-nav {
   display: none;
