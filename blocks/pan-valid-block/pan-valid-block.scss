@@ -521,7 +521,7 @@
               border: 2px solid map.get($strokes, typing);
             }
           }
-
+          
           &.otp-success {
             .otp-input {
               border: 1px solid #00a850;
@@ -533,8 +533,6 @@
               border: 2px solid #ee212e;
             }
           }
-
-          
         }
 
 
@@ -602,6 +600,8 @@
           width: 100%;
           cursor: auto;
           pointer-events: none;
+          display: block;
+          text-align: center;
 
           @include font-style(16px,
             20px,

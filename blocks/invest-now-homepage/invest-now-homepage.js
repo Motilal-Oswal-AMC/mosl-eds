@@ -42,6 +42,51 @@ export async function existingUser(paramblock) {
     guestMenu: false,
     existingBox: true,
   };
+
+  async function apiAuth(params) {
+    try {
+      const reqAuth = {
+        password: params.optNo,
+        userId: params.panNo,
+        loginModeId: 1,
+        credentialModeId: 1,
+        ipV4: '192.198.22.22',
+        otpThroughDIT: false,
+        ditotpType: '',
+        pmsGuest: false,
+        isAIF: false,
+        mfGuest: false,
+        product: 'MF',
+      };
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
+      };
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/loginapi/api/Login/AuthenticateUserCred',
+        reqAuth,
+        header,
+      );
+      if (rejsin.data.userInfo) {
+        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        if (dataMapMoObj.panRes.data.guestClient !== '') {
+          window.location.href = 'https://www.motilaloswalmf.com/mutualfund/onboarding/personal';
+        } else if (dataMapMoObj.panRes.data.guestClient === '') {
+          window.location.href = 'https://www.motilaloswalmf.com/mutualfund/prelogin-to-postlogin-connector';
+        }
+      }
+      console.log(rejsin);
+      params.otpField.classList.add('otp-succes');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function otpCall(param) {
     try {
       const request = {
@@ -57,12 +102,48 @@ export async function existingUser(paramblock) {
         product: 'MF',
       };
 
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
+      };
       const rejsin = await myAPI(
         'POST',
         'https://api.moamc.com/LoginAPI/api/Login/GenerateOtpNew',
         request,
+        header,
       );
       console.log(rejsin);
+      if (rejsin.data !== null) {
+        const panForm = closestParam.querySelector('.otp-fdp');
+        const subtext = panForm.querySelector('.sub-otp-con3');
+        subtext.textContent = '';
+        subtext.textContent = rejsin.data;
+
+        const subevent = closestParam.querySelector('.sub-otp-con2');
+        subevent.classList.add('sbmt-active');
+        const inotp = panForm.querySelectorAll('.otpfield input');
+        if (subevent.querySelector('.inner-otp-con1')) {
+          subevent.querySelector('.inner-otp-con1').removeAttribute('href');
+        }
+        subevent.querySelector('.inner-otp-con1').addEventListener('click', () => {
+          let optValue = '';
+          inotp.forEach((elfor) => {
+            optValue += elfor.value;
+          });
+          if (optValue.length < 6) {
+            panForm.querySelector('.otpfield').classList.add('otp-failed');
+          } else {
+            const panNum = {
+              panNo: param,
+              optNo: optValue,
+              otpField: panForm.querySelector('.otpfield'),
+            };
+            apiAuth(panNum);
+          }
+        });
+      }
     } catch (error) {
       // console.log(error);
     }
@@ -93,6 +174,12 @@ export async function existingUser(paramblock) {
         kycForm.style.display = 'none'; // display none kycform
         panForm.style.display = 'block'; // display none panform
         pansuccessForm.style.display = 'none'; // display block otp form
+        const subeventv2 = pansuccessForm.querySelector('.sub-otp-con2');
+        subeventv2.classList.remove('sbmt-active');
+        const inotp = panForm.querySelectorAll('.otpfield input');
+        inotp.forEach((elfor) => {
+          elfor.value = '';
+        });
       });
       resentBtn.removeAttribute('href');
       resentBtn.addEventListener('click', () => {
@@ -104,7 +191,6 @@ export async function existingUser(paramblock) {
         pansuccessForm.style.display = 'block'; // display block otp form
         const paninp = pansuccessForm.querySelector('.otp-wrap input');
         paninp.focus();
-
         const inputs = pansuccessForm.querySelectorAll('.otp-wrap input');
         inputs.forEach((inputel, index) => {
           inputel.setAttribute('maxLength', 1);
@@ -290,6 +376,7 @@ export async function existingUser(paramblock) {
         request,
       );
       console.log(rejsin);
+      dataMapMoObj.panRes = rejsin;
 
       // const isSuccess = rejsin.data.existingClient === '' ? false : true;
       const tempArray = ['MF', 'BOTH'];

@@ -282,10 +282,10 @@ export function wishlist() {
 }
 
 /* ---------------- Fetch Call ---------------- */
-export async function myAPI(method, url, body = null) {
+export async function myAPI(method, url, body = null, header) {
   const options = { method };
   if (body) {
-    options.headers = { 'Content-Type': 'application/json' };
+    options.headers = header !== undefined ? header : { 'Content-Type': 'application/json' };
     options.body = JSON.stringify(body);
   }
   const response = await fetch(url, options);
