@@ -56,6 +56,7 @@ export async function existingUser(paramblock) {
         mfGuest: false,
         product: 'MF',
       };
+
       const rejsin = await myAPI(
         'POST',
         'https://api.moamc.com/LoginAPI/api/Login/GenerateOtpNew',
@@ -77,27 +78,157 @@ export async function existingUser(paramblock) {
         request,
       );
       console.log('kyc api response ', rejsin);
-      const isKyc = rejsin.data.kycStatus === 'Y';
-
+      const kycres = rejsin.data.kycStatus;
+      const isKyc = kycres === 'Y';
+      const boolkyc = kycres === 'Y' ? 'true' : 'false';
+      localStorage.setItem('kycstatus', boolkyc);
       const kycForm = closestParam.querySelector('.fdp-kyc-form');
       const panForm = closestParam.querySelector('.pan-details-modal');
       const pansuccessForm = closestParam.querySelector('.otp-fdp');
+
+      const chclick = pansuccessForm.querySelector('.otp-main-con2');
+      const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
+      chclick.removeAttribute('href');
+      chclick.addEventListener('click', () => {
+        kycForm.style.display = 'none'; // display none kycform
+        panForm.style.display = 'block'; // display none panform
+        pansuccessForm.style.display = 'none'; // display block otp form
+      });
+      resentBtn.removeAttribute('href');
+      resentBtn.addEventListener('click', () => {
+        otpCall();
+      });
       if (isKyc) {
         kycForm.style.display = 'none'; // display none kycform
         panForm.style.display = 'none'; // display none panform
         pansuccessForm.style.display = 'block'; // display block otp form
+        const paninp = pansuccessForm.querySelector('.otp-wrap input');
+        paninp.focus();
+
+        const inputs = pansuccessForm.querySelectorAll('.otp-wrap input');
+        inputs.forEach((inputel, index) => {
+          inputel.setAttribute('maxLength', 1);
+          inputel.addEventListener('input', () => {
+            inputel.value = inputel.value.replace(/[^0-9]/g, '');
+            if (inputel.value.length === 1 && index < inputs.length - 1) {
+              inputs[index + 1].focus();
+            }
+          });
+          inputel.addEventListener('keydown', (event) => {
+            const totalInputs = inputs.length;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+              event.preventDefault();
+            }
+            switch (event.key) {
+              case 'Tab':
+                if (!event.shiftKey && index === totalInputs - 1) {
+                  event.preventDefault();
+                  inputs[0].focus();
+                } else if (event.shiftKey && index === 0) {
+                  event.preventDefault();
+                  inputs[totalInputs - 1].focus();
+                }
+                break;
+
+              case 'ArrowRight': {
+                const nextIndex = (index + 1) % totalInputs;
+                inputs[nextIndex].focus();
+                break;
+              }
+              case 'ArrowLeft': {
+                // Move to the previous input, or wrap to the last
+                const prevIndex = (index - 1 + totalInputs) % totalInputs;
+                inputs[prevIndex].focus();
+                break;
+              }
+              case 'Backspace':
+                if (inputel.value.length === 0 && index > 0) {
+                  inputs[index - 1].focus();
+                }
+                break;
+              default:
+                break;
+            }
+          });
+        });
+
         otpCall(param);
       } else {
         kycForm.style.display = 'block';
         panForm.style.display = 'none';
         pansuccessForm.style.display = 'none';
-        const userLoginPanNumber = closestParam.querySelector('.user-pan-number'); // input
+        const userLoginPanNumber = closestParam.querySelector('.user-pan-number');
         userLoginPanNumber.value = dataMapMoObj.panDlts.pannumber.toUpperCase();
         userLoginPanNumber.setAttribute('readonly', true);
-
+        const userNm = closestParam.querySelector('.user-pan-name');
+        const userNo = closestParam.querySelector('.user-number');
+        const userem = closestParam.querySelector('.user-email');
+        closestParam.querySelector('#opt1').click();
         const editInput = closestParam.querySelector('.pan-image');
+        userLoginPanNumber.setAttribute('maxLength', 10);
+        userNo.setAttribute('maxLength', 10);
+        userNm.classList.add('fdp-valid-form');
+        userNo.classList.add('fdp-valid-form');
+        userem.classList.add('fdp-valid-form');
         editInput.addEventListener('click', () => {
           userLoginPanNumber.removeAttribute('readonly');
+          userLoginPanNumber.focus();
+        });
+        userLoginPanNumber.addEventListener('input', (e) => {
+          const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.closest('.pan-input');
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userNm.addEventListener('input', (e) => {
+          const panRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.add('hide-error');
+            errorPanEl.classList.remove('show-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userNo.addEventListener('input', (e) => {
+          const panRegex = /^\d{10}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userem.addEventListener('input', (e) => {
+          const panRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
         });
       }
     } catch (error) {
@@ -143,7 +274,7 @@ export async function existingUser(paramblock) {
   inputLable.appendChild(addInputDiv);
 
   // api call for otp
-  // "AEEPW9969G",
+  // 'AEEPW9969G',
 
   async function apiCall(userPanNumber) {
     try {
@@ -151,6 +282,7 @@ export async function existingUser(paramblock) {
       dataMapMoObj.panDlts.pannumber = userPanNumber;
       const request = {
         panNo: userPanNumber,
+        isNri: false,
       };
       const rejsin = await myAPI(
         'POST',
@@ -159,7 +291,7 @@ export async function existingUser(paramblock) {
       );
       console.log(rejsin);
 
-      // const isSuccess = rejsin.data.existingClient === "" ? false : true;
+      // const isSuccess = rejsin.data.existingClient === '' ? false : true;
       const tempArray = ['MF', 'BOTH'];
       const exixting = ['ZBF', 'REDEEMZBF'];
       if (rejsin.data.guestClient === '') {
@@ -184,6 +316,25 @@ export async function existingUser(paramblock) {
         };
       }
 
+      if (window.location.href.includes('/our-funds/funds-details-page')) {
+        const planCodesh = localStorage.getItem('planCode') || 'Direct:LM';
+        const planslabel = planCodesh.split(':')[1];
+        const schemeCode = planslabel;
+        const parcloset = closestParam.querySelector('.fdp-card-container');
+        const paranearby = parcloset.querySelector('.dropdownmidle .selecttext');
+        const planCodenearby = paranearby.getAttribute('dataattr');
+        const dataplan = dataCfObj.filter((eldata) => eldata.schcode === schemeCode);
+        const amcPlanCode = dataplan[0].moAmcCode;
+        const optioncode = dataplan[0].planList
+          .filter((elop) => elop.groupedCode === planCodenearby);
+        const sOptCode = optioncode[0].optionCode; //
+        const { planCode } = optioncode[0];
+        const existingQueryParams = '?';
+
+        const redirectURL = `/quickbuy?fund=${schemeCode}&plan=${planCode}&amcPlan=${amcPlanCode}&option=${sOptCode}${existingQueryParams}&landingPage=true`;
+        localStorage.setItem('prelogin-to-postlogin-redirect-url', redirectURL);
+        localStorage.setItem('prelogin-to-postlogin-clientType', JSON.stringify(rejsin.data));
+      }
       localStorage.setItem(
         'UPDATE_GUEST_MENU',
         JSON.stringify(dataMapMoObj.panDlts.guestMenuState),
@@ -210,7 +361,7 @@ export async function existingUser(paramblock) {
       '.sub-otp-con4 .inner-otp-con2 .otp-main-con1',
     );
     // added userPanNumber
-    userPanNumberShow.textContent = userPanNumber;
+    userPanNumberShow.textContent = userPanNumber.toUpperCase();
 
     if (userPanNumber === '') {
       checkInput.classList.add('show-error');
@@ -253,7 +404,7 @@ export async function existingUser(paramblock) {
   const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');
   const mod2 = closestParam.querySelector('.fdp-kyc-form .icon-modal-btn');
   const mod3 = closestParam.querySelector('.otp-fdp .icon-modal-btn');
-  closestParam.querySelector(".pan-details-modal")
+  closestParam.querySelector('.pan-details-modal');
 
   function hideFormsClick(btn) {
     const card2 = closestParam.querySelector('.our-popular-funds')
@@ -345,7 +496,7 @@ export default function decorate(block) {
     'Quarterly',
     'Weekly',
   ];
-  const endDateOptions = ['End Date', 'Until I cancel', 'Select Date'];
+  const endDateOptions = ['Until I cancel', 'Select Date'];
 
   block.innerHTML = '';
 
@@ -513,7 +664,7 @@ export default function decorate(block) {
     tooltip,
   );
   block.append(modalContainer);
-
+  debugger;
   modal.querySelector('.start-now').addEventListener('click', () => {
     const mainmo = block.closest('.card-modal-overlay');
     mainmo.querySelector('.invest-now-homepage-container').style.display = 'none';
@@ -622,66 +773,194 @@ export default function decorate(block) {
   const calendarIcon = block.querySelector('.calendar-btn');
   const sipDateDisplay = block.querySelector('.sip-starts-date');
   const calendarContainer = block.querySelector('.invest-now-container');
+  const selDate = block.querySelector('#custom-select-endDate .select-options');
+  const finsel = selDate.querySelector('[data-value="Select Date"]');
+  const dateSel = block.querySelector('#custom-select-endDate .select-selected');
+  function flakterDate(datelement, displayDate) {
+    // ADDED: A variable to store the user-selected date
+    let originalSipDate = '';
+    const fpInstance = window.flatpickr(datelement, {
+      defaultDate: 'today',
+      altInput: false,
+      appendTo: calendarContainer,
+      disableMobile: true,
+      // FIX 1: Added a safety check to prevent the crash on mobile.
+      onReady(_, __, fp) {
+        if (fp.calendarContainer) {
+          fp.calendarContainer.removeAttribute('style');
+        } else {
+          console.log('somehting is wrong');
+        }
+      },
+      onChange(selectedDates) { // (selectedDates, dateStr, instance) {
+        const selectedDate = selectedDates[0];
+        const day = selectedDate.getDate();
+        const month = selectedDate.toLocaleString('default', { month: 'short' });
+        const year = selectedDate.getFullYear();
+        const formattedDate = `${day} ${month} ${year}`;
 
-  // ADDED: A variable to store the user-selected date
-  let originalSipDate = '';
+        displayDate.textContent = formattedDate;
 
-  const fpInstance = window.flatpickr(calendarIcon, {
-    defaultDate: 'today',
-    altInput: false,
-    appendTo: calendarContainer,
-    disableMobile: true,
+        // Update the stored date whenever the user picks a new one
+        originalSipDate = formattedDate;
+      },
+      position: (self, node) => {
+        const top = self.element.offsetTop + self.element.offsetHeight + 8;
+        const left = self.element.offsetLeft;
 
-    // FIX 1: Added a safety check to prevent the crash on mobile.
-    onReady(_, __, fp) {
-      if (fp.calendarContainer) {
-        fp.calendarContainer.removeAttribute('style');
-      } else {
-        console.log('somehting is wrong');
-      }
-    },
-    onChange(selectedDates) { // (selectedDates, dateStr, instance) {
-      const selectedDate = selectedDates[0];
-      const day = selectedDate.getDate();
-      const month = selectedDate.toLocaleString('default', { month: 'short' });
-      const year = selectedDate.getFullYear();
-      const formattedDate = `${day} ${month} ${year}`;
+        node.style.top = `${top}px`;
+        node.style.left = `${left}px`;
+      },
+    });
+    console.log(fpInstance);
+    // ADDED: Logic for the 'Start Today' checkbox
+    const startTodayCheckbox = block.querySelector('.start-today-checkbox');
 
-      sipDateDisplay.textContent = formattedDate;
+    // Helper function to get today's date in the correct format
 
-      // Update the stored date whenever the user picks a new one
-      originalSipDate = formattedDate;
-    },
-    position: (self, node) => {
-      const top = self.element.offsetTop + self.element.offsetHeight + 8;
-      const left = self.element.offsetLeft;
+    // Initialize the originalSipDate with the value set by flatpickr on load
+    originalSipDate = sipDateDisplay.textContent;
 
-      node.style.top = `${top}px`;
-      node.style.left = `${left}px`;
-    },
-
-    // FIX 2: Removed the entire custom 'position' function.
-    // Let flatpickr handle its own positioning, as it's more reliable on mobile.
-  });
-  console.log(fpInstance);
-  // ADDED: Logic for the 'Start Today' checkbox
-  const startTodayCheckbox = block.querySelector('.start-today-checkbox');
-
-  // Helper function to get today's date in the correct format
-
-  // Initialize the originalSipDate with the value set by flatpickr on load
-  originalSipDate = sipDateDisplay.textContent;
-
-  startTodayCheckbox.addEventListener('change', () => {
-    if (startTodayCheckbox.checked) {
+    startTodayCheckbox.addEventListener('change', () => {
+      if (startTodayCheckbox.checked) {
       // If checked, display today's date
-      sipDateDisplay.textContent = getTodaysDateFormatted();
-    } else {
+        sipDateDisplay.textContent = getTodaysDateFormatted();
+      } else {
       // If unchecked, revert to the user's selected date
-      sipDateDisplay.textContent = originalSipDate;
-    }
-  });
+        sipDateDisplay.textContent = originalSipDate;
+      }
+    });
+  }
 
+  function flakterDateV2(datelement, displayDate, dropdownVal) {
+    let disableRule = [];
+    const defaultDate = new Date(); // Initialize with today
+
+    // Use a single 'today' constant for all calculations
+    const today = new Date();
+    // Set time to 0 to avoid time-related comparison issues
+    today.setHours(0, 0, 0, 0);
+
+    switch (dropdownVal) {
+      case 'Monthly': {
+        const recurringDay = today.getDate();
+        defaultDate.setMonth(today.getMonth() + 1);
+
+        const year = defaultDate.getFullYear();
+        const nextMonth = defaultDate.getMonth() + 1;
+        const lastDayOfNextMonth = new Date(year, nextMonth, 0).getDate();
+        const targetDay = Math.min(recurringDay, lastDayOfNextMonth);
+        defaultDate.setDate(targetDay);
+
+        disableRule = [
+          function (date) {
+            const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            const targetDayInMonth = Math.min(recurringDay, lastDayOfMonth);
+            return date.getDate() !== targetDayInMonth;
+          },
+        ];
+        break;
+      }
+      case 'Annual': {
+        const recurringDay = today.getDate();
+        const recurringMonth = today.getMonth();
+        defaultDate.setFullYear(today.getFullYear() + 1);
+
+        disableRule = [
+          function (date) {
+            return date.getDate() !== recurringDay || date.getMonth() !== recurringMonth;
+          },
+        ];
+        break;
+      }
+      case 'Weekly': {
+        const recurringDayOfWeek = today.getDay();
+        defaultDate.setDate(today.getDate() + 7);
+
+        disableRule = [
+          function (date) {
+            return date.getDay() !== recurringDayOfWeek;
+          },
+        ];
+        break;
+      }
+      case 'Fortnightly': { // <-- CORRECTED LOGIC
+        const startTime = today.getTime();
+        defaultDate.setDate(today.getDate() + 14);
+
+        disableRule = [
+          function (date) {
+            // Calculate difference in whole days for reliability
+            const diffDays = Math.round((date.getTime() - startTime) / (1000 * 60 * 60 * 24));
+            return diffDays % 14 !== 0;
+          },
+        ];
+        break;
+      }
+      case 'Quarterly': {
+        const startDay = today.getDate();
+        const startMonth = today.getMonth();
+        defaultDate.setMonth(today.getMonth() + 3);
+
+        disableRule = [
+          function (date) {
+            const yearDiffInMonths = (date.getFullYear() - today.getFullYear()) * 12;
+            const monthDiffInMonths = date.getMonth() - startMonth;
+            const monthDiff = yearDiffInMonths + monthDiffInMonths;
+            const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            const targetDay = Math.min(startDay, lastDayOfMonth);
+            return date.getDate() !== targetDay || monthDiff % 3 !== 0;
+          },
+        ];
+        break;
+      }
+      case 'Daily': { // <-- CORRECTED LOGIC
+        defaultDate.setDate(today.getDate() + 1);
+        // No custom disable rules are needed for 'Daily'. 'minDate' handles it.
+        disableRule = [];
+        break;
+      }
+      default:
+        // Default case with no rules
+        disableRule = [];
+        break;
+    }
+
+    const fpInstance = window.flatpickr(datelement, {
+      defaultDate,
+      altInput: false,
+      appendTo: calendarContainer,
+      disableMobile: true,
+      disable: disableRule,
+      minDate: today, // Consistently prevent past dates for all cases
+
+      onReady(_, __, fp) {
+        if (fp.calendarContainer) {
+          fp.calendarContainer.removeAttribute('style');
+        }
+      },
+      onChange(selectedDates) {
+        if (!selectedDates[0]) return;
+        const selectedDate = selectedDates[0];
+        const day = selectedDate.getDate();
+        const month = selectedDate.toLocaleString('default', { month: 'short' });
+        const year = selectedDate.getFullYear();
+        const formattedDate = `${day} ${month} ${year}`;
+        displayDate.textContent = formattedDate;
+        // originalSipDate = formattedDate;
+      },
+    });
+    console.log(fpInstance);
+    // Manually set the initial display text after initialization
+    if (defaultDate) {
+      const day = defaultDate.getDate();
+      const month = defaultDate.toLocaleString('default', { month: 'short' });
+      const year = defaultDate.getFullYear();
+      displayDate.textContent = `${day} ${month} ${year}`;
+    }
+  }
+  flakterDate(calendarIcon, sipDateDisplay);
+  // flakterDateV2(finsel, dateSel, 'Monthly');
   // --- CORRECTED CUSTOM DROPDOWN LOGIC ---
   block.querySelectorAll('.custom-select-wrapper').forEach((wrapper) => {
     const selected = wrapper.querySelector('.select-selected');
@@ -706,6 +985,24 @@ export default function decorate(block) {
         selected.textContent = option.textContent;
         hiddenInput.value = option.getAttribute('data-value');
         wrapper.classList.remove('open');
+        if (selected.closest('#custom-select-frequency')) {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          flakterDateV2(finsel, dateSel, option.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[1].classList.add('open');
+        }
+        if (selected.textContent === 'Select Date') {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          const parSel = selected.closest('.date-drop-down');
+          const paraText = parSel.querySelector('#custom-select-frequency .select-selected');
+          flakterDateV2(finsel, dateSel, paraText.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[1].classList.add('open');
+        }
       });
     });
   });

@@ -14,15 +14,15 @@ export default function decorate(block) {
   formblock(block.querySelector('.button-container'));
   // block.querySelector(".growth-now-row-2 .fund-sec-3 ul")
 
-  const ulfund = block.querySelector(".growth-now-row-2 .fund-sec-3 ul");
-  ulfund.classList.add("fundgul");
+  const ulfund = block.querySelector('.growth-now-row-2 .fund-sec-3 ul');
+  ulfund.classList.add('fundgul');
   // Array.from(ulfund).forEach((dfer) => {
   //   dfer.classList.add("fundgulli");
   // });
 
   dataMapMoObj.CLASS_PREFIXES = ['growth-sectri', 'growth-mainthr', 'growth-subthr'];
   dataMapMoObj.addIndexed(ulfund);
-  ulfund.querySelectorAll('a').forEach((ela) =>{
+  ulfund.querySelectorAll('a').forEach((ela) => {
     ela.classList.add('ahreg');
-  })
+  });
 }

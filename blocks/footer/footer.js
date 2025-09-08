@@ -84,19 +84,18 @@ export default async function decorate(block) {
   ];
   dataMapMoObj.addIndexed(block);
 
-  block.querySelectorAll('.accordion-item-body .list-inneritem-1').forEach((ele)=>{
-    Array.from(ele.children).forEach((el)=>{
+  block.querySelectorAll('.accordion-item-body .list-inneritem-1').forEach((ele) => {
+    Array.from(ele.children).forEach((el) => {
       el.classList.add('list-innerlist');
-    })
-  })
+    });
+  });
 
-  Array.from(block.querySelector(".list-items2").children).forEach((lieltwo) => {
+  Array.from(block.querySelector('.list-items2').children).forEach((lieltwo) => {
     lieltwo.classList.add('item-list');
     Array.from(lieltwo.children).forEach((elrt) => {
       elrt.classList.add('item-anchor');
     });
   });
-  
 
   // open all footer accordions by default
   const acccontain = block.querySelector('.footer-sub2 .accordion')?.children;
@@ -122,9 +121,10 @@ export default async function decorate(block) {
 
   // Init scroll-to-top button
   initScrollToTop();
-  const footercls = block.closest(".footer");
+  const footercls = block.closest('.footer');
   Array.from(
-    footercls.querySelector(".footer-section3 .footer-sub-cont2").children).forEach((efthre)=>{
+    footercls.querySelector('.footer-section3 .footer-sub-cont2').children,
+  ).forEach((efthre) => {
     efthre.classList.add('footerthr');
-  })
+  });
 }

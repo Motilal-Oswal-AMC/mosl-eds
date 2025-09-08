@@ -30,10 +30,14 @@ export default function decorate(block) {
   }
   dataMapMoObj.addIndexed(whyFund);
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  const [planFlow, planslabel] = planCode.split(':');
+  const planslabel = planCode.split(':')[1];
   const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
   dataMapMoObj.CLASS_PREFIXES = ['compound-item', 'compound-sub-item', 'compound-inner-item'];
   dataMapMoObj.addIndexed(block);
+
+  const stky = mainBlock.querySelector('.fdp-sticky-nav');
+  dataMapMoObj.CLASS_PREFIXES = ['sticky-item', 'sticky-sub-item', 'sticky-inner-item'];
+  dataMapMoObj.addIndexed(stky);
 
   dataMapMoObj.CLASS_PREFIXES = ['item'];
   dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
@@ -43,7 +47,7 @@ export default function decorate(block) {
   const finPlangrp = [];
   const tempReturns = [];
   const DirectPlanlistArr = cfObj[0].planList.filter(
-    (el) => el.planName === planFlow,
+    (el) => el.planName,
   );
   cfObj[0].returns.forEach((ret) => {
     if (DirectPlanlistArr[0].groupedCode === (ret.plancode + ret.optioncode)) {
@@ -78,8 +82,8 @@ export default function decorate(block) {
     const tempReturnsec = [];
     const returnValue = [];
     const valueText = param.target.textContent.trim();
-    const planType = valueText.split('|')[1].trim();
-    const plangrp = DirectPlanlistArr.filter((el) => el.optionName === planType);
+    const planType = valueText.replace(' |', '');
+    const plangrp = DirectPlanlistArr.filter((el) => el.groupedCode === param.target.getAttribute('datacode'));
 
     cfObj[0].returns.forEach((ret) => {
       if ((ret.plancode + ret.optioncode) === plangrp[0].groupedCode) {
@@ -163,6 +167,11 @@ export default function decorate(block) {
       navValue.innerHTML = '';
       navValue.append(Number(navlistarray[0].latnav).toFixed(2));
       navValue.append(span({ class: 'percent' }, '%'));
+
+      const navper = middlediv.querySelector('.nav-percent');
+      navper.textContent = '';
+      navper.textContent = navlistarray[0].navchngper;
+      navper.append(span({ class: 'navper' }, '%'));
     } else {
       const navdiv = middlediv.querySelector('.nav-return-grp .nav-label');
       navdiv.innerHTML = '';
@@ -172,6 +181,11 @@ export default function decorate(block) {
       navValue.innerHTML = '';
       navValue.append(Number(navlistarray[0].latnav).toFixed(2));
       navValue.append(span({ class: 'percent' }, '%'));
+
+      const navper = middlediv.querySelector('.nav-percent');
+      navper.textContent = '';
+      navper.textContent = navlistarray[0].navchngper;
+      navper.append(span({ class: 'navper' }, '%'));
     }
   }
 
@@ -458,7 +472,10 @@ export default function decorate(block) {
                   {
                     class: 'nav-percent',
                   },
-                  '0.41%',
+                  Number(navlistArr[0].navchngper),
+                  span({
+                    class: 'navper',
+                  }, '%'),
                 ),
               ),
             ),
@@ -588,7 +605,7 @@ export default function decorate(block) {
   (function () {
     // Function to calculate the correct header offset based on screen size
     function getHeaderOffset() {
-      return window.innerWidth <= 768 ? 450 : 180;
+      return window.innerWidth <= 768 ? 450 : 250;
     }
 
     // Smooth scroll setup with dynamic header offset

@@ -1,5 +1,4 @@
 import dataCfObj from '../../scripts/dataCfObj.js';
-import fundCardBlock from '../fund-card-v2/fund-card-v2.js';
 import fundcardblock from '../fund-card/fund-card.js';
 
 export default function decorate(block) {
@@ -11,17 +10,6 @@ export default function decorate(block) {
     });
   });
 
-  if (block.closest('.compound-journey')) { // [...block.classList].includes('compound-journey')
-    const dataCF = dataCfObj.slice(0, 5);
-    const divWrapper = document.createElement('div');
-    divWrapper.classList.add('card-items');
-    dataCF.forEach((el) => {
-      const cardV2 = fundCardBlock(el);
-      divWrapper.append(cardV2);
-    });
-
-    block.querySelector('.compound-item').append(divWrapper);
-  }
   if (block.closest('.index-fund')) { // [...block.classList].includes('index-fund')
     const dataCF = dataCfObj.slice(0, 2);
     const divWrapper = document.createElement('div');
