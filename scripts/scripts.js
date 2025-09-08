@@ -282,6 +282,7 @@ export function wishlist() {
 }
 
 /* ---------------- Fetch Call ---------------- */
+// eslint-disable-next-line default-param-last
 export async function myAPI(method, url, body = null, header) {
   const options = { method };
   if (body) {

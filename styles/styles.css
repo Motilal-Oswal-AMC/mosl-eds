@@ -449,7 +449,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds>.card-modal-overlay,
     .known-our-funds>.card-modal-overlay {
         position: fixed;
@@ -534,7 +533,6 @@ footer .footer[data-block-status="loaded"] {
 
 
 @media (width <=768px) {
-
     .our-popular-funds.modal-active-parent,
     .known-our-funds.modal-active-parent {
         max-height: unset;
@@ -806,6 +804,7 @@ position: relative;
 /* pan modal */
 .pan-details-modal {
     max-width: 400px;
+
     /* width: 100%; */
 
     /* background: #0009; */
