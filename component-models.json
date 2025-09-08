@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "Show Modal",
+            "value": "show-modal"
+          },
+          {
             "name": "fdp-kyc-form",
             "value": "fdp-kyc-form"
           },

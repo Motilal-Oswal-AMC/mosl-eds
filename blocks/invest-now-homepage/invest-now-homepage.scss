@@ -8,6 +8,15 @@
 .invest-now-homepage-container {
   width: 360px;
   max-width: 100%;
+   position: fixed;
+  top: 0;
+  right: -400px; /* Hide it outside the screen */
+  width: 400px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  transition: right 0.5s ease-in-out;
+  z-index: 1000;
 
   @include media(mobile) {
     width: 100%;
