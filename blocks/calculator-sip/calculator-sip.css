@@ -441,6 +441,8 @@
   line-height: 16px;
   cursor: pointer;
   position: relative;
+  user-select: none;
+     user-select: none;
           user-select: none;
 }
 
@@ -566,26 +568,12 @@
   line-height: 24px;
   height: 100%;
   padding-left: 15px;
+  appearance: none;
+     appearance: none;
           appearance: none;
   outline: none;
   background-color: transparent;
   border: none;
-}
-
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
-  color: #2e2a94;
-  font-family: Poppins, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 24px;
-}
-
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
-  color: #2e2a94;
-  font-family: Poppins, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 24px;
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error {
@@ -615,6 +603,8 @@
   line-height: 24px;
   cursor: pointer;
   position: relative;
+  user-select: none;
+     user-select: none;
           user-select: none;
   padding-bottom: 4px;
 }

@@ -1013,3 +1013,31 @@ position: relative;
         border-radius: 32px 32px 0 0;
     }
 }
+
+/* Placeholder style for sip-calculator, growth-now, our-funds-block */
+
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder,
+.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
+    color: #2e2a94;
+    font-family: Poppins, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
+    color: #fff;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    appearance: auto;
+    padding-right: 4px;
+}
+
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
+    color: #616161;
+}
+
+/* Placeholder style for sip-calculator, growth-now, our-funds-block */

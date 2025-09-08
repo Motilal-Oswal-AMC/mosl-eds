@@ -149,14 +149,6 @@
   background-color: transparent;
 }
 
-.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
-  color: #616161;
-}
-
-.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
-  color: #616161;
-}
-
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .cancel-search {
   max-width: 20px;
   width: 100%;
@@ -247,6 +239,7 @@
   line-height: 0;
   cursor: pointer;
   height: max-content;
+  height: max-content;
 }
 
 @media (width <= 768px) {
@@ -276,6 +269,7 @@
 }
 
 .section .our-funds-block .fundcontainer .search-trending-wrapper .watchlisttext {
+  width: max-content;
   width: max-content;
   line-height: 0;
 }
@@ -657,6 +651,8 @@
 }
 
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container {
+  user-select: none;
+     user-select: none;
           user-select: none;
   display: flex;
   align-items: center;
@@ -676,6 +672,8 @@
   height: 20px;
   cursor: pointer;
   margin: 1.67px;
+  appearance: none;
+     appearance: none;
           appearance: none;
 }
 
@@ -913,6 +911,8 @@
     min-width: 20px;
     height: 20px;
     cursor: pointer;
+    appearance: none;
+       appearance: none;
             appearance: none;
   }
 
@@ -1032,10 +1032,12 @@
   align-items: center;
   gap: 12px;
   height: max-content;
+  height: max-content;
   line-height: 0;
 }
 
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular {
+  min-width: max-content;
   min-width: max-content;
 }
 
@@ -1380,6 +1382,7 @@
   display: flex;
   align-items: center;
   min-width: max-content;
+  min-width: max-content;
   border: 1px solid #bdbdbd;
   border-radius: 1000px;
   padding: 4px 12px;
@@ -1459,6 +1462,7 @@
 }
 
 .section .our-funds-block .filter-cards .right-container .cards-container .nfo-card-container .card-category .planlist-dropdown {
+  max-width: max-content;
   max-width: max-content;
 }
 
@@ -1622,6 +1626,7 @@
 @media (width <= 1025px) {
   .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(2) {
     margin: 0;
+    max-width: max-content;
     max-width: max-content;
   }
 }
@@ -1905,6 +1910,7 @@
   gap: 12px;
   padding: 4px 12px;
   margin-left: 34px;
+  max-width: max-content;
   max-width: max-content;
 }
 

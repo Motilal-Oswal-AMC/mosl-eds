@@ -150,9 +150,9 @@ body {
             outline: none;
             background-color: transparent;
 
-            &::placeholder {
-              color: $text-body-2;
-            }
+            // &::placeholder {
+            //   color: $text-body-2;
+            // }
           }
 
           .cancel-search {
