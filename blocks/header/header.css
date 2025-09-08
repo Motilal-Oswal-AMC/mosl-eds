@@ -7,7 +7,7 @@ header .nav-wrapper {
   background-color: #FFF;
   color: #2E2A94;
   width: 100%;
-  z-index: 2;
+  z-index: 100;
   position: fixed;
   padding: 12px 16px;
 }
