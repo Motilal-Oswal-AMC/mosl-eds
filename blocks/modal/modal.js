@@ -170,6 +170,10 @@ export function initializeModalHandlers() {
         await openModalOnElement(link.href, link);
       } else {
         // For all other modal links, use the default behavior
+        if (link.href.includes('fm-portfolio')) {
+          let fmId = e.target.parentNode.getAttribute('data_id');
+          localStorage.setItem('FM-AgentName', fmId);
+        }
         await openModal(link.href);
       }
     }
