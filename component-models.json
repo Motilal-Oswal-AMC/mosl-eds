@@ -1350,5 +1350,32 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "fm-portfolio",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col_schemename",
+        "label": "Enter Label Scheme Name"
+      },
+      {
+        "component": "text",
+        "name": "col_scheme",
+        "label": "Enter Label Scheme"
+      },
+      {
+        "component": "text",
+        "name": "col_benchmark",
+        "label": "Enter Label Benchmark"
+      },
+    ]
   }
 ]
