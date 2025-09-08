@@ -17,9 +17,9 @@ header nav {
   display: grid;
   grid-template: 'brand tools hamburger' 'sections sections sections' 1fr / 1fr auto auto;
   align-items: center;
-  gap: 0 4px;
+  gap: 0;
   margin: auto;
-  max-width: 1248px;
+  max-width: 1232px;
   height: auto;
 
   /* padding: 0 24px; */
@@ -546,7 +546,7 @@ header nav .header-top {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 24px;
+    gap: 22px;
     margin: 0;
   }
 
@@ -574,7 +574,7 @@ header nav .header-top {
   header nav .nav-tools {
     display: flex;
     grid-area: tools;
-    padding: 8px 0;
+    padding: 8px 0 8px 22px;
   }
 
   header nav .nav-tools .nav-tools-cont1>ul {
@@ -673,7 +673,7 @@ header nav .header-top {
   }
 
   header nav .header-top {
-    width: 92%;
+    width: 89%;
     display: flex;
     grid-area: header-top;
     align-items: center;

@@ -277,6 +277,26 @@
           {
             "name": "Homepage Growth",
             "value": "homepage-growth"
+          },
+          {
+            "name": "our-funds-header",
+            "value": "our-funds-header"
+          },
+          {
+            "name": "services-header",
+            "value": "services-header"
+          },
+          {
+            "name": "calculator-header",
+            "value": "calculator-header"
+          },
+          {
+            "name": "investor-Edu-header",
+            "value": "investor-Edu-header"
+          },
+          {
+            "name": "mosl-edge-header",
+            "value": "mosl-edge-header"
           }
         ]
       },
@@ -1315,7 +1335,8 @@
   },
   {
     "id": "pan-valid-block",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "col_pvpan",
         "label": "Enter Label For Pan Number Field"
