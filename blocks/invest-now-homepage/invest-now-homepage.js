@@ -56,6 +56,7 @@ export async function existingUser(paramblock) {
         mfGuest: false,
         product: 'MF',
       };
+
       const rejsin = await myAPI(
         'POST',
         'https://api.moamc.com/LoginAPI/api/Login/GenerateOtpNew',
@@ -281,6 +282,7 @@ export async function existingUser(paramblock) {
       dataMapMoObj.panDlts.pannumber = userPanNumber;
       const request = {
         panNo: userPanNumber,
+        isNri: false,
       };
       const rejsin = await myAPI(
         'POST',
