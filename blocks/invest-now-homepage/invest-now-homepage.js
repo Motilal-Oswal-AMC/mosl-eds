@@ -194,6 +194,7 @@ export async function existingUser(paramblock) {
           const errorPanEl = errorpan.nextElementSibling;
           if (panRegex.test(inputValue)) {
             errorPanEl.classList.add('hide-error');
+            errorPanEl.classList.remove('show-error');
             userLoginPanNumber.setAttribute('readonly', true);
           } else {
             errorPanEl.classList.remove('hide-error');
@@ -323,7 +324,7 @@ export async function existingUser(paramblock) {
         const dataplan = dataCfObj.filter((eldata) => eldata.schcode === schemeCode);
         const amcPlanCode = dataplan[0].moAmcCode;
         const optioncode = dataplan[0].planList
-        .filter((elop) => elop.groupedCode === planCodenearby);
+          .filter((elop) => elop.groupedCode === planCodenearby);
         const sOptCode = optioncode[0].optionCode; //
         const { planCode } = optioncode[0];
         const existingQueryParams = '?';
