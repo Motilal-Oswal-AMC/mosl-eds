@@ -101,10 +101,15 @@ export async function existingUser(paramblock) {
       if (isKyc) {
         kycForm.style.display = 'none'; // display none kycform
         panForm.style.display = 'none'; // display none panform
-        pansuccessForm.style.display = 'block'; // display block otp form
+        pansuccessForm.style.display = 'flex'; // display block otp form
         const paninp = pansuccessForm.querySelector('.otp-wrap input');
         paninp.focus();
-
+        const classAddv3 = closestParam.querySelector('.fdp-kyc-form');
+        if (Array.from(classAddv3.classList).includes('hide-modal')) {
+          classAddv3.classList.remove('hide-modal');
+        }
+        classAddv3.classList.remove('hide-modal');
+        classAddv3.classList.add('modal-show');
         const inputs = pansuccessForm.querySelectorAll('.otp-wrap input');
         inputs.forEach((inputel, index) => {
           inputel.setAttribute('maxLength', 1);
@@ -157,6 +162,12 @@ export async function existingUser(paramblock) {
         kycForm.style.display = 'block';
         panForm.style.display = 'none';
         pansuccessForm.style.display = 'none';
+        const classAddv3 = closestParam.querySelector('.fdp-kyc-form');
+        if (Array.from(classAddv3.classList).includes('hide-modal')) {
+          classAddv3.classList.remove('hide-modal');
+        }
+        classAddv3.classList.remove('hide-modal');
+        classAddv3.classList.add('modal-show');
         const userLoginPanNumber = closestParam.querySelector('.user-pan-number');
         userLoginPanNumber.value = dataMapMoObj.panDlts.pannumber.toUpperCase();
         userLoginPanNumber.setAttribute('readonly', true);
@@ -363,6 +374,14 @@ export async function existingUser(paramblock) {
     // added userPanNumber
     userPanNumberShow.textContent = userPanNumber.toUpperCase();
 
+    closestParam.querySelector('.pan-details-modal').style.display = 'block';
+    // existingUser(block);
+    // const classAddv3 = closestParam.querySelector('.fdp-kyc-form');
+    // if (Array.from(classAddv3.classList).includes('hide-modal')) {
+    //   classAddv3.classList.remove('hide-modal');
+    // }
+    // classAddv3.classList.remove('hide-modal');
+    // classAddv3.classList.add('modal-show');
     if (userPanNumber === '') {
       checkInput.classList.add('show-error');
     }
@@ -415,10 +434,47 @@ export async function existingUser(paramblock) {
     const card2 = closestParam.querySelector('.our-popular-funds')
       || closestParam.querySelector('.known-our-funds')
       || closestParam.querySelector('.fdp-card-container');
+
     btn.addEventListener('click', (e) => {
       e.stopPropagation(); // Stop click from bubbling further
       document.body.classList.remove('noscroll');
       card2.classList.remove('modal-active-parent');
+
+      const classAdd = card2.querySelector('.pan-details-modal');
+      if (Array.from(classAdd.classList).includes('hide-modal')) {
+        classAdd.classList.remove('hide-modal');
+      }
+      classAdd.classList.add('hide-modal');
+      classAdd.classList.remove('modal-show');
+      // }
+      document.body.classList.remove('noscroll');
+      card2.classList.remove('modal-active-parent');
+
+      // v2 for kyc form
+
+      const classAddv2 = card2.querySelector('.fdp-kyc-form');
+      if (Array.from(classAdd.classList).includes('hide-modal')) {
+        classAddv2.classList.remove('hide-modal');
+      }
+      classAddv2.classList.add('hide-modal');
+      classAddv2.classList.remove('modal-show');
+      // }
+      document.body.classList.remove('noscroll');
+      card2.classList.remove('modal-active-parent');
+
+      // v3 for otp
+
+      const classAddv3 = card2.querySelector('.otp-fdp');
+      if (Array.from(classAdd.classList).includes('hide-modal')) {
+        classAddv3.classList.remove('hide-modal');
+      }
+      classAddv3.classList.add('hide-modal');
+      classAddv3.classList.remove('modal-show');
+      // }
+      document.body.classList.remove('noscroll');
+      card2.classList.remove('modal-active-parent');
+
+      // overlay.classList.add('hide-overlay');
       removeClassAfterDelay();
     });
   }
@@ -683,6 +739,19 @@ export default function decorate(block) {
     mainmo.querySelector('.invest-now-homepage-container').style.display = 'none';
     mainmo.querySelector('.pan-details-modal').style.display = 'block';
     existingUser(block);
+    const classAddv2 = mainmo.querySelector('.pan-details-modal');
+    if (Array.from(classAddv2.classList).includes('hide-modal')) {
+      classAddv2.classList.remove('hide-modal');
+    }
+    classAddv2.classList.remove('hide-modal');
+    classAddv2.classList.add('modal-show');
+
+    const classAddv3 = mainmo.querySelector('.otp-fdp');
+    if (Array.from(classAddv3.classList).includes('hide-modal')) {
+      classAddv3.classList.remove('hide-modal');
+    }
+    classAddv3.classList.remove('hide-modal');
+    classAddv3.classList.add('modal-show');
   });
 
   // 1. Add open/close logic
