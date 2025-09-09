@@ -512,13 +512,16 @@ footer .footer[data-block-status="loaded"] {
 
 .fdp-card-container .card-modal-overlay {
     max-width: 1542px;
+    /* max-width: 100%; */
     overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     position: absolute;
-    top: 200px;
+
+    /* top: 200px; */
     right: 0;
+    left: 0;
     height: 100vh;
     z-index: 1000;
     background: #0009;
@@ -960,7 +963,6 @@ position: relative;
     font-size: 12px;
     line-height: 16px;
     font-family: Poppins, sans-serif;
-    padding-top: 10px;
 }
 
 .pan-details-modal
