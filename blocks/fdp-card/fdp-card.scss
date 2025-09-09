@@ -268,7 +268,6 @@ main {
               display: flex;
               flex-wrap: wrap;
               gap: 4px 8px;
-              background-color: grey;
 
               // @include media(desktop-sm) {
               //   max-width: 45%;
@@ -356,7 +355,6 @@ main {
               // max-width: 160px;
               // width: 100%;
               width: auto;
-              background-color: grey;
 
               // @include media(desktop-sm) {
               //   max-width: 47%;
