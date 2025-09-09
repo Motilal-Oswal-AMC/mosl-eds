@@ -188,7 +188,7 @@ export default function decorate(block) {
       navper.append(span({ class: 'navper' }, '%'));
     }
   }
-
+  const typeOfScheme = cfObj[0].typeOfScheme === undefined ? '' : cfObj[0].typeOfScheme;
   const cardContainer = div(
     {
       class: 'card-container',
@@ -279,7 +279,7 @@ export default function decorate(block) {
             {
               class: 'discription',
             },
-            cfObj[0].typeOfScheme,
+            typeOfScheme,
           ),
         ),
         div(
