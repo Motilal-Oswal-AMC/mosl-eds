@@ -161,6 +161,7 @@ export async function existingUser(paramblock) {
       console.log('kyc api response ', rejsin);
       const kycres = rejsin.data.kycStatus;
       const isKyc = kycres === 'Y';
+      dataMapMoObj.kycStatus = rejsin.data.kycStatus;
       const boolkyc = kycres === 'Y' ? 'true' : 'false';
       localStorage.setItem('kycstatus', boolkyc);
       const kycForm = closestParam.querySelector('.fdp-kyc-form');
@@ -324,15 +325,15 @@ export async function existingUser(paramblock) {
   // ModifyKyc API  start
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
-  async function modiFyKycApi(param, userName, userMobile, userEmail) {
+  async function modiFyKycApi(param) {
     try {
       const request = {
-        name: userName,
-        email: userEmail,
-        phone: userMobile,
+        name: param.userLogPanNm,
+        email: param.userLogEm,
+        phone: param.userLogMoNm,
         returnUrl: 'https://mf.moamc.com/onboarding/personal',
         timeOutUrl: 'https://mf.moamc.com/error',
-        panNo: param,
+        panNo: param.userLogPan,
       };
       const rejsin = await myAPI(
         'POST',
@@ -345,15 +346,35 @@ export async function existingUser(paramblock) {
     }
   }
 
+  async function imsentCall(paramData) {
+    try {
+      const request = {
+        frmdata: `LMS~${paramData.userLogPan}|${paramData.userLogPanNm}|+91${paramData.userLogMoNm}|${paramData.userLogEm}||Mumbai||${paramData.kycflag}|MF New investor|||||||||${paramData.isnri}|`,
+      };
+      const setRep = await myAPI('POST', 'https://api.moamc.com/initapi/api/Init/Lmsentry', request);
+      console.log(setRep);
+      modiFyKycApi(paramData);
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+
   const ModifyKycForm = closestParam.querySelector('.tnc-container .panvalidsubinner4');
   ModifyKycForm.addEventListener('click', () => {
     const userLoginPanNumber = closestParam.querySelector('.user-pan-number').value; // input
-
+    const isNri = closestParam.querySelector('#opt1').checked;
     const userLoginPanName = closestParam.querySelector('.user-pan-name').value;
     const userLoginMobileNumber = closestParam.querySelector('.user-number').value;
     const userLoginEmail = closestParam.querySelector('.user-email').value;
-
-    modiFyKycApi(userLoginPanNumber, userLoginPanName, userLoginMobileNumber, userLoginEmail);
+    const formdata = {
+      userLogPan: userLoginPanNumber,
+      userLogPanNm: userLoginPanName,
+      userLogMoNm: userLoginMobileNumber,
+      userLogEm: userLoginEmail,
+      isnri: isNri,
+      kycflag: dataMapMoObj.kycStatus,
+    };
+    imsentCall(formdata);
   });
   // ModifyKyc API  ends
 
