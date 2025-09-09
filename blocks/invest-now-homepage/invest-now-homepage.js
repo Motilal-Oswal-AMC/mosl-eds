@@ -178,6 +178,7 @@ export async function existingUser(paramblock) {
         kycForm.classList.add('hide-element');
         pansuccessForm.classList.add('hide-element');
         pansuccessForm.classList.remove('show-element');
+        pansuccessForm.classList.remove('modal-show');
         // pansuccessForm.style.display = 'none'; // display block otp form
       });
       resentBtn.removeAttribute('href');
