@@ -255,26 +255,33 @@ main {
             // align-items: center;
             gap: 16px;
 
+            @include media(mobile){
+              padding-right: 35px;
+              justify-content: space-between;
+            }
+
             .return-grp {
               // max-width: 52.18%;
-              max-width: 192px;
-              width: 100%;
+              // max-width: 192px;
+              // width: 100%;
+              width: auto;
               display: flex;
               flex-wrap: wrap;
               gap: 4px 8px;
 
-              @include media(desktop-sm) {
-                max-width: 45%;
-              }
+              // @include media(desktop-sm) {
+              //   max-width: 45%;
+              // }
 
               @include media(tab) {
-                max-width: 120px;
+                // max-width: 120px;
+                width: max-content;
               }
 
-              @include media(mobile) {
+              // @include media(mobile) {
                 // max-width: 47.06%;
-                max-width: 160px;
-              }
+                // max-width: 160px;
+              // }
 
               .return-text {
                 @include font-style(
@@ -345,21 +352,23 @@ main {
 
             .nav-grp {
               // max-width: 43.48%;
-              max-width: 160px;
-              width: 100%;
+              // max-width: 160px;
+              // width: 100%;
+              width: auto;
 
-              @include media(desktop-sm) {
-                max-width: 47%;
-              }
+              // @include media(desktop-sm) {
+              //   max-width: 47%;
+              // }
 
               @include media(tab) {
-                max-width: 140px;
+                // max-width: 140px;
+                width: max-content;
               }
 
-              @include media(mobile) {
+              // @include media(mobile) {
                 // max-width: 38.53%;
-                max-width: 131px;
-              }
+                // max-width: 131px;
+              // }
 
               .nav-label {
                 @include font-style(

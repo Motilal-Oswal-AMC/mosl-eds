@@ -233,7 +233,7 @@ main {
 
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle {
   position: relative;
-  max-width: max-content;
+  max-width: -moz-max-content;
   max-width: max-content;
   margin: 0 0 8px;
 }
@@ -267,29 +267,24 @@ main {
   gap: 16px;
 }
 
+@media (width <= 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp {
+    padding-right: 35px;
+    justify-content: space-between;
+  }
+}
+
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-  max-width: 192px;
-  width: 100%;
+  width: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 4px 8px;
 }
 
-@media (width <= 1299px) {
-  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-    max-width: 45%;
-  }
-}
-
 @media (width <= 1025px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-    max-width: 120px;
-  }
-}
-
-@media (width <= 768px) {
-  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-    max-width: 160px;
+    width: -moz-max-content;
+    width: max-content;
   }
 }
 
@@ -303,7 +298,7 @@ main {
 
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown {
   position: relative;
-  max-width: max-content;
+  max-width: -moz-max-content;
   max-width: max-content;
 }
 
@@ -327,7 +322,7 @@ main {
 }
 
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
-  width: max-content;
+  width: -moz-max-content;
   width: max-content;
   height: auto;
   top: 100%;
@@ -367,25 +362,13 @@ main {
 }
 
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
-  max-width: 160px;
-  width: 100%;
-}
-
-@media (width <= 1299px) {
-  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
-    max-width: 47%;
-  }
+  width: auto;
 }
 
 @media (width <= 1025px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
-    max-width: 140px;
-  }
-}
-
-@media (width <= 768px) {
-  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
-    max-width: 131px;
+    width: -moz-max-content;
+    width: max-content;
   }
 }
 
