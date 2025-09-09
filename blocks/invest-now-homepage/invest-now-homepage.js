@@ -95,6 +95,7 @@ export async function existingUser(paramblock) {
         panForm.classList.add('show-element');
         kycForm.classList.add('hide-element');
         pansuccessForm.classList.add('hide-element');
+        pansuccessForm.classList.remove('show-element');
         // pansuccessForm.style.display = 'none'; // display block otp form
       });
       resentBtn.removeAttribute('href');
@@ -104,7 +105,9 @@ export async function existingUser(paramblock) {
       if (isKyc) {
         kycForm.classList.add('hide-element');
         panForm.classList.add('hide-element');
+        panForm.classList.remove('show-element');
         pansuccessForm.classList.add('show-element');
+
         // kycForm.style.display = 'none'; // display none kycform
         // panForm.style.display = 'none'; // display none panform
         // pansuccessForm.style.display = 'flex'; // display block otp form
@@ -116,6 +119,7 @@ export async function existingUser(paramblock) {
         }
         classAddv3.classList.remove('hide-modal');
         classAddv3.classList.add('modal-show');
+        panForm.classList.remove('show-modal');
         const inputs = pansuccessForm.querySelectorAll('.otp-wrap input');
         inputs.forEach((inputel, index) => {
           inputel.setAttribute('maxLength', 1);
@@ -382,7 +386,9 @@ export async function existingUser(paramblock) {
     // added userPanNumber
     userPanNumberShow.textContent = userPanNumber.toUpperCase();
 
-    closestParam.querySelector('.pan-details-modal').style.display = 'block';
+    const panDet = closestParam.querySelector('.pan-details-modal'); // .style.display = 'block';
+    panDet.classList.add('show-modal');
+
     // existingUser(block);
     // const classAddv3 = closestParam.querySelector('.fdp-kyc-form');
     // if (Array.from(classAddv3.classList).includes('hide-modal')) {
@@ -747,8 +753,11 @@ export default function decorate(block) {
   }
   modal.querySelector('.start-now').addEventListener('click', () => {
     const mainmo = block.closest('.card-modal-overlay');
-    mainmo.querySelector('.invest-now-homepage-container').style.display = 'none';
-    mainmo.querySelector('.pan-details-modal').style.display = 'block';
+    const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
+    const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
+    investMod.classList.add('hide-element');
+    panMod.classList.add('show-element');
+
     existingUser(block);
     const classAddv2 = mainmo.querySelector('.pan-details-modal');
     if (Array.from(classAddv2.classList).includes('hide-modal')) {
