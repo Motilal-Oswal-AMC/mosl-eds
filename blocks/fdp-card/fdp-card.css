@@ -233,7 +233,7 @@ main {
 
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle {
   position: relative;
-  max-width: -moz-max-content;
+  max-width: max-content;
   max-width: max-content;
   margin: 0 0 8px;
 }
@@ -299,7 +299,7 @@ main {
 
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown {
   position: relative;
-  max-width: -moz-max-content;
+  max-width: max-content;
   max-width: max-content;
 }
 
@@ -323,7 +323,7 @@ main {
 }
 
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
-  width: -moz-max-content;
+  width: max-content;
   width: max-content;
   height: auto;
   top: 100%;
