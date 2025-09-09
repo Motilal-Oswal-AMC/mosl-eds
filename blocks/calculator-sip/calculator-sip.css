@@ -441,8 +441,6 @@
   line-height: 16px;
   cursor: pointer;
   position: relative;
-  user-select: none;
-     user-select: none;
           user-select: none;
 }
 
@@ -568,8 +566,6 @@
   line-height: 24px;
   height: 100%;
   padding-left: 15px;
-  appearance: none;
-     appearance: none;
           appearance: none;
   outline: none;
   background-color: transparent;
@@ -603,8 +599,6 @@
   line-height: 24px;
   cursor: pointer;
   position: relative;
-  user-select: none;
-     user-select: none;
           user-select: none;
   padding-bottom: 4px;
 }
