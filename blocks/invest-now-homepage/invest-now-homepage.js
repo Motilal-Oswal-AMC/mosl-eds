@@ -179,7 +179,12 @@ export async function existingUser(paramblock) {
         pansuccessForm.classList.add('hide-element');
         pansuccessForm.classList.remove('show-element');
         pansuccessForm.classList.remove('modal-show');
-        // pansuccessForm.style.display = 'none'; // display block otp form
+        const subeventv2 = pansuccessForm.querySelector('.sub-otp-con2');
+        subeventv2.classList.remove('sbmt-active');
+        const inotp = panForm.querySelectorAll('.otpfield input');
+        inotp.forEach((elfor) => {
+          elfor.value = '';
+        });
       });
       resentBtn.removeAttribute('href');
       resentBtn.addEventListener('click', () => {
