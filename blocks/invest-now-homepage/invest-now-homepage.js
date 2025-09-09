@@ -91,20 +91,26 @@ export async function existingUser(paramblock) {
       chclick.removeAttribute('href');
       chclick.addEventListener('click', () => {
         kycForm.style.display = 'none'; // display none kycform
-        panForm.style.display = 'block'; // display none panform
-        pansuccessForm.style.display = 'none'; // display block otp form
+        // panForm.style.display = 'block'; // display none panform
+        panForm.classList.add('show-element');
+        kycForm.classList.add('hide-element');
+        pansuccessForm.classList.add('hide-element');
+        // pansuccessForm.style.display = 'none'; // display block otp form
       });
       resentBtn.removeAttribute('href');
       resentBtn.addEventListener('click', () => {
         otpCall();
       });
       if (isKyc) {
-        kycForm.style.display = 'none'; // display none kycform
-        panForm.style.display = 'none'; // display none panform
-        pansuccessForm.style.display = 'flex'; // display block otp form
+        kycForm.classList.add('hide-element');
+        panForm.classList.add('hide-element');
+        pansuccessForm.classList.add('show-element');
+        // kycForm.style.display = 'none'; // display none kycform
+        // panForm.style.display = 'none'; // display none panform
+        // pansuccessForm.style.display = 'flex'; // display block otp form
         const paninp = pansuccessForm.querySelector('.otp-wrap input');
         paninp.focus();
-        const classAddv3 = closestParam.querySelector('.fdp-kyc-form');
+        const classAddv3 = closestParam.querySelector('.otp-fdp');
         if (Array.from(classAddv3.classList).includes('hide-modal')) {
           classAddv3.classList.remove('hide-modal');
         }
@@ -162,12 +168,14 @@ export async function existingUser(paramblock) {
         kycForm.style.display = 'block';
         panForm.style.display = 'none';
         pansuccessForm.style.display = 'none';
+
         const classAddv3 = closestParam.querySelector('.fdp-kyc-form');
         if (Array.from(classAddv3.classList).includes('hide-modal')) {
           classAddv3.classList.remove('hide-modal');
         }
         classAddv3.classList.remove('hide-modal');
         classAddv3.classList.add('modal-show');
+
         const userLoginPanNumber = closestParam.querySelector('.user-pan-number');
         userLoginPanNumber.value = dataMapMoObj.panDlts.pannumber.toUpperCase();
         userLoginPanNumber.setAttribute('readonly', true);
@@ -445,6 +453,9 @@ export async function existingUser(paramblock) {
         classAdd.classList.remove('hide-modal');
       }
       classAdd.classList.add('hide-modal');
+      setTimeout(() => {
+        classAdd.style.display = 'none';
+      }, 1200);
       classAdd.classList.remove('modal-show');
       // }
       document.body.classList.remove('noscroll');
@@ -746,12 +757,12 @@ export default function decorate(block) {
     classAddv2.classList.remove('hide-modal');
     classAddv2.classList.add('modal-show');
 
-    const classAddv3 = mainmo.querySelector('.otp-fdp');
-    if (Array.from(classAddv3.classList).includes('hide-modal')) {
-      classAddv3.classList.remove('hide-modal');
-    }
-    classAddv3.classList.remove('hide-modal');
-    classAddv3.classList.add('modal-show');
+    // const classAddv3 = mainmo.querySelector('.otp-fdp');
+    // if (Array.from(classAddv3.classList).includes('hide-modal')) {
+    //   classAddv3.classList.remove('hide-modal');
+    // }
+    // classAddv3.classList.remove('hide-modal');
+    // classAddv3.classList.add('modal-show');
   });
 
   // 1. Add open/close logic

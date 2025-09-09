@@ -511,7 +511,8 @@ footer .footer[data-block-status="loaded"] {
 }
 
 .fdp-card-container .card-modal-overlay {
-    max-width: 100%;
+    max-width: 1542px;
+    overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -1012,4 +1013,12 @@ position: relative;
         padding: 64px 16px;
         border-radius: 32px 32px 0 0;
     }
+}
+
+.hide-element{
+    display: none;
+}
+
+.show-element{
+    display: block;
 }
