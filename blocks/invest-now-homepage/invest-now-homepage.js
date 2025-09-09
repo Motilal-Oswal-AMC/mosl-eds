@@ -42,6 +42,51 @@ export async function existingUser(paramblock) {
     guestMenu: false,
     existingBox: true,
   };
+
+  async function apiAuth(params) {
+    try {
+      const reqAuth = {
+        password: params.optNo,
+        userId: params.panNo,
+        loginModeId: 1,
+        credentialModeId: 1,
+        ipV4: '192.198.22.22',
+        otpThroughDIT: false,
+        ditotpType: '',
+        pmsGuest: false,
+        isAIF: false,
+        mfGuest: false,
+        product: 'MF',
+      };
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
+      };
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/loginapi/api/Login/AuthenticateUserCred',
+        reqAuth,
+        header,
+      );
+      if (rejsin.data.userInfo) {
+        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        if (dataMapMoObj.panRes.data.guestClient !== '') {
+          window.location.href = 'https://www.motilaloswalmf.com/mutualfund/onboarding/personal';
+        } else if (dataMapMoObj.panRes.data.guestClient === '') {
+          window.location.href = 'https://www.motilaloswalmf.com/mutualfund/prelogin-to-postlogin-connector';
+        }
+      }
+      console.log(rejsin);
+      params.otpField.classList.add('otp-succes');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function otpCall(param) {
     try {
       const request = {
@@ -57,12 +102,48 @@ export async function existingUser(paramblock) {
         product: 'MF',
       };
 
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
+      };
       const rejsin = await myAPI(
         'POST',
         'https://api.moamc.com/LoginAPI/api/Login/GenerateOtpNew',
         request,
+        header,
       );
       console.log(rejsin);
+      if (rejsin.data !== null) {
+        const panForm = closestParam.querySelector('.otp-fdp');
+        const subtext = panForm.querySelector('.sub-otp-con3');
+        subtext.textContent = '';
+        subtext.textContent = rejsin.data;
+
+        const subevent = closestParam.querySelector('.sub-otp-con2');
+        subevent.classList.add('sbmt-active');
+        const inotp = panForm.querySelectorAll('.otpfield input');
+        if (subevent.querySelector('.inner-otp-con1')) {
+          subevent.querySelector('.inner-otp-con1').removeAttribute('href');
+        }
+        subevent.querySelector('.inner-otp-con1').addEventListener('click', () => {
+          let optValue = '';
+          inotp.forEach((elfor) => {
+            optValue += elfor.value;
+          });
+          if (optValue.length < 6) {
+            panForm.querySelector('.otpfield').classList.add('otp-failed');
+          } else {
+            const panNum = {
+              panNo: param,
+              optNo: optValue,
+              otpField: panForm.querySelector('.otpfield'),
+            };
+            apiAuth(panNum);
+          }
+        });
+      }
     } catch (error) {
       // console.log(error);
     }
@@ -80,6 +161,7 @@ export async function existingUser(paramblock) {
       console.log('kyc api response ', rejsin);
       const kycres = rejsin.data.kycStatus;
       const isKyc = kycres === 'Y';
+      dataMapMoObj.kycStatus = rejsin.data.kycStatus;
       const boolkyc = kycres === 'Y' ? 'true' : 'false';
       localStorage.setItem('kycstatus', boolkyc);
       const kycForm = closestParam.querySelector('.fdp-kyc-form');
@@ -261,15 +343,15 @@ export async function existingUser(paramblock) {
   // ModifyKyc API  start
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
-  async function modiFyKycApi(param, userName, userMobile, userEmail) {
+  async function modiFyKycApi(param) {
     try {
       const request = {
-        name: userName,
-        email: userEmail,
-        phone: userMobile,
+        name: param.userLogPanNm,
+        email: param.userLogEm,
+        phone: param.userLogMoNm,
         returnUrl: 'https://mf.moamc.com/onboarding/personal',
         timeOutUrl: 'https://mf.moamc.com/error',
-        panNo: param,
+        panNo: param.userLogPan,
       };
       const rejsin = await myAPI(
         'POST',
@@ -282,15 +364,35 @@ export async function existingUser(paramblock) {
     }
   }
 
+  async function imsentCall(paramData) {
+    try {
+      const request = {
+        frmdata: `LMS~${paramData.userLogPan}|${paramData.userLogPanNm}|+91${paramData.userLogMoNm}|${paramData.userLogEm}||Mumbai||${paramData.kycflag}|MF New investor|||||||||${paramData.isnri}|`,
+      };
+      const setRep = await myAPI('POST', 'https://api.moamc.com/initapi/api/Init/Lmsentry', request);
+      console.log(setRep);
+      modiFyKycApi(paramData);
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+
   const ModifyKycForm = closestParam.querySelector('.tnc-container .panvalidsubinner4');
   ModifyKycForm.addEventListener('click', () => {
     const userLoginPanNumber = closestParam.querySelector('.user-pan-number').value; // input
-
+    const isNri = closestParam.querySelector('#opt1').checked;
     const userLoginPanName = closestParam.querySelector('.user-pan-name').value;
     const userLoginMobileNumber = closestParam.querySelector('.user-number').value;
     const userLoginEmail = closestParam.querySelector('.user-email').value;
-
-    modiFyKycApi(userLoginPanNumber, userLoginPanName, userLoginMobileNumber, userLoginEmail);
+    const formdata = {
+      userLogPan: userLoginPanNumber,
+      userLogPanNm: userLoginPanName,
+      userLogMoNm: userLoginMobileNumber,
+      userLogEm: userLoginEmail,
+      isnri: isNri,
+      kycflag: dataMapMoObj.kycStatus,
+    };
+    imsentCall(formdata);
   });
   // ModifyKyc API  ends
 
@@ -313,6 +415,7 @@ export async function existingUser(paramblock) {
         request,
       );
       console.log(rejsin);
+      dataMapMoObj.panRes = rejsin;
 
       // const isSuccess = rejsin.data.existingClient === '' ? false : true;
       const tempArray = ['MF', 'BOTH'];

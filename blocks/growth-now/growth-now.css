@@ -292,28 +292,6 @@ main {
   padding-left: 10px;
 }
 
-.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
-  color: #fff;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-       appearance: auto;
-  padding-right: 4px;
-}
-
-.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
-  color: #fff;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-          appearance: auto;
-  padding-right: 4px;
-}
-
 @media (width <= 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form .submit-wrapper {
     width: 100%;

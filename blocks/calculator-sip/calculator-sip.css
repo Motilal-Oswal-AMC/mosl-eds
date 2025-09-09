@@ -572,22 +572,6 @@
   border: none;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
-  color: #2e2a94;
-  font-family: Poppins, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 24px;
-}
-
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
-  color: #2e2a94;
-  font-family: Poppins, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 24px;
-}
-
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error {
   font-size: 10px;
   line-height: 16px;
