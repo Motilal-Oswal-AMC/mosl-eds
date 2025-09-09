@@ -1,12 +1,9 @@
-import {
-  getMetadata
-} from '../../scripts/aem.js';
-import {
-  loadFragment
-} from '../fragment/fragment.js';
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
 // import { loadAutoBlock } from '../../scripts/scripts.js';
 import dataMapMoObj from '../../scripts/constant.js';
-
+import {a, button, div ,h3, li, ul} from '../../scripts/dom-helpers.js';
+ 
 // media query match that indicates mobile/tablet width
 export const isDesktop = window.matchMedia('(min-width: 900px)');
 
@@ -30,7 +27,7 @@ function closeOnEscape(e) {
 function closeOnFocusLost(e) {
   const nav = e.currentTarget;
   if (!nav.contains(e.relatedTarget)) {
-    const navSections = nav.querySelector('.nav-sections');
+    // const navSections = nav.querySelector('.nav-sections');
     // const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
     // if (navSectionExpanded && isDesktop.matches) {
     //   // eslint-disable-next-line no-use-before-define
@@ -188,6 +185,17 @@ export default async function decorate(block) {
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
+      const subHeader = navSection.querySelectorAll('.section');
+      dataMapMoObj.CLASS_PREFIXES = [
+        'sub-popup-cont',
+        'sub-popup-sec',
+        'sub-popup-sub',
+        'sub-popup-inner-text',
+        'sub-popup-list',
+        'sub-popup-list-content',
+        'sub-popup-list-row',
+      ];
+      subHeader.forEach((sublist) => dataMapMoObj.addIndexed(sublist));
     });
     dataMapMoObj.CLASS_PREFIXES = [
       'nav-sec-cont',
@@ -198,6 +206,325 @@ export default async function decorate(block) {
       'nav-sec-list-content',
     ];
     dataMapMoObj.addIndexed(navSections);
+    if (window.innerWidth < 786) {
+      const mobBlock = div({
+        "class": 'accordion-container mob'
+    },
+    button({
+            "class": 'accordion-header'
+        },
+        'Our Funds'
+    ),
+    div({
+            "class": 'accordion-panel'
+        },
+        div({
+                "class": 'panel-content-wrapper'
+            },
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Indian Equity'),
+                ul(
+                    li('Large Cap'),
+                    li('Large & Mid Cap'),
+                    li('Mid Cap'),
+                    li('Small Cap'),
+                    li('Flexi Cap'),
+                    li('Multi Cap'),
+                    li('Sector'),
+                    li('Tax Saver (ELSS)')
+                )
+            ),
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Other Categories'),
+                ul(
+                    li('International Equity'),
+                    li('Hybrid & Balanced'),
+                    li('Multi Asset'),
+                    li('ETFs'),
+                    li('Commodity'),
+                    li('Debt & Liquid'),
+                    li('Index Funds')
+                )
+            ),
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Popular Funds'),
+                ul(
+                    li('Motilal Oswal Asset Allocation Passive Fund'),
+                    li('Motilal Oswal Nifty 500 Momentum 50 Index Fund'),
+                    li('Motilal Oswal Mid Cap Fund'),
+                    li('Motilal Oswal Flexi Cap Fund')
+                )
+            )
+        )
+    ),
+    button({
+            "class": 'accordion-header'
+        },
+        'Services'
+    ),
+    div({
+            "class": 'accordion-panel'
+        },
+        div({
+                "class": 'panel-content-wrapper'
+            },
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Downloads'),
+                ul(
+                    li('Statements & Reports'),
+                    li('Factsheet'),
+                    li('Forms'),
+                    li('Product Literature')
+                )
+            ),
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Other Services'),
+                ul(
+                    li('NAV & TER'),
+                    li('Track Your Transaction Status'),
+                    li('Autopay (Mandate) Registration'),
+                    li('Grievance Redressal')
+                )
+            ),
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Update Account Details'),
+                ul(
+                    li('Email ID'),
+                    li('Mobile No.'),
+                    li('KYC Status'),
+                    li('Nominee'),
+                    li('Bank Details')
+                )
+            )
+        )
+    ),
+    button({
+            "class": 'accordion-header'
+        },
+        'Calculators'
+    ),
+    div({
+            "class": 'accordion-panel'
+        },
+        div({
+                "class": 'panel-content-wrapper'
+            },
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Plan your investments'),
+                ul(
+                    li('SIP Calculator'),
+                    li('Cost of delay Calculator'),
+                    li('SWP Calculator'),
+                    li('Compounding Magic'),
+                    li('STP Calculator')
+                )
+            ),
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Goal Calculators'),
+                ul(
+                    li('Retirement planning'),
+                    li('Buying a House'),
+                    li('Plan a Trip'),
+                    li('Child’s Education'),
+                    li('Create your own Goal')
+                )
+            ),
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Quick Links'),
+                ul(
+                    li(a({
+                            "href": '#'
+                        },
+                        'Start Daily SIP'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'Invest to Save Tax'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'Looking for a Minor’s Account?'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'NRI Investor'
+                    ))
+                )
+            )
+        )
+    ),
+    button({
+            "class": 'accordion-header'
+        },
+        'Investor Education'
+    ),
+    div({
+            "class": 'accordion-panel'
+        },
+        div({
+                "class": 'panel-content-wrapper'
+            },
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Content Library'),
+                ul(
+                    li('Blogs'),
+                    li('Videos'),
+                    li('Podcasts'),
+                    li('5 Keys of Investing'),
+                    li('Glossary')
+                )
+            ),
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Mutual Fund Categories'),
+                ul(
+                    li(a({
+                            "href": '#'
+                        },
+                        'Equity Funds'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'International Equities',
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'Hybrid and Balanced',
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'Multi Asset',
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'Commodity'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'Debt & Liquid'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'Index Funds'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'ETFs'
+                    ))
+                )
+            )
+        )
+    ),
+    button({
+            "class": 'accordion-header'
+        },
+        'Motilal Oswal Edge'
+    ),
+    div({
+            "class": 'accordion-panel'
+        },
+        div({
+                "class": 'panel-content-wrapper'
+            },
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Leadership at Crossroads'),
+                ul(
+                    li('Experts Speak'),
+                    li('Executive Edge'),
+                    li('Visionary Voices'),
+                    li('Power Talks')
+                )
+            ),
+            div({
+                    "class": 'panel-column'
+                },
+                h3('Think Equity, Think Motilal Oswal'),
+                ul(
+                    li(a({
+                            "href": '#'
+                        },
+                        'Why choose us'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'About us'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'QGLP'
+                    )),
+                    li(a({
+                            "href": '#'
+                        },
+                        'Skin in the Game'
+                    ))
+                )
+            )
+        )
+    )
+  );
+navSections.append(mobBlock);
+navSections.children[0].style.display = 'none';
+  const accordionHeaders = navSections.querySelectorAll(".accordion-header");
+
+    // Add a click event listener to each header
+    accordionHeaders.forEach(header => {
+        header.addEventListener("click", function() {
+            // Toggle the 'active' class on the clicked header
+            this.classList.toggle("active");
+
+            // Get the panel that is the next element after the header
+            const panel = this.nextElementSibling;
+
+            // Check if the panel is open
+            if (panel.style.maxHeight) {
+                // If it's open, close it
+                panel.style.maxHeight = null;
+                panel.style.padding = "0 20px";
+            } else {
+                // If it's closed, open it by setting its max-height
+                // to its scrollHeight (its full content height)
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.style.padding = "20px";
+            }
+        });
+    });
+    }
   }
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
