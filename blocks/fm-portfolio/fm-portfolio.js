@@ -13,10 +13,20 @@ import {
 import objData from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
+// Set to `true` to use the live API.
+const useLiveApi = true;
+
+// The API endpoint is now a single URL.
+const fundManager_API = 'https://www.motilaloswalmf.com/mutualfund/api/v1/GetFundMangerBySchemeId';
+
 export default async function decorate(block) {
 
     let fundManagers;
     let agentData;
+    let managerSchemes;
+    let uniqueSchemes;
+    let uniquePeriods;
+    let sortedPeriods;
     if (dataMapMoObj.fundManagerDetails.length !== 0) {
         fundManagers = dataMapMoObj.fundManagerDetails;
     } else {
@@ -31,6 +41,70 @@ export default async function decorate(block) {
         }
     })
 
+    async function fundManagerAPI(e) {
+        if (useLiveApi) {
+            try {
+
+                let schemeCodeValue = localStorage.getItem('schcodeactive');
+
+                // Create the POST request to the API
+                const response = await fetch(fundManager_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        api_name: 'GetFundMangerBySchemeId',
+                        schcode: schemeCodeValue,
+                    }),
+                });
+
+                if (!response.ok) {
+                    return
+                }
+
+                const data = await response.json();
+                const managerDetails = data.data.response.mangerDetails;
+                const managerSchemesAll = data.data.response.schemeReturns;
+                let managerId
+                managerDetails.forEach(function (e) {
+                    if (e.managerName.split(' ').join('') === selectedAgent) {
+                        managerId = e.managerId;
+                    }
+                })
+                console.log(managerId);
+                console.log(managerSchemesAll);
+
+                managerSchemes = managerSchemesAll.filter(item => item.managerId === managerId);
+                uniqueSchemes = [...new Map(managerSchemes.map(s => [s.schemeName, s])).values()];
+                console.log(uniqueSchemes);
+
+                
+
+                uniquePeriods = [...new Set(managerSchemes.map(item => item.period))];
+
+                sortedPeriods = uniquePeriods
+                    .filter(p => p.toLowerCase() !== "si") // remove "si"
+                    .sort((a, b) => {
+                        // Extract number part (like 1, 3, 5)
+                        const numA = parseInt(a);
+                        const numB = parseInt(b);
+                        return numA - numB;
+                    });
+
+                // Put "si" at the end
+                if (uniquePeriods.includes("si")) {
+                    sortedPeriods.push("si");
+                }
+            }
+            catch (error) {
+                console.log('failed', error);
+
+            }
+        }
+    }
+    await fundManagerAPI();
+
     const portfolioBlock = div(
         { class: 'portfolio-composition' },
         div(
@@ -38,8 +112,8 @@ export default async function decorate(block) {
             img({ src: `/icons/fund-managers/${agentData.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic', class: 'fm-img' }),
             div(
                 { class: 'fm-dealer-details' },
-                p(agentData.fundManagerName),
-                p(agentData.designation)
+                p({ class: 'managername' }, agentData.fundManagerName),
+                p({ class: 'designation' }, agentData.designation)
             )
         ),
         div({ class: 'fm-param' },),
@@ -49,55 +123,37 @@ export default async function decorate(block) {
                 thead(
                     tr(
                         th({ "rowspan": '2' }, 'Scheme name'),
-                        th({ "colspan": '2' }, '1Y'),
-                        th({ "colspan": '2' }, '3Y'),
-                        th({ "colspan": '2' }, '5Y')
+                        ...sortedPeriods.map(item => th({ colspan: '2' }, item))
                     ),
                     tr(
-                        th('Scheme'),
-                        th('Benchmark'),
-                        th('Scheme'),
-                        th('Benchmark'),
-                        th('Scheme'),
-                        th('Benchmark')
+                        ...sortedPeriods.flatMap(ele => [
+                            th('Scheme'),
+                            th('Benchmark')
+                        ])
                     )
                 ),
                 tbody(
-                    tr(
-                        td('Motilal Oswal Large and Midcap Fund'),
-                        td('24.02%'),
-                        td('9.86%'),
-                        td('32.75%'),
-                        td('21.43%'),
-                        td('33.64%'),
-                        td('28.31%')
-                    ),
-                    tr(
-                        td('Motilal Oswal Flexi Cap Fund'),
-                        td('20.32%'),
-                        td('9.25%'),
-                        td('25.66%'),
-                        td('18.52%'),
-                        td('24.08%'),
-                        td('25.17%')
-                    ),
-                    tr(
-                        td('Motilal Oswal Large Cap Fund'),
-                        td('26.85%'),
-                        td('9.20%'),
-                        td('32.75%'),
-                        td('21.43%'),
-                        td('33.64%'),
-                        td('28.31%')
-                    ),
-                    tr(
-                        td('Motilal Oswal Midcap Fund'),
-                        td('20.91%'),
-                        td('10.20%'),
-                        td('33.08%'),
-                        td('26.69%'),
-                        td('39.55%'),
-                        td('34.16%')
+                    ...uniqueSchemes.map(scheme =>
+                        tr(
+                            td({ class: 'fundname', colspan: "2" }, scheme.schemeName), // scheme name
+                            // td(" "),
+                            ...sortedPeriods.flatMap(period => {
+                                // find scheme record for this period
+                                const record = managerSchemes.find(
+                                    s => s.schemeName === scheme.schemeName && s.period === period
+                                );
+                                return [
+                                    td(record?.schReturnCagr?.trim()
+                                        ? `${parseFloat(record.schReturnCagr).toFixed(2)}%`
+                                        : 'N/A'),
+                                    td(record?.fixedbmreturncagr?.trim()
+                                        ? `${parseFloat(record.fixedbmreturncagr).toFixed(2)}%`
+                                        : 'N/A')
+                                ];
+
+
+                            })
+                        )
                     )
                 )
             )
@@ -107,5 +163,16 @@ export default async function decorate(block) {
     block.innerHTML = '';
     portfolioBlock.querySelector('.fm-param').innerHTML = agentData.description;
     block.append(portfolioBlock)
+
+    const closeButton = block.parentElement.parentElement.querySelector('.icon-modal-btn');
+    if (closeButton) {
+        // document.body.classList.add('noscroll');
+        closeButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Stop click from bubbling further
+            document.body.classList.remove('noscroll');
+            document.querySelector('.fdp-card-container').classList.remove('.modal-active-parent');
+            document.querySelector('.card-modal-overlay').remove();
+        });
+    }
 
 }

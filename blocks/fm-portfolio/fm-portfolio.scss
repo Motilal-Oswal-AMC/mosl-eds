@@ -1,3 +1,180 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
 .section.fm-portfolio-container {
-    
+    display: flex;
+    flex-direction: column;
+
+    // align-items: center;
+    gap: 8px;
+    width: 683px;
+    // width: 100%;
+    padding: 8px 16px 0;
+    background: white;
+    height: 100%;
+    overflow: auto;
+
+    @include media(mobile) {
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        // background-color: aqua;
+    }
+
+    .default-content-wrapper {
+        width: 100%;
+        text-align: end;
+
+        p {
+            margin: unset;
+            height: 36px;
+
+            .icon.icon-modal-btn {
+                height: 36px;
+                width: 36px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .fm-portfolio-wrapper {
+        max-width: 683px;
+        width: 100%;
+
+        .fm-portfolio {
+            background: #FFF;
+            max-width: 100%;
+            width: 100%;
+
+            .portfolio-composition {
+                @include media(mobile) {
+                    gap: 44px;
+                }
+
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+
+                .fm-param {
+                    font-family: $poppins;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #616161;
+                }
+
+                .fm-scheme-table {
+                    @include media(mobile) {
+                        overflow: scroll;
+                    }
+
+                    table {
+                        border: 1px solid #E0E0E0;
+                        border-radius: 8px;
+                        width: 936px;
+
+                        thead {
+                            border-bottom: 1px solid #E0E0E0;
+
+                            tr,
+                            th {
+                                border-right: 1px solid #E0E0E0;
+                                font-family: $poppins;
+                                font-weight: 500;
+                                font-size: 14px;
+                                line-height: 16px;
+                                color: #2E2A94;
+                                height: 41px;
+                                padding: 12px;
+                            }
+
+                            tr:nth-child(2) {
+                                border-top: 1px solid #E0E0E0;
+                                border-bottom: 1px solid #E0E0E0;
+                            }
+
+                            tr:nth-child(1) {
+                                th:nth-child(1) {
+                                    min-width: 180px;
+                                    text-align: left;
+                                }
+                            }
+                        }
+
+                        tbody {
+                            tr {
+                                td {
+                                    font-family: $poppins;
+                                    font-weight: 400;
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    color: #616161;
+                                    padding: 12px 26px;
+                                    text-align: center;
+                                }
+
+                                .fundname {
+                                    font-family: $poppins;
+                                    font-weight: 400;
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    color: #2E2A94;
+                                    min-width: 180px;
+                                    padding: 12px;
+                                    text-align: left;
+                                }
+                            }
+
+                            tr:nth-child(even) {
+                                background-color: #F5F5F5;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .fm-details {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+
+                .fm-dealer-details {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    .managername,
+                    .designation {
+                        margin: unset;
+                        line-height: 24px;
+                    }
+
+                    .managername {
+                        font-family: $poppins;
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 24px;
+                        color: #2E2A94;
+                    }
+
+                    .designation {
+                        font-family: $poppins;
+                        font-weight: 400;
+                        font-size: 16px;
+                        color: #424242;
+
+                        @include media(mobile) {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            .fm-param {
+                p {
+                    margin: unset;
+                }
+            }
+        }
+    }
 }

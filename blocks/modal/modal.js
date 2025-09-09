@@ -88,17 +88,14 @@ export async function openModal(fragmentUrl) {
 async function openModalOnElement(fragmentUrl, clickedElement) {
   // **IMPORTANT**: Replace '.your-card-class' with the actual class of your fund card!
   let schcodeactive;
-  if (
-    clickedElement.parentElement.parentElement.parentElement.querySelector(
-      '.star',
-    ) !== null
-  ) {
+  if (clickedElement.parentElement.parentElement.parentElement.querySelector('.star') !== null) {
     schcodeactive = clickedElement.parentElement.parentElement.parentElement.querySelector(
       '.star',
     ).attributes.schcode.value;
   } else {
-    const carwrapp = clickedElement.closest('.card-wrapper');
-    schcodeactive = carwrapp
+    const carwrapp = clickedElement.closest('main');
+    const conwrapp = carwrapp.querySelector('.fdp-card');
+    schcodeactive = conwrapp
       .querySelector('.fund-name-title')
       .getAttribute('schcode');
   }
@@ -164,16 +161,18 @@ export function initializeModalHandlers() {
     if (link.href.includes('/modals/')) {
       e.preventDefault();
 
+      if (link.href.includes('fm-portfolio')) {
+          let fmId = e.target.parentNode.getAttribute('data_id');
+          localStorage.setItem('FM-AgentName', fmId);
+          document.body.classList.add('noscroll');
+        }
+
       // If it's our special card button, use the on-card logic
-      if (link.classList.contains('invest-now') || link.classList.contains('card-btn') || link.classList.contains('submit')) {
+      if (link.classList.contains('invest-now') || link.classList.contains('card-btn') || link.classList.contains('submit') || link.classList.contains('fundlink')) {
         e.stopPropagation(); // Stop other listeners!
         await openModalOnElement(link.href, link);
       } else {
         // For all other modal links, use the default behavior
-        if (link.href.includes('fm-portfolio')) {
-          let fmId = e.target.parentNode.getAttribute('data_id');
-          localStorage.setItem('FM-AgentName', fmId);
-        }
         await openModal(link.href);
       }
     }
