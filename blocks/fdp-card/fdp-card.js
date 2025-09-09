@@ -64,7 +64,7 @@ export default function decorate(block) {
     (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
   );
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
-  const mop = `MO_${cfObj[0].schcode}.svg`;
+  const mop = `../../icons/iconfund/MO_${cfObj[0].schcode}.svg`;
   const [firstReturnYear] = tempReturns;
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
@@ -78,6 +78,7 @@ export default function decorate(block) {
   const navdatecss = navlistArr[0].nav_date === undefined ? 'none' : 'block';
   const navnotpresent = navlistArr[0].nav_date === undefined ? 'block' : 'none';
   const navlistArrDate = navlistArr[0]?.nav_date?.replaceAll('-', ' ') ?? '';
+
   function planGrpEvent(param) {
     const tempReturnsec = [];
     const returnValue = [];
@@ -188,6 +189,7 @@ export default function decorate(block) {
       navper.append(span({ class: 'navper' }, '%'));
     }
   }
+
   const typeOfScheme = cfObj[0].typeOfScheme === undefined ? '' : cfObj[0].typeOfScheme;
   const cardContainer = div(
     {
@@ -211,7 +213,7 @@ export default function decorate(block) {
             },
             img({
               class: 'logoscheme',
-              src: `../../icons/iconfund/${mop}`,
+              src: `${mop}`,
               alt: 'BrandLogo',
             }),
           ),
@@ -539,15 +541,15 @@ export default function decorate(block) {
     ),
   );
 
-  // document.querySelector('.item2 ul').classList.add('item2-ul');
-
-  // document.querySelector('.item2 ul').classList.add('item2-ul');
   const ptag = p({ class: 'selectedtext-fdp' }, 'Performance');
   const item2Ul = block.closest('.section').querySelector('.item2 ul');
   const item2 = block.closest('.section').querySelector('.item2');
   item2Ul.classList.add('item2-ul');
   item2.prepend(ptag);
-  block.innerHTML = '';
+  // block.innerHTML = '';
+  Array.from(block.children).forEach((elchild) => {
+    elchild.style.display = 'none';
+  });
   block.append(cardContainer);
 
   dataMapMoObj.CLASS_PREFIXES = ['tab-li-item'];
