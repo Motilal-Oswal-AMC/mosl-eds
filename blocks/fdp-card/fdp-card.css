@@ -29,7 +29,6 @@ main {
   position: sticky;
   top: 200px;
   padding: 0;
-  display: none;
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card-wrapper.item1 {
