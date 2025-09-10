@@ -331,16 +331,6 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-.pan-valid-block .form-container .name-container .email-label::after {
-  content: "";
-  background: url("../../icons/direction-down.svg") center/cover no-repeat;
-  min-width: 20px;
-  height: 20px;
-  display: block;
-  position: absolute;
-  right: 12px;
-  cursor: pointer;
-}
 .pan-valid-block .tnc-container {
   display: flex;
   flex-direction: column;
@@ -377,15 +367,22 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 4px;
-  background: #2e2a94;
+  background: #E0E0E0;
+  cursor: unset;
   text-align: center;
-  cursor: pointer;
+  pointer-events: none;
   margin: 0;
   font-size: 16px;
   line-height: 20px;
-  color: #fff;
+  color: #616161;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+.pan-valid-block .tnc-container .active-form-btn {
+  background-color: #2E2A94;
+  color: #FFFFFF;
+  cursor: pointer;
+  pointer-events: unset;
 }
 
 .section.otp-fdp .main-contaienr {

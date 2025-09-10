@@ -51,7 +51,10 @@ export default function decorate(block) {
   // 2. Get the returns data for the current fund immediately.
   const targetPlan = selectedFund?.planList
     .find((ptar) => ptar.planName === planType && ptar.optionName === planOption);
-  const { planCodeobj, optionCode } = targetPlan || {};
+  // const { planCodeobj, optionCode } = targetPlan || {};
+  const optionCode = targetPlan.optionCode || {};
+  const planCodeobj = targetPlan.planCode || {};
+
   const targetReturns = targetPlan
     ? selectedFund.returns.find((rtar) => (
       rtar.plancode === planCodeobj && rtar.optioncode === optionCode

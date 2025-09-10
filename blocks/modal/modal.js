@@ -106,7 +106,9 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     return;
   }
 
-  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
   const path = fragmentUrl.startsWith('http')
     ? new URL(fragmentUrl, window.location).pathname

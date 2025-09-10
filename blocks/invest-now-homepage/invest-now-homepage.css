@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /* Reset */
 @import "../../../styles/fonts.css";
 /* stylelint-disable */
@@ -778,8 +777,7 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .show {
   display: block;
-}/*# sourceMappingURL=invest-now-homepage.css.map */
-
+}
 
 .modal-show {
   right: 0;

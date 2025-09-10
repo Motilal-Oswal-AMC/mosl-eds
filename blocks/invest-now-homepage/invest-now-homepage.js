@@ -280,8 +280,13 @@ export async function existingUser(paramblock) {
           userLoginPanNumber.removeAttribute('readonly');
           userLoginPanNumber.focus();
         });
+        const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
+        const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+        const phoneRegex = /^\d{10}$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const usernameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+
         userLoginPanNumber.addEventListener('input', (e) => {
-          const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.closest('.pan-input');
           const errorPanEl = errorpan.nextElementSibling;
@@ -289,51 +294,78 @@ export async function existingUser(paramblock) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
             userLoginPanNumber.setAttribute('readonly', true);
+            if (panRegex.test(userLoginPanNumber.value)
+              && phoneRegex.test(userNo.value)
+              && emailRegex.test(userem.value)
+              && usernameRegex.test(userNm.value)) {
+              continueBTN.classList.add('active-form-btn');
+            }
+            // flagForm = '';
           } else {
             errorPanEl.classList.remove('hide-error');
             errorPanEl.classList.add('show-error');
+            continueBTN.classList.remove('active-form-btn');
+            // flagForm = 'Y';
           }
         });
         userNm.addEventListener('input', (e) => {
-          const panRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
-          if (panRegex.test(inputValue)) {
+          if (usernameRegex.test(inputValue)) {
             errorPanEl.classList.add('hide-error');
             errorPanEl.classList.remove('show-error');
             userLoginPanNumber.setAttribute('readonly', true);
+            if (panRegex.test(userLoginPanNumber.value)
+              && phoneRegex.test(userNo.value)
+              && emailRegex.test(userem.value)
+              && usernameRegex.test(userNm.value)) {
+              continueBTN.classList.add('active-form-btn');
+            }
           } else {
             errorPanEl.classList.remove('hide-error');
             errorPanEl.classList.add('show-error');
+            continueBTN.classList.remove('active-form-btn');
           }
         });
         userNo.addEventListener('input', (e) => {
-          const panRegex = /^\d{10}$/;
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
-          if (panRegex.test(inputValue)) {
+          if (phoneRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
             userLoginPanNumber.setAttribute('readonly', true);
+            if (panRegex.test(userLoginPanNumber.value)
+              && phoneRegex.test(userNo.value)
+              && emailRegex.test(userem.value)
+              && usernameRegex.test(userNm.value)) {
+              continueBTN.classList.add('active-form-btn');
+            }
           } else {
             errorPanEl.classList.remove('hide-error');
             errorPanEl.classList.add('show-error');
+            continueBTN.classList.remove('active-form-btn');
           }
         });
         userem.addEventListener('input', (e) => {
-          const panRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
-          if (panRegex.test(inputValue)) {
+          if (emailRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
             userLoginPanNumber.setAttribute('readonly', true);
+            if (panRegex.test(userLoginPanNumber.value)
+              && phoneRegex.test(userNo.value)
+              && emailRegex.test(userem.value)
+              && usernameRegex.test(userNm.value)) {
+              continueBTN.classList.add('active-form-btn');
+            }
           } else {
             errorPanEl.classList.remove('hide-error');
             errorPanEl.classList.add('show-error');
+            continueBTN.classList.remove('active-form-btn');
           }
         });
       }
@@ -393,7 +425,10 @@ export async function existingUser(paramblock) {
       isnri: isNri,
       kycflag: dataMapMoObj.kycStatus,
     };
-    imsentCall(formdata);
+    const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
+    if (Array.from(continueBTN.classList).includes('active-form-btn')) {
+      imsentCall(formdata);
+    }
   });
   // ModifyKyc API  ends
 
@@ -504,6 +539,7 @@ export async function existingUser(paramblock) {
       checkInput.classList.add('show-error');
     }
     if (!checkInput.classList.contains('show-error')) {
+      // document.querySelector('.subpandts3 .innerpandts1').style.backgroundColor = '#2E2A94';
       apiCall(userPanNumber); // Only called if no error
     } else {
       console.log('PAN number is invalid. API call blocked.');
@@ -521,6 +557,8 @@ export async function existingUser(paramblock) {
     const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
     const inputValue = e.target.value.toUpperCase();
 
+    const btnAuthenticate = document.querySelector('.subpandts3 .innerpandts1');
+
     if (inputValue === '') {
       // If empty, hide the error
       errorPanEl.classList.remove('show-error');
@@ -529,10 +567,12 @@ export async function existingUser(paramblock) {
       // If valid PAN, hide error
       errorPanEl.classList.remove('show-error');
       errorPanEl.classList.add('hide-error');
+      btnAuthenticate.classList.add('pan-active');
     } else {
       // If invalid PAN, show error
       errorPanEl.classList.remove('hide-error');
       errorPanEl.classList.add('show-error');
+      btnAuthenticate.classList.remove('pan-active');
     }
   });
 

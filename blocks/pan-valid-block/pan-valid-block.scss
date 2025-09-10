@@ -397,16 +397,16 @@
         }
       }
 
-      .email-label::after {
-        content: "";
-        background: url('../../icons/direction-down.svg') center / cover no-repeat;
-        min-width: 20px;
-        height: 20px;
-        display: block;
-        position: absolute;
-        right: 12px;
-        cursor: pointer;
-      }
+      // .email-label::after {
+      //   content: "";
+      //   background: url('../../icons/direction-down.svg') center / cover no-repeat;
+      //   min-width: 20px;
+      //   height: 20px;
+      //   display: block;
+      //   position: absolute;
+      //   right: 12px;
+      //   cursor: pointer;
+      // }
     }
   }
 
@@ -444,12 +444,22 @@
         gap: 8px;
         align-self: stretch;
         border-radius: 4px;
-        background: #2e2a94;
+        // background: #2e2a94;
+         background: #E0E0E0;
+         cursor: unset;
         text-align: center;
-        cursor: pointer;
+        // cursor: pointer;
+        pointer-events: none;
         margin: 0;
 
-        @include font-style(16px, 20px, $primary-white, 500, $poppins);
+        @include font-style(16px, 20px, $text-body-2, 500, $poppins);
+      }
+
+      .active-form-btn{
+         background-color : #2E2A94;
+    color : #FFFFFF;
+     cursor : pointer;
+    pointer-events :unset;
       }
     }
   }

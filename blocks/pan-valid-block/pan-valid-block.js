@@ -81,7 +81,7 @@ export default function decorate(block) {
             }),
             img({ class: 'pan-image', src: '../../icons/pencil.svg' }),
           ),
-          p({ class: 'show-pan-error' }, 'Invalid PAN Number'),
+          p({ class: 'show-pan-error error' }, 'Invalid PAN Number'),
         ),
         div(
           {
@@ -195,14 +195,14 @@ export default function decorate(block) {
             {
               class: 'email-label pan-fields',
             },
-            ul(
-              { class: 'list-of-options' },
-              li({ class: 'email' }, 'Email'),
-              li({ class: 'google' }, 'Google'),
-              li({ class: 'Phone' }, 'Phone Number'),
-              li({ class: 'etc' }, 'ETC'),
-              li({ class: 'email' }, 'Email'),
-            ),
+            // ul(
+            //   { class: 'list-of-options' },
+            //   li({ class: 'email' }, 'Email'),
+            //   li({ class: 'google' }, 'Google'),
+            //   li({ class: 'Phone' }, 'Phone Number'),
+            //   li({ class: 'etc' }, 'ETC'),
+            //   li({ class: 'email' }, 'Email'),
+            // ),
             label(
               {
                 class: 'pan-fields-label',
@@ -228,44 +228,6 @@ export default function decorate(block) {
   );
 
   block.append(divpv);
-
-  // ✅ FINAL: Replace label with only the latest selected value (no 'Selected:', no multiple)
-
-  const emailLabel = block.querySelector('.email-label label');
-  emailLabel.style.display = 'none'; // Hide initially
-
-  const listItems = block.querySelectorAll('.list-of-options li');
-  const optionsList = block.querySelector('.list-of-options');
-
-  // Toggle dropdown when clicking label container (but not li)
-  block.querySelector('.email-label').addEventListener('click', (e) => {
-    if (e.target.tagName.toLowerCase() === 'li') return;
-
-    optionsList.style.display = optionsList.style.display === 'none' || optionsList.style.display === ''
-      ? 'block'
-      : 'none';
-  });
-
-  // When user clicks an li, update label with that value only
-  listItems.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const value = item.textContent.trim();
-
-      // Show label and update value (single selection only)
-      emailLabel.style.display = 'block';
-      emailLabel.textContent = value;
-
-      // Optionally close dropdown after selection
-      optionsList.style.display = 'none';
-    });
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!block.querySelector('.email-label').contains(event.target)) {
-      block.querySelector('.list-of-options').style.display = 'none';
-    }
-  });
 
   const mofdp = block.closest('main');
   dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
