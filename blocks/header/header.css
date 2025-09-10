@@ -282,6 +282,8 @@ header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  overflow-x: scroll;
+  height: 100vh;
 }
 
 header nav .nav-sections ul {
@@ -290,9 +292,9 @@ header nav .nav-sections ul {
   font-size: var(--body-font-size-s);
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  /* gap: 28px; */
   margin: 0;
-  margin-top: 28px;
+  /* margin-top: 28px; */
 }
 
 header nav .nav-sections ul>li {
@@ -314,104 +316,142 @@ header nav .nav-sections .nav-sec-sec1>li.active::after {
   transform: rotate(180deg);
 }
 
-.accordion-container {
-  display: flex;
+/* --- Outer Accordion Styles --- */
+.nav-sections .accordion-container {
   flex-direction: column;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding-top: 28px;
 }
 
-/* Style for the accordion buttons (headers) */
-.accordion-header {
-  background-color: #f8f8f8;
-  color: #333;
+.nav-sections .accordion-header-outer {
+  position: relative;
+  background-color: transparent;
+  color: #2E2A94;
   cursor: pointer;
-  padding: unset;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 16px;
   width: 100%;
   border: none;
-  border-bottom: unset;
+  border-bottom: none;
   text-align: left;
   outline: none;
-  font-size: unset;
-  font-weight: unset;
-  transition: unset;
-  display: unset;
-  justify-content: unset;
-  align-items: unset;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Change background on hover and when active */
-.accordion-header:hover,
-.accordion-header.active {
-  background-color: #e9e9e9;
+.nav-sections .accordion-header-outer.active {
+  font-weight: 600;
+  background-color: transparent;
+  margin-bottom: 16px;
 }
 
-/* Style for the plus/minus icon */
-.accordion-header::after {
-  content: '\\002B';
-  /* Plus sign */
-  font-size: 20px;
-  color: #555;
-  font-weight: bold;
+.nav-sections .accordion-header-outer a.button:hover,
+a.button:focus,
+button:hover,
+button:focus {
+  background-color: transparent;
 }
 
-.accordion-header.active::after {
-  content: "\\2212";
-  /* Minus sign */
+/* .accordion-header-outer:hover,
+.accordion-header-outer.active {
+  background-color: #4a4a4a;
+} */
+
+.nav-sections .accordion-header-outer::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url('../../icons/plus-blue.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 
-/* Style for the accordion panels (content) */
-.accordion-panel {
-  padding: 0 20px;
-  background-color: white;
+.nav-sections .accordion-header-outer.active::after {
+  background: url('../../icons/mins-white.svg');
+}
+
+.nav-sections .accordion-panel-outer {
+  background-color: transparent;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-  border-bottom: 1px solid #ddd;
+  transition: max-height 0.4s ease-in-out;
 }
 
-.panel-content-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px 0;
-}
+/* --- Inner Accordion Styles --- */
 
-.panel-column {
-  flex: 1;
-  min-width: 200px;
-}
-
-.panel-column h3 {
-  font-size: 16px;
-  color: #0056b3;
-  margin-top: 0;
-  border-bottom: 2px solid #0056b3;
-  padding-bottom: 5px;
-}
-
-.panel-column ul {
-  list-style: none;
+.nav-sections .accordion-header-inner {
+  background-color: transparent;
+  color: #2E2A94;
+  cursor: pointer;
   padding: 0;
+  margin: 0;
+  margin-bottom: 16px;
+  width: 100%;
+  border: none;
+  border-top: unset;
+  text-align: left;
+  outline: none;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-sections .accordion-header-inner::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url('../../icons/plus-blue.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.nav-sections .accordion-header-inner.active::after {
+  background: url('../../icons/mins-white.svg');
+}
+
+.nav-sections .accordion-panel-inner {
+  padding: 0 15px;
+  background-color: #fff;
+  max-height: 0;
+  overflow-y: auto;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.nav-sections .accordion-panel-inner ul {
+  list-style: none;
   margin: 0;
 }
 
-.panel-column li {
-  margin-bottom: 10px;
+.nav-sections .accordion-panel-inner li {
+  margin-bottom: 8px;
+  color: #555;
 }
 
-.panel-column a {
+.nav-sections .accordion-panel-inner a {
   text-decoration: none;
-  color: #333;
-  transition: color 0.2s;
+  color: #0066cc;
 }
 
-.panel-column a:hover {
-  color: #007bff;
+.nav-sections .accordion-panel-inner a:hover {
+  text-decoration: underline;
 }
+
+
 
 header nav .nav-sections .nav-sec-sec1 .nav-drop {
   display: flex;
@@ -632,6 +672,8 @@ header nav .header-top {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    overflow: unset;
+    height: unset;
   }
 
   header nav .nav-sections ul>li>ul {
