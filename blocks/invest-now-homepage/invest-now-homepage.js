@@ -16,7 +16,7 @@ import dataMapMoObj from '../../scripts/constant.js';
 import { myAPI } from '../../scripts/scripts.js';
 
 export async function existingUser(paramblock) {
-  const closestParam = paramblock.closest('.modal-content');
+  const closestParam = paramblock.closest('main');
   const demo = Array.from(closestParam.querySelectorAll('.pan-details-modal p'));
   const inputLable = demo[0];
   if (!inputLable) {
@@ -904,7 +904,7 @@ export default function decorate(block) {
     classAdd.classList.remove('hide-modal');
   }
   modal.querySelector('.start-now').addEventListener('click', () => {
-    const mainmo = block.closest('.modal-content');
+    const mainmo = block.closest('main');
     const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
     const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
     investMod.classList.add('hide-element');

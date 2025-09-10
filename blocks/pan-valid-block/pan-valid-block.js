@@ -1,6 +1,6 @@
 import dataMapMoObj from '../../scripts/constant.js';
 import {
-  div, input, label, p, img, ul, li,
+  div, input, label, p, img,
 } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {
@@ -48,9 +48,6 @@ export default function decorate(block) {
   const tncbtn = panvalidmain1.querySelector(
     '.panvalidmain2 .panvalidinner2 .panvalidsubinner4',
   ).cloneNode(true);
-
-  block.querySelector('.panvalidinner1').style.display = 'none';
-  block.querySelector('.panvalidinner2').style.display = 'none';
 
   const divpv = div(
     { class: 'maincontainer' },
@@ -229,12 +226,18 @@ export default function decorate(block) {
   if (block.querySelector('.maincontainer') === null) {
     block.append(divpv);
   }
+  
+  block.querySelector('.panvalidinner1').style.display = 'none';
+  block.querySelector('.panvalidinner2').style.display = 'none';
 
-  const mofdp = block.closest('.modal-content');
+  const mofdp = block.closest('main');
   dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
   if (mofdp && mofdp.querySelector('.otp-fdp') !== null) {
+  // mofdp.querySelector('.fdp-kyc-form .block').append(block);
   dataMapMoObj.addIndexed(mofdp.querySelector('.otp-fdp'));
   const optVar = mofdp.querySelector('.otp-fdp');
+  const mokyc = mofdp.querySelector('.fdp-kyc-form');
+  mokyc.append(block);
   const divotp = div(
     { class: 'main-contaienr' },
     div(
