@@ -589,9 +589,15 @@ export async function existingUser(paramblock) {
   }
 
   function hideFormsClick(btn) {
+    // const card2 = closestParam.querySelector('.our-popular-funds')
+    //   || closestParam.querySelector('.known-our-funds')
+    //   || closestParam.querySelector('.fdp-card-container');
+
     const card2 = closestParam.querySelector('.our-popular-funds')
       || closestParam.querySelector('.known-our-funds')
-      || closestParam.querySelector('.fdp-card-container');
+      || document.querySelector('main');
+
+    // const card2 = document.querySelector('main');
 
     btn.addEventListener('click', (e) => {
       e.stopPropagation(); // Stop click from bubbling further
@@ -959,7 +965,7 @@ export default function decorate(block) {
     // eslint-disable-next-line no-unused-vars
     let hasActiveMatch = false;
     suggestionButtons.forEach((btn) => {
-    // Check if the button's text matches the input's value
+      // Check if the button's text matches the input's value
       if (`₹ ${currentValue}` === btn.textContent.trim()) { // Added .trim() for robustness
         btn.classList.add('active');
         hasActiveMatch = true; // This reassignment is now valid
@@ -1069,10 +1075,10 @@ export default function decorate(block) {
 
     startTodayCheckbox.addEventListener('change', () => {
       if (startTodayCheckbox.checked) {
-      // If checked, display today's date
+        // If checked, display today's date
         sipDateDisplay.textContent = getTodaysDateFormatted();
       } else {
-      // If unchecked, revert to the user's selected date
+        // If unchecked, revert to the user's selected date
         sipDateDisplay.textContent = originalSipDate;
       }
     });
