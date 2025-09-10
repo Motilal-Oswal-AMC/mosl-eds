@@ -33,6 +33,7 @@ main {
       position: sticky;
       top: 200px;
       padding: 0;
+      display: none;
 
       @include media(mobile) {
         max-width: 100%;
