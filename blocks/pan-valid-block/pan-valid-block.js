@@ -44,10 +44,10 @@ export default function decorate(block) {
     .textContent.trim();
   const tnctext = panvalidmain1.querySelector(
     '.panvalidmain2 .panvalidinner2 .panvalidsubinner3',
-  );
+  ).cloneNode(true);
   const tncbtn = panvalidmain1.querySelector(
     '.panvalidmain2 .panvalidinner2 .panvalidsubinner4',
-  );
+  ).cloneNode(true);
 
   block.querySelector('.panvalidinner1').style.display = 'none';
   block.querySelector('.panvalidinner2').style.display = 'none';
@@ -226,11 +226,13 @@ export default function decorate(block) {
     ),
     div({ class: 'tnc-container' }, tnctext, tncbtn),
   );
+  if (block.querySelector('.maincontainer') === null) {
+    block.append(divpv);
+  }
 
-  block.append(divpv);
-
-  const mofdp = block.closest('main');
+  const mofdp = block.closest('.modal-content');
   dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
+  if (mofdp && mofdp.querySelector('.otp-fdp') !== null) {
   dataMapMoObj.addIndexed(mofdp.querySelector('.otp-fdp'));
   const optVar = mofdp.querySelector('.otp-fdp');
   const divotp = div(
@@ -313,4 +315,5 @@ export default function decorate(block) {
     ),
   );
   optVar.querySelector('.main-otp-con1').append(divotp);
+}
 }

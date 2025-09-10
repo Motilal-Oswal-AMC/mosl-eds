@@ -16,7 +16,7 @@ import dataMapMoObj from '../../scripts/constant.js';
 import { myAPI } from '../../scripts/scripts.js';
 
 export async function existingUser(paramblock) {
-  const closestParam = paramblock.closest('main');
+  const closestParam = paramblock.closest('.modal-content');
   const demo = Array.from(closestParam.querySelectorAll('.pan-details-modal p'));
   const inputLable = demo[0];
   if (!inputLable) {
@@ -411,25 +411,27 @@ export async function existingUser(paramblock) {
   }
 
   const ModifyKycForm = closestParam.querySelector('.tnc-container .panvalidsubinner4');
-  ModifyKycForm.addEventListener('click', () => {
-    const userLoginPanNumber = closestParam.querySelector('.user-pan-number').value; // input
-    const isNri = closestParam.querySelector('#opt1').checked;
-    const userLoginPanName = closestParam.querySelector('.user-pan-name').value;
-    const userLoginMobileNumber = closestParam.querySelector('.user-number').value;
-    const userLoginEmail = closestParam.querySelector('.user-email').value;
-    const formdata = {
-      userLogPan: userLoginPanNumber,
-      userLogPanNm: userLoginPanName,
-      userLogMoNm: userLoginMobileNumber,
-      userLogEm: userLoginEmail,
-      isnri: isNri,
-      kycflag: dataMapMoObj.kycStatus,
-    };
-    const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
-    if (Array.from(continueBTN.classList).includes('active-form-btn')) {
-      imsentCall(formdata);
-    }
-  });
+  if (modiFyKycApi === null) {
+    ModifyKycForm.addEventListener('click', () => {
+      const userLoginPanNumber = closestParam.querySelector('.user-pan-number').value; // input
+      const isNri = closestParam.querySelector('#opt1').checked;
+      const userLoginPanName = closestParam.querySelector('.user-pan-name').value;
+      const userLoginMobileNumber = closestParam.querySelector('.user-number').value;
+      const userLoginEmail = closestParam.querySelector('.user-email').value;
+      const formdata = {
+        userLogPan: userLoginPanNumber,
+        userLogPanNm: userLoginPanName,
+        userLogMoNm: userLoginMobileNumber,
+        userLogEm: userLoginEmail,
+        isnri: isNri,
+        kycflag: dataMapMoObj.kycStatus,
+      };
+      const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
+      if (Array.from(continueBTN.classList).includes('active-form-btn')) {
+        imsentCall(formdata);
+      }
+    });
+  }
   // ModifyKyc API  ends
 
   inputLable.appendChild(addInputDiv);
@@ -585,7 +587,7 @@ export async function existingUser(paramblock) {
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
     await delay(1200);
-    closestParam.querySelector('.card-modal-overlay').remove();
+    closestParam.querySelector('.modal-content').remove();
   }
 
   function hideFormsClick(btn) {
@@ -595,7 +597,7 @@ export async function existingUser(paramblock) {
 
     const card2 = closestParam.querySelector('.our-popular-funds')
       || closestParam.querySelector('.known-our-funds')
-      || document.querySelector('main');
+      || document.querySelector('.fdp-card-container');
 
     // const card2 = document.querySelector('main');
 
@@ -646,9 +648,9 @@ export async function existingUser(paramblock) {
     });
   }
 
-  hideFormsClick(mod2);
-  hideFormsClick(mod);
-  hideFormsClick(mod3);
+  // hideFormsClick(mod2);
+  // hideFormsClick(mod);
+  // hideFormsClick(mod3);
 }
 
 function loadCSS(href) {
@@ -902,7 +904,7 @@ export default function decorate(block) {
     classAdd.classList.remove('hide-modal');
   }
   modal.querySelector('.start-now').addEventListener('click', () => {
-    const mainmo = block.closest('.card-modal-overlay');
+    const mainmo = block.closest('.modal-content');
     const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
     const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
     investMod.classList.add('hide-element');
