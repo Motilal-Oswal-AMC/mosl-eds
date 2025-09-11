@@ -168,12 +168,15 @@ export async function existingUser(paramblock) {
       const panForm = closestParam.querySelector('.pan-details-modal');
       const pansuccessForm = closestParam.querySelector('.otp-fdp');
 
-      const chclick = pansuccessForm.querySelector('.otp-main-con2');
-      const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
+      const chclick = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con2');
       chclick.removeAttribute('href');
+      const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
       chclick.addEventListener('click', () => {
         kycForm.style.display = 'none'; // display none kycform
         // panForm.style.display = 'block'; // display none panform
+        if (chclick.getAttribute('href')) {
+          chclick.removeAttribute('href');
+        }
         panForm.classList.add('show-element');
         kycForm.classList.add('hide-element');
         pansuccessForm.classList.add('hide-element');
