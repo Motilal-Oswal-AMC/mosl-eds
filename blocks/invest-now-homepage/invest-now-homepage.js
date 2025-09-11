@@ -47,6 +47,18 @@ export async function existingUser(paramblock) {
     existingBox: true,
   };
 
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    const expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${cname}=${cvalue};${expires};path=/`;
+  }
+
+  // function removeCookie(cname) {
+  //   document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  // }
+  // removeCookie('')
+
   async function apiAuth(params) {
     try {
       const reqAuth = {
@@ -107,6 +119,8 @@ export async function existingUser(paramblock) {
       console.log(rejsin);
       const guestFlag = localStorage.getItem('isGuest');
       if (guestFlag === 'true') {
+        setCookie('accessToken', rejsin.data.accessToken);
+        setCookie('refreshToken', rejsin.data.refreshToken);
         window.location.href = 'https://www.motilaloswalmf.com/mutualfund/onboarding/personal';
       } else if (guestFlag === 'false') {
         const locobj = {
@@ -270,7 +284,7 @@ export async function existingUser(paramblock) {
         request,
       );
       const kycres = rejsin.data.kycStatus;
-      const isKyc = kycres === 'Y';
+      const isKyc = dataMapMoObj.panRes.data.existingClient;
       dataMapMoObj.kycStatus = rejsin.data.kycStatus;
       const boolkyc = kycres === 'Y' ? 'true' : 'false';
       localStorage.setItem('kycstatus', boolkyc);
@@ -303,7 +317,7 @@ export async function existingUser(paramblock) {
           otpCall(parampan);
         }
       });
-      if (isKyc) {
+      if (isKyc !== '') {
         kycForm.classList.add('hide-element');
         panForm.classList.add('hide-element');
         panForm.classList.remove('show-element');
@@ -455,7 +469,16 @@ export async function existingUser(paramblock) {
             errorPanEl.classList.add('show-error');
           }
         });
-        getCkycData(userLoginPanNumber.value);
+
+        if (boolkyc === 'true') {
+          const pandata = {
+            userLogPanNm: userLoginPanNumber.value,
+            userLogPan: rejsin.data.nameAsOnPan,
+          };
+          panDetails(pandata);
+        } else {
+          getCkycData(userLoginPanNumber.value);
+        }
       }
     } catch (error) {
       // console.log(error);
