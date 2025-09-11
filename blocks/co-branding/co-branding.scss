@@ -3,8 +3,38 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .co-branding {
-  &-wrapper {
+  .co-branding-section{
     padding: 64px 16px 34px;
+     max-width: 400px;
+     height: 100dvh;
+      border-radius: 24px 24px 0 0;
+      background-color: #fff;
+      overflow: auto;
+    
+
+  .crossparbtn{
+    margin: 0;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    border-radius: 18px;
+    z-index: 10;
+    cursor: pointer;
+
+    .icon-modal-btn{
+       width: 36px;
+    height: 36px;
+
+    .img{
+    width: 36px;
+    height: 36px;
+    padding: 11px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    }
+  }
   }
 
   .co-heading {
@@ -148,6 +178,7 @@
     }
   }
 }
+}
 
 .modal.block {
   display: block;
@@ -163,42 +194,21 @@
     justify-content: end;
 
     .modal-content {
-      max-width: 400px;
-      height: 100vh;
-      border-radius: 24px 24px 0 0;
-      flex-direction: column;
+    position: relative;
+    max-width: 400px;
+    justify-content: center;
+    border-radius: 8px;
+    background:unset;
+    height: auto;
 
       @include media(mobile) {
          height: 90vh;
       }
-
-      .close-button {
-        position: sticky;
-        top: 0;
-        right: 9px;
-        align-self: flex-end;
-        justify-content: end;
-        width: 100%;
-        min-height: 48px;
-        background: #fff;
-        border-radius: 24px;
-        padding: 0 9px 0 0;
-
-        .icon-close {
-          width: 36px;
-          height: 36px;
-          border-radius: 50%;
-          background-color: $primary-blue;
-          margin: 12px 0 0;
-          position: relative;
-
-          &::before,
-          &::after {
-            width: 14px;
-            height: 1px;
-          }
-        }
-      }
     }
+
+    .close-button {
+        display: none;
+      }
   }
-}
+  }
+

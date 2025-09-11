@@ -19,6 +19,9 @@
         border-top-left-radius: 32px;
         border-top-right-radius: 32px;
         // background-color: aqua;
+          max-width: 360px;
+    overflow: scroll;
+    padding: 8px;
     }
 
     .default-content-wrapper {
@@ -175,6 +178,31 @@
                     margin: unset;
                 }
             }
+        }
+    }
+}
+
+
+.modal.block{
+    dialog{
+        max-width: 1560px;
+        margin: 0 auto;
+        justify-content: end;
+
+        
+    @include media(mobile) {
+       padding: 0;
+    }
+
+        .modal-content{
+            max-width: 689px;
+            height: 100dvh;
+            background-color: transparent;
+            overflow: hidden;
+        }
+
+        .close-button{
+            display: none;
         }
     }
 }

@@ -1047,4 +1047,42 @@ position: relative;
 .show-element{
     display: block;
 }
+
 /* Placeholder style for sip-calculator, growth-now, our-funds-block */
+
+/* Popup animation */
+
+.hide-modal {
+    animation: slide-out 1.2s forwards;
+}
+
+.modal-show {
+    right: 0;
+    animation: slide-in 1.2s forwards;
+}
+
+.modal {
+    right: -400px;
+    transform: translateX(100%);
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
