@@ -650,9 +650,9 @@ export async function existingUser(paramblock) {
     });
   }
 
-  hideFormsClick(mod2);
-  hideFormsClick(mod);
-  hideFormsClick(mod3);
+  // hideFormsClick(mod2);
+  // hideFormsClick(mod);
+  // hideFormsClick(mod3);
 }
 
 function loadCSS(href) {
