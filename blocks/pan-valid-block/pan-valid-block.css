@@ -392,6 +392,7 @@
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: end;
+  height: 100%;
 }
 .section.otp-fdp .main-contaienr .wrapper-block {
   display: flex;
