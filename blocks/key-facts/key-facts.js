@@ -145,7 +145,7 @@ export default function decorate(block) {
           ),
           div(
             { class: 'load-policy-list' },
-            ul({},
+            ul({ class: 'load-policy-list-ul' },
               li(
                 '1% exit load applies if redeemed within 365 days of allotment.',
               ),

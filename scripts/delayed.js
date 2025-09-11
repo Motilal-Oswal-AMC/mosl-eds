@@ -7,7 +7,7 @@ function decorateBreadcrumbItems(title, url, icon = '') {
     const link = a({ href: url });
     const img = document.createElement('img');
     img.src = icon;
-    img.alt = '';
+    img.alt = 'home-icon';
     link.appendChild(img);
     return li(link);
   }

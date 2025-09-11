@@ -62,6 +62,9 @@ const dataMapMoObj = {
       this.addIndexed(child, level + 1);
     }
   },
+  altFunction: (element, altTextr)=>{
+    element.setAttribute('alt', altTextr);
+  },
   myAPI: async (method, url, body = null) => {
     const options = { method };
     if (body) {

@@ -659,4 +659,11 @@ export default function decorate(block) {
       breadcrumb.style.display = 'none';
     }
   });
+
+  const imgAltmain = block.closest('main');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb1 img'), 'callback');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb3 img'), 'portfolio-sheet');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
+  
 }

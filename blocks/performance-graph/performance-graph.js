@@ -12,7 +12,7 @@ export default function decorate(block) {
   const col1 = block.children[0].querySelector("h4");
   const col2 = block.children[0].querySelector("p");
 
-  const fundNote = h4(col1.textContent.trim());
+  const fundNote = h2(col1.textContent.trim());
   const fundCAGR = p(col2.textContent.trim());
 
   const filterBar = div({ class: "chart-filter-bar" });
