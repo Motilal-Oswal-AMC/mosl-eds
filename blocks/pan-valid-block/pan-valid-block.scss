@@ -468,12 +468,14 @@
     display: flex;
     justify-content: end;
     height: 100%;
-    
+
     .wrapper-block {
       display: flex;
       max-width: 400px;
       width: 100%;
-      height: 100vh;
+      
+      // height: 100vh;
+      height: 100%;
       padding: 64px 16px;
       flex-direction: column;
       gap: 24px;
