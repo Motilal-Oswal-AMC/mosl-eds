@@ -84,10 +84,10 @@ export async function existingUser(paramblock) {
           window.location.href = 'https://www.motilaloswalmf.com/mutualfund/prelogin-to-postlogin-connector';
         }
       }
-      console.log(rejsin);
+      // console.log(rejsin);
       params.otpField.classList.add('otp-succes');
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -105,6 +105,19 @@ export async function existingUser(paramblock) {
         request,
       );
       console.log(rejsin);
+      const guestFlag = localStorage.getItem('isGuest');
+      if (guestFlag === 'true') {
+        window.location.href = 'https://www.motilaloswalmf.com/mutualfund/onboarding/personal';
+      } else if (guestFlag === 'false') {
+        const locobj = {
+          panNo: params.userLogPan,
+          panName: params.userLogPanNm,
+          mobileNo: params.userLogMoNm,
+          emailId: params.userLogEm,
+        };
+        localStorage.setItem('signzy', JSON.stringify(locobj));
+        window.location.href = 'https://www.motilaloswalmf.com/mutualfund/prelogin-to-postlogin-connector';
+      }
     } catch (error) {
       console.log(error);
     }
@@ -200,6 +213,16 @@ export async function existingUser(paramblock) {
         header,
       );
       console.log(rejsin);
+      const KRA_VERIFIED = ['002', '102', '202', '302', '402', '502'];
+      const KRA_VALIDATED = ['007', '107', '207', '307', '407', '507', '011', '111', '211', '311',
+        '411', '511', '012', '112', '212', '312', '412', '512'];
+      if (KRA_VERIFIED.includes(rejsin.data.cvlAppStatus)) {
+        localStorage.setItem('kraVerified', 'Y');
+      }
+
+      if (KRA_VALIDATED.includes(rejsin.data.cvlAppStatus)) {
+        localStorage.setItem('kraValidated', 'Y');
+      }
       if (rejsin.data !== null) {
         const subtext = panForm.querySelector('.sub-otp-con3');
         subtext.textContent = '';
@@ -471,7 +494,6 @@ export async function existingUser(paramblock) {
       dataMapMoObj.panDlts.pannumber = userPanNumber;
       const request = {
         panNo: userPanNumber,
-        isNri: false,
       };
       const rejsin = await myAPI(
         'POST',
