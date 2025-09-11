@@ -595,11 +595,11 @@ export async function existingUser(paramblock) {
     //   || closestParam.querySelector('.known-our-funds')
     //   || closestParam.querySelector('.fdp-card-container');
 
-    const card2 = closestParam.querySelector('.our-popular-funds')
-      || closestParam.querySelector('.known-our-funds')
-      || document.querySelector('.fdp-card-container');
+    // const card2 = closestParam.querySelector('.our-popular-funds')
+    //   || closestParam.querySelector('.known-our-funds')
+    //   || document.querySelector('.fdp-card-container');
 
-    // const card2 = document.querySelector('main');
+    const card2 = document.querySelector('main');
 
     btn.addEventListener('click', (e) => {
       e.stopPropagation(); // Stop click from bubbling further
@@ -611,9 +611,11 @@ export async function existingUser(paramblock) {
         classAdd.classList.remove('hide-modal');
       }
       classAdd.classList.add('hide-modal');
-      setTimeout(() => {
-        classAdd.style.display = 'none';
-      }, 1200);
+      async function removeClassAfterDelay() {
+    await delay(1200);
+    closestParam.querySelector('.modal').remove();
+    
+  }
       classAdd.classList.remove('modal-show');
       // }
       document.body.classList.remove('noscroll');
@@ -648,9 +650,9 @@ export async function existingUser(paramblock) {
     });
   }
 
-  // hideFormsClick(mod2);
-  // hideFormsClick(mod);
-  // hideFormsClick(mod3);
+  hideFormsClick(mod2);
+  hideFormsClick(mod);
+  hideFormsClick(mod3);
 }
 
 function loadCSS(href) {
