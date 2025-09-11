@@ -77,7 +77,7 @@ export default function decorate(block) {
             class: 'user-pan-number',
             type: 'text',
           }),
-          img({ class: 'pan-image', src: '../../icons/pencil.svg' }),
+          img({ class: 'pan-image', src: '../../icons/pencil.svg', alt: 'pencil' }),
         ),
         div(
           {

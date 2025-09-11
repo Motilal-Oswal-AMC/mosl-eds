@@ -60,7 +60,7 @@ export default async function decorate(block) {
           ),
         ),
       ),
-      div({ class: 'fund-links' }, a({ href: '#' }, 'View other funds managed by him')),
+      div({ class: 'fund-links' }, a({ href: '' }, 'View other funds managed by him')),
     );
 
     block.append(ourFunds);
