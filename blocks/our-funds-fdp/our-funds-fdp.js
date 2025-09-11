@@ -54,7 +54,7 @@ export default async function decorate(block) {
           ),
           div(
             { class: 'fund-aum' },
-            img({ src: fundSvg }),
+            img({ src: fundSvg, alt:"pie-chart" }),
             p({ class: 'fund-aum-text' }, aumText),
             span({ class: 'fund-aum-rupee' }, '₹2,12,342 Cr'),
           ),

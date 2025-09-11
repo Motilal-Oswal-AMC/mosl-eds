@@ -189,6 +189,10 @@
                                 border-radius: rem(6px);
                                 border: 1px solid #BDBDBD;
                                 background: transparent;
+                                
+                                &::placeholder {
+                                    color: #fff;
+                                }
                             }
                         }
 
