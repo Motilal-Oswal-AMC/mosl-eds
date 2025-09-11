@@ -145,15 +145,17 @@ export default function decorate(block) {
           ),
           div(
             { class: 'load-policy-list' },
-            li(
-              '1% exit load applies if redeemed within 365 days of allotment.',
-            ),
-            li('No exit load applies if redeemed after 365 days.'),
-            li(
-              'Exit load is applicable when switching between different MOMF Schemes.',
-            ),
-            li(
-              'No exit load for switching between options or plans within the same Scheme.',
+            ul({ class: 'load-policy-list-ul' },
+              li(
+                '1% exit load applies if redeemed within 365 days of allotment.',
+              ),
+              li('No exit load applies if redeemed after 365 days.'),
+              li(
+                'Exit load is applicable when switching between different MOMF Schemes.',
+              ),
+              li(
+                'No exit load for switching between options or plans within the same Scheme.',
+              ),
             ),
           ),
         ),
