@@ -317,6 +317,10 @@ export default function decorate(block) {
       optVar.querySelector('.sub-otp-con4'),
     ),
   );
-  optVar.querySelector('.main-otp-con1').append(divotp);
+  if (optVar.querySelector('.otp-fdp .main-contaienr') === null) {
+    optVar.querySelector('.main-otp-con1').innerHTML = '';
+    optVar.querySelector('.main-otp-con1').append(divotp);
+    optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr').remove();
+  }
 }
 }
