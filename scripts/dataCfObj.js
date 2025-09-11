@@ -1,4 +1,3 @@
-/*    */
 const dataCfObj = [
     {
         "sebiCategory": "Equity Fund",
@@ -121,7 +120,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -141,11 +140,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -154,43 +153,43 @@ const dataCfObj = [
         "schcode": "LM",
         "aum": [
             {
-                "latestAum": "12427.8906",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "12628.205",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "LMDP"
             },
             {
-                "latestAum": "12427.8906",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "12628.205",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "LMDP"
             },
             {
-                "latestAum": "12427.8906",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "12628.205",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "LMGD"
             },
             {
-                "latestAum": "12427.8906",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "12628.205",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "LMGP"
             },
             {
-                "latestAum": "12427.8906",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "12628.205",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "LMPD"
             },
             {
-                "latestAum": "12427.8906",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "12628.205",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "LMPD"
@@ -198,114 +197,115 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "25.5416",
+                "latnav": "24.8252",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "LMDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.02",
-                "navchngper": "0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.41",
+                "navchngper": "1.61"
             },
             {
-                "latnav": "25.5416",
+                "latnav": "24.8252",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "LMDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "25.4913",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.02",
-                "navchngper": "0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.41",
+                "navchngper": "1.61"
             },
             {
-                "latnav": "36.505",
+                "latnav": "35.5104",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "LMGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "36.3854",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.09"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.59",
+                "navchngper": "1.61"
             },
             {
-                "latnav": "33.457",
+                "latnav": "32.5187",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "LMGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "33.3912",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.54",
+                "navchngper": "1.61"
             },
             {
-                "latnav": "27.7385",
+                "latnav": "26.9827",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "LMPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.02",
-                "navchngper": "0.09"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.45",
+                "navchngper": "1.61"
             },
             {
-                "latnav": "27.7385",
+                "latnav": "26.9827",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "LMPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "27.6476",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.02",
-                "navchngper": "0.09"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.45",
+                "navchngper": "1.61"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty LargeMidcap 250 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "20825.82",
-                "oneYear_Ret": "-1.4027947952194197",
-                "threeYear_Ret": "19.763933779435995",
-                "fiveYear_Ret": "24.775527646404605",
-                "inception_Ret": "20.74229650653747",
+                "latNavDate": "2025-08-31",
+                "latnav": "20399.82",
+                "oneYear_Ret": "-4.150867865167262",
+                "threeYear_Ret": "16.943656467110113",
+                "fiveYear_Ret": "22.92659970424362",
+                "inception_Ret": "19.991100210021685",
                 "bmcode": "2071.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "1.4",
-                "oneYear_marketValue": "10140.021993814737",
-                "threeYear_Ret": "20.53",
-                "threeYear_marketValue": "17510.3176888377",
-                "fiveYear_Ret": "22.13",
-                "fiveYear_marketValue": "27166.13486492236",
-                "inception_Ret": "17.57",
-                "inception_marketValue": "25541.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-5.41",
+                "oneYear_marketValue": "9458.876603138073",
+                "threeYear_Ret": "17.66",
+                "threeYear_marketValue": "16288.539390718395",
+                "fiveYear_Ret": "20.61",
+                "fiveYear_marketValue": "25521.949213529348",
+                "inception_Ret": "16.73",
+                "inception_marketValue": "24825.2",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LMDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "9.79",
-                "oneYear_marketValue": "10978.518133125623",
-                "threeYear_Ret": "30.58",
-                "threeYear_marketValue": "22262.947332471398",
-                "fiveYear_Ret": "30.81",
-                "fiveYear_marketValue": "38293.29696842547",
-                "inception_Ret": "25.05",
-                "inception_marketValue": "36505.0",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "2.39",
+                "oneYear_marketValue": "10238.885412852236",
+                "threeYear_Ret": "27.44",
+                "threeYear_marketValue": "20699.13438838856",
+                "fiveYear_Ret": "29.16",
+                "fiveYear_marketValue": "35948.61359978133",
+                "inception_Ret": "24.07",
+                "inception_marketValue": "35510.399999999994",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LMGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -314,15 +314,15 @@ const dataCfObj = [
                 "isin": "INF247L01999"
             },
             {
-                "oneYear_Ret": "8.49",
-                "oneYear_marketValue": "10848.573281452658",
-                "threeYear_Ret": "28.81",
-                "threeYear_marketValue": "21374.450577532458",
-                "fiveYear_Ret": "28.9",
-                "fiveYear_marketValue": "35585.36040587541",
-                "inception_Ret": "23.18",
-                "inception_marketValue": "33457.0",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "1.2",
+                "oneYear_marketValue": "10119.843403789182",
+                "threeYear_Ret": "25.75",
+                "threeYear_marketValue": "19883.154284037202",
+                "fiveYear_Ret": "27.3",
+                "fiveYear_marketValue": "33431.72028087058",
+                "inception_Ret": "22.22",
+                "inception_marketValue": "32518.700000000004",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LMGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -331,15 +331,15 @@ const dataCfObj = [
                 "isin": "INF247L01965"
             },
             {
-                "oneYear_Ret": "3.12",
-                "oneYear_marketValue": "10312.400086251124",
-                "threeYear_Ret": "22.04",
-                "threeYear_marketValue": "18176.665246879194",
-                "fiveYear_Ret": "23.81",
-                "fiveYear_marketValue": "29097.346061051085",
-                "inception_Ret": "19.26",
-                "inception_marketValue": "27738.5",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-3.82",
+                "oneYear_marketValue": "9617.615084386307",
+                "threeYear_Ret": "19.11",
+                "threeYear_marketValue": "16899.888514486855",
+                "fiveYear_Ret": "22.26",
+                "fiveYear_marketValue": "27315.678116236926",
+                "inception_Ret": "18.4",
+                "inception_marketValue": "26982.7",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LMPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -491,9 +491,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO20.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -615,7 +612,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -635,11 +632,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -648,43 +645,43 @@ const dataCfObj = [
         "schcode": "FM",
         "aum": [
             {
-                "latestAum": "33608.5345",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "34779.735",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "FMDP"
             },
             {
-                "latestAum": "33608.5345",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "34779.735",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "FMDP"
             },
             {
-                "latestAum": "33608.5345",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "34779.735",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "FMGD"
             },
             {
-                "latestAum": "33608.5345",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "34779.735",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "FMGP"
             },
             {
-                "latestAum": "33608.5345",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "34779.735",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "FMPD"
             },
             {
-                "latestAum": "33608.5345",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "34779.735",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "FMPD"
@@ -692,122 +689,123 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "49.4903",
+                "latnav": "49.5175",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "FMDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.35",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.57",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "49.4903",
+                "latnav": "49.5175",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "FMDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "49.005",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.35",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.57",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "116.7859",
+                "latnav": "116.9284",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "FMGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "115.5157",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.84",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "1.34",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "101.9348",
+                "latnav": "101.99",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "FMGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "100.9352",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.73",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "1.17",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "51.1734",
+                "latnav": "51.2362",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "FMPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.37",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.59",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "51.1734",
+                "latnav": "51.2362",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "FMPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "50.6169",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.37",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.59",
+                "navchngper": "1.12"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty Midcap 150 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "27109.61",
-                "oneYear_Ret": "-1.743774086441352",
-                "threeYear_Ret": "24.78654899621371",
-                "fiveYear_Ret": "30.443520429326966",
-                "inception_Ret": "21.807838809975433",
+                "latNavDate": "2025-08-31",
+                "latnav": "26356.47",
+                "oneYear_Ret": "-4.832595229799031",
+                "threeYear_Ret": "21.193019899075203",
+                "fiveYear_Ret": "27.606681222835427",
+                "inception_Ret": "21.333834549549625",
                 "bmcode": "2087.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-1.43",
-                "oneYear_marketValue": "9856.877963866964",
-                "threeYear_Ret": "22.75",
-                "threeYear_marketValue": "18494.13303437967",
-                "fiveYear_Ret": "24.97",
-                "fiveYear_marketValue": "30481.079549653863",
-                "sevenYear_Ret": "12.99",
-                "sevenYear_marketValue": "23514.294266614084",
-                "tenYear_Ret": "9.36",
-                "tenYear_marketValue": "24473.373190717084",
-                "inception_Ret": "15.01",
-                "inception_marketValue": "49490.299999999996",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-2.94",
+                "oneYear_marketValue": "9706.47791135531",
+                "threeYear_Ret": "20.67",
+                "threeYear_marketValue": "17571.298290686245",
+                "fiveYear_Ret": "23.17",
+                "fiveYear_marketValue": "28343.16884841477",
+                "sevenYear_Ret": "12.25",
+                "sevenYear_marketValue": "22451.01061852211",
+                "tenYear_Ret": "9.89",
+                "tenYear_marketValue": "25676.691729323305",
+                "inception_Ret": "14.89",
+                "inception_marketValue": "49517.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "FMDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "2.58",
-                "oneYear_marketValue": "10257.910436224633",
-                "threeYear_Ret": "30.89",
-                "threeYear_marketValue": "22425.921196398358",
-                "fiveYear_Ret": "36.55",
-                "fiveYear_marketValue": "47466.225004064385",
-                "sevenYear_Ret": "22.63",
-                "sevenYear_marketValue": "41703.88807153366",
-                "tenYear_Ret": "18.36",
-                "tenYear_marketValue": "53969.60146400976",
-                "inception_Ret": "23.97",
-                "inception_marketValue": "116785.9",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.99",
+                "oneYear_marketValue": "10099.24045210115",
+                "threeYear_Ret": "28.66",
+                "threeYear_marketValue": "21299.36463524817",
+                "fiveYear_Ret": "34.56",
+                "fiveYear_marketValue": "44120.26171412185",
+                "sevenYear_Ret": "21.81",
+                "sevenYear_marketValue": "39797.28395902114",
+                "tenYear_Ret": "18.93",
+                "tenYear_marketValue": "56608.571041267256",
+                "inception_Ret": "23.79",
+                "inception_marketValue": "116928.40000000001",
+                "latNavDate": "2025-08-31",
                 "prodcode": "FMGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -816,19 +814,19 @@ const dataCfObj = [
                 "isin": "INF247L01445"
             },
             {
-                "oneYear_Ret": "1.59",
-                "oneYear_marketValue": "10159.283850559017",
-                "threeYear_Ret": "29.49",
-                "threeYear_marketValue": "21713.988705764066",
-                "fiveYear_Ret": "35.01",
-                "fiveYear_marketValue": "44850.46881118636",
-                "sevenYear_Ret": "21.23",
-                "sevenYear_marketValue": "38489.927690826364",
-                "tenYear_Ret": "16.96",
-                "tenYear_marketValue": "47923.98719329011",
-                "inception_Ret": "22.5",
-                "inception_marketValue": "101934.79999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.04",
+                "oneYear_marketValue": "10004.178625448023",
+                "threeYear_Ret": "27.3",
+                "threeYear_marketValue": "20630.338876426315",
+                "fiveYear_Ret": "33.06",
+                "fiveYear_marketValue": "41704.149560836784",
+                "sevenYear_Ret": "20.43",
+                "sevenYear_marketValue": "36749.18026879977",
+                "tenYear_Ret": "17.53",
+                "tenYear_marketValue": "50279.02666035652",
+                "inception_Ret": "22.33",
+                "inception_marketValue": "101990.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "FMGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -837,19 +835,19 @@ const dataCfObj = [
                 "isin": "INF247L01411"
             },
             {
-                "oneYear_Ret": "-3.85",
-                "oneYear_marketValue": "9615.10205385377",
-                "threeYear_Ret": "22.27",
-                "threeYear_marketValue": "18280.32735937014",
-                "fiveYear_Ret": "25.19",
-                "fiveYear_marketValue": "30746.03908939612",
-                "sevenYear_Ret": "12.5",
-                "sevenYear_marketValue": "22805.155218053962",
-                "tenYear_Ret": "9.53",
-                "tenYear_marketValue": "24858.10883018721",
-                "inception_Ret": "15.34",
-                "inception_marketValue": "51173.4",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-5.34",
+                "oneYear_marketValue": "9466.447417042345",
+                "threeYear_Ret": "20.19",
+                "threeYear_marketValue": "17362.141354035706",
+                "fiveYear_Ret": "23.37",
+                "fiveYear_marketValue": "28578.87103971441",
+                "sevenYear_Ret": "11.75",
+                "sevenYear_marketValue": "21762.632097590813",
+                "tenYear_Ret": "10.06",
+                "tenYear_marketValue": "26073.60589498539",
+                "inception_Ret": "15.23",
+                "inception_marketValue": "51236.2",
+                "latNavDate": "2025-08-31",
                 "prodcode": "FMPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -1001,9 +999,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO07.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -1140,7 +1135,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -1149,11 +1144,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -1173,43 +1168,43 @@ const dataCfObj = [
         "schcode": "LC",
         "aum": [
             {
-                "latestAum": "2636.5078",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2701.2402",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "LCDP"
             },
             {
-                "latestAum": "2636.5078",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2701.2402",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "LCDP"
             },
             {
-                "latestAum": "2636.5078",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2701.2402",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "LCGD"
             },
             {
-                "latestAum": "2636.5078",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2701.2402",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "LCGP"
             },
             {
-                "latestAum": "2636.5078",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2701.2402",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "LCPD"
             },
             {
-                "latestAum": "2636.5078",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2701.2402",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "LCPD"
@@ -1217,104 +1212,105 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "12.9187",
+                "latnav": "12.6959",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "LCDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.23"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.05",
+                "navchngper": "0.36"
             },
             {
-                "latnav": "12.9187",
+                "latnav": "12.6959",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "LCDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.7698",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.23"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.05",
+                "navchngper": "0.36"
             },
             {
-                "latnav": "14.1189",
+                "latnav": "13.8886",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "LCGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.9354",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.23"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.05",
+                "navchngper": "0.37"
             },
             {
-                "latnav": "13.8417",
+                "latnav": "13.6031",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "LCGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.6822",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.23"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.05",
+                "navchngper": "0.37"
             },
             {
-                "latnav": "13.3334",
+                "latnav": "13.1159",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "LCPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.23"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.05",
+                "navchngper": "0.37"
             },
             {
-                "latnav": "13.3334",
+                "latnav": "13.1159",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "LCPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.16",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.23"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.05",
+                "navchngper": "0.37"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 100 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "34780.92",
-                "oneYear_Ret": "-1.3156617946228466",
-                "inception_Ret": "10.494357443134428",
+                "latNavDate": "2025-08-31",
+                "latnav": "34325.33",
+                "oneYear_Ret": "-3.7174388552008386",
+                "inception_Ret": "8.977590331841224",
                 "bmcode": "2001.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "4.37",
-                "oneYear_marketValue": "10436.57044990023",
-                "inception_Ret": "18.86",
-                "inception_marketValue": "12918.699999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-0.3",
+                "oneYear_marketValue": "9969.84522117431",
+                "inception_Ret": "16.45",
+                "inception_marketValue": "12695.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LCDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "13.31",
-                "oneYear_marketValue": "11331.380417335473",
-                "inception_Ret": "26.2",
-                "inception_marketValue": "14118.900000000001",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "8.23",
+                "oneYear_marketValue": "10822.73549030609",
+                "inception_Ret": "23.32",
+                "inception_marketValue": "13888.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LCGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -1323,11 +1319,11 @@ const dataCfObj = [
                 "isin": "INF247L01CE3"
             },
             {
-                "oneYear_Ret": "11.82",
-                "oneYear_marketValue": "11182.23019316061",
-                "inception_Ret": "24.53",
-                "inception_marketValue": "13841.699999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "6.82",
+                "oneYear_marketValue": "10682.251870931264",
+                "inception_Ret": "21.7",
+                "inception_marketValue": "13603.099999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LCGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -1336,11 +1332,11 @@ const dataCfObj = [
                 "isin": "INF247L01CB9"
             },
             {
-                "oneYear_Ret": "7.01",
-                "oneYear_marketValue": "10700.963081861955",
-                "inception_Ret": "21.42",
-                "inception_marketValue": "13333.4",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "2.21",
+                "oneYear_marketValue": "10220.606570662676",
+                "inception_Ret": "18.9",
+                "inception_marketValue": "13115.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LCPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -1492,9 +1488,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO47.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -1620,7 +1613,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -1651,11 +1644,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -1664,43 +1657,43 @@ const dataCfObj = [
         "schcode": "CP",
         "aum": [
             {
-                "latestAum": "13726.6446",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "13679.3067",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "CPDP"
             },
             {
-                "latestAum": "13726.6446",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "13679.3067",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "CPDP"
             },
             {
-                "latestAum": "13726.6446",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "13679.3067",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "CPGD"
             },
             {
-                "latestAum": "13726.6446",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "13679.3067",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "CPGP"
             },
             {
-                "latestAum": "13726.6446",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "13679.3067",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "CPPD"
             },
             {
-                "latestAum": "13726.6446",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "13679.3067",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "CPPD"
@@ -1708,119 +1701,120 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "34.8436",
+                "latnav": "34.5061",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "CPDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.25",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.41",
+                "navchngper": "1.17"
             },
             {
-                "latnav": "34.8436",
+                "latnav": "34.5061",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "CPDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "34.1897",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.25",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.41",
+                "navchngper": "1.17"
             },
             {
-                "latnav": "68.4096",
+                "latnav": "67.7933",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "CPGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "67.0556",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.48",
-                "navchngper": "0.71"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.81",
+                "navchngper": "1.17"
             },
             {
-                "latnav": "61.7141",
+                "latnav": "61.1164",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "CPGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "60.556",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.43",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.73",
+                "navchngper": "1.17"
             },
             {
-                "latnav": "36.3738",
+                "latnav": "36.0461",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "CPPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.26",
-                "navchngper": "0.71"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.43",
+                "navchngper": "1.17"
             },
             {
-                "latnav": "36.3738",
+                "latnav": "36.0461",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "CPPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "35.6538",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.26",
-                "navchngper": "0.71"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.43",
+                "navchngper": "1.17"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 500 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "36461.71",
+                "latNavDate": "2025-08-31",
+                "latnav": "35799.38",
                 "inception_Ret": "0.0",
                 "bmcode": "2009.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-0.35",
-                "oneYear_marketValue": "9964.681085935064",
-                "threeYear_Ret": "15.85",
-                "threeYear_marketValue": "15547.959875771963",
-                "fiveYear_Ret": "9.68",
-                "fiveYear_marketValue": "15873.137354051925",
-                "sevenYear_Ret": "4.92",
-                "sevenYear_marketValue": "13997.967210216979",
-                "tenYear_Ret": "6.56",
-                "tenYear_marketValue": "18876.109886180802",
-                "inception_Ret": "11.72",
-                "inception_marketValue": "34843.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-3.86",
+                "oneYear_marketValue": "9614.378338316139",
+                "threeYear_Ret": "13.43",
+                "threeYear_marketValue": "14595.995059388855",
+                "fiveYear_Ret": "9.29",
+                "fiveYear_marketValue": "15594.63820056131",
+                "sevenYear_Ret": "4.75",
+                "sevenYear_marketValue": "13839.751971314665",
+                "tenYear_Ret": "7.12",
+                "tenYear_marketValue": "19897.531412359665",
+                "inception_Ret": "11.53",
+                "inception_marketValue": "34506.1",
+                "latNavDate": "2025-08-31",
                 "prodcode": "CPDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "7.65",
-                "oneYear_marketValue": "10765.028010322905",
-                "threeYear_Ret": "25.55",
-                "threeYear_marketValue": "19790.435964937657",
-                "fiveYear_Ret": "20.93",
-                "fiveYear_marketValue": "25865.209747244644",
-                "sevenYear_Ret": "13.49",
-                "sevenYear_marketValue": "24250.983728597254",
-                "tenYear_Ret": "13.83",
-                "tenYear_marketValue": "36523.88401556852",
-                "inception_Ret": "18.61",
-                "inception_marketValue": "68409.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "3.86",
+                "oneYear_marketValue": "10386.435017082626",
+                "threeYear_Ret": "22.93",
+                "threeYear_marketValue": "18577.782284142108",
+                "fiveYear_Ret": "20.5",
+                "fiveYear_marketValue": "25406.35446491478",
+                "sevenYear_Ret": "13.3",
+                "sevenYear_marketValue": "23973.10362142799",
+                "tenYear_Ret": "14.43",
+                "tenYear_marketValue": "38506.01218909571",
+                "inception_Ret": "18.37",
+                "inception_marketValue": "67793.3",
+                "latNavDate": "2025-08-31",
                 "prodcode": "CPGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -1829,19 +1823,19 @@ const dataCfObj = [
                 "isin": "INF247L01502"
             },
             {
-                "oneYear_Ret": "6.72",
-                "oneYear_marketValue": "10672.120828534571",
-                "threeYear_Ret": "24.49",
-                "threeYear_marketValue": "19291.986433048343",
-                "fiveYear_Ret": "19.89",
-                "fiveYear_marketValue": "24768.863380960025",
-                "sevenYear_Ret": "12.49",
-                "sevenYear_marketValue": "22797.294501824847",
-                "tenYear_Ret": "12.83",
-                "tenYear_marketValue": "33432.88676045961",
-                "inception_Ret": "17.53",
-                "inception_marketValue": "61714.1",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "2.97",
+                "oneYear_marketValue": "10296.982327976182",
+                "threeYear_Ret": "21.89",
+                "threeYear_marketValue": "18110.816753492283",
+                "fiveYear_Ret": "19.47",
+                "fiveYear_marketValue": "24334.233179642764",
+                "sevenYear_Ret": "12.31",
+                "sevenYear_marketValue": "22539.6181463465",
+                "tenYear_Ret": "13.42",
+                "tenYear_marketValue": "35242.043836027195",
+                "inception_Ret": "17.29",
+                "inception_marketValue": "61116.399999999994",
+                "latNavDate": "2025-08-31",
                 "prodcode": "CPGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -1850,19 +1844,19 @@ const dataCfObj = [
                 "isin": "INF247L01478"
             },
             {
-                "oneYear_Ret": "0.78",
-                "oneYear_marketValue": "10077.826941032723",
-                "threeYear_Ret": "17.1",
-                "threeYear_marketValue": "16057.158749288164",
-                "fiveYear_Ret": "10.58",
-                "fiveYear_marketValue": "16535.1989744429",
-                "sevenYear_Ret": "4.9",
-                "sevenYear_marketValue": "13978.310326805426",
-                "tenYear_Ret": "6.86",
-                "tenYear_marketValue": "19419.97106262113",
-                "inception_Ret": "12.14",
-                "inception_marketValue": "36373.8",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-2.77",
+                "oneYear_marketValue": "9723.399376879814",
+                "threeYear_Ret": "14.66",
+                "threeYear_marketValue": "15073.283738746086",
+                "fiveYear_Ret": "10.19",
+                "fiveYear_marketValue": "16241.810628385016",
+                "sevenYear_Ret": "4.73",
+                "sevenYear_marketValue": "13818.125361782713",
+                "tenYear_Ret": "7.43",
+                "tenYear_marketValue": "20473.87523500645",
+                "inception_Ret": "11.96",
+                "inception_marketValue": "36046.1",
+                "latNavDate": "2025-08-31",
                 "prodcode": "CPPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -2014,9 +2008,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO08.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -2135,7 +2126,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -2155,11 +2146,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -2179,43 +2170,43 @@ const dataCfObj = [
         "schcode": "SC",
         "aum": [
             {
-                "latestAum": "5294.2988",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "5268.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "SCDP"
             },
             {
-                "latestAum": "5294.2988",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "5268.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "SCDP"
             },
             {
-                "latestAum": "5294.2988",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "5268.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "SCGD"
             },
             {
-                "latestAum": "5294.2988",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "5268.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "SCGP"
             },
             {
-                "latestAum": "5294.2988",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "5268.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "SCPD"
             },
             {
-                "latestAum": "5294.2988",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "5268.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "SCPD"
@@ -2223,94 +2214,95 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "13.8685",
+                "latnav": "13.5156",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "SCDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.8645",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.01",
-                "navchngper": "-0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.63"
             },
             {
-                "latnav": "13.8685",
+                "latnav": "13.5156",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "SCDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.01",
-                "navchngper": "-0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.63"
             },
             {
-                "latnav": "14.1888",
+                "latnav": "13.841",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "SCGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "14.1628",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.01",
-                "navchngper": "-0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.63"
             },
             {
-                "latnav": "13.8683",
+                "latnav": "13.5153",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "SCGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.8643",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.01",
-                "navchngper": "-0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.63"
             },
             {
-                "latnav": "14.1888",
+                "latnav": "13.841",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "SCPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "14.1628",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.01",
-                "navchngper": "-0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.63"
             },
             {
-                "latnav": "14.1888",
+                "latnav": "13.841",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "SCPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.01",
-                "navchngper": "-0.08"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.63"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Smallcap 250 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "21734.93",
-                "oneYear_Ret": "-3.932864613190956",
-                "inception_Ret": "16.96730292047659",
+                "latNavDate": "2025-08-31",
+                "latnav": "20956.89",
+                "oneYear_Ret": "-8.622820912956875",
+                "inception_Ret": "13.055597907882909",
                 "bmcode": "2029.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "7.92",
-                "oneYear_marketValue": "10792.103092462608",
-                "inception_Ret": "22.72",
-                "inception_marketValue": "13868.5",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.35",
+                "oneYear_marketValue": "10035.119502832576",
+                "inception_Ret": "19.61",
+                "inception_marketValue": "13515.599999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SCDP",
                 "plancode": "DP",
                 "optioncode": "D",
@@ -2319,11 +2311,11 @@ const dataCfObj = [
                 "isin": "INF247L01BW7"
             },
             {
-                "oneYear_Ret": "9.45",
-                "oneYear_marketValue": "10944.601286620076",
-                "inception_Ret": "24.49",
-                "inception_marketValue": "14188.800000000001",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "1.74",
+                "oneYear_marketValue": "10174.363045619606",
+                "inception_Ret": "21.32",
+                "inception_marketValue": "13840.999999999998",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SCGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -2332,11 +2324,11 @@ const dataCfObj = [
                 "isin": "INF247L01BY3"
             },
             {
-                "oneYear_Ret": "7.92",
-                "oneYear_marketValue": "10792.115420531656",
-                "inception_Ret": "22.72",
-                "inception_marketValue": "13868.3",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.35",
+                "oneYear_marketValue": "10035.045774830898",
+                "inception_Ret": "19.61",
+                "inception_marketValue": "13515.3",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SCGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -2345,11 +2337,11 @@ const dataCfObj = [
                 "isin": "INF247L01BV9"
             },
             {
-                "oneYear_Ret": "9.45",
-                "oneYear_marketValue": "10944.601286620076",
-                "inception_Ret": "24.49",
-                "inception_marketValue": "14188.800000000001",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "1.74",
+                "oneYear_marketValue": "10174.363045619606",
+                "inception_Ret": "21.32",
+                "inception_marketValue": "13840.999999999998",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SCPD",
                 "plancode": "PD",
                 "optioncode": "D",
@@ -2504,9 +2496,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO46.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -2630,7 +2619,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -2661,11 +2650,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -2674,43 +2663,43 @@ const dataCfObj = [
         "schcode": "MM",
         "aum": [
             {
-                "latestAum": "4130.3404",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4285.2242",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "MMDP"
             },
             {
-                "latestAum": "4130.3404",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4285.2242",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "MMDP"
             },
             {
-                "latestAum": "4130.3404",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4285.2242",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MMGD"
             },
             {
-                "latestAum": "4130.3404",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4285.2242",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MMGP"
             },
             {
-                "latestAum": "4130.3404",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4285.2242",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "MMPD"
             },
             {
-                "latestAum": "4130.3404",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4285.2242",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "MMPD"
@@ -2718,101 +2707,102 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "13.5675",
+                "latnav": "13.5544",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "MMDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.07",
-                "navchngper": "0.51"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.07"
             },
             {
-                "latnav": "13.5675",
+                "latnav": "13.5544",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "MMDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.3493",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.07",
-                "navchngper": "0.51"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.07"
             },
             {
-                "latnav": "13.7827",
+                "latnav": "13.7835",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MMGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.5391",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.07",
-                "navchngper": "0.52"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.07"
             },
             {
-                "latnav": "13.5675",
+                "latnav": "13.5544",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MMGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.3494",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.07",
-                "navchngper": "0.51"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.07"
             },
             {
-                "latnav": "13.7827",
+                "latnav": "13.7834",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "MMPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.07",
-                "navchngper": "0.52"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.07"
             },
             {
-                "latnav": "13.7827",
+                "latnav": "13.7834",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "MMPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.5391",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.07",
-                "navchngper": "0.52"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.07"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "NIFTY500 Multicap 50:25:25 Total Return Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2194.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "21.08",
-                "oneYear_marketValue": "12108.43373493976",
-                "inception_Ret": "31.38",
-                "inception_marketValue": "13567.500000000002",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "13.98",
+                "oneYear_marketValue": "11397.722877179998",
+                "inception_Ret": "28.77",
+                "inception_marketValue": "13554.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MMDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "22.79",
-                "oneYear_marketValue": "12279.449760339267",
-                "inception_Ret": "33.24",
-                "inception_marketValue": "13782.7",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "15.57",
+                "oneYear_marketValue": "11557.036850710603",
+                "inception_Ret": "30.58",
+                "inception_marketValue": "13783.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MMGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -2821,11 +2811,11 @@ const dataCfObj = [
                 "isin": "INF247L01CL8"
             },
             {
-                "oneYear_Ret": "21.08",
-                "oneYear_marketValue": "12108.43373493976",
-                "inception_Ret": "31.38",
-                "inception_marketValue": "13567.500000000002",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "13.98",
+                "oneYear_marketValue": "11397.722877179998",
+                "inception_Ret": "28.77",
+                "inception_marketValue": "13554.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MMGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -2834,11 +2824,11 @@ const dataCfObj = [
                 "isin": "INF247L01CO2"
             },
             {
-                "oneYear_Ret": "22.79",
-                "oneYear_marketValue": "12279.449760339267",
-                "inception_Ret": "33.24",
-                "inception_marketValue": "13782.7",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "15.57",
+                "oneYear_marketValue": "11556.953003815033",
+                "inception_Ret": "30.58",
+                "inception_marketValue": "13783.400000000001",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MMPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -2987,10 +2977,7 @@ const dataCfObj = [
                 "sector": "Industrial Manufacturing",
                 "percentage": "2.67%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Indian Equity",
@@ -3082,8 +3069,8 @@ const dataCfObj = [
         "schcode": "ID",
         "aum": [
             {
-                "latestAum": "557.2317",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "651.1027",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "IDGR"
@@ -3091,30 +3078,32 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "85.2688",
+                "latnav": "81.3388",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "IDGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "97.2242",
-                "currNav": "84.29",
-                "prevNAV": "83.17",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "84.60",
+                "prevNAV": "84.72",
+                "currNavDate": "09/11/2025 13:35:09"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty India Defence Index TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2470.0"
             }
         ],
         "returns": [
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "11030.364652662161",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "7.21",
+                "oneYear_marketValue": "10720.543442302092",
+                "inception_Ret": "5.08",
+                "inception_marketValue": "10521.980189822738",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IDGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -3209,9 +3198,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO55.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -3318,15 +3304,15 @@ const dataCfObj = [
         "schcode": "MP",
         "aum": [
             {
-                "latestAum": "2594.4948",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2567.3948",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MPGD"
             },
             {
-                "latestAum": "2594.4948",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2567.3948",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MPGP"
@@ -3334,46 +3320,55 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "17.5942",
+                "latnav": "16.91",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MPGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "17.5713",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.02",
-                "navchngper": "-0.09"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.44"
             },
             {
-                "latnav": "17.3563",
+                "latnav": "16.6734",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MPGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "17.3468",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.02",
-                "navchngper": "-0.09"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.44"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Microcap 250 Total Return Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "29794.19",
-                "oneYear_Ret": "-3.158493827425346",
-                "inception_Ret": "33.008350761255436",
+                "latNavDate": "2025-08-31",
+                "latnav": "28648.79",
+                "oneYear_Ret": "-8.04704210307382",
+                "inception_Ret": "29.157436228492273",
                 "bmcode": "2474.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-4.44",
-                "oneYear_marketValue": "9556.300275377354",
-                "inception_Ret": "31.31",
-                "inception_marketValue": "17594.2",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-9.25",
+                "oneYear_marketValue": "9075.101699099467",
+                "inception_Ret": "27.55",
+                "inception_marketValue": "16910.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MPGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -3382,11 +3377,11 @@ const dataCfObj = [
                 "isin": "INF247L01BQ9"
             },
             {
-                "oneYear_Ret": "-5.04",
-                "oneYear_marketValue": "9495.992340309123",
-                "inception_Ret": "30.45",
-                "inception_marketValue": "17356.3",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-9.82",
+                "oneYear_marketValue": "9018.254590691513",
+                "inception_Ret": "26.72",
+                "inception_marketValue": "16673.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MPGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -3509,9 +3504,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO43.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -3601,8 +3593,8 @@ const dataCfObj = [
         "schcode": "IM",
         "aum": [
             {
-                "latestAum": "216.2749",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "224.9471",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "IMGR"
@@ -3610,22 +3602,22 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "51.5981",
+                "latnav": "49.867",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "IMGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "53.906",
-                "currNav": "50.66",
-                "prevNAV": "50.64",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "51.25",
+                "prevNAV": "51.47",
+                "currNavDate": "09/11/2025 13:35:09"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 500 Momentum 50 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "inception_Ret": "0.0",
                 "bmcode": "2546.0"
             }
@@ -3633,8 +3625,8 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "8041.9600038029275",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "7772.154779141878",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IMGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -3749,9 +3741,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO57.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -3860,7 +3849,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -3893,7 +3882,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -3904,43 +3893,43 @@ const dataCfObj = [
         "schcode": "AM",
         "aum": [
             {
-                "latestAum": "123.5269",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "140.6785",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "AMDP"
             },
             {
-                "latestAum": "123.5269",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "140.6785",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "AMDP"
             },
             {
-                "latestAum": "123.5269",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "140.6785",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "AMGD"
             },
             {
-                "latestAum": "123.5269",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "140.6785",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "AMGP"
             },
             {
-                "latestAum": "123.5269",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "140.6785",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "AMPD"
             },
             {
-                "latestAum": "123.5269",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "140.6785",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "AMPD"
@@ -3948,74 +3937,74 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "10.8995",
+                "latnav": "11.0408",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "AMDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.49"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.67"
             },
             {
-                "latnav": "10.8995",
+                "latnav": "11.0408",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "AMDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.8957",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.49"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.67"
             },
             {
-                "latnav": "10.9036",
+                "latnav": "11.0455",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "AMGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.8984",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.49"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.67"
             },
             {
-                "latnav": "10.8995",
+                "latnav": "11.0405",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "AMGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.8957",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.49"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.67"
             },
             {
-                "latnav": "10.9036",
+                "latnav": "11.0452",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "AMPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.49"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.67"
             },
             {
-                "latnav": "10.9036",
+                "latnav": "11.0452",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "AMPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.8984",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.49"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.67"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 500 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "36461.71",
+                "latNavDate": "2025-08-31",
+                "latnav": "35799.38",
                 "inception_Ret": "0.0",
                 "bmcode": "2009.0"
             }
@@ -4023,16 +4012,16 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10899.5",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11040.800000000001",
+                "latNavDate": "2025-08-31",
                 "prodcode": "AMDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10903.6",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11045.500000000002",
+                "latNavDate": "2025-08-31",
                 "prodcode": "AMGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -4042,8 +4031,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10899.5",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11040.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "AMGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -4053,8 +4042,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10903.6",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11045.199999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "AMPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -4206,9 +4195,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO66.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -4327,7 +4313,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -4347,11 +4333,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -4371,43 +4357,43 @@ const dataCfObj = [
         "schcode": "SF",
         "aum": [
             {
-                "latestAum": "41.809",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "47.9283",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "SFDP"
             },
             {
-                "latestAum": "41.809",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "47.9283",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "SFDP"
             },
             {
-                "latestAum": "41.809",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "47.9283",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "SFGD"
             },
             {
-                "latestAum": "41.809",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "47.9283",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "SFGP"
             },
             {
-                "latestAum": "41.809",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "47.9283",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "SFPD"
             },
             {
-                "latestAum": "41.809",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "47.9283",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "SFPD"
@@ -4415,74 +4401,74 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "9.877",
+                "latnav": "10.1119",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "SFDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.08",
-                "navchngper": "0.80"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.06",
+                "navchngper": "0.62"
             },
             {
-                "latnav": "9.877",
+                "latnav": "10.1119",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "SFDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0186",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.08",
-                "navchngper": "0.80"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.06",
+                "navchngper": "0.62"
             },
             {
-                "latnav": "9.8784",
+                "latnav": "10.1142",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "SFGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0188",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.08",
-                "navchngper": "0.80"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.06",
+                "navchngper": "0.62"
             },
             {
-                "latnav": "9.877",
+                "latnav": "10.1119",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "SFGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0186",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.08",
-                "navchngper": "0.80"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.06",
+                "navchngper": "0.62"
             },
             {
-                "latnav": "9.8784",
+                "latnav": "10.1142",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "SFPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.08",
-                "navchngper": "0.80"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.06",
+                "navchngper": "0.62"
             },
             {
-                "latnav": "9.8784",
+                "latnav": "10.1142",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "SFPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0188",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.08",
-                "navchngper": "0.80"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.06",
+                "navchngper": "0.62"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Service Sector TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "47622.6",
+                "latNavDate": "2025-08-31",
+                "latnav": "46275.19",
                 "inception_Ret": "0.0",
                 "bmcode": "2028.0"
             }
@@ -4490,16 +4476,16 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "9877.0",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10111.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SFDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "9878.4",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10114.2",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SFGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -4509,8 +4495,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "9877.0",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10111.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SFGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -4520,8 +4506,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "9878.4",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10114.2",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SFPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -4576,10 +4562,7 @@ const dataCfObj = [
                 "optioncode": "R",
                 "plancode": "PD"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "sebiCategory": "Debt Fund",
@@ -4685,11 +4668,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Regular Payout",
+                "planNameOriginal": "Regular IDCW Dividend Reinvestment ",
                 "groupedCode": "RMD",
-                "groupedName": "Regular IDCW Payout - Monthly",
+                "groupedName": "Regular-IDCW Dividend Reinvestment - Quaterly",
                 "optionCode": "D",
-                "optionName": "IDCW Payout - Monthly",
+                "optionName": "IDCW Dividend Reinvestment  - Quaterly",
                 "planCode": "RM",
                 "planName": "Regular",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-idcw-dividend-reinvestment-quarterly"
@@ -4707,11 +4690,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Regular Payout",
+                "planNameOriginal": "Regular IDCW Dividend Reinvestment ",
                 "groupedCode": "RMD",
-                "groupedName": "Regular IDCW Payout - Monthly",
+                "groupedName": "Regular-IDCW Dividend Reinvestment - Quaterly",
                 "optionCode": "D",
-                "optionName": "IDCW Payout - Monthly",
+                "optionName": "IDCW Dividend Reinvestment  - Quaterly",
                 "planCode": "RM",
                 "planName": "Regular",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-idcw-dividend-reinvestment-quarterly"
@@ -4808,141 +4791,141 @@ const dataCfObj = [
         "schcode": "LF",
         "aum": [
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "D3",
                 "prodcode": "LFD3"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "D4",
                 "prodcode": "LFD4"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DD",
                 "prodcode": "LFDD"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DF",
                 "prodcode": "LFDF"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DM",
                 "prodcode": "LFDM"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DM",
                 "prodcode": "LFDM"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DQ",
                 "prodcode": "LFDQ"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DQ",
                 "prodcode": "LFDQ"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DW",
                 "prodcode": "LFDW"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "LFGD"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "LFGP"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "R3",
                 "prodcode": "LFR3"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "R4",
                 "prodcode": "LFR4"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RD",
                 "prodcode": "LFRD"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RF",
                 "prodcode": "LFRF"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "RM",
                 "prodcode": "LFRM"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RM",
                 "prodcode": "LFRM"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "RQ",
                 "prodcode": "LFRQ"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RQ",
                 "prodcode": "LFRQ"
             },
             {
-                "latestAum": "1202.7942",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1246.1754",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RW",
                 "prodcode": "LFRW"
@@ -4950,7 +4933,7 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "13.6348",
+                "latnav": "13.6976",
                 "optioncode": "G",
                 "plancode": "D3",
                 "prodcode": "LFD3",
@@ -4972,96 +4955,96 @@ const dataCfObj = [
                 "prodcode": "LFDD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0077",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0",
                 "navchngper": "0"
             },
             {
-                "latnav": "10.0127",
+                "latnav": "10.0182",
                 "optioncode": "R",
                 "plancode": "DF",
                 "prodcode": "LFDF",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0096",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "10.0384",
+                "latnav": "10.033",
                 "optioncode": "D",
                 "plancode": "DM",
                 "prodcode": "LFDM",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "10.0384",
+                "latnav": "10.033",
                 "optioncode": "R",
                 "plancode": "DM",
                 "prodcode": "LFDM",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0592",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "10.0546",
+                "latnav": "10.101",
                 "optioncode": "D",
                 "plancode": "DQ",
                 "prodcode": "LFDQ",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "10.0546",
+                "latnav": "10.101",
                 "optioncode": "R",
                 "plancode": "DQ",
                 "prodcode": "LFDQ",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.1452",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "10.0142",
+                "latnav": "10.0088",
                 "optioncode": "R",
                 "plancode": "DW",
                 "prodcode": "LFDW",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.01",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "14.0011",
+                "latnav": "14.0659",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "LFGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.9073",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "13.8616",
+                "latnav": "13.9233",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "LFGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.7718",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "13.3634",
+                "latnav": "13.425",
                 "optioncode": "G",
                 "plancode": "R3",
                 "prodcode": "LFR3",
@@ -5083,69 +5066,69 @@ const dataCfObj = [
                 "prodcode": "LFRD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0055",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0",
                 "navchngper": "0"
             },
             {
-                "latnav": "10.0123",
+                "latnav": "10.0169",
                 "optioncode": "R",
                 "plancode": "RF",
                 "prodcode": "LFRF",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0095",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "10.0381",
+                "latnav": "10.0329",
                 "optioncode": "D",
                 "plancode": "RM",
                 "prodcode": "LFRM",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "10.0381",
+                "latnav": "10.0329",
                 "optioncode": "R",
                 "plancode": "RM",
                 "prodcode": "LFRM",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.0583",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "10.0531",
+                "latnav": "10.0979",
                 "optioncode": "D",
                 "plancode": "RQ",
                 "prodcode": "LFRQ",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "10.0531",
+                "latnav": "10.0979",
                 "optioncode": "R",
                 "plancode": "RQ",
                 "prodcode": "LFRQ",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.1416",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "10.0211",
+                "latnav": "10.0159",
                 "optioncode": "R",
                 "plancode": "RW",
                 "prodcode": "LFRW",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.017",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             }
@@ -5154,28 +5137,28 @@ const dataCfObj = [
             {
                 "type": "BM",
                 "groupName": "Crisil Liquid Fund Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "inception_Ret": "0.0",
                 "bmcode": "4.0"
             },
             {
                 "type": "BM",
                 "groupName": "CRISIL Liquid Fund A-I Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2299.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "6.86",
-                "oneYear_marketValue": "10685.914918962975",
-                "threeYear_Ret": "6.73",
-                "threeYear_marketValue": "12158.838584257037",
-                "fiveYear_Ret": "5.34",
-                "fiveYear_marketValue": "12972.057578323454",
-                "inception_Ret": "5.19",
-                "inception_marketValue": "13632.75508673699",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "6.77",
+                "oneYear_marketValue": "10676.893337074798",
+                "threeYear_Ret": "6.74",
+                "threeYear_marketValue": "12162.34694511778",
+                "fiveYear_Ret": "5.38",
+                "fiveYear_marketValue": "12998.04520696134",
+                "inception_Ret": "5.2",
+                "inception_marketValue": "13695.545668149778",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFD3",
                 "plancode": "D3",
                 "optioncode": "G",
@@ -5185,7 +5168,7 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFD4",
                 "plancode": "D4",
                 "optioncode": "G",
@@ -5202,7 +5185,7 @@ const dataCfObj = [
                 "fiveYear_marketValue": "10000.0",
                 "inception_Ret": "0.01",
                 "inception_marketValue": "10007.699999999999",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFDD",
                 "plancode": "DD",
                 "optioncode": "R",
@@ -5211,15 +5194,15 @@ const dataCfObj = [
                 "isin": "INF247L01742"
             },
             {
-                "oneYear_Ret": "-0.01",
-                "oneYear_marketValue": "9999.201078543965",
-                "threeYear_Ret": "-0.01",
-                "threeYear_marketValue": "9997.803273123045",
-                "fiveYear_Ret": "0.01",
-                "fiveYear_marketValue": "10003.196962885262",
-                "inception_Ret": "0.02",
-                "inception_marketValue": "10012.7",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.01",
+                "oneYear_marketValue": "10001.497499176376",
+                "threeYear_Ret": "0.02",
+                "threeYear_marketValue": "10007.092127738211",
+                "fiveYear_Ret": "0.02",
+                "fiveYear_marketValue": "10011.29220837622",
+                "inception_Ret": "0.03",
+                "inception_marketValue": "10018.199999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFDF",
                 "plancode": "DF",
                 "optioncode": "R",
@@ -5228,43 +5211,43 @@ const dataCfObj = [
                 "isin": "INF247L01759"
             },
             {
-                "oneYear_Ret": "-0.01",
-                "oneYear_marketValue": "9999.20312375488",
-                "threeYear_Ret": "0.02",
-                "threeYear_marketValue": "10005.581692050077",
-                "fiveYear_Ret": "0.02",
-                "fiveYear_marketValue": "10008.374875373878",
-                "inception_Ret": "0.06",
-                "inception_marketValue": "10038.399999999998",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.03",
+                "oneYear_marketValue": "10002.991026919244",
+                "threeYear_Ret": "-0.01",
+                "threeYear_marketValue": "9996.213932727562",
+                "fiveYear_Ret": "0.0",
+                "fiveYear_marketValue": "10000.398700237225",
+                "inception_Ret": "0.05",
+                "inception_marketValue": "10032.999999999998",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFDM",
                 "plancode": "DM",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-0.11",
-                "oneYear_marketValue": "9989.071689715467",
-                "threeYear_Ret": "0.02",
-                "threeYear_marketValue": "10005.871406251556",
-                "fiveYear_Ret": "0.04",
-                "fiveYear_marketValue": "10022.22820290462",
-                "inception_Ret": "0.08",
-                "inception_marketValue": "10054.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-0.19",
+                "oneYear_marketValue": "9981.126668708808",
+                "threeYear_Ret": "0.03",
+                "threeYear_marketValue": "10009.01713255185",
+                "fiveYear_Ret": "0.09",
+                "fiveYear_marketValue": "10042.652190771618",
+                "inception_Ret": "0.15",
+                "inception_marketValue": "10101.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFDQ",
                 "plancode": "DQ",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-0.01",
-                "oneYear_marketValue": "9999.201198202696",
-                "threeYear_Ret": "0.02",
-                "threeYear_marketValue": "10005.595188138203",
-                "fiveYear_Ret": "0.02",
-                "fiveYear_marketValue": "10008.395130824121",
-                "inception_Ret": "0.02",
-                "inception_marketValue": "10014.199999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.03",
+                "oneYear_marketValue": "10002.998261008615",
+                "threeYear_Ret": "-0.01",
+                "threeYear_marketValue": "9996.204781974711",
+                "fiveYear_Ret": "0.0",
+                "fiveYear_marketValue": "10000.399664282004",
+                "inception_Ret": "0.01",
+                "inception_marketValue": "10008.8",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFDW",
                 "plancode": "DW",
                 "optioncode": "R",
@@ -5273,15 +5256,15 @@ const dataCfObj = [
                 "isin": "INF247L01809"
             },
             {
-                "oneYear_Ret": "6.67",
-                "oneYear_marketValue": "10667.342211928199",
-                "threeYear_Ret": "6.65",
-                "threeYear_marketValue": "12131.197255099036",
-                "fiveYear_Ret": "5.29",
-                "fiveYear_marketValue": "12937.38796178226",
+                "oneYear_Ret": "6.59",
+                "oneYear_marketValue": "10658.972590801965",
+                "threeYear_Ret": "6.66",
+                "threeYear_marketValue": "12135.086402498468",
+                "fiveYear_Ret": "5.33",
+                "fiveYear_marketValue": "12963.843651210587",
                 "inception_Ret": "5.22",
-                "inception_marketValue": "14001.1",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "14065.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -5290,15 +5273,15 @@ const dataCfObj = [
                 "isin": "INF247L01734"
             },
             {
-                "oneYear_Ret": "6.5",
-                "oneYear_marketValue": "10650.48021513638",
-                "threeYear_Ret": "6.49",
-                "threeYear_marketValue": "12075.721541262665",
-                "fiveYear_Ret": "5.13",
-                "fiveYear_marketValue": "12839.451283333796",
+                "oneYear_Ret": "6.42",
+                "oneYear_marketValue": "10641.551830876115",
+                "threeYear_Ret": "6.5",
+                "threeYear_marketValue": "12079.067911302356",
+                "fiveYear_Ret": "5.17",
+                "fiveYear_marketValue": "12865.142065142065",
                 "inception_Ret": "5.06",
-                "inception_marketValue": "13861.599999999999",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "13923.3",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -5307,15 +5290,15 @@ const dataCfObj = [
                 "isin": "INF247L01726"
             },
             {
-                "oneYear_Ret": "6.7",
-                "oneYear_marketValue": "10670.40355163768",
-                "threeYear_Ret": "6.68",
-                "threeYear_marketValue": "12140.157709219086",
-                "fiveYear_Ret": "5.31",
-                "fiveYear_marketValue": "12952.419722214147",
-                "inception_Ret": "5.08",
-                "inception_marketValue": "13361.529385885975",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "6.62",
+                "oneYear_marketValue": "10661.531130876747",
+                "threeYear_Ret": "6.69",
+                "threeYear_marketValue": "12143.716474749212",
+                "fiveYear_Ret": "5.35",
+                "fiveYear_marketValue": "12978.412815034659",
+                "inception_Ret": "5.09",
+                "inception_marketValue": "13423.120763093168",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFR3",
                 "plancode": "R3",
                 "optioncode": "G",
@@ -5325,7 +5308,7 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFR4",
                 "plancode": "R4",
                 "optioncode": "G",
@@ -5342,7 +5325,7 @@ const dataCfObj = [
                 "fiveYear_marketValue": "10000.0",
                 "inception_Ret": "0.01",
                 "inception_marketValue": "10005.5",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFRD",
                 "plancode": "RD",
                 "optioncode": "R",
@@ -5351,15 +5334,15 @@ const dataCfObj = [
                 "isin": "INF247L01817"
             },
             {
-                "oneYear_Ret": "-0.01",
-                "oneYear_marketValue": "9999.101186433907",
-                "threeYear_Ret": "-0.01",
-                "threeYear_marketValue": "9998.00285591604",
-                "fiveYear_Ret": "0.01",
-                "fiveYear_marketValue": "10003.19709064751",
-                "inception_Ret": "0.02",
-                "inception_marketValue": "10012.300000000001",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.01",
+                "oneYear_marketValue": "10000.599023591545",
+                "threeYear_Ret": "0.02",
+                "threeYear_marketValue": "10006.193373090793",
+                "fiveYear_Ret": "0.02",
+                "fiveYear_marketValue": "10010.29320648372",
+                "inception_Ret": "0.03",
+                "inception_marketValue": "10016.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFRF",
                 "plancode": "RF",
                 "optioncode": "R",
@@ -5368,43 +5351,43 @@ const dataCfObj = [
                 "isin": "INF247L01825"
             },
             {
-                "oneYear_Ret": "-0.01",
-                "oneYear_marketValue": "9999.10349636418",
-                "threeYear_Ret": "0.02",
-                "threeYear_marketValue": "10005.38239955346",
-                "fiveYear_Ret": "0.02",
-                "fiveYear_marketValue": "10008.075772681954",
-                "inception_Ret": "0.06",
-                "inception_marketValue": "10038.1",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.03",
+                "oneYear_marketValue": "10002.891326021934",
+                "threeYear_Ret": "-0.01",
+                "threeYear_marketValue": "9996.41309221342",
+                "fiveYear_Ret": "0.0",
+                "fiveYear_marketValue": "10000.49838523185",
+                "inception_Ret": "0.05",
+                "inception_marketValue": "10032.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFRM",
                 "plancode": "RM",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-0.11",
-                "oneYear_marketValue": "9988.970807416388",
-                "threeYear_Ret": "0.02",
-                "threeYear_marketValue": "10005.673109461155",
-                "fiveYear_Ret": "0.05",
-                "fiveYear_marketValue": "10025.329836353303",
-                "inception_Ret": "0.09",
-                "inception_marketValue": "10053.100000000002",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-0.19",
+                "oneYear_marketValue": "9980.627625401532",
+                "threeYear_Ret": "0.03",
+                "threeYear_marketValue": "10008.226292419915",
+                "fiveYear_Ret": "0.09",
+                "fiveYear_marketValue": "10045.262822808483",
+                "inception_Ret": "0.16",
+                "inception_marketValue": "10097.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFRQ",
                 "plancode": "RQ",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-0.01",
-                "oneYear_marketValue": "9999.101975653562",
-                "threeYear_Ret": "0.02",
-                "threeYear_marketValue": "10005.391535289597",
-                "fiveYear_Ret": "0.02",
-                "fiveYear_marketValue": "10008.089483671227",
-                "inception_Ret": "0.03",
-                "inception_marketValue": "10021.1",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.03",
+                "oneYear_marketValue": "10002.896234894639",
+                "threeYear_Ret": "-0.01",
+                "threeYear_marketValue": "9996.40700633764",
+                "fiveYear_Ret": "0.0",
+                "fiveYear_marketValue": "10000.499231183976",
+                "inception_Ret": "0.02",
+                "inception_marketValue": "10015.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LFRW",
                 "plancode": "RW",
                 "optioncode": "R",
@@ -5655,9 +5638,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO15.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -5760,15 +5740,15 @@ const dataCfObj = [
         "schcode": "CM",
         "aum": [
             {
-                "latestAum": "261.3477",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "245.7978",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "CMGD"
             },
             {
-                "latestAum": "261.3477",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "245.7978",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "CMGP"
@@ -5776,42 +5756,51 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "10.3008",
+                "latnav": "9.7219",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "CMGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.6247",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.04",
-                "navchngper": "0.33"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.05",
+                "navchngper": "0.51"
             },
             {
-                "latnav": "10.257",
+                "latnav": "9.6756",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "CMGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.588",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.03",
-                "navchngper": "0.33"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.05",
+                "navchngper": "0.51"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Capital Markets Index (TRI) (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "inception_Ret": "0.0",
                 "bmcode": "2551.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10300.800000000001",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "9721.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "CMGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -5821,8 +5810,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10257.0",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "9675.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "CMGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -5910,10 +5899,7 @@ const dataCfObj = [
                 "sector": "Cash & Equivalent",
                 "percentage": "-0.39%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "International Equity",
@@ -6018,15 +6004,15 @@ const dataCfObj = [
         "schcode": "N1",
         "aum": [
             {
-                "latestAum": "5774.6229",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "5631.6156",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "N1GD"
             },
             {
-                "latestAum": "5774.6229",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "5631.6156",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "N1GP"
@@ -6034,47 +6020,71 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "44.0363",
+                "latnav": "43.2238",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "N1GD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "38.208",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.42",
-                "navchngper": "-0.98"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.14",
+                "navchngper": "-0.31"
             },
             {
-                "latnav": "42.9099",
+                "latnav": "42.0939",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "N1GP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "37.2481",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.41",
-                "navchngper": "-0.98"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.13",
+                "navchngper": "-0.31"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "NASDAQ - 100 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2142.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 Arbitrage TRI (PRIMARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "2545.49",
+                "inception_Ret": "0.0",
+                "bmcode": "2007.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Crisil 1 Yr T-Bill Index (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "inception_Ret": "0.0",
+                "bmcode": "158.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "32.09",
-                "oneYear_marketValue": "13209.2784680269",
-                "threeYear_Ret": "27.04",
-                "threeYear_marketValue": "20503.74350473991",
-                "fiveYear_Ret": "20.68",
-                "fiveYear_marketValue": "25593.869509119017",
-                "inception_Ret": "24.02",
-                "inception_marketValue": "41977.712956607946",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "26.72",
+                "oneYear_marketValue": "12672.479506514523",
+                "threeYear_Ret": "28.37",
+                "threeYear_marketValue": "21151.743813340774",
+                "fiveYear_Ret": "18.1",
+                "fiveYear_marketValue": "22975.12929682724",
+                "inception_Ret": "23.35",
+                "inception_marketValue": "41203.19530237169",
+                "latNavDate": "2025-08-31",
                 "prodcode": "N1GD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -6083,15 +6093,15 @@ const dataCfObj = [
                 "isin": "INF247L01718"
             },
             {
-                "oneYear_Ret": "31.63",
-                "oneYear_marketValue": "13162.586388301805",
-                "threeYear_Ret": "26.57",
-                "threeYear_marketValue": "20274.56483528945",
-                "fiveYear_Ret": "20.21",
-                "fiveYear_marketValue": "25106.42903950571",
-                "inception_Ret": "23.54",
-                "inception_marketValue": "40905.91902687347",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "26.24",
+                "oneYear_marketValue": "12623.940979771778",
+                "threeYear_Ret": "27.88",
+                "threeYear_marketValue": "20910.61280451456",
+                "fiveYear_Ret": "17.64",
+                "fiveYear_marketValue": "22532.277749229186",
+                "inception_Ret": "22.86",
+                "inception_marketValue": "40128.027912563506",
+                "latNavDate": "2025-08-31",
                 "prodcode": "N1GP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -6142,9 +6152,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO13.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -6239,15 +6246,15 @@ const dataCfObj = [
         "schcode": "SP",
         "aum": [
             {
-                "latestAum": "3822.5659",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "3886.6894",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "SPGD"
             },
             {
-                "latestAum": "3822.5659",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "3886.6894",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "SPGP"
@@ -6255,43 +6262,52 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "25.5576",
+                "latnav": "26.2305",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "SPGD",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.04",
-                "navchngper": "-0.17"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.06",
+                "navchngper": "0.23"
             },
             {
-                "latnav": "24.7858",
+                "latnav": "25.4237",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "SPGP",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.04",
-                "navchngper": "-0.17"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.06",
+                "navchngper": "0.22"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "S&P 500 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "241.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "20.26",
-                "oneYear_marketValue": "12026.370151473087",
-                "threeYear_Ret": "20.33",
-                "threeYear_marketValue": "17425.121530500237",
-                "fiveYear_Ret": "18.33",
-                "fiveYear_marketValue": "23202.331345153474",
-                "inception_Ret": "19.53",
-                "inception_marketValue": "25557.600000000002",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "20.53",
+                "oneYear_marketValue": "12052.62988609264",
+                "threeYear_Ret": "21.64",
+                "threeYear_marketValue": "18000.0",
+                "fiveYear_Ret": "17.62",
+                "fiveYear_marketValue": "22510.040505286284",
+                "inception_Ret": "19.77",
+                "inception_marketValue": "26230.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SPGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -6300,15 +6316,15 @@ const dataCfObj = [
                 "isin": "INF247L01AG2"
             },
             {
-                "oneYear_Ret": "19.64",
-                "oneYear_marketValue": "11964.04867523616",
-                "threeYear_Ret": "19.68",
-                "threeYear_marketValue": "17142.007455512445",
-                "fiveYear_Ret": "17.65",
-                "fiveYear_marketValue": "22542.792178262844",
-                "inception_Ret": "18.83",
-                "inception_marketValue": "24785.8",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "19.88",
+                "oneYear_marketValue": "11988.239843072164",
+                "threeYear_Ret": "20.98",
+                "threeYear_marketValue": "17705.759454000974",
+                "fiveYear_Ret": "16.94",
+                "fiveYear_marketValue": "21870.60199920858",
+                "inception_Ret": "19.07",
+                "inception_marketValue": "25423.7",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SPGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -6428,10 +6444,7 @@ const dataCfObj = [
                 "sector": "Health Care Equipment",
                 "percentage": "2.22%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Indian Equity",
@@ -6532,15 +6545,15 @@ const dataCfObj = [
         "schcode": "HI",
         "aum": [
             {
-                "latestAum": "28.4004",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "28.7034",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "HIGD"
             },
             {
-                "latestAum": "28.4004",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "28.7034",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "HIGP"
@@ -6548,43 +6561,52 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "10.9625",
+                "latnav": "10.5008",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "HIGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.4054",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.05",
-                "navchngper": "-0.48"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.74"
             },
             {
-                "latnav": "10.9253",
+                "latnav": "10.4621",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "HIGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.3764",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.05",
-                "navchngper": "-0.48"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.74"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty MidSmall Healthcare Index (TRI) (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "45249.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "43313.6",
                 "inception_Ret": "0.0",
                 "bmcode": "2522.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10962.5",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10500.8",
+                "latNavDate": "2025-08-31",
                 "prodcode": "HIGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -6594,8 +6616,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10925.3",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10462.099999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "HIGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -6694,9 +6716,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO61.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -6836,7 +6855,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -6845,11 +6864,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -6869,43 +6888,43 @@ const dataCfObj = [
         "schcode": "MT",
         "aum": [
             {
-                "latestAum": "774.6932",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "786.4318",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "MTDP"
             },
             {
-                "latestAum": "774.6932",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "786.4318",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "MTDP"
             },
             {
-                "latestAum": "774.6932",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "786.4318",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MTGD"
             },
             {
-                "latestAum": "774.6932",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "786.4318",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MTGP"
             },
             {
-                "latestAum": "774.6932",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "786.4318",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "MTPD"
             },
             {
-                "latestAum": "774.6932",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "786.4318",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "MTPD"
@@ -6913,99 +6932,104 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "11.0315",
+                "latnav": "11.2446",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "MTDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.04",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.13",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "11.0315",
+                "latnav": "11.2446",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "MTDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.1127",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.04",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.13",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "11.183",
+                "latnav": "11.4184",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MTGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.2452",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.40"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.13",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "11.0317",
+                "latnav": "11.2448",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MTGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.1129",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.40"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.13",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "11.183",
+                "latnav": "11.4178",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "MTPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.04",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.13",
+                "navchngper": "1.12"
             },
             {
-                "latnav": "11.183",
+                "latnav": "11.4178",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "MTPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.2453",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.04",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.13",
+                "navchngper": "1.12"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty India Manufacturing TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "18504.48",
+                "latNavDate": "2025-08-31",
+                "latnav": "18551.52",
                 "inception_Ret": "0.0",
                 "bmcode": "2258.0"
             }
         ],
         "returns": [
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "11031.499999999998",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "8.34",
+                "oneYear_marketValue": "10834.409265218816",
+                "inception_Ret": "11.67",
+                "inception_marketValue": "11244.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MTDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "11183.0",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "9.92",
+                "oneYear_marketValue": "10992.231196511257",
+                "inception_Ret": "13.29",
+                "inception_marketValue": "11418.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MTGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -7014,9 +7038,11 @@ const dataCfObj = [
                 "isin": "INF247L01DA9"
             },
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "11031.7",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "8.34",
+                "oneYear_marketValue": "10834.393186110146",
+                "inception_Ret": "11.67",
+                "inception_marketValue": "11244.8",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MTGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -7025,9 +7051,11 @@ const dataCfObj = [
                 "isin": "INF247L01CX3"
             },
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "11183.0",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "9.92",
+                "oneYear_marketValue": "10991.759405444953",
+                "inception_Ret": "13.28",
+                "inception_marketValue": "11417.8",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MTPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -7179,9 +7207,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO53.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -7316,7 +7341,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -7336,11 +7361,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -7349,43 +7374,43 @@ const dataCfObj = [
         "schcode": "BC",
         "aum": [
             {
-                "latestAum": "1949.7273",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1976.1941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "BCDP"
             },
             {
-                "latestAum": "1949.7273",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1976.1941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "BCDP"
             },
             {
-                "latestAum": "1949.7273",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1976.1941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "BCGD"
             },
             {
-                "latestAum": "1949.7273",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1976.1941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "BCGP"
             },
             {
-                "latestAum": "1949.7273",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1976.1941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "BCPD"
             },
             {
-                "latestAum": "1949.7273",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1976.1941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "BCPD"
@@ -7393,99 +7418,104 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "12.4728",
+                "latnav": "12.5961",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "BCDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.19"
             },
             {
-                "latnav": "12.4728",
+                "latnav": "12.5961",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "BCDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.2104",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.19"
             },
             {
-                "latnav": "12.6542",
+                "latnav": "12.7937",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "BCGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.3659",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.71"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.16",
+                "navchngper": "1.19"
             },
             {
-                "latnav": "12.4727",
+                "latnav": "12.596",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "BCGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.2103",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.19"
             },
             {
-                "latnav": "12.6534",
+                "latnav": "12.7929",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "BCPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.71"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.16",
+                "navchngper": "1.19"
             },
             {
-                "latnav": "12.6534",
+                "latnav": "12.7929",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "BCPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.3652",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.71"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.16",
+                "navchngper": "1.19"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 500 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "36461.71",
+                "latNavDate": "2025-08-31",
+                "latnav": "35799.38",
                 "inception_Ret": "0.0",
                 "bmcode": "2009.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "12472.8",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "25.96",
+                "oneYear_marketValue": "12596.099999999999",
+                "inception_Ret": "25.65",
+                "inception_marketValue": "12596.099999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "BCDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "12654.2",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "27.94",
+                "oneYear_marketValue": "12793.699999999999",
+                "inception_Ret": "27.6",
+                "inception_marketValue": "12793.699999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "BCGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -7494,9 +7524,11 @@ const dataCfObj = [
                 "isin": "INF247L01DG6"
             },
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "12472.699999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "25.96",
+                "oneYear_marketValue": "12596.0",
+                "inception_Ret": "25.65",
+                "inception_marketValue": "12596.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "BCGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -7505,9 +7537,11 @@ const dataCfObj = [
                 "isin": "INF247L01DD3"
             },
             {
-                "inception_Ret": "0.0",
-                "inception_marketValue": "12653.4",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "27.93",
+                "oneYear_marketValue": "12792.9",
+                "inception_Ret": "27.59",
+                "inception_marketValue": "12792.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "BCPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -7656,10 +7690,7 @@ const dataCfObj = [
                 "sector": "Pharmaceuticals & Biotechnology",
                 "percentage": "1.99%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "sebiCategory": "Equity Fund",
@@ -7782,7 +7813,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -7802,11 +7833,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -7826,43 +7857,43 @@ const dataCfObj = [
         "schcode": "DF",
         "aum": [
             {
-                "latestAum": "819.2581",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "835.9533",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "DFDP"
             },
             {
-                "latestAum": "819.2581",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "835.9533",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "DFDP"
             },
             {
-                "latestAum": "819.2581",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "835.9533",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "DFGD"
             },
             {
-                "latestAum": "819.2581",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "835.9533",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "DFGP"
             },
             {
-                "latestAum": "819.2581",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "835.9533",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "DFPD"
             },
             {
-                "latestAum": "819.2581",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "835.9533",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "DFPD"
@@ -7870,81 +7901,82 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "10.0381",
+                "latnav": "10.107",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "DFDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "1.28"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "1.70"
             },
             {
-                "latnav": "10.0381",
+                "latnav": "10.107",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "DFDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.2035",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "1.28"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "1.70"
             },
             {
-                "latnav": "10.1508",
+                "latnav": "10.2334",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "DFGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.2992",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "1.28"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "1.70"
             },
             {
-                "latnav": "10.0381",
+                "latnav": "10.107",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "DFGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.2035",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "1.28"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "1.70"
             },
             {
-                "latnav": "10.1508",
+                "latnav": "10.233",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "DFPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "1.28"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "1.70"
             },
             {
-                "latnav": "10.1508",
+                "latnav": "10.233",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "DFPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.2992",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "1.28"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "1.70"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             },
             {
                 "type": "BM",
                 "groupName": "BSE Tech TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "inception_Ret": "0.0",
                 "bmcode": "2033.0"
             }
@@ -7952,16 +7984,16 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10038.1",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10107.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DFDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10150.8",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10233.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DFGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -7971,8 +8003,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10038.1",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10107.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DFGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -7982,8 +8014,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10150.8",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10233.000000000002",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DFPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -8135,9 +8167,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO58.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -8265,29 +8294,29 @@ const dataCfObj = [
         "schcode": "LT",
         "aum": [
             {
-                "latestAum": "4401.9696",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4223.4029",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "LTDP"
             },
             {
-                "latestAum": "4401.9696",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4223.4029",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "LTGD"
             },
             {
-                "latestAum": "4401.9696",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4223.4029",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "LTGP"
             },
             {
-                "latestAum": "4401.9696",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "4223.4029",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "LTPD"
@@ -8295,83 +8324,84 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "30.8178",
+                "latnav": "29.435",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "LTDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "30.7233",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.15"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.52",
+                "navchngper": "1.69"
             },
             {
-                "latnav": "59.539",
+                "latnav": "56.9207",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "LTGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "59.27",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.15"
+                "recdt": "10-Sep-2025",
+                "navchng": "1.00",
+                "navchngper": "1.69"
             },
             {
-                "latnav": "51.9509",
+                "latnav": "49.6198",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "LTGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "51.7915",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.08",
-                "navchngper": "0.15"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.87",
+                "navchngper": "1.69"
             },
             {
-                "latnav": "39.5647",
+                "latnav": "37.8249",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "LTPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "39.386",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.15"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.66",
+                "navchngper": "1.69"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 500 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "36461.71",
+                "latNavDate": "2025-08-31",
+                "latnav": "35799.38",
                 "inception_Ret": "0.0",
                 "bmcode": "2009.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-3.01",
-                "oneYear_marketValue": "9698.90950290327",
-                "threeYear_Ret": "18.3",
-                "threeYear_marketValue": "16557.226439727285",
-                "fiveYear_Ret": "16.64",
-                "fiveYear_marketValue": "21587.8953451718",
-                "sevenYear_Ret": "9.4",
-                "sevenYear_marketValue": "18753.71967212117",
-                "tenYear_Ret": "10.23",
-                "tenYear_marketValue": "26485.32975816016",
-                "inception_Ret": "11.28",
-                "inception_marketValue": "30817.799999999996",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-10.89",
+                "oneYear_marketValue": "8910.84013465404",
+                "threeYear_Ret": "14.9",
+                "threeYear_marketValue": "15168.614598148948",
+                "fiveYear_Ret": "14.93",
+                "fiveYear_marketValue": "20049.860703362872",
+                "sevenYear_Ret": "8.8",
+                "sevenYear_marketValue": "18044.333827838604",
+                "tenYear_Ret": "10.45",
+                "tenYear_marketValue": "27026.902947387753",
+                "inception_Ret": "10.7",
+                "inception_marketValue": "29434.999999999996",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LTDP",
                 "plancode": "DP",
                 "optioncode": "D",
@@ -8380,19 +8410,19 @@ const dataCfObj = [
                 "isin": "INF247L01551"
             },
             {
-                "oneYear_Ret": "4.97",
-                "oneYear_marketValue": "10497.150876599106",
-                "threeYear_Ret": "28.41",
-                "threeYear_marketValue": "21173.939329279136",
-                "fiveYear_Ret": "27.96",
-                "fiveYear_marketValue": "34300.01785889171",
-                "sevenYear_Ret": "17.64",
-                "sevenYear_marketValue": "31187.273451086385",
-                "tenYear_Ret": "17.67",
-                "tenYear_marketValue": "50881.07609215834",
-                "inception_Ret": "18.46",
-                "inception_marketValue": "59539.0",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-3.56",
+                "oneYear_marketValue": "9643.882173946928",
+                "threeYear_Ret": "24.71",
+                "threeYear_marketValue": "19394.4257044533",
+                "fiveYear_Ret": "26.07",
+                "fiveYear_marketValue": "31846.7770361377",
+                "sevenYear_Ret": "17.0",
+                "sevenYear_marketValue": "30004.37514495962",
+                "tenYear_Ret": "17.9",
+                "tenYear_marketValue": "51914.10382693079",
+                "inception_Ret": "17.8",
+                "inception_marketValue": "56920.69999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LTGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -8401,19 +8431,19 @@ const dataCfObj = [
                 "isin": "INF247L01569"
             },
             {
-                "oneYear_Ret": "3.74",
-                "oneYear_marketValue": "10374.286592939616",
-                "threeYear_Ret": "26.87",
-                "threeYear_marketValue": "20421.432895429924",
-                "fiveYear_Ret": "26.38",
-                "fiveYear_marketValue": "32245.808738183463",
-                "sevenYear_Ret": "16.18",
-                "sevenYear_marketValue": "28565.16814392856",
-                "tenYear_Ret": "16.14",
-                "tenYear_marketValue": "44647.467299197306",
-                "inception_Ret": "16.94",
-                "inception_marketValue": "51950.899999999994",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-4.69",
+                "oneYear_marketValue": "9531.308226308975",
+                "threeYear_Ret": "23.22",
+                "threeYear_marketValue": "18708.709274836645",
+                "fiveYear_Ret": "24.53",
+                "fiveYear_marketValue": "29948.275341762983",
+                "sevenYear_Ret": "15.54",
+                "sevenYear_marketValue": "27484.559951699648",
+                "tenYear_Ret": "16.37",
+                "tenYear_marketValue": "45560.37094848958",
+                "inception_Ret": "16.29",
+                "inception_marketValue": "49619.799999999996",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LTGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -8422,19 +8452,19 @@ const dataCfObj = [
                 "isin": "INF247L01544"
             },
             {
-                "oneYear_Ret": "-0.45",
-                "oneYear_marketValue": "9955.061607868498",
-                "threeYear_Ret": "20.8",
-                "threeYear_marketValue": "17626.69351641057",
-                "fiveYear_Ret": "20.67",
-                "fiveYear_marketValue": "25589.8351346282",
-                "sevenYear_Ret": "12.53",
-                "sevenYear_marketValue": "22843.75595420244",
-                "tenYear_Ret": "12.96",
-                "tenYear_marketValue": "33811.359130375335",
-                "inception_Ret": "13.95",
-                "inception_marketValue": "39564.700000000004",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-8.54",
+                "oneYear_marketValue": "9145.882347251874",
+                "threeYear_Ret": "17.31",
+                "threeYear_marketValue": "16145.374919432978",
+                "fiveYear_Ret": "18.9",
+                "fiveYear_marketValue": "23759.807031539538",
+                "sevenYear_Ret": "11.91",
+                "sevenYear_marketValue": "21977.421154159016",
+                "tenYear_Ret": "13.18",
+                "tenYear_marketValue": "34497.920542847765",
+                "inception_Ret": "13.35",
+                "inception_marketValue": "37824.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "LTPD",
                 "plancode": "PD",
                 "optioncode": "D",
@@ -8573,9 +8603,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO09.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -8678,15 +8705,15 @@ const dataCfObj = [
         "schcode": "IC",
         "aum": [
             {
-                "latestAum": "15.9796",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "16.4019",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "ICGD"
             },
             {
-                "latestAum": "15.9796",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "16.4019",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "ICGP"
@@ -8694,42 +8721,51 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "10.2983",
+                "latnav": "10.1272",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "ICGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.1942",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.06",
-                "navchngper": "0.59"
+                "navchngper": "0.60"
             },
             {
-                "latnav": "10.2626",
+                "latnav": "10.089",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "ICGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.165",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.06",
-                "navchngper": "0.59"
+                "navchngper": "0.60"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty MidSmall India Consumption TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "inception_Ret": "0.0",
                 "bmcode": "2583.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10298.300000000001",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10127.2",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ICGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -8739,8 +8775,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10262.600000000002",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10089.000000000002",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ICGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -8860,10 +8896,7 @@ const dataCfObj = [
                 "sector": "Retailing",
                 "percentage": "3.50%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Indian Equity",
@@ -8964,15 +8997,15 @@ const dataCfObj = [
         "schcode": "IT",
         "aum": [
             {
-                "latestAum": "27.5376",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "28.3302",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "ITGD"
             },
             {
-                "latestAum": "27.5376",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "28.3302",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "ITGP"
@@ -8980,33 +9013,33 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "9.3616",
+                "latnav": "9.0256",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "ITGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "9.9759",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.19",
-                "navchngper": "2.10"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.30",
+                "navchngper": "3.22"
             },
             {
-                "latnav": "9.3291",
+                "latnav": "8.9908",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "ITGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "9.9473",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.19",
-                "navchngper": "2.10"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.30",
+                "navchngper": "3.22"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty MidSmall IT & Telecom TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "inception_Ret": "0.0",
                 "bmcode": "2560.0"
             }
@@ -9014,8 +9047,8 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "9361.599999999999",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "9025.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ITGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -9025,8 +9058,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "9329.1",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "8990.8",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ITGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -9126,10 +9159,7 @@ const dataCfObj = [
                 "sector": "Cash & Equivalent",
                 "percentage": "0.59%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "sebiCategory": "Hybrid Fund",
@@ -9236,7 +9266,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -9267,11 +9297,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -9280,43 +9310,43 @@ const dataCfObj = [
         "schcode": "AR",
         "aum": [
             {
-                "latestAum": "869.2093",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1223.6005",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "ARDP"
             },
             {
-                "latestAum": "869.2093",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1223.6005",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "ARDP"
             },
             {
-                "latestAum": "869.2093",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1223.6005",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "ARGD"
             },
             {
-                "latestAum": "869.2093",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1223.6005",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "ARGP"
             },
             {
-                "latestAum": "869.2093",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1223.6005",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "ARPD"
             },
             {
-                "latestAum": "869.2093",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1223.6005",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "ARPD"
@@ -9324,91 +9354,98 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "10.4073",
+                "latnav": "10.4546",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "ARDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.07"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.00",
+                "navchngper": "-0.02"
             },
             {
-                "latnav": "10.4073",
+                "latnav": "10.4546",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "ARDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.3088",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.07"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.00",
+                "navchngper": "-0.02"
             },
             {
-                "latnav": "10.464",
+                "latnav": "10.519",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "ARGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.3535",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.07"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.00",
+                "navchngper": "-0.02"
             },
             {
-                "latnav": "10.4074",
+                "latnav": "10.4547",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "ARGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.3088",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.07"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.00",
+                "navchngper": "-0.02"
             },
             {
-                "latnav": "10.464",
+                "latnav": "10.5189",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "ARPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.07"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.00",
+                "navchngper": "-0.02"
             },
             {
-                "latnav": "10.464",
+                "latnav": "10.5189",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "ARPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.3535",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.07"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.00",
+                "navchngper": "-0.02"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 Arbitrage TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "2531.62",
+                "latNavDate": "2025-08-31",
+                "latnav": "2545.49",
                 "inception_Ret": "0.0",
                 "bmcode": "2007.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Crisil 1 Yr T-Bill Index (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "inception_Ret": "0.0",
+                "bmcode": "158.0"
             }
         ],
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10407.3",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10454.599999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ARDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10464.0",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10519.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ARGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -9418,8 +9455,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10407.4",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10454.7",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ARGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -9429,8 +9466,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10464.0",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10518.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ARPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -9582,9 +9619,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO64.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -9717,7 +9751,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -9726,11 +9760,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -9750,43 +9784,43 @@ const dataCfObj = [
         "schcode": "IF",
         "aum": [
             {
-                "latestAum": "43.4779",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "49.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "IFDP"
             },
             {
-                "latestAum": "43.4779",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "49.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "IFDP"
             },
             {
-                "latestAum": "43.4779",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "49.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "IFGD"
             },
             {
-                "latestAum": "43.4779",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "49.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "IFGP"
             },
             {
-                "latestAum": "43.4779",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "49.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "IFPD"
             },
             {
-                "latestAum": "43.4779",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "49.4337",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "IFPD"
@@ -9794,74 +9828,74 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "11.2716",
+                "latnav": "11.6476",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "IFDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.11",
-                "navchngper": "0.92"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.14",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "11.2716",
+                "latnav": "11.6476",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "IFDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.1601",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.11",
-                "navchngper": "0.92"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.14",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "11.2741",
+                "latnav": "11.6511",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "IFGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.1611",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.11",
-                "navchngper": "0.92"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.14",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "11.2716",
+                "latnav": "11.6476",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "IFGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.1601",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.11",
-                "navchngper": "0.92"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.14",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "11.2741",
+                "latnav": "11.6511",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "IFPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.11",
-                "navchngper": "0.92"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.14",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "11.2741",
+                "latnav": "11.6511",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "IFPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.1611",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.11",
-                "navchngper": "0.92"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.14",
+                "navchngper": "1.18"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Infrastructure TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "11855.71",
+                "latNavDate": "2025-08-31",
+                "latnav": "11617.22",
                 "inception_Ret": "0.0",
                 "bmcode": "2020.0"
             }
@@ -9869,16 +9903,16 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "11271.599999999999",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11647.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IFDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "11274.1",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11651.099999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IFGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -9888,8 +9922,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "11271.599999999999",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11647.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IFGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -9899,8 +9933,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "11274.1",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11651.099999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IFPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -10052,9 +10086,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO68.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -10148,8 +10179,8 @@ const dataCfObj = [
         "schcode": "AC",
         "aum": [
             {
-                "latestAum": "58.1594",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "59.9998",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "ACGP"
@@ -10157,32 +10188,32 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "15.8576",
+                "latnav": "15.8745",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "ACGP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.30"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.01",
+                "navchngper": "0.03"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "30% Nifty 500 TRI+10% S&P 500 TRI(INR)+10% Domestic Price of Gold+50%Nifty 5Yr Benchmark G-Sec Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2214.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "9.69",
-                "oneYear_marketValue": "10969.411048546644",
-                "threeYear_Ret": "13.14",
-                "threeYear_marketValue": "14482.487784830355",
-                "inception_Ret": "11.08",
-                "inception_marketValue": "15857.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "8.0",
+                "oneYear_marketValue": "10799.861213160259",
+                "threeYear_Ret": "12.59",
+                "threeYear_marketValue": "14273.319067057491",
+                "inception_Ret": "10.88",
+                "inception_marketValue": "15874.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "ACGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -10241,10 +10272,7 @@ const dataCfObj = [
                 "sector": "Cash & Equivalent",
                 "percentage": "2.63%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "sebiCategory": "Equity Fund",
@@ -10365,7 +10393,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -10374,11 +10402,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -10398,43 +10426,43 @@ const dataCfObj = [
         "schcode": "MF",
         "aum": [
             {
-                "latestAum": "1530.5443",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1464.4941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "MFDP"
             },
             {
-                "latestAum": "1530.5443",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1464.4941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "MFDP"
             },
             {
-                "latestAum": "1530.5443",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1464.4941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MFGD"
             },
             {
-                "latestAum": "1530.5443",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1464.4941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MFGP"
             },
             {
-                "latestAum": "1530.5443",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1464.4941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "MFPD"
             },
             {
-                "latestAum": "1530.5443",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1464.4941",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "MFPD"
@@ -10442,121 +10470,121 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "19.151",
+                "latnav": "18.4049",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "MFDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.10",
-                "navchngper": "0.50"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.25",
+                "navchngper": "1.32"
             },
             {
-                "latnav": "19.151",
+                "latnav": "18.4049",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "MFDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "19.1672",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.10",
-                "navchngper": "0.50"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.25",
+                "navchngper": "1.32"
             },
             {
-                "latnav": "50.4896",
+                "latnav": "48.5658",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MFGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "50.462",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.25",
-                "navchngper": "0.50"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.66",
+                "navchngper": "1.32"
             },
             {
-                "latnav": "43.1762",
+                "latnav": "41.494",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MFGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "43.2126",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.21",
-                "navchngper": "0.50"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.56",
+                "navchngper": "1.32"
             },
             {
-                "latnav": "22.2983",
+                "latnav": "21.4487",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "MFPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.11",
-                "navchngper": "0.50"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.29",
+                "navchngper": "1.32"
             },
             {
-                "latnav": "22.2983",
+                "latnav": "21.4487",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "MFPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "22.2861",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.11",
-                "navchngper": "0.50"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.29",
+                "navchngper": "1.32"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 500 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "36461.71",
+                "latNavDate": "2025-08-31",
+                "latnav": "35799.38",
                 "inception_Ret": "0.0",
                 "bmcode": "2009.0"
             },
             {
                 "type": "BM",
                 "groupName": "BSE Sensex TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "latnav": "120211.26",
-                "oneYear_Ret": "-4.817539170010687",
-                "threeYear_Ret": "11.502840287278882",
-                "fiveYear_Ret": "16.77199657657087",
+                "oneYear_Ret": "-5.714647402674",
+                "threeYear_Ret": "10.198721371854823",
+                "fiveYear_Ret": "16.122713916548513",
                 "bmcode": "2034.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-16.85",
-                "oneYear_marketValue": "8314.736503911847",
-                "threeYear_Ret": "3.21",
-                "threeYear_marketValue": "10992.865055994675",
-                "fiveYear_Ret": "4.18",
-                "fiveYear_marketValue": "12270.146977793154",
-                "sevenYear_Ret": "1.95",
-                "sevenYear_marketValue": "11450.93396474612",
-                "tenYear_Ret": "1.99",
-                "tenYear_marketValue": "12175.986266967606",
-                "inception_Ret": "5.46",
-                "inception_marketValue": "19151.0",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-23.6",
+                "oneYear_marketValue": "7639.614136164773",
+                "threeYear_Ret": "-0.11",
+                "threeYear_marketValue": "9966.318479891268",
+                "fiveYear_Ret": "3.04",
+                "fiveYear_marketValue": "11616.24831956375",
+                "sevenYear_Ret": "1.39",
+                "sevenYear_marketValue": "11014.632394745506",
+                "tenYear_Ret": "2.23",
+                "tenYear_marketValue": "12464.462037532425",
+                "inception_Ret": "5.08",
+                "inception_marketValue": "18404.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MFDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-9.98",
-                "oneYear_marketValue": "9002.255484929261",
-                "threeYear_Ret": "11.97",
-                "threeYear_marketValue": "14039.825703456734",
-                "fiveYear_Ret": "15.11",
-                "fiveYear_marketValue": "20210.876892407952",
-                "sevenYear_Ret": "11.17",
-                "sevenYear_marketValue": "20981.382978723406",
-                "tenYear_Ret": "11.15",
-                "tenYear_marketValue": "28770.806147393854",
-                "inception_Ret": "14.16",
-                "inception_marketValue": "50489.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-17.29",
+                "oneYear_marketValue": "8270.967873784026",
+                "threeYear_Ret": "8.37",
+                "threeYear_marketValue": "12726.853441159747",
+                "fiveYear_Ret": "13.85",
+                "fiveYear_marketValue": "19128.15039169427",
+                "sevenYear_Ret": "10.55",
+                "sevenYear_marketValue": "20176.733055811754",
+                "tenYear_Ret": "11.4",
+                "tenYear_marketValue": "29446.31055599346",
+                "inception_Ret": "13.7",
+                "inception_marketValue": "48565.8",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MFGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -10565,19 +10593,19 @@ const dataCfObj = [
                 "isin": "INF247L01189"
             },
             {
-                "oneYear_Ret": "-11.0",
-                "oneYear_marketValue": "8899.685247442507",
-                "threeYear_Ret": "10.69",
-                "threeYear_marketValue": "13562.11069892794",
-                "fiveYear_Ret": "13.77",
-                "fiveYear_marketValue": "19061.330084057357",
-                "sevenYear_Ret": "9.86",
-                "sevenYear_marketValue": "19313.1119749149",
-                "tenYear_Ret": "9.78",
-                "tenYear_marketValue": "25423.18789377613",
-                "inception_Ret": "12.71",
-                "inception_marketValue": "43176.2",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-18.23",
+                "oneYear_marketValue": "8177.027703440366",
+                "threeYear_Ret": "7.13",
+                "threeYear_marketValue": "12295.647896547536",
+                "fiveYear_Ret": "12.53",
+                "fiveYear_marketValue": "18045.57710707141",
+                "sevenYear_Ret": "9.25",
+                "sevenYear_marketValue": "18577.267985619565",
+                "tenYear_Ret": "10.04",
+                "tenYear_marketValue": "26025.489851727336",
+                "inception_Ret": "12.25",
+                "inception_marketValue": "41494.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MFGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -10586,19 +10614,19 @@ const dataCfObj = [
                 "isin": "INF247L01155"
             },
             {
-                "oneYear_Ret": "-15.89",
-                "oneYear_marketValue": "8410.612512777185",
-                "threeYear_Ret": "4.34",
-                "threeYear_marketValue": "11360.801736348165",
-                "fiveYear_Ret": "5.39",
-                "fiveYear_marketValue": "13002.60655078109",
-                "sevenYear_Ret": "2.91",
-                "sevenYear_marketValue": "12222.666827455409",
-                "tenYear_Ret": "3.21",
-                "tenYear_marketValue": "13713.001285307522",
-                "inception_Ret": "6.78",
-                "inception_marketValue": "22298.300000000003",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-22.73",
+                "oneYear_marketValue": "7727.395547741627",
+                "threeYear_Ret": "0.98",
+                "threeYear_marketValue": "10298.407851271413",
+                "fiveYear_Ret": "4.24",
+                "fiveYear_marketValue": "12306.046106004795",
+                "sevenYear_Ret": "2.34",
+                "sevenYear_marketValue": "11753.936026216426",
+                "tenYear_Ret": "3.45",
+                "tenYear_marketValue": "14034.99473246828",
+                "inception_Ret": "6.4",
+                "inception_marketValue": "21448.7",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MFPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -10750,9 +10778,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO05.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -10873,7 +10898,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -10893,11 +10918,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -10906,43 +10931,43 @@ const dataCfObj = [
         "schcode": "IO",
         "aum": [
             {
-                "latestAum": "283.7232",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "325.3536",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "IODP"
             },
             {
-                "latestAum": "283.7232",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "325.3536",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "IODP"
             },
             {
-                "latestAum": "283.7232",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "325.3536",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "IOGD"
             },
             {
-                "latestAum": "283.7232",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "325.3536",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "IOGP"
             },
             {
-                "latestAum": "283.7232",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "325.3536",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "IOPD"
             },
             {
-                "latestAum": "283.7232",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "325.3536",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "IOPD"
@@ -10950,74 +10975,74 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "12.4205",
+                "latnav": "12.5909",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "IODP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.69"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.05",
+                "navchngper": "-0.37"
             },
             {
-                "latnav": "12.4205",
+                "latnav": "12.5909",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "IODP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.0744",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.69"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.05",
+                "navchngper": "-0.37"
             },
             {
-                "latnav": "12.4913",
+                "latnav": "12.6782",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "IOGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.1221",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.05",
+                "navchngper": "-0.37"
             },
             {
-                "latnav": "12.4205",
+                "latnav": "12.5908",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "IOGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.0744",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.69"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.05",
+                "navchngper": "-0.37"
             },
             {
-                "latnav": "12.4913",
+                "latnav": "12.6774",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "IOPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.05",
+                "navchngper": "-0.37"
             },
             {
-                "latnav": "12.4913",
+                "latnav": "12.6774",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "IOPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.1221",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.70"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.05",
+                "navchngper": "-0.37"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 500 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "36461.71",
+                "latNavDate": "2025-08-31",
+                "latnav": "35799.38",
                 "inception_Ret": "0.0",
                 "bmcode": "2009.0"
             }
@@ -11025,16 +11050,16 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "12420.500000000002",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "12590.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IODP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "12491.300000000001",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "12678.199999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IOGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -11044,8 +11069,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "12420.500000000002",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "12590.8",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IOGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -11055,8 +11080,8 @@ const dataCfObj = [
             },
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "12491.300000000001",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "12677.400000000001",
+                "latNavDate": "2025-08-31",
                 "prodcode": "IOPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -11208,9 +11233,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO65.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -11295,15 +11317,15 @@ const dataCfObj = [
         "schcode": "GS",
         "aum": [
             {
-                "latestAum": "48.2088",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "50.0042",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "GSGD"
             },
             {
-                "latestAum": "48.2088",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "50.0042",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "GSGP"
@@ -11311,45 +11333,45 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "12.6527",
+                "latnav": "12.6265",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "GSGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.5992",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.07",
-                "navchngper": "0.53"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.01",
+                "navchngper": "-0.11"
             },
             {
-                "latnav": "12.6172",
+                "latnav": "12.5901",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "GSGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.5651",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.07",
-                "navchngper": "0.53"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.01",
+                "navchngper": "-0.11"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 5 yr Benchmark G-Sec Index TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2190.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "9.98",
-                "oneYear_marketValue": "10998.044243556868",
-                "threeYear_Ret": "7.77",
-                "threeYear_marketValue": "12516.891724786072",
-                "inception_Ret": "6.35",
-                "inception_marketValue": "12652.699999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "7.97",
+                "oneYear_marketValue": "10796.86350965403",
+                "threeYear_Ret": "7.57",
+                "threeYear_marketValue": "12446.523273465686",
+                "inception_Ret": "6.16",
+                "inception_marketValue": "12626.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "GSGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -11358,13 +11380,13 @@ const dataCfObj = [
                 "isin": "INF247L01AQ1"
             },
             {
-                "oneYear_Ret": "9.9",
-                "oneYear_marketValue": "10989.539329855153",
-                "threeYear_Ret": "7.69",
-                "threeYear_marketValue": "12489.927637375147",
-                "inception_Ret": "6.28",
-                "inception_marketValue": "12617.199999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "7.88",
+                "oneYear_marketValue": "10788.339431538718",
+                "threeYear_Ret": "7.49",
+                "threeYear_marketValue": "12419.579177887603",
+                "inception_Ret": "6.08",
+                "inception_marketValue": "12590.1",
+                "latNavDate": "2025-08-31",
                 "prodcode": "GSGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -11415,9 +11437,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO28.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -11534,11 +11553,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Regular Payout",
+                "planNameOriginal": "Regular IDCW Dividend Reinvestment ",
                 "groupedCode": "RMD",
-                "groupedName": "Regular IDCW Payout - Monthly",
+                "groupedName": "Regular-IDCW Dividend Reinvestment - Quaterly",
                 "optionCode": "D",
-                "optionName": "IDCW Payout - Monthly",
+                "optionName": "IDCW Dividend Reinvestment  - Quaterly",
                 "planCode": "RM",
                 "planName": "Regular",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/regular-idcw-dividend-reinvestment-quarterly"
@@ -11569,71 +11588,71 @@ const dataCfObj = [
         "schcode": "DE",
         "aum": [
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "AD",
                 "prodcode": "DEAD"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "AD",
                 "prodcode": "DEAD"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DA",
                 "prodcode": "DEDA"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DA",
                 "prodcode": "DEDA"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DQ",
                 "prodcode": "DEDQ"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DQ",
                 "prodcode": "DEDQ"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "DEGD"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "DEGP"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "QD",
                 "prodcode": "DEQD"
             },
             {
-                "latestAum": "986.9729",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1021.8615",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "QD",
                 "prodcode": "DEQD"
@@ -11641,13 +11660,13 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "14.0504",
+                "latnav": "14.2197",
                 "optioncode": "D",
                 "plancode": "AD",
                 "prodcode": "DEAD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.17",
+                "navchngper": "1.18"
             },
             {
                 "latnav": "16.2492",
@@ -11656,80 +11675,80 @@ const dataCfObj = [
                 "prodcode": "DEAD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "13.6191",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.17",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "14.8342",
+                "latnav": "15.0285",
                 "optioncode": "D",
                 "plancode": "DA",
                 "prodcode": "DEDA",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "14.8342",
+                "latnav": "15.0285",
                 "optioncode": "R",
                 "plancode": "DA",
                 "prodcode": "DEDA",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "14.3482",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "13.2941",
+                "latnav": "13.2644",
                 "optioncode": "D",
                 "plancode": "DQ",
                 "prodcode": "DEDQ",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.16",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "13.2941",
+                "latnav": "13.2644",
                 "optioncode": "R",
                 "plancode": "DQ",
                 "prodcode": "DEDQ",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.8563",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.16",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "21.7979",
+                "latnav": "22.0834",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "DEGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "21.0719",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.27",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "19.5955",
+                "latnav": "19.8316",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "DEGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "18.9939",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.08",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.24",
+                "navchngper": "1.18"
             },
             {
-                "latnav": "12.4368",
+                "latnav": "12.3931",
                 "optioncode": "D",
                 "plancode": "QD",
                 "prodcode": "DEQD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.18"
             },
             {
                 "latnav": "14.1588",
@@ -11738,97 +11757,98 @@ const dataCfObj = [
                 "prodcode": "DEQD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.0549",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.05",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.15",
+                "navchngper": "1.18"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             },
             {
                 "type": "BM",
                 "groupName": "CRISIL Hybrid 50+50 - Moderate Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2085.0"
             },
             {
                 "type": "BM",
                 "groupName": "CRISIL Hybrid 35+65 - Aggressive Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "20646.1204",
-                "oneYear_Ret": "2.0653666180826535",
-                "inception_Ret": "2.9911662947089024",
+                "latNavDate": "2025-08-31",
+                "latnav": "20380.1126",
+                "oneYear_Ret": "-0.24568988627766686",
+                "inception_Ret": "1.578969955128251",
                 "bmcode": "2055.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-15.84",
-                "oneYear_marketValue": "8415.630465511871",
-                "threeYear_Ret": "3.0",
-                "threeYear_marketValue": "10926.00080873433",
-                "fiveYear_Ret": "2.23",
-                "fiveYear_marketValue": "11165.999109924343",
-                "sevenYear_Ret": "2.51",
-                "sevenYear_marketValue": "11893.209636188187",
-                "inception_Ret": "3.92",
-                "inception_marketValue": "14050.400000000001",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-18.68",
+                "oneYear_marketValue": "8132.048495939608",
+                "threeYear_Ret": "2.49",
+                "threeYear_marketValue": "10764.75264014535",
+                "fiveYear_Ret": "2.49",
+                "fiveYear_marketValue": "11307.73268019594",
+                "sevenYear_Ret": "2.68",
+                "sevenYear_marketValue": "12029.89771833202",
+                "inception_Ret": "4.02",
+                "inception_marketValue": "14219.699999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DEAD",
                 "plancode": "AD",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-14.7",
-                "oneYear_marketValue": "8530.01046542385",
-                "threeYear_Ret": "3.93",
-                "threeYear_marketValue": "11226.2087650126",
-                "fiveYear_Ret": "2.96",
-                "fiveYear_marketValue": "11568.612159590728",
-                "sevenYear_Ret": "2.95",
-                "sevenYear_marketValue": "12259.973387769945",
-                "inception_Ret": "4.56",
-                "inception_marketValue": "14834.199999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-17.57",
+                "oneYear_marketValue": "8242.969739851578",
+                "threeYear_Ret": "3.42",
+                "threeYear_marketValue": "11060.207979157927",
+                "fiveYear_Ret": "3.21",
+                "fiveYear_marketValue": "11713.561964146531",
+                "sevenYear_Ret": "3.13",
+                "sevenYear_marketValue": "12403.743778938768",
+                "inception_Ret": "4.67",
+                "inception_marketValue": "15028.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DEDA",
                 "plancode": "DA",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-12.02",
-                "oneYear_marketValue": "8798.387790624565",
-                "threeYear_Ret": "5.07",
-                "threeYear_marketValue": "11600.132631781018",
-                "fiveYear_Ret": "2.51",
-                "fiveYear_marketValue": "11321.739722877508",
-                "sevenYear_Ret": "1.49",
-                "sevenYear_marketValue": "11088.67368982976",
-                "inception_Ret": "3.27",
-                "inception_marketValue": "13294.1",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-16.26",
+                "oneYear_marketValue": "8373.619852658027",
+                "threeYear_Ret": "4.02",
+                "threeYear_marketValue": "11255.61108895432",
+                "fiveYear_Ret": "2.46",
+                "fiveYear_marketValue": "11290.100181296653",
+                "sevenYear_Ret": "1.44",
+                "sevenYear_marketValue": "11048.878819178355",
+                "inception_Ret": "3.21",
+                "inception_marketValue": "13264.400000000001",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DEDQ",
                 "plancode": "DQ",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-9.33",
-                "oneYear_marketValue": "9066.818072158858",
-                "threeYear_Ret": "10.51",
-                "threeYear_marketValue": "13495.814656133138",
-                "fiveYear_Ret": "9.31",
-                "fiveYear_marketValue": "15605.263346291245",
-                "sevenYear_Ret": "8.27",
-                "sevenYear_marketValue": "17441.668800409676",
-                "inception_Ret": "9.21",
-                "inception_marketValue": "21797.899999999998",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-12.38",
+                "oneYear_marketValue": "8761.689380864529",
+                "threeYear_Ret": "9.96",
+                "threeYear_marketValue": "13296.364534036584",
+                "fiveYear_Ret": "9.58",
+                "fiveYear_marketValue": "15800.831419351607",
+                "sevenYear_Ret": "8.45",
+                "sevenYear_marketValue": "17646.109344285876",
+                "inception_Ret": "9.28",
+                "inception_marketValue": "22083.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DEGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -11837,17 +11857,17 @@ const dataCfObj = [
                 "isin": "INF247L01635"
             },
             {
-                "oneYear_Ret": "-10.6",
-                "oneYear_marketValue": "8940.287067368672",
-                "threeYear_Ret": "9.11",
-                "threeYear_marketValue": "12990.486923663364",
-                "fiveYear_Ret": "7.93",
-                "fiveYear_marketValue": "14648.541163630383",
-                "sevenYear_Ret": "6.95",
-                "sevenYear_marketValue": "16009.133837682391",
-                "inception_Ret": "7.9",
-                "inception_marketValue": "19595.5",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-13.61",
+                "oneYear_marketValue": "8639.074391109834",
+                "threeYear_Ret": "8.57",
+                "threeYear_marketValue": "12798.709261051954",
+                "fiveYear_Ret": "8.21",
+                "fiveYear_marketValue": "14834.46284577293",
+                "sevenYear_Ret": "7.13",
+                "sevenYear_marketValue": "16193.026863721729",
+                "inception_Ret": "7.97",
+                "inception_marketValue": "19831.600000000002",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DEGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -11856,17 +11876,17 @@ const dataCfObj = [
                 "isin": "INF247L01585"
             },
             {
-                "oneYear_Ret": "-13.21",
-                "oneYear_marketValue": "8679.279518190002",
-                "threeYear_Ret": "3.76",
-                "threeYear_marketValue": "11170.10957427699",
-                "fiveYear_Ret": "1.08",
-                "fiveYear_marketValue": "10551.464349950793",
-                "sevenYear_Ret": "0.82",
-                "sevenYear_marketValue": "10588.655984470517",
-                "inception_Ret": "2.5",
-                "inception_marketValue": "12436.8",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-17.42",
+                "oneYear_marketValue": "8257.882672779126",
+                "threeYear_Ret": "2.71",
+                "threeYear_marketValue": "10835.87622736533",
+                "fiveYear_Ret": "1.02",
+                "fiveYear_marketValue": "10520.994278146594",
+                "sevenYear_Ret": "0.76",
+                "sevenYear_marketValue": "10545.524166099387",
+                "inception_Ret": "2.43",
+                "inception_marketValue": "12393.100000000002",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DEQD",
                 "plancode": "QD",
                 "optioncode": "D"
@@ -12050,9 +12070,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO10.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -12148,15 +12165,15 @@ const dataCfObj = [
         "schcode": "DM",
         "aum": [
             {
-                "latestAum": "31.2628",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "32.7619",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "DMGD"
             },
             {
-                "latestAum": "31.2628",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "32.7619",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "DMGP"
@@ -12164,39 +12181,48 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "13.5939",
+                "latnav": "14.3",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "DMGD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.01",
+                "navchngper": "-0.06"
             },
             {
-                "latnav": "13.6955",
+                "latnav": "14.448",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "DMGP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.39"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.01",
+                "navchngper": "-0.06"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "S&P Developed Ex-U.S. BMI Total Return Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2481.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "16.42",
-                "oneYear_marketValue": "11641.603151494392",
-                "inception_Ret": "17.95",
-                "inception_marketValue": "13593.9",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "18.61",
+                "oneYear_marketValue": "11861.117101574295",
+                "inception_Ret": "20.19",
+                "inception_marketValue": "14300.000000000002",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DMGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -12205,11 +12231,11 @@ const dataCfObj = [
                 "isin": "INF247L01BS5"
             },
             {
-                "oneYear_Ret": "16.88",
-                "oneYear_marketValue": "11688.173144212878",
-                "inception_Ret": "18.42",
-                "inception_marketValue": "13695.499999999998",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "19.39",
+                "oneYear_marketValue": "11938.621208240027",
+                "inception_Ret": "20.82",
+                "inception_marketValue": "14448.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "DMGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -12262,10 +12288,7 @@ const dataCfObj = [
                 "sector": "Cash & Equivalent",
                 "percentage": "1.57%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "sebiCategory": "Debt Fund",
@@ -12494,113 +12517,113 @@ const dataCfObj = [
         "schcode": "US",
         "aum": [
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DD",
                 "prodcode": "USDD"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DF",
                 "prodcode": "USDF"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DM",
                 "prodcode": "USDM"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DM",
                 "prodcode": "USDM"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DQ",
                 "prodcode": "USDQ"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DQ",
                 "prodcode": "USDQ"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DW",
                 "prodcode": "USDW"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "USGD"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "USGP"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RD",
                 "prodcode": "USRD"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RF",
                 "prodcode": "USRF"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "RM",
                 "prodcode": "USRM"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RM",
                 "prodcode": "USRM"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "RQ",
                 "prodcode": "USRQ"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RQ",
                 "prodcode": "USRQ"
             },
             {
-                "latestAum": "563.9441",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "600.3111",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "RW",
                 "prodcode": "USRW"
@@ -12614,91 +12637,91 @@ const dataCfObj = [
                 "prodcode": "USDD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.7326",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0",
                 "navchngper": "0"
             },
             {
-                "latnav": "11.7993",
+                "latnav": "11.8243",
                 "optioncode": "R",
                 "plancode": "DF",
                 "prodcode": "USDF",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.7948",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "11.7467",
+                "latnav": "11.7373",
                 "optioncode": "D",
                 "plancode": "DM",
                 "prodcode": "USDM",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "11.7467",
+                "latnav": "11.7373",
                 "optioncode": "R",
                 "plancode": "DM",
                 "prodcode": "USDM",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.7753",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.00",
-                "navchngper": "0.02"
-            },
-            {
-                "latnav": "12.0154",
-                "optioncode": "D",
-                "plancode": "DQ",
-                "prodcode": "USDQ",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "12.0154",
+                "latnav": "12.1033",
+                "optioncode": "D",
+                "plancode": "DQ",
+                "prodcode": "USDQ",
+                "recdt": "10-Sep-2025",
+                "navchng": "0.00",
+                "navchngper": "0.01"
+            },
+            {
+                "latnav": "12.1033",
                 "optioncode": "R",
                 "plancode": "DQ",
                 "prodcode": "USDQ",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "12.1372",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "11.732",
+                "latnav": "11.7226",
                 "optioncode": "R",
                 "plancode": "DW",
                 "prodcode": "USDW",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.7276",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "17.5186",
+                "latnav": "17.6192",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "USGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "17.4011",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
-                "navchngper": "0.02"
+                "navchngper": "0.01"
             },
             {
-                "latnav": "16.555",
+                "latnav": "16.6169",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "USGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "16.4589",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
@@ -12709,69 +12732,69 @@ const dataCfObj = [
                 "prodcode": "USRD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.4495",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0",
                 "navchngper": "0"
             },
             {
-                "latnav": "11.5027",
+                "latnav": "11.5061",
                 "optioncode": "R",
                 "plancode": "RF",
                 "prodcode": "USRF",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.4991",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "11.4742",
+                "latnav": "11.4664",
                 "optioncode": "D",
                 "plancode": "RM",
                 "prodcode": "USRM",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "11.4742",
+                "latnav": "11.4664",
                 "optioncode": "R",
                 "plancode": "RM",
                 "prodcode": "USRM",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.4995",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "11.686",
+                "latnav": "11.7354",
                 "optioncode": "D",
                 "plancode": "RQ",
                 "prodcode": "USRQ",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "11.686",
+                "latnav": "11.7354",
                 "optioncode": "R",
                 "plancode": "RQ",
                 "prodcode": "USRQ",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.7953",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             },
             {
-                "latnav": "11.4675",
+                "latnav": "11.4597",
                 "optioncode": "R",
                 "plancode": "RW",
                 "prodcode": "USRW",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "11.4639",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.00",
                 "navchngper": "0.01"
             }
@@ -12780,32 +12803,32 @@ const dataCfObj = [
             {
                 "type": "BM",
                 "groupName": "Crisil Liquid Fund Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "inception_Ret": "0.0",
                 "bmcode": "4.0"
             },
             {
                 "type": "BM",
                 "groupName": "CRISIL Ultra Short Duration Debt A-I Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2451.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "0.85",
-                "oneYear_marketValue": "10084.751590166752",
-                "threeYear_Ret": "4.55",
-                "threeYear_marketValue": "11427.708731055442",
-                "fiveYear_Ret": "4.02",
-                "fiveYear_marketValue": "12175.925445469546",
+                "oneYear_Ret": "0.33",
+                "oneYear_marketValue": "10033.179975713627",
+                "threeYear_Ret": "4.4",
+                "threeYear_marketValue": "11379.383923029174",
+                "fiveYear_Ret": "3.96",
+                "fiveYear_marketValue": "12143.411614933191",
                 "sevenYear_Ret": "2.31",
                 "sevenYear_marketValue": "11732.013399330033",
                 "tenYear_Ret": "1.61",
-                "tenYear_marketValue": "11731.192256929167",
-                "inception_Ret": "1.35",
+                "tenYear_marketValue": "11730.371229466404",
+                "inception_Ret": "1.34",
                 "inception_marketValue": "11732.6",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USDD",
                 "plancode": "DD",
                 "optioncode": "R",
@@ -12814,19 +12837,19 @@ const dataCfObj = [
                 "isin": "INF247L01346"
             },
             {
-                "oneYear_Ret": "1.09",
-                "oneYear_marketValue": "10109.0644276902",
-                "threeYear_Ret": "4.66",
-                "threeYear_marketValue": "11464.75835130881",
-                "fiveYear_Ret": "4.1",
-                "fiveYear_marketValue": "12222.314297848538",
-                "sevenYear_Ret": "2.39",
-                "sevenYear_marketValue": "11796.468847476606",
-                "tenYear_Ret": "1.65",
-                "tenYear_marketValue": "11778.569717297558",
-                "inception_Ret": "1.4",
-                "inception_marketValue": "11799.300000000001",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.78",
+                "oneYear_marketValue": "10078.07239595319",
+                "threeYear_Ret": "4.59",
+                "threeYear_marketValue": "11440.140095590083",
+                "fiveYear_Ret": "4.08",
+                "fiveYear_marketValue": "12215.4383355028",
+                "sevenYear_Ret": "2.41",
+                "sevenYear_marketValue": "11816.973476444604",
+                "tenYear_Ret": "1.69",
+                "tenYear_marketValue": "11820.162942969959",
+                "inception_Ret": "1.41",
+                "inception_marketValue": "11824.3",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USDF",
                 "plancode": "DF",
                 "optioncode": "R",
@@ -12835,55 +12858,55 @@ const dataCfObj = [
                 "isin": "INF247L01361"
             },
             {
-                "oneYear_Ret": "1.08",
-                "oneYear_marketValue": "10107.905311798164",
-                "threeYear_Ret": "4.57",
-                "threeYear_marketValue": "11433.646751932101",
-                "fiveYear_Ret": "4.03",
-                "fiveYear_marketValue": "12181.961483816774",
-                "sevenYear_Ret": "2.32",
-                "sevenYear_marketValue": "11743.41184468349",
-                "tenYear_Ret": "1.56",
-                "tenYear_marketValue": "11676.640159045726",
-                "inception_Ret": "1.36",
-                "inception_marketValue": "11746.7",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.48",
+                "oneYear_marketValue": "10048.111907269005",
+                "threeYear_Ret": "4.39",
+                "threeYear_marketValue": "11376.10855342864",
+                "fiveYear_Ret": "3.95",
+                "fiveYear_marketValue": "12139.606561446331",
+                "sevenYear_Ret": "2.23",
+                "sevenYear_marketValue": "11667.296222664014",
+                "tenYear_Ret": "1.61",
+                "tenYear_marketValue": "11735.07033663604",
+                "inception_Ret": "1.34",
+                "inception_marketValue": "11737.3",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USDM",
                 "plancode": "DM",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "1.53",
-                "oneYear_marketValue": "10152.60080440734",
-                "threeYear_Ret": "4.85",
-                "threeYear_marketValue": "11527.885713189227",
-                "fiveYear_Ret": "4.2",
-                "fiveYear_marketValue": "12283.926636268836",
-                "sevenYear_Ret": "2.54",
-                "sevenYear_marketValue": "11918.975488299657",
-                "tenYear_Ret": "1.85",
-                "tenYear_marketValue": "12014.31871131598",
-                "inception_Ret": "1.55",
-                "inception_marketValue": "12015.4",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "1.75",
+                "oneYear_marketValue": "10174.60237398702",
+                "threeYear_Ret": "4.96",
+                "threeYear_marketValue": "11563.073219199023",
+                "fiveYear_Ret": "4.3",
+                "fiveYear_marketValue": "12340.73575594437",
+                "sevenYear_Ret": "2.56",
+                "sevenYear_marketValue": "11938.077014124518",
+                "tenYear_Ret": "1.87",
+                "tenYear_marketValue": "12034.10390256028",
+                "inception_Ret": "1.6",
+                "inception_marketValue": "12103.300000000001",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USDQ",
                 "plancode": "DQ",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "0.95",
-                "oneYear_marketValue": "10095.342993838845",
-                "threeYear_Ret": "4.51",
-                "threeYear_marketValue": "11413.67266925449",
-                "fiveYear_Ret": "3.99",
-                "fiveYear_marketValue": "12161.797939170277",
-                "sevenYear_Ret": "2.3",
-                "sevenYear_marketValue": "11724.14482296861",
+                "oneYear_Ret": "0.36",
+                "oneYear_marketValue": "10035.61338926462",
+                "threeYear_Ret": "4.33",
+                "threeYear_marketValue": "11356.24745703602",
+                "fiveYear_Ret": "3.92",
+                "fiveYear_marketValue": "12119.639386295024",
+                "sevenYear_Ret": "2.28",
+                "sevenYear_marketValue": "11710.304180610357",
                 "tenYear_Ret": "1.6",
-                "tenYear_marketValue": "11720.045553535394",
-                "inception_Ret": "1.35",
-                "inception_marketValue": "11732.0",
-                "latNavDate": "2025-07-31",
+                "tenYear_marketValue": "11720.138770858119",
+                "inception_Ret": "1.33",
+                "inception_marketValue": "11722.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USDW",
                 "plancode": "DW",
                 "optioncode": "R",
@@ -12892,19 +12915,19 @@ const dataCfObj = [
                 "isin": "INF247L01353"
             },
             {
-                "oneYear_Ret": "6.5",
-                "oneYear_marketValue": "10649.669602854729",
-                "threeYear_Ret": "6.39",
-                "threeYear_marketValue": "12042.261266463196",
-                "fiveYear_Ret": "5.11",
-                "fiveYear_marketValue": "12831.131163390268",
+                "oneYear_Ret": "6.56",
+                "oneYear_marketValue": "10656.022256493996",
+                "threeYear_Ret": "6.44",
+                "threeYear_marketValue": "12060.09788151545",
+                "fiveYear_Ret": "5.18",
+                "fiveYear_marketValue": "12870.312203246212",
                 "sevenYear_Ret": "3.18",
-                "sevenYear_marketValue": "12449.968730456536",
+                "sevenYear_marketValue": "12450.323638316513",
                 "tenYear_Ret": "4.18",
-                "tenYear_marketValue": "15058.623298033282",
-                "inception_Ret": "4.82",
-                "inception_marketValue": "17518.6",
-                "latNavDate": "2025-07-31",
+                "tenYear_marketValue": "15060.046327558059",
+                "inception_Ret": "4.84",
+                "inception_marketValue": "17619.2",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -12913,19 +12936,19 @@ const dataCfObj = [
                 "isin": "INF247L01247"
             },
             {
-                "oneYear_Ret": "5.81",
-                "oneYear_marketValue": "10581.114420483453",
+                "oneYear_Ret": "5.71",
+                "oneYear_marketValue": "10570.950545186204",
                 "threeYear_Ret": "5.75",
-                "threeYear_marketValue": "11827.111984282908",
-                "fiveYear_Ret": "4.51",
-                "fiveYear_marketValue": "12469.306900863174",
-                "sevenYear_Ret": "2.75",
-                "sevenYear_marketValue": "12089.059601875246",
-                "tenYear_Ret": "3.73",
-                "tenYear_marketValue": "14421.234189344575",
-                "inception_Ret": "4.32",
-                "inception_marketValue": "16555.0",
-                "latNavDate": "2025-07-31",
+                "threeYear_marketValue": "11826.1333712903",
+                "fiveYear_Ret": "4.53",
+                "fiveYear_marketValue": "12482.459698622317",
+                "sevenYear_Ret": "2.72",
+                "sevenYear_marketValue": "12070.182829830974",
+                "tenYear_Ret": "3.71",
+                "tenYear_marketValue": "14399.393414211441",
+                "inception_Ret": "4.33",
+                "inception_marketValue": "16616.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -12934,19 +12957,19 @@ const dataCfObj = [
                 "isin": "INF247L01213"
             },
             {
-                "oneYear_Ret": "0.78",
-                "oneYear_marketValue": "10077.54326051367",
-                "threeYear_Ret": "4.05",
-                "threeYear_marketValue": "11265.866378037981",
-                "fiveYear_Ret": "3.5",
-                "fiveYear_marketValue": "11877.81397182397",
+                "oneYear_Ret": "0.3",
+                "oneYear_marketValue": "10030.3991309528",
+                "threeYear_Ret": "3.92",
+                "threeYear_marketValue": "11222.90945804213",
+                "fiveYear_Ret": "3.45",
+                "fiveYear_marketValue": "11846.107685303978",
                 "sevenYear_Ret": "1.94",
                 "sevenYear_marketValue": "11436.805146287621",
                 "tenYear_Ret": "1.36",
-                "tenYear_marketValue": "11448.126224853017",
+                "tenYear_marketValue": "11447.325008248434",
                 "inception_Ret": "1.14",
                 "inception_marketValue": "11449.500000000002",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USRD",
                 "plancode": "RD",
                 "optioncode": "R",
@@ -12955,19 +12978,19 @@ const dataCfObj = [
                 "isin": "INF247L01270"
             },
             {
-                "oneYear_Ret": "1.0",
-                "oneYear_marketValue": "10100.099221157814",
-                "threeYear_Ret": "4.17",
-                "threeYear_marketValue": "11304.420465043144",
-                "fiveYear_Ret": "3.58",
-                "fiveYear_marketValue": "11920.266951304187",
+                "oneYear_Ret": "0.55",
+                "oneYear_marketValue": "10054.8792743352",
+                "threeYear_Ret": "4.05",
+                "threeYear_marketValue": "11264.587249373435",
+                "fiveYear_Ret": "3.53",
+                "fiveYear_marketValue": "11891.995245723736",
                 "sevenYear_Ret": "2.02",
-                "sevenYear_marketValue": "11500.05498735291",
-                "tenYear_Ret": "1.4",
-                "tenYear_marketValue": "11493.390353813411",
+                "sevenYear_marketValue": "11499.545259202256",
+                "tenYear_Ret": "1.41",
+                "tenYear_marketValue": "11503.914256291306",
                 "inception_Ret": "1.18",
-                "inception_marketValue": "11502.7",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "11506.099999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USRF",
                 "plancode": "RF",
                 "optioncode": "R",
@@ -12976,55 +12999,55 @@ const dataCfObj = [
                 "isin": "INF247L01296"
             },
             {
-                "oneYear_Ret": "0.98",
-                "oneYear_marketValue": "10098.216957386512",
-                "threeYear_Ret": "4.12",
-                "threeYear_marketValue": "11288.17094286164",
-                "fiveYear_Ret": "3.55",
-                "fiveYear_marketValue": "11902.94404448225",
-                "sevenYear_Ret": "1.98",
-                "sevenYear_marketValue": "11470.185435097716",
-                "tenYear_Ret": "1.33",
-                "tenYear_marketValue": "11410.188840604209",
-                "inception_Ret": "1.16",
-                "inception_marketValue": "11474.199999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.44",
+                "oneYear_marketValue": "10044.148563419762",
+                "threeYear_Ret": "3.97",
+                "threeYear_marketValue": "11237.60241483398",
+                "fiveYear_Ret": "3.48",
+                "fiveYear_marketValue": "11862.979401388417",
+                "sevenYear_Ret": "1.89",
+                "sevenYear_marketValue": "11401.865441600543",
+                "tenYear_Ret": "1.38",
+                "tenYear_marketValue": "11464.221797858407",
+                "inception_Ret": "1.15",
+                "inception_marketValue": "11466.400000000001",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USRM",
                 "plancode": "RM",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "1.37",
-                "oneYear_marketValue": "10137.145533878675",
-                "threeYear_Ret": "4.26",
-                "threeYear_marketValue": "11333.197559958493",
-                "fiveYear_Ret": "3.63",
-                "fiveYear_marketValue": "11948.875255623723",
-                "sevenYear_Ret": "2.12",
-                "sevenYear_marketValue": "11584.634448574969",
-                "tenYear_Ret": "1.49",
-                "tenYear_marketValue": "11596.014924188297",
-                "inception_Ret": "1.32",
-                "inception_marketValue": "11686.0",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "1.32",
+                "oneYear_marketValue": "10132.359416686091",
+                "threeYear_Ret": "4.27",
+                "threeYear_marketValue": "11337.783917995885",
+                "fiveYear_Ret": "3.66",
+                "fiveYear_marketValue": "11967.326793253247",
+                "sevenYear_Ret": "2.11",
+                "sevenYear_marketValue": "11572.117423159225",
+                "tenYear_Ret": "1.48",
+                "tenYear_marketValue": "11584.111503760883",
+                "inception_Ret": "1.34",
+                "inception_marketValue": "11735.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USRQ",
                 "plancode": "RQ",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "0.87",
-                "oneYear_marketValue": "10086.727827670224",
-                "threeYear_Ret": "4.09",
-                "threeYear_marketValue": "11278.029110936272",
-                "fiveYear_Ret": "3.53",
-                "fiveYear_marketValue": "11892.292695067823",
-                "sevenYear_Ret": "1.97",
-                "sevenYear_marketValue": "11459.363851665319",
+                "oneYear_Ret": "0.33",
+                "oneYear_marketValue": "10032.742967703527",
+                "threeYear_Ret": "3.93",
+                "threeYear_marketValue": "11227.514990006663",
+                "fiveYear_Ret": "3.46",
+                "fiveYear_marketValue": "11852.491570651388",
+                "sevenYear_Ret": "1.95",
+                "sevenYear_marketValue": "11447.565580484687",
                 "tenYear_Ret": "1.37",
-                "tenYear_marketValue": "11458.218842737382",
-                "inception_Ret": "1.16",
-                "inception_marketValue": "11467.5",
-                "latNavDate": "2025-07-31",
+                "tenYear_marketValue": "11457.523070616584",
+                "inception_Ret": "1.14",
+                "inception_marketValue": "11459.699999999999",
+                "latNavDate": "2025-08-31",
                 "prodcode": "USRW",
                 "plancode": "RW",
                 "optioncode": "R",
@@ -13239,9 +13262,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO06.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -13350,15 +13370,15 @@ const dataCfObj = [
         "schcode": "MI",
         "aum": [
             {
-                "latestAum": "2472.4668",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2502.3891",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MIGD"
             },
             {
-                "latestAum": "2472.4668",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "2502.3891",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MIGP"
@@ -13366,52 +13386,61 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "38.5816",
+                "latnav": "37.5152",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MIGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "38.9528",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.18",
-                "navchngper": "0.46"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.37",
+                "navchngper": "0.94"
             },
             {
-                "latnav": "36.9709",
+                "latnav": "35.9204",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MIGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "37.3607",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.17",
-                "navchngper": "0.46"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.35",
+                "navchngper": "0.94"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
+            },
+            {
+                "type": "BM",
                 "groupName": "Nifty Midcap 150 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "27109.61",
-                "oneYear_Ret": "-1.743774086441352",
-                "threeYear_Ret": "24.78654899621371",
-                "fiveYear_Ret": "30.443520429326966",
-                "inception_Ret": "21.807838809975433",
+                "latNavDate": "2025-08-31",
+                "latnav": "26356.47",
+                "oneYear_Ret": "-4.832595229799031",
+                "threeYear_Ret": "21.193019899075203",
+                "fiveYear_Ret": "27.606681222835427",
+                "inception_Ret": "21.333834549549625",
                 "bmcode": "2087.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-1.93",
-                "oneYear_marketValue": "9806.919971937816",
-                "threeYear_Ret": "24.49",
-                "threeYear_marketValue": "19292.15045053154",
-                "fiveYear_Ret": "29.81",
-                "fiveYear_marketValue": "36859.523081626416",
-                "inception_Ret": "25.69",
-                "inception_marketValue": "38581.600000000006",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-4.99",
+                "oneYear_marketValue": "9501.199198676957",
+                "threeYear_Ret": "20.92",
+                "threeYear_marketValue": "17678.504109175905",
+                "fiveYear_Ret": "27.0",
+                "fiveYear_marketValue": "33032.6670775733",
+                "inception_Ret": "24.7",
+                "inception_marketValue": "37515.200000000004",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MIGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -13420,15 +13449,15 @@ const dataCfObj = [
                 "isin": "INF247L01916"
             },
             {
-                "oneYear_Ret": "-2.62",
-                "oneYear_marketValue": "9737.589287595609",
-                "threeYear_Ret": "23.58",
-                "threeYear_marketValue": "18873.681631152813",
-                "fiveYear_Ret": "28.86",
-                "fiveYear_marketValue": "35527.762295554574",
-                "inception_Ret": "24.79",
-                "inception_marketValue": "36970.9",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-5.68",
+                "oneYear_marketValue": "9431.961705401523",
+                "threeYear_Ret": "20.03",
+                "threeYear_marketValue": "17293.367739947622",
+                "fiveYear_Ret": "26.06",
+                "fiveYear_marketValue": "31831.34537334066",
+                "inception_Ret": "23.8",
+                "inception_marketValue": "35920.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MIGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -13551,9 +13580,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO16.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -13655,15 +13681,15 @@ const dataCfObj = [
         "schcode": "SI",
         "aum": [
             {
-                "latestAum": "969.9719",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "965.2737",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "SIGD"
             },
             {
-                "latestAum": "969.9719",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "965.2737",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "SIGP"
@@ -13671,50 +13697,59 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "38.3178",
+                "latnav": "36.9426",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "SIGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "38.6226",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "0.34"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.25",
+                "navchngper": "0.66"
             },
             {
-                "latnav": "36.7937",
+                "latnav": "35.4472",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "SIGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "37.1188",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.12",
-                "navchngper": "0.34"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.24",
+                "navchngper": "0.66"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Smallcap 250 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "21734.93",
-                "oneYear_Ret": "-3.932864613190956",
-                "inception_Ret": "16.96730292047659",
+                "latNavDate": "2025-08-31",
+                "latnav": "20956.89",
+                "oneYear_Ret": "-8.622820912956875",
+                "inception_Ret": "13.055597907882909",
                 "bmcode": "2029.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-4.29",
-                "oneYear_marketValue": "9571.194844446665",
-                "threeYear_Ret": "25.17",
-                "threeYear_marketValue": "19609.326223350356",
-                "fiveYear_Ret": "31.66",
-                "fiveYear_marketValue": "39555.49132351271",
-                "inception_Ret": "25.55",
-                "inception_marketValue": "38317.799999999996",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-8.93",
+                "oneYear_marketValue": "9107.395108386152",
+                "threeYear_Ret": "21.38",
+                "threeYear_marketValue": "17883.38375892533",
+                "fiveYear_Ret": "27.82",
+                "fiveYear_marketValue": "34115.45245505001",
+                "inception_Ret": "24.38",
+                "inception_marketValue": "36942.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SIGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -13723,15 +13758,15 @@ const dataCfObj = [
                 "isin": "INF247L01932"
             },
             {
-                "oneYear_Ret": "-4.95",
-                "oneYear_marketValue": "9505.426512797063",
-                "threeYear_Ret": "24.3",
-                "threeYear_marketValue": "19204.695516919208",
-                "fiveYear_Ret": "30.75",
-                "fiveYear_marketValue": "38206.57930261054",
-                "inception_Ret": "24.69",
-                "inception_marketValue": "36793.7",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-9.57",
+                "oneYear_marketValue": "9043.22979781874",
+                "threeYear_Ret": "20.54",
+                "threeYear_marketValue": "17512.573489452105",
+                "fiveYear_Ret": "26.93",
+                "fiveYear_marketValue": "32945.943936352145",
+                "inception_Ret": "23.53",
+                "inception_marketValue": "35447.200000000004",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SIGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -13854,9 +13889,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO17.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -13959,15 +13991,15 @@ const dataCfObj = [
         "schcode": "NI",
         "aum": [
             {
-                "latestAum": "722.8354",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "738.3359",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "NIGD"
             },
             {
-                "latestAum": "722.8354",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "738.3359",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "NIGP"
@@ -13975,49 +14007,60 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "21.3893",
+                "latnav": "21.1282",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "NIGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "21.4723",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.28"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.42"
             },
             {
-                "latnav": "20.9036",
+                "latnav": "20.642",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "NIGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "20.9948",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.06",
-                "navchngper": "0.28"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.42"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "BSE Sensex TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "120211.26",
+                "oneYear_Ret": "-5.714647402674",
+                "threeYear_Ret": "10.198721371854823",
+                "fiveYear_Ret": "16.122713916548513",
+                "bmcode": "2034.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "0.36",
-                "oneYear_marketValue": "10036.317737977373",
-                "threeYear_Ret": "14.12",
-                "threeYear_marketValue": "14860.801356205402",
-                "fiveYear_Ret": "18.57",
-                "fiveYear_marketValue": "23439.044435921318",
-                "inception_Ret": "14.52",
-                "inception_marketValue": "21389.3",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-2.18",
+                "oneYear_marketValue": "9782.208106080949",
+                "threeYear_Ret": "12.28",
+                "threeYear_marketValue": "14153.308190593578",
+                "fiveYear_Ret": "17.6",
+                "fiveYear_marketValue": "22495.47496859096",
+                "inception_Ret": "14.04",
+                "inception_marketValue": "21128.2",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NIGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -14026,15 +14069,15 @@ const dataCfObj = [
                 "isin": "INF247L01AE7"
             },
             {
-                "oneYear_Ret": "-0.04",
-                "oneYear_marketValue": "9996.413388104882",
-                "threeYear_Ret": "13.65",
-                "threeYear_marketValue": "14680.834626756658",
-                "fiveYear_Ret": "18.09",
-                "fiveYear_marketValue": "22962.661891841417",
-                "inception_Ret": "14.05",
-                "inception_marketValue": "20903.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-2.57",
+                "oneYear_marketValue": "9743.45660947346",
+                "threeYear_Ret": "11.82",
+                "threeYear_marketValue": "13982.537069777209",
+                "fiveYear_Ret": "17.12",
+                "fiveYear_marketValue": "22039.055743585912",
+                "inception_Ret": "13.58",
+                "inception_marketValue": "20642.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NIGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -14157,9 +14200,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO21.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -14262,15 +14302,15 @@ const dataCfObj = [
         "schcode": "NN",
         "aum": [
             {
-                "latestAum": "356.1049",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "356.3562",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "NNGD"
             },
             {
-                "latestAum": "356.1049",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "356.3562",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "NNGP"
@@ -14278,49 +14318,58 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "23.9582",
+                "latnav": "23.5316",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "NNGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "24.0349",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.38"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.10",
+                "navchngper": "0.43"
             },
             {
-                "latnav": "23.0672",
+                "latnav": "22.6389",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "NNGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "23.1617",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.09",
-                "navchngper": "0.37"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.10",
+                "navchngper": "0.43"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
+            },
+            {
+                "type": "BM",
                 "groupName": "Nifty Next 50 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "96101.33",
+                "latNavDate": "2025-08-31",
+                "latnav": "94379.65",
                 "inception_Ret": "0.0",
                 "bmcode": "2024.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-9.75",
-                "oneYear_marketValue": "9025.129868417584",
-                "threeYear_Ret": "18.4",
-                "threeYear_marketValue": "16599.023105968754",
-                "fiveYear_Ret": "20.31",
-                "fiveYear_marketValue": "25210.135319990746",
-                "inception_Ret": "16.86",
-                "inception_marketValue": "23958.2",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-12.04",
+                "oneYear_marketValue": "8796.169272692612",
+                "threeYear_Ret": "15.08",
+                "threeYear_marketValue": "15240.673575129535",
+                "fiveYear_Ret": "19.9",
+                "fiveYear_marketValue": "24784.715200539264",
+                "inception_Ret": "16.22",
+                "inception_marketValue": "23531.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NNGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -14329,15 +14378,15 @@ const dataCfObj = [
                 "isin": "INF247L01AC1"
             },
             {
-                "oneYear_Ret": "-10.37",
-                "oneYear_marketValue": "8962.76523408207",
-                "threeYear_Ret": "17.59",
-                "threeYear_marketValue": "16260.538559142817",
-                "fiveYear_Ret": "19.5",
-                "fiveYear_marketValue": "24367.70438291624",
-                "inception_Ret": "16.07",
-                "inception_marketValue": "23067.199999999997",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-12.67",
+                "oneYear_marketValue": "8733.469639688296",
+                "threeYear_Ret": "14.29",
+                "threeYear_marketValue": "14926.911284739392",
+                "fiveYear_Ret": "19.09",
+                "fiveYear_marketValue": "23950.932058145194",
+                "inception_Ret": "15.43",
+                "inception_marketValue": "22638.899999999998",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NNGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -14460,9 +14509,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO22.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -14563,15 +14609,15 @@ const dataCfObj = [
         "schcode": "S3",
         "aum": [
             {
-                "latestAum": "821.9965",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "789.879",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "S3GD"
             },
             {
-                "latestAum": "821.9965",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "789.879",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "S3GP"
@@ -14579,46 +14625,58 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "24.6951",
+                "latnav": "23.9641",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "S3GD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "24.9423",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.09",
-                "navchngper": "-0.36"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.19",
+                "navchngper": "0.76"
             },
             {
-                "latnav": "24.2185",
+                "latnav": "23.4793",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "S3GP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "24.482",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.09",
-                "navchngper": "-0.36"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.18",
+                "navchngper": "0.75"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "BSE Enhanced Value Index TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "latnav": "1602.77",
                 "oneYear_Ret": "0.0",
-                "inception_Ret": "36.90479796880537",
+                "threeYear_Ret": "33.701339753562266",
+                "inception_Ret": "35.7036530170072",
                 "bmcode": "2082.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-8.85",
-                "oneYear_marketValue": "9115.172945818553",
-                "inception_Ret": "35.97",
-                "inception_marketValue": "24695.100000000002",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-11.39",
+                "oneYear_marketValue": "8860.726262973603",
+                "threeYear_Ret": "31.56",
+                "threeYear_marketValue": "22770.47186484483",
+                "inception_Ret": "33.47",
+                "inception_marketValue": "23964.1",
+                "latNavDate": "2025-08-31",
                 "prodcode": "S3GD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -14627,11 +14685,13 @@ const dataCfObj = [
                 "isin": "INF247L01BF2"
             },
             {
-                "oneYear_Ret": "-9.45",
-                "oneYear_marketValue": "9054.660335738587",
-                "inception_Ret": "35.07",
-                "inception_marketValue": "24218.5",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-12.02",
+                "oneYear_marketValue": "8798.226812159002",
+                "threeYear_Ret": "30.67",
+                "threeYear_marketValue": "22313.423616060816",
+                "inception_Ret": "32.57",
+                "inception_marketValue": "23479.3",
+                "latNavDate": "2025-08-31",
                 "prodcode": "S3GP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -14751,10 +14811,7 @@ const dataCfObj = [
                 "sector": "Entertainment",
                 "percentage": "1.69%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Factors",
@@ -14854,15 +14911,15 @@ const dataCfObj = [
         "schcode": "S4",
         "aum": [
             {
-                "latestAum": "53.5694",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "55.8494",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "S4GD"
             },
             {
-                "latestAum": "53.5694",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "55.8494",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "S4GP"
@@ -14870,43 +14927,54 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "16.6831",
+                "latnav": "16.5835",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "S4GD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "17.113",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "0.79"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.20",
+                "navchngper": "1.16"
             },
             {
-                "latnav": "16.3509",
+                "latnav": "16.2409",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "S4GP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "16.7862",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.13",
-                "navchngper": "0.78"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.19",
+                "navchngper": "1.16"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "BSE Quality TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2339.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-11.84",
-                "oneYear_marketValue": "8815.609395228408",
-                "inception_Ret": "19.0",
-                "inception_marketValue": "16683.1",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-12.42",
+                "oneYear_marketValue": "8758.30490213683",
+                "threeYear_Ret": "17.34",
+                "threeYear_marketValue": "16157.74345983339",
+                "inception_Ret": "18.19",
+                "inception_marketValue": "16583.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "S4GD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -14915,11 +14983,13 @@ const dataCfObj = [
                 "isin": "INF247L01BI6"
             },
             {
-                "oneYear_Ret": "-12.45",
-                "oneYear_marketValue": "8755.314477869282",
-                "inception_Ret": "18.19",
-                "inception_marketValue": "16350.9",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-13.04",
+                "oneYear_marketValue": "8696.413463700912",
+                "threeYear_Ret": "16.54",
+                "threeYear_marketValue": "15826.406415965852",
+                "inception_Ret": "17.37",
+                "inception_marketValue": "16240.9",
+                "latNavDate": "2025-08-31",
                 "prodcode": "S4GP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -15039,10 +15109,7 @@ const dataCfObj = [
                 "sector": "Electrical Equipment",
                 "percentage": "3.63%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Indian Equity",
@@ -15143,15 +15210,15 @@ const dataCfObj = [
         "schcode": "S2",
         "aum": [
             {
-                "latestAum": "21.2319",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "21.3147",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "S2GD"
             },
             {
-                "latestAum": "21.2319",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "21.3147",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "S2GP"
@@ -15159,49 +15226,58 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "16.9316",
+                "latnav": "16.5249",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "S2GD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "17.1974",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.08",
-                "navchngper": "-0.49"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.23",
+                "navchngper": "1.32"
             },
             {
-                "latnav": "16.5778",
+                "latnav": "16.1717",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "S2GP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "16.8507",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.08",
-                "navchngper": "-0.49"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.22",
+                "navchngper": "1.32"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
+            },
+            {
+                "type": "BM",
                 "groupName": "BSE Financials ex Bank 30 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "latnav": "13272.1",
                 "oneYear_Ret": "0.0",
-                "threeYear_Ret": "10.36207644643814",
-                "inception_Ret": "10.332360968513576",
+                "threeYear_Ret": "8.539087869105643",
+                "inception_Ret": "10.034881015004672",
                 "bmcode": "2337.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "7.08",
-                "oneYear_marketValue": "10708.272987724278",
-                "threeYear_Ret": "19.19",
-                "threeYear_marketValue": "16931.6",
-                "inception_Ret": "19.13",
-                "inception_marketValue": "16931.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "1.2",
+                "oneYear_marketValue": "10120.466432307296",
+                "threeYear_Ret": "17.03",
+                "threeYear_marketValue": "16026.787446172943",
+                "inception_Ret": "17.63",
+                "inception_marketValue": "16524.899999999998",
+                "latNavDate": "2025-08-31",
                 "prodcode": "S2GD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -15210,13 +15286,13 @@ const dataCfObj = [
                 "isin": "INF247L01BC9"
             },
             {
-                "oneYear_Ret": "6.36",
-                "oneYear_marketValue": "10635.794390124978",
-                "threeYear_Ret": "18.35",
-                "threeYear_marketValue": "16577.8",
-                "inception_Ret": "18.3",
-                "inception_marketValue": "16577.8",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "0.53",
+                "oneYear_marketValue": "10052.901172404363",
+                "threeYear_Ret": "16.21",
+                "threeYear_marketValue": "15694.127694263561",
+                "inception_Ret": "16.81",
+                "inception_marketValue": "16171.700000000003",
+                "latNavDate": "2025-08-31",
                 "prodcode": "S2GP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -15316,10 +15392,7 @@ const dataCfObj = [
                 "sector": "Cash & Equivalent",
                 "percentage": "0.34%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Factors",
@@ -15419,15 +15492,15 @@ const dataCfObj = [
         "schcode": "S1",
         "aum": [
             {
-                "latestAum": "114.393",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "112.7495",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "S1GD"
             },
             {
-                "latestAum": "114.393",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "112.7495",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "S1GP"
@@ -15435,49 +15508,58 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "16.6029",
+                "latnav": "16.5645",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "S1GD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "16.598",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.10",
-                "navchngper": "0.61"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.47"
             },
             {
-                "latnav": "16.2584",
+                "latnav": "16.2023",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "S1GP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "16.267",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.10",
-                "navchngper": "0.61"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.47"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "S&P BSE Low Volatility TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "latnav": "2351.33",
                 "oneYear_Ret": "0.0",
-                "threeYear_Ret": "14.246243149474402",
-                "inception_Ret": "14.476210178806447",
+                "threeYear_Ret": "13.235099437854192",
+                "inception_Ret": "14.095158043206046",
                 "bmcode": "2268.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-4.2",
-                "oneYear_marketValue": "9579.996307152585",
-                "threeYear_Ret": "16.0",
-                "threeYear_marketValue": "15609.804253398772",
-                "inception_Ret": "16.29",
-                "inception_marketValue": "16602.9",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-4.7",
+                "oneYear_marketValue": "9529.960014958433",
+                "threeYear_Ret": "14.9",
+                "threeYear_marketValue": "15169.094955082006",
+                "inception_Ret": "15.78",
+                "inception_marketValue": "16564.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "S1GD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -15486,13 +15568,13 @@ const dataCfObj = [
                 "isin": "INF247L01AY5"
             },
             {
-                "oneYear_Ret": "-4.82",
-                "oneYear_marketValue": "9517.743616161853",
-                "threeYear_Ret": "15.28",
-                "threeYear_marketValue": "15318.459335192585",
-                "inception_Ret": "15.57",
-                "inception_marketValue": "16258.400000000001",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-5.38",
+                "oneYear_marketValue": "9461.915357078202",
+                "threeYear_Ret": "14.16",
+                "threeYear_marketValue": "14876.778991828116",
+                "inception_Ret": "15.04",
+                "inception_marketValue": "16202.300000000001",
+                "latNavDate": "2025-08-31",
                 "prodcode": "S1GP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -15612,10 +15694,7 @@ const dataCfObj = [
                 "sector": "Auto Components",
                 "percentage": "4.30%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Factors",
@@ -15714,15 +15793,15 @@ const dataCfObj = [
         "schcode": "N2",
         "aum": [
             {
-                "latestAum": "929.6201",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "870.6874",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "N2GD"
             },
             {
-                "latestAum": "929.6201",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "870.6874",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "N2GP"
@@ -15730,47 +15809,56 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "15.1234",
+                "latnav": "14.8395",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "N2GD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "15.721",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.00",
-                "navchngper": "0.03"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.14",
+                "navchngper": "0.90"
             },
             {
-                "latnav": "14.7745",
+                "latnav": "14.4894",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "N2GP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "15.3713",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.00",
-                "navchngper": "0.03"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.13",
+                "navchngper": "0.89"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 200 Momentum 30 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37754.37",
-                "oneYear_Ret": "-17.617458451274015",
+                "latNavDate": "2025-08-31",
+                "latnav": "37059.59",
+                "oneYear_Ret": "-19.540568524035084",
                 "bmcode": "2261.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Nifty 50 TRI (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
+                "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-18.07",
-                "oneYear_marketValue": "8192.923815353945",
-                "threeYear_Ret": "19.62",
-                "threeYear_marketValue": "17116.43804608629",
-                "inception_Ret": "12.66",
-                "inception_marketValue": "15123.4",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-19.98",
+                "oneYear_marketValue": "8001.973599068203",
+                "threeYear_Ret": "15.59",
+                "threeYear_marketValue": "15443.173658303067",
+                "inception_Ret": "11.74",
+                "inception_marketValue": "14839.499999999998",
+                "latNavDate": "2025-08-31",
                 "prodcode": "N2GD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -15779,13 +15867,13 @@ const dataCfObj = [
                 "isin": "INF247L01AV1"
             },
             {
-                "oneYear_Ret": "-18.63",
-                "oneYear_marketValue": "8137.351016721376",
-                "threeYear_Ret": "18.81",
-                "threeYear_marketValue": "16772.62252091682",
-                "inception_Ret": "11.9",
-                "inception_marketValue": "14774.5",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-20.52",
+                "oneYear_marketValue": "7947.889525794684",
+                "threeYear_Ret": "14.81",
+                "threeYear_marketValue": "15133.797079651566",
+                "inception_Ret": "10.99",
+                "inception_marketValue": "14489.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "N2GP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -15908,9 +15996,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO32.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -16003,15 +16088,15 @@ const dataCfObj = [
         "schcode": "MG",
         "aum": [
             {
-                "latestAum": "426.4083",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "516.1236",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MGGD"
             },
             {
-                "latestAum": "426.4083",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "516.1236",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MGGP"
@@ -16019,43 +16104,49 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "18.6699",
+                "latnav": "19.525",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MGGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "18.6537",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.16",
-                "navchngper": "-0.86"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.13",
+                "navchngper": "-0.62"
             },
             {
-                "latnav": "18.4826",
+                "latnav": "19.3235",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MGGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "18.4745",
-                "recdt": "20-Aug-2025",
-                "navchng": "-0.16",
-                "navchngper": "-0.86"
+                "recdt": "10-Sep-2025",
+                "navchng": "-0.13",
+                "navchngper": "-0.62"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
-                "groupName": "LBMA Price of Gold and Silver (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "bmcode": "2346.0"
+                "groupName": "Domestic Gold and Silver Prices (PRIMARY)",
+                "latNavDate": "2025-08-31",
+                "bmcode": "2369.0"
+            },
+            {
+                "type": "BM",
+                "groupName": "Price of silver (SECONDARY)",
+                "latNavDate": "2025-08-31",
+                "bmcode": "2378.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "36.81",
-                "oneYear_marketValue": "13681.391156512434",
-                "inception_Ret": "24.98",
-                "inception_marketValue": "18669.899999999998",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "39.3",
+                "oneYear_marketValue": "13929.812295333424",
+                "inception_Ret": "26.1",
+                "inception_marketValue": "19525.0",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MGGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -16064,11 +16155,11 @@ const dataCfObj = [
                 "isin": "INF247L01BM8"
             },
             {
-                "oneYear_Ret": "36.33",
-                "oneYear_marketValue": "13632.849956481332",
-                "inception_Ret": "24.53",
-                "inception_marketValue": "18482.600000000002",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "38.8",
+                "oneYear_marketValue": "13880.229283990346",
+                "inception_Ret": "25.65",
+                "inception_marketValue": "19323.5",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MGGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -16124,9 +16215,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO41.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -16221,7 +16309,7 @@ const dataCfObj = [
                 "sixth_char_name": "R",
                 "planNameOriginal": "Regular Reinvestment",
                 "groupedCode": "DPR",
-                "groupedName": "Regular IDCW Reinvestment",
+                "groupedName": "Regular IDCW  Reinvestment",
                 "optionCode": "R",
                 "optionName": "IDCW Reinvestment",
                 "planCode": "DP",
@@ -16252,11 +16340,11 @@ const dataCfObj = [
             },
             {
                 "sixth_char_name": "D",
-                "planNameOriginal": "Direct Payout",
+                "planNameOriginal": "Direct Reinvestment",
                 "groupedCode": "PDR",
                 "groupedName": "Direct IDCW Reinvestment",
                 "optionCode": "D",
-                "optionName": "IDCW Payout",
+                "optionName": "IDCW Reinvestment",
                 "planCode": "PD",
                 "planName": "Direct",
                 "cfReferencePath": "/content/dam/wknd-shared/plan-code-model-fragment/direct-idcw--dividend-reinvestment"
@@ -16265,43 +16353,43 @@ const dataCfObj = [
         "schcode": "MQ",
         "aum": [
             {
-                "latestAum": "145.0145",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "139.5389",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "MQDP"
             },
             {
-                "latestAum": "145.0145",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "139.5389",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "MQDP"
             },
             {
-                "latestAum": "145.0145",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "139.5389",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MQGD"
             },
             {
-                "latestAum": "145.0145",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "139.5389",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MQGP"
             },
             {
-                "latestAum": "145.0145",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "139.5389",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "MQPD"
             },
             {
-                "latestAum": "145.0145",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "139.5389",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "MQPD"
@@ -16309,104 +16397,105 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "9.0136",
+                "latnav": "8.6704",
                 "optioncode": "D",
                 "plancode": "DP",
                 "prodcode": "MQDP",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.14"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.94"
             },
             {
-                "latnav": "9.0136",
+                "latnav": "8.6704",
                 "optioncode": "R",
                 "plancode": "DP",
                 "prodcode": "MQDP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "9.0545",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.14"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.08",
+                "navchngper": "0.94"
             },
             {
-                "latnav": "10.3488",
+                "latnav": "9.9556",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "MQGD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "10.395",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.14"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.10",
+                "navchngper": "0.94"
             },
             {
-                "latnav": "9.7777",
+                "latnav": "9.4051",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MQGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "9.8227",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.14"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.94"
             },
             {
-                "latnav": "9.7317",
+                "latnav": "9.3621",
                 "optioncode": "D",
                 "plancode": "PD",
                 "prodcode": "MQPD",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.14"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.94"
             },
             {
-                "latnav": "9.7317",
+                "latnav": "9.3621",
                 "optioncode": "R",
                 "plancode": "PD",
                 "prodcode": "MQPD",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "9.7752",
-                "recdt": "20-Aug-2025",
-                "navchng": "0.01",
-                "navchngper": "0.14"
+                "recdt": "10-Sep-2025",
+                "navchng": "0.09",
+                "navchngper": "0.94"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 200 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "18379.79",
-                "oneYear_Ret": "-1.4629012698456845",
-                "inception_Ret": "7.283644739024253",
+                "latNavDate": "2025-08-31",
+                "latnav": "18091.55",
+                "oneYear_Ret": "-4.0241165829359",
+                "inception_Ret": "5.409321859149885",
                 "bmcode": "2005.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-9.86",
-                "oneYear_marketValue": "9013.6",
-                "inception_Ret": "-8.63",
-                "inception_marketValue": "9013.6",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-13.3",
+                "oneYear_marketValue": "8670.4",
+                "inception_Ret": "-10.9",
+                "inception_marketValue": "8670.4",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MQDP",
                 "plancode": "DP",
                 "optioncode": "D"
             },
             {
-                "oneYear_Ret": "-9.67",
-                "oneYear_marketValue": "9033.125300048008",
-                "inception_Ret": "3.02",
-                "inception_marketValue": "10348.800000000001",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-13.92",
+                "oneYear_marketValue": "8607.940789928754",
+                "inception_Ret": "-0.36",
+                "inception_marketValue": "9955.6",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MQGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -16415,11 +16504,11 @@ const dataCfObj = [
                 "isin": "INF247L01CS3"
             },
             {
-                "oneYear_Ret": "-9.86",
-                "oneYear_marketValue": "9014.031270742678",
-                "inception_Ret": "-1.93",
-                "inception_marketValue": "9777.699999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-14.1",
+                "oneYear_marketValue": "8590.466099759778",
+                "inception_Ret": "-4.84",
+                "inception_marketValue": "9405.1",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MQGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -16428,11 +16517,11 @@ const dataCfObj = [
                 "isin": "INF247L01CP9"
             },
             {
-                "oneYear_Ret": "-9.67",
-                "oneYear_marketValue": "9033.081478456197",
-                "inception_Ret": "-2.34",
-                "inception_marketValue": "9731.699999999999",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-13.92",
+                "oneYear_marketValue": "8608.352642612821",
+                "inception_Ret": "-5.19",
+                "inception_marketValue": "9362.1",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MQPD",
                 "plancode": "PD",
                 "optioncode": "D"
@@ -16584,9 +16673,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO50.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -16677,8 +16763,8 @@ const dataCfObj = [
         "schcode": "NE",
         "aum": [
             {
-                "latestAum": "154.1526",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "151.3339",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NEGR"
@@ -16686,34 +16772,34 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "23.2508",
+                "latnav": "22.8259",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NEGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "23.374",
-                "currNav": "23.14",
-                "prevNAV": "23.08",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "23.47",
+                "prevNAV": "23.45",
+                "currNavDate": "09/11/2025 13:35:08"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 500 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "36461.71",
+                "latNavDate": "2025-08-31",
+                "latnav": "35799.38",
                 "inception_Ret": "0.0",
                 "bmcode": "2009.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-1.79",
-                "oneYear_marketValue": "9820.699209724904",
-                "inception_Ret": "17.37",
-                "inception_marketValue": "13424.016905018967",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-4.56",
+                "oneYear_marketValue": "9543.637686370592",
+                "inception_Ret": "15.43",
+                "inception_marketValue": "13178.69782855955",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NEGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -16828,9 +16914,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO45.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -16922,8 +17005,8 @@ const dataCfObj = [
         "schcode": "SE",
         "aum": [
             {
-                "latestAum": "85.1212",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "77.0",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "SEGR"
@@ -16931,38 +17014,38 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "37.5576",
+                "latnav": "37.4445",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "SEGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "37.5454",
-                "currNav": "38.07",
-                "prevNAV": "37.83",
-                "currNavDate": "09/02/2025 13:52:51"
+                "currNav": "38.21",
+                "prevNAV": "38.21",
+                "currNavDate": "09/11/2025 13:35:08"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "S&P BSE Low Volatility TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "latnav": "2351.33",
                 "oneYear_Ret": "0.0",
-                "threeYear_Ret": "14.246243149474402",
-                "inception_Ret": "14.476210178806447",
+                "threeYear_Ret": "13.235099437854192",
+                "inception_Ret": "14.095158043206046",
                 "bmcode": "2268.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-4.06",
-                "oneYear_marketValue": "9594.384014469133",
-                "threeYear_Ret": "-31.92",
-                "threeYear_marketValue": "3155.2523691108277",
-                "inception_Ret": "16.31",
-                "inception_marketValue": "16612.48245094891",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-4.63",
+                "oneYear_marketValue": "9537.132785557462",
+                "threeYear_Ret": "15.29",
+                "threeYear_marketValue": "15323.309993738823",
+                "inception_Ret": "15.78",
+                "inception_marketValue": "16562.45604443725",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SEGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -17074,10 +17157,7 @@ const dataCfObj = [
                 "sector": "Auto Components",
                 "percentage": "4.31%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Factors",
@@ -17169,8 +17249,8 @@ const dataCfObj = [
         "schcode": "SV",
         "aum": [
             {
-                "latestAum": "120.5871",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "114.6015",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "SVGR"
@@ -17178,35 +17258,38 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "101.7004",
+                "latnav": "98.6507",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "SVGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "102.7028",
-                "currNav": "100.84",
-                "prevNAV": "100.46",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "103.19",
+                "prevNAV": "102.18",
+                "currNavDate": "09/11/2025 13:35:08"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "BSE Enhanced Value Index TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "latnav": "1602.77",
                 "oneYear_Ret": "0.0",
-                "inception_Ret": "36.90479796880537",
+                "threeYear_Ret": "33.701339753562266",
+                "inception_Ret": "35.7036530170072",
                 "bmcode": "2082.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-8.77",
-                "oneYear_marketValue": "9123.067635125377",
-                "inception_Ret": "36.71",
-                "inception_marketValue": "25095.099442333314",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-11.36",
+                "oneYear_marketValue": "8863.80564997336",
+                "threeYear_Ret": "32.21",
+                "threeYear_marketValue": "23109.97364568082",
+                "inception_Ret": "34.16",
+                "inception_marketValue": "24342.570201845727",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SVGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -17318,10 +17401,7 @@ const dataCfObj = [
                 "sector": "Entertainment",
                 "percentage": "1.69%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Factors",
@@ -17413,8 +17493,8 @@ const dataCfObj = [
         "schcode": "SQ",
         "aum": [
             {
-                "latestAum": "18.696",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "18.5833",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "SQGR"
@@ -17422,32 +17502,34 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "190.1052",
+                "latnav": "188.9583",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "SQGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "194.9965",
-                "currNav": "193.42",
-                "prevNAV": "192.32",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "195.94",
+                "prevNAV": "195.92",
+                "currNavDate": "09/11/2025 13:35:08"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "BSE Quality TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2339.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-11.95",
-                "oneYear_marketValue": "8804.778256266229",
-                "inception_Ret": "19.13",
-                "inception_marketValue": "16739.062673351542",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-12.6",
+                "oneYear_marketValue": "8739.596890791983",
+                "threeYear_Ret": "17.44",
+                "threeYear_marketValue": "16198.434320141412",
+                "inception_Ret": "18.31",
+                "inception_marketValue": "16638.07631958496",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SQGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -17559,10 +17641,7 @@ const dataCfObj = [
                 "sector": "Electrical Equipment",
                 "percentage": "3.63%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Factors",
@@ -17651,8 +17730,8 @@ const dataCfObj = [
         "schcode": "NM",
         "aum": [
             {
-                "latestAum": "127.4612",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "126.1454",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "NMGP"
@@ -17660,7 +17739,7 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "61.2795",
+                "latnav": "60.1415",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "NMGP",
@@ -17672,21 +17751,21 @@ const dataCfObj = [
             {
                 "type": "BM",
                 "groupName": "Nifty 200 Momentum 30 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37754.37",
-                "oneYear_Ret": "-17.617458451274015",
+                "latNavDate": "2025-08-31",
+                "latnav": "37059.59",
+                "oneYear_Ret": "-19.540568524035084",
                 "bmcode": "2261.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-18.11",
-                "oneYear_marketValue": "8188.997948724801",
-                "threeYear_Ret": "-30.09",
-                "threeYear_marketValue": "3416.288268399354",
-                "inception_Ret": "12.71",
-                "inception_marketValue": "15146.8599917443",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-20.02",
+                "oneYear_marketValue": "7998.295051793455",
+                "threeYear_Ret": "15.52",
+                "threeYear_marketValue": "15416.312071281362",
+                "inception_Ret": "11.79",
+                "inception_marketValue": "14865.572992493248",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NMGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -17801,9 +17880,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO31.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -17878,8 +17954,8 @@ const dataCfObj = [
         "schcode": "G5",
         "aum": [
             {
-                "latestAum": "127.6445",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "130.1627",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "G5GP"
@@ -17887,7 +17963,7 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "62.0533",
+                "latnav": "61.7066",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "G5GP",
@@ -17899,19 +17975,19 @@ const dataCfObj = [
             {
                 "type": "BM",
                 "groupName": "Nifty 5 yr Benchmark G-Sec Index TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2190.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "9.63",
-                "oneYear_marketValue": "10962.512145570181",
-                "threeYear_Ret": "8.01",
-                "threeYear_marketValue": "12598.912957409615",
-                "inception_Ret": "5.85",
-                "inception_marketValue": "13021.443844993255",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "8.08",
+                "oneYear_marketValue": "10807.87682089743",
+                "threeYear_Ret": "7.61",
+                "threeYear_marketValue": "12460.718605679624",
+                "inception_Ret": "5.62",
+                "inception_marketValue": "12948.691314812602",
+                "latNavDate": "2025-08-31",
                 "prodcode": "G5GP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -17946,10 +18022,7 @@ const dataCfObj = [
                 "sector": "Cash & Equivalent",
                 "percentage": "0.20%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Indian Equity",
@@ -18045,8 +18118,8 @@ const dataCfObj = [
         "schcode": "MC",
         "aum": [
             {
-                "latestAum": "693.4738",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "656.6268",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MCGP"
@@ -18054,52 +18127,53 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "61.6263",
+                "latnav": "59.8819",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "MCGP",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "63.0132",
-                "currNav": "61.34",
-                "prevNAV": "61.21",
-                "currNavDate": "09/02/2025 13:52:51"
+                "currNav": "62.33",
+                "prevNAV": "62.33",
+                "currNavDate": "09/11/2025 13:35:08"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Midcap 100 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "77724.29",
-                "oneYear_Ret": "-2.1727477028164133",
-                "threeYear_Ret": "25.421823527006392",
-                "fiveYear_Ret": "30.980308564606652",
+                "latNavDate": "2025-08-31",
+                "latnav": "75524.68",
+                "oneYear_Ret": "-5.4905676621577415",
+                "threeYear_Ret": "21.69822625413831",
+                "fiveYear_Ret": "28.267261747663163",
                 "bmcode": "2053.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-2.25",
-                "oneYear_marketValue": "9775.233847212947",
-                "threeYear_Ret": "25.15",
-                "threeYear_marketValue": "19601.55218753479",
-                "fiveYear_Ret": "30.51",
-                "fiveYear_marketValue": "37858.41099391207",
-                "sevenYear_Ret": "17.88",
-                "sevenYear_marketValue": "31637.464127851166",
-                "tenYear_Ret": "15.73",
-                "tenYear_marketValue": "43087.17934376027",
-                "inception_Ret": "15.19",
-                "inception_marketValue": "77744.23474794369",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-5.56",
+                "oneYear_marketValue": "9444.230653978027",
+                "threeYear_Ret": "21.44",
+                "threeYear_marketValue": "17910.641059769034",
+                "fiveYear_Ret": "27.81",
+                "fiveYear_marketValue": "34100.72720853288",
+                "sevenYear_Ret": "16.5",
+                "sevenYear_marketValue": "29127.98785885924",
+                "tenYear_Ret": "15.97",
+                "tenYear_marketValue": "43982.94503040808",
+                "inception_Ret": "14.86",
+                "inception_marketValue": "75543.59893021145",
+                "latNavDate": "2025-08-31",
                 "prodcode": "MCGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -18214,9 +18288,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO02.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -18292,8 +18363,8 @@ const dataCfObj = [
         "schcode": "ND",
         "aum": [
             {
-                "latestAum": "10016.7252",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "10179.3048",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NDGR"
@@ -18301,46 +18372,47 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "198.5929",
+                "latnav": "201.6228",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NDGR",
-                "currNav": "201.22192928952583",
-                "prevNAV": "201.5858",
-                "currNavDate": "09/02/2025 13:52:50"
+                "currNav": "205.22453012742326",
+                "prevNAV": "205.1706",
+                "currNavDate": "09/11/2025 13:35:00"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "NASDAQ - 100 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2142.0"
             },
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "25.52",
-                "oneYear_marketValue": "12551.646245811227",
-                "threeYear_Ret": "26.11",
-                "threeYear_marketValue": "20058.531392319914",
-                "fiveYear_Ret": "-24.02",
-                "fiveYear_marketValue": "2532.997424948978",
-                "sevenYear_Ret": "-11.92",
-                "sevenYear_marketValue": "4114.234371824484",
-                "tenYear_Ret": "-3.81",
-                "tenYear_marketValue": "6780.941799274215",
-                "inception_Ret": "22.88",
-                "inception_marketValue": "192390.23870417732",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "25.84",
+                "oneYear_marketValue": "12583.72913090966",
+                "threeYear_Ret": "27.37",
+                "threeYear_marketValue": "20665.781090488665",
+                "fiveYear_Ret": "-25.17",
+                "fiveYear_marketValue": "2346.4508300154866",
+                "sevenYear_Ret": "-12.85",
+                "sevenYear_marketValue": "3817.688859081295",
+                "tenYear_Ret": "-3.4",
+                "tenYear_marketValue": "7073.424437812299",
+                "inception_Ret": "22.86",
+                "inception_marketValue": "195325.50569634972",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NDGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -18455,9 +18527,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO03.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -18554,8 +18623,8 @@ const dataCfObj = [
         "schcode": "EF",
         "aum": [
             {
-                "latestAum": "55.7648",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "58.8905",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "RG",
                 "prodcode": "EFRG"
@@ -18563,52 +18632,53 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "256.4266",
+                "latnav": "253.3271",
                 "optioncode": "G",
                 "plancode": "RG",
                 "prodcode": "EFRG",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "257.3973",
-                "currNav": "255.95",
-                "prevNAV": "256.03",
-                "currNavDate": "09/02/2025 13:52:51"
+                "currNav": "259.35",
+                "prevNAV": "259.03",
+                "currNavDate": "09/11/2025 13:35:07"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "37158.88",
-                "inception_Ret": "0.0",
+                "latNavDate": "2025-08-31",
+                "latnav": "36709.0",
+                "oneYear_Ret": "-2.0093305888436053",
+                "inception_Ret": "-1.142463941624683",
                 "bmcode": "2006.0"
             },
             {
                 "type": "BM",
                 "groupName": "BSE Sensex TRI (SECONDARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "latnav": "120211.26",
-                "oneYear_Ret": "-4.817539170010687",
-                "threeYear_Ret": "11.502840287278882",
-                "fiveYear_Ret": "16.77199657657087",
+                "oneYear_Ret": "-5.714647402674",
+                "threeYear_Ret": "10.198721371854823",
+                "fiveYear_Ret": "16.122713916548513",
                 "bmcode": "2034.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "0.48",
-                "oneYear_marketValue": "10047.835903415988",
-                "threeYear_Ret": "14.26",
-                "threeYear_marketValue": "14915.738310624676",
-                "fiveYear_Ret": "18.77",
-                "fiveYear_marketValue": "23632.633613288934",
-                "sevenYear_Ret": "12.93",
-                "sevenYear_marketValue": "23422.10400746799",
-                "tenYear_Ret": "12.08",
-                "tenYear_marketValue": "31292.983727872033",
-                "inception_Ret": "8.24",
-                "inception_marketValue": "32860.75482191805",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-2.06",
+                "oneYear_marketValue": "9793.924318422747",
+                "threeYear_Ret": "12.42",
+                "threeYear_marketValue": "14207.786133158648",
+                "fiveYear_Ret": "17.8",
+                "fiveYear_marketValue": "22679.746637122586",
+                "sevenYear_Ret": "12.26",
+                "sevenYear_marketValue": "22473.35732718968",
+                "tenYear_Ret": "12.71",
+                "tenYear_marketValue": "33080.924025176944",
+                "inception_Ret": "8.11",
+                "inception_marketValue": "32463.557691938033",
+                "latNavDate": "2025-08-31",
                 "prodcode": "EFRG",
                 "plancode": "RG",
                 "optioncode": "G",
@@ -18723,9 +18793,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO01.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -18809,8 +18876,8 @@ const dataCfObj = [
         "schcode": "NQ",
         "aum": [
             {
-                "latestAum": "86.7442",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "91.0178",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NQGR"
@@ -18818,7 +18885,7 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "78.3242",
+                "latnav": "82.185",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NQGR"
@@ -18828,19 +18895,19 @@ const dataCfObj = [
             {
                 "type": "BM",
                 "groupName": "NASDAQ Q-50 Total Return Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2249.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "25.2",
-                "oneYear_marketValue": "12520.333260866784",
-                "threeYear_Ret": "15.07",
-                "threeYear_marketValue": "15238.200852530841",
-                "inception_Ret": "5.19",
-                "inception_marketValue": "12003.156942975804",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "28.63",
+                "oneYear_marketValue": "12863.253682426246",
+                "threeYear_Ret": "16.57",
+                "threeYear_marketValue": "15842.067015307157",
+                "inception_Ret": "6.45",
+                "inception_marketValue": "12594.823226518321",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NQGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -18952,10 +19019,7 @@ const dataCfObj = [
                 "sector": "Hotels, Resorts & Cruise Lines",
                 "percentage": "3.64%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Indian Equity",
@@ -19049,8 +19113,8 @@ const dataCfObj = [
         "schcode": "NR",
         "aum": [
             {
-                "latestAum": "108.9421",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "123.0089",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NRGR"
@@ -19058,35 +19122,35 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "91.2413",
+                "latnav": "87.1187",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NRGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "101.8929",
-                "currNav": "88.65",
-                "prevNAV": "88.02",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "88.34",
+                "prevNAV": "88.42",
+                "currNavDate": "09/11/2025 13:35:09"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Realty Total Return Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "1011.11",
-                "oneYear_Ret": "-16.33762494207982",
-                "inception_Ret": "7.461471847611367",
+                "latNavDate": "2025-08-31",
+                "latnav": "965.68",
+                "oneYear_Ret": "-17.08339057562853",
+                "inception_Ret": "3.7031337440653678",
                 "bmcode": "2506.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-16.62",
-                "oneYear_marketValue": "8338.22708276788",
-                "inception_Ret": "6.46",
-                "inception_marketValue": "10900.718142077676",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-17.36",
+                "oneYear_marketValue": "8263.79073857309",
+                "inception_Ret": "2.77",
+                "inception_marketValue": "10408.18569665516",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NRGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -19169,9 +19233,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO48.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -19262,8 +19323,8 @@ const dataCfObj = [
         "schcode": "NS",
         "aum": [
             {
-                "latestAum": "121.2466",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "123.8334",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NSGR"
@@ -19271,35 +19332,35 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "17.1737",
+                "latnav": "16.5555",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NSGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "17.3094",
-                "currNav": "16.89",
-                "prevNAV": "16.79",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "17.15",
+                "prevNAV": "17.15",
+                "currNavDate": "09/11/2025 13:35:09"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Smallcap 250 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "21734.93",
-                "oneYear_Ret": "-3.932864613190956",
-                "inception_Ret": "16.96730292047659",
+                "latNavDate": "2025-08-31",
+                "latnav": "20956.89",
+                "oneYear_Ret": "-8.622820912956875",
+                "inception_Ret": "13.055597907882909",
                 "bmcode": "2029.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "-4.56",
-                "oneYear_marketValue": "9544.019739693902",
-                "inception_Ret": "16.57",
-                "inception_marketValue": "12351.980781955752",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "-9.2",
+                "oneYear_marketValue": "9079.715907532836",
+                "inception_Ret": "12.67",
+                "inception_marketValue": "11907.347737276674",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NSGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -19414,9 +19475,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO49.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -19509,8 +19567,8 @@ const dataCfObj = [
         "schcode": "CE",
         "aum": [
             {
-                "latestAum": "62.6585",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "76.9798",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "CEGR",
                 "prodcode": "CECEGR"
@@ -19518,22 +19576,22 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "43.5128",
+                "latnav": "41.057",
                 "optioncode": "G",
                 "plancode": "CEGR",
                 "prodcode": "CECEGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "44.8912",
-                "currNav": "42.34",
-                "prevNAV": "42.37",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "42.92",
+                "prevNAV": "43.48",
+                "currNavDate": "09/11/2025 13:35:09"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Capital Markets Index (TRI) (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "inception_Ret": "0.0",
                 "bmcode": "2551.0"
             }
@@ -19541,8 +19599,8 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "14196.162617328579",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "13394.951567806704",
+                "latNavDate": "2025-08-31",
                 "prodcode": "CECEGR",
                 "plancode": "CEGR",
                 "optioncode": "G",
@@ -19625,9 +19683,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO67.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -19717,8 +19772,8 @@ const dataCfObj = [
         "schcode": "FN",
         "aum": [
             {
-                "latestAum": "1.3974",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1.3724",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "FNGR"
@@ -19726,23 +19781,23 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "66.5439",
+                "latnav": "65.351",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "FNGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "66.8834",
-                "currNav": "66.61",
-                "prevNAV": "66.26",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "67.48",
+                "prevNAV": "67.33",
+                "currNavDate": "09/11/2025 13:35:09"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty Next 50 TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "96101.33",
+                "latNavDate": "2025-08-31",
+                "latnav": "94379.65",
                 "inception_Ret": "0.0",
                 "bmcode": "2024.0"
             }
@@ -19750,8 +19805,8 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10762.953929363965",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10570.011710132178",
+                "latNavDate": "2025-08-31",
                 "prodcode": "FNGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -19866,9 +19921,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO70.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -19958,8 +20010,8 @@ const dataCfObj = [
         "schcode": "IN",
         "aum": [
             {
-                "latestAum": "1.0632",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "1.065",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "INGR"
@@ -19967,23 +20019,23 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "141.7642",
+                "latnav": "142.0027",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "INGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "142.013",
-                "currNav": "144.97",
-                "prevNAV": "144.45",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "148.24",
+                "prevNAV": "148.08",
+                "currNavDate": "09/11/2025 13:35:09"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty India Manufacturing TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "18504.48",
+                "latNavDate": "2025-08-31",
+                "latnav": "18551.52",
                 "inception_Ret": "0.0",
                 "bmcode": "2258.0"
             }
@@ -19991,8 +20043,8 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10073.824678291678",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10090.772590287603",
+                "latNavDate": "2025-08-31",
                 "prodcode": "INGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -20107,9 +20159,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO73.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -20201,8 +20250,8 @@ const dataCfObj = [
         "schcode": "NW",
         "aum": [
             {
-                "latestAum": "24.9957",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "25.1154",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NWGR"
@@ -20210,23 +20259,23 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "31.128",
+                "latnav": "31.2772",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "NWGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "31.3823",
-                "currNav": "31.75",
-                "prevNAV": "31.66",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "32.23",
+                "prevNAV": "32.21",
+                "currNavDate": "09/11/2025 13:35:09"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "Nifty 50 Equal Weight TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
-                "latnav": "53050.33",
+                "latNavDate": "2025-08-31",
+                "latnav": "53311.51",
                 "inception_Ret": "0.0",
                 "bmcode": "2212.0"
             }
@@ -20234,8 +20283,8 @@ const dataCfObj = [
         "returns": [
             {
                 "inception_Ret": "0.0",
-                "inception_marketValue": "10350.709765805548",
-                "latNavDate": "2025-07-31",
+                "inception_marketValue": "10400.32188020603",
+                "latNavDate": "2025-08-31",
                 "prodcode": "NWGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -20350,9 +20399,6 @@ const dataCfObj = [
         ],
         "portfolio": {
             "url": "/content/dam/mysite/sheets/Month_End_Portfolio_June_2025/YO69.xlsx"
-        },
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
         }
     },
     {
@@ -20452,15 +20498,15 @@ const dataCfObj = [
         "schcode": "AA",
         "aum": [
             {
-                "latestAum": "91.371",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "95.3297",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "AAGD"
             },
             {
-                "latestAum": "91.371",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "95.3297",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "AAGP"
@@ -20468,20 +20514,20 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "18.0743",
+                "latnav": "18.0941",
                 "optioncode": "G",
                 "plancode": "GD",
                 "prodcode": "AAGD",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.04",
                 "navchngper": "0.20"
             },
             {
-                "latnav": "17.663",
+                "latnav": "17.6683",
                 "optioncode": "G",
                 "plancode": "GP",
                 "prodcode": "AAGP",
-                "recdt": "20-Aug-2025",
+                "recdt": "10-Sep-2025",
                 "navchng": "0.04",
                 "navchngper": "0.20"
             }
@@ -20490,19 +20536,19 @@ const dataCfObj = [
             {
                 "type": "BM",
                 "groupName": "50% Nifty 500 TRI+20% S&P 500 TRI(INR)+10% Demestic Price of Gold+20%Nifty 5Yr Benchmark G-Sec Index (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "bmcode": "2213.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "8.78",
-                "oneYear_marketValue": "10878.49916038207",
-                "threeYear_Ret": "16.7",
-                "threeYear_marketValue": "15894.944200649015",
-                "inception_Ret": "14.44",
-                "inception_marketValue": "18074.3",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "7.11",
+                "oneYear_marketValue": "10710.941153488702",
+                "threeYear_Ret": "15.84",
+                "threeYear_marketValue": "15545.961457501013",
+                "inception_Ret": "14.17",
+                "inception_marketValue": "18094.100000000002",
+                "latNavDate": "2025-08-31",
                 "prodcode": "AAGD",
                 "plancode": "GD",
                 "optioncode": "G",
@@ -20511,13 +20557,13 @@ const dataCfObj = [
                 "isin": "INF247L01AL2"
             },
             {
-                "oneYear_Ret": "8.31",
-                "oneYear_marketValue": "10831.146214035174",
-                "threeYear_Ret": "16.12",
-                "threeYear_marketValue": "15656.744730263974",
-                "inception_Ret": "13.84",
-                "inception_marketValue": "17663.0",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "6.6",
+                "oneYear_marketValue": "10659.607843137255",
+                "threeYear_Ret": "15.25",
+                "threeYear_marketValue": "15308.097523783117",
+                "inception_Ret": "13.57",
+                "inception_marketValue": "17668.3",
+                "latNavDate": "2025-08-31",
                 "prodcode": "AAGP",
                 "plancode": "GP",
                 "optioncode": "G",
@@ -20584,10 +20630,7 @@ const dataCfObj = [
                 "sector": "Cash & Equivalent",
                 "percentage": "0.78%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     },
     {
         "indexFundType": "Indian Equity",
@@ -20647,6 +20690,11 @@ const dataCfObj = [
         "nfoKnowMoreUrl": "https://www.motilaloswalmf.com/mf/snp-bse-healthcare-etf-snapshot.html",
         "fundIcon": "/content/dam/wknd-shared/fund-icons/MO_S_P_BSE_Healthcare_ETF.png",
         "fundType": "Exchange Traded Fund",
+        "fundtype": [
+            "motilal-oswal:indian-equity-",
+            "motilal-oswal:etf",
+            "motilal-oswal:sector"
+        ],
         "moAmcCode": "MOSMF",
         "periodicReturns": "<p><b>This product is suitable for investors who are seeking*</b></p>\n<ul>\n<li>Return that corresponds to the performance of&nbsp;BSE Healthcare Total Return Index subject to tracking error.&nbsp;</li>\n<li>Long term capital growth.</li>\n</ul>\n",
         "redemptionProceeds": "As per SEBI Regulations, the Mutual Fund shall despatch redemption proceeds within 10 Business Days of receiving a valid redemption request",
@@ -20678,8 +20726,8 @@ const dataCfObj = [
         "schcode": "SH",
         "aum": [
             {
-                "latestAum": "32.0845",
-                "latestAumAsOnDt": "2025-07-31T00:00:00",
+                "latestAum": "31.6319",
+                "latestAumAsOnDt": "2025-08-31T00:00:00",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "SHGR"
@@ -20687,38 +20735,38 @@ const dataCfObj = [
         ],
         "nav": [
             {
-                "latnav": "45.8972",
+                "latnav": "44.1451",
                 "optioncode": "G",
                 "plancode": "GR",
                 "prodcode": "SHGR",
                 "nav_date": "16-Jun-2025",
                 "nav_amount": "44.5862",
-                "currNav": "44.11",
-                "prevNAV": "44.30",
-                "currNavDate": "09/02/2025 13:52:52"
+                "currNav": "45.13",
+                "prevNAV": "45.21",
+                "currNavDate": "09/11/2025 13:35:08"
             }
         ],
         "benchmarkreturns": [
             {
                 "type": "BM",
                 "groupName": "BSE Healthcare TRI (PRIMARY)",
-                "latNavDate": "2025-07-31",
+                "latNavDate": "2025-08-31",
                 "latnav": "40107.94",
                 "oneYear_Ret": "0.0",
-                "threeYear_Ret": "15.538187459077491",
-                "inception_Ret": "15.492619410640373",
+                "threeYear_Ret": "15.251857351404086",
+                "inception_Ret": "15.036754837867283",
                 "bmcode": "2046.0"
             }
         ],
         "returns": [
             {
-                "oneYear_Ret": "12.39",
-                "oneYear_marketValue": "11238.708571568493",
-                "threeYear_Ret": "26.08",
-                "threeYear_marketValue": "20041.045167149892",
-                "inception_Ret": "26.0",
-                "inception_marketValue": "20041.045167149892",
-                "latNavDate": "2025-07-31",
+                "oneYear_Ret": "1.33",
+                "oneYear_marketValue": "10133.27365171183",
+                "threeYear_Ret": "24.16",
+                "threeYear_marketValue": "19141.423777024273",
+                "inception_Ret": "23.64",
+                "inception_marketValue": "19275.989450518744",
+                "latNavDate": "2025-08-31",
                 "prodcode": "SHGR",
                 "plancode": "GR",
                 "optioncode": "G",
@@ -20806,10 +20854,7 @@ const dataCfObj = [
                 "sector": "Cash & Equivalent",
                 "percentage": "0.25%"
             }
-        ],
-        "factsheet": {
-            "url": "/content/dam/mysite/factsheets/37a31-most-factsheet-july-2025-active.pdf"
-        }
+        ]
     }
 ];
 export default dataCfObj;
