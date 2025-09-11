@@ -6,8 +6,18 @@
 
 
 .invest-now-homepage-container {
-  width: 360px;
   max-width: 100%;
+
+  // position: fixed;
+  // position: absolute;
+  top: 0;
+  right: 0; /* Hide it outside the screen */
+  width: 400px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 10px rgb(0 0 0 / 30%);
+  transition: right 0.10s ease-in-out;
+  z-index: 1000;
 
   @include media(mobile) {
     width: 100%;
@@ -34,6 +44,7 @@
       background: #FFF;
       max-width: 100%;
       width: 100%;
+      height: 100vh;
 
       @include media(mobile) {
         border-radius: 24px 24px 0 0;
@@ -44,11 +55,11 @@
         padding: 64px 16px 37px;
         max-width: 372px;
         width: 100%;
-        max-height: 629px;
+        height: 100vh;
         overflow: auto;
 
         @include media(mobile) {
-          padding: 64px 16px 10px;
+          padding: 64px 16;
           max-width: 100%;
           max-height: inherit;
         }
@@ -538,8 +549,7 @@
                   width: 100%;
                   line-height: 0.5px;
 
-                  /* stylelint-disable-next-line no-descending-specificity */
-                  label {
+                  .custom-select-label {
                     align-self: stretch;
                     color: #424242;
                     font-family: $poppins;
@@ -791,5 +801,40 @@
       }
     }
 
+  }
+}
+
+.modal-show{
+  right: 0;
+  animation: slide-in 1.2s forwards;
+}
+
+.hide-modal{
+  // right:/ -400px;
+  animation: slide-out 1.2s forwards;
+}
+
+
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+
+  }
+
+  to {
+    transform: translateX(0);
+    // transform: translateY(0);
+  }
+}
+
+// * Slide-out keyframes */
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
   }
 }

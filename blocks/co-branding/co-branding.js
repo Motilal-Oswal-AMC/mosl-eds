@@ -119,4 +119,99 @@ export default function decorate(block) {
 
   block.textContent = '';
   block.append(coBrandingSection);
+
+  // validate start coheading
+  const distributorName = block.querySelector('#distributor-name');
+  const coheadingMobilNumber = block.querySelector('#mobile-number');
+  coheadingMobilNumber.setAttribute('maxLength', 10);
+  const coheadingEmail = block.querySelector('#email');
+  const coPrepared = block.querySelector('#prepared-for');
+  const coEuin = block.querySelector('#euin');
+  const ARN = block.querySelector('#ARN');
+
+  coheadingMobilNumber.addEventListener('input', (e) => {
+    const panRegex = /^\d{10}$/;
+    const inputValue = e.target.value.toUpperCase();
+    const errorPanEl = e.target.nextElementSibling;
+    if (panRegex.test(inputValue)) {
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+      // userLoginPanNumber.setAttribute('readonly', true);
+    } else {
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
+    }
+  });
+
+  coheadingEmail.addEventListener('input', (e) => {
+    const panRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const inputValue = e.target.value.toUpperCase();
+    const errorPanEl = e.target.nextElementSibling;
+    if (panRegex.test(inputValue)) {
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+      // userLoginPanNumber.setAttribute('readonly', true);
+    } else {
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
+    }
+  });
+
+  distributorName.addEventListener('input', (e) => {
+    const panRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+    const inputValue = e.target.value.toUpperCase();
+    const errorPanEl = e.target.nextElementSibling;
+    if (panRegex.test(inputValue)) {
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+      // userLoginPanNumber.setAttribute('readonly', true);
+    } else {
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
+    }
+  });
+
+  ARN.addEventListener('input', (e) => {
+    const panRegex = /^\d{10}$/;
+    const inputValue = e.target.value.toUpperCase();
+    const errorPanEl = e.target.nextElementSibling;
+    if (panRegex.test(inputValue)) {
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+      // userLoginPanNumber.setAttribute('readonly', true);
+    } else {
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
+    }
+  });
+
+  coEuin.addEventListener('input', (e) => {
+    const panRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+    const inputValue = e.target.value.toUpperCase();
+    const errorPanEl = e.target.nextElementSibling;
+    if (panRegex.test(inputValue)) {
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+      // userLoginPanNumber.setAttribute('readonly', true);
+    } else {
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
+    }
+  });
+
+  coPrepared.addEventListener('input', (e) => {
+    const panRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+    const inputValue = e.target.value.toUpperCase();
+    const errorPanEl = e.target.nextElementSibling;
+    if (panRegex.test(inputValue)) {
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
+      // userLoginPanNumber.setAttribute('readonly', true);
+    } else {
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
+    }
+  });
+
+  // end coheading
 }

@@ -1,6 +1,5 @@
-/*  eslint-disable   */
 import {
-  div, a, label, input, span, button, ul, img, li,
+  div, a, label, input, span, button, ul, img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 
@@ -18,7 +17,7 @@ export default function decorate(block) {
   // let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const schcode = planCode.split(':')[1];
-  let selectedFund = dataCfObj.find(fund => fund.schcode === schcode);
+  let selectedFund = dataCfObj.find((fund) => fund.schcode === schcode);
   let returnCAGR = 0;
   let mode = 'sip';
   let planType = 'Direct';
@@ -33,7 +32,7 @@ export default function decorate(block) {
     // 🔍 Fund search input
     div(
       { class: 'search-bar-wrapper' },
-      span(col1[0].textContent.trim()),
+      label({ class: 'search-bar-label' }, col1[0].textContent.trim()),
       input({
         value: selectedFund.schDetail.schemeName,
         type: 'text',
@@ -44,22 +43,30 @@ export default function decorate(block) {
         'aria-autocomplete': 'list',
         'aria-expanded': 'false',
         autocomplete: 'off',
+        class: 'search-bar-inp',
       }),
       img({
         class: 'cancel-btn',
         src: '../../icons/input-cancel.svg',
         alt: 'cancel button',
       }),
-      div({ class: 'search-results-wrapper' }, ul({ id: 'searchResults', role: 'listbox' })),
+      div(
+        { class: 'search-results-wrapper' },
+        ul({ id: 'searchResults', role: 'listbox', class: 'search-result-ul' }),
+      ),
       span({ class: 'search-error error-hide' }, 'Fund not found'),
     ),
 
-    div({ class: 'spi-wrapper' },
+    div(
+      { class: 'spi-wrapper' },
       // 🔄 SIP & Lumpsum toggle
       div(
         { class: 'scheme-btns-wrapper' },
-        button({ class: 'sip-btn active' }, col1[2].textContent.trim()),
-        button({ class: 'lumpsum-btn' }, col1[3].textContent.trim()),
+        button(
+          { class: 'sip-btn active scheme-btn' },
+          col1[2].textContent.trim(),
+        ),
+        button({ class: 'lumpsum-btn scheme-btn' }, col1[3].textContent.trim()),
       ),
 
       // 🔀 Direct/Regular toggle & plan options
@@ -68,7 +75,11 @@ export default function decorate(block) {
         div(
           { class: 'plan-type-toggle' },
           span({ class: 'toggle-label active' }, 'Direct'),
-          label({ class: 'toggle-switch' }, input({ type: 'checkbox', id: 'planToggle' }), span({ class: 'slider' })),
+          label(
+            { class: 'toggle-switch' },
+            input({ type: 'checkbox', id: 'planToggle', class: 'toggle-inp' }),
+            span({ class: 'slider' }),
+          ),
           span({ class: 'toggle-label' }, 'Regular'),
         ),
         div(
@@ -85,7 +96,10 @@ export default function decorate(block) {
         div(
           { class: 'sip-wrapper' },
           label({ class: 'labelforsip' }, col2[0].textContent.trim()),
-          label({ class: 'labelforlumsum', style: 'display:none' }, col2[1].textContent.trim()),
+          label(
+            { class: 'labelforlumsum', style: 'display:none' },
+            col2[1].textContent.trim(),
+          ),
           div(
             { class: 'input-with-symbol' },
             // input({
@@ -100,42 +114,56 @@ export default function decorate(block) {
               value: Number(col2[2].textContent.trim()).toLocaleString('en-IN'), // Format the initial value
               id: 'investmentAmount',
               placeholder: 'Enter amount',
+              class: 'investment-inp',
             }),
           ),
-          span({ class: 'amount-error error-hide' }, 'Amount must be between 500 and 1000000'),
-
+          span(
+            { class: 'amount-error error-hide' },
+            'Amount must be between 500 and 1000000',
+          ),
         ),
         div(
           { class: 'tenure-wrapper custom-select' },
-          label(col2[3].textContent.trim()),
-          div({ class: 'select-selected' }, `${col3[0].textContent.trim()} Years`),
+          label({ class: 'tenure-label' }, col2[3].textContent.trim()),
+          div(
+            { class: 'select-selected' },
+            `${col3[0].textContent.trim()} Years`,
+          ),
           div({ class: 'select-options', role: 'listbox' }),
-          input({ type: 'hidden', id: 'investmentTenure', value: col3[0].textContent.trim() }),
+          input({
+            type: 'hidden',
+            id: 'investmentTenure',
+            value: col3[0].textContent.trim(),
+          }),
         ),
       ),
     ),
-
-    div({ class: 'incal-wrapper' },
+    div(
+      { class: 'incal-wrapper' },
       // 📈 Invested amount & calculation
       div(
         { class: 'invested-amount' },
-        label(col3[1].textContent.trim()),
+        span({ class: 'invested-label' }, col3[1].textContent.trim()),
         span({ class: 'invested-amount-value' }, col3[2].textContent.trim()),
       ),
       div(
         { class: 'cal-discription' },
         div(
           { class: 'current-value-wrapper' },
-          label(col3[3].textContent.trim()),
-          span({ class: 'current-value' }, '0'),
+          label({ class: 'cal-desc-label' }, col3[3].textContent.trim()),
+          span({ class: 'current-value cal-desc-value' }, '0'),
         ),
         div(
           { class: 'return-cagr-wrapper' },
-          label(col4[1].textContent.trim()),
-          span({ class: 'return-cagr' }, `${returnCAGR.toFixed(2)}  %`),
+          label({ class: 'cal-desc-label' }, col4[1].textContent.trim()),
+          span(
+            { class: 'return-cagr cal-desc-value' },
+            `${returnCAGR.toFixed(2)}  %`,
+          ),
         ),
-        div({ class: 'start-sip-btn' }, button(col4[3].textContent.trim())),
-      )),
+        div({ class: 'start-sip-btn' }, button({ class: 'sip-btn' }, col4[3].textContent.trim())),
+      ),
+    ),
   );
 
   // 🔗 View other calculators
@@ -159,8 +187,8 @@ export default function decorate(block) {
 
   // Hide Search and Direct Growth for FDP Page
   if (block.parentElement.parentElement.classList.contains('fdp-calculator')) {
-    document.querySelector('.fdp-calculator .search-bar-wrapper').style.display = 'none'
-    document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none'
+    document.querySelector('.fdp-calculator .search-bar-wrapper').style.display = 'none';
+    document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none';
   }
 
   // const inputEl = document.getElementById("investmentAmount");
@@ -194,8 +222,8 @@ export default function decorate(block) {
     // If the input value exists and is less than 500, show an error and stop.
     if (amount < 500) {
       amountError.classList.add('error-show');
-      // investedAmountSpan.textContent = '—'; 
-      // currentValueSpan.textContent = '—';    
+      // investedAmountSpan.textContent = '—';
+      // currentValueSpan.textContent = '—';
       return;
     }
 
@@ -205,9 +233,9 @@ export default function decorate(block) {
     if (amount > 1000000) {
       // This part is a user convenience, not strict validation
       amountInput.value = amountInput.value.slice(0, -1);
+      // eslint-disable-next-line consistent-return
       return false;
     }
-
 
     let tenure = 0;
 
@@ -252,7 +280,7 @@ export default function decorate(block) {
     // ✅ If no returns, show fallback
     const mainSections = ['.investment-wrapper', '.invested-amount', '.cal-discription'];
     const noReturnsMsg = block.querySelector('.no-returns-msg');
-    if (!returnCAGR || isNaN(returnCAGR) || returnCAGR <= 0) {
+    if (!returnCAGR || Number.isNaN(returnCAGR) || returnCAGR <= 0) {
       investedAmountSpan.textContent = '—';
       currentValueSpan.textContent = '—';
       returnCAGRSpan.textContent = '—';
@@ -269,9 +297,20 @@ export default function decorate(block) {
     const r = returnCAGR / 100 / 12;
     const n = tenure * 12;
     const investedAmount = mode === 'sip' ? amount * n : amount;
-    const futureValue = mode === 'sip'
-      ? (isNaN(r) || r === 0 ? investedAmount : amount * (((1 + r) ** n - 1) / r))
-      : amount * ((1 + returnCAGR / 100) ** tenure);
+    let futureValue;
+
+    if (mode === 'sip') {
+      // Logic for SIP calculation
+      const isInvalidRate = Number.isNaN(r) || r === 0;
+      if (isInvalidRate) {
+        futureValue = investedAmount;
+      } else {
+        futureValue = amount * (((1 + r) ** n - 1) / r);
+      }
+    } else {
+      // Logic for lumpsum or other modes
+      futureValue = amount * ((1 + returnCAGR / 100) ** tenure);
+    }
 
     investedAmountSpan.textContent = `${(investedAmount / 100000).toFixed(2)} Lac`;
     currentValueSpan.textContent = `${(futureValue / 100000).toFixed(2)} Lac`;
@@ -317,6 +356,20 @@ export default function decorate(block) {
     }
   }
 
+  function updateReturnRate() {
+    if (!selectedFund) return;
+    const targetPlan = selectedFund.planList
+      .find((p) => p.planName === planType && p.optionName === planOption);
+    const targetReturns = targetPlan
+      ? selectedFund.returns
+        .find((r) => r.plancode === targetPlan.planCode && r.optioncode === targetPlan.optionCode)
+      : null;
+
+    returnCAGR = targetReturns?.inception_Ret ? parseFloat(targetReturns.inception_Ret) : 0;
+    updateTenureOptions(targetReturns);
+    updateValues();
+  }
+
   function updatePlanOptions(fund) {
     const wrapper = block.querySelector('.custom-select-plan');
     const optionsContainer = wrapper.querySelector('.select-options-plan');
@@ -348,19 +401,6 @@ export default function decorate(block) {
       planOption = defaultPlan;
     }
   }
-
-  function updateReturnRate() {
-    if (!selectedFund) return;
-    const targetPlan = selectedFund.planList.find((p) => p.planName === planType && p.optionName === planOption);
-    const targetReturns = targetPlan
-      ? selectedFund.returns.find((r) => r.plancode === targetPlan.planCode && r.optioncode === targetPlan.optionCode)
-      : null;
-
-    returnCAGR = targetReturns?.inception_Ret ? parseFloat(targetReturns.inception_Ret) : 0;
-    updateTenureOptions(targetReturns);
-    updateValues();
-  }
-
   // -------------------------------
   // ✅ 6. EVENTS & LOGIC
   // -------------------------------
@@ -377,16 +417,16 @@ export default function decorate(block) {
   // amountInput.addEventListener('input', updateValues);
   // ✅ ADD THIS NEW HANDLER AND LISTENER
   function handleAmountInput(e) {
-    const input = e.target;
+    const inputVal = e.target;
     // 1. Get the raw number by removing non-digits
-    const rawValue = input.value.replace(/[^0-9]/g, '');
+    const rawValue = inputVal.value.replace(/[^0-9]/g, '');
 
     // 2. Format the number with commas (Indian system)
     if (rawValue) {
       const formattedValue = parseInt(rawValue, 10).toLocaleString('en-IN');
-      input.value = formattedValue;
+      inputVal.value = formattedValue;
     } else {
-      input.value = ''; // Handle empty input
+      inputVal.value = ''; // Handle empty input
     }
 
     // 3. Trigger the calculation
@@ -418,18 +458,18 @@ export default function decorate(block) {
     const query = e.target.value.toLowerCase().trim();
     searchResults.innerHTML = '';
     currentFocus = -1;
-    const filtered = query ? schemeNames.filter((name) => name.toLowerCase().includes(query)) : schemeNames;
+    const filtered = query
+      ? schemeNames.filter((name) => name.toLowerCase().includes(query)) : schemeNames;
 
     // --- ADD THIS BLOCK ---
     // If no funds match the query, show the "not found" message
     if (filtered.length === 0) {
       // const errorLi = document.createElement('li');
       // errorLi.textContent = 'Fund not found';
-      // errorLi.classList.add('no-results'); // Add a class for styling (e.g., to make it non-hoverable)
       // searchResults.appendChild(errorLi);
       calContainer.querySelector('.cancel-btn').style.display = 'block';
-      const searchError = document.querySelector('.search-error')
-      searchError.classList.remove('error-hide')
+      const searchError = document.querySelector('.search-error');
+      searchError.classList.remove('error-hide');
       return; // Stop further execution
     }
     // --- END BLOCK ---
@@ -449,31 +489,36 @@ export default function decorate(block) {
     });
   });
 
+  function addActive(items) {
+    if (!items) return;
+    items.forEach((i) => i.classList.remove('active'));
+    if (currentFocus >= items.length) currentFocus = items.length - 1;
+    if (currentFocus < 0) currentFocus = 0;
+    items[currentFocus].classList.add('active');
+    items[currentFocus].scrollIntoView({ block: 'nearest' });
+  }
+
   searchInput.addEventListener('keydown', (e) => {
     const items = searchResults.querySelectorAll('li');
     if (!items.length) return;
     const searchError = document.querySelector('.search-error');
-    searchError.classList.add('error-hide')
-    if (e.key === 'ArrowDown') { currentFocus++; addActive(items); e.preventDefault(); }
-    else if (e.key === 'ArrowUp') { currentFocus--; addActive(items); e.preventDefault(); }
-    else if (e.key === 'Enter') {
+    searchError.classList.add('error-hide');
+    if (e.key === 'ArrowDown') {
+      currentFocus += 1; addActive(items); e.preventDefault();
+    } else if (e.key === 'ArrowUp') { currentFocus -= 1; addActive(items); e.preventDefault(); } else if (e.key === 'Enter') {
       e.preventDefault();
       if (currentFocus > -1) {
         items[currentFocus].click();
       } else if (items.length > 0) {
         items[0].click();
-      };
-    }
-    else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; }
-    else if (e.key === 'Backspace' || e.key === 'Delete') { 
+      }
+    } else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; } else if (e.key === 'Backspace' || e.key === 'Delete') {
       if (searchInput.value.length === 1) {
         calContainer.querySelector('.cancel-btn').style.display = 'none';
-      }else{
-        if (searchInput.value.length > 1) {
-          calContainer.querySelector('.cancel-btn').style.display = 'block';
-        }
+      } else if (searchInput.value.length > 1) {
+        calContainer.querySelector('.cancel-btn').style.display = 'block';
       }
-     }
+    }
   });
 
   document.addEventListener('click', (event) => {
@@ -503,16 +548,6 @@ export default function decorate(block) {
     });
     calContainer.querySelector('.cancel-btn').style.display = 'none';
   });
-
-  function addActive(items) {
-    if (!items) return;
-    items.forEach((i) => i.classList.remove('active'));
-    if (currentFocus >= items.length) currentFocus = items.length - 1;
-    if (currentFocus < 0) currentFocus = 0;
-    items[currentFocus].classList.add('active');
-    items[currentFocus].scrollIntoView({ block: 'nearest' });
-  }
-
   // -------------------------------
   // ✅ 7. SECTION HERO LAYOUT FIX
   // -------------------------------
@@ -540,6 +575,15 @@ export default function decorate(block) {
       section.insertBefore(wrapper, heroWrap);
       wrapper.append(heroWrap, calcWrap);
     }
+  }
+  try {
+    Array.from(
+      section.querySelectorAll('.default-content-wrapper')[1].children,
+    ).forEach((el, i) => {
+      el.classList.add(`disc-child-${i + 1}`);
+    });
+  } catch (error) {
+    console.log(error);
   }
 
   // -------------------------------

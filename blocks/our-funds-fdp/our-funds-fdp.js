@@ -38,7 +38,7 @@ export default async function decorate(block) {
         { class: 'fund-wrapper' },
         div(
           { class: 'fund-manager' },
-          div({ class: 'fund-manager-image' }, img({ src: `/icons/fund-managers/${manager.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic' })),
+          div({ class: 'fund-manager-image' }, img({ src: `/icons/fund-managers/${manager.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic', loading: 'lazy' })),
           div(
             { class: 'fund-manager-detail' },
             p(manager.fundManagerName), // (manager.managerName),

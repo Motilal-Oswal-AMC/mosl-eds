@@ -1,6 +1,7 @@
 /*   alpha-value-notation */
 /*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
+@import '../swiper/swiper-bundle.min.css';
 .section.fund-card-slider-container {
   position: relative;
   padding: 0 0 40px;

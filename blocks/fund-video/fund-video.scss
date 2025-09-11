@@ -1,7 +1,8 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
-@import "../live-streaming-carousel/live-streaming-carousel";
+
+// @import "../live-streaming-carousel/live-streaming-carousel";
 
 .section.fund-video-container {
   width: 100%;

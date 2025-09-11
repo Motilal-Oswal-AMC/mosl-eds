@@ -1,11 +1,13 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 .think-equity {
+  background-color: transparent;
+
   &-container.section {
     margin: 0 auto;
-    background-color: #FFF;
+    background-color: #fff;
   }
 
   &-container {
@@ -17,6 +19,9 @@
 
     .think-equity-wrapper {
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .columns {
@@ -79,11 +84,13 @@
               &-2 {
                 margin: 0;
 
-                @include font-style(14px,
+                @include font-style(
+                  14px,
                   20px,
                   $text-body-2,
                   map.get($font-weights, regular),
-                  $poppins);
+                  $poppins
+                );
 
                 @include media(mobile) {
                   text-wrap: unset;
@@ -192,11 +199,11 @@
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
-  &-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  // &-wrapper {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
 
   &.block {
     width: 100%;
@@ -227,7 +234,7 @@
       padding: 28px 0;
       flex-basis: 44.4%;
 
-      // position: relative;  
+      // position: relative;
       min-height: 237px;
 
       @include media(mobile) {
@@ -249,11 +256,10 @@
           min-height: 114px;
         }
 
-
         h3 {
           margin: 0;
           padding: 0;
-          color: #2E2A94;
+          color: #2e2a94;
           font-family: $butlerpro;
           font-size: 36px;
           line-height: 44px;
@@ -272,14 +278,14 @@
           top: 0;
           left: -42px;
           display: block;
-          background: url('../../icons/think-logo-circle.svg');
+          background: url("../../icons/think-logo-circle.svg");
           background-repeat: no-repeat;
           background-position: center;
           width: 223px;
           height: 100%;
 
           @include media(mobile) {
-            background: url('../../icons/think-logo-circle-mob.svg');
+            background: url("../../icons/think-logo-circle-mob.svg");
             width: 107px;
             height: 115px;
             top: -2px;

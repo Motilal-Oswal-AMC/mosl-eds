@@ -30,10 +30,14 @@ export default function decorate(block) {
   }
   dataMapMoObj.addIndexed(whyFund);
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  const [planFlow, planslabel] = planCode.split(':');
+  const planslabel = planCode.split(':')[1];
   const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
   dataMapMoObj.CLASS_PREFIXES = ['compound-item', 'compound-sub-item', 'compound-inner-item'];
   dataMapMoObj.addIndexed(block);
+
+  const stky = mainBlock.querySelector('.fdp-sticky-nav');
+  dataMapMoObj.CLASS_PREFIXES = ['sticky-item', 'sticky-sub-item', 'sticky-inner-item'];
+  dataMapMoObj.addIndexed(stky);
 
   dataMapMoObj.CLASS_PREFIXES = ['item'];
   dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
@@ -43,7 +47,7 @@ export default function decorate(block) {
   const finPlangrp = [];
   const tempReturns = [];
   const DirectPlanlistArr = cfObj[0].planList.filter(
-    (el) => el.planName === planFlow,
+    (el) => el.planName,
   );
   cfObj[0].returns.forEach((ret) => {
     if (DirectPlanlistArr[0].groupedCode === (ret.plancode + ret.optioncode)) {
@@ -60,7 +64,7 @@ export default function decorate(block) {
     (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
   );
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
-  const mop = `MO_${cfObj[0].schcode}.svg`;
+  const mop = `../../icons/iconfund/MO_${cfObj[0].schcode}.svg`;
   const [firstReturnYear] = tempReturns;
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
@@ -74,12 +78,13 @@ export default function decorate(block) {
   const navdatecss = navlistArr[0].nav_date === undefined ? 'none' : 'block';
   const navnotpresent = navlistArr[0].nav_date === undefined ? 'block' : 'none';
   const navlistArrDate = navlistArr[0]?.nav_date?.replaceAll('-', ' ') ?? '';
+
   function planGrpEvent(param) {
     const tempReturnsec = [];
     const returnValue = [];
     const valueText = param.target.textContent.trim();
-    const planType = valueText.split('|')[1].trim();
-    const plangrp = DirectPlanlistArr.filter((el) => el.optionName === planType);
+    const planType = valueText.replace(' |', '');
+    const plangrp = DirectPlanlistArr.filter((el) => el.groupedCode === param.target.getAttribute('datacode'));
 
     cfObj[0].returns.forEach((ret) => {
       if ((ret.plancode + ret.optioncode) === plangrp[0].groupedCode) {
@@ -163,6 +168,11 @@ export default function decorate(block) {
       navValue.innerHTML = '';
       navValue.append(Number(navlistarray[0].latnav).toFixed(2));
       navValue.append(span({ class: 'percent' }, '%'));
+
+      const navper = middlediv.querySelector('.nav-percent');
+      navper.textContent = '';
+      navper.textContent = navlistarray[0].navchngper;
+      navper.append(span({ class: 'navper' }, '%'));
     } else {
       const navdiv = middlediv.querySelector('.nav-return-grp .nav-label');
       navdiv.innerHTML = '';
@@ -172,9 +182,15 @@ export default function decorate(block) {
       navValue.innerHTML = '';
       navValue.append(Number(navlistarray[0].latnav).toFixed(2));
       navValue.append(span({ class: 'percent' }, '%'));
+
+      const navper = middlediv.querySelector('.nav-percent');
+      navper.textContent = '';
+      navper.textContent = navlistarray[0].navchngper;
+      navper.append(span({ class: 'navper' }, '%'));
     }
   }
 
+  const typeOfScheme = cfObj[0].typeOfScheme === undefined ? '' : cfObj[0].typeOfScheme;
   const cardContainer = div(
     {
       class: 'card-container',
@@ -197,7 +213,7 @@ export default function decorate(block) {
             },
             img({
               class: 'logoscheme',
-              src: `../../icons/iconfund/${mop}`,
+              src: `${mop}`,
               alt: 'BrandLogo',
             }),
           ),
@@ -265,7 +281,7 @@ export default function decorate(block) {
             {
               class: 'discription',
             },
-            cfObj[0].typeOfScheme,
+            typeOfScheme,
           ),
         ),
         div(
@@ -458,7 +474,10 @@ export default function decorate(block) {
                   {
                     class: 'nav-percent',
                   },
-                  '0.41%',
+                  Number(navlistArr[0].navchngper),
+                  span({
+                    class: 'navper',
+                  }, '%'),
                 ),
               ),
             ),
@@ -522,15 +541,15 @@ export default function decorate(block) {
     ),
   );
 
-  // document.querySelector('.item2 ul').classList.add('item2-ul');
-
-  // document.querySelector('.item2 ul').classList.add('item2-ul');
   const ptag = p({ class: 'selectedtext-fdp' }, 'Performance');
   const item2Ul = block.closest('.section').querySelector('.item2 ul');
   const item2 = block.closest('.section').querySelector('.item2');
   item2Ul.classList.add('item2-ul');
   item2.prepend(ptag);
-  block.innerHTML = '';
+  // block.innerHTML = '';
+  Array.from(block.children).forEach((elchild) => {
+    elchild.style.display = 'none';
+  });
   block.append(cardContainer);
 
   dataMapMoObj.CLASS_PREFIXES = ['tab-li-item'];
@@ -584,36 +603,11 @@ export default function decorate(block) {
   document.querySelectorAll('.table-wrapper').forEach((el) => {
     document.querySelector('.item2').append(el);
   });
-  // document.querySelectorAll('.section .item2 ul li a').forEach((link) => {
-  //   link.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     const targetId = link.getAttribute('href'); // scrollMap[];
-  //     const target = document.querySelector(`.section[data-id="${targetId}"]`);
-  //     target?.scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start',
-  //     });
-  //   });
-  // });
-
-  // document.querySelectorAll('.section .navlinks ul li a').forEach((link) => {
-  //   link.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     const targetId = link.getAttribute('href'); // scrollMap[];
-  //     const target = document.querySelector(`.section[data-id="${targetId}"]`);
-  //     target?.scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start',
-  //     });
-  //   });
-  // });
-
-  // chat  1
 
   (function () {
     // Function to calculate the correct header offset based on screen size
     function getHeaderOffset() {
-      return window.innerWidth <= 768 ? 450 : 180;
+      return window.innerWidth <= 768 ? 450 : 250;
     }
 
     // Smooth scroll setup with dynamic header offset
@@ -654,39 +648,6 @@ export default function decorate(block) {
     });
   }());
 
-  // chat 2
-
-  // debugger;
-  //   (function () {
-  //   document.querySelectorAll("ul.item2-ul > li > a").forEach((link) => {
-  //     link.addEventListener("click", (e) => {
-  //       e.preventDefault();
-
-  //       const targetId = link.getAttribute("href");
-  //       const target = document.querySelector(
-  //         `.section[data-id="${targetId.trim()}"]`
-  //       );
-  //       const clickY = (e.currentTarget.getBoundingClientRect()).y + 40;
-
-  //       if (target) {
-  //         const targetRectY = (target.getBoundingClientRect()).y;
-  //         const targetPosition = targetRectY - clickY;
-
-  //         // Calculate intended final scroll position
-  //         const finalScrollY = window.scrollY + targetPosition;
-
-  //         // Check if we're already close enough (±2px to handle float errors)
-  //         if (Math.abs(window.scrollY - finalScrollY) > 2) {
-  //           window.scrollTo({
-  //             top: finalScrollY,
-  //             behavior: "smooth",
-  //           });
-  //         }
-  //       }
-  //     });
-  //   });
-  // })();
-
   document.addEventListener('click', (event) => {
     const dropdownmidle = block.querySelector('.dropdownmidle');
     const dropdown = block.querySelector('.dropdown');
@@ -718,5 +679,11 @@ export default function decorate(block) {
     }
   });
 
-
+  // const demo = block.querySelector('.btn-wrapper .submit');
+  // demo.addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   const neelem = block.closest('main');
+  //   const neelemv2 = neelem.querySelector('.invest-now-homepage-container');
+  //   neelemv2.classList.add('modal-show');
+  // });
 }
