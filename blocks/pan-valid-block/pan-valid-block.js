@@ -231,18 +231,22 @@ export default function decorate(block) {
   block.querySelector('.panvalidinner2').style.display = 'none';
 
   const mofdp = block.closest('main');
-  dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
   if (mofdp && mofdp.querySelector('.otp-fdp') !== null) {
   // mofdp.querySelector('.fdp-kyc-form .block').append(block);
+  dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
   dataMapMoObj.addIndexed(mofdp.querySelector('.otp-fdp'));
   const optVar = mofdp.querySelector('.otp-fdp');
   const mokyc = mofdp.querySelector('.fdp-kyc-form');
+  const headtitle = optVar.querySelector('.sub-otp-con1').cloneNode(true);
+  const dis1 = optVar.querySelector('.sub-otp-con2').cloneNode(true);
+  const dis2 = optVar.querySelector('.sub-otp-con3').cloneNode(true);
+  const dis3 = optVar.querySelector('.sub-otp-con4').cloneNode(true);
   mokyc.append(block);
   const divotp = div(
     { class: 'main-contaienr' },
     div(
       { class: 'wrapper-block' },
-      optVar.querySelector('.sub-otp-con1'),
+      headtitle,
       div(
         { class: 'otpfield' },
         div(
@@ -312,15 +316,17 @@ export default function decorate(block) {
           }),
         ),
       ),
-      optVar.querySelector('.sub-otp-con2'),
-      optVar.querySelector('.sub-otp-con3'),
-      optVar.querySelector('.sub-otp-con4'),
+      dis1,
+      dis2,
+      dis3,
     ),
   );
   if (optVar.querySelector('.otp-fdp .main-contaienr') === null) {
     optVar.querySelector('.main-otp-con1').innerHTML = '';
     optVar.querySelector('.main-otp-con1').append(divotp);
-    optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr').remove();
+    if(optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr')){
+      optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr').remove();
+    }
   }
 }
 }
