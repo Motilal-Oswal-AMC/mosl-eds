@@ -17,7 +17,7 @@ import dataMapMoObj from '../../scripts/constant.js';
 const useLiveApi = true;
 
 // The API endpoint is now a single URL.
-const fundManager_API = 'https://www.motilaloswalmf.com/mutualfund/api/v1/GetFundMangerBySchemeId';
+const fundManagerAPIv = 'https://www.motilaloswalmf.com/mutualfund/api/v1/GetFundMangerBySchemeId';
 
 export default async function decorate(block) {
   let fundManagers;
@@ -40,13 +40,13 @@ export default async function decorate(block) {
     }
   });
 
-  async function fundManagerAPI(e) {
+  async function fundManagerAPI() {
     if (useLiveApi) {
       try {
         const schemeCodeValue = localStorage.getItem('schcodeactive');
 
         // Create the POST request to the API
-        const response = await fetch(fundManager_API, {
+        const response = await fetch(fundManagerAPIv, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -65,9 +65,9 @@ export default async function decorate(block) {
         const managerDetails = data.data.response.mangerDetails;
         const managerSchemesAll = data.data.response.schemeReturns;
         let managerId;
-        managerDetails.forEach((e) => {
-          if (e.managerName.split(' ').join('') === selectedAgent) {
-            managerId = e.managerId;
+        managerDetails.forEach((el) => {
+          if (el.managerName.split(' ').join('') === selectedAgent) {
+            managerId = el.managerId;
           }
         });
         console.log(managerId);
@@ -80,7 +80,7 @@ export default async function decorate(block) {
         uniquePeriods = [...new Set(managerSchemes.map((item) => item.period))];
 
         sortedPeriods = uniquePeriods
-          .filter((p) => p.toLowerCase() !== 'si') // remove "si"
+          .filter((pl) => pl.toLowerCase() !== 'si') // remove "si"
           .sort((a, b) => {
             // Extract number part (like 1, 3, 5)
             const numA = parseInt(a);
@@ -120,7 +120,7 @@ export default async function decorate(block) {
             ...sortedPeriods.map((item) => th({ colspan: '2' }, item)),
           ),
           tr(
-            ...sortedPeriods.flatMap((ele) => [
+            ...sortedPeriods.flatMap(() => [
               th('Scheme'),
               th('Benchmark'),
             ]),
@@ -154,16 +154,16 @@ export default async function decorate(block) {
   portfolioBlock.querySelector('.fm-param').innerHTML = agentData.description;
   block.append(portfolioBlock);
 
-  const closeButton = block.parentElement.parentElement.querySelector('.icon-modal-btn');
-  if (closeButton) {
-    // document.body.classList.add('noscroll');
-    closeButton.addEventListener('click', (e) => {
-      e.stopPropagation(); // Stop click from bubbling further
-      document.body.classList.remove('noscroll');
-      document.querySelector('.fdp-card-container').classList.remove('.modal-active-parent');
-      document.querySelector('.card-modal-overlay').remove();
-    });
-  }
+  // const closeButton = block.parentElement.parentElement.querySelector('.icon-modal-btn');
+  // if (closeButton) {
+  //   // document.body.classList.add('noscroll');
+  //   closeButton.addEventListener('click', (e) => {
+  //     e.stopPropagation(); // Stop click from bubbling further
+  //     document.body.classList.remove('noscroll');
+  //     document.querySelector('.fdp-card-container').classList.remove('.modal-active-parent');
+  //     block.closest('.modal').remove();
+  //   });
+  // }
 
   // added show modal
 
@@ -171,12 +171,15 @@ export default async function decorate(block) {
   async function removeClassAfterDelay() {
     await delay(1200);
     block.closest('.modal').remove();
+    const bodym = document.querySelector('body');
+    bodym.classList.remove('modal-open');
+    bodym.classList.remove('noscroll');
   }
   const paramo = block.closest('.fm-portfolio-container');
   paramo.classList.add('modal-show');
   paramo.classList.remove('hide-modal');
   if (block.closest('.fm-portfolio-container')) {
-    const colseicon = block.querySelector('.icon-modal-btn');// ('.co-branding-container');
+    const colseicon = paramo.querySelector('.fm-portfolio-container .icon-modal-btn');// ('.co-branding-container');
     colseicon.addEventListener('click', () => {
       const mainmodal = block.closest('.fm-portfolio-container');
       mainmodal.classList.remove('modal-show');

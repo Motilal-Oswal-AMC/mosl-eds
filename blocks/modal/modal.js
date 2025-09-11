@@ -215,8 +215,7 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
   // 3. Temporarily append to a new 'modal' block to load its content
   const block = buildBlock('modal', '');
   document.querySelector('main').append(block);
-  document.querySelector('.modal').classList.add('block')
-
+  document.querySelector('.modal').classList.add('block');
 
   // Clean up the block and append the dialog
   block.innerHTML = '';
@@ -249,11 +248,17 @@ export function initializeModalHandlers() {
     if (link.href.includes('/modals/')) {
       e.preventDefault();
 
+      if (link.href.includes('fm-portfolio')) {
+        const fmId = e.target.parentNode.getAttribute('data_id');
+        localStorage.setItem('FM-AgentName', fmId);
+        document.body.classList.add('noscroll');
+      }
+
       // If it's our special card button, use the on-card logic
       if (link.classList.contains('invest-now') || link.classList.contains('card-btn') || link.classList.contains('submit')) {
         e.stopPropagation(); // Stop other listeners!
         await openModalOnElement(link.href, link);
-          // await openModal(link.href);
+        // await openModal(link.href);
       } else {
         // For all other modal links, use the default behavior
         await openModal(link.href);

@@ -1,5 +1,4 @@
 @import "../../../styles/fonts.css";
-
 /* ===== Accessibility Helpers ===== */
 .visually-hidden {
   position: absolute;
@@ -19,13 +18,11 @@
     transition: none !important;
   }
 }
-
 @media (prefers-contrast: more) {
   .key-facts-container {
     background-color: #fff !important;
     color: #000 !important;
   }
-
   .key-facts-container h4,
   .key-facts-container p,
   .key-facts-container button,
@@ -33,7 +30,6 @@
     color: #000 !important;
   }
 }
-
 /* ===== Key Facts Container ===== */
 .key-facts-container {
   display: flex;
@@ -43,20 +39,17 @@
   background-color: #fff;
   padding: 40px 24px;
   border-radius: 8px;
-  border: 1px solid rgb(0 0 0 / 5.1%);
+  border: 1px solid rgba(0, 0, 0, 0.0509803922);
 }
-
 @media (width <= 768px) {
   .key-facts-container {
     padding: 40px 16px;
     gap: 0;
   }
 }
-
 .key-facts-container .default-content-wrapper ol {
   margin: 0;
 }
-
 .key-facts-container .default-content-wrapper ol li {
   display: flex;
   flex-wrap: wrap;
@@ -64,12 +57,11 @@
   list-style: none;
   align-items: center;
 }
-
 .key-facts-container .default-content-wrapper ol li h4 {
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
-  font-family: ButlerPro, sans-serif;
+  font-family: "ButlerPro", sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
@@ -78,28 +70,24 @@
   align-items: center;
   gap: 8px;
 }
-
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper ol li h4 {
     font-size: 24px;
     line-height: 28px;
   }
 }
-
 .key-facts-container .default-content-wrapper ol li h4 span {
   max-width: 72px;
   width: 100%;
   max-height: 72px;
   height: 100%;
 }
-
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper ol li h4 span {
     max-width: 56px;
     height: 56px;
   }
 }
-
 .key-facts-container .default-content-wrapper ol li ol {
   width: calc(100% - 72px);
   display: flex;
@@ -107,7 +95,6 @@
   margin: 0;
   align-items: center;
 }
-
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper ol li ol {
     flex-direction: column;
@@ -115,12 +102,11 @@
     align-items: start;
   }
 }
-
 .key-facts-container .default-content-wrapper ol li ol li:nth-child(2) {
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   padding: 4px;
   margin: 0;
@@ -130,94 +116,80 @@
   justify-content: center;
   align-items: center;
 }
-
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper ol li ol li:nth-child(2) {
     font-weight: 400;
   }
 }
-
 @media (width <= 768px) {
   .key-facts-container .key-facts {
     padding: 40px 0 0;
   }
 }
-
 .key-facts-container .key-facts .key-facts-section {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-
 .key-facts-container .key-facts .key-facts-section .investment-objective {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .investment-objective {
     gap: 12px;
   }
 }
-
 .key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
 }
-
 .key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(2) p {
   font-size: 20px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
 }
-
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(2) p {
     padding-right: 10px;
   }
 }
-
 .key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion {
   position: relative;
   margin: 0;
 }
-
 .key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion .read-toggle-btn {
   font-size: 16px;
   line-height: 24px;
   color: #4338f3;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   text-decoration: underline;
   cursor: pointer;
 }
-
 .key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion .read-toggle-btn:focus {
   outline: 2px dashed #2e2a94;
   outline-offset: 2px;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
 }
-
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount {
     flex-wrap: wrap;
@@ -225,56 +197,48 @@
     height: unset;
   }
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-title:nth-child(1) {
   font-size: 14px;
   line-height: 16px;
   color: #242177;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-sub:nth-child(2) {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans {
     flex-direction: column-reverse;
   }
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups,
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
   display: flex;
   justify-content: space-between;
   height: 60px;
 }
-
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups,
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
@@ -283,7 +247,6 @@
     height: unset;
   }
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div,
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
   max-width: 192px;
@@ -292,80 +255,71 @@
   flex-direction: column;
   gap: 4px;
 }
-
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div,
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
     max-width: 164px;
   }
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1),
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
   text-wrap: nowrap;
   font-size: 14px;
   line-height: 16px;
   color: #242177;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
 }
-
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1),
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
     text-wrap: wrap;
   }
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2),
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2) p,
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) p {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy p.load-policy-para {
   font-size: 14px;
   line-height: 16px;
   color: #242177;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list li {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0;
   text-indent: -20px;
   padding-left: 1em;
-}
+}/*# sourceMappingURL=key-facts.css.map */
