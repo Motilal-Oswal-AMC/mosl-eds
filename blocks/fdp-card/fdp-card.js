@@ -679,11 +679,9 @@ export default function decorate(block) {
     }
   });
 
-  // const demo = block.querySelector('.btn-wrapper .submit');
-  // demo.addEventListener('click', (event) => {
-  //   event.preventDefault();
-  //   const neelem = block.closest('main');
-  //   const neelemv2 = neelem.querySelector('.invest-now-homepage-container');
-  //   neelemv2.classList.add('modal-show');
-  // });
+  const imgAltmain = block.closest('main');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb1 img'), 'callback');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb3 img'), 'portfolio-sheet');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
 }

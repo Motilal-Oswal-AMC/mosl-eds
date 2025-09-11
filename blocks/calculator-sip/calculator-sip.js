@@ -169,7 +169,7 @@ export default function decorate(block) {
   // 🔗 View other calculators
   const viewOthCalBtn = div(
     { class: 'view-btn-cal' },
-    a({ href: col4[5].querySelector('a')?.href || '#', class: 'view-othercal-btn' }, col4[4].textContent.trim()),
+    a({ href: col4[5].querySelector('a')?.href || '', class: 'view-othercal-btn' }, col4[4].textContent.trim()),
   );
 
   block.innerHTML = '';

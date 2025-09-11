@@ -8,7 +8,7 @@ import * as am5xy from '../../scripts/xy.js';
 // eslint-disable-next-line no-unused-vars, camelcase
 import * as am5themes_Animated from '../../scripts/Animated.js';
 import {
-  div, p, h4, span,
+  div, p, h2, span,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import { initObserver, myAPI } from '../../scripts/scripts.js';
@@ -17,7 +17,7 @@ export default function decorate(block) {
   const col1 = block.children[0].querySelector('h4');
   const col2 = block.children[0].querySelector('p');
 
-  const fundNote = h4(col1.textContent.trim());
+  const fundNote = h2(col1.textContent.trim());
   const fundCAGR = p(col2.textContent.trim());
 
   const filterBar = div({ class: 'chart-filter-bar' });
@@ -44,17 +44,17 @@ export default function decorate(block) {
   const planType = 'Direct';
   const planOption = 'Growth';
 
-  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  const schcode = planCode.split(':')[1];
+  const planCodeObj = localStorage.getItem('planCode') || 'Direct:LM';
+  const schcode = planCodeObj.split(':')[1];
   const selectedFund = dataCfObj.find((fund) => fund.schcode === schcode);
 
   // 2. Get the returns data for the current fund immediately.
   const targetPlan = selectedFund?.planList
     .find((ptar) => ptar.planName === planType && ptar.optionName === planOption);
-  const { planCodeobj, optionCode } = targetPlan || {};
+  const { planCode, optionCode } = targetPlan || {};
   const targetReturns = targetPlan
     ? selectedFund.returns.find((rtar) => (
-      rtar.plancode === planCodeobj && rtar.optioncode === optionCode
+      rtar.plancode === planCode && rtar.optioncode === optionCode
     ))
     : null;
 

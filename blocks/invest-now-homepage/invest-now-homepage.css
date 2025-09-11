@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /* Reset */
 @import "../../../styles/fonts.css";
 /* stylelint-disable */
@@ -373,16 +372,13 @@
   font-size: 20px;
   font-weight: 500;
   width: 100%;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   outline: none;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol input::-webkit-outer-spin-button, .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol input::-webkit-inner-spin-button,
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol select::-webkit-outer-spin-button,
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol select::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   margin: 0;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .amount-error {
@@ -588,9 +584,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   color: #2E2A94;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -778,8 +772,7 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .show {
   display: block;
-}/*# sourceMappingURL=invest-now-homepage.css.map */
-
+}
 
 .modal-show {
   right: 0;
