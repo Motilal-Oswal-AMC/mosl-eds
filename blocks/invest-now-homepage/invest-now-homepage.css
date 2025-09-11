@@ -84,9 +84,6 @@
   color: #ccc;
 }
 
-.modal.block {
-  transform: unset;
-}
 .modal.block dialog {
   max-width: 1536px;
   width: 100%;
