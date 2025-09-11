@@ -5,6 +5,7 @@ import {
   span,
   li,
   p,
+  ul,
 } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {
@@ -145,7 +146,8 @@ export default function decorate(block) {
           ),
           div(
             { class: 'load-policy-list' },
-            ul({ class: 'load-policy-list-ul' },
+            ul(
+              { class: 'load-policy-list-ul' },
               li(
                 '1% exit load applies if redeemed within 365 days of allotment.',
               ),
@@ -215,5 +217,10 @@ export default function decorate(block) {
   const replacepara = data[0].schDetail.exitLoad.replaceAll('<p>', '<li>');
   const replaceparatwo = replacepara.replaceAll('</p>', '</li>');
   const prarrep = replaceparatwo.replaceAll('<li>&nbsp;</li>', '');
-  block.querySelector('.load-policy-list').innerHTML = prarrep;
+
+  const ulCover = document.createElement('ul');
+  ulCover.className = 'load-policy-list-ul';
+  ulCover.innerHTML = prarrep;
+  block.querySelector('.load-policy-list').append(ulCover);
+  // block.querySelector('.load-policy-list').innerHTML = prarrep;
 }
