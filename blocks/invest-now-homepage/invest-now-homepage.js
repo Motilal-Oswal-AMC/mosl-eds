@@ -15,6 +15,86 @@ import dataCfObj from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { myAPI } from '../../scripts/scripts.js';
 
+const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+async function removeClassAfterDelay() {
+  const closestParam = document.querySelector('main');
+  await delay(1200);
+  // closestParam.querySelector('.modal-content').remove();
+  closestParam.querySelector('.modal').remove();
+  const bodym = document.querySelector('body');
+  bodym.classList.remove('modal-open');
+  bodym.classList.remove('noscroll');
+}
+
+function hideFormsClick(btn) {
+  // const card2 = closestParam.querySelector('.our-popular-funds')
+  //   || closestParam.querySelector('.known-our-funds')
+  //   || closestParam.querySelector('.fdp-card-container');
+
+  // const card2 = closestParam.querySelector('.our-popular-funds')
+  //   || closestParam.querySelector('.known-our-funds')
+  //   || document.querySelector('.fdp-card-container');
+
+  const card2 = document.querySelector('main');
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Stop click from bubbling further
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    const classAddv12 = card2.querySelector('.invest-now-homepage-container');
+    if (Array.from(classAddv12.classList).includes('hide-modal')) {
+      classAddv12.classList.remove('hide-modal');
+    }
+    classAddv12.classList.add('hide-modal');
+    classAddv12.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    const classAdd = card2.querySelector('.pan-details-modal');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAdd.classList.remove('hide-modal');
+    }
+    classAdd.classList.add('hide-modal');
+    // async function removeClassAfterDelay() {
+    //   await delay(1200);
+    //   closestParam.querySelector('.modal').remove();
+    // }
+    classAdd.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    // v2 for kyc form
+
+    const classAddv2 = card2.querySelector('.fdp-kyc-form');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv2.classList.remove('hide-modal');
+    }
+    classAddv2.classList.add('hide-modal');
+    classAddv2.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    // v3 for otp
+
+    const classAddv3 = card2.querySelector('.otp-fdp');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv3.classList.remove('hide-modal');
+    }
+    classAddv3.classList.add('hide-modal');
+    classAddv3.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    // overlay.classList.add('hide-overlay');
+    removeClassAfterDelay();
+  });
+}
+
 export async function existingUser(paramblock) {
   const closestParam = paramblock.closest('main');
   const demo = Array.from(closestParam.querySelectorAll('.pan-details-modal p'));
@@ -584,76 +664,12 @@ export async function existingUser(paramblock) {
   const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');
   const mod2 = closestParam.querySelector('.fdp-kyc-form .icon-modal-btn');
   const mod3 = closestParam.querySelector('.otp-fdp .icon-modal-btn');
+
   closestParam.querySelector('.pan-details-modal');
-  const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
-  async function removeClassAfterDelay() {
-    await delay(1200);
-    closestParam.querySelector('.modal-content').remove();
-  }
 
-  function hideFormsClick(btn) {
-    // const card2 = closestParam.querySelector('.our-popular-funds')
-    //   || closestParam.querySelector('.known-our-funds')
-    //   || closestParam.querySelector('.fdp-card-container');
-
-    // const card2 = closestParam.querySelector('.our-popular-funds')
-    //   || closestParam.querySelector('.known-our-funds')
-    //   || document.querySelector('.fdp-card-container');
-
-    const card2 = document.querySelector('main');
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation(); // Stop click from bubbling further
-      document.body.classList.remove('noscroll');
-      card2.classList.remove('modal-active-parent');
-
-      const classAdd = card2.querySelector('.pan-details-modal');
-      if (Array.from(classAdd.classList).includes('hide-modal')) {
-        classAdd.classList.remove('hide-modal');
-      }
-      classAdd.classList.add('hide-modal');
-      async function removeClassAfterDelay() {
-    await delay(1200);
-    closestParam.querySelector('.modal').remove();
-    
-  }
-      classAdd.classList.remove('modal-show');
-      // }
-      document.body.classList.remove('noscroll');
-      card2.classList.remove('modal-active-parent');
-
-      // v2 for kyc form
-
-      const classAddv2 = card2.querySelector('.fdp-kyc-form');
-      if (Array.from(classAdd.classList).includes('hide-modal')) {
-        classAddv2.classList.remove('hide-modal');
-      }
-      classAddv2.classList.add('hide-modal');
-      classAddv2.classList.remove('modal-show');
-      // }
-      document.body.classList.remove('noscroll');
-      card2.classList.remove('modal-active-parent');
-
-      // v3 for otp
-
-      const classAddv3 = card2.querySelector('.otp-fdp');
-      if (Array.from(classAdd.classList).includes('hide-modal')) {
-        classAddv3.classList.remove('hide-modal');
-      }
-      classAddv3.classList.add('hide-modal');
-      classAddv3.classList.remove('modal-show');
-      // }
-      document.body.classList.remove('noscroll');
-      card2.classList.remove('modal-active-parent');
-
-      // overlay.classList.add('hide-overlay');
-      removeClassAfterDelay();
-    });
-  }
-
-  // hideFormsClick(mod2);
-  // hideFormsClick(mod);
-  // hideFormsClick(mod3);
+  hideFormsClick(mod2);
+  hideFormsClick(mod);
+  hideFormsClick(mod3);
 }
 
 function loadCSS(href) {
@@ -906,6 +922,9 @@ export default function decorate(block) {
     classAdd.classList.add('modal-show');
     classAdd.classList.remove('hide-modal');
   }
+  const mainmoin = block.closest('main');
+  const mod4 = mainmoin.querySelector('.invest-now-homepage .modal-btn');
+  hideFormsClick(mod4);
   modal.querySelector('.start-now').addEventListener('click', () => {
     const mainmo = block.closest('main');
     const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';

@@ -115,9 +115,11 @@
   align-items: end;
   width: 100%;
   height: 100%;
-  max-width: 372px;
   background-color: transparent;
   box-shadow: unset;
+}
+.modal.block dialog .modal-content .invest-now-homepage-container, .modal.block dialog .modal-content .pan-details-modal, .modal.block dialog .modal-content .otp-fdp, .modal.block dialog .modal-content .fdp-kyc-form {
+  max-width: 372px;
 }
 
 .invest-now-homepage-container {

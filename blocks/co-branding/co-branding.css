@@ -151,7 +151,7 @@
   justify-content: center;
   border-radius: 8px;
   background: unset;
-  height: auto;
+  height: 100%;
 }
 @media (max-width: 768px) {
   .modal.block dialog .modal-content {

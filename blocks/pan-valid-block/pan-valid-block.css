@@ -389,7 +389,6 @@
 .section.otp-fdp .main-contaienr {
   max-width: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: end;
   height: 100%;
@@ -546,4 +545,18 @@
 }
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con3 strong {
   font-weight: 400;
+}
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con5 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con5 .icon-modal-btn {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con5 .icon-modal-btn .otp-main-con1 {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=pan-valid-block.css.map */

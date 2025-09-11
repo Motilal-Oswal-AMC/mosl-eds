@@ -28,7 +28,7 @@ export default function decorate(block) {
     el.classList.add('co-listname');
   });
   crosImage.querySelector('img').classList.add('crossbtn');
-  crosImage.classList.add('crossparbtn')
+  crosImage.classList.add('crossparbtn');
 
   const coBrandingSection = div(
     { class: 'co-branding-section' },
@@ -219,12 +219,15 @@ export default function decorate(block) {
 
   // end coheading
 
-  //const coBrand = document.querySelectorAll('.subbreadcrb4');
+  // const coBrand = document.querySelectorAll('.subbreadcrb4');
   // console.log(coBrand);
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
     await delay(1200);
     block.closest('.modal').remove();
+    const bodym = document.querySelector('body');
+    bodym.classList.remove('modal-open');
+    bodym.classList.remove('noscroll');
   }
   const paramo = block.closest('.co-branding-container');
   paramo.classList.add('modal-show');

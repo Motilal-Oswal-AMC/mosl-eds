@@ -226,107 +226,109 @@ export default function decorate(block) {
   if (block.querySelector('.maincontainer') === null) {
     block.append(divpv);
   }
-  
+
   block.querySelector('.panvalidinner1').style.display = 'none';
   block.querySelector('.panvalidinner2').style.display = 'none';
 
   const mofdp = block.closest('main');
   if (mofdp && mofdp.querySelector('.otp-fdp') !== null) {
   // mofdp.querySelector('.fdp-kyc-form .block').append(block);
-  dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
-  dataMapMoObj.addIndexed(mofdp.querySelector('.otp-fdp'));
-  const optVar = mofdp.querySelector('.otp-fdp');
-  const mokyc = mofdp.querySelector('.fdp-kyc-form');
-  const headtitle = optVar.querySelector('.sub-otp-con1').cloneNode(true);
-  const dis1 = optVar.querySelector('.sub-otp-con2').cloneNode(true);
-  const dis2 = optVar.querySelector('.sub-otp-con3').cloneNode(true);
-  const dis3 = optVar.querySelector('.sub-otp-con4').cloneNode(true);
-  mokyc.append(block);
-  const divotp = div(
-    { class: 'main-contaienr' },
-    div(
-      { class: 'wrapper-block' },
-      headtitle,
+    dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
+    dataMapMoObj.addIndexed(mofdp.querySelector('.otp-fdp'));
+    const optVar = mofdp.querySelector('.otp-fdp');
+    const mokyc = mofdp.querySelector('.fdp-kyc-form');
+    const headtitle = optVar.querySelector('.sub-otp-con1').cloneNode(true);
+    const dis1 = optVar.querySelector('.sub-otp-con2').cloneNode(true);
+    const dis2 = optVar.querySelector('.sub-otp-con3').cloneNode(true);
+    const dis3 = optVar.querySelector('.sub-otp-con4').cloneNode(true);
+    const close = optVar.querySelector('.sub-otp-con5').cloneNode(true);
+    mokyc.append(block);
+    const divotp = div(
+      { class: 'main-contaienr' },
       div(
-        { class: 'otpfield' },
+        { class: 'wrapper-block' },
+        headtitle,
         div(
-          { class: 'otp-wrap' },
-          input({
-            type: 'text',
-            class: 'otp-input',
-            'aria-label': 'OTP digit 1 of 6',
-            required: true,
-            pattern: '[0-9]',
-            tabindex: 1,
-          }),
+          { class: 'otpfield' },
+          div(
+            { class: 'otp-wrap' },
+            input({
+              type: 'text',
+              class: 'otp-input',
+              'aria-label': 'OTP digit 1 of 6',
+              required: true,
+              pattern: '[0-9]',
+              tabindex: 1,
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              type: 'text',
+              class: 'otp-input',
+              'aria-label': 'OTP digit 2 of 6',
+              required: true,
+              pattern: '[0-9]',
+              tabindex: 1,
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              type: 'text',
+              class: 'otp-input',
+              'aria-label': 'OTP digit 3 of 6',
+              required: true,
+              pattern: '[0-9]',
+              tabindex: 1,
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              type: 'text',
+              class: 'otp-input',
+              'aria-label': 'OTP digit 4 of 6',
+              required: true,
+              pattern: '[0-9]',
+              tabindex: 1,
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              type: 'text',
+              class: 'otp-input',
+              'aria-label': 'OTP digit 5 of 6',
+              required: true,
+              pattern: '[0-9]',
+              tabindex: 1,
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              type: 'text',
+              class: 'otp-input',
+              'aria-label': 'OTP digit 6 of 6',
+              required: true,
+              pattern: '[0-9]',
+              tabindex: 1,
+            }),
+          ),
         ),
-        div(
-          { class: 'otp-wrap' },
-          input({
-            type: 'text',
-            class: 'otp-input',
-            'aria-label': 'OTP digit 2 of 6',
-            required: true,
-            pattern: '[0-9]',
-            tabindex: 1,
-          }),
-        ),
-        div(
-          { class: 'otp-wrap' },
-          input({
-            type: 'text',
-            class: 'otp-input',
-            'aria-label': 'OTP digit 3 of 6',
-            required: true,
-            pattern: '[0-9]',
-            tabindex: 1,
-          }),
-        ),
-        div(
-          { class: 'otp-wrap' },
-          input({
-            type: 'text',
-            class: 'otp-input',
-            'aria-label': 'OTP digit 4 of 6',
-            required: true,
-            pattern: '[0-9]',
-            tabindex: 1,
-          }),
-        ),
-        div(
-          { class: 'otp-wrap' },
-          input({
-            type: 'text',
-            class: 'otp-input',
-            'aria-label': 'OTP digit 5 of 6',
-            required: true,
-            pattern: '[0-9]',
-            tabindex: 1,
-          }),
-        ),
-        div(
-          { class: 'otp-wrap' },
-          input({
-            type: 'text',
-            class: 'otp-input',
-            'aria-label': 'OTP digit 6 of 6',
-            required: true,
-            pattern: '[0-9]',
-            tabindex: 1,
-          }),
-        ),
+        dis1,
+        dis2,
+        dis3,
+        close,
       ),
-      dis1,
-      dis2,
-      dis3,
-    ),
-  );
-  if (optVar.querySelector('.otp-fdp .main-contaienr') === null) {
-    optVar.querySelector('.main-otp-con1').innerHTML = '';
-    optVar.querySelector('.main-otp-con1').append(divotp);
-    if(optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr')){
-      optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr').remove();
+    );
+    if (optVar.querySelector('.otp-fdp .main-contaienr') === null) {
+      optVar.querySelector('.main-otp-con1').innerHTML = '';
+      optVar.querySelector('.main-otp-con1').append(divotp);
+      if (optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr')) {
+        optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr').remove();
+      }
     }
   }
-}
 }
