@@ -202,14 +202,6 @@
   background: transparent;
 }
 
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
-  color: #fff;
-}
-
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
-  color: #fff;
-}
-
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.submit-btn .button {
   display: flex;
   padding: 0.75rem;

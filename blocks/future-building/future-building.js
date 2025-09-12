@@ -59,6 +59,10 @@ export default function decorate(block) {
   // 4. Final assembly of the Swiper block
   block.appendChild(swiperWrapper);
 
+  Array.from(block.querySelector('.swiper-slide-cards-2 .cards-listcards1').children).forEach((ele) => {
+    ele.classList.add('card-list');
+  });
+
   // 5. Check if .learning-fdp class exists in the parent
   const learningFdp = block.closest('.learning-fdp') !== null;
 
