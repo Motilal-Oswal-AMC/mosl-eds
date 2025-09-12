@@ -18,5 +18,4 @@ export default function decorate(block) {
 
   const imgAltmain = block.closest('main');
   dataMapMoObj.altFunction(imgAltmain.querySelector('.fund-video-container .fundvedmain2 .fundvedinnermain2 img'), 'video-play-btn');
-
 }

@@ -116,16 +116,38 @@ export default async function decorate(block) {
     social.before(wrapper);
     wrapper.append(social, store);
 
-    dataMapMoObj.altFunction(wrapper.querySelector('.footer-sub-cont2 .section-content1 img'), 'facebook-icon');
-    dataMapMoObj.altFunction(wrapper.querySelector('.footer-sub-cont2 .section-content2 img'), 'instagram-icon');
-    dataMapMoObj.altFunction(wrapper.querySelector('.footer-sub-cont2 .section-content3 img'), 'x-icon');
-    dataMapMoObj.altFunction(wrapper.querySelector('.footer-sub-cont2 .section-content4 img'), 'youtube-icon');
-    dataMapMoObj.altFunction(wrapper.querySelector('.footer-sub-cont2 .section-content5 img'), 'lindkin-icon');
-
-    dataMapMoObj.altFunction(wrapper.querySelector('.footer-sub-cont3 .section-content1 img'), 'bar-code');
-    dataMapMoObj.altFunction(wrapper.querySelector('.footer-sub-cont3 .section-content2 img'), 'googleplay');
-    dataMapMoObj.altFunction(wrapper.querySelector('.footer-sub-cont3 .section-content3 img'), 'app-store');
-
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content1 img'),
+      'facebook-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content2 img'),
+      'instagram-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content3 img'),
+      'x-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content4 img'), 
+      'youtube-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content5 img'), 
+      'lindkin-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont3 .section-content1 img'), 
+      'bar-code',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont3 .section-content2 img'), 
+      'googleplay',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont3 .section-content3 img'), 
+      'app-store',
+    );
   }
 
   loadAutoBlock(footer);
