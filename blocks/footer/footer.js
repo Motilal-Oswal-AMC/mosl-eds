@@ -129,23 +129,23 @@ export default async function decorate(block) {
       'x-icon',
     );
     dataMapMoObj.altFunction(
-      wrapper.querySelector('.footer-sub-cont2 .section-content4 img'), 
+      wrapper.querySelector('.footer-sub-cont2 .section-content4 img'),
       'youtube-icon',
     );
     dataMapMoObj.altFunction(
-      wrapper.querySelector('.footer-sub-cont2 .section-content5 img'), 
+      wrapper.querySelector('.footer-sub-cont2 .section-content5 img'),
       'lindkin-icon',
     );
     dataMapMoObj.altFunction(
-      wrapper.querySelector('.footer-sub-cont3 .section-content1 img'), 
+      wrapper.querySelector('.footer-sub-cont3 .section-content1 img'),
       'bar-code',
     );
     dataMapMoObj.altFunction(
-      wrapper.querySelector('.footer-sub-cont3 .section-content2 img'), 
+      wrapper.querySelector('.footer-sub-cont3 .section-content2 img'),
       'googleplay',
     );
     dataMapMoObj.altFunction(
-      wrapper.querySelector('.footer-sub-cont3 .section-content3 img'), 
+      wrapper.querySelector('.footer-sub-cont3 .section-content3 img'),
       'app-store',
     );
   }
