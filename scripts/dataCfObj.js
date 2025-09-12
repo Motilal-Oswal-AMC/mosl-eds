@@ -1,4 +1,3 @@
-/*    */
 const dataCfObj = [
   {
     sebiCategory: 'Equity Fund',

@@ -512,6 +512,7 @@ footer .footer[data-block-status="loaded"] {
 
 .fdp-card-container .card-modal-overlay {
     max-width: 1542px;
+
     /* max-width: 100%; */
     overflow: hidden;
     width: 100%;
@@ -1038,4 +1039,5 @@ position: relative;
 .show-element{
     display: block;
 }
+
 /* Placeholder style for sip-calculator, growth-now, our-funds-block */

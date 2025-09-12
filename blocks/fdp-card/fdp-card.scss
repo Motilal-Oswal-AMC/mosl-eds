@@ -14,6 +14,7 @@ main {
   margin: 0 auto;
   gap: 16px;
   background-color: #f5f5f5;
+
   // position: relative;
 
   @media (width <=768px) {
@@ -956,6 +957,7 @@ main {
   .hide-overplay{
     // transition: opacity 1s ease;
     animation: hide-overlay 1.2s ease forwards;
+
     // animation-delay: 7s;
   }
 

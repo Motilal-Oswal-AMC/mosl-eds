@@ -1,44 +1,52 @@
 @import "../../../styles/fonts.css";
+
 .co-branding-wrapper {
   padding: 64px 16px 34px;
 }
+
 .co-branding .co-heading {
   margin: 0 0 40px;
   font-size: 24px;
   line-height: 28px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: ButlerPro, sans-serif;
   font-weight: 700;
 }
+
 .co-branding .cobrand-form, .co-branding .cobrand-field {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
+
 .co-branding .cobrand-field {
   gap: 0;
   position: relative;
 }
+
 .co-branding .cobrand-field .error-msg {
   font-size: 8px;
   line-height: 12px;
   color: #ed2020;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   display: none;
   margin: 5px 0 0;
 }
+
 .co-branding .cobrand-field .show-error {
   display: block;
 }
+
 .co-branding .cobrand-field .hide-error {
   display: none;
 }
+
 .co-branding .cobrand-label {
   font-size: 12px;
   line-height: 16px;
   color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   width: max-content;
   background-color: #fff;
@@ -47,6 +55,7 @@
   left: 8px;
   top: -8px;
 }
+
 .co-branding .cobrand-input {
   padding: 10px 12px;
   border-radius: 6px;
@@ -54,20 +63,22 @@
   font-size: 16px;
   line-height: 20px;
   color: #111;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
 }
+
 .co-branding .cobrand-btns {
   display: flex;
   gap: 12px;
   margin: 48px 0 40px;
 }
+
 .co-branding .cobrand-btns .share,
 .co-branding .cobrand-btns .download {
   font-size: 16px;
   line-height: 20px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   border: none;
   border-radius: 4px;
@@ -78,26 +89,31 @@
   background-color: transparent;
   cursor: pointer;
 }
+
 .co-branding .cobrand-btns .share {
   border: 1px solid #2e2a94;
 }
+
 .co-branding .cobrand-btns .download {
   background-color: #2e2a94;
   color: #fff;
 }
+
 .co-branding .cobrand-disc .co-diclaimer,
 .co-branding .cobrand-disc .co-listname {
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   margin: 0;
 }
+
 .co-branding .cobrand-disc .co-listwrap .co-ullist {
   margin: 20px 0 0;
   padding: 0 0 0 20px;
 }
+
 .co-branding .cobrand-disc .co-listwrap .co-ullist .co-listname {
   color: #616161;
 }
@@ -105,28 +121,33 @@
 .modal.block {
   display: block;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .modal.block {
     display: block;
   }
 }
+
 .modal.block dialog {
   padding: 0;
   margin: 0;
   align-items: end;
   justify-content: end;
 }
+
 .modal.block dialog .modal-content {
   max-width: 400px;
   height: 100vh;
   border-radius: 24px 24px 0 0;
   flex-direction: column;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .modal.block dialog .modal-content {
     height: 90vh;
   }
 }
+
 .modal.block dialog .modal-content .close-button {
   position: sticky;
   top: 0;
@@ -139,6 +160,7 @@
   border-radius: 24px;
   padding: 0 9px 0 0;
 }
+
 .modal.block dialog .modal-content .close-button .icon-close {
   width: 36px;
   height: 36px;
@@ -147,7 +169,8 @@
   margin: 12px 0 0;
   position: relative;
 }
+
 .modal.block dialog .modal-content .close-button .icon-close::before, .modal.block dialog .modal-content .close-button .icon-close::after {
   width: 14px;
   height: 1px;
-}/*# sourceMappingURL=co-branding.css.map */
+}
