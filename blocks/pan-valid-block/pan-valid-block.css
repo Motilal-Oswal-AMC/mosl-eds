@@ -2,6 +2,7 @@
 .pan-valid-block {
   max-width: 100%;
   width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: end;
@@ -10,7 +11,7 @@
   display: flex;
   max-width: 400px;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   padding: 64px 16px;
   flex-direction: column;
   gap: 32px;
@@ -331,16 +332,6 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-.pan-valid-block .form-container .name-container .email-label::after {
-  content: "";
-  background: url("../../icons/direction-down.svg") center/cover no-repeat;
-  min-width: 20px;
-  height: 20px;
-  display: block;
-  position: absolute;
-  right: 12px;
-  cursor: pointer;
-}
 .pan-valid-block .tnc-container {
   display: flex;
   flex-direction: column;
@@ -377,29 +368,36 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 4px;
-  background: #2e2a94;
+  background: #e0e0e0;
+  cursor: unset;
   text-align: center;
-  cursor: pointer;
+  pointer-events: none;
   margin: 0;
   font-size: 16px;
   line-height: 20px;
-  color: #fff;
+  color: #616161;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+.pan-valid-block .tnc-container .active-form-btn {
+  background-color: #2e2a94;
+  color: #ffffff;
+  cursor: pointer;
+  pointer-events: unset;
 }
 
 .section.otp-fdp .main-contaienr {
   max-width: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: end;
+  height: 100%;
 }
 .section.otp-fdp .main-contaienr .wrapper-block {
   display: flex;
   max-width: 400px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 64px 16px;
   flex-direction: column;
   gap: 24px;
@@ -434,22 +432,29 @@
 }
 .section.otp-fdp .main-contaienr .wrapper-block .otpfield .otp-wrap {
   position: relative;
-  display: inline-block;
-}
-.section.otp-fdp .main-contaienr .wrapper-block .otpfield .otp-wrap .otp-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   padding: 8px;
   border: 1px solid #9E9E9E;
   border-radius: 6px;
+}
+.section.otp-fdp .main-contaienr .wrapper-block .otpfield .otp-wrap .otp-input {
+  width: 100%;
+  height: 100%;
   text-align: center;
+  border: none;
+  outline: none;
+  caret-color: #1887D2;
   font-size: 20px;
   line-height: 24px;
   color: #424242;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-.section.otp-fdp .main-contaienr .wrapper-block .otpfield .otp-wrap .otp-input:focus {
+.section.otp-fdp .main-contaienr .wrapper-block .otpfield .otp-wrap:focus-within {
   border: 2px solid #1887D2;
 }
 .section.otp-fdp .main-contaienr .wrapper-block .otpfield .otp-wrap.otp-success .otp-input {
@@ -540,4 +545,18 @@
 }
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con3 strong {
   font-weight: 400;
+}
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con5 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con5 .icon-modal-btn {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+.section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con5 .icon-modal-btn .otp-main-con1 {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=pan-valid-block.css.map */

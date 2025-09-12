@@ -84,6 +84,44 @@
   color: #ccc;
 }
 
+.modal.block dialog {
+  max-width: 1536px;
+  width: 100%;
+  max-height: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: transparent;
+  margin: 0 auto;
+  display: flex;
+  align-items: unset;
+  justify-content: end;
+  overflow: hidden;
+  padding: unset;
+  transform: translateX(100%);
+  transition: all 1.2s;
+}
+.modal.block dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal.block dialog[open] {
+  transform: translateX(0);
+}
+.modal.block dialog .close-button {
+  display: none;
+}
+.modal.block dialog .modal-content {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  box-shadow: unset;
+}
+.modal.block dialog .modal-content .invest-now-homepage-container, .modal.block dialog .modal-content .pan-details-modal, .modal.block dialog .modal-content .otp-fdp, .modal.block dialog .modal-content .fdp-kyc-form {
+  max-width: 372px;
+}
+
 .invest-now-homepage-container {
   max-width: 100%;
   top: 0;
@@ -119,7 +157,7 @@
   }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage {
-  background: #FFF;
+  background: #fff;
   max-width: 100%;
   width: 100%;
   height: 100vh;
@@ -208,7 +246,7 @@
   align-self: stretch;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-header-container .modal-header .modal-header-subtitle .brandname {
-  color: #5659FA;
+  color: #5659fa;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -218,7 +256,7 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-header-container .modal-header .modal-header-subtitle .fund-name {
   align-self: stretch;
-  color: #2E2A94;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -240,8 +278,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 1000px;
-  border: 1px solid #BDBDBD;
-  background: #FAFAFA;
+  border: 1px solid #bdbdbd;
+  background: #fafafa;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-header-container .modal-toggle .modal-btn-lumpsum .lumpsum-btn {
   color: #424242;
@@ -266,11 +304,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 1000px;
-  border: 1px solid #BDBDBD;
-  background: #FAFAFA;
+  border: 1px solid #bdbdbd;
+  background: #fafafa;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-header-container .modal-toggle .modal-btn-sip .sip-btn {
-  color: #2E2A94;
+  color: #2e2a94;
   background-color: transparent;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -284,12 +322,12 @@
   white-space: unset;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-header-container .modal-toggle .active {
-  background: #EDF1FF;
-  border: 1px solid #382AD7;
+  background: #edf1ff;
+  border: 1px solid #382ad7;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-header-container .modal-toggle .active .lumpsum-btn,
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-header-container .modal-toggle .active .sip-btn {
-  color: #2E2A94;
+  color: #2e2a94;
   font-weight: 500;
   line-height: 16px;
 }
@@ -335,7 +373,7 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol {
   position: relative;
-  color: #2E2A94;
+  color: #2e2a94;
   font-family: "Rupee Foradian", sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -348,7 +386,7 @@
   top: 14px;
   left: 2px;
   transform: translateY(-50%);
-  color: #2E2A94;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -368,7 +406,7 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .modal-input-symbol select {
   border: none;
   background-color: transparent;
-  color: #2E2A94;
+  color: #2e2a94;
   font-size: 20px;
   font-weight: 500;
   width: 100%;
@@ -388,7 +426,7 @@
   font-size: 10px;
   line-height: 16px;
   font-family: "Poppins", sans-serif;
-  color: #F05353;
+  color: #f05353;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-input .error-hide {
   display: none;
@@ -411,8 +449,8 @@
   align-items: center;
   gap: 16px;
   border-radius: 12px;
-  background: #D5DEFF;
-  color: #2E2A94;
+  background: #d5deff;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -421,9 +459,9 @@
   border: none;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-suggestions .suggestion-btn.active {
-  background: #2E2A94;
-  color: #FFF;
-  border-color: #2E2A94;
+  background: #2e2a94;
+  color: #fff;
+  border-color: #2e2a94;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields {
   display: flex;
@@ -470,7 +508,7 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-sip-starts .sip-starts-maindate .sip-starts-date {
   flex: 1 0 0;
-  color: #2E2A94;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -520,10 +558,10 @@
   justify-content: center;
   transition: all 0.2s ease;
   background-color: #fff;
-  color: #FFF;
+  color: #fff;
   border-radius: 4px;
   margin: 2px;
-  border: 2px solid #2E2A94;
+  border: 2px solid #2e2a94;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .custom-box::after {
   content: "";
@@ -540,7 +578,7 @@
   transition: opacity 0.2s ease;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today input[type=checkbox]:checked + .custom-box {
-  background: #2E2A94;
+  background: #2e2a94;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today input[type=checkbox]:checked + .custom-box::after {
   opacity: 1;
@@ -551,7 +589,7 @@
   gap: 4px;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note {
-  color: #2E2A94;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -590,7 +628,7 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  color: #2E2A94;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -615,8 +653,8 @@
   left: 0;
   width: 100%;
   border-radius: 8px;
-  border: 0.5px solid #9E9E9E;
-  background: #FFF;
+  border: 0.5px solid #9e9e9e;
+  background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1019607843);
   z-index: 10;
   max-height: 150px;
@@ -657,7 +695,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -675,8 +713,8 @@
   align-items: center;
   gap: 8px;
   border-radius: 4px;
-  background: #2E2A94;
-  color: #FFF;
+  background: #2e2a94;
+  color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -722,8 +760,8 @@
   left: 16px;
   bottom: 120px;
   border-radius: 8px;
-  border: 0.5px solid #9E9E9E;
-  background: #FFF;
+  border: 0.5px solid #9e9e9e;
+  background: #fff;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -747,7 +785,7 @@
   }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .sip-tooltip .tooltip-box .tooltip-note {
-  color: #2E2A94;
+  color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;

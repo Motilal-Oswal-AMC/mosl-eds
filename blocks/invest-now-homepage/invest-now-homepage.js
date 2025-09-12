@@ -15,6 +15,86 @@ import dataCfObj from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { myAPI } from '../../scripts/scripts.js';
 
+const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+async function removeClassAfterDelay() {
+  const closestParam = document.querySelector('main');
+  await delay(500);
+  // closestParam.querySelector('.modal-content').remove();
+  closestParam.querySelector('.modal').remove();
+  const bodym = document.querySelector('body');
+  bodym.classList.remove('modal-open');
+  bodym.classList.remove('noscroll');
+}
+
+function hideFormsClick(btn) {
+  // const card2 = closestParam.querySelector('.our-popular-funds')
+  //   || closestParam.querySelector('.known-our-funds')
+  //   || closestParam.querySelector('.fdp-card-container');
+
+  // const card2 = closestParam.querySelector('.our-popular-funds')
+  //   || closestParam.querySelector('.known-our-funds')
+  //   || document.querySelector('.fdp-card-container');
+
+  const card2 = document.querySelector('main');
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Stop click from bubbling further
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    const classAddv12 = card2.querySelector('.invest-now-homepage-container');
+    if (Array.from(classAddv12.classList).includes('hide-modal')) {
+      classAddv12.classList.remove('hide-modal');
+    }
+    classAddv12.classList.add('hide-modal');
+    classAddv12.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    const classAdd = card2.querySelector('.pan-details-modal');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAdd.classList.remove('hide-modal');
+    }
+    classAdd.classList.add('hide-modal');
+    // async function removeClassAfterDelay() {
+    //   await delay(1200);
+    //   closestParam.querySelector('.modal').remove();
+    // }
+    classAdd.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    // v2 for kyc form
+
+    const classAddv2 = card2.querySelector('.fdp-kyc-form');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv2.classList.remove('hide-modal');
+    }
+    classAddv2.classList.add('hide-modal');
+    classAddv2.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    // v3 for otp
+
+    const classAddv3 = card2.querySelector('.otp-fdp');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv3.classList.remove('hide-modal');
+    }
+    classAddv3.classList.add('hide-modal');
+    classAddv3.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    // overlay.classList.add('hide-overlay');
+    removeClassAfterDelay();
+  });
+}
+
 export async function existingUser(paramblock) {
   const closestParam = paramblock.closest('main');
   const kycForm = closestParam.querySelector('.fdp-kyc-form');
@@ -289,12 +369,15 @@ export async function existingUser(paramblock) {
       const boolkyc = kycres === 'Y' ? 'true' : 'false';
       localStorage.setItem('kycstatus', boolkyc);
 
-      const chclick = pansuccessForm.querySelector('.otp-main-con2');
-      const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
+      const chclick = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con2');
       chclick.removeAttribute('href');
+      const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
       chclick.addEventListener('click', () => {
         kycForm.style.display = 'none'; // display none kycform
         // panForm.style.display = 'block'; // display none panform
+        if (chclick.getAttribute('href')) {
+          chclick.removeAttribute('href');
+        }
         panForm.classList.add('show-element');
         kycForm.classList.add('hide-element');
         pansuccessForm.classList.add('hide-element');
@@ -413,8 +496,13 @@ export async function existingUser(paramblock) {
           userLoginPanNumber.removeAttribute('readonly');
           userLoginPanNumber.focus();
         });
+        const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
+        const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+        const phoneRegex = /^\d{10}$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const usernameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+
         userLoginPanNumber.addEventListener('input', (e) => {
-          const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.closest('.pan-input');
           const errorPanEl = errorpan.nextElementSibling;
@@ -422,64 +510,117 @@ export async function existingUser(paramblock) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
             userLoginPanNumber.setAttribute('readonly', true);
+            if (panRegex.test(userLoginPanNumber.value)
+              && phoneRegex.test(userNo.value)
+              && emailRegex.test(userem.value)
+              && usernameRegex.test(userNm.value)) {
+              continueBTN.classList.add('active-form-btn');
+            }
+            // flagForm = '';
           } else {
             errorPanEl.classList.remove('hide-error');
             errorPanEl.classList.add('show-error');
+            continueBTN.classList.remove('active-form-btn');
+            // flagForm = 'Y';
           }
         });
         userNm.addEventListener('input', (e) => {
-          const panRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
-          if (panRegex.test(inputValue)) {
+          if (usernameRegex.test(inputValue)) {
             errorPanEl.classList.add('hide-error');
             errorPanEl.classList.remove('show-error');
             userLoginPanNumber.setAttribute('readonly', true);
+            if (panRegex.test(userLoginPanNumber.value)
+              && phoneRegex.test(userNo.value)
+              && emailRegex.test(userem.value)
+              && usernameRegex.test(userNm.value)) {
+              continueBTN.classList.add('active-form-btn');
+            }
           } else {
             errorPanEl.classList.remove('hide-error');
             errorPanEl.classList.add('show-error');
+            continueBTN.classList.remove('active-form-btn');
           }
         });
         userNo.addEventListener('input', (e) => {
-          const panRegex = /^\d{10}$/;
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
-          if (panRegex.test(inputValue)) {
+          if (phoneRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
             userLoginPanNumber.setAttribute('readonly', true);
+            if (panRegex.test(userLoginPanNumber.value)
+              && phoneRegex.test(userNo.value)
+              && emailRegex.test(userem.value)
+              && usernameRegex.test(userNm.value)) {
+              continueBTN.classList.add('active-form-btn');
+            }
           } else {
             errorPanEl.classList.remove('hide-error');
             errorPanEl.classList.add('show-error');
+            continueBTN.classList.remove('active-form-btn');
           }
         });
         userem.addEventListener('input', (e) => {
-          const panRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
-          if (panRegex.test(inputValue)) {
+          if (emailRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
             userLoginPanNumber.setAttribute('readonly', true);
+            if (panRegex.test(userLoginPanNumber.value)
+              && phoneRegex.test(userNo.value)
+              && emailRegex.test(userem.value)
+              && usernameRegex.test(userNm.value)) {
+              continueBTN.classList.add('active-form-btn');
+            }
           } else {
             errorPanEl.classList.remove('hide-error');
             errorPanEl.classList.add('show-error');
+            continueBTN.classList.remove('active-form-btn');
           }
         });
-
-        if (boolkyc === 'true') {
-          const pandata = {
-            userLogPanNm: userLoginPanNumber.value,
-            userLogPan: rejsin.data.nameAsOnPan,
-          };
-          panDetails(pandata);
-        } else {
-          getCkycData(userLoginPanNumber.value);
-        }
       }
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+  // ModifyKyc API  start
+  //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
+
+  async function modiFyKycApi(param) {
+    try {
+      const request = {
+        name: param.userLogPanNm,
+        email: param.userLogEm,
+        phone: param.userLogMoNm,
+        returnUrl: 'https://mf.moamc.com/onboarding/personal',
+        timeOutUrl: 'https://mf.moamc.com/error',
+        panNo: param.userLogPan,
+      };
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/prelogin/api/KYC/KYCProcess',
+        request,
+      );
+      console.log('this is modiFuykyc Api Response ', rejsin);
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+
+  async function imsentCall(paramData) {
+    try {
+      const request = {
+        frmdata: `LMS~${paramData.userLogPan}|${paramData.userLogPanNm}|+91${paramData.userLogMoNm}|${paramData.userLogEm}||Mumbai||${paramData.kycflag}|MF New investor|||||||||${paramData.isnri}|`,
+      };
+      const setRep = await myAPI('POST', 'https://api.moamc.com/initapi/api/Init/Lmsentry', request);
+      console.log(setRep);
+      modiFyKycApi(paramData);
     } catch (error) {
       // console.log(error);
     }
@@ -502,7 +643,10 @@ export async function existingUser(paramblock) {
       isnri: isNri,
       kycflag: dataMapMoObj.kycStatus,
     };
-    modiFyKycApi(formdata);
+    const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
+    if (Array.from(continueBTN.classList).includes('active-form-btn')) {
+      imsentCall(formdata);
+    }
   });
   // ModifyKyc API  ends
 
@@ -612,6 +756,7 @@ export async function existingUser(paramblock) {
       checkInput.classList.add('show-error');
     }
     if (!checkInput.classList.contains('show-error')) {
+      // document.querySelector('.subpandts3 .innerpandts1').style.backgroundColor = '#2E2A94';
       apiCall(userPanNumber); // Only called if no error
     } else {
       console.log('PAN number is invalid. API call blocked.');
@@ -629,6 +774,8 @@ export async function existingUser(paramblock) {
     const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
     const inputValue = e.target.value.toUpperCase();
 
+    const btnAuthenticate = document.querySelector('.subpandts3 .innerpandts1');
+
     if (inputValue === '') {
       // If empty, hide the error
       errorPanEl.classList.remove('show-error');
@@ -637,10 +784,12 @@ export async function existingUser(paramblock) {
       // If valid PAN, hide error
       errorPanEl.classList.remove('show-error');
       errorPanEl.classList.add('hide-error');
+      btnAuthenticate.classList.add('pan-active');
     } else {
       // If invalid PAN, show error
       errorPanEl.classList.remove('hide-error');
       errorPanEl.classList.add('show-error');
+      btnAuthenticate.classList.remove('pan-active');
     }
   });
 
@@ -649,64 +798,8 @@ export async function existingUser(paramblock) {
   const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');
   const mod2 = closestParam.querySelector('.fdp-kyc-form .icon-modal-btn');
   const mod3 = closestParam.querySelector('.otp-fdp .icon-modal-btn');
+
   closestParam.querySelector('.pan-details-modal');
-  const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
-  async function removeClassAfterDelay() {
-    await delay(1200);
-    closestParam.querySelector('.card-modal-overlay').remove();
-  }
-
-  function hideFormsClick(btn) {
-    const card2 = closestParam.querySelector('.our-popular-funds')
-      || closestParam.querySelector('.known-our-funds')
-      || closestParam.querySelector('.fdp-card-container');
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation(); // Stop click from bubbling further
-      document.body.classList.remove('noscroll');
-      card2.classList.remove('modal-active-parent');
-
-      const classAdd = card2.querySelector('.pan-details-modal');
-      if (Array.from(classAdd.classList).includes('hide-modal')) {
-        classAdd.classList.remove('hide-modal');
-      }
-      classAdd.classList.add('hide-modal');
-      setTimeout(() => {
-        classAdd.style.display = 'none';
-      }, 1200);
-      classAdd.classList.remove('modal-show');
-      // }
-      document.body.classList.remove('noscroll');
-      card2.classList.remove('modal-active-parent');
-
-      // v2 for kyc form
-
-      const classAddv2 = card2.querySelector('.fdp-kyc-form');
-      if (Array.from(classAdd.classList).includes('hide-modal')) {
-        classAddv2.classList.remove('hide-modal');
-      }
-      classAddv2.classList.add('hide-modal');
-      classAddv2.classList.remove('modal-show');
-      // }
-      document.body.classList.remove('noscroll');
-      card2.classList.remove('modal-active-parent');
-
-      // v3 for otp
-
-      const classAddv3 = card2.querySelector('.otp-fdp');
-      if (Array.from(classAdd.classList).includes('hide-modal')) {
-        classAddv3.classList.remove('hide-modal');
-      }
-      classAddv3.classList.add('hide-modal');
-      classAddv3.classList.remove('modal-show');
-      // }
-      document.body.classList.remove('noscroll');
-      card2.classList.remove('modal-active-parent');
-
-      // overlay.classList.add('hide-overlay');
-      removeClassAfterDelay();
-    });
-  }
 
   hideFormsClick(mod2);
   hideFormsClick(mod);
@@ -963,8 +1056,11 @@ export default function decorate(block) {
     classAdd.classList.add('modal-show');
     classAdd.classList.remove('hide-modal');
   }
+  const mainmoin = block.closest('main');
+  const mod4 = mainmoin.querySelector('.invest-now-homepage .modal-btn');
+  hideFormsClick(mod4);
   modal.querySelector('.start-now').addEventListener('click', () => {
-    const mainmo = block.closest('.card-modal-overlay');
+    const mainmo = block.closest('main');
     const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
     const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
     investMod.classList.add('hide-element');

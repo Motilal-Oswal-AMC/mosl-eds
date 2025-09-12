@@ -5,6 +5,7 @@
 .pan-valid-block {
   max-width: 100%;
   width: 100%;
+  height: 100%;
   background-color: #0009;
   display: flex;
   justify-content: end;
@@ -13,7 +14,7 @@
     display: flex;
     max-width: 400px;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     padding: 64px 16px;
     flex-direction: column;
     gap: 32px;
@@ -21,10 +22,10 @@
     background: #fff;
     position: relative;
 
-     @include media(mobile) {
-        padding: 30px 16px;
-        border-radius: 32px 32px 0 0;
-      }
+    @include media(mobile) {
+      padding: 30px 16px;
+      border-radius: 32px 32px 0 0;
+    }
   }
 
   .default-content-wrapper {
@@ -104,14 +105,14 @@
             background: white;
             transition: top 0.8s ease;
 
-          // &:hover {
-          //   position: absolute;
-          //   top: -7px;
-          //   background: white;
-          //   padding: 0 4px;
-          //   transition: top 0.8s ease;
-          // }
-        }
+            // &:hover {
+            //   position: absolute;
+            //   top: -7px;
+            //   background: white;
+            //   padding: 0 4px;
+            //   transition: top 0.8s ease;
+            // }
+          }
 
           .pan-image {
             position: absolute;
@@ -132,11 +133,11 @@
           display: none;
         }
 
-        .hide-error{
+        .hide-error {
           display: none;
         }
 
-        .show-error{
+        .show-error {
           display: block;
         }
       }
@@ -183,14 +184,10 @@
                 margin: 0;
                 cursor: pointer;
 
-                @include font-style(14px,
-                  16px,
-                  $color-text-body,
-                  500,
-                  $poppins );
+                @include font-style(14px, 16px, $color-text-body, 500, $poppins);
               }
 
-              input{
+              input {
                 cursor: pointer;
                 accent-color: $primary-blue;
 
@@ -199,8 +196,7 @@
                 height: 16.667px;
               }
 
-              
-                input[type="radio"]:checked + label  {
+              input[type="radio"]:checked + label {
                 color: $primary-blue; // Blue when selected
               }
             }
@@ -287,41 +283,41 @@
             transition: top 0.8s ease;
           }
 
-        .fdp-valid-form {
-          border: none;
-          width: 100%;
-          border-radius: 6px;
-          cursor: pointer;
+          .fdp-valid-form {
+            border: none;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
 
-          @include font-style(16px, 20px, $neutrals-black, 500, $poppins);
-        }
+            @include font-style(16px, 20px, $neutrals-black, 500, $poppins);
+          }
 
-        .country-code {
-          margin: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding-right: 10px;
-          border-radius: 3px 0 0 3px;
-          border-right: 1px solid #6d798e;
+          .country-code {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 10px;
+            border-radius: 3px 0 0 3px;
+            border-right: 1px solid #6d798e;
 
-          @include font-style(14px, 19.6px, $neutrals-black, 400, $poppins);
-        }
+            @include font-style(14px, 19.6px, $neutrals-black, 400, $poppins);
+          }
 
-        .country-code::before {
-          content: "";
-          display: inline-block;
+          .country-code::before {
+            content: "";
+            display: inline-block;
 
-          /* Make sure it shows up */
-          width: 16px;
+            /* Make sure it shows up */
+            width: 16px;
 
-          /* Set width and height */
-          height: 12px;
-          background-image: url("/icons/india-flag.svg");
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-          margin-right: 4px;
+            /* Set width and height */
+            height: 12px;
+            background-image: url("/icons/india-flag.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 4px;
 
             /* Optional spacing */
           }
@@ -339,11 +335,11 @@
           display: none;
         }
 
-        .hide-error{
+        .hide-error {
           display: none;
         }
 
-        .show-error{
+        .show-error {
           display: block;
         }
       }
@@ -397,16 +393,16 @@
         }
       }
 
-      .email-label::after {
-        content: "";
-        background: url('../../icons/direction-down.svg') center / cover no-repeat;
-        min-width: 20px;
-        height: 20px;
-        display: block;
-        position: absolute;
-        right: 12px;
-        cursor: pointer;
-      }
+      // .email-label::after {
+      //   content: "";
+      //   background: url('../../icons/direction-down.svg') center / cover no-repeat;
+      //   min-width: 20px;
+      //   height: 20px;
+      //   display: block;
+      //   position: absolute;
+      //   right: 12px;
+      //   cursor: pointer;
+      // }
     }
   }
 
@@ -420,7 +416,7 @@
 
       @include font-style(12px, 16px, $text-body-2, 400, $poppins);
 
-      a{
+      a {
         color: #4338f3;
         font-family: $poppins;
         font-size: 12px;
@@ -436,37 +432,51 @@
       }
     }
 
-      .panvalidsubinner4 {
-        display: flex;
-        padding: 12px;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        align-self: stretch;
-        border-radius: 4px;
-        background: #2e2a94;
-        text-align: center;
-        cursor: pointer;
-        margin: 0;
+    .panvalidsubinner4 {
+      display: flex;
+      padding: 12px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      align-self: stretch;
+      border-radius: 4px;
+      // background: #2e2a94;
+      background: #e0e0e0;
+      cursor: unset;
+      text-align: center;
+      // cursor: pointer;
+      pointer-events: none;
+      margin: 0;
 
-        @include font-style(16px, 20px, $primary-white, 500, $poppins);
-      }
+      @include font-style(16px, 20px, $text-body-2, 500, $poppins);
+    }
+
+    .active-form-btn {
+      background-color: #2e2a94;
+      color: #ffffff;
+      cursor: pointer;
+      pointer-events: unset;
     }
   }
+}
 
 .section.otp-fdp {
   .main-contaienr {
     max-width: 100%;
     width: 100%;
-    background-color: rgb(0 0 0 / 60%);
+
+    // background-color: rgb(0 0 0 / 60%);
     display: flex;
     justify-content: end;
+    height: 100%;
 
     .wrapper-block {
       display: flex;
       max-width: 400px;
       width: 100%;
-      height: 100vh;
+      
+      // height: 100vh;
+      height: 100%;
       padding: 64px 16px;
       flex-direction: column;
       gap: 24px;
@@ -480,11 +490,7 @@
       }
 
       .sub-otp-con1 {
-        @include font-style(28px,
-          32px,
-          $primary-blue,
-          map.get($font-weights, bold),
-          $butlerpro );
+        @include font-style(28px, 32px, $primary-blue, map.get($font-weights, bold), $butlerpro);
 
         margin: 0;
 
@@ -501,27 +507,36 @@
 
         .otp-wrap {
           position: relative;
-          display: inline-block;
+
+          // display: inline-block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+          padding: 8px;
+          border: 1px solid map.get($strokes, default);
+          border-radius: 6px;
 
           .otp-input {
-            width: 40px;
-            height: 40px;
-            padding: 8px;
-            border: 1px solid map.get($strokes, default);
-            border-radius: 6px;
+            width: 100%;
+            height: 100%;
             text-align: center;
+            border: none;
+            outline: none;
+            caret-color: map.get($strokes, typing);
 
-            @include font-style(20px,
-              24px,
-              $color-text-body,
-              map.get($font-weights, semibold),
-              $poppins );
+            @include font-style(20px, 24px, $color-text-body, map.get($font-weights, semibold), $poppins);
 
-            &:focus {
-              border: 2px solid map.get($strokes, typing);
-            }
+            // &:focus {
+            //   border: 2px solid map.get($strokes, typing);
+            // }
           }
-          
+
+          &:focus-within {
+            border: 2px solid map.get($strokes, typing);
+          }
+
           &.otp-success {
             .otp-input {
               border: 1px solid #00a850;
@@ -534,8 +549,6 @@
             }
           }
         }
-
-
       }
 
       .sub-otp-con4 {
@@ -547,11 +560,7 @@
         list-style: none;
 
         .inner-otp-con1 {
-          @include font-style(14px,
-            16px,
-            map.get($blue-1, b500),
-            map.get($font-weights, medium),
-            $poppins );
+          @include font-style(14px, 16px, map.get($blue-1, b500), map.get($font-weights, medium), $poppins);
 
           .otp-main-con1 {
             text-decoration-line: underline;
@@ -562,11 +571,7 @@
         }
 
         .inner-otp-con2 {
-          @include font-style(14px,
-            20px,
-            $color-text-body,
-            map.get($font-weights, regular),
-            $poppins );
+          @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $poppins);
 
           .otp-main-con1 {
             font-weight: 400;
@@ -577,11 +582,7 @@
             margin-left: 8px;
             cursor: pointer;
 
-            @include font-style(14px,
-              16px,
-              map.get($blue-1, b500),
-              map.get($font-weights, medium),
-              $poppins );
+            @include font-style(14px, 16px, map.get($blue-1, b500), map.get($font-weights, medium), $poppins);
           }
         }
       }
@@ -605,11 +606,7 @@
           display: block;
           text-align: center;
 
-          @include font-style(16px,
-            20px,
-            $text-body-2,
-            map.get($font-weights, medium),
-            $poppins );
+          @include font-style(16px, 20px, $text-body-2, map.get($font-weights, medium), $poppins);
         }
 
         &.sbmt-active {
@@ -625,18 +622,29 @@
       .sub-otp-con3 {
         margin: 0;
 
-        @include font-style(12px,
-          16px,
-          $text-body-2,
-          map.get($font-weights, regular),
-          $poppins );
+        @include font-style(12px, 16px, $text-body-2, map.get($font-weights, regular), $poppins);
 
         strong {
           font-weight: 400;
         }
       }
 
-      
+      .sub-otp-con5{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        .icon-modal-btn{
+          width: 36px;
+          height: 36px;
+          cursor: pointer;
+
+          .otp-main-con1{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
   }
 }
