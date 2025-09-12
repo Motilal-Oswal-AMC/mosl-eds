@@ -11,7 +11,7 @@ import {
 
 export async function createModal(contentNodes) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
-  let contentNodesClass = [...contentNodes].filter(
+  const contentNodesClass = [...contentNodes].filter(
     (node) => node.classList && node.classList.contains('risk-o-meter-container'),
   );
   // if (contentNodesClass.length === 0) {

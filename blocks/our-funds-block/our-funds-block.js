@@ -475,8 +475,7 @@ function searchFunctionality(block) {
     if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
       searchInput.value = event.target.dataset.originalText;
       searchContainer.classList.remove('search-active');
-      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
-        ellim.schDetail.schemeName === searchInput.value);
+      dataMapMoObj.funddata = dataCfObj.filter((ellim) => ellim.schDetail.schemeName === searchInput.value);
       viewFunction(block);
       // CARD HIDE LOGIC ON SEARCH
       const cardsContainercd = block.querySelector('.filter-cards');
@@ -615,13 +614,12 @@ function checkfilter(block) {
       dataMapMoObj.funddata = tempa;
     }
     if (sorttext === 'Newest to Oldest') {
-                        const tempData = JSON.parse(JSON.stringify(dataCfObj));
-                        const tempa = tempData.sort(
-                          (a, b) => 
-                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
-                        );
-                        dataMapMoObj.funddata = '';
-                        dataMapMoObj.funddata = tempa;
+      const tempData = JSON.parse(JSON.stringify(dataCfObj));
+      const tempa = tempData.sort(
+        (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+      );
+      dataMapMoObj.funddata = '';
+      dataMapMoObj.funddata = tempa;
     }
   }
 
@@ -1642,8 +1640,7 @@ export default function decorate(block) {
                       if (event.target.textContent.trim() === 'Newest to Oldest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) => 
-                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                          (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1753,8 +1750,7 @@ export default function decorate(block) {
                       if (sorttext === 'Newest to Oldest') {
                         const tempData = JSON.parse(JSON.stringify(dataCfObj));
                         const tempa = tempData.sort(
-                          (a, b) => 
-                            new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
+                          (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
                         );
                         dataMapMoObj.funddata = '';
                         dataMapMoObj.funddata = tempa;
@@ -1858,8 +1854,7 @@ export default function decorate(block) {
 
                     if (block.querySelector('.search-input .search').value !== '') {
                       const searchval = block.querySelector('.search-input .search').value;
-                      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
-                        ellim.schDetail.schemeName === searchval);
+                      dataMapMoObj.funddata = dataCfObj.filter((ellim) => ellim.schDetail.schemeName === searchval);
                     }
                     viewFunction(block);
                   },
@@ -1880,8 +1875,7 @@ export default function decorate(block) {
                       .querySelector('.list-view-header').style.display = 'block';
                     if (block.querySelector('.search-input .search').value !== '') {
                       const searchval = block.querySelector('.search-input .search').value;
-                      dataMapMoObj.funddata = dataCfObj.filter((ellim) =>
-                        ellim.schDetail.schemeName === searchval);
+                      dataMapMoObj.funddata = dataCfObj.filter((ellim) => ellim.schDetail.schemeName === searchval);
                     }
                     viewFunction(block);
                   },
@@ -2004,7 +1998,7 @@ export default function decorate(block) {
             (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
           );
           dataMapMoObj.funddata = tempa;
-        } 
+        }
         if (event.target.textContent.trim() === 'Newest to Oldest') {
           const tempdata = JSON.parse(JSON.stringify(dataCfObj));
           const tempa = tempdata.sort(

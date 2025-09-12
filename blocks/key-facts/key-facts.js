@@ -50,17 +50,25 @@ export default function decorate(block) {
         { class: 'minimum-amount' },
         div(
           { class: 'Application-Amount' },
-          p({class: 'key-facts-amounts-title'},
-            block.querySelector('.block-subitem-finelsub2')),
-          p({class: 'key-facts-amounts-sub'},
-            '₹500/- and in multiples of ₹1/- thereafter'),
+          p(
+            { class: 'key-facts-amounts-title' },
+            block.querySelector('.block-subitem-finelsub2'),
+          ),
+          p(
+            { class: 'key-facts-amounts-sub' },
+            '₹500/- and in multiples of ₹1/- thereafter',
+          ),
         ),
         div(
           { class: 'Redemption-Amount' },
-          p({class: 'key-facts-amounts-title'},
-            block.querySelector('.block-subitem-finelsub3')),
-          p({class: 'key-facts-amounts-sub'},
-            '₹500/- then ₹1/- increments, up to account balance'),
+          p(
+            { class: 'key-facts-amounts-title' },
+            block.querySelector('.block-subitem-finelsub3'),
+          ),
+          p(
+            { class: 'key-facts-amounts-sub' },
+            '₹500/- then ₹1/- increments, up to account balance',
+          ),
         ),
       ),
       div(
@@ -131,8 +139,10 @@ export default function decorate(block) {
         ),
         div(
           { class: 'load-policy' }, // not found
-          p({class: 'load-policy-para'},
-            block.querySelector('.block-subitem3 .block-subitem-finelsub4')),
+          p(
+            { class: 'load-policy-para' },
+            block.querySelector('.block-subitem3 .block-subitem-finelsub4'),
+          ),
           div(
             { class: 'load-policy-list' },
             li(
