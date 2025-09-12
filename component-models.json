@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "Show Modal",
+            "value": "show-modal"
+          },
+          {
             "name": "fdp-kyc-form",
             "value": "fdp-kyc-form"
           },
@@ -1348,6 +1352,131 @@
         "value": "",
         "label": "Enter Context For TNC and Set Button CTA",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+  "id": "invest-now-homepage",
+  "fields": [{
+      "component": "text",
+      "name": "col1_fund_name",
+      "label": "Fund Name",
+      "value": "Nifty 500 Momentum 50 Index Fund"
+    },
+    {
+      "component": "text",
+      "name": "col1_lumpsum_label",
+      "label": "Lumpsum Button Label",
+      "value": "Lumpsum"
+    },
+    {
+      "component": "text",
+      "name": "col1_sip_label",
+      "label": "SIP Button Label",
+      "value": "SIP"
+    },
+    {
+      "component": "text",
+      "name": "col1_investment_input_label",
+      "label": "Investment Input Label",
+      "value": "Enter your investment amount"
+    },
+    {
+      "component": "number",
+      "name": "col2_default_amount",
+      "label": "Default Investment Amount",
+      "value": 10000
+    },
+    {
+      "component": "number",
+      "name": "col2_suggestion_1",
+      "label": "Suggestion Amount 1",
+      "value": 5000
+    },
+    {
+      "component": "number",
+      "name": "col2_suggestion_2",
+      "label": "Suggestion Amount 2",
+      "value": 10000
+    },
+    {
+      "component": "number",
+      "name": "col2_suggestion_3",
+      "label": "Suggestion Amount 3",
+      "value": 15000
+    },
+    {
+      "component": "select",
+      "name": "col3_frequency_default",
+      "label": "Default Frequency",
+      "value": "Monthly",
+      "options": [{
+          "name": "Annual",
+          "value": "Annual"
+        },
+        {
+          "name": "Daily",
+          "value": "Daily"
+        },
+        {
+          "name": "Fortnightly",
+          "value": "Fortnightly"
+        },
+        {
+          "name": "Monthly",
+          "value": "Monthly"
+        },
+        {
+          "name": "Quarterly",
+          "value": "Quarterly"
+        },
+        {
+          "name": "Weekly",
+          "value": "Weekly"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "col3_end_date_default",
+      "label": "Default End Date",
+      "value": "Until I cancel",
+      "options": [
+        {
+          "name": "Until I cancel",
+          "value": "Until I cancel"
+        },
+        {
+          "name": "Select Date",
+          "value": "Select Date"
+        }
+      ]
+    },
+    {
+      "component": "text",
+      "name": "col3_cta_button_label",
+      "label": "CTA Button Label",
+      "value": "Invest Now"
+    }
+  ]
+  },
+  {
+    "id": "fm-portfolio",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col_schemename",
+        "label": "Enter Label Scheme Name"
+      },
+      {
+        "component": "text",
+        "name": "col_scheme",
+        "label": "Enter Label Scheme"
+      },
+      {
+        "component": "text",
+        "name": "col_benchmark",
+        "label": "Enter Label Benchmark"
       }
     ]
   }

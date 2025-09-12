@@ -1,13 +1,8 @@
+// eslint-disable-next-line import/no-cycle
 import { loadFragment } from '../fragment/fragment.js';
 import {
   buildBlock, decorateBlock, loadBlock, loadCSS,
 } from '../../scripts/aem.js';
-
-import {
-  div,
-  p,
-  input,
-} from '../../scripts/dom-helpers.js';
 
 export async function createModal(contentNodes) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
@@ -85,75 +80,175 @@ export async function openModal(fragmentUrl) {
 }
 
 // --- Specialized function for On-Card Modals ---
+// async function openModalOnElement(fragmentUrl, clickedElement) {
+//   // **IMPORTANT**: Replace '.your-card-class' with the actual class of your fund card!
+//   let schcodeactive;
+//   if (
+//     clickedElement.parentElement.parentElement.parentElement.querySelector(
+//       '.star',
+//     ) !== null
+//   ) {
+//     schcodeactive = clickedElement.parentElement.parentElement.parentElement.querySelector(
+//       '.star',
+//     ).attributes.schcode.value;
+//   } else {
+//     const carwrapp = clickedElement.closest('.card-wrapper');
+//     schcodeactive = carwrapp
+//       .querySelector('.fund-name-title')
+//       .getAttribute('schcode');
+//   }
+//   localStorage.setItem('schcodeactive', schcodeactive);
+//   // const card = clickedElement.closest('.our-popular-funds')
+//   //   || clickedElement.closest('.known-our-funds')
+//   //   || clickedElement.closest('.fdp-card-container');
+
+//   const card = clickedElement.closest('.our-popular-funds')
+//     || clickedElement.closest('.known-our-funds')
+//     || document.querySelector('main');
+
+//   // const card = document.querySelector('main');
+
+//   if (!card) {
+//     // console.error('On-card modal: Could not find parent card with class ".your-card-class".');
+//     return;
+//   }
+
+//   card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+//   // card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+//   const path = fragmentUrl.startsWith('http')
+//     ? new URL(fragmentUrl, window.location).pathname
+//     : fragmentUrl;
+//   const fragment = await loadFragment(path);
+//   if (!fragment) return;
+
+//   card.classList.add('modal-active-parent');
+
+//   const overlay = document.createElement('div');
+//   overlay.classList.add('card-modal-overlay');
+//   overlay.style.visibility = 'hidden';
+//   overlay.style.position = 'absolute';
+//   overlay.style.left = '-9999px';
+
+//   overlay.append(...fragment.childNodes);
+//   card.append(overlay);
+
+//   requestAnimationFrame(() => {
+//     overlay.style.visibility = '';
+//     overlay.style.position = '';
+//     overlay.style.left = '';
+//   });
+
+//   const block = overlay.querySelector('.block');
+//   if (block) {
+//     await decorateBlock(block);
+//     await loadBlock(block);
+//   }
+//   // Call the function
+//   const closeButton = overlay.querySelector('.modal-btn');
+//   if (closeButton) {
+//     document.body.classList.add('noscroll');
+//     closeButton.addEventListener('click', (e) => {
+//       e.stopPropagation(); // Stop click from bubbling further
+//       const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+//       async function removeClassAfterDelay() {
+//         await delay(1200);
+//         overlay.remove('.card-modal-overlay');
+//       }
+//       const classAdd = card.querySelector('.invest-now-homepage-container');
+//       if (Array.from(classAdd.classList).includes('hide-modal')) {
+//         classAdd.classList.remove('hide-modal');
+//       }
+//       classAdd.classList.add('hide-modal');
+//       classAdd.classList.remove('modal-show');
+//       // }
+//       document.body.classList.remove('noscroll');
+//       card.classList.remove('modal-active-parent');
+//       overlay.classList.add('hide-overlay');
+//       removeClassAfterDelay();
+//       // classList.add('hide-overplay');
+//     });
+//   }
+// }
+
+// --- Specialized function for On-Card Modals (New) ---
 async function openModalOnElement(fragmentUrl, clickedElement) {
-  // **IMPORTANT**: Replace '.your-card-class' with the actual class of your fund card!
+  // This business logic for schcode can remain the same
   let schcodeactive;
-  if (
-    clickedElement.parentElement.parentElement.parentElement.querySelector(
-      '.star',
-    ) !== null
-  ) {
-    schcodeactive = clickedElement.parentElement.parentElement.parentElement.querySelector(
-      '.star',
-    ).attributes.schcode.value;
-  } else {
-    const carwrapp = clickedElement.closest('.card-wrapper');
-    schcodeactive = carwrapp
-      .querySelector('.fund-name-title')
-      .getAttribute('schcode');
+  const cardWrapper = clickedElement.closest('.card-wrapper'); // More robust DOM traversal
+  if (cardWrapper) {
+    const starEl = cardWrapper.querySelector('.star');
+    const titleEl = cardWrapper.querySelector('.fund-name-title');
+    if (starEl && starEl.getAttribute('schcode')) {
+      schcodeactive = starEl.getAttribute('schcode');
+    } else if (titleEl && titleEl.getAttribute('schcode')) {
+      schcodeactive = titleEl.getAttribute('schcode');
+    }
   }
   localStorage.setItem('schcodeactive', schcodeactive);
-  const card = clickedElement.closest('.our-popular-funds')
-    || clickedElement.closest('.known-our-funds')
-    || clickedElement.closest('.fdp-card-container');
-  if (!card) {
-    // console.error('On-card modal: Could not find parent card with class ".your-card-class".');
-    return;
-  }
 
-  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
+  // --- START: NEW LOGIC BORROWED FROM createModal ---
   const path = fragmentUrl.startsWith('http')
     ? new URL(fragmentUrl, window.location).pathname
     : fragmentUrl;
+
   const fragment = await loadFragment(path);
   if (!fragment) return;
 
-  card.classList.add('modal-active-parent');
+  // 1. Create a proper <dialog> element
+  const dialog = document.createElement('dialog');
+  const dialogContent = document.createElement('div');
+  dialogContent.classList.add('modal-content');
+  dialogContent.append(...fragment.childNodes);
+  dialog.append(dialogContent);
 
-  const overlay = document.createElement('div');
-  overlay.classList.add('card-modal-overlay');
-  overlay.style.visibility = 'hidden';
-  overlay.style.position = 'absolute';
-  overlay.style.left = '-9999px';
+  // 2. Add a close button (you can style it to appear where you need it)
+  const closeButton = document.createElement('button');
+  closeButton.classList.add('close-button'); // Use your existing modal CSS
+  closeButton.setAttribute('aria-label', 'Close');
+  closeButton.type = 'button';
+  closeButton.innerHTML = '<span class="icon icon-close"></span>';
+  closeButton.addEventListener('click', () => dialog.close());
+  dialog.prepend(closeButton); // Prepend to the dialog itself
 
-  overlay.append(...fragment.childNodes);
-  card.append(overlay);
+  // 3. Temporarily append to a new 'modal' block to load its content
+  const block = buildBlock('modal', '');
+  document.querySelector('main').append(block);
+  document.querySelector('.modal').classList.add('block');
+  document.querySelector('.modal').classList.add('modal-journey');
 
-  requestAnimationFrame(() => {
-    overlay.style.visibility = '';
-    overlay.style.position = '';
-    overlay.style.left = '';
+  // Clean up the block and append the dialog
+  block.innerHTML = '';
+  block.append(dialog);
+
+  // Decorate and load blocks *within* the fragment
+  // for (const innerBlock of dialog.querySelectorAll('.block')) {
+  //   decorateBlock(innerBlock);
+  //   await loadBlock(innerBlock);
+  // }
+
+  // This is the most straightforward fix if your linter allows a standard `for` loop.
+  const blocks = dialog.querySelectorAll('.block');
+  const blockPromises = Array.from(blocks).map(async (innerBlock) => {
+    decorateBlock(innerBlock);
+    return loadBlock(innerBlock); // loadBlock returns a promise.
   });
 
-  const block = overlay.querySelector('.block');
-  if (block) {
-    await decorateBlock(block);
-    await loadBlock(block);
-  }
+  // Wait for all promises to resolve.
+  await Promise.all(blockPromises);
 
-  const closeButton = overlay.querySelector('.modal-btn');
-  if (closeButton) {
-    document.body.classList.add('noscroll');
-    closeButton.addEventListener('click', (e) => {
-      e.stopPropagation(); // Stop click from bubbling further
-      document.body.classList.remove('noscroll');
-      card.classList.remove('modal-active-parent');
-      overlay.remove();
-    });
-  }
+  // 4. Add event listeners for cleanup
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('modal-open', 'noscroll');
+    block.remove(); // Clean up the modal block from the DOM
+  });
+
+  // 5. Show the modal
+  dialog.showModal();
+  document.body.classList.add('modal-open', 'noscroll');
+  // --- END: NEW LOGIC ---
 }
-
 // --- The SINGLE, SMART handler for ALL modal clicks ---
 export function initializeModalHandlers() {
   document.body.addEventListener('click', async (e) => {
@@ -164,10 +259,17 @@ export function initializeModalHandlers() {
     if (link.href.includes('/modals/')) {
       e.preventDefault();
 
+      if (link.href.includes('fm-portfolio')) {
+        const fmId = e.target.parentNode.getAttribute('data_id');
+        localStorage.setItem('FM-AgentName', fmId);
+        document.body.classList.add('noscroll');
+      }
+
       // If it's our special card button, use the on-card logic
       if (link.classList.contains('invest-now') || link.classList.contains('card-btn') || link.classList.contains('submit')) {
         e.stopPropagation(); // Stop other listeners!
         await openModalOnElement(link.href, link);
+        // await openModal(link.href);
       } else {
         // For all other modal links, use the default behavior
         await openModal(link.href);

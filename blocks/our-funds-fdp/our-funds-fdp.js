@@ -38,7 +38,7 @@ export default async function decorate(block) {
         { class: 'fund-wrapper' },
         div(
           { class: 'fund-manager' },
-          div({ class: 'fund-manager-image' }, img({ src: `/icons/fund-managers/${manager.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic' })),
+          div({ class: 'fund-manager-image' }, img({ src: `/icons/fund-managers/${manager.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic', loading: 'lazy' })),
           div(
             { class: 'fund-manager-detail' },
             p(manager.fundManagerName), // (manager.managerName),
@@ -54,13 +54,13 @@ export default async function decorate(block) {
           ),
           div(
             { class: 'fund-aum' },
-            img({ src: fundSvg }),
+            img({ src: fundSvg, alt: 'pie-chart' }),
             p({ class: 'fund-aum-text' }, aumText),
             span({ class: 'fund-aum-rupee' }, '₹2,12,342 Cr'),
           ),
         ),
       ),
-      div({ class: 'fund-links' }, a({ href: '#' }, 'View other funds managed by him')),
+      div({ class: 'fund-links', data_id: manager.fundManagerName.trim().split(' ').join('') }, a({ class: 'fundlink', href: '/motilalfigma/modals/fm-portfolio' }, 'View other funds managed by him')),
     );
 
     block.append(ourFunds);
