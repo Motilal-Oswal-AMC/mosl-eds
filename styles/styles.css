@@ -1008,6 +1008,10 @@ position: relative;
 
 /* Placeholder style for sip-calculator, growth-now, our-funds-block */
 
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
+    color: #fff;
+}
+
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
     color: #2e2a94;
@@ -1040,4 +1044,4 @@ position: relative;
     display: block;
 }
 
-/* Placeholder style for sip-calculator, growth-now, our-funds-block */
+/* Placeholder style for sip-calculator, growth-now, our-funds-block and fotter */
