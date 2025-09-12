@@ -83,8 +83,8 @@ export default async function decorate(block) {
           .filter((pl) => pl.toLowerCase() !== 'si') // remove "si"
           .sort((a, b) => {
             // Extract number part (like 1, 3, 5)
-            const numA = parseInt(a);
-            const numB = parseInt(b);
+            const numA = parseInt(a, 10);
+            const numB = parseInt(b, 10);
             return numA - numB;
           });
 

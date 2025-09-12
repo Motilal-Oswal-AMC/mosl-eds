@@ -865,6 +865,7 @@ position: relative;
     gap: 8px;
     align-self: stretch;
     border-radius: 4px;
+
     /* background: #2E2A94; */
     background: #E0E0E0;
     cursor: unset;
@@ -879,7 +880,7 @@ position: relative;
 
 .pan-details-modal .default-content-wrapper ul.subpandts3 li.pan-active{
      background-color : #2E2A94;
-    color : #FFFFFF;
+    color : #FFF;
      cursor : pointer;
     pointer-events :unset;
 }

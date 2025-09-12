@@ -223,10 +223,20 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
   block.append(dialog);
 
   // Decorate and load blocks *within* the fragment
-  for (const innerBlock of dialog.querySelectorAll('.block')) {
+  // for (const innerBlock of dialog.querySelectorAll('.block')) {
+  //   decorateBlock(innerBlock);
+  //   await loadBlock(innerBlock);
+  // }
+
+  // This is the most straightforward fix if your linter allows a standard `for` loop.
+  const blocks = dialog.querySelectorAll('.block');
+  const blockPromises = Array.from(blocks).map(async (innerBlock) => {
     decorateBlock(innerBlock);
-    await loadBlock(innerBlock);
-  }
+    return loadBlock(innerBlock); // loadBlock returns a promise.
+  });
+
+  // Wait for all promises to resolve.
+  await Promise.all(blockPromises);
 
   // 4. Add event listeners for cleanup
   dialog.addEventListener('close', () => {

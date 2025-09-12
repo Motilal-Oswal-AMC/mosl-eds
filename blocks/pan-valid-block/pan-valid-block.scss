@@ -440,10 +440,12 @@
       gap: 8px;
       align-self: stretch;
       border-radius: 4px;
+
       // background: #2e2a94;
       background: #e0e0e0;
       cursor: unset;
       text-align: center;
+
       // cursor: pointer;
       pointer-events: none;
       margin: 0;
@@ -453,7 +455,7 @@
 
     .active-form-btn {
       background-color: #2e2a94;
-      color: #ffffff;
+      color: #fff;
       cursor: pointer;
       pointer-events: unset;
     }

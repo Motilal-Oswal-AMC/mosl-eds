@@ -217,7 +217,7 @@ export async function existingUser(paramblock) {
     }
   }
 
-  async function imsentCall(paramData) {
+  async function lmsentCall(paramData) {
     try {
       const request = {
         frmdata: `LMS~${paramData.userLogPan}|${paramData.userLogPanNm}|+91${paramData.userLogMoNm}|${paramData.userLogEm}||Mumbai||${paramData.kycflag}|MF New investor|||||||||${paramData.isnri}|`,
@@ -230,7 +230,7 @@ export async function existingUser(paramblock) {
     }
   }
 
-  async function modiFyKycApi(param) {
+  async function modiFyKycApicall(param) {
     try {
       const request = {
         name: param.userLogPanNm,
@@ -246,7 +246,7 @@ export async function existingUser(paramblock) {
         request,
       );
       console.log('this is modiFuykyc Api Response ', rejsin);
-      imsentCall(param);
+      lmsentCall(param);
     } catch (error) {
       // console.log(error);
     }
@@ -584,6 +584,15 @@ export async function existingUser(paramblock) {
             continueBTN.classList.remove('active-form-btn');
           }
         });
+        if (boolkyc === 'true') {
+          const pandata = {
+            userLogPanNm: userLoginPanNumber.value,
+            userLogPan: rejsin.data.nameAsOnPan,
+          };
+          panDetails(pandata);
+        } else {
+          getCkycData(userLoginPanNumber.value);
+        }
       }
     } catch (error) {
       // console.log(error);
@@ -592,39 +601,6 @@ export async function existingUser(paramblock) {
   // ModifyKyc API  start
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
-  async function modiFyKycApi(param) {
-    try {
-      const request = {
-        name: param.userLogPanNm,
-        email: param.userLogEm,
-        phone: param.userLogMoNm,
-        returnUrl: 'https://mf.moamc.com/onboarding/personal',
-        timeOutUrl: 'https://mf.moamc.com/error',
-        panNo: param.userLogPan,
-      };
-      const rejsin = await myAPI(
-        'POST',
-        'https://api.moamc.com/prelogin/api/KYC/KYCProcess',
-        request,
-      );
-      console.log('this is modiFuykyc Api Response ', rejsin);
-    } catch (error) {
-      // console.log(error);
-    }
-  }
-
-  async function imsentCall(paramData) {
-    try {
-      const request = {
-        frmdata: `LMS~${paramData.userLogPan}|${paramData.userLogPanNm}|+91${paramData.userLogMoNm}|${paramData.userLogEm}||Mumbai||${paramData.kycflag}|MF New investor|||||||||${paramData.isnri}|`,
-      };
-      const setRep = await myAPI('POST', 'https://api.moamc.com/initapi/api/Init/Lmsentry', request);
-      console.log(setRep);
-      modiFyKycApi(paramData);
-    } catch (error) {
-      // console.log(error);
-    }
-  }
   // ModifyKyc API  start
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
@@ -645,7 +621,8 @@ export async function existingUser(paramblock) {
     };
     const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
     if (Array.from(continueBTN.classList).includes('active-form-btn')) {
-      imsentCall(formdata);
+      // lmsentCall(formdata);
+      modiFyKycApicall(formdata);
     }
   });
   // ModifyKyc API  ends
