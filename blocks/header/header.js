@@ -1,9 +1,9 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-// import { loadAutoBlock } from '../../scripts/scripts.js';
 import dataMapMoObj from '../../scripts/constant.js';
-import {a, button, div ,h3, li, ul} from '../../scripts/dom-helpers.js';
- 
+// import { loadAutoBlock } from '../../scripts/scripts.js';
+// import {a,button,div,h3,li,ul} from '../../scripts/dom-helpers.js';
+
 // media query match that indicates mobile/tablet width
 export const isDesktop = window.matchMedia('(min-width: 900px)');
 
@@ -32,7 +32,7 @@ function closeOnFocusLost(e) {
     // if (navSectionExpanded && isDesktop.matches) {
     //   // eslint-disable-next-line no-use-before-define
     //   toggleAllNavSections(navSections, false);
-    // } else if (!isDesktop.matches) {
+    // } else if (isDesktop.matches) {
     //   // eslint-disable-next-line no-use-before-define
     //   toggleMenu(nav, navSections, false);
     // }
@@ -179,11 +179,11 @@ export default async function decorate(block) {
         hrefnaf.append(frgnav.children[0]);
       }
       navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
+        // if (isDesktop.matches) {
+        const expanded = navSection.getAttribute('aria-expanded') === 'true';
+        toggleAllNavSections(navSections);
+        navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        // }
       });
       const subHeader = navSection.querySelectorAll('.section');
       dataMapMoObj.CLASS_PREFIXES = [
@@ -206,302 +206,6 @@ export default async function decorate(block) {
       'nav-sec-list-content',
     ];
     dataMapMoObj.addIndexed(navSections);
-    if (window.innerWidth < 900) {
-      const mobBlock = div({
-        'class': 'accordion-container'
-      },
-      button({
-              'class': 'accordion-header-outer'
-          },
-          'Our Funds',
-      ),
-      div({
-              'class': 'accordion-panel-outer'
-          },
-          div({
-                  'class': 'inner-accordion-container'
-              },
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Indian Equity',
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('Large Cap'),
-                      li('Large & Mid Cap'),
-                      li('Mid Cap'),
-                      li('Small Cap'),
-                      li('Flexi Cap'),
-                      li('Multi Cap'),
-                      li('Sector'),
-                      li('Tax Saver (ELSS)')
-                  )
-              ),
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Other Categories'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('International Equity'),
-                      li('Hybrid & Balanced'),
-                      li('Multi Asset'),
-                      li('ETFs'),
-                      li('Commodity'),
-                      li('Debt & Liquid'),
-                      li('Index Funds')
-                  )
-              ),
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Popular Funds'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('Motilal Oswal Asset Allocation Passive Fund Conservative'),
-                      li('Motilal Oswal Nifty 500 Momentum 50 Index Fund'),
-                      li('Motilal Oswal Mid Cap Fund'),
-                      li('Motilal Oswal Flexi Cap Fund')
-                  )
-              ),
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Related Links'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li(a({
-                              'href': '#'
-                          },
-                          'Factsheet'
-                      )),
-                      li(a({
-                              'href': '#'
-                          },
-                          'Presentations'
-                      )),
-                      li(a({
-                              'href': '#'
-                          },
-                          'NAV & TER'
-                      )),
-                      li(a({
-                              'href': '#'
-                          },
-                          'iNAV'
-                      ))
-                  )
-              )
-          )
-      ),
-      button({
-              'class': 'accordion-header-outer'
-          },
-          'Services'
-      ),
-      div({
-              'class': 'accordion-panel-outer'
-          },
-          div({
-                  'class': 'inner-accordion-container'
-              },
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Downloads'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('Statements & Reports'),
-                      li('Factsheet'),
-                      li('Forms'),
-                      li('Product Literature')
-                  )
-              ),
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Other Services'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('NAV & TER'),
-                      li('Track Your Transaction Status'),
-                      li('Autopay (Mandate) Registration'),
-                      li('Grievance Redressal')
-                  )
-              ),
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Update Account Details'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('Email ID'),
-                      li('Mobile No.'),
-                      li('KYC Status'),
-                      li('Modify KYC'),
-                      li('Nominee'),
-                  )
-              )
-          )
-      ),
-      button({
-              'class': 'accordion-header-outer'
-          },
-          'Calculators'
-      ),
-      div({
-              'class': 'accordion-panel-outer'
-          },
-          div({
-                  'class': 'inner-accordion-container'
-              },
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Plan Your Investments'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('SIP Calculator'),
-                      li('Cost of delay Calculator'),
-                      li('SWP Calculator'),
-                      li('Lumpsum Calculator'),
-                      li('Inflation Calculator')
-                  )
-              ),
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Goal Calculators'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('Retirement planning'),
-                      li('Buying a House'),
-                      li('Plan a Trip'),
-                      li('Child’s Education')
-                  )
-              )
-          )
-      ),
-      button({
-              'class': 'accordion-header-outer'
-          },
-          'Investor Education'
-      ),
-      div({
-              'class': 'accordion-panel-outer'
-          },
-          div({
-                  'class': 'inner-accordion-container'
-              },
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Content Library'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li('Blogs'),
-                      li('Videos'),
-                      li('Podcasts'),
-                      li('5 Keys of Investing'),
-                      li('Glossary')
-                  )
-              ),
-              button({
-                      'class': 'accordion-header-inner'
-                  },
-                  'Mutual Fund Categories'
-              ),
-              div({
-                      'class': 'accordion-panel-inner'
-                  },
-                  ul(
-                      li(a({
-                              'href': '#'
-                          },
-                          'Equity Funds'
-                      )),
-                      li(a({
-                              'href': '#'
-                          },
-                          'International Equities'
-                      )),
-                      li(a({
-                              'href': '#'
-                          },
-                          'Hybrid and Balanced'
-                      )),
-                      li(a({
-                              'href': '#'
-                          },
-                          'Index Funds'
-                      ))
-                  )
-              )
-          )
-      )
-      );
-      navSections.append(mobBlock);
-      navSections.children[0].style.display = 'none';
-
-      function setupAccordion(headerClass, panelClass) {
-        const headers = navSections.querySelectorAll(headerClass);
-
-        headers.forEach(header => {
-            header.addEventListener("click", function() {
-                this.classList.toggle("active");
-                const panel = this.nextElementSibling;
-                
-                if (panel.style.minHeight) {
-                    panel.style.minHeight = 0;
-                    // Reset padding for outer panels
-                    if (panel.classList.contains('accordion-panel-outer')) {
-                       panel.style.padding = "0 0 0 16px";
-                    }
-                } else {
-                    panel.style.minHeight = panel.scrollHeight + "px";
-                    // Set padding for outer panels when opened
-                    if (panel.classList.contains('accordion-panel-outer')) {
-                       panel.style.padding= "0 0 0 16px";
-                    }
-                }
-            });
-        });
-      }
-
-    // Initialize both accordions
-      setupAccordion(".accordion-header-outer", ".accordion-panel-outer");
-      setupAccordion(".accordion-header-inner", ".accordion-panel-inner");
-    }
   }
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
@@ -559,7 +263,10 @@ export default async function decorate(block) {
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+  hamburger.addEventListener('click', () => {
+    toggleMenu(nav, navSections);
+    toggleAllNavSections(navSections, 'true');
+  });
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
@@ -570,8 +277,25 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
-  // if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
-  //   navWrapper.append(await buildBreadcrumbs());
-  // }
-  // loadAutoBlock();
+
+  if (window.innerWidth < 900) {
+    // Find the main container for the navigation lists
+    const navContainer = document.querySelector('.nav-sec-sec1');
+    navContainer.addEventListener('click', (event) => {
+      const clickedListItem = event.target.closest('li.comlist');
+      if (!clickedListItem) {
+        return;
+      }
+      const submenu = clickedListItem.querySelector(':scope > ul');
+      if (!submenu) {
+        return;
+      }
+      event.stopPropagation();
+      if (submenu.style.display === 'block') {
+        submenu.style.display = 'none';
+      } else {
+        submenu.style.display = 'block';
+      }
+    });
+  }
 }

@@ -297,6 +297,10 @@
           {
             "name": "mosl-edge-header",
             "value": "mosl-edge-header"
+          },
+          {
+            "name": "NFO Banner",
+            "value": "nfo-banner"
           }
         ]
       },
