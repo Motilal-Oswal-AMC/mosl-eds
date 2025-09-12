@@ -205,6 +205,7 @@
     border-radius: 8px;
     background:unset;
     height: 100%;
+    overflow: hidden;
 
       @include media(mobile) {
          height: 90vh;
