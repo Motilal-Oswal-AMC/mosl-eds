@@ -815,7 +815,10 @@
     
 
     .close-button {
-      display: none;
+      display: block;
+      z-index: -1;
+      background-color: transparent;
+      color: transparent;
     }
 
     .modal-content {
@@ -828,7 +831,7 @@
       box-shadow: unset;
 
       .invest-now-homepage-container,.pan-details-modal,.otp-fdp,.fdp-kyc-form {
-        max-width: 372px;
+        max-width: 400px;
       }
 
       // position: unset;

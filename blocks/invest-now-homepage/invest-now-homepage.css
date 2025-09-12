@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /* Reset */
 @import "../../../styles/fonts.css";
 /* stylelint-disable */
@@ -803,7 +802,10 @@
   transform: translateX(0);
 }
 .modal.block dialog .close-button {
-  display: none;
+  display: block;
+  z-index: -1;
+  background-color: transparent;
+  color: transparent;
 }
 .modal.block dialog .modal-content {
   display: flex;
@@ -815,7 +817,7 @@
   box-shadow: unset;
 }
 .modal.block dialog .modal-content .invest-now-homepage-container, .modal.block dialog .modal-content .pan-details-modal, .modal.block dialog .modal-content .otp-fdp, .modal.block dialog .modal-content .fdp-kyc-form {
-  max-width: 372px;
+  max-width: 400px;
 }
 
 .modal-show {
@@ -842,4 +844,4 @@
   to {
     transform: translateX(100%);
   }
-}
+}/*# sourceMappingURL=invest-now-homepage.css.map */

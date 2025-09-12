@@ -205,7 +205,8 @@
         }
 
         .close-button{
-            display: none;
+            display: block;
+            z-index: -1;
         }
     }
 }
