@@ -4,6 +4,7 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
+@import '../swiper/swiper-bundle.min.css';
 
 .section.fund-card-slider-container {
   position: relative;
@@ -53,6 +54,7 @@
         width: 100%;
         height: 50px;
         position: absolute;
+        z-index: 1;
         top: 0;
         right: 0;
         display: flex;

@@ -15,4 +15,7 @@ export default function decorate(block) {
   imgWrapper.appendChild(fundvedone);
   imgWrapper.appendChild(fundvedtwo);
   fundv2.prepend(imgWrapper);
+
+  const imgAltmain = block.closest('main');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.fund-video-container .fundvedmain2 .fundvedinnermain2 img'), 'video-play-btn');
 }

@@ -239,7 +239,7 @@ export default function decorate(block) {
   const starClass = dataMapMoObj.schstar.includes(block.schcode)
     ? 'star-filled'
     : '';
-  const mop = `MO_${block.schcode}.svg`;
+  const mop = `../../icons/iconfund/MO_${block.schcode}.svg`;
   const dspdate = returnYear === 'Since Inception' ? 'block' : 'none';
   // const cagrValue = finPlangrp
   if (finPlangrp.length !== 0) {
@@ -259,7 +259,7 @@ export default function decorate(block) {
                 { class: 'brand-logo' },
                 img({
                   class: 'logoscheme',
-                  src: `../../icons/iconfund/${mop}`,
+                  src: `${mop}`,
                   alt: 'BrandLogo',
                 }),
               ),
@@ -438,7 +438,7 @@ export default function decorate(block) {
               },
               img({
                 class: 'logoscheme',
-                src: `../../icons/iconfund/${mop}`,
+                src: `${mop}`,
                 alt: 'BrandLogo',
               }),
             ),

@@ -15,7 +15,7 @@
     }
   }
 
-  >div:first-of-type {
+  >div.library-btn1 {
     width: 100%;
     height: 100%;
     padding-bottom: 40px;
@@ -153,7 +153,7 @@
         .swiper-slide-cards-2 {
           padding-top: 24px;
 
-          >ul {
+          >ul.cards-listcards1 {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -182,7 +182,7 @@
               }
             }
 
-            &>li:first-child {
+            &>li.cards-list-1-cards1 {
               display: flex;
               align-items: center;
               justify-content: space-between;
@@ -197,7 +197,7 @@
               }
 
 
-              p {
+              p.list-child-11{
                 margin: 0;
                 display: flex;
                 display: inline-flex;
@@ -215,7 +215,7 @@
                 min-height: 32px;
               }
 
-              ul {
+              ul.list-child-12 {
                 margin: 0;
                 display: flex;
                 align-items: center;
@@ -243,7 +243,7 @@
                   }
                 }
 
-                li:first-child {
+                li.list-grandch-child1 {
                   list-style: none;
                   padding-right: 10px;
                   position: relative;
@@ -261,8 +261,7 @@
               }
             }
 
-            /* stylelint-disable-next-line no-descending-specificity */
-            &>li:nth-child(2) {
+            &>li.cards-list-1-cards2 {
               margin-bottom: 8px;
               min-height: 48px;
 
@@ -300,7 +299,7 @@
               }
             }
 
-            &>li:nth-child(3) {
+            &>li.cards-list-1-cards3 {
               p {
                 margin: 0;
                 padding: 0;
@@ -321,8 +320,7 @@
               }
             }
 
-            /* stylelint-disable-next-line no-descending-specificity */
-            &>li:nth-child(4) {
+            &>li.cards-list-1-cards4 {
               margin-top: 24px;
 
               .button-container {
@@ -355,8 +353,7 @@
               // }
             }
 
-            /* stylelint-disable-next-line no-descending-specificity */
-            &>li:nth-child(5) {
+            &>li.cards-list-1-cards5 {
               position: absolute;
               display: none;
             }
@@ -374,9 +371,7 @@
 
       .swiper-slide:first-child {
         .swiper-slide-cards-1 {
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          a {
+          a.button {
             background: transparent;
             z-index: unset;
 
@@ -469,14 +464,12 @@
       margin-top: 24px;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    p {
+    p.libr-btn-p {
       width: 100%;
       margin: 0;
       padding: 0;
 
-      /* stylelint-disable-next-line no-descending-specificity */
-      a {
+      a.libr-btn-a {
         margin: 0;
         display: inline-flex;
         padding: 12px 19px;
@@ -525,10 +518,8 @@
       .swiper-wrapper {
         .swiper-slide {
           .swiper-slide-cards-2 {
-            ul {
-
-              /* stylelint-disable-next-line no-descending-specificity */
-              li {
+            ul.cards-listcards1 {
+              li.card-list {
                 font-size: 14px;
                 line-height: 20px;
               }
@@ -548,14 +539,12 @@
       padding: 0 16px 0 0;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    .button-container {
+    .button-container.libr-btn-p {
       @include media(mobile) {
         width: 100%;
       }
 
-      /* stylelint-disable-next-line no-descending-specificity */
-      a {
+      a.libr-btn-a {
         @include media(mobile) {
           width: 100%;
         }
@@ -583,8 +572,7 @@
           display: flex;
           flex-direction: column;
 
-          /* stylelint-disable-next-line no-descending-specificity */
-          li {
+          li.quicksubactlist {
             display: flex;
             max-width: 100%;
             flex: 0 0 100%;
@@ -657,7 +645,7 @@
             list-style: none;
             flex-direction: unset;
 
-            li {
+            li.quicksubactlist {
               flex: 1;
               display: flex;
               align-items: center;
@@ -678,8 +666,7 @@
                 }
               }
 
-              /* stylelint-disable-next-line no-descending-specificity */
-              .icon {
+              .icon.quckaqweactmain1 {
                 width: 40px;
                 height: 40px;
               }
@@ -796,8 +783,7 @@
             bottom: 0;
           }
 
-          /* stylelint-disable-next-line no-descending-specificity */
-          .button-container {
+          .button-container.watchlist-inneritems3 {
             margin: 0;
             padding: 0;
 
@@ -1260,4 +1246,4 @@
   }
 }
 
-// Welcome Anushuka Component End
+// Welcome Anushuka Component Ends
