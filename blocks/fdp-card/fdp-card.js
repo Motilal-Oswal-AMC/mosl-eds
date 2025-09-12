@@ -666,11 +666,11 @@ export default function decorate(block) {
 
   // changes for given class ul li
 
-  const ulElement = document.querySelector('.breadcrumbs-fdp');
+  const ulElement = mainBlock.querySelector('.breadcrumbs-fdp');
   dataMapMoObj.CLASS_PREFIXES = ['mainbreadcrb', 'subbreadcrb', 'innerbreadcrb', 'breadcrbmain'];
   dataMapMoObj.addIndexed(ulElement);
 
-  document.querySelector('.subbreadcrb2').addEventListener('click', () => {
+  mainBlock.querySelector('.subbreadcrb2').addEventListener('click', () => {
     const breadcrumb = document.querySelector('.breadcrbmain2');
     if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
       breadcrumb.style.display = 'block';
@@ -684,4 +684,46 @@ export default function decorate(block) {
   dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb3 img'), 'portfolio-sheet');
   dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
   dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
+
+  // Select the parent container once
+  const shareContainer = imgAltmain.querySelector('.subbreadcrb2 .breadcrbmain2');
+
+  // Loop through children just to prepare them (e.g., remove href)
+  Array.from(shareContainer.children).forEach((listItem) => {
+    // Find the list item that contains the text 'Copy'
+    if (listItem.textContent.trim().includes('Copy')) {
+      const link = listItem.querySelector('a');
+      if (link) {
+        link.removeAttribute('href');
+        // Add a class or data-attribute for easier targeting
+        listItem.dataset.action = 'copy';
+      }
+    }
+  });
+
+  // Add ONE event listener to the parent container
+  shareContainer.addEventListener('click', async (event) => {
+    // Find the list item that was actually clicked
+    const clickedItem = event.target.closest('[data-action="copy"]');
+
+    // If the click wasn't on our copy button, do nothing
+    if (!clickedItem) {
+      return;
+    }
+
+    // Prevent default behavior, like navigating if the href wasn't removed
+    event.preventDefault();
+
+    try {
+      const currentUrl = window.location.href;
+      await navigator.clipboard.writeText(currentUrl);
+
+      // Provide feedback to the user!
+      alert('URL copied to clipboard!');
+    } catch (err) {
+      // Catch potential errors and inform the user
+      console.error('Failed to copy URL: ', err);
+      alert('Could not copy URL. Please make sure the window is focused.');
+    }
+  });
 }
