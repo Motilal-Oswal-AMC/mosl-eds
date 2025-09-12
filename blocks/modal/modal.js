@@ -216,6 +216,7 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
   const block = buildBlock('modal', '');
   document.querySelector('main').append(block);
   document.querySelector('.modal').classList.add('block');
+  document.querySelector('.modal').classList.add('modal-journey');
 
   // Clean up the block and append the dialog
   block.innerHTML = '';

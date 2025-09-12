@@ -1072,6 +1072,10 @@ position: relative;
     transform: translateX(100%);
 }
 
+.modal.block.modal-journey>dialog[open]>.modal-content {
+max-width: 400px;
+}
+
 @keyframes slide-in {
     from {
         transform: translateX(100%);
@@ -1091,4 +1095,5 @@ position: relative;
         transform: translateX(100%);
     }
 }
+
 

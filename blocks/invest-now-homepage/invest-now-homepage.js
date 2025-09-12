@@ -18,7 +18,7 @@ import { myAPI } from '../../scripts/scripts.js';
 const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 async function removeClassAfterDelay() {
   const closestParam = document.querySelector('main');
-  await delay(1200);
+  await delay(500);
   // closestParam.querySelector('.modal-content').remove();
   closestParam.querySelector('.modal').remove();
   const bodym = document.querySelector('body');
