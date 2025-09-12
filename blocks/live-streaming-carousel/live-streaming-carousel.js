@@ -1,5 +1,3 @@
-/* eslint-disable*/
-
 import Swiper from '../swiper/swiper-bundle.min.js';
 import { div, p } from '../../scripts/dom-helpers.js';
 
@@ -44,15 +42,13 @@ export default function decorate(block) {
   // const wrapper = document.querySelector('.live-streaming-carousel-wrapper');
   const swiperEl = wrapper.querySelector('.swiper');
   const lis = swiperEl.querySelectorAll('.swiper-slide ul li');
-  lis.forEach(li => {
-    const link = li.querySelector('a');
-    const text = li.textContent.trim();
+  lis.forEach((lielem) => {
+    const link = lielem.querySelector('a');
+    const text = lielem.textContent.trim();
     if (link && link.hasAttribute('href')) {
-      console.log('Has href:', link.getAttribute('href'));
-    } else {
-      if (text === 'Watch Live Streaming') {
-        li.style.display = 'none';
-      }
+      // console.log('Has href:', link.getAttribute('href'));
+    } else if (text === 'Watch Live Streaming') {
+      lielem.style.display = 'none';
     }
   });
 
@@ -62,12 +58,12 @@ export default function decorate(block) {
       delay: 5000,
     },
     pagination: {
-      el: wrapper.querySelector(".swiper-pagination"),
+      el: wrapper.querySelector('.swiper-pagination'),
       clickable: true,
     },
     navigation: {
-      nextEl: wrapper.querySelector(".swiper-button-next"),
-      prevEl: wrapper.querySelector(".swiper-button-prev"),
+      nextEl: wrapper.querySelector('.swiper-button-next'),
+      prevEl: wrapper.querySelector('.swiper-button-prev'),
     },
 
     on: {

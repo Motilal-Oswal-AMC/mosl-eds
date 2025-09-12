@@ -107,15 +107,6 @@
   display: flex;
   align-items: stretch;
 }
-.section.make-index-funds-container .make-index-funds__title {
-  font-family: "ButlerPro", sans-serif;
-  color: #2e2a94;
-  font-weight: 700;
-  line-height: 1.2;
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  width: 100%;
-  margin-bottom: 40px;
-}
 .section.make-index-funds-container .make-index-funds .card-wrap {
   display: flex;
   flex-direction: column;

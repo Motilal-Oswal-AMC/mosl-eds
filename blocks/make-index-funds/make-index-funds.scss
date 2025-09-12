@@ -126,12 +126,12 @@
             }
         }
 
-        &__title {
-            @include typography-h2;
+        // &__title {  
+        //     @include typography-h2;
 
-            width: 100%;
-            margin-bottom: map.get($spacing, 'xxl');
-        }
+        //     width: 100%;
+        //     margin-bottom: map.get($spacing, 'xxl');
+        // }
 
         // --- Card Component ---
         .card-wrap {

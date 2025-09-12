@@ -1,5 +1,6 @@
 @import "../../../styles/fonts.css";
 .performance-graph {
+  padding-top: 75px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -10,7 +11,7 @@
     height: unset;
   }
 }
-.performance-graph .fund-note-container h4 {
+.performance-graph .fund-note-container h2 {
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
@@ -20,7 +21,7 @@
   margin: 0;
 }
 @media (width <= 768px) {
-  .performance-graph .fund-note-container h4 {
+  .performance-graph .fund-note-container h2 {
     font-size: 24px;
     line-height: 28px;
   }

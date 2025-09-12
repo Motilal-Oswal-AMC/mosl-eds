@@ -1,13 +1,8 @@
+// eslint-disable-next-line import/no-cycle
 import { loadFragment } from '../fragment/fragment.js';
 import {
   buildBlock, decorateBlock, loadBlock, loadCSS,
 } from '../../scripts/aem.js';
-
-import {
-  div,
-  p,
-  input,
-} from '../../scripts/dom-helpers.js';
 
 export async function createModal(contentNodes) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
@@ -141,19 +136,32 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     await decorateBlock(block);
     await loadBlock(block);
   }
-
+  // Call the function
   const closeButton = overlay.querySelector('.modal-btn');
   if (closeButton) {
     document.body.classList.add('noscroll');
     closeButton.addEventListener('click', (e) => {
       e.stopPropagation(); // Stop click from bubbling further
+      const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+      async function removeClassAfterDelay() {
+        await delay(1200);
+        overlay.remove('.card-modal-overlay');
+      }
+      const classAdd = card.querySelector('.invest-now-homepage-container');
+      if (Array.from(classAdd.classList).includes('hide-modal')) {
+        classAdd.classList.remove('hide-modal');
+      }
+      classAdd.classList.add('hide-modal');
+      classAdd.classList.remove('modal-show');
+      // }
       document.body.classList.remove('noscroll');
       card.classList.remove('modal-active-parent');
-      overlay.remove();
+      overlay.classList.add('hide-overlay');
+      removeClassAfterDelay();
+      // classList.add('hide-overplay');
     });
   }
 }
-
 // --- The SINGLE, SMART handler for ALL modal clicks ---
 export function initializeModalHandlers() {
   document.body.addEventListener('click', async (e) => {

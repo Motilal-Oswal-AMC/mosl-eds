@@ -177,6 +177,12 @@
   border: 1px solid #BDBDBD;
   background: transparent;
 }
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::-moz-placeholder {
+  color: #fff;
+}
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
+  color: #fff;
+}
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.submit-btn .button {
   display: flex;
   padding: 0.75rem;
@@ -245,17 +251,16 @@
   padding: 0;
   padding-bottom: 24px;
 }
-.footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item .accordion-item-body ul {
+.footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item .accordion-item-body ul.list-inneritem-1 {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  /* stylelint-disable-next-line no-descending-specificity */
 }
-.footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item .accordion-item-body ul li {
+.footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item .accordion-item-body ul.list-inneritem-1 li {
   padding: 0;
   color: #FFF;
 }
-.footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item .accordion-item-body ul li a {
+.footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item .accordion-item-body ul.list-inneritem-1 li a {
   font-family: "Poppins", sans-serif;
   font-size: 0.75rem;
   font-style: normal;
@@ -291,22 +296,18 @@
   align-items: center;
   gap: 8px;
 }
-.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 p,
-.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 p {
-  /* stylelint-disable-next-line no-descending-specificity */
-}
-.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 p a,
-.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 p a {
+.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 p.list-items1 a.list-inneritem-1,
+.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 p.list-items1 a.list-inneritem-1 {
   display: flex;
   align-items: center;
 }
-.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 p a span,
-.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 p a span {
+.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 p.list-items1 a.list-inneritem-1 span,
+.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 p.list-items1 a.list-inneritem-1 span {
   width: 21px;
   height: 24px;
 }
-.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 .list-items2 li a,
-.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 .list-items2 li a {
+.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 .list-items2 li.item-list a.item-anchor,
+.footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 .list-items2 li.item-list a.item-anchor {
   color: #FFF;
   font-family: "Poppins", sans-serif;
   font-size: 0.75rem;
@@ -347,10 +348,7 @@
   flex-wrap: wrap;
   gap: 12px 32px;
 }
-.footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li {
-  /* stylelint-disable-next-line no-descending-specificity */
-}
-.footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li a {
+.footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li a.list-items1 {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -361,9 +359,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  /* stylelint-disable-next-line no-descending-specificity */
 }
-.footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li a span {
+.footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li a.list-items1 span.list-inneritem-1 {
   display: flex;
   width: 16px;
   height: 16px;
@@ -499,7 +496,6 @@
     margin: 0;
     padding-bottom: 32px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    /* stylelint-disable-next-line no-descending-specificity */
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont1 {
     width: 37.3%;
@@ -512,19 +508,19 @@
     margin: 0;
     padding: 0;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont2 {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 {
     width: 53.62%;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont2 form {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont2 form .field-wrapper.email-wrapper {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper {
     flex-grow: 1;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont2 form .field-wrapper.email-wrapper label {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper label {
     position: absolute;
     top: -7px;
     left: 8px;
@@ -543,7 +539,7 @@
     line-height: 1rem;
     background: #2E2A94;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont2 form .field-wrapper.email-wrapper input {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input {
     display: flex;
     padding: 8px 12px;
     flex-direction: column;
@@ -561,7 +557,7 @@
     border-radius: 0.375rem;
     border: 1px solid #BDBDBD;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont2 form .field-wrapper.submit-btn .button {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.submit-btn .button {
     width: -moz-max-content;
     width: max-content;
     padding: 12px 16px;
@@ -569,7 +565,7 @@
   }
 }
 @media (width >= 900px) and (width >= 970px) {
-  .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont2 form .field-wrapper.submit-btn .button {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.submit-btn .button {
     padding: 12px 28.5px;
   }
 }
@@ -596,14 +592,13 @@
   .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body {
     padding-top: 12px;
   }
-  .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul {
+  .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul.list-inneritem-1 {
     gap: 8px;
   }
-  .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul li {
+  .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul.list-inneritem-1 li.list-innerlist {
     opacity: 0.8;
-    /* stylelint-disable-next-line no-descending-specificity */
   }
-  .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul li a {
+  .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul.list-inneritem-1 li.list-innerlist a {
     font-family: "Poppins", sans-serif;
     font-size: 0.75rem;
     font-style: normal;
@@ -625,7 +620,6 @@
     gap: 131px;
     align-self: stretch;
     flex-direction: unset;
-    /* stylelint-disable-next-line no-descending-specificity */
   }
 }
 @media (width >= 900px) and (width >= 970px) {
@@ -642,19 +636,14 @@
     font-weight: 600;
     line-height: 1rem;
   }
-  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 {
+  .footer-wrapper .footer .footer-section3 .footer-sub1 ul.footer-sub-cont2 {
     flex-direction: row;
     gap: 40px;
-    /* stylelint-disable-next-line no-descending-specificity */
-    /* stylelint-disable-next-line no-descending-specificity */
-    /* stylelint-disable-next-line no-descending-specificity */
-    /* stylelint-disable-next-line no-descending-specificity */
   }
-  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li {
+  .footer-wrapper .footer .footer-section3 .footer-sub1 ul.footer-sub-cont2 li {
     line-height: 1rem;
-    /* stylelint-disable-next-line no-descending-specificity */
   }
-  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li a {
+  .footer-wrapper .footer .footer-section3 .footer-sub1 ul.footer-sub-cont2 li a.list-items1 {
     gap: 4px;
     color: #FFF;
     font-family: "Poppins", sans-serif;
@@ -662,9 +651,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    /* stylelint-disable-next-line no-descending-specificity */
   }
-  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 li a .icon {
+  .footer-wrapper .footer .footer-section3 .footer-sub1 ul.footer-sub-cont2 li a.list-items1 .icon {
     display: flex;
     width: 16px;
     height: 16px;
@@ -672,13 +660,13 @@
     justify-content: center;
     align-items: center;
   }
-  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 .section-content1 {
+  .footer-wrapper .footer .footer-section3 .footer-sub1 ul.footer-sub-cont2 .section-content1.footerthr {
     order: unset;
   }
-  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 .section-content2 {
+  .footer-wrapper .footer .footer-section3 .footer-sub1 ul.footer-sub-cont2 .section-content.footerthr {
     order: unset;
   }
-  .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont2 .section-content3 {
+  .footer-wrapper .footer .footer-section3 .footer-sub1 ul.footer-sub-cont2 .section-content3.footerthr {
     order: unset;
   }
   .footer-wrapper .footer .footer-section3::after {

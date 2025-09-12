@@ -25,7 +25,14 @@
   color: #ed2020;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  display: none;
   margin: 5px 0 0;
+}
+.co-branding .cobrand-field .show-error {
+  display: block;
+}
+.co-branding .cobrand-field .hide-error {
+  display: none;
 }
 .co-branding .cobrand-label {
   font-size: 12px;

@@ -1,4 +1,3 @@
-/* eslint-disable*/
 import {
   div,
   p,
@@ -7,199 +6,575 @@ import {
   button,
   input,
   label,
-  select,
-  option,
   span,
   ul,
   li,
-} from "../../scripts/dom-helpers.js";
-import "../../scripts/flatpickr.js";
-import dataCfObj from "../../scripts/dataCfObj.js";
-import dataMapMoObj from "../../scripts/constant.js";
-import { myAPI } from "../../scripts/scripts.js";
+} from '../../scripts/dom-helpers.js';
+import '../../scripts/flatpickr.js';
+import dataCfObj from '../../scripts/dataCfObj.js';
+import dataMapMoObj from '../../scripts/constant.js';
+import { myAPI } from '../../scripts/scripts.js';
 
-export async function existingUser() {
-  const demo = Array.from(document.querySelectorAll(".pan-details-modal p"));
+export async function existingUser(paramblock) {
+  const closestParam = paramblock.closest('main');
+  const kycForm = closestParam.querySelector('.fdp-kyc-form');
+  const panForm = closestParam.querySelector('.pan-details-modal');
+  const pansuccessForm = closestParam.querySelector('.otp-fdp');
+
+  const demo = Array.from(closestParam.querySelectorAll('.pan-details-modal p'));
   const inputLable = demo[0];
   if (!inputLable) {
     // console.warn('No <p> elements found inside .pan-details-modal');
     return;
   }
 
-  inputLable.innerHTML = "";
+  inputLable.innerHTML = '';
 
   const addInputDiv = div(
-    { class: "input-wrapper" },
-    p({ class: "panlabel" }, "Pan Number"),
+    { class: 'input-wrapper' },
+    p({ class: 'panlabel' }, 'Pan Number'),
     input({
-      type: "text",
-      placeholder: "Enter PAN Number",
-      name: "pan",
-      class: "iptpanfld",
-    })
+      type: 'text',
+      placeholder: 'Enter PAN Number',
+      name: 'pan',
+      class: 'iptpanfld',
+    }),
   );
 
-  dataMapMoObj.panDlts["isGuest"] = "false";
-  dataMapMoObj.panDlts["guestMenuState"] = {
+  dataMapMoObj.panDlts.isGuest = 'false';
+  dataMapMoObj.panDlts.guestMenuState = {
     guestMenu: false,
     existingBox: true,
   };
-  async function kycCall(param) {
+
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    const expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${cname}=${cvalue};${expires};path=/`;
+  }
+
+  // function removeCookie(cname) {
+  //   document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  // }
+  // removeCookie('')
+
+  async function apiAuth(params) {
     try {
-      const request = {
-        panNo: param,
+      const reqAuth = {
+        password: params.optNo,
+        userId: params.panNo,
+        loginModeId: 1,
+        credentialModeId: 1,
+        ipV4: '192.198.22.22',
+        otpThroughDIT: false,
+        ditotpType: '',
+        pmsGuest: false,
+        isAIF: false,
+        mfGuest: false,
+        product: 'MF',
+      };
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
       };
       const rejsin = await myAPI(
-        "POST",
-        " https://api.moamc.com/InitAPI/api/Init/CVLKYCCheck",
-        request
+        'POST',
+        'https://api.moamc.com/loginapi/api/Login/AuthenticateUserCred',
+        reqAuth,
+        header,
       );
-      console.log("kyc api response ", rejsin);
-      let isKyc = rejsin.data.kycStatus === "Y" ? true : false;
+      if (rejsin.data.userInfo) {
+        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        if (dataMapMoObj.panRes.data.guestClient !== '') {
+          window.location.href = 'https://www.motilaloswalmf.com/mutualfund/onboarding/personal';
+        } else if (dataMapMoObj.panRes.data.guestClient === '') {
+          window.location.href = 'https://www.motilaloswalmf.com/mutualfund/prelogin-to-postlogin-connector';
+        }
+      }
+      // console.log(rejsin);
+      params.otpField.classList.add('otp-succes');
+    } catch (error) {
+      // console.log(error);
+    }
+  }
 
-      const kycForm = document.querySelector(".fdp-kyc-form");
-      const panForm = document.querySelector(".pan-details-modal");
-      const pansuccessForm = document.querySelector(".otp-fdp");
-      if (isKyc) {
-        kycForm.style.display = "none"; // display none kycform
-        panForm.style.display = "none"; // display none panform
-        pansuccessForm.style.display = "block"; // display block otp form
-        otpCall(param);
-      } else {
-        kycForm.style.display = "block";
-        panForm.style.display = "none";
-        pansuccessForm.style.display = "none";
-        const userLoginPanNumber = document.querySelector(".user-pan-number"); // input
-        userLoginPanNumber.value = dataMapMoObj.panDlts['pannumber'].toUpperCase();
-        userLoginPanNumber.setAttribute('readonly',true);
-
-        const editInput = document.querySelector('.pan-image');
-        editInput.addEventListener('click',()=>{
-           userLoginPanNumber.removeAttribute('readonly');
-        })
+  async function panDetails(params) {
+    try {
+      const request = {
+        name: params.userLogPanNm,
+        panNo: params.userLogPan,
+        otp: 0,
+        saveForLater: true,
+      };
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/MFTransaction/api/InvestorDetails/panDetail',
+        request,
+      );
+      console.log(rejsin);
+      const guestFlag = localStorage.getItem('isGuest');
+      if (guestFlag === 'true') {
+        setCookie('accessToken', rejsin.data.accessToken);
+        setCookie('refreshToken', rejsin.data.refreshToken);
+        window.location.href = 'https://www.motilaloswalmf.com/mutualfund/onboarding/personal';
+      } else if (guestFlag === 'false') {
+        const locobj = {
+          panNo: params.userLogPan,
+          panName: params.userLogPanNm,
+          mobileNo: params.userLogMoNm,
+          emailId: params.userLogEm,
+        };
+        localStorage.setItem('signzy', JSON.stringify(locobj));
+        window.location.href = 'https://www.motilaloswalmf.com/mutualfund/prelogin-to-postlogin-connector';
       }
     } catch (error) {
       console.log(error);
     }
   }
+
+  async function imsentCall(paramData) {
+    try {
+      const request = {
+        frmdata: `LMS~${paramData.userLogPan}|${paramData.userLogPanNm}|+91${paramData.userLogMoNm}|${paramData.userLogEm}||Mumbai||${paramData.kycflag}|MF New investor|||||||||${paramData.isnri}|`,
+      };
+      const setRep = await myAPI('POST', 'https://api.moamc.com/initapi/api/Init/Lmsentry', request);
+      console.log(setRep);
+      panDetails(paramData);
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+
+  async function modiFyKycApi(param) {
+    try {
+      const request = {
+        name: param.userLogPanNm,
+        email: param.userLogEm,
+        phone: param.userLogMoNm,
+        returnUrl: 'https://mf.moamc.com/onboarding/personal',
+        timeOutUrl: 'https://mf.moamc.com/error',
+        panNo: param.userLogPan,
+      };
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/prelogin/api/KYC/KYCProcess',
+        request,
+      );
+      console.log('this is modiFuykyc Api Response ', rejsin);
+      imsentCall(param);
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+
+  async function getCkycData(paramDtArg) {
+    try {
+      const reqGetckyc = {
+        panNo: paramDtArg,
+      };
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/prelogin/api/KYC/GetKYCData',
+        reqGetckyc,
+      );
+      console.log(rejsin.data);
+      if (rejsin.data !== null) {
+        // username
+        kycForm.querySelector('.user-pan-name').value = rejsin.data.investorName;
+        kycForm.querySelector('.user-pan-name').setAttribute('readonly', '');
+        // phonenumber
+        kycForm.querySelector('.user-number').value = rejsin.data.mobileNo;
+        kycForm.querySelector('.user-number').setAttribute('readonly', '');
+        // email
+        kycForm.querySelector('.user-email').value = rejsin.data.email;
+        kycForm.querySelector('.user-email').setAttribute('readonly', '');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function otpCall(param) {
     try {
       const request = {
         userId: param,
         loginModeId: 1,
         credentialModeId: 1,
-        ipV4: "192.168.22.22",
+        ipV4: '192.168.22.22',
         otpThroughDIT: false,
-        ditotpType: "",
+        ditotpType: '',
         pmsGuest: false,
         isAIF: false,
         mfGuest: false,
-        product: "MF",
+        product: 'MF',
+      };
+
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
       };
       const rejsin = await myAPI(
-        "POST",
-        "https://api.moamc.com/LoginAPI/api/Login/GenerateOtpNew",
-        request
+        'POST',
+        'https://api.moamc.com/LoginAPI/api/Login/GenerateOtpNew',
+        request,
+        header,
       );
-      console.log("kyc api response ", rejsin);
+      console.log(rejsin);
+      const KRA_VERIFIED = ['002', '102', '202', '302', '402', '502'];
+      const KRA_VALIDATED = ['007', '107', '207', '307', '407', '507', '011', '111', '211', '311',
+        '411', '511', '012', '112', '212', '312', '412', '512'];
+      if (KRA_VERIFIED.includes(rejsin.data.cvlAppStatus)) {
+        localStorage.setItem('kraVerified', 'Y');
+      }
+
+      if (KRA_VALIDATED.includes(rejsin.data.cvlAppStatus)) {
+        localStorage.setItem('kraValidated', 'Y');
+      }
+      if (rejsin.data !== null) {
+        const subtext = panForm.querySelector('.sub-otp-con3');
+        subtext.textContent = '';
+        subtext.textContent = rejsin.data;
+
+        const subevent = closestParam.querySelector('.sub-otp-con2');
+        subevent.classList.add('sbmt-active');
+        const inotp = panForm.querySelectorAll('.otpfield input');
+        if (subevent.querySelector('.inner-otp-con1')) {
+          subevent.querySelector('.inner-otp-con1').removeAttribute('href');
+        }
+        subevent.querySelector('.inner-otp-con1').addEventListener('click', () => {
+          let optValue = '';
+          inotp.forEach((elfor) => {
+            optValue += elfor.value;
+          });
+          if (optValue.length < 6) {
+            panForm.querySelector('.otpfield').classList.add('otp-failed');
+          } else {
+            const panNum = {
+              panNo: param,
+              optNo: optValue,
+              otpField: panForm.querySelector('.otpfield'),
+            };
+            apiAuth(panNum);
+          }
+        });
+      } else if (rejsin.message.toLocaleLowerCase() !== 'successful') {
+        const subtext = panForm.querySelector('.sub-otp-con3');
+        subtext.textContent = '';
+        subtext.textContent = rejsin.message;
+      }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
-    // ModifyKyc API  start
-  //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
-  
-  async function modiFyKycApi(param,userName,userMobile,userEmail) {
-  
+  async function kycCall(param) {
     try {
-      const request = { 
-    "name": userName, 
-    "email": userEmail, 
-    "phone": userMobile, 
-    "returnUrl": "https://mf.moamc.com/onboarding/personal", 
-    "timeOutUrl": "https://mf.moamc.com/error", 
-    "panNo":param 
-} 
+      const request = {
+        panNo: param,
+      };
       const rejsin = await myAPI(
-        "POST",
-        "https://api.moamc.com/prelogin/api/KYC/KYCProcess",
-        request
+        'POST',
+        ' https://api.moamc.com/InitAPI/api/Init/CVLKYCCheck',
+        request,
       );
-      console.log("this is modiFuykyc Api Response ",rejsin);
+      const kycres = rejsin.data.kycStatus;
+      const isKyc = dataMapMoObj.panRes.data.existingClient;
+      dataMapMoObj.kycStatus = rejsin.data.kycStatus;
+      const boolkyc = kycres === 'Y' ? 'true' : 'false';
+      localStorage.setItem('kycstatus', boolkyc);
+
+      const chclick = pansuccessForm.querySelector('.otp-main-con2');
+      const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
+      chclick.removeAttribute('href');
+      chclick.addEventListener('click', () => {
+        kycForm.style.display = 'none'; // display none kycform
+        // panForm.style.display = 'block'; // display none panform
+        panForm.classList.add('show-element');
+        kycForm.classList.add('hide-element');
+        pansuccessForm.classList.add('hide-element');
+        pansuccessForm.classList.remove('show-element');
+        pansuccessForm.classList.remove('modal-show');
+        const subeventv2 = pansuccessForm.querySelector('.sub-otp-con2');
+        subeventv2.classList.remove('sbmt-active');
+        const inotp = panForm.querySelectorAll('.otpfield input');
+        inotp.forEach((elfor) => {
+          elfor.value = '';
+        });
+      });
+      resentBtn.removeAttribute('href');
+      resentBtn.addEventListener('click', () => {
+        const parampan = dataMapMoObj.panDlts.pannumber;
+        // if(){
+        dataMapMoObj.otpLimit += 1;
+        // }
+        if (dataMapMoObj.otpLimit <= 5) {
+          otpCall(parampan);
+        }
+      });
+      if (isKyc !== '') {
+        kycForm.classList.add('hide-element');
+        panForm.classList.add('hide-element');
+        panForm.classList.remove('show-element');
+        pansuccessForm.classList.add('show-element');
+
+        // kycForm.style.display = 'none'; // display none kycform
+        // panForm.style.display = 'none'; // display none panform
+        // pansuccessForm.style.display = 'flex'; // display block otp form
+        const paninp = pansuccessForm.querySelector('.otp-wrap input');
+        paninp.focus();
+        const classAddv3 = closestParam.querySelector('.otp-fdp');
+        if (Array.from(classAddv3.classList).includes('hide-modal')) {
+          classAddv3.classList.remove('hide-modal');
+        }
+        classAddv3.classList.remove('hide-modal');
+        classAddv3.classList.add('modal-show');
+        panForm.classList.remove('show-modal');
+        const inputs = pansuccessForm.querySelectorAll('.otp-wrap input');
+        inputs.forEach((inputel, index) => {
+          inputel.setAttribute('maxLength', 1);
+          inputel.addEventListener('input', () => {
+            inputel.value = inputel.value.replace(/[^0-9]/g, '');
+            if (inputel.value.length === 1 && index < inputs.length - 1) {
+              inputs[index + 1].focus();
+            }
+          });
+          inputel.addEventListener('keydown', (event) => {
+            const totalInputs = inputs.length;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+              event.preventDefault();
+            }
+            switch (event.key) {
+              case 'Tab':
+                if (!event.shiftKey && index === totalInputs - 1) {
+                  event.preventDefault();
+                  inputs[0].focus();
+                } else if (event.shiftKey && index === 0) {
+                  event.preventDefault();
+                  inputs[totalInputs - 1].focus();
+                }
+                break;
+
+              case 'ArrowRight': {
+                const nextIndex = (index + 1) % totalInputs;
+                inputs[nextIndex].focus();
+                break;
+              }
+              case 'ArrowLeft': {
+                // Move to the previous input, or wrap to the last
+                const prevIndex = (index - 1 + totalInputs) % totalInputs;
+                inputs[prevIndex].focus();
+                break;
+              }
+              case 'Backspace':
+                if (inputel.value.length === 0 && index > 0) {
+                  inputs[index - 1].focus();
+                }
+                break;
+              default:
+                break;
+            }
+          });
+        });
+
+        otpCall(param);
+        dataMapMoObj.otpLimit = 1;
+      } else {
+        kycForm.style.display = 'block';
+        panForm.style.display = 'none';
+        pansuccessForm.style.display = 'none';
+
+        const classAddv3 = closestParam.querySelector('.fdp-kyc-form');
+        if (Array.from(classAddv3.classList).includes('hide-modal')) {
+          classAddv3.classList.remove('hide-modal');
+        }
+        classAddv3.classList.remove('hide-modal');
+        classAddv3.classList.add('modal-show');
+
+        const userLoginPanNumber = closestParam.querySelector('.user-pan-number');
+        userLoginPanNumber.value = dataMapMoObj.panDlts.pannumber.toUpperCase();
+        userLoginPanNumber.setAttribute('readonly', true);
+        const userNm = closestParam.querySelector('.user-pan-name');
+        const userNo = closestParam.querySelector('.user-number');
+        const userem = closestParam.querySelector('.user-email');
+        closestParam.querySelector('#opt1').click();
+        const editInput = closestParam.querySelector('.pan-image');
+        userLoginPanNumber.setAttribute('maxLength', 10);
+        userNo.setAttribute('maxLength', 10);
+        userNm.classList.add('fdp-valid-form');
+        userNo.classList.add('fdp-valid-form');
+        userem.classList.add('fdp-valid-form');
+        editInput.addEventListener('click', () => {
+          userLoginPanNumber.removeAttribute('readonly');
+          userLoginPanNumber.focus();
+        });
+        userLoginPanNumber.addEventListener('input', (e) => {
+          const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.closest('.pan-input');
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userNm.addEventListener('input', (e) => {
+          const panRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.add('hide-error');
+            errorPanEl.classList.remove('show-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userNo.addEventListener('input', (e) => {
+          const panRegex = /^\d{10}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+        userem.addEventListener('input', (e) => {
+          const panRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const inputValue = e.target.value.toUpperCase();
+          const errorpan = e.target.parentElement;
+          const errorPanEl = errorpan.nextElementSibling;
+          if (panRegex.test(inputValue)) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('hide-error');
+            userLoginPanNumber.setAttribute('readonly', true);
+          } else {
+            errorPanEl.classList.remove('hide-error');
+            errorPanEl.classList.add('show-error');
+          }
+        });
+
+        if (boolkyc === 'true') {
+          const pandata = {
+            userLogPanNm: userLoginPanNumber.value,
+            userLogPan: rejsin.data.nameAsOnPan,
+          };
+          panDetails(pandata);
+        } else {
+          getCkycData(userLoginPanNumber.value);
+        }
+      }
+    } catch (error) {
+      // console.log(error);
     }
-    catch(error){
-      console.log(error);
-    }
-  };
+  }
+  // ModifyKyc API  start
+  //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
-
-  const ModifyKycForm = document.querySelector('.tnc-container .panvalidsubinner4');
-console.log("wedfrgr",ModifyKycForm);
-ModifyKycForm.addEventListener('click',()=>{
-
-const userPanNumber = document.querySelector(".iptpanfld").value;      // input value
-const userLoginPanNumber = document.querySelector(".user-pan-number").value; // input
-
-  const userLoginPanName = document.querySelector(".user-pan-name").value;
-  const userLoginMobileNumber = document.querySelector(".user-number").value;
-  const userLoginEmail = document.querySelector(".user-email").value;
-
-
-  modiFyKycApi(userLoginPanNumber,userLoginPanName,userLoginMobileNumber,userLoginEmail);
-});
-    // ModifyKyc API  ends
-
-  
+  const ModifyKycForm = closestParam.querySelector('.tnc-container .panvalidsubinner4');
+  ModifyKycForm.addEventListener('click', () => {
+    const userLoginPanNumber = closestParam.querySelector('.user-pan-number').value; // input
+    const isNri = closestParam.querySelector('#opt1').checked;
+    const userLoginPanName = closestParam.querySelector('.user-pan-name').value;
+    const userLoginMobileNumber = closestParam.querySelector('.user-number').value;
+    const userLoginEmail = closestParam.querySelector('.user-email').value;
+    const formdata = {
+      userLogPan: userLoginPanNumber,
+      userLogPanNm: userLoginPanName,
+      userLogMoNm: userLoginMobileNumber,
+      userLogEm: userLoginEmail,
+      isnri: isNri,
+      kycflag: dataMapMoObj.kycStatus,
+    };
+    modiFyKycApi(formdata);
+  });
+  // ModifyKyc API  ends
 
   inputLable.appendChild(addInputDiv);
 
   // api call for otp
-  // "AEEPW9969G",
+  // 'AEEPW9969G',
 
   async function apiCall(userPanNumber) {
     try {
-      dataMapMoObj.panDlts['isIndividualPan'] = userPanNumber;
-      dataMapMoObj.panDlts['pannumber'] = userPanNumber
+      dataMapMoObj.panDlts.isIndividualPan = userPanNumber;
+      dataMapMoObj.panDlts.pannumber = userPanNumber;
       const request = {
         panNo: userPanNumber,
       };
       const rejsin = await myAPI(
-        "POST",
-        "https://api.moamc.com/LoginAPI/api/Login/GetClientType",
-        request
+        'POST',
+        'https://api.moamc.com/LoginAPI/api/Login/GetClientType',
+        request,
       );
       console.log(rejsin);
+      dataMapMoObj.panRes = rejsin;
 
-      // const isSuccess = rejsin.data.existingClient === "" ? false : true;
-      const tempArray = ["MF", "BOTH"];
-      const exixting = ["ZBF", "REDEEMZBF"];
-      if (rejsin.data.guestClient === "") {
-        dataMapMoObj.panDlts["isNewGuest"] = true;
+      // const isSuccess = rejsin.data.existingClient === '' ? false : true;
+      const tempArray = ['MF', 'BOTH'];
+      const exixting = ['ZBF', 'REDEEMZBF'];
+      if (rejsin.data.guestClient === '') {
+        dataMapMoObj.panDlts.isNewGuest = true;
       } else if (tempArray.includes(rejsin.data.guestClient)) {
-        dataMapMoObj.panDlts["isGuest"] = true;
-        dataMapMoObj.panDlts["guestMenuState"] = {
+        dataMapMoObj.panDlts.isGuest = true;
+        dataMapMoObj.panDlts.guestMenuState = {
           guestMenu: true,
           existingBox: false,
         };
       } else if (exixting.includes(rejsin.data.existingClient)) {
-        dataMapMoObj.panDlts["isGuest"] = false;
-        dataMapMoObj.panDlts["guestMenuState"] = {
+        dataMapMoObj.panDlts.isGuest = false;
+        dataMapMoObj.panDlts.guestMenuState = {
           guestMenu: true,
           existingBox: false,
         };
       } else if (tempArray.includes(rejsin.data.newClient)) {
-        dataMapMoObj.panDlts["isGuest"] = false;
-        dataMapMoObj.panDlts["guestMenuState"] = {
+        dataMapMoObj.panDlts.isGuest = false;
+        dataMapMoObj.panDlts.guestMenuState = {
           guestMenu: true,
           existingBox: false,
         };
       }
 
+      if (window.location.href.includes('/our-funds/funds-details-page')) {
+        const planCodesh = localStorage.getItem('planCode') || 'Direct:LM';
+        const planslabel = planCodesh.split(':')[1];
+        const schemeCode = planslabel;
+        const parcloset = closestParam.querySelector('.fdp-card-container');
+        const paranearby = parcloset.querySelector('.dropdownmidle .selecttext');
+        const planCodenearby = paranearby.getAttribute('dataattr');
+        const dataplan = dataCfObj.filter((eldata) => eldata.schcode === schemeCode);
+        const amcPlanCode = dataplan[0].moAmcCode;
+        const optioncode = dataplan[0].planList
+          .filter((elop) => elop.groupedCode === planCodenearby);
+        const sOptCode = optioncode[0].optionCode; //
+        const { planCode } = optioncode[0];
+        const existingQueryParams = '?';
+
+        const redirectURL = `/quickbuy?fund=${schemeCode}&plan=${planCode}&amcPlan=${amcPlanCode}&option=${sOptCode}${existingQueryParams}&landingPage=true`;
+        localStorage.setItem('prelogin-to-postlogin-redirect-url', redirectURL);
+        localStorage.setItem('prelogin-to-postlogin-clientType', JSON.stringify(rejsin.data));
+      }
       localStorage.setItem(
-        "UPDATE_GUEST_MENU",
-        JSON.stringify(dataMapMoObj.panDlts["guestMenuState"])
+        'UPDATE_GUEST_MENU',
+        JSON.stringify(dataMapMoObj.panDlts.guestMenuState),
       );
-      localStorage.setItem("isGuest", dataMapMoObj.panDlts["isGuest"]);
+      localStorage.setItem('isGuest', dataMapMoObj.panDlts.isGuest);
 
       kycCall(userPanNumber);
     } catch (error) {
@@ -207,75 +582,129 @@ const userLoginPanNumber = document.querySelector(".user-pan-number").value; // 
     }
   }
 
-  const parentElements = document.querySelector(".pan-details-modal");
-  dataMapMoObj.CLASS_PREFIXES = ["mainpandts", "subpandts", "innerpandts"];
+  const parentElements = closestParam.querySelector('.pan-details-modal');
+  dataMapMoObj.CLASS_PREFIXES = ['mainpandts', 'subpandts', 'innerpandts'];
   dataMapMoObj.addIndexed(parentElements);
 
-  //Authenciate click
-  const authenticateClick = document.querySelector(".subpandts3 .innerpandts1");
+  // Authenciate click
+  const authenticateClick = closestParam.querySelector('.subpandts3 .innerpandts1');
+  authenticateClick.addEventListener('click', () => {
+    const checkInput = closestParam.querySelector('.error-pan');
+    const userPanNumber = closestParam.querySelector('.iptpanfld').value;
 
-  authenticateClick.addEventListener("click", (e) => {
-    const checkInput = document.querySelector(".error-pan");
-    const userPanNumber = document.querySelector(".iptpanfld").value;
-
-    const userPanNumberShow = document.querySelector(
-      ".sub-otp-con4 .inner-otp-con2 .otp-main-con1"
+    const userPanNumberShow = closestParam.querySelector(
+      '.sub-otp-con4 .inner-otp-con2 .otp-main-con1',
     );
     // added userPanNumber
-    userPanNumberShow.textContent = userPanNumber;
+    userPanNumberShow.textContent = userPanNumber.toUpperCase();
 
-    if (userPanNumber === "") {
-      checkInput.classList.add("show-error");
+    const panDet = closestParam.querySelector('.pan-details-modal'); // .style.display = 'block';
+    panDet.classList.add('show-modal');
+
+    // existingUser(block);
+    // const classAddv3 = closestParam.querySelector('.fdp-kyc-form');
+    // if (Array.from(classAddv3.classList).includes('hide-modal')) {
+    //   classAddv3.classList.remove('hide-modal');
+    // }
+    // classAddv3.classList.remove('hide-modal');
+    // classAddv3.classList.add('modal-show');
+    if (userPanNumber === '') {
+      checkInput.classList.add('show-error');
     }
-    if (!checkInput.classList.contains("show-error")) {
+    if (!checkInput.classList.contains('show-error')) {
       apiCall(userPanNumber); // Only called if no error
     } else {
-      console.log("PAN number is invalid. API call blocked.");
+      console.log('PAN number is invalid. API call blocked.');
     }
   });
 
   // Create the error message element once
 
-  const errorPanEl = document.createElement("p");
-  errorPanEl.className = "error-pan hide-error"; // initially hidden
-  errorPanEl.textContent = "Invalid PAN number";
+  const errorPanEl = document.createElement('p');
+  errorPanEl.className = 'error-pan hide-error'; // initially hidden
+  errorPanEl.textContent = 'Invalid PAN number';
   inputLable.appendChild(errorPanEl); // append it once
 
-  inputLable.addEventListener("input", (e) => {
+  inputLable.addEventListener('input', (e) => {
     const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
     const inputValue = e.target.value.toUpperCase();
 
-    if (inputValue === "") {
+    if (inputValue === '') {
       // If empty, hide the error
-      errorPanEl.classList.remove("show-error");
-      errorPanEl.classList.add("hide-error");
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
     } else if (panRegex.test(inputValue)) {
       // If valid PAN, hide error
-      errorPanEl.classList.remove("show-error");
-      errorPanEl.classList.add("hide-error");
+      errorPanEl.classList.remove('show-error');
+      errorPanEl.classList.add('hide-error');
     } else {
       // If invalid PAN, show error
-      errorPanEl.classList.remove("hide-error");
-      errorPanEl.classList.add("show-error");
+      errorPanEl.classList.remove('hide-error');
+      errorPanEl.classList.add('show-error');
     }
   });
 
   // this function for hide modal forms
 
-  const mod = document.querySelector(".pan-details-modal .icon-modal-btn");
-  const mod2 = document.querySelector(".fdp-kyc-form .icon-modal-btn");
-  const mod3 = document.querySelector(".otp-fdp .icon-modal-btn");
+  const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');
+  const mod2 = closestParam.querySelector('.fdp-kyc-form .icon-modal-btn');
+  const mod3 = closestParam.querySelector('.otp-fdp .icon-modal-btn');
+  closestParam.querySelector('.pan-details-modal');
+  const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+  async function removeClassAfterDelay() {
+    await delay(1200);
+    closestParam.querySelector('.card-modal-overlay').remove();
+  }
 
   function hideFormsClick(btn) {
-    const card2 =
-      document.querySelector(".our-popular-funds") ||
-      document.querySelector(".known-our-funds") ||
-      document.querySelector(".fdp-card-container");
-    btn.addEventListener("click", (e) => {
+    const card2 = closestParam.querySelector('.our-popular-funds')
+      || closestParam.querySelector('.known-our-funds')
+      || closestParam.querySelector('.fdp-card-container');
+
+    btn.addEventListener('click', (e) => {
       e.stopPropagation(); // Stop click from bubbling further
-      document.body.classList.remove("noscroll");
-      card2.classList.remove("modal-active-parent");
-      document.querySelector(".card-modal-overlay").remove();
+      document.body.classList.remove('noscroll');
+      card2.classList.remove('modal-active-parent');
+
+      const classAdd = card2.querySelector('.pan-details-modal');
+      if (Array.from(classAdd.classList).includes('hide-modal')) {
+        classAdd.classList.remove('hide-modal');
+      }
+      classAdd.classList.add('hide-modal');
+      setTimeout(() => {
+        classAdd.style.display = 'none';
+      }, 1200);
+      classAdd.classList.remove('modal-show');
+      // }
+      document.body.classList.remove('noscroll');
+      card2.classList.remove('modal-active-parent');
+
+      // v2 for kyc form
+
+      const classAddv2 = card2.querySelector('.fdp-kyc-form');
+      if (Array.from(classAdd.classList).includes('hide-modal')) {
+        classAddv2.classList.remove('hide-modal');
+      }
+      classAddv2.classList.add('hide-modal');
+      classAddv2.classList.remove('modal-show');
+      // }
+      document.body.classList.remove('noscroll');
+      card2.classList.remove('modal-active-parent');
+
+      // v3 for otp
+
+      const classAddv3 = card2.querySelector('.otp-fdp');
+      if (Array.from(classAdd.classList).includes('hide-modal')) {
+        classAddv3.classList.remove('hide-modal');
+      }
+      classAddv3.classList.add('hide-modal');
+      classAddv3.classList.remove('modal-show');
+      // }
+      document.body.classList.remove('noscroll');
+      card2.classList.remove('modal-active-parent');
+
+      // overlay.classList.add('hide-overlay');
+      removeClassAfterDelay();
     });
   }
 
@@ -291,25 +720,17 @@ function loadCSS(href) {
   document.head.appendChild(link);
 }
 
-function getTodaysDateFormatted() {
-  const today = new Date();
-  const day = today.getDate();
-  const month = today.toLocaleString('default', { month: 'short' });
-  const year = today.getFullYear();
-  return `${day} ${month} ${year}`;
-}
-
 // Helper function to create a custom dropdown
 function createCustomDropdown(id, labelText, options, defaultValue) {
   return div(
     { class: 'custom-select-wrapper', id: `custom-select-${id}` },
-    label(labelText),
+    label({ class: 'custom-select-label' }, labelText),
     div({ class: 'select-selected' }, defaultValue),
     div(
       { class: 'select-options' },
-      ul(...options.map((opt) => li({ 'data-value': opt }, opt)))
+      ul(...options.map((opt) => li({ 'data-value': opt }, opt))),
     ),
-    input({ type: 'hidden', id, value: defaultValue })
+    input({ type: 'hidden', id, value: defaultValue }),
   );
 }
 
@@ -318,18 +739,15 @@ export default function decorate(block) {
   loadCSS('../../scripts/flatpickr.min.css');
   const schcodeFromStorage = localStorage.getItem('schcodeactive');
   const fundData = dataCfObj.find(
-    (fund) => fund.schcode === schcodeFromStorage
+    (fund) => fund.schcode === schcodeFromStorage,
   );
+  let fundNameFromData;
   if (fundData) {
-    console.log('Found Fund Data:', fundData);
-    var fundNameFromData = fundData.schDetail.schemeName.replaceAll(
-      'Motilal Oswal',
-      ''
-    );
-    const benchmarkFromData = fundData.benchmark;
-    console.log('Fund Name:', fundNameFromData);
+    // console.log('Found Fund Data:', fundData);
+    fundNameFromData = fundData.schDetail.schemeName
+      .replaceAll('Motilal Oswal', '');
   } else {
-    console.error('No fund data found for schcode:', schcodeFromStorage);
+    // console.error('No fund data found for schcode:', schcodeFromStorage);
   }
   const col1 = block.children[0].querySelectorAll('p');
   const col2 = block.children[1].querySelectorAll('p');
@@ -345,15 +763,12 @@ export default function decorate(block) {
     ? Number(rawAmount).toLocaleString('en-IN')
     : '';
   const formattedSuggestions = [col2[1], col2[2], col2[3]].map(
-    (p) => p?.textContent || ''
+    (pelem) => pelem?.textContent || '',
   );
-  const suggestions = formattedSuggestions.map((s) =>
-    Number(s).toLocaleString('en-IN')
-  );
-
+  const suggestions = formattedSuggestions.map((s) => Number(s).toLocaleString('en-IN'));
   const frequency = col3[0]?.textContent || '';
   const endDate = col3[1]?.textContent || '';
-  const ctaLabel = col3[2]?.textContent || '';
+  // const ctaLabel = col3[2]?.textContent || '';
 
   // Frequency options (mirror your JSON)
   const brandName = 'Motilal Oswal';
@@ -371,45 +786,52 @@ export default function decorate(block) {
     'Quarterly',
     'Weekly',
   ];
-  const endDateOptions = ['End Date', 'Until I cancel', 'Select Date'];
+  const endDateOptions = ['Until I cancel', 'Select Date'];
 
   block.innerHTML = '';
 
   // Close Button
+  function getTodaysDateFormatted() {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.toLocaleString('default', { month: 'short' });
+    const year = today.getFullYear();
+    return `${day} ${month} ${year}`;
+  }
+
   const closebtn = div(
     { class: 'modal-btn' },
     span(
       { class: 'close-btn' },
-      img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' })
-    )
+      img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' }),
+    ),
   );
 
   // Build modal
   const modal = div(
-    { class: `invest-now-modal fdp-sip-modal` },
+    { class: 'invest-now-modal fdp-sip-modal' },
     div(
-
       { class: 'modal-header-container' },
       div(
         { class: 'modal-header' },
         div(
           { class: 'modal-header-logo' },
-          img({ class: 'brandlogo', src: logoSrc, alt: 'BrandLogo' })
+          img({ class: 'brandlogo', src: logoSrc, alt: 'BrandLogo' }),
         ),
         div(
           { class: 'modal-header-subtitle' },
           p({ class: 'brandname' }, brandName),
-          h3({ class: 'fund-name' }, fundNameFromData)
-        )
+          h3({ class: 'fund-name' }, fundNameFromData),
+        ),
       ),
       div(
         { class: 'modal-toggle' },
         div(
           { class: 'modal-btn-lumpsum active' },
-          button({ class: 'lumpsum-btn' }, lumpsumLabel)
+          button({ class: 'lumpsum-btn' }, lumpsumLabel),
         ),
-        div({ class: 'modal-btn-sip' }, button({ class: 'sip-btn' }, sipLabel))
-      )
+        div({ class: 'modal-btn-sip' }, button({ class: 'sip-btn' }, sipLabel)),
+      ),
     ),
     div(
       { class: 'modal-inputs-container' },
@@ -432,16 +854,14 @@ export default function decorate(block) {
               }),
               span(
                 { class: 'amount-error error-hide' },
-                'Amount must be between 500 and 1000000'
-              )
-            )
+                'Amount must be between 500 and 1000000',
+              ),
+            ),
           ),
           div(
             { class: 'modal-suggestions' },
-            ...suggestions.map((s) =>
-              button({ class: 'suggestion-btn' }, `₹ ` + s)
-            )
-          )
+            ...suggestions.map((s) => button({ class: 'suggestion-btn' }, `₹ ${s}`)),
+          ),
         ),
         div(
           { class: 'modal-input-fields hidden' },
@@ -451,7 +871,7 @@ export default function decorate(block) {
               { class: 'modal-sip-starts' },
               div(
                 { class: 'sip-starts-maintext' },
-                p({ class: 'sip-starts-text' }, 'SIP starts from ')
+                p({ class: 'sip-starts-text' }, 'SIP starts from '),
               ),
               div(
                 { class: 'sip-starts-maindate' },
@@ -464,40 +884,47 @@ export default function decorate(block) {
                   src: calendarIconSrc,
                   alt: 'Calendar Icon',
                   'aria-label': 'Select start date',
-                })
-              )
+                }),
+              ),
             ),
             div(
               { class: 'modal-start-today' },
               label(
                 input({ type: 'checkbox', class: 'start-today-checkbox' }),
                 span({ class: 'custom-box' }),
-                span(' Start Today')
+                span(' Start Today'),
               ),
               div(
                 { class: 'start-today-note' },
                 p(
                   { class: 'sip-note' },
-                  'Your 1st SIP Installment will be debited today '
+                  'Your 1st SIP Installment will be debited today ',
                 ),
                 span(
                   { class: 'sip-note-highlight' },
-                  img({ class: '', src: infotoolsrc, alt: 'information' })
-                )
-              )
-            )
+                  img({ class: '', src: infotoolsrc, alt: 'information' }),
+                ),
+              ),
+            ),
           ),
-          div({class : 'date-drop-down'},
-          createCustomDropdown('frequency','Frequency',frequencyOptions,frequency),
-          createCustomDropdown('endDate', 'End Date', endDateOptions, endDate)),
-        )
+          div(
+            { class: 'date-drop-down' },
+            createCustomDropdown(
+              'frequency',
+              'Frequency',
+              frequencyOptions,
+              frequency,
+            ),
+            createCustomDropdown('endDate', 'End Date', endDateOptions, endDate),
+          ),
+        ),
       ),
       div(
-        { class: "modal-cta" },
-        button({ class: "buy-now-btn" }, "BUY NOW"),
-        button({ class: "start-now" }, "Start Now")
-      )
-    )
+        { class: 'modal-cta' },
+        button({ class: 'buy-now-btn' }, 'BUY NOW'),
+        button({ class: 'start-now' }, 'Start Now'),
+      ),
+    ),
   );
 
   // Tooltip
@@ -507,65 +934,64 @@ export default function decorate(block) {
       { class: 'modal-btn tooltip-btn' },
       span(
         { class: 'close-btn' },
-        img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' })
-      )
+        img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' }),
+      ),
     ),
     div(
       { class: 'tooltip-box' },
       p({ class: 'tooltip-note' }, 'Note'),
       div(
         { class: 'tooltip-info' },
-        'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'
-      )
-    )
+        'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.',
+      ),
+    ),
   );
 
   const modalContainer = div(
     { class: 'invest-now-container', id: 'invest-now-wrapper-flat' },
     closebtn,
     modal,
-    tooltip
+    tooltip,
   );
   block.append(modalContainer);
 
-  modal.querySelector(".start-now").addEventListener("click", () => {
-    const mainmo = block.closest(".card-modal-overlay");
-    mainmo.querySelector(".invest-now-homepage-container").style.display =
-      "none";
-    mainmo.querySelector(".pan-details-modal").style.display = "block";
-    existingUser();
+  const classAdd = block.closest('.invest-now-homepage-container');
+  if (Array.from(classAdd.classList).includes('hide-modal')) {
+    classAdd.classList.remove('hide-modal');
+  }
+  if (classAdd) {
+    classAdd.classList.add('modal-show');
+    classAdd.classList.remove('hide-modal');
+  }
+  modal.querySelector('.start-now').addEventListener('click', () => {
+    const mainmo = block.closest('.card-modal-overlay');
+    const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
+    const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
+    investMod.classList.add('hide-element');
+    panMod.classList.add('show-element');
+
+    existingUser(block);
+    const classAddv2 = mainmo.querySelector('.pan-details-modal');
+    if (Array.from(classAddv2.classList).includes('hide-modal')) {
+      classAddv2.classList.remove('hide-modal');
+    }
+    classAddv2.classList.remove('hide-modal');
+    classAddv2.classList.add('modal-show');
+
+    // const classAddv3 = mainmo.querySelector('.otp-fdp');
+    // if (Array.from(classAddv3.classList).includes('hide-modal')) {
+    //   classAddv3.classList.remove('hide-modal');
+    // }
+    // classAddv3.classList.remove('hide-modal');
+    // classAddv3.classList.add('modal-show');
   });
-
-  const container = document.querySelector(".modal-cta");
-
-  // if (window.location.href.includes('funds-details-page')) {
-  //   const buyNowBtn = document.createElement('button');
-  //   buyNowBtn.className = 'buy-now-btn';
-  //   buyNowBtn.textContent = 'BUY NOW';
-
-  //   const startNowBtn = document.createElement('button');
-  //   startNowBtn.className = 'start-now';
-  //   startNowBtn.textContent = 'Start Now';
-
-  //   container.appendChild(buyNowBtn);
-  //   container.appendChild(startNowBtn);
-  // } else {
-  //   const investBtn = document.createElement('button');
-  //   investBtn.className = 'invest-btn';
-  //   investBtn.textContent = ctaLabel;
-
-  //   container.appendChild(investBtn);
-  // }
 
   // 1. Add open/close logic
   const lumpsumBtn = block.querySelector('.modal-btn-lumpsum');
   const sipBtn = block.querySelector('.modal-btn-sip');
-  const sipFields = document.querySelector('.modal-input-fields');
+  const sipFields = block.querySelector('.modal-input-fields');
 
   lumpsumBtn.addEventListener('click', () => {
-    const sipFields = document.querySelector('.modal-input-fields');
-    const sipBtn = block.querySelector('.modal-btn-sip');
-
     lumpsumBtn.classList.add('active');
     sipBtn.classList.remove('active');
     sipFields.classList.add('hidden');
@@ -573,8 +999,6 @@ export default function decorate(block) {
   });
 
   sipBtn.addEventListener('click', () => {
-    const sipFields = document.querySelector('.modal-input-fields');
-    const sipBtn = block.querySelector('.modal-btn-sip');
     sipBtn.classList.add('active');
     lumpsumBtn.classList.remove('active');
     sipFields.classList.remove('hidden');
@@ -600,12 +1024,13 @@ export default function decorate(block) {
   // --- 2. ADD this new helper function ---
   function syncSuggestionButtonsState() {
     const currentValue = amountInput.value;
+    // eslint-disable-next-line no-unused-vars
     let hasActiveMatch = false;
     suggestionButtons.forEach((btn) => {
-      // Check if button's text (e.g., '₹ 5,000') matches the input's value
-      if (`₹ ${currentValue}` === btn.textContent) {
+    // Check if the button's text matches the input's value
+      if (`₹ ${currentValue}` === btn.textContent.trim()) { // Added .trim() for robustness
         btn.classList.add('active');
-        hasActiveMatch = true;
+        hasActiveMatch = true; // This reassignment is now valid
       } else {
         btn.classList.remove('active');
       }
@@ -614,8 +1039,8 @@ export default function decorate(block) {
 
   // --- 3. MODIFY the `handleAmountInput` function to call the new sync function ---
   function handleAmountInput(e) {
-    const input = e.target;
-    const rawValue = input.value.replace(/[^0-9]/g, '');
+    const inputVal = e.target;
+    const rawValue = inputVal.value.replace(/[^0-9]/g, '');
 
     if (rawValue) {
       const formattedValue = parseInt(rawValue, 10).toLocaleString('en-IN');
@@ -644,7 +1069,7 @@ export default function decorate(block) {
   // This sets the initial active button based on the default amount.
   syncSuggestionButtonsState();
 
-  //3. tooltip disaply
+  // 3. tooltip disaply
   const sipNote = block.querySelector('.sip-note-highlight');
   const sipText = block.querySelector('.sip-tooltip');
   sipNote.addEventListener('click', () => {
@@ -662,74 +1087,194 @@ export default function decorate(block) {
   const calendarIcon = block.querySelector('.calendar-btn');
   const sipDateDisplay = block.querySelector('.sip-starts-date');
   const calendarContainer = block.querySelector('.invest-now-container');
+  const selDate = block.querySelector('#custom-select-endDate .select-options');
+  const finsel = selDate.querySelector('[data-value="Select Date"]');
+  const dateSel = block.querySelector('#custom-select-endDate .select-selected');
+  function flakterDate(datelement, displayDate) {
+    // ADDED: A variable to store the user-selected date
+    let originalSipDate = '';
+    const fpInstance = window.flatpickr(datelement, {
+      defaultDate: 'today',
+      altInput: false,
+      appendTo: calendarContainer,
+      disableMobile: true,
+      // FIX 1: Added a safety check to prevent the crash on mobile.
+      onReady(_, __, fp) {
+        if (fp.calendarContainer) {
+          fp.calendarContainer.removeAttribute('style');
+        } else {
+          console.log('somehting is wrong');
+        }
+      },
+      onChange(selectedDates) { // (selectedDates, dateStr, instance) {
+        const selectedDate = selectedDates[0];
+        const day = selectedDate.getDate();
+        const month = selectedDate.toLocaleString('default', { month: 'short' });
+        const year = selectedDate.getFullYear();
+        const formattedDate = `${day} ${month} ${year}`;
 
-  // ADDED: A variable to store the user-selected date
-  let originalSipDate = '';
+        displayDate.textContent = formattedDate;
 
-  const fpInstance = window.flatpickr(calendarIcon, {
-    defaultDate: 'today',
-    altInput: false,
-    appendTo: calendarContainer,
-    disableMobile: true,
+        // Update the stored date whenever the user picks a new one
+        originalSipDate = formattedDate;
+      },
+      position: (self, node) => {
+        const top = self.element.offsetTop + self.element.offsetHeight + 8;
+        const left = self.element.offsetLeft;
 
-    // FIX 1: Added a safety check to prevent the crash on mobile.
-    onReady: function (_, __, fp) {
-      if (fp.calendarContainer) {
-        fp.calendarContainer.removeAttribute('style');
+        node.style.top = `${top}px`;
+        node.style.left = `${left}px`;
+      },
+    });
+    console.log(fpInstance);
+    // ADDED: Logic for the 'Start Today' checkbox
+    const startTodayCheckbox = block.querySelector('.start-today-checkbox');
+
+    // Helper function to get today's date in the correct format
+
+    // Initialize the originalSipDate with the value set by flatpickr on load
+    originalSipDate = sipDateDisplay.textContent;
+
+    startTodayCheckbox.addEventListener('change', () => {
+      if (startTodayCheckbox.checked) {
+      // If checked, display today's date
+        sipDateDisplay.textContent = getTodaysDateFormatted();
       } else {
-        console.log('somehting is wrong');
+      // If unchecked, revert to the user's selected date
+        sipDateDisplay.textContent = originalSipDate;
       }
-    },
-
-    onChange: function (selectedDates, dateStr, instance) {
-      const selectedDate = selectedDates[0];
-      const day = selectedDate.getDate();
-      const month = selectedDate.toLocaleString('default', { month: 'short' });
-      const year = selectedDate.getFullYear();
-      const formattedDate = `${day} ${month} ${year}`;
-
-      sipDateDisplay.textContent = formattedDate;
-
-      // Update the stored date whenever the user picks a new one
-      originalSipDate = formattedDate;
-    },
-    position: (self, node) => {
-      const top = self.element.offsetTop + self.element.offsetHeight + 8;
-      const left = self.element.offsetLeft;
-
-      node.style.top = `${top}px`;
-      node.style.left = `${left}px`;
-    },
-
-    // FIX 2: Removed the entire custom 'position' function.
-    // Let flatpickr handle its own positioning, as it's more reliable on mobile.
-  });
-
-  // ADDED: Logic for the 'Start Today' checkbox
-  const startTodayCheckbox = block.querySelector('.start-today-checkbox');
-
-  // Helper function to get today's date in the correct format
-  function getTodaysDateFormatted() {
-    const today = new Date();
-    const day = today.getDate();
-    const month = today.toLocaleString('default', { month: 'short' });
-    const year = today.getFullYear();
-    return `${day} ${month} ${year}`;
+    });
   }
 
-  // Initialize the originalSipDate with the value set by flatpickr on load
-  originalSipDate = sipDateDisplay.textContent;
+  function flakterDateV2(datelement, displayDate, dropdownVal) {
+    let disableRule = [];
+    const defaultDate = new Date(); // Initialize with today
 
-  startTodayCheckbox.addEventListener('change', () => {
-    if (startTodayCheckbox.checked) {
-      // If checked, display today's date
-      sipDateDisplay.textContent = getTodaysDateFormatted();
-    } else {
-      // If unchecked, revert to the user's selected date
-      sipDateDisplay.textContent = originalSipDate;
+    // Use a single 'today' constant for all calculations
+    const today = new Date();
+    // Set time to 0 to avoid time-related comparison issues
+    today.setHours(0, 0, 0, 0);
+
+    switch (dropdownVal) {
+      case 'Monthly': {
+        const recurringDay = today.getDate();
+        defaultDate.setMonth(today.getMonth() + 1);
+
+        const year = defaultDate.getFullYear();
+        const nextMonth = defaultDate.getMonth() + 1;
+        const lastDayOfNextMonth = new Date(year, nextMonth, 0).getDate();
+        const targetDay = Math.min(recurringDay, lastDayOfNextMonth);
+        defaultDate.setDate(targetDay);
+
+        disableRule = [
+          function (date) {
+            const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            const targetDayInMonth = Math.min(recurringDay, lastDayOfMonth);
+            return date.getDate() !== targetDayInMonth;
+          },
+        ];
+        break;
+      }
+      case 'Annual': {
+        const recurringDay = today.getDate();
+        const recurringMonth = today.getMonth();
+        defaultDate.setFullYear(today.getFullYear() + 1);
+
+        disableRule = [
+          function (date) {
+            return date.getDate() !== recurringDay || date.getMonth() !== recurringMonth;
+          },
+        ];
+        break;
+      }
+      case 'Weekly': {
+        const recurringDayOfWeek = today.getDay();
+        defaultDate.setDate(today.getDate() + 7);
+
+        disableRule = [
+          function (date) {
+            return date.getDay() !== recurringDayOfWeek;
+          },
+        ];
+        break;
+      }
+      case 'Fortnightly': { // <-- CORRECTED LOGIC
+        const startTime = today.getTime();
+        defaultDate.setDate(today.getDate() + 14);
+
+        disableRule = [
+          function (date) {
+            // Calculate difference in whole days for reliability
+            const diffDays = Math.round((date.getTime() - startTime) / (1000 * 60 * 60 * 24));
+            return diffDays % 14 !== 0;
+          },
+        ];
+        break;
+      }
+      case 'Quarterly': {
+        const startDay = today.getDate();
+        const startMonth = today.getMonth();
+        defaultDate.setMonth(today.getMonth() + 3);
+
+        disableRule = [
+          function (date) {
+            const yearDiffInMonths = (date.getFullYear() - today.getFullYear()) * 12;
+            const monthDiffInMonths = date.getMonth() - startMonth;
+            const monthDiff = yearDiffInMonths + monthDiffInMonths;
+            const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            const targetDay = Math.min(startDay, lastDayOfMonth);
+            return date.getDate() !== targetDay || monthDiff % 3 !== 0;
+          },
+        ];
+        break;
+      }
+      case 'Daily': { // <-- CORRECTED LOGIC
+        defaultDate.setDate(today.getDate() + 1);
+        // No custom disable rules are needed for 'Daily'. 'minDate' handles it.
+        disableRule = [];
+        break;
+      }
+      default:
+        // Default case with no rules
+        disableRule = [];
+        break;
     }
-  });
 
+    const fpInstance = window.flatpickr(datelement, {
+      defaultDate,
+      altInput: false,
+      appendTo: calendarContainer,
+      disableMobile: true,
+      disable: disableRule,
+      minDate: today, // Consistently prevent past dates for all cases
+
+      onReady(_, __, fp) {
+        if (fp.calendarContainer) {
+          fp.calendarContainer.removeAttribute('style');
+        }
+      },
+      onChange(selectedDates) {
+        if (!selectedDates[0]) return;
+        const selectedDate = selectedDates[0];
+        const day = selectedDate.getDate();
+        const month = selectedDate.toLocaleString('default', { month: 'short' });
+        const year = selectedDate.getFullYear();
+        const formattedDate = `${day} ${month} ${year}`;
+        displayDate.textContent = formattedDate;
+        // originalSipDate = formattedDate;
+      },
+    });
+    console.log(fpInstance);
+    // Manually set the initial display text after initialization
+    if (defaultDate) {
+      const day = defaultDate.getDate();
+      const month = defaultDate.toLocaleString('default', { month: 'short' });
+      const year = defaultDate.getFullYear();
+      displayDate.textContent = `${day} ${month} ${year}`;
+    }
+  }
+  flakterDate(calendarIcon, sipDateDisplay);
+  // flakterDateV2(finsel, dateSel, 'Monthly');
   // --- CORRECTED CUSTOM DROPDOWN LOGIC ---
   block.querySelectorAll('.custom-select-wrapper').forEach((wrapper) => {
     const selected = wrapper.querySelector('.select-selected');
@@ -738,8 +1283,6 @@ export default function decorate(block) {
 
     selected.addEventListener('click', (e) => {
       e.stopPropagation();
-      // Close all other dropdowns first
-      // 🧰 FIX: Look for the '.open' class on the wrapper, not the options list
       block
         .querySelectorAll('.custom-select-wrapper.open')
         .forEach((openWrapper) => {
@@ -755,15 +1298,31 @@ export default function decorate(block) {
       option.addEventListener('click', () => {
         selected.textContent = option.textContent;
         hiddenInput.value = option.getAttribute('data-value');
-        // 🧰 FIX: Remove the '.open' class from the wrapper
         wrapper.classList.remove('open');
+        if (selected.closest('#custom-select-frequency')) {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          flakterDateV2(finsel, dateSel, option.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[1].classList.add('open');
+        }
+        if (selected.textContent === 'Select Date') {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          const parSel = selected.closest('.date-drop-down');
+          const paraText = parSel.querySelector('#custom-select-frequency .select-selected');
+          flakterDateV2(finsel, dateSel, paraText.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[1].classList.add('open');
+        }
       });
     });
   });
 
   // Add a listener to close dropdowns when clicking anywhere else
   block.addEventListener('click', () => {
-    // 🧰 FIX: Look for and close any wrapper that has the '.open' class
     block
       .querySelectorAll('.custom-select-wrapper.open')
       .forEach((openWrapper) => {

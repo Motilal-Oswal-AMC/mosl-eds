@@ -278,7 +278,8 @@ function viewFunction(param) {
       param.querySelector('.return-select-container p').textContent = dataMapMoObj.deskrightdrp;
     }
   }
-  searchFunctionality(param);
+
+  dataMapMoObj.parseFunction(param, 'viewfunc');
 }
 
 function searchFunctionality(block) {
@@ -401,14 +402,6 @@ function searchFunctionality(block) {
       // This event fires whenever the viewport is resized or zoomed
       window.visualViewport.addEventListener('resize', () => {
         window.visualViewport.scale = 1;
-        // console.log('Current zoom scale:', window.visualViewport.scale);
-
-        // if (window.visualViewport.scale > 1) {
-        //   console.log('Page is zoomed in!');
-        //   // You could run code here in response to the zoom
-        // } else {
-        //   console.log('Page is at normal zoom.');
-        // }
       });
     }
   });
@@ -475,7 +468,8 @@ function searchFunctionality(block) {
     if (event.target.matches('.list-fund-name:not(.no-results-message)')) {
       searchInput.value = event.target.dataset.originalText;
       searchContainer.classList.remove('search-active');
-      dataMapMoObj.funddata = dataCfObj.filter((ellim) => ellim.schDetail.schemeName === searchInput.value);
+      dataMapMoObj.funddata = dataCfObj
+        .filter((ellim) => ellim.schDetail.schemeName === searchInput.value);
       viewFunction(block);
       // CARD HIDE LOGIC ON SEARCH
       const cardsContainercd = block.querySelector('.filter-cards');
@@ -592,12 +586,8 @@ function checkfilter(block) {
   });
 
   dataMapMoObj.funddata = [];
-  dataMapMoObj.funddata = dataCfObj.filter((el, index) => {
-    if (tempData.length > 0) {
-      return tempData.includes(el.schcode);
-    }
-    // return index < 10;
-  });
+  dataMapMoObj.funddata = tempData.length > 0
+    ? dataCfObj.filter((el) => tempData.includes(el.schcode)) : [];
   if (dataMapMoObj.funddata.length === 0) {
     const sorttextcont = block.querySelector('.sort-select-container .selectedtext');
     const sorttext = sorttextcont.textContent.trim();
@@ -606,16 +596,16 @@ function checkfilter(block) {
       dataMapMoObj.funddata = dataCfObj.slice(0, 10);
     }
     if (sorttext === 'Oldest to Newest') {
-      const tempData = JSON.parse(JSON.stringify(dataCfObj));
-      const tempa = tempData.sort(
+      const tempDataad = JSON.parse(JSON.stringify(dataCfObj));
+      const tempa = tempDataad.sort(
         (a, b) => new Date(a.dateOfAllotment) - new Date(b.dateOfAllotment),
       );
       dataMapMoObj.funddata = '';
       dataMapMoObj.funddata = tempa;
     }
     if (sorttext === 'Newest to Oldest') {
-      const tempData = JSON.parse(JSON.stringify(dataCfObj));
-      const tempa = tempData.sort(
+      const tempDataad = JSON.parse(JSON.stringify(dataCfObj));
+      const tempa = tempDataad.sort(
         (a, b) => new Date(b.dateOfAllotment) - new Date(a.dateOfAllotment),
       );
       dataMapMoObj.funddata = '';
@@ -708,6 +698,8 @@ function checkfilter(block) {
         }
       });
     }
+
+    return block;
   }
 
   return filterGroup(filterTag);
@@ -747,6 +739,11 @@ function applyFunction(block) {
   }
 }
 
+dataMapMoObj.parseFunction = (param, attrparam) => {
+  if (attrparam === 'viewfunc') {
+    searchFunctionality(param);
+  }
+};
 export default function decorate(block) {
   Array.from(block.closest('.section').children).forEach((el, index) => {
     el.classList.add(`item${index + 1}`);
@@ -1854,7 +1851,8 @@ export default function decorate(block) {
 
                     if (block.querySelector('.search-input .search').value !== '') {
                       const searchval = block.querySelector('.search-input .search').value;
-                      dataMapMoObj.funddata = dataCfObj.filter((ellim) => ellim.schDetail.schemeName === searchval);
+                      dataMapMoObj.funddata = dataCfObj
+                        .filter((ellim) => ellim.schDetail.schemeName === searchval);
                     }
                     viewFunction(block);
                   },
@@ -1875,7 +1873,8 @@ export default function decorate(block) {
                       .querySelector('.list-view-header').style.display = 'block';
                     if (block.querySelector('.search-input .search').value !== '') {
                       const searchval = block.querySelector('.search-input .search').value;
-                      dataMapMoObj.funddata = dataCfObj.filter((ellim) => ellim.schDetail.schemeName === searchval);
+                      dataMapMoObj.funddata = dataCfObj
+                        .filter((ellim) => ellim.schDetail.schemeName === searchval);
                     }
                     viewFunction(block);
                   },
@@ -1898,7 +1897,7 @@ export default function decorate(block) {
                   type: 'checkbox',
                   id: 'toggle',
                   'aria-label': 'Switch between Direct and Regular mode',
-                  onclick: (event) => {
+                  onclick: () => {
                     // event.target.checked
                     // viewFunction(block);
                     checkfilter(block);

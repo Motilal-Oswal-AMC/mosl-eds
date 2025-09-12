@@ -130,12 +130,6 @@
   outline: none;
   background-color: transparent;
 }
-.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::-moz-placeholder {
-  color: #616161;
-}
-.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
-  color: #616161;
-}
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .cancel-search {
   max-width: 20px;
   width: 100%;

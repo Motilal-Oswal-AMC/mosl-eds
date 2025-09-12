@@ -80,8 +80,22 @@ export default async function decorate(block) {
     'footer-sub-cont',
     'section-content',
     'list-items',
+    'list-inneritem-',
   ];
   dataMapMoObj.addIndexed(block);
+
+  block.querySelectorAll('.accordion-item-body .list-inneritem-1').forEach((ele) => {
+    Array.from(ele.children).forEach((el) => {
+      el.classList.add('list-innerlist');
+    });
+  });
+
+  Array.from(block.querySelector('.list-items2').children).forEach((lieltwo) => {
+    lieltwo.classList.add('item-list');
+    Array.from(lieltwo.children).forEach((elrt) => {
+      elrt.classList.add('item-anchor');
+    });
+  });
 
   // open all footer accordions by default
   const acccontain = block.querySelector('.footer-sub2 .accordion')?.children;
@@ -101,10 +115,49 @@ export default async function decorate(block) {
     wrapper.classList.add('footer-sub-wrapper');
     social.before(wrapper);
     wrapper.append(social, store);
+
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content1 img'),
+      'facebook-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content2 img'),
+      'instagram-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content3 img'),
+      'x-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content4 img'),
+      'youtube-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont2 .section-content5 img'),
+      'lindkin-icon',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont3 .section-content1 img'),
+      'bar-code',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont3 .section-content2 img'),
+      'googleplay',
+    );
+    dataMapMoObj.altFunction(
+      wrapper.querySelector('.footer-sub-cont3 .section-content3 img'),
+      'app-store',
+    );
   }
 
   loadAutoBlock(footer);
 
   // Init scroll-to-top button
   initScrollToTop();
+  const footercls = block.closest('.footer');
+  Array.from(
+    footercls.querySelector('.footer-section3 .footer-sub-cont2').children,
+  ).forEach((efthre) => {
+    efthre.classList.add('footerthr');
+  });
 }

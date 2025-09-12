@@ -16,6 +16,7 @@ main {
   .section.fdp-card-container {
     flex-direction: column;
     gap: 50px;
+    margin-top: 94px;
   }
 }
 .section.fdp-card-container .fdp-card {
@@ -56,6 +57,8 @@ main {
   left: 0;
   z-index: 5;
   width: 100%;
+  height: 150px;
+  overflow: auto;
   margin: 6px 0 0;
   background-color: #fff;
   border-radius: 8px;
@@ -64,6 +67,20 @@ main {
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist.dropdown-active {
   display: block;
+}
+.section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist::-webkit-scrollbar {
+  width: 3px;
+  background-color: #464343;
+}
+.section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist::-webkit-scrollbar-track {
+  width: 3px;
+  background-color: #fff;
+  border-radius: 0 6px 6px 0;
+}
+.section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist::-webkit-scrollbar-thumb {
+  width: 3px;
+  background-color: #424242;
+  border-radius: 0 1px 1px 0;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist .listval {
   padding: 12px;
@@ -216,26 +233,22 @@ main {
   flex-wrap: wrap;
   gap: 16px;
 }
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp {
+    padding-right: 35px;
+    justify-content: space-between;
+  }
+}
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-  max-width: 192px;
-  width: 100%;
+  width: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 4px 8px;
 }
-@media (max-width: 1299px) {
-  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-    max-width: 45%;
-  }
-}
 @media (max-width: 1025px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-    max-width: 120px;
-  }
-}
-@media (max-width: 768px) {
-  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-    max-width: 160px;
+    width: -moz-max-content;
+    width: max-content;
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-text {
@@ -267,7 +280,9 @@ main {
   height: 16px;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
-  width: 70px;
+  width: -moz-max-content;
+  width: max-content;
+  height: auto;
   top: 100%;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr {
@@ -299,22 +314,12 @@ main {
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
-  max-width: 160px;
-  width: 100%;
-}
-@media (max-width: 1299px) {
-  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
-    max-width: 47%;
-  }
+  width: auto;
 }
 @media (max-width: 1025px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
-    max-width: 140px;
-  }
-}
-@media (max-width: 768px) {
-  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
-    max-width: 131px;
+    width: -moz-max-content;
+    width: max-content;
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp .nav-label {
@@ -440,7 +445,6 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv .form-wrapper .btn-wrapper {
   line-height: 0;
   z-index: 2;
-  margin-left: -7px;
   max-width: 100%;
   width: 100%;
 }
@@ -516,7 +520,7 @@ main {
   }
 }
 .section.fdp-card-container .item2 .item2-ul {
-  z-index: 11;
+  z-index: 10;
   width: 100%;
   height: 40px;
   justify-content: space-between;
@@ -791,10 +795,73 @@ main {
   width: 48px;
   height: 48px;
 }
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper p strong {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper p .whyfund-inner-ol1 {
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+}
+.section.fdp-card-container .hide-overplay {
+  animation: hide-overlay 1.2s ease forwards;
+}
+@keyframes hide-overlay {
+  to {
+    display: none;
+  }
+}
+
+.section.fdp-sticky-nav {
+  display: none;
+  padding: 16px;
+}
+@media (width <= 768px) {
+  .section.fdp-sticky-nav {
+    display: block;
+    background: #fff;
+    box-shadow: -25px -1px 214px 0 rgba(0, 0, 0, 0.15);
+    margin: 40px 0;
+  }
+}
+.section.fdp-sticky-nav .sticky-item1 {
+  display: flex;
+  justify-content: space-between;
+}
+.section.fdp-sticky-nav .sticky-item1 .sticky-sub-item1 {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.section.fdp-sticky-nav .sticky-item1 .sticky-sub-item1 .sticky-inner-item1 a {
+  font-size: 12px;
+  line-height: 16px;
+  color: #5659FA;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.section.fdp-sticky-nav .sticky-item1 .sticky-sub-item1 .sticky-inner-item2 {
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.section.fdp-sticky-nav .sticky-item1 .sticky-sub-item2 {
+  display: flex;
+  width: 132px;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: #2e2a94;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }/*# sourceMappingURL=fdp-card.css.map */

@@ -313,13 +313,15 @@
   flex-direction: column;
   gap: 4px;
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list li {
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list .load-policy-list-ul {
+  margin: unset;
+  margin-left: 10px;
+}
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list .load-policy-list-ul li {
   font-size: 14px;
   line-height: 20px;
   color: #616161;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0;
-  text-indent: -20px;
-  padding-left: 1em;
 }/*# sourceMappingURL=key-facts.css.map */

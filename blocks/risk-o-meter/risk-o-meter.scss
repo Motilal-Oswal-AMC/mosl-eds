@@ -113,7 +113,7 @@
     }
   }
 
-  >div:nth-child(2) {
+  >.default-content-wrapper {
     border-top: 0.5px solid #8695AF;
     padding-top: 16px;
     margin: 0 24px 24px;
@@ -126,7 +126,7 @@
       margin: 0 16px 24px;
     }
 
-    h3 {
+    h3.defone1 {
       margin: 0;
       padding: 0;
 
@@ -152,7 +152,7 @@
       }
     }
 
-    ul {
+    ul.defone2 {
       padding-left: 24px;
       margin: 0;
 
@@ -161,7 +161,7 @@
         margin: 0;
       }
 
-      li {
+      li.defli {
         color: #616161;
         font-family: $poppins;
         font-size: 14px;
@@ -174,15 +174,14 @@
       }
     }
 
-    p {
+    p.defone3 {
       color: #616161;
       font-family: $poppins;
       font-size: 14px;
       line-height: 20px;
       margin: 0;
 
-      /* stylelint-disable-next-line no-descending-specificity */
-      a {
+      a.deftwo1 {
         color: #5659FA;
         text-decoration: none;
 
@@ -195,21 +194,19 @@
   }
 }
 
-/* stylelint-disable no-descending-specificity */
-.modal {
-  .close-button {
-    .icon {
-      &.icon-close {
-        &::before,
-        &::after {
-          width: 13px;
-          height: 1.5px;
-        }
-      }
-    }
-  }
-}
-/* stylelint-enable no-descending-specificity */
+// .modal {
+//   .close-button {
+//     .icon {
+//       &.icon-close {
+//         &::before,
+//         &::after {
+//           width: 13px;
+//           height: 1.5px;
+//         }
+//       }
+//     }
+//   }
+// }
 
 .section.product-label.risk-o-meter-container {
   //   padding: 40px 0;
@@ -226,7 +223,7 @@
   }
 
   >div:first-child {
-    h1 {
+    h2 {
       color: #2E2A94;
       font-family: $butlerpro;
       font-size: 32px;
