@@ -1,5 +1,9 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
+import {
+  getMetadata
+} from '../../scripts/aem.js';
+import {
+  loadFragment
+} from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
 // import { loadAutoBlock } from '../../scripts/scripts.js';
 // import {a,button,div,h3,li,ul} from '../../scripts/dom-helpers.js';
@@ -257,6 +261,80 @@ export default async function decorate(block) {
     });
   }
 
+  const nfoBanner = nav.querySelector('.section.nfo-banner');
+  if (nfoBanner) {
+    dataMapMoObj.CLASS_PREFIXES = [
+      'nfo-banner-cont',
+      'nfo-banner-sec',
+      'nfo-banner-sub',
+      'nfo-banner-inner-text',
+      'nfo-banner-list',
+      'nfo-banner-list-content',
+    ];
+    dataMapMoObj.addIndexed(nfoBanner);
+  }
+  (function initializeNfoBanner() {
+    'use strict';
+
+    const setupUI = () => {
+      const liveIndicatorContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list1');
+      if (liveIndicatorContainer) {
+        const liveIndicator = document.createElement('div');
+        liveIndicator.className = 'live-indicator';
+        liveIndicatorContainer.appendChild(liveIndicator);
+      }
+
+      const timerContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list3');
+      if (timerContainer) {
+        const timerElement = document.createElement('span');
+        timerElement.id = 'countdown-timer';
+        timerElement.textContent = '00d : 00h : 00m';
+        timerContainer.appendChild(timerElement);
+        return timerElement;
+      }
+      return null;
+    };
+
+    const startCountdown = (element) => {
+      if (!element) {
+        return;
+      }
+
+      const COUNTDOWN_DAYS = 2;
+      const COUNTDOWN_HOURS = 20;
+      const COUNTDOWN_MINUTES = 20;
+      const ONE_SECOND_MS = 1000;
+
+      const countDownDate = new Date();
+      countDownDate.setDate(countDownDate.getDate() + COUNTDOWN_DAYS);
+      countDownDate.setHours(countDownDate.getHours() + COUNTDOWN_HOURS);
+      countDownDate.setMinutes(countDownDate.getMinutes() + COUNTDOWN_MINUTES);
+      const countDownTime = countDownDate.getTime();
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownTime - now;
+
+        if (distance < 0) {
+          clearInterval(interval);
+          element.textContent = 'EXPIRED';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        const pad = (num) => String(num).padStart(2, '0');
+
+        element.textContent = `${pad(days)}d : ${pad(hours)}h : ${pad(minutes)}m`;
+      }, ONE_SECOND_MS);
+    };
+
+    const timerElement = setupUI();
+    startCountdown(timerElement);
+  }());
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -265,7 +343,7 @@ export default async function decorate(block) {
     </button>`;
   hamburger.addEventListener('click', () => {
     toggleMenu(nav, navSections);
-    toggleAllNavSections(navSections, 'true');
+    toggleAllNavSections(navSections, 'false');
   });
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
