@@ -1,9 +1,5 @@
-import {
-  getMetadata
-} from '../../scripts/aem.js';
-import {
-  loadFragment
-} from '../fragment/fragment.js';
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
 // import { loadAutoBlock } from '../../scripts/scripts.js';
 // import {a,button,div,h3,li,ul} from '../../scripts/dom-helpers.js';
@@ -274,8 +270,6 @@ export default async function decorate(block) {
     dataMapMoObj.addIndexed(nfoBanner);
   }
   (function initializeNfoBanner() {
-    'use strict';
-
     const setupUI = () => {
       const liveIndicatorContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list1');
       if (liveIndicatorContainer) {
