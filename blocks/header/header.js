@@ -3,10 +3,8 @@ import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
 // import { loadAutoBlock } from '../../scripts/scripts.js';
 // import {a,button,div,h3,li,ul} from '../../scripts/dom-helpers.js';
-
 // media query match that indicates mobile/tablet width
 export const isDesktop = window.matchMedia('(min-width: 900px)');
-
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
