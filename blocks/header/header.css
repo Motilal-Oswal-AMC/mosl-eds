@@ -453,6 +453,9 @@ header nav .nav-sections ul>li>ul {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  white-space: unset;
+  text-align: left;
+  word-break: auto-phrase;
 }
 
 header nav .header-top .header-top-sub4 .header-top-inner-text1 a.comlist,
@@ -569,14 +572,30 @@ header .nav-tools .nav-tools-cont1 .nav-tools-sec1>li>ul>li span {
   display: flex;
   width: 12px;
   height: 12px;
+  margin-bottom: 2px;
 }
 
-.investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-list-content2.comlist .sub-popup-list-row2 span {
+.investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-list-content2.comlist .sub-popup-list-row2 ol {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+  list-style: none;
+}
+
+
+.investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-list-content2.comlist .sub-popup-list-row2 ol li {
+  line-height: 1;
+  width: auto;
+}
+
+.investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-list-content2.comlist .sub-popup-list-row2 ol>li:first-child {
   position: relative;
   margin-left: 12px;
 }
 
-.investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-list-content2.comlist .sub-popup-list-row2 span::before {
+.investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-list-content2.comlist .sub-popup-list-row2 ol>li:first-child::before {
   content: "";
   position: absolute;
   top: 55%;
@@ -592,6 +611,27 @@ header .nav-tools .nav-tools-cont1 .nav-tools-sec1>li>ul>li span {
 .investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 .sub-popup-list-content2 .sub-popup-list-row1 {
   color: #111;
   padding: 0;
+}
+
+header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  color: #FFF;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.mosl-edge-header.sub-popup-header .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist .sub-popup-list-row3 p,
+.mosl-edge-header.sub-popup-header .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist .sub-popup-list-row3 ol li:last-child {
+  color: #616161;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist>li:nth-child(2) {
@@ -671,7 +711,7 @@ header .nav-tools .nav-tools-cont1 .nav-tools-sec1>li>ul>li span {
   gap: 8px;
 }
 
-.sub-popup-header.mosl-edge-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2>.comlist .button-container {
+.sub-popup-header.mosl-edge-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2>.comlist .sub-popup-list-content1 {
   height: 108px;
 }
 
@@ -679,23 +719,28 @@ header .nav-tools .nav-tools-cont1 .nav-tools-sec1>li>ul>li span {
   display: none;
 }
 
-.mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist .sub-popup-list-row3 {
+.mosl-edge-header.sub-popup-header .sub-popup-inner-text2 li.comlist ul.comlist .sub-popup-list-row3 {
   display: flex;
   align-items: center;
   flex-direction: unset;
   gap: 12px;
   padding-top: 4px;
   color: #616161;
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
 }
 
-
-.mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist li.comlist {
+.mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist li.comlist ol {
   display: flex;
   flex-direction: unset;
   align-items: center;
+  gap: 4px;
   width: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 .mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist .sub-popup-list-row1,
@@ -885,12 +930,7 @@ header nav .header-top .header-top-sub5 {
   position: relative;
 }
 
-header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 p {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  color: #FFF;
+.mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist>li:nth-child(2) p {
   font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -926,6 +966,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   margin-top: 5px;
   border-radius: 4px;
 }
+
 
 header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2 .header-top-list-content1 {
   width: 100%;
@@ -1072,11 +1113,31 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     min-height: 0;
     overflow: visible;
     display: grid;
-    grid-template-areas:
+    grid-template:
       "brand header-top header-top"
       "brand sections tools";
     grid-template-columns: auto 1fr auto;
     height: auto;
+  }
+
+  @media (width <=1279px) {
+    header nav[aria-expanded='true'] {
+      padding: 0 24px;
+    }
+
+    header nav .nav-sections .nav-drop .nav-sec-inner-text1 .nav-sec-list1 {
+      padding: 24px;
+    }
+
+    .nav-sections .sub-popup-header.mosl-edge-header .default-content-wrapper .sub-popup-sec1>.comlist {
+      width: auto;
+    }
+  }
+
+  @media (width <=1169px) {
+    header nav .nav-sections .default-content-wrapper .nav-sec-sec1 .nav-drop[aria-expanded='false'] {
+      white-space: normal;
+    }
   }
 
   header nav .nav-hamburger {
@@ -1086,7 +1147,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
   header nav .nav-brand {
     grid-area: brand;
-    height: 100%;
+    height: fit-content;
     display: flex;
     align-items: center;
   }
@@ -1259,6 +1320,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
+    padding: 0;
   }
 
   header nav .nav-sections .nav-sec-cont1 .nav-sec-sec1 .nav-drop[aria-expanded='true'] {
@@ -1312,6 +1374,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     backdrop-filter: blur(5px);
   }
 
+  .nav-sections .nav-sec-sec1 .nav-sec-inner-text1 {
+    padding: 0;
+  }
+
   header nav .nav-sections .nav-sec-inner-text1 .nav-sec-list1 {
     padding: 24px 0;
     background-color: #FFF;
@@ -1321,6 +1387,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    height: 100%;
+    min-height: 342px;
   }
 
   .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 {
@@ -1330,7 +1398,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     margin: 0;
-    row-gap: 27px;
+    row-gap: 58px;
   }
 
   .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li {
@@ -1439,6 +1507,18 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     gap: 12px;
     padding-top: 8px;
   }
+
+  /* .investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-list-content2.comlist .sub-popup-list-row2 ol {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 4px;
+  } */
+
+  /* .investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-list-content2.comlist .sub-popup-list-row2 ol li {
+    width: auto;
+  } */
 
   header nav .nav-tools .nav-tools-cont1>ul .nav-tools-sub1 span {
     width: 16px;
@@ -1745,11 +1825,11 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     color: #111;
   }
 
-  .mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist>li:nth-child(3) span {
+  /* .mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist>li:nth-child(3) span {
     display: flex;
     width: 16px;
     height: 16px;
-  }
+  } */
 
   header nav .nav-tools .nav-tools-cont1>ul>li .icon {
     width: 20px;
