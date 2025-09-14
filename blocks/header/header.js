@@ -175,15 +175,14 @@ export default async function decorate(block) {
         const hrefnaf = navSection.querySelector('ul li');
         const frgnav = await loadFragment(hrefnaf.children[0].getAttribute('href'));
         hrefnaf.innerHTML = '';
-        // debugger
         hrefnaf.append(frgnav.children[0]);
       }
       navSection.addEventListener('click', () => {
-        // if (isDesktop.matches) {
-        const expanded = navSection.getAttribute('aria-expanded') === 'true';
-        toggleAllNavSections(navSections);
-        navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        // }
+        if (isDesktop.matches) {
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          toggleAllNavSections(navSections);
+          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        }
       });
       const subHeader = navSection.querySelectorAll('.section');
       dataMapMoObj.CLASS_PREFIXES = [
@@ -350,8 +349,19 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 
+  const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+  async function removeClassAfterDelay() {
+    await delay(800);
+    navSections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+      section.querySelectorAll('ul').forEach((elul) => {
+        elul.style.display = 'none';
+      });
+    });
+    const navinner = navSections.querySelector('.nav-sec-list1 .sub-popup-sub3 .sub-popup-inner-text2');
+    navinner.querySelectorAll('ul').forEach((navel) => { navel.style.display = 'block'; });
+  }
   if (window.innerWidth < 900) {
-    // Find the main container for the navigation lists
+    removeClassAfterDelay();
     const navContainer = document.querySelector('.nav-sec-sec1');
     navContainer.addEventListener('click', (event) => {
       const clickedListItem = event.target.closest('li.comlist');
@@ -365,8 +375,16 @@ export default async function decorate(block) {
       event.stopPropagation();
       if (submenu.style.display === 'block') {
         submenu.style.display = 'none';
+        submenu.closest('li').setAttribute('aria-expanded', 'false');
       } else {
         submenu.style.display = 'block';
+        if (submenu.querySelector('.default-content-wrapper') !== null) {
+          const subfilt = Array.from(submenu.querySelector('.default-content-wrapper').children);
+          subfilt.forEach((elulsub) => {
+            elulsub.style.display = 'block';
+          });
+        }
+        submenu.closest('li').setAttribute('aria-expanded', 'true');
       }
     });
   }
