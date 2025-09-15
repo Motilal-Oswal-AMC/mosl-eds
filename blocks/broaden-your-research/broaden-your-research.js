@@ -72,6 +72,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
     link.href = '/motilalfigma/modals/risk-o-meter';
     const svfion = iconsTemplate.querySelector('img');
     svfion.src = `/icons/risk-icon/${iconsvg}`;
+    svfion.alt = 'Risk-o-meter graph';
     link.append(svfion);
     divwrapper.append(link);
     iconsTemplate.querySelector('.icon').innerHTML = '';
