@@ -142,11 +142,11 @@ export default async function decorate(block) {
     );
     dataMapMoObj.altFunction(
       wrapper.querySelector('.footer-sub-cont3 .section-content2 img'),
-      'googleplay',
+      'Download on Google Play',
     );
     dataMapMoObj.altFunction(
       wrapper.querySelector('.footer-sub-cont3 .section-content3 img'),
-      'app-store',
+      'Download on the App Store',
     );
   }
 
