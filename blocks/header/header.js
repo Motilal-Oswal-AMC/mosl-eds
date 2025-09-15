@@ -177,18 +177,13 @@ export default async function decorate(block) {
         hrefnaf.innerHTML = '';
         hrefnaf.append(frgnav.children[0]);
       }
-      navSection.addEventListener('mouseover', () => {
+      navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
-      // Array.from(navSection.querySelector('.nav-sec-sec1').children).forEach((child) => {
-      //   child.addEventListener('mouseover', () => {
-      //     child.style.display = 'flex';
-      //   });
-      // });
       const subHeader = navSection.querySelectorAll('.section');
       dataMapMoObj.CLASS_PREFIXES = [
         'sub-popup-cont',
