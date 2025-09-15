@@ -162,4 +162,6 @@
 .modal-journey.modal.block dialog .close-button {
   display: block;
   z-index: -1;
+  background: none;
+  color: transparent;
 }/*# sourceMappingURL=co-branding.css.map */

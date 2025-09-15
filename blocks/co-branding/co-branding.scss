@@ -216,7 +216,8 @@
     .close-button {
         display: block;
         z-index: -1;
-      
+        background: none;
+        color: transparent;
       }
   }
 }
