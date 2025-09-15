@@ -159,7 +159,7 @@ function destroySwiper(block) {
 
   // Re-apply the --promoted class which might have been lost
   if (block.children.length % 0 === 0) {
-    block.children[1].classList.add('card-wrap--promoted');
+    block.children[1].classList.add('card-wrap-promoted');
   }
 
   const pagination = block.querySelector('.swiper-pagination');
@@ -204,7 +204,7 @@ export default function decorate(block) {
   });
   // Apply the 'promoted' style to the middle card for the static desktop view
   if (block.children.length > 1) {
-    block.children[1].classList.add('card-wrap--promoted');
+    block.children[1].classList.add('card-wrap-promoted');
   }
 
   // 4. Set up the resize listener to conditionally apply/remove Swiper

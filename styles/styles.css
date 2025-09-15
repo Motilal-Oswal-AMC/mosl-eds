@@ -449,7 +449,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds>.card-modal-overlay,
     .known-our-funds>.card-modal-overlay {
         position: fixed;
@@ -512,18 +511,24 @@ footer .footer[data-block-status="loaded"] {
 }
 
 .fdp-card-container .card-modal-overlay {
-    max-width: 100%;
+    max-width: 1542px;
+
+    /* max-width: 100%; */
+    overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     position: absolute;
-    top: 200px;
+
+    /* top: 200px; */
     right: 0;
+    left: 0;
     height: 100vh;
     z-index: 1000;
     background: #0009;
 
 }
+
 
 .fdp-card-container .invest-now-homepage-container>.invest-now-homepage-wrapper {
     background: unset;
@@ -533,7 +538,6 @@ footer .footer[data-block-status="loaded"] {
 
 
 @media (width <=768px) {
-
     .our-popular-funds.modal-active-parent,
     .known-our-funds.modal-active-parent {
         max-height: unset;
@@ -649,7 +653,7 @@ body.noscroll {
 .breadcrumbs-fdp>.default-content-wrapper>ul>li>a {
     color: #424242;
     text-align: center;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -662,7 +666,7 @@ body.noscroll {
 .breadcrumbs-fdp>.default-content-wrapper>ul>li p {
     color: #424242;
     text-align: center;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -676,7 +680,7 @@ body.noscroll {
     color: #616161;
 
     /* Desktop/Paragraph/Xsmall */
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -685,7 +689,7 @@ body.noscroll {
     /* 133.333% */
 }
 
-.breadcrumbs-fdp>ul {
+.breadcrumbs-fdp>ul.breadul {
     /* padding: 24px; */
     display: flex;
     gap: 24px;
@@ -697,7 +701,7 @@ body.noscroll {
     height: 24px;
 }
 
-.breadcrumbs-fdp>ul>li {
+.breadcrumbs-fdp>ul.breadul>li.breadli {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -707,32 +711,32 @@ body.noscroll {
     position: relative;
 }
 
-.breadcrumbs-fdp>ul>li::before {
+.breadcrumbs-fdp>ul.breadul>li.breadli::before {
     position: absolute;
     content: "/";
     margin-right: 4px;
     right: -12px;
     top: 0;
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 300;
     line-height: 16px;
 }
 
-.breadcrumbs-fdp>ul>li:nth-child(1)::before {
+.breadcrumbs-fdp>ul.breadul>li.breadli:nth-child(1)::before {
     top: 4px;
 }
 
-.breadcrumbs-fdp>ul>li:last-child::before {
+.breadcrumbs-fdp>ul.breadul>li.breadli:last-child::before {
     display: none;
 }
 
-.breadcrumbs-fdp>ul>li>a {
+.breadcrumbs-fdp>ul.breadul>li.breadli>a {
     color: #2e2a94;
     cursor: pointer;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -755,7 +759,7 @@ body.noscroll {
     display: none;
     border-radius: 6px;
     border: 1px solid #eee;
-    box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+    box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
 }
 
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .ul-active {
@@ -771,7 +775,7 @@ body.noscroll {
     display: flex;
     gap: 8px;
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -804,9 +808,12 @@ position: relative;
 
 /* pan modal */
 .pan-details-modal {
-    max-width: 400px;
+    /* max-width: 400px; */
+
     /* width: 100%; */
+
     /* background: #0009; */
+    height: 100%;
     display: none;
     justify-content: flex-end;
 
@@ -816,7 +823,9 @@ position: relative;
     display: flex;
     max-width: 400px;
     width: 100%;
-    height: 100vh;
+
+    /* height: 100vh; */
+    height: 100%;
     padding: 64px 16px;
     flex-direction: column;
 
@@ -829,7 +838,7 @@ position: relative;
 
 .pan-details-modal .default-content-wrapper h5 {
     color: #2E2A94;
-    font-family: ButlerPro;
+    font-family: ButlerPro , sans-serif;
     font-size: 28px;
     font-style: normal;
     font-weight: 700;
@@ -840,7 +849,7 @@ position: relative;
 
 }
 
-.pan-details-modal .default-content-wrapper ul {
+.pan-details-modal .default-content-wrapper ul.subpandts3 {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -848,7 +857,7 @@ position: relative;
     margin-top: 16px;
 }
 
-.pan-details-modal .default-content-wrapper ul li:nth-child(1) {
+.pan-details-modal .default-content-wrapper ul.subpandts3 li.innerpandts1{
     display: flex;
     padding: 12px;
     justify-content: center;
@@ -856,32 +865,43 @@ position: relative;
     gap: 8px;
     align-self: stretch;
     border-radius: 4px;
-    background: #2E2A94;
-    cursor: pointer;
-    color: #FFF;
-    font-family: Poppins;
+
+    /* background: #2E2A94; */
+    background: #E0E0E0;
+    cursor: unset;
+    color: #616161;
+    font-family: Poppins, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
+    pointer-events: none;
 }
 
-/*hide pan kyc form */
+.pan-details-modal .default-content-wrapper ul.subpandts3 li.pan-active{
+     background-color : #2E2A94;
+    color : #FFF;
+     cursor : pointer;
+    pointer-events :unset;
+}
+
+/* hide pan kyc form */
 
 .fdp-kyc-form {
     display: none;
+    height: 100%;
 }
 
-.pan-details-modal .default-content-wrapper ul li:nth-child(2) {
+.pan-details-modal .default-content-wrapper ul.subpandts3 li.innerpandts2 {
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
 }
 
-.pan-details-modal .default-content-wrapper p>span {
+.pan-details-modal .default-content-wrapper p.subpandts4>span.icon-modal-btn {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -891,7 +911,7 @@ position: relative;
     height: 36px;
 }
 
-.pan-details-modal .default-content-wrapper p:nth-child(2) {
+.pan-details-modal .default-content-wrapper p.subpandts2:nth-child(2) {
     margin: 0;
     padding: 0;
     height: 24px;
@@ -918,7 +938,7 @@ position: relative;
     overflow: hidden;
     color: #424242;
     text-overflow: ellipsis;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -948,8 +968,7 @@ position: relative;
     color: red;
     font-size: 12px;
     line-height: 16px;
-    font-family: Poppins;
-    padding-top: 10px;
+    font-family: Poppins, sans-serif;
 }
 
 .pan-details-modal .default-content-wrapper p:nth-child(2)>.hide-error {
@@ -962,7 +981,7 @@ position: relative;
     width: 100%;
     border-radius: 6px;
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -972,10 +991,12 @@ position: relative;
 
 .otp-fdp {
     display: none;
+    height: 100%;
 }
 
 .otp-fdp>.main-otp-con1 {
     position: relative;
+    height: 100%;
 }
 
 .otp-fdp>.main-otp-con1>.sub-otp-con5 {
@@ -1000,3 +1021,85 @@ position: relative;
         border-radius: 32px 32px 0 0;
     }
 }
+
+/* Placeholder style for sip-calculator, growth-now, our-funds-block */
+
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
+    color: #fff;
+}
+
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder,
+.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
+    color: #2e2a94;
+    font-family: Poppins, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
+    color: #fff;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    appearance: auto;
+    padding-right: 4px;
+}
+
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
+    color: #616161;
+}
+
+.hide-element{
+    display: none;
+}
+
+.show-element{
+    display: block;
+}
+
+/* Placeholder style for sip-calculator, growth-now, our-funds-block */
+
+/* Popup animation */
+
+.hide-modal {
+    animation: slide-out 1.2s forwards;
+}
+
+.modal-show {
+    right: 0;
+    animation: slide-in 1.2s forwards;
+}
+
+.modal {
+    right: -400px;
+    transform: translateX(100%);
+}
+
+.modal.block.modal-journey>dialog[open]>.modal-content {
+max-width: 400px;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+

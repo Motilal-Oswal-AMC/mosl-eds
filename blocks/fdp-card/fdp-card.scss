@@ -15,9 +15,12 @@ main {
   gap: 16px;
   background-color: #f5f5f5;
 
+  // position: relative;
+
   @media (width <=768px) {
     flex-direction: column;
     gap: 50px;
+    margin-top: 94px;
   }
 
   .fdp-card {
@@ -65,6 +68,8 @@ main {
           left: 0;
           z-index: 5;
           width: 100%;
+          height: 150px;
+          overflow: auto;
           margin: 6px 0 0;
           background-color: $primary-white;
           border-radius: 8px;
@@ -74,6 +79,23 @@ main {
           &.dropdown-active {
             display: block;
           }
+
+          &::-webkit-scrollbar {
+              width: 3px;
+              background-color: #464343;
+            }
+
+            &::-webkit-scrollbar-track {
+              width: 3px;
+              background-color: $primary-white;
+              border-radius: 0 6px 6px 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              width: 3px;
+              background-color: #424242; //$primary-blue;
+              border-radius: 0 1px 1px 0;
+            }
 
           .listval {
             padding: 12px;
@@ -236,26 +258,33 @@ main {
             // align-items: center;
             gap: 16px;
 
+            @include media(mobile){
+              padding-right: 35px;
+              justify-content: space-between;
+            }
+
             .return-grp {
               // max-width: 52.18%;
-              max-width: 192px;
-              width: 100%;
+              // max-width: 192px;
+              // width: 100%;
+              width: auto;
               display: flex;
               flex-wrap: wrap;
               gap: 4px 8px;
 
-              @include media(desktop-sm) {
-                max-width: 45%;
-              }
+              // @include media(desktop-sm) {
+              //   max-width: 45%;
+              // }
 
               @include media(tab) {
-                max-width: 120px;
+                // max-width: 120px;
+                width: max-content;
               }
 
-              @include media(mobile) {
+              // @include media(mobile) {
                 // max-width: 47.06%;
-                max-width: 160px;
-              }
+                // max-width: 160px;
+              // }
 
               .return-text {
                 @include font-style(
@@ -289,8 +318,10 @@ main {
                 }
 
                 .dropdownlist {
-                  width: 70px;
-
+                  // width: 70px;
+                  width: max-content;
+                  height: auto;
+                  
                   // top: 22px;
                   top: 100%;
                 }
@@ -324,21 +355,23 @@ main {
 
             .nav-grp {
               // max-width: 43.48%;
-              max-width: 160px;
-              width: 100%;
+              // max-width: 160px;
+              // width: 100%;
+              width: auto;
 
-              @include media(desktop-sm) {
-                max-width: 47%;
-              }
+              // @include media(desktop-sm) {
+              //   max-width: 47%;
+              // }
 
               @include media(tab) {
-                max-width: 140px;
+                // max-width: 140px;
+                width: max-content;
               }
 
-              @include media(mobile) {
+              // @include media(mobile) {
                 // max-width: 38.53%;
-                max-width: 131px;
-              }
+                // max-width: 131px;
+              // }
 
               .nav-label {
                 @include font-style(
@@ -469,7 +502,8 @@ main {
             .btn-wrapper {
               line-height: 0;
               z-index: 2;
-              margin-left: -7px;
+              
+              // margin-left: -7px;
               max-width: 100%;
               width: 100%;
 
@@ -546,7 +580,7 @@ main {
     /* ul for second part */
 
     .item2-ul {
-      z-index: 11;
+      z-index: 10;
 
       // max-width: 839px;
       width: 100%;
@@ -913,11 +947,82 @@ main {
             height: 48px;
           }
 
-          strong {
+          .whyfund-inner-ol1 {
             @include font-style(12px, 16px, $primary-blue, 400, $poppins);
           }
         }
       }
+    }
+  }
+
+  .hide-overplay{
+    // transition: opacity 1s ease;
+    animation: hide-overlay 1.2s ease forwards;
+
+    // animation-delay: 7s;
+  }
+
+   @keyframes hide-overlay {
+    to {
+      display:none;
+    }
+  }
+}
+
+// stky
+
+.section.fdp-sticky-nav {
+  display: none;
+  padding: 16px;
+
+  @media (width <=768px) {
+    display: block;
+    background: $primary-white;
+    box-shadow: -25px -1px 214px 0 rgb(0 0 0 / 15%);
+    margin: 40px 0;
+  }
+
+  .sticky-item1{
+    display: flex;
+    justify-content: space-between;
+
+    .sticky-sub-item1{
+      padding: 0;
+      list-style: none;
+      margin: 0;
+
+      .sticky-inner-item1{
+       a {
+          @include font-style(
+            12px,
+            16px,
+            map.get($blue-1, b400),
+            400,
+            $poppins
+          );
+        }
+      }
+
+      .sticky-inner-item2{
+        @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+      }
+    }
+
+    .sticky-sub-item2{
+      display: flex;
+      width: 132px;
+      padding: 8px 12px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      border-radius: 4px;
+      background: #2e2a94;
+      text-align: center;
+      margin: 0;
+      cursor: pointer;
+
+      @include font-style(14px, 16px, $primary-white, 500, $poppins);
     }
   }
 }

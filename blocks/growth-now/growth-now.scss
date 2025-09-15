@@ -309,63 +309,62 @@ main {
                                 border: none;
                                 text-align: left;
                                 padding-left: 10px;
-
                             }
 
-                            input::placeholder {
-                                color: #fff;
-                                font-family: $poppins;
-                                font-size: 14px;
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: 20px;
-                                appearance: auto;
-                                padding-right: 4px;
-                            }
+                            // input::placeholder {
+                            //     color: #fff;
+                            //     font-family: $poppins;
+                            //     font-size: 14px;
+                            //     font-style: normal;
+                            //     font-weight: 400;
+                            //     line-height: 20px;
+                            //     appearance: auto;
+                            //     padding-right: 4px;
+                            // }
 
-                            .text-wrapper {
-                                input {
-                                    width: 100%;
-                                    min-width: 111px;
-                                    background: transparent;
-                                    box-shadow: none;
-                                    color: #fff;
-                                    font-family: $poppins;
-                                    font-size: 14px;
-                                    font-style: normal;
-                                    font-weight: 400;
-                                    line-height: 20px;
-                                    padding: 0;
-                                    padding-inline: unset;
-                                    padding-block: unset;
-                                    border: none;
-                                    text-align: left;
-                                    padding-left: 10px;
+                            // .text-wrapper {
+                            //     input {
+                            //         width: 100%;
+                            //         min-width: 111px;
+                            //         background: transparent;
+                            //         box-shadow: none;
+                            //         color: #fff;
+                            //         font-family: $poppins;
+                            //         font-size: 14px;
+                            //         font-style: normal;
+                            //         font-weight: 400;
+                            //         line-height: 20px;
+                            //         padding: 0;
+                            //         padding-inline: unset;
+                            //         padding-block: unset;
+                            //         border: none;
+                            //         text-align: left;
+                            //         padding-left: 10px;
 
 
 
-                                    &::placeholder {
-                                        color: #fff;
-                                        font-family: $poppins;
-                                        font-size: 14px;
-                                        font-style: normal;
-                                        font-weight: 400;
-                                        line-height: 20px;
-                                    }
+                            //         &::placeholder {
+                            //             color: #fff;
+                            //             font-family: $poppins;
+                            //             font-size: 14px;
+                            //             font-style: normal;
+                            //             font-weight: 400;
+                            //             line-height: 20px;
+                            //         }
 
-                                }
+                            //     }
 
-                                // &::after {
-                                //     content: '';
-                                //     background: url(../../icons/close-blue.png);
-                                //     display: flex;
-                                //     width: 24px;
-                                //     height: 24px;
-                                //     padding: 2px;
-                                //     justify-content: center;
-                                //     align-items: center;
-                                // }
-                            }
+                            //     // &::after {
+                            //     //     content: '';
+                            //     //     background: url(../../icons/close-blue.png);
+                            //     //     display: flex;
+                            //     //     width: 24px;
+                            //     //     height: 24px;
+                            //     //     padding: 2px;
+                            //     //     justify-content: center;
+                            //     //     align-items: center;
+                            //     // }
+                            // }
                         }
                     }
 
@@ -497,7 +496,7 @@ main {
                         padding-top: 68px;
                     }
 
-                    ul:first-child {
+                    ul.fundgul:first-child {
                         list-style: none;
                         margin: 0;
                         padding: 0;
@@ -522,7 +521,7 @@ main {
                                 li:first-child {
                                     line-height: 0.1px;
 
-                                    a {
+                                    a.ahreg {
                                     color: #FFF;
                                     font-family: $poppins;
                                     font-size: 12px;
@@ -542,8 +541,7 @@ main {
                                 li:nth-child(2) {
                                     line-height: 0.1px;
 
-                                    /* stylelint-disable-next-line no-descending-specificity */
-                                    a {
+                                    .ahreg {
                                     color: #FFF;
                                     font-family: $poppins;
                                     font-size: 14px;

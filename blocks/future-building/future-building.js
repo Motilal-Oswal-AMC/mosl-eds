@@ -38,6 +38,18 @@ export default function decorate(block) {
     card2.classList.add('swiper-slide-cards-2');
     card2.innerHTML = textContent.innerHTML;
 
+    // Cards u li class added
+    // Array.from(card2.children[0].children).forEach((ele, ind) => {
+    //   ele.classList.add(`cards-list-${ind + 1}`);
+    // });
+
+    dataMapMoObj.CLASS_PREFIXES = [
+      'cards-list',
+      'cards-list-1-',
+      'list-child-',
+      'list-grandch-',
+    ];
+    dataMapMoObj.addIndexedTwo(card2);
     slide.appendChild(card1);
     slide.appendChild(card2);
 
@@ -46,6 +58,10 @@ export default function decorate(block) {
 
   // 4. Final assembly of the Swiper block
   block.appendChild(swiperWrapper);
+
+  Array.from(block.querySelector('.swiper-slide-cards-2 .cards-listcards1').children).forEach((ele) => {
+    ele.classList.add('card-list');
+  });
 
   // 5. Check if .learning-fdp class exists in the parent
   const learningFdp = block.closest('.learning-fdp') !== null;
@@ -78,6 +94,10 @@ export default function decorate(block) {
   dataMapMoObj.CLASS_PREFIXES.push('library-btn');
 
   dataMapMoObj.addIndexed(block.closest('.future-building-container'));
+  const maindiv = block.closest('.future-building-container');
+
+  maindiv.querySelector('.library-btn3 p').classList.add('libr-btn-p');
+  maindiv.querySelector('.library-btn3 a').classList.add('libr-btn-a');
 
   // 7. Initialize Swiper with navigation if available
   Swiper(block, {
@@ -91,4 +111,5 @@ export default function decorate(block) {
       },
     },
   });
+  return block;
 }

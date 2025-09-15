@@ -1,1176 +1,934 @@
+// New Calc sip code
+
 /* Reset */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
-/* MAIN WRAPPER */
-
-
-.section.compounding,
-.secion.fdp-calculator {
-  background: $primary-white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  border-radius: 8px;
-  margin-top: 0;
-
-  @include media(mobile) {
-    padding: 40px 16px;
-    background-color: map.get($blue-1, b25);
-    gap: 40px;
-  }
-
-  .default-content-wrapper {
-    padding: 0;
-
-    p {
-      color: #2E2A94;
-      font-family: $poppins;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 16px;
-      margin: 0;
-    }
-
-    ul,
-    li {
-      // margin-bottom: map.get($spacing, xs);
-
-      @include font-style(12px,
-        16px,
-        $text-body-2,
-        map.get($font-weights, regular),
-        $poppins);
-    }
-
-    strong {
-      font-weight: map.get($font-weights, regular);
-    }
-
-    ul {
-      padding-left: 24px;
-    }
-  }
-
-  .compounding-two-inner {
+.section {
+  &.compounding,
+  &.fdp-calculator {
+    background: $primary-white;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    gap: 16px;
-    border-radius: map.get($radius, r16);
-    width: 100%;
+    gap: 8px;
+    align-self: stretch;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    margin-top: 0;
 
     @include media(mobile) {
-      flex-direction: column;
-      text-align: center;
+      padding: 40px 16px;
+      background-color: map.get($blue-1, b25);
       gap: 40px;
+    }
+
+    .compounding-two-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+      gap: 16px;
+      border-radius: map.get($radius, r16);
+      width: 100%;
 
       @include media(mobile) {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
         padding: 0;
       }
-    }
 
-    .default-content-wrapper {
-      flex: 1 1 37%;
-      text-align: left;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: row;
-      gap: map.get($spacing, md);
-
-      @include media(mobile) {
-        align-items: flex-start;
-        padding-top: 40px;
-      }
-
-      .icon {
-        flex: 0 0 auto;
-        width: 64px;
-        height: 64px;
-        flex-shrink: 0;
-      }
-
-      .hero-text {
-        display: flex;
-        flex-direction: column;
+      .default-content-wrapper {
+        flex: 1 1 37%;
         text-align: left;
-
-        @include media(mobile) {
-          gap: 4px;
-        }
-      }
-
-      h3 {
-        margin: 0;
-
-        @include font-style(36px,
-          44px,
-          $primary-blue,
-          map.get($font-weights, bold),
-          $butlerpro);
-
-
-        @include media(mobile) {
-          margin-bottom: 0;
-
-          @include font-style(24px,
-            28px,
-            $primary-blue,
-            map.get($font-weights, bold),
-            $butlerpro);
-
-        }
-      }
-
-      p {
-        color: $primary-blue;
-        font-family: $poppins;
-        font-size: 1rem;
-        line-height: 1.5;
-        margin: 0;
-        max-width: 450px;
-
-        @include media(mobile) {
-          font-size: 14px;
-          line-height: 20px;
-        }
-      }
-    }
-  }
-
-  .calculator-sip-wrapper {
-    flex: 1 1 53%;
-    max-width: 608px;
-
-    .calculator-sip {
-      @include media(mobile) {
-        background: #fff;
-        border-radius: map.get($radius, r8);
-        padding: 24px 16px;
-        align-self: stretch;
-        box-shadow: $box-shadow-soft;
-      }
-
-      .cal-container {
-        background: $primary-white;
-        border-radius: map.get($radius, r8);
-        align-self: stretch;
+        flex-shrink: 0;
         display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 24px;
+        flex-direction: row;
+        gap: map.get($spacing, md);
+        padding: 0;
+        width: 100%;
 
         @include media(mobile) {
-          gap: 24px;
+          align-items: flex-start;
+          padding-top: 40px;
         }
 
-        .spi-wrapper {
+        .hero-image {
+          .icon-analytics {
+            flex: 0 0 auto;
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+          }
+        }
+
+        .hero-text {
           display: flex;
           flex-direction: column;
-          gap: 24px;
-        }
+          text-align: left;
 
-        @include media(mobile) {
-          padding: 0;
-          background-color: transparent;
-          box-shadow: none;
-        }
-
-        .search-bar-wrapper {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          gap: map.get($spacing, xs);
-
-          span {
-            text-align: left;
-
-            @include font-style(12px,
-              16px,
-              $color-text-body,
-              map.get($font-weights, regular),
-              $poppins);
-
+          @include media(mobile) {
+            gap: 4px;
           }
 
-          label {
-            @include font-style(14px,
-              normal,
-              var(--text-color),
-              map.get($font-weights, semibold),
-              $poppins);
-          }
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            margin: 0 0 4px;
 
-          input {
-            width: 100%;
-            color: #2e2a94;
-            font-family: $poppins;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 20px;
-            border-radius: 4px;
-            background: url("../../icons/search-icon.svg") no-repeat left 0 center;
-            background-size: 20px 20px;
-            border: none;
-            outline: none;
-            padding-left: 24px;
+            @include font-style(
+              32px,
+              40px,
+              $primary-blue,
+              map.get($font-weights, bold),
+              $butlerpro
+            );
 
             @include media(mobile) {
-              padding-right: 40px;
+              margin-bottom: 0;
+
+              @include font-style(
+                24px,
+                28px,
+                $primary-blue,
+                map.get($font-weights, bold),
+                $butlerpro
+              );
             }
-
-            &:active {
-              border: none;
-            }
           }
 
-          .error-hide {
-            display: none;
-          }
-
-          .error-show {
-            display: block;
-          }
-
-          .cancel-btn {
-            height: 20px;
-            width: 20px;
-            position: absolute;
-            right: 13px;
-            bottom: 8px;
-            cursor: pointer;
-          }
-        }
-
-        .search-results-wrapper {
-          position: relative;
-
-          ul {
-            font-family: Poppins, sans-serif;
-            list-style: none;
+          p {
             margin: 0;
-            padding: 0;
-            max-height: 200px;
-            overflow-y: auto;
-            background: $primary-white;
-            position: absolute;
-            width: 100%;
-            z-index: 99;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 24px;
-            text-align: left;
-            border-radius: 6px;
-            border: 1px solid #eee;
-            box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+            max-width: 450px;
 
-            &::-webkit-scrollbar {
-              width: 3px;
-            }
-
-            &::-webkit-scrollbar-track {
-              width: 3px;
-              background-color: $primary-white;
-              border-radius: 0 6px 6px 0;
-            }
-
-            &::-webkit-scrollbar-thumb {
-              width: 3px;
-              background-color: #464343;//#eee;
-            }
+            @include font-style(16px, 24px, $primary-blue, 400, $poppins);
 
             @include media(mobile) {
-              border: 1px solid map.get($strokes, default);
-            }
-
-            li {
-              padding: 12px 16px;
-              cursor: pointer;
-              font-weight: 400;
-              border-bottom: 1px solid #eee;
               font-size: 14px;
-
-              &:hover {
-                background: map.get($old-silver, 50);
-              }
-
-              &.active {
-                background: #eee;
-              }
-
-              strong {
-                font-weight: 500;
-              }
+              line-height: 20px;
             }
           }
         }
+      }
 
-        .scheme-btns-wrapper {
-          display: flex;
-          gap: map.get($spacing, sm);
+      .calculator-sip-wrapper {
+        flex: 1 1 53%;
+        max-width: 608px;
+        width: 100%;
 
-          button {
-            display: flex;
-            width: 104px;
-            height: 32px;
-            padding: map.get($spacing, xs) map.get($spacing, sm);
-            justify-content: center;
-            align-items: center;
-            border-radius: 1000px;
-            border: 1px solid #bdbdbd;
-            background: #fafafa;
-            color: #424242;
-            font-family: $poppins;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 20px;
-            margin: 0;
-            margin-top: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-
-            &:hover {
-              background: $primary-blue;
-              color: $primary-white;
-            }
-
-            &.active {
-              background: #edf1ff;
-              color: #2e2a94;
-              border: 1px solid #382ad7;
-              line-height: 16px;
-              font-weight: 500;
-            }
-          }
-        }
-
-        .incal-wrapper {
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-
-          .invested-amount {
-            display: flex;
-            align-items: flex-start;
-            gap: map.get($spacing, xxs);
+        .calculator-sip {
+          @include media(mobile) {
+            background: #fff;
+            border-radius: map.get($radius, r8);
+            padding: 24px 16px;
             align-self: stretch;
-
-            label {
-              @include font-style(12px,
-                16px,
-                $color-text-body,
-                map.get($font-weights, regular),
-                $poppins);
-            }
-
-            span {
-              color: #2E2A94;
-              font-family: $poppins;
-              font-size: 14px;
-              font-weight: 600;
-              line-height: 16px;
-              margin-left: 4px;
-              position: relative;
-              padding-left: 10px;
-            }
-
-            span::before {
-              content: "₹";
-              position: absolute;
-              left: 3px;
-              top: 0;
-              pointer-events: none;
-              color: #2e2a94;
-              font-family: $poppins;
-              font-size: 14px;
-              font-weight: 600;
-              line-height: 16px;
-            }
+            box-shadow: $box-shadow-soft;
           }
 
-          .cal-discription {
+          .cal-container {
+            background: $primary-white;
+            border-radius: map.get($radius, r8);
+            align-self: stretch;
             display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-            position: relative;
+            flex-direction: column;
+            gap: 20px;
+            padding: 24px;
 
             @include media(mobile) {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;
-              align-items: flex-start;
-              gap: map.get($spacing, md);
-              text-align: left;
+              gap: 24px;
             }
 
-            .current-value-wrapper,
-            .return-cagr-wrapper {
+            .search-bar-wrapper {
               display: flex;
               flex-direction: column;
-              gap: map.get($spacing, xxs);
+              position: relative;
+              gap: map.get($spacing, xs);
 
-              label {
-                @include font-style(12px,
+              .search-bar-label {
+                text-align: left;
+
+                @include font-style(
+                  12px,
                   16px,
                   $color-text-body,
                   map.get($font-weights, regular),
-                  $poppins);
-
-                @include media(mobile) {
-                  white-space: nowrap;
-                }
+                  $poppins
+                );
               }
 
-              span {
-                color: #2e2a94;
-                font-family: $poppins;
-                font-size: 24px;
-                font-weight: 600;
-                line-height: 32px;
-                text-align: left;
-                position: relative;
-                padding-left: 18px;
-
-                @include media(mobile) {
-                  font-size: 22px;
-                }
-              }
-
-              .return-cagr {
-                padding-left: 0;
-              }
-
-              .current-value::before {
-                content: "₹";
-                position: absolute;
-                left: 3px;
-                bottom: 0;
-                pointer-events: none;
-                color: #2e2a94;
-                font-family: $poppins;
-                font-size: 22px;
-                font-weight: 400;
-                line-height: 32px;
-              }
-            }
-
-            .start-sip-btn {
-              position: absolute;
-              right: 0;
-
-              @include media(mobile) {
-                position: static;
+              .search-bar-inp {
                 width: 100%;
-                padding-top: 8px;
-              }
-
-              button {
-                display: flex;
-                padding: map.get($spacing, sm);
-                justify-content: center;
-                align-items: center;
-                gap: map.get($spacing, xs);
-                border-radius: map.get($radius, r8);
-                background: $primary-blue;
-                border: none;
-                color: #fff;
+                color: #2e2a94;
                 font-family: $poppins;
                 font-size: 16px;
                 font-weight: 500;
                 line-height: 20px;
-                cursor: pointer;
-                transition: background-color 0.2s ease;
-                width: 164px;
+                border-radius: 4px;
+                background: url("../../icons/search-icon.svg") no-repeat left 0
+                  center;
+                background-size: 20px 20px;
+
+                // background: url("../../icons/search-icon.svg") no-repeat right
+                //   12px center;
+                border: none;
+                outline: none;
+                padding-left: 24px;
 
                 @include media(mobile) {
-                  width: 100%;
-                  margin: 0;
+                  padding-right: 40px;
                 }
 
-                &:hover {
-                  background: $primary-blue-dark;
+                &:active {
+                  border: none;
                 }
               }
-            }
-          }
-        }
 
-        .plan-options-wrapper {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 24px;
-          margin: 8px 0;
-
-          .plan-type-toggle {
-            display: flex;
-            flex: 1 1 45%;
-            align-items: center;
-            gap: map.get($spacing, sm);
-
-            .toggle-label {
-              cursor: pointer;
-
-              @include font-style(12px, 16px, $neutrals-black, 500, $poppins);
-
-
-              &.active {
-                color: #2e2a94;
-                font-weight: map.get($font-weights, medium);
-              }
-            }
-
-            .toggle-switch {
-              position: relative;
-              display: inline-block;
-              width: 37px;
-              height: 20px;
-
-              input {
-                opacity: 0;
-                width: 0;
-                height: 0;
-              }
-
-              .slider {
+              .cancel-btn {
+                height: 20px;
+                width: 20px;
                 position: absolute;
-                inset: 0;
-                transition: 0.4s;
-                border-radius: 16.667px;
-                background: #99A1B0;
+                right: 13px;
+                bottom: 8px;
                 cursor: pointer;
+              }
 
-                &::before {
+              .search-results-wrapper {
+                position: relative;
+
+                .search-result-ul {
+                  font-family: Poppins, sans-serif;
+                  list-style: none;
+                  margin: 0;
+                  padding: 0;
+                  max-height: 200px;
+                  overflow-y: auto;
+                  background: $primary-white;
                   position: absolute;
-                  content: "";
-                  height: 16.5px;
-                  width: 16.5px;
-                  left: 2px;
-                  bottom: 2px;
-                  background-color: white;
-                  transition: 0.4s;
-                  border-radius: 16.667px;
+                  width: 100%;
+                  z-index: 99;
+                  font-size: 16px;
+                  font-weight: 600;
+                  line-height: 24px;
+                  text-align: left;
+                  border-radius: 6px;
+                  border: 1px solid #eee;
+                  box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+
+                  &::-webkit-scrollbar {
+                    width: 3px;
+                  }
+
+                  &::-webkit-scrollbar-track {
+                    width: 3px;
+                    background-color: $primary-white;
+                    border-radius: 0 6px 6px 0;
+                  }
+
+                  &::-webkit-scrollbar-thumb {
+                    width: 3px;
+                    background-color: #464343; //#eee;
+                  }
 
                   @include media(mobile) {
-                    bottom: 1.5px;
+                    border: 1px solid map.get($strokes, default);
+                  }
+
+                  li {
+                    padding: 12px 16px;
+                    cursor: pointer;
+                    font-weight: 400;
+                    border-bottom: 1px solid #eee;
+                    font-size: 14px;
+
+                    &:hover {
+                      background: map.get($old-silver, 50);
+                    }
+
+                    &.active {
+                      background: #eee;
+                    }
+
+                    strong {
+                      font-weight: 500;
+                    }
                   }
                 }
               }
 
-              input:checked+.slider::before {
-                transform: translateX(16.5px);
+              .search-error {
+                text-align: left;
+                font-size: 12px;
+                line-height: 16px;
+                color: map.get($danger, 300);
+                font-family: Poppins, sans-serif;
+                font-weight: 400;
+
+                &.error-hide {
+                  display: none;
+                }
+
+                &.error-show {
+                  display: block;
+                }
               }
             }
-          }
 
-          .plan-option-select {
-            position: relative;
-            flex: 1 1 45%;
-            min-width: 200px;
-
-            .select-selected-plan {
-              color: #2e2a94;
-              font-family: $poppins;
-              font-size: 12px;
-              font-weight: 500;
-              line-height: 16px;
-              cursor: pointer;
-              position: relative;
-              user-select: none;
+            .spi-wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: 24px;
 
               @include media(mobile) {
-                text-align: start;
+                padding: 0;
+                background-color: transparent;
+                box-shadow: none;
               }
 
-              &::after {
-                content: "";
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 20px;
-                height: 20px;
-                background: url("../../icons/Frame.svg") no-repeat center;
-                background-size: contain;
-                transition: transform 0.2s ease;
-              }
-            }
+              .scheme-btns-wrapper {
+                display: flex;
+                gap: map.get($spacing, sm);
 
-            .select-options-plan {
-              display: none;
-              position: absolute;
-              top: 110%;
-              left: 0;
-              right: 0;
-              background: $primary-white;
-              border-radius: map.get($radius, r8);
-              box-shadow: $box-shadow-soft;
-              z-index: 10;
-              overflow: hidden;
-
-              &.open {
-                display: block;
-              }
-            }
-
-            .select-option-plan {
-              padding: 12px 16px;
-              text-align: left;
-              cursor: pointer;
-              transition: background-color 0.2s ease;
-
-              // border-bottom: 1px solid #eee;
-
-              @include font-style(14px,
-                20px,
-                $color-text-body,
-                map.get($font-weights, regular),
-                $poppins);
-
-
-              &:hover {
-                background-color: #f0f0f0;
-              }
-            }
-          }
-        }
-
-        .investment-wrapper {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 24px;
-          margin: 8px 0;
-
-          .sip-wrapper,
-          .tenure-wrapper {
-            flex: 1 1 45%;
-            display: flex;
-            flex-direction: column;
-            gap: map.get($spacing, xs);
-            min-width: 200px;
-          }
-
-          // .sip-wrapper {
-          //   .input-with-symbol {
-          //     position: relative;
-          //   }
-          // }
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          label {
-            @include font-style(12px,
-              16px,
-              $color-text-body,
-              map.get($font-weights, regular),
-              $poppins);
-
-            @include media(mobile) {
-              text-align: start;
-            }
-          }
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          input,
-          select {
-            border: none;
-            background-color: transparent;
-            color: #2e2a94;
-            font-family: $poppins;
-            font-size: 20px;
-            font-weight: 500;
-            width: 100%;
-            appearance: none;
-            outline: none;
-
-            &::-webkit-outer-spin-button,
-            &::-webkit-inner-spin-button {
-              appearance: none;
-              margin: 0;
-            }
-          }
-
-          .sip-wrapper {
-            .input-with-symbol {
-              position: relative;
-
-              input {
-                padding-left: 15px;
-
-                &::placeholder {
-                  color: #2E2A94;
+                .scheme-btn {
+                  display: flex;
+                  width: 104px;
+                  height: 32px;
+                  padding: map.get($spacing, xs) map.get($spacing, sm);
+                  justify-content: center;
+                  align-items: center;
+                  border-radius: 1000px;
+                  border: 1px solid #bdbdbd;
+                  background: #fafafa;
+                  color: #424242;
                   font-family: $poppins;
-                  font-size: 20px;
-                  font-weight: 500;
-                  line-height: 24px;
+                  font-size: 14px;
+                  font-weight: 400;
+                  line-height: 20px;
+                  margin: 0;
+                  margin-top: 4px;
+                  cursor: pointer;
+                  transition: all 0.2s ease;
+
+                  &:hover {
+                    background: $primary-blue;
+                    color: $primary-white;
+                  }
+
+                  &.active {
+                    background: #edf1ff;
+                    color: #2e2a94;
+                    border: 1px solid #382ad7;
+                    line-height: 16px;
+                    font-weight: 500;
+                  }
                 }
               }
 
-              input[type="number"i] {
-                color: #2E2A94;
-                font-family: $poppins;
-                font-size: 20px;
-                font-weight: 500;
-                line-height: 24px;
-                height: 100%;
-              }
-            }
-
-            .input-with-symbol::before {
-              content: "₹";
-              position: absolute;
-              top: 1px;
-              left: 3px;
-              pointer-events: none;
-              color: #2e2a94;
-              font-family: $poppins;
-              font-size: 20px;
-              font-weight: 500;
-
-              @include media(mobile) {
-                top: 1.5px;
-                height: 100%;
-              }
-            }
-
-            .amount-error {
-              font-size: 10px;
-              line-height: 16px;
-              font-family: $poppins;
-              color: #F05353;
-            }
-
-            .error-hide {
-              display: none;
-            }
-
-            .error-show {
-              display: block;
-            }
-          }
-
-          .tenure-wrapper select {
-            padding-right: 32px;
-            cursor: pointer;
-          }
-
-          .custom-select {
-            position: relative;
-
-            .select-selected {
-              color: #2e2a94;
-              font-family: $poppins;
-              font-size: 20px;
-              font-weight: 500;
-              line-height: 24px;
-              cursor: pointer;
-              position: relative;
-              user-select: none;
-              padding-bottom: 4px;
-
-              @include media(mobile) {
-                text-align: start;
-              }
-
-              &::after {
-                content: "";
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 20px;
-                height: 20px;
-                background: url("../../icons/Frame.svg") no-repeat center;
-                background-size: contain;
-                transition: transform 0.2s ease;
-              }
-            }
-
-            .select-options {
-              display: none;
-              position: absolute;
-              top: 110%;
-              left: 0;
-              right: 0;
-              background: $primary-white;
-              border-radius: map.get($radius, r8);
-              box-shadow: $box-shadow-soft;
-              z-index: 10;
-              overflow: hidden;
-
-              &.open {
-                display: block;
-              }
-            }
-
-            .select-option {
-              padding: 12px 16px;
-              cursor: pointer;
-              transition: background-color 0.2s ease;
-
-              // border-bottom: 1px solid #eee;
-
-              @include font-style(14px,
-                20px,
-                $color-text-body,
-                map.get($font-weights, regular),
-                $poppins);
-
-
-              &:hover {
-                background-color: #f0f0f0;
-              }
-            }
-          }
-        }
-
-        .no-returns-msg {
-          margin-top: map.get($spacing, xs);
-          color: rgb(113 113 113);
-          font-size: 0.875rem;
-          line-height: 1.25rem;
-          background-color: rgb(251 238 221);
-          padding: map.get($spacing, xxs);
-        }
-      }
-
-      .view-btn-cal {
-        padding-top: 10px;
-        text-align: left;
-        line-height: normal;
-
-        @include media(mobile) {
-          text-align: center;
-          padding-top: 16px;
-        }
-
-        a {
-          text-decoration: underline;
-
-          @include font-style(14px,
-            20px,
-            map.get($blue-1, b500),
-            map.get($font-weights, medium),
-            $poppins);
-
-
-          @include media(mobile) {
-            font-size: 16px;
-            line-height: 24px;
-          }
-        }
-      }
-    }
-  }
-}
-
-.compounding.calculator-sip-container:not(.fdp-calculator) {
-  background-color: map.get($blue-1, b25);
-}
-
-// .compounding.fdp-calculator{
-
-// }
-
-// v2
-.section.fdp-calculator {
-  gap: 24px;
-  align-self: stretch;
-  box-shadow: $box-shadow-soft;
-  padding: 40px 24px;
-
-  @include media(mobile) {
-    padding: 40px 16px;
-    background-color: #fff;
-    gap: 0;
-  }
-
-  /* stylelint-disable-next-line no-descending-specificity */
-  .compounding-two-inner {
-    max-width: 100%;
-    width: 100%;
-    flex-direction: column;
-    margin: 0 auto;
-    gap: 24px;
-
-    @include media(mobile) {
-      gap: 24px;
-    }
-
-    /* stylelint-disable-next-line no-descending-specificity */
-    .default-content-wrapper {
-      width: 100%;
-
-      /* stylelint-disable-next-line no-descending-specificity */
-      .icon {
-        width: 48px;
-        height: 48px;
-      }
-
-      .hero-image {
-        width: 48px;
-        height: 48px;
-
-        p {
-          margin: 0;
-          display: block;
-        }
-      }
-
-      .hero-text {
-        h3,
-        h4 {
-          margin: 0;
-
-          @include font-style(32px,
-            40px,
-            $primary-blue,
-            map.get($font-weights, bold),
-            $butlerpro);
-
-
-          @include media(mobile) {
-            margin-bottom: 0;
-
-            @include font-style(24px,
-              28px,
-              $primary-blue,
-              map.get($font-weights, bold),
-              $butlerpro);
-
-          }
-        }
-      }
-
-      /* stylelint-disable-next-line no-descending-specificity */
-      p {
-        display: none;
-
-        @include media(mobile) {
-          display: none;
-          margin: 0;
-          max-width: 450px;
-
-          @include font-style(16px, 24px, $primary-blue, 400, $poppins);
-
-        }
-      }
-    }
-
-    .calculator-sip-wrapper {
-      max-width: 100%;
-      width: 100%;
-
-      .calculator-sip {
-        background-color: #fff;
-        border-radius: 8px;
-        width: 100%;
-
-        @include media(mobile) {
-          box-shadow: none;
-          padding: 0;
-        }
-
-      }
-
-      /* stylelint-disable-next-line no-descending-specificity */
-      .cal-container {
-        max-width: 100%;
-        width: 100%;
-        padding: 0;
-
-        .search-bar-wrapper {
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          input {
-            color: #2e2a94;
-            background: url('../../icons/search-icon.svg') no-repeat right 12px center;
-
-            @include media(mobile) {
-              background: url('../../icons/search-icon-white.svg') no-repeat right 12px center;
-            }
-          }
-        }
-
-        .search-results-wrapper {
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          ul {
-            font-family: Poppins, sans-serif;
-            border: 1px solid #eee;
-            box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
-          }
-        }
-
-        /* stylelint-disable-next-line no-descending-specificity */
-        .scheme-btns-wrapper {
-          display: flex;
-          gap: 8px;
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          button {
-            border: 1px solid #bdbdbd;
-            background: #fafafa;
-
-            /* stylelint-disable-next-line no-descending-specificity */
-            &.active {
-              background: #edf1ff;
-              color: #2e2a94;
-              border: 1px solid #382ad7;
-            }
-          }
-        }
-
-        .invested-amount {
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          span {
-            color: #2b2e8c;
-            position: relative;
-            padding-left: 10px;
-          }
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          span::before {
-            content: "₹";
-            position: absolute;
-            left: 3px;
-            bottom: 0;
-            pointer-events: none;
-            color: #2e2a94;
-            font-family: $poppins;
-            font-size: 12px;
-            font-weight: 500;
-          }
-        }
-
-        .plan-options-wrapper {
-          .plan-type-toggle {
-            .toggle-switch {
-
-              /* stylelint-disable-next-line no-descending-specificity */
-              .slider {
-                inset: 0;
-                transition: 0.4s;
-              }
-            }
-          }
-        }
-
-        /* stylelint-disable-next-line no-descending-specificity */
-        .investment-wrapper {
-          @include media(mobile) {
-            flex-direction: column;
-            gap: map.get($spacing, md);
-            text-align: left;
-          }
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          .tenure-wrapper select {
-            padding-right: 32px;
-            cursor: pointer;
-          }
-
-          /* stylelint-disable-next-line no-descending-specificity */
-          .cal-discription {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-            position: relative;
-
-            @include media(mobile) {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;
-              align-items: flex-start;
-              gap: map.get($spacing, md);
-              text-align: left;
-            }
-
-            .current-value-wrapper,
-            .return-cagr-wrapper {
-              label {
-                @include font-style(12px,
-                  16px,
-                  $color-text-body,
-                  map.get($font-weights, regular),
-                  $poppins);
-              }
-            }
-
-            /* stylelint-disable-next-line no-descending-specificity */
-            .start-sip-btn {
-              @include media(mobile) {
-                position: static;
-                width: 100%;
-              }
-
-              /* stylelint-disable-next-line no-descending-specificity */
-              button {
-                position: absolute;
-                right: 0;
+              .plan-options-wrapper {
                 display: flex;
-                width: 132px;
+                flex-wrap: wrap;
+                gap: 24px;
+                margin: 8px 0;
+
+                .plan-type-toggle {
+                  display: flex;
+                  flex: 1 1 45%;
+                  align-items: center;
+                  gap: map.get($spacing, sm);
+
+                  .toggle-label {
+                    cursor: pointer;
+
+                    @include font-style(
+                      12px,
+                      16px,
+                      $neutrals-black,
+                      500,
+                      $poppins
+                    );
+
+                    &.active {
+                      color: #2e2a94;
+                      font-weight: map.get($font-weights, medium);
+                    }
+                  }
+
+                  .toggle-switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 37px;
+                    height: 20px;
+
+                    .toggle-inp {
+                      opacity: 0;
+                      width: 0;
+                      height: 0;
+                    }
+
+                    .slider {
+                      position: absolute;
+                      inset: 0;
+                      transition: 0.4s;
+                      border-radius: 16.667px;
+                      background: #99a1b0;
+                      cursor: pointer;
+
+                      &::before {
+                        position: absolute;
+                        content: "";
+                        height: 16.5px;
+                        width: 16.5px;
+                        left: 2px;
+                        bottom: 2px;
+                        background-color: white;
+                        transition: 0.4s;
+                        border-radius: 16.667px;
+
+                        @include media(mobile) {
+                          bottom: 1.5px;
+                        }
+                      }
+                    }
+                  }
+
+                  input:checked + .slider::before {
+                    transform: translateX(16.5px);
+                  }
+                }
+
+                .plan-option-select {
+                  position: relative;
+                  flex: 1 1 45%;
+                  min-width: 200px;
+
+                  .select-selected-plan {
+                    color: #2e2a94;
+                    font-family: $poppins;
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    cursor: pointer;
+                    position: relative;
+                    user-select: none;
+
+                    @include media(mobile) {
+                      text-align: start;
+                    }
+
+                    &::after {
+                      content: "";
+                      position: absolute;
+                      right: 0;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      width: 20px;
+                      height: 20px;
+                      background: url("../../icons/Frame.svg") no-repeat center;
+                      background-size: contain;
+                      transition: transform 0.2s ease;
+                    }
+                  }
+
+                  .select-options-plan {
+                    display: none;
+                    position: absolute;
+                    top: 110%;
+                    left: 0;
+                    right: 0;
+                    background: $primary-white;
+                    border-radius: map.get($radius, r8);
+                    box-shadow: $box-shadow-soft;
+                    z-index: 10;
+                    overflow: hidden;
+
+                    &.open {
+                      display: block;
+                    }
+
+                    .select-option-plan {
+                      padding: 12px 16px;
+                      text-align: left;
+                      cursor: pointer;
+                      transition: background-color 0.2s ease;
+
+                      @include font-style(
+                        14px,
+                        20px,
+                        $color-text-body,
+                        map.get($font-weights, regular),
+                        $poppins
+                      );
+
+                      &:hover {
+                        background-color: #f0f0f0;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .investment-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 24px;
+                margin: 8px 0;
+
+                .sip-wrapper,
+                .tenure-wrapper {
+                  flex: 1 1 45%;
+                  display: flex;
+                  flex-direction: column;
+                  gap: map.get($spacing, xs);
+                  min-width: 200px;
+                }
+
+                .labelforsip,
+                .labelforlumsum,
+                .tenure-label {
+                  @include font-style(
+                    12px,
+                    16px,
+                    $color-text-body,
+                    map.get($font-weights, regular),
+                    $poppins
+                  );
+
+                  @include media(mobile) {
+                    text-align: start;
+                  }
+                }
+
+                .sip-wrapper {
+                  .input-with-symbol {
+                    position: relative;
+
+                    &::before {
+                      content: "₹";
+                      position: absolute;
+                      top: 1px;
+                      left: 3px;
+                      pointer-events: none;
+                      color: #2e2a94;
+                      font-family: $poppins;
+                      font-size: 20px;
+                      font-weight: 500;
+
+                      @include media(mobile) {
+                        top: 1.5px;
+                        height: 100%;
+                      }
+                    }
+
+                    .investment-inp {
+                      color: #2e2a94;
+                      font-family: $poppins;
+                      font-size: 20px;
+                      font-weight: 500;
+                      line-height: 24px;
+                      height: 100%;
+                      padding-left: 15px;
+                      appearance: none;
+                      outline: none;
+                      background-color: transparent;
+                      border: none;
+                    }
+                  }
+
+                  .amount-error {
+                    font-size: 10px;
+                    line-height: 16px;
+                    font-family: $poppins;
+                    color: #f05353;
+
+                    &.error-hide {
+                      display: none;
+                    }
+
+                    &.error-show {
+                      display: block;
+                    }
+                  }
+                }
+
+                .tenure-wrapper {
+                  &.custom-select {
+                    position: relative;
+
+                    .select-selected {
+                      color: #2e2a94;
+                      font-family: $poppins;
+                      font-size: 20px;
+                      font-weight: 500;
+                      line-height: 24px;
+                      cursor: pointer;
+                      position: relative;
+                      user-select: none;
+                      padding-bottom: 4px;
+
+                      @include media(mobile) {
+                        text-align: start;
+                      }
+
+                      &::after {
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 20px;
+                        height: 20px;
+                        background: url("../../icons/Frame.svg") no-repeat
+                          center;
+                        background-size: contain;
+                        transition: transform 0.2s ease;
+                      }
+                    }
+
+                    .select-options {
+                      display: none;
+                      position: absolute;
+                      top: 110%;
+                      left: 0;
+                      right: 0;
+                      background: $primary-white;
+                      border-radius: map.get($radius, r8);
+                      box-shadow: $box-shadow-soft;
+                      z-index: 10;
+                      overflow: hidden;
+
+                      &.open {
+                        display: block;
+                      }
+
+                      .select-option {
+                        padding: 12px 16px;
+                        cursor: pointer;
+                        transition: background-color 0.2s ease;
+
+                        @include font-style(
+                          14px,
+                          20px,
+                          $color-text-body,
+                          map.get($font-weights, regular),
+                          $poppins
+                        );
+
+                        &:hover {
+                          background-color: #f0f0f0;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .incal-wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: 24px;
+
+              .invested-amount {
+                display: flex;
+                align-items: flex-start;
+                gap: map.get($spacing, xxs);
+                align-self: stretch;
+
+                .invested-label {
+                  @include font-style(
+                    12px,
+                    16px,
+                    $color-text-body,
+                    map.get($font-weights, regular),
+                    $poppins
+                  );
+                }
+
+                .invested-amount-value {
+                  color: #2e2a94;
+                  font-family: $poppins;
+                  font-size: 14px;
+                  font-weight: 600;
+                  line-height: 16px;
+                  margin-left: 4px;
+                  position: relative;
+                  padding-left: 10px;
+
+                  &::before {
+                    content: "₹";
+                    position: absolute;
+                    left: 3px;
+                    top: 0;
+                    pointer-events: none;
+                    color: #2e2a94;
+                    font-family: $poppins;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 16px;
+                  }
+                }
+              }
+
+              .cal-discription {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 32px;
+                position: relative;
 
                 @include media(mobile) {
-                  position: static;
-                  width: 100%;
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                  gap: map.get($spacing, md);
+                  text-align: left;
                 }
+
+                .current-value-wrapper,
+                .return-cagr-wrapper {
+                  display: flex;
+                  flex-direction: column;
+                  gap: map.get($spacing, xxs);
+
+                  .cal-desc-label {
+                    @include font-style(
+                      12px,
+                      16px,
+                      $color-text-body,
+                      map.get($font-weights, regular),
+                      $poppins
+                    );
+
+                    @include media(mobile) {
+                      white-space: nowrap;
+                    }
+                  }
+
+                  .cal-desc-value {
+                    color: #2e2a94;
+                    font-family: $poppins;
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 32px;
+                    text-align: left;
+                    position: relative;
+                    padding-left: 18px;
+
+                    @include media(mobile) {
+                      font-size: 22px;
+                    }
+
+                    &::before {
+                      content: "₹";
+                      position: absolute;
+                      left: 3px;
+                      bottom: 0;
+                      pointer-events: none;
+                      color: #2e2a94;
+                      font-family: $poppins;
+                      font-size: 22px;
+                      font-weight: 400;
+                      line-height: 32px;
+                    }
+                  }
+                }
+
+                .start-sip-btn {
+                  position: absolute;
+                  right: 0;
+
+                  @include media(mobile) {
+                    position: static;
+                    width: 100%;
+                    padding-top: 8px;
+                  }
+
+                  .sip-btn {
+                    display: flex;
+                    padding: map.get($spacing, sm);
+                    justify-content: center;
+                    align-items: center;
+                    gap: map.get($spacing, xs);
+                    border-radius: map.get($radius, r8);
+                    background: $primary-blue;
+                    border: none;
+                    color: #fff;
+                    font-family: $poppins;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 20px;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease;
+                    width: 164px;
+
+                    @include media(mobile) {
+                      width: 100%;
+                      margin: 0;
+                    }
+
+                    &:hover {
+                      background: $primary-blue-dark;
+                    }
+                  }
+                }
+              }
+            }
+
+            .no-returns-msg {
+              margin-top: map.get($spacing, xs);
+              color: rgb(113 113 113);
+              font-size: 0.875rem;
+              line-height: 1.25rem;
+              background-color: rgb(251 238 221);
+              padding: map.get($spacing, xxs);
+            }
+          }
+
+          .view-btn-cal {
+            padding-top: 10px;
+            text-align: left;
+            line-height: normal;
+
+            @include media(mobile) {
+              text-align: center;
+              padding-top: 16px;
+            }
+
+            .view-othercal-btn {
+              text-decoration: underline;
+
+              @include font-style(
+                14px,
+                20px,
+                map.get($blue-1, b500),
+                map.get($font-weights, medium),
+                $poppins
+              );
+
+              @include media(mobile) {
+                font-size: 16px;
+                line-height: 24px;
               }
             }
           }
         }
       }
+    }
 
-      /* stylelint-disable-next-line no-descending-specificity */
-      .view-btn-cal {
-        display: none;
+    .default-content-wrapper:last-of-type {
+      // padding: 0;
 
-        @include media(mobile) {
-          display: none;
-          text-align: center;
-          font-size: 16px;
-          line-height: 24px;
-        }
+      p.disc-child-1 {
+        color: #2e2a94;
+        font-family: Poppins, sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        margin: 0;
+      }
+
+      ul.disc-child-2 {
+        padding-left: 24px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #616161;
+        font-family: Poppins, sans-serif;
+        font-weight: 400;
       }
     }
   }
 
-  /* stylelint-disable-next-line no-descending-specificity */
-  .default-content-wrapper {
+  &.fdp-calculator {
+    gap: 24px;
+    align-self: stretch;
+    box-shadow: $box-shadow-soft;
+    padding: 40px 24px;
+
     @include media(mobile) {
-      padding-top: 16px;
+      padding: 40px 16px;
+      background-color: #fff;
+      gap: 0;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    p:nth-child(1) {
-      margin-bottom: 20px;
- /* stylelint-disable-next-line no-descending-specificity */
-      strong {
-        font-weight: 400;
-        color: $primary-blue;
+    .compounding-two-inner {
+      max-width: 100%;
+      flex-direction: column;
+      gap: 24px;
+
+      .default-content-wrapper {
+        .hero-image {
+          width: 48px;
+          height: 48px;
+
+          p,
+          .icon-analytics {
+            width: 48px;
+            height: 48px;
+            margin: 0;
+          }
+        }
+
+        .hero-text {
+          p {
+            display: none;
+          }
+        }
+      }
+
+      .calculator-sip-wrapper {
+        max-width: 100%;
+
+        .calculator-sip {
+          .cal-container {
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
+
+            // .search-bar-wrapper {
+            //   .search-bar-inp {
+            //     background: url("../../icons/search-icon.svg") no-repeat right
+            //       12px center;
+
+            //     @include media(mobile) {
+            //       background: url("../../icons/search-icon-white.svg") no-repeat
+            //         right 12px center;
+            //     }
+            //   }
+            // }
+
+            .spi-wrapper {
+              .scheme-btns-wrapper {
+                gap: 8px;
+              }
+            }
+          }
+
+          .view-btn-cal {
+            display: none;
+          }
+        }
       }
     }
 
-    p,
-    ul,
-    li {
-      @include font-style(12px,
-        16px,
-        $text-body-2,
-        map.get($font-weights, regular),
-        $poppins);
-    }
+    .default-content-wrapper:last-of-type {
+      p.disc-child-1 {
+        margin-bottom: 20px;
+      }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    ul {
-      padding-left: map.get($spacing, md);
+      ul.disc-child-2 {
+        padding-left: 16px;
+      }
     }
+  }
+
+  &.compounding.calculator-sip-container:not(.fdp-calculator) {
+    background-color: map.get($blue-1, b25);
   }
 }

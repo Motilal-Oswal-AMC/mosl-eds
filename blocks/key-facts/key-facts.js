@@ -5,6 +5,7 @@ import {
   span,
   li,
   p,
+  ul,
 } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {
@@ -50,17 +51,25 @@ export default function decorate(block) {
         { class: 'minimum-amount' },
         div(
           { class: 'Application-Amount' },
-          p({class: 'key-facts-amounts-title'},
-            block.querySelector('.block-subitem-finelsub2')),
-          p({class: 'key-facts-amounts-sub'},
-            '₹500/- and in multiples of ₹1/- thereafter'),
+          p(
+            { class: 'key-facts-amounts-title' },
+            block.querySelector('.block-subitem-finelsub2'),
+          ),
+          p(
+            { class: 'key-facts-amounts-sub' },
+            '₹500/- and in multiples of ₹1/- thereafter',
+          ),
         ),
         div(
           { class: 'Redemption-Amount' },
-          p({class: 'key-facts-amounts-title'},
-            block.querySelector('.block-subitem-finelsub3')),
-          p({class: 'key-facts-amounts-sub'},
-            '₹500/- then ₹1/- increments, up to account balance'),
+          p(
+            { class: 'key-facts-amounts-title' },
+            block.querySelector('.block-subitem-finelsub3'),
+          ),
+          p(
+            { class: 'key-facts-amounts-sub' },
+            '₹500/- then ₹1/- increments, up to account balance',
+          ),
         ),
       ),
       div(
@@ -131,19 +140,24 @@ export default function decorate(block) {
         ),
         div(
           { class: 'load-policy' }, // not found
-          p({class: 'load-policy-para'},
-            block.querySelector('.block-subitem3 .block-subitem-finelsub4')),
+          p(
+            { class: 'load-policy-para' },
+            block.querySelector('.block-subitem3 .block-subitem-finelsub4'),
+          ),
           div(
             { class: 'load-policy-list' },
-            li(
-              '1% exit load applies if redeemed within 365 days of allotment.',
-            ),
-            li('No exit load applies if redeemed after 365 days.'),
-            li(
-              'Exit load is applicable when switching between different MOMF Schemes.',
-            ),
-            li(
-              'No exit load for switching between options or plans within the same Scheme.',
+            ul(
+              { class: 'load-policy-list-ul' },
+              li(
+                '1% exit load applies if redeemed within 365 days of allotment.',
+              ),
+              li('No exit load applies if redeemed after 365 days.'),
+              li(
+                'Exit load is applicable when switching between different MOMF Schemes.',
+              ),
+              li(
+                'No exit load for switching between options or plans within the same Scheme.',
+              ),
             ),
           ),
         ),
@@ -203,5 +217,10 @@ export default function decorate(block) {
   const replacepara = data[0].schDetail.exitLoad.replaceAll('<p>', '<li>');
   const replaceparatwo = replacepara.replaceAll('</p>', '</li>');
   const prarrep = replaceparatwo.replaceAll('<li>&nbsp;</li>', '');
-  block.querySelector('.load-policy-list').innerHTML = prarrep;
+
+  const ulCover = document.createElement('ul');
+  ulCover.className = 'load-policy-list-ul';
+  ulCover.innerHTML = prarrep;
+  block.querySelector('.load-policy-list').append(ulCover);
+  // block.querySelector('.load-policy-list').innerHTML = prarrep;
 }
