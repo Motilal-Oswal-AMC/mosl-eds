@@ -607,7 +607,7 @@ export default function decorate(block) {
   (function () {
     // Function to calculate the correct header offset based on screen size
     function getHeaderOffset() {
-      return window.innerWidth <= 768 ? 1180 : 250;
+      return window.innerWidth <= 768 ? 1150 : 250;
     }
 
     // Smooth scroll setup with dynamic header offset
