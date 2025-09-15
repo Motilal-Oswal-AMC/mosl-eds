@@ -3,8 +3,10 @@ import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
 // import { loadAutoBlock } from '../../scripts/scripts.js';
 // import {a,button,div,h3,li,ul} from '../../scripts/dom-helpers.js';
+
 // media query match that indicates mobile/tablet width
 export const isDesktop = window.matchMedia('(min-width: 900px)');
+
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -354,9 +356,15 @@ export default async function decorate(block) {
       section.querySelectorAll('ul').forEach((elul) => {
         elul.style.display = 'none';
       });
+      const navinner = navSections.querySelector('.nav-sec-list1 .sub-popup-sub3 .sub-popup-inner-text2');
+      navinner.querySelectorAll('ul').forEach((navel) => { navel.style.display = 'block'; });
+
+      const navinnfive = navSections.querySelector('.nav-sec-sub5 .sub-popup-sub2 .sub-popup-inner-text2');
+      navinnfive.querySelectorAll('ul').forEach((five) => { five.style.display = 'flex'; });
+
+      const navinnfour = navSections.querySelector('.nav-sec-sub4 .sub-popup-sub2 .sub-popup-inner-text2');
+      navinnfour.querySelectorAll('ul').forEach((four) => { four.style.display = 'block'; });
     });
-    const navinner = navSections.querySelector('.nav-sec-list1 .sub-popup-sub3 .sub-popup-inner-text2');
-    navinner.querySelectorAll('ul').forEach((navel) => { navel.style.display = 'block'; });
   }
   if (window.innerWidth < 900) {
     removeClassAfterDelay();
