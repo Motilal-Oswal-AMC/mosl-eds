@@ -5,7 +5,10 @@
  * https://www.aem.live/developer/block-collection/fragment
  */
 
-import { decorateMain } from '../../scripts/scripts.js'; // eslint-disable-line
+// eslint-disable-next-line import/no-cycle
+import {
+  decorateMain,
+} from '../../scripts/scripts.js'; // eslint-disable-line
 
 import {
   loadSections,

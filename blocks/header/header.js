@@ -1,7 +1,8 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-// import { loadAutoBlock } from '../../scripts/scripts.js';
 import dataMapMoObj from '../../scripts/constant.js';
+// import { loadAutoBlock } from '../../scripts/scripts.js';
+// import {a,button,div,h3,li,ul} from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
 export const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -31,7 +32,7 @@ function closeOnFocusLost(e) {
     if (navSectionExpanded && isDesktop.matches) {
       // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections, false);
-    } else if (!isDesktop.matches) {
+    } else if (isDesktop.matches) {
       // eslint-disable-next-line no-use-before-define
       toggleMenu(nav, navSections, false);
     }
@@ -168,8 +169,14 @@ export default async function decorate(block) {
   }
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection) => {
+      if (navSection.querySelector('ul')) {
+        navSection.classList.add('nav-drop');
+        const hrefnaf = navSection.querySelector('ul li');
+        const frgnav = await loadFragment(hrefnaf.children[0].getAttribute('href'));
+        hrefnaf.innerHTML = '';
+        hrefnaf.append(frgnav.children[0]);
+      }
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
@@ -177,6 +184,17 @@ export default async function decorate(block) {
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
+      const subHeader = navSection.querySelectorAll('.section');
+      dataMapMoObj.CLASS_PREFIXES = [
+        'sub-popup-cont',
+        'sub-popup-sec',
+        'sub-popup-sub',
+        'sub-popup-inner-text',
+        'sub-popup-list',
+        'sub-popup-list-content',
+        'sub-popup-list-row',
+      ];
+      subHeader.forEach((sublist) => dataMapMoObj.addIndexed(sublist));
     });
     dataMapMoObj.CLASS_PREFIXES = [
       'nav-sec-cont',
@@ -238,13 +256,88 @@ export default async function decorate(block) {
     });
   }
 
+  const nfoBanner = nav.querySelector('.section.nfo-banner');
+  if (nfoBanner) {
+    dataMapMoObj.CLASS_PREFIXES = [
+      'nfo-banner-cont',
+      'nfo-banner-sec',
+      'nfo-banner-sub',
+      'nfo-banner-inner-text',
+      'nfo-banner-list',
+      'nfo-banner-list-content',
+    ];
+    dataMapMoObj.addIndexed(nfoBanner);
+  }
+  (function initializeNfoBanner() {
+    const setupUI = () => {
+      const liveIndicatorContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list1');
+      if (liveIndicatorContainer) {
+        const liveIndicator = document.createElement('div');
+        liveIndicator.className = 'live-indicator';
+        liveIndicatorContainer.appendChild(liveIndicator);
+      }
+
+      const timerContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list3');
+      if (timerContainer) {
+        const timerElement = document.createElement('span');
+        timerElement.id = 'countdown-timer';
+        timerElement.textContent = '00d : 00h : 00m';
+        timerContainer.appendChild(timerElement);
+        return timerElement;
+      }
+      return null;
+    };
+
+    const startCountdown = (element) => {
+      if (!element) {
+        return;
+      }
+
+      const COUNTDOWN_DAYS = 2;
+      const COUNTDOWN_HOURS = 20;
+      const COUNTDOWN_MINUTES = 20;
+      const ONE_SECOND_MS = 1000;
+
+      const countDownDate = new Date();
+      countDownDate.setDate(countDownDate.getDate() + COUNTDOWN_DAYS);
+      countDownDate.setHours(countDownDate.getHours() + COUNTDOWN_HOURS);
+      countDownDate.setMinutes(countDownDate.getMinutes() + COUNTDOWN_MINUTES);
+      const countDownTime = countDownDate.getTime();
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownTime - now;
+
+        if (distance < 0) {
+          clearInterval(interval);
+          element.textContent = 'EXPIRED';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        const pad = (num) => String(num).padStart(2, '0');
+
+        element.textContent = `${pad(days)}d : ${pad(hours)}h : ${pad(minutes)}m`;
+      }, ONE_SECOND_MS);
+    };
+
+    const timerElement = setupUI();
+    startCountdown(timerElement);
+  }());
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+  hamburger.addEventListener('click', () => {
+    toggleMenu(nav, navSections);
+    toggleAllNavSections(navSections, 'false');
+  });
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
@@ -255,8 +348,50 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
-  // if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
-  //   navWrapper.append(await buildBreadcrumbs());
-  // }
-  // loadAutoBlock();
+
+  const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+  async function removeClassAfterDelay() {
+    await delay(800);
+    navSections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+      section.querySelectorAll('ul').forEach((elul) => {
+        elul.style.display = 'none';
+      });
+      const navinner = navSections.querySelector('.nav-sec-list1 .sub-popup-sub3 .sub-popup-inner-text2');
+      navinner.querySelectorAll('ul').forEach((navel) => { navel.style.display = 'block'; });
+
+      const navinnfive = navSections.querySelector('.nav-sec-sub5 .sub-popup-sub2 .sub-popup-inner-text2');
+      navinnfive.querySelectorAll('ul').forEach((five) => { five.style.display = 'flex'; });
+
+      const navinnfour = navSections.querySelector('.nav-sec-sub4 .sub-popup-sub2 .sub-popup-inner-text2');
+      navinnfour.querySelectorAll('ul').forEach((four) => { four.style.display = 'block'; });
+    });
+  }
+  if (window.innerWidth < 900) {
+    removeClassAfterDelay();
+    const navContainer = document.querySelector('.nav-sec-sec1');
+    navContainer.addEventListener('click', (event) => {
+      const clickedListItem = event.target.closest('li.comlist');
+      if (!clickedListItem) {
+        return;
+      }
+      const submenu = clickedListItem.querySelector(':scope > ul');
+      if (!submenu) {
+        return;
+      }
+      event.stopPropagation();
+      if (submenu.style.display === 'block') {
+        submenu.style.display = 'none';
+        submenu.closest('li').setAttribute('aria-expanded', 'false');
+      } else {
+        submenu.style.display = 'block';
+        if (submenu.querySelector('.default-content-wrapper') !== null) {
+          const subfilt = Array.from(submenu.querySelector('.default-content-wrapper').children);
+          subfilt.forEach((elulsub) => {
+            elulsub.style.display = 'block';
+          });
+        }
+        submenu.closest('li').setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
 }

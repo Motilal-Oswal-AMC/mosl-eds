@@ -54,6 +54,7 @@ const dataMapMoObj = {
     for (let i = 0; i < children.length; i += 1) {
       const child = children[i];
       const index = i + 1; // Class names are typically 1-based.
+      child.classList.add('comlist');
       child.classList.add(`${prefix}${index}`);
       this.addIndexed(child, level + 1);
     }
