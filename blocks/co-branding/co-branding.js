@@ -241,13 +241,4 @@ export default function decorate(block) {
       removeClassAfterDelay();
     });
   }
-  // if (Array.from(coBrandMod.classList).includes('hide-modal')) {
-  //   coBrandMod.classList.remove('hide-modal');
-  // }
-  // coBrandMod.classList.remove('hide-modal');
-  // coBrandMod.classList.add('modal-show');
-  // coBrand[0].addEventListener('click', () => {
-  //   removeClassAfterDelay();
-  // });
-  // end coheading
 }

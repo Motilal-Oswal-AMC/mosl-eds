@@ -1078,9 +1078,19 @@ position: relative;
     transform: translateX(100%);
 }
 
-.modal.block.modal-journey>dialog[open]>.modal-content {
-max-width: 400px;
+.modal.block.modal-journey>dialog[open]{
+    padding:0 ;
 }
+
+/* .modal.block.modal-journey>dialog[open]>.close-button {
+background-color: transparent;
+color:transparent;
+z-index: -1;
+} */
+
+/* .modal.block.modal-journey-fund>dialog[open]>.modal-content{
+    max-width: 649px;
+} */
 
 @keyframes slide-in {
     from {

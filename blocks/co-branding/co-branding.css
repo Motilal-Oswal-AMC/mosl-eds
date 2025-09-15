@@ -148,18 +148,18 @@
   color: #616161;
 }
 
-.modal.block {
+.modal-journey.modal.block {
   display: block;
   overflow: hidden;
 }
 
 @media (width <= 768px) {
-  .modal.block {
+  .modal-journey.modal.block {
     display: block;
   }
 }
 
-.modal.block dialog {
+.modal-journey.modal.block dialog {
   padding: 0;
   margin: 0;
   align-items: end;
@@ -167,7 +167,7 @@
   overflow: hidden;
 }
 
-.modal.block dialog .modal-content {
+.modal-journey.modal.block dialog .modal-content {
   position: relative;
   max-width: 400px;
   justify-content: center;
@@ -178,11 +178,12 @@
 }
 
 @media (width <= 768px) {
-  .modal.block dialog .modal-content {
+  .modal-journey.modal.block dialog .modal-content {
     height: 90vh;
   }
 }
 
-.modal.block dialog .close-button {
-  display: none;
+.modal-journey.modal.block dialog .close-button {
+  display: block;
+  z-index: -1;
 }

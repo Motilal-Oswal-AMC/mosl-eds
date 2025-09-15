@@ -183,7 +183,8 @@
 }
 }
 
-.modal.block {
+
+.modal-journey.modal.block {
   display: block;
   overflow: hidden;
   
@@ -213,8 +214,10 @@
     }
 
     .close-button {
-        display: none;
+        display: block;
+        z-index: -1;
+      
       }
   }
-  }
+}
 

@@ -9,6 +9,7 @@ export async function createModal(contentNodes) {
   const contentNodesClass = [...contentNodes].filter(
     (node) => node.classList && node.classList.contains('risk-o-meter-container'),
   );
+
   // if (contentNodesClass.length === 0) {
   //   contentNodesClass = [...contentNodes].filter(
   //     (node) => node.classList && node.classList.contains('live-streaming'),
@@ -250,6 +251,11 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
   // --- END: NEW LOGIC ---
 }
 // --- The SINGLE, SMART handler for ALL modal clicks ---
+const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+async function removeClassAfterDelay() {
+  await delay(1200);
+}
+
 export function initializeModalHandlers() {
   document.body.addEventListener('click', async (e) => {
     const link = e.target.closest('a');
@@ -275,6 +281,19 @@ export function initializeModalHandlers() {
         await openModal(link.href);
       }
     }
+
+    removeClassAfterDelay();
+    // const coBrandBtn = document.querySelector('.subbreadcrb4');
+
+    // coBrandBtn.addEventListener('click', () => {
+    const modal = document.querySelector('.modal');
+    if (modal.querySelector('.fm-portfolio-container')) {
+      document.querySelector('.modal').classList.add('modal-journey-fund');
+    } else {
+      document.querySelector('.modal').classList.add('modal-journey');
+    }
+    // document.querySelector('.modal').classList.add('modal-journey');
+    // });
   });
 }
 

@@ -170,10 +170,10 @@ export default async function decorate(block) {
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
     await delay(1200);
-    block.closest('.modal').remove();
     const bodym = document.querySelector('body');
     bodym.classList.remove('modal-open');
     bodym.classList.remove('noscroll');
+    block.closest('.modal').remove();
   }
   const paramo = block.closest('.fm-portfolio-container');
   paramo.classList.add('modal-show');

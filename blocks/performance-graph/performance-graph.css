@@ -1,7 +1,7 @@
 @import "../../../styles/fonts.css";
 
 .performance-graph {
-  padding-top: 75px;
+  padding-top: 22px;
   display: flex;
   flex-direction: column;
   gap: 16px;
