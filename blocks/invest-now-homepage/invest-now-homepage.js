@@ -171,9 +171,9 @@ export async function existingUser(paramblock) {
         document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
         localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
         if (dataMapMoObj.panRes.data.guestClient !== '') {
-          window.location.href = 'https://www.motilaloswalmf.com/mutualfund/onboarding/personal';
+          window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
         } else if (dataMapMoObj.panRes.data.guestClient === '') {
-          window.location.href = 'https://www.motilaloswalmf.com/mutualfund/prelogin-to-postlogin-connector';
+          window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
         }
       }
       // console.log(rejsin);
@@ -201,7 +201,7 @@ export async function existingUser(paramblock) {
       if (guestFlag === 'true') {
         setCookie('accessToken', rejsin.data.accessToken);
         setCookie('refreshToken', rejsin.data.refreshToken);
-        window.location.href = 'https://www.motilaloswalmf.com/mutualfund/onboarding/personal';
+        window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
       } else if (guestFlag === 'false') {
         const locobj = {
           panNo: params.userLogPan,
@@ -210,7 +210,7 @@ export async function existingUser(paramblock) {
           emailId: params.userLogEm,
         };
         localStorage.setItem('signzy', JSON.stringify(locobj));
-        window.location.href = 'https://www.motilaloswalmf.com/mutualfund/prelogin-to-postlogin-connector';
+        window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
       }
     } catch (error) {
       console.log(error);
