@@ -446,6 +446,13 @@ header nav .nav-sections ul>li>ul {
   padding: 8px 0;
 }
 
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5,
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list6 {
+  padding-left: 3px;
+  margin-left: -20px;
+  background: #FFF;
+}
+
 .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
   color: #111;
   font-family: Poppins, sans-serif;
@@ -789,10 +796,11 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   height: 12px;
   position: relative;
   margin-left: 12px;
+  margin-bottom: 3px;
 }
 
 .mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   width: 197px;
   margin-top: 8px;
@@ -1614,8 +1622,16 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     line-height: 20px;
   }
 
+  .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5,
+  .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list6 {
+    background: #FFF;
+    padding: 0;
+    margin: 0;
+    padding-top: 16px;
+  }
+
   .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5 {
-    padding-top: 12px;
+    padding-bottom: 4px;
   }
 
   .sub-popup-header.investor-edu-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
@@ -1685,6 +1701,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     align-self: stretch;
     border-radius: 4px;
     background: #F5F5F5;
+    height: max-content;
   }
 
   header nav .nav-sections .section.sub-popup-header .default-content-wrapper .sub-popup-sec1>li:last-child .sub-popup-inner-text1 {
