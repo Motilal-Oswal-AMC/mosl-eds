@@ -4,7 +4,6 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 @use "../../styles//common-theme/css/flatcalndar" as *;
 
-
 .invest-now-homepage-container {
   max-width: 100%;
 
@@ -801,18 +800,21 @@
     align-items: unset;
     justify-content: end;
     overflow: hidden;
-    padding:unset;
+    padding: unset;
     transform: translateX(100%);
     transition: all 1.2s;
 
-    &::backdrop{
+    &::backdrop {
       background-color: rgb(0 0 0 / 70%);
     }
 
-    &[open]{
+    &[open] {
       transform: translateX(0);
+
+      @media (width <= 768px) {
+        align-items: end;
+      }
     }
-    
 
     .close-button {
       display: block;
@@ -830,8 +832,19 @@
       background-color: transparent;
       box-shadow: unset;
 
-      .invest-now-homepage-container,.pan-details-modal,.otp-fdp,.fdp-kyc-form {
+      @media (width <= 768px) {
+        height: 90vh;
+      }
+
+      .invest-now-homepage-container,
+      .pan-details-modal,
+      .otp-fdp,
+      .fdp-kyc-form {
         max-width: 400px;
+
+        @media (width <= 768px) {
+          border-radius: 24px 24px 0 0;
+        }
       }
 
       // position: unset;

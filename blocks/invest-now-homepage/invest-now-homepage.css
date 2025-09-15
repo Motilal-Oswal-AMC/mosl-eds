@@ -801,6 +801,11 @@
 .modal.block dialog[open] {
   transform: translateX(0);
 }
+@media (width <= 768px) {
+  .modal.block dialog[open] {
+    align-items: end;
+  }
+}
 .modal.block dialog .close-button {
   display: block;
   z-index: -1;
@@ -816,8 +821,24 @@
   background-color: transparent;
   box-shadow: unset;
 }
-.modal.block dialog .modal-content .invest-now-homepage-container, .modal.block dialog .modal-content .pan-details-modal, .modal.block dialog .modal-content .otp-fdp, .modal.block dialog .modal-content .fdp-kyc-form {
+@media (width <= 768px) {
+  .modal.block dialog .modal-content {
+    height: 90vh;
+  }
+}
+.modal.block dialog .modal-content .invest-now-homepage-container,
+.modal.block dialog .modal-content .pan-details-modal,
+.modal.block dialog .modal-content .otp-fdp,
+.modal.block dialog .modal-content .fdp-kyc-form {
   max-width: 400px;
+}
+@media (width <= 768px) {
+  .modal.block dialog .modal-content .invest-now-homepage-container,
+  .modal.block dialog .modal-content .pan-details-modal,
+  .modal.block dialog .modal-content .otp-fdp,
+  .modal.block dialog .modal-content .fdp-kyc-form {
+    border-radius: 24px 24px 0 0;
+  }
 }
 
 .modal-show {

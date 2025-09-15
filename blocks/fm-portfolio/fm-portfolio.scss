@@ -199,14 +199,19 @@
 
         .modal-content{
             max-width: 689px;
-            height: 100dvh;
+            height: 90dvh;
             background-color: transparent;
             overflow: hidden;
+
+              @include media(mobile) {
+       width: 100%;
+    }
         }
 
         .close-button{
             display: block;
             z-index: -1;
+            background-color: transparent;
         }
     }
 }
