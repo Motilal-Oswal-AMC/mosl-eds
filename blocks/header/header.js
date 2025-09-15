@@ -404,4 +404,11 @@ export default async function decorate(block) {
       }
     });
   }
+
+  const userProfile = block.querySelector('.nav-tools .nav-tools-sub4');
+  dataMapMoObj.altFunction(
+    userProfile.querySelector('.nav-tools-inner-net2 .icon-user-icon-header img'),
+    'User Profile',
+  );
+
 }
