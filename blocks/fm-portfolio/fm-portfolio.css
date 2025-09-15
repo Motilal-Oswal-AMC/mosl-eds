@@ -160,13 +160,14 @@
 }
 .modal.block dialog .modal-content {
   max-width: 689px;
-  height: 90dvh;
+  height: 100dvh;
   background-color: transparent;
   overflow: hidden;
 }
 @media (max-width: 768px) {
   .modal.block dialog .modal-content {
     width: 100%;
+    height: 90dvh;
   }
 }
 .modal.block dialog .close-button {

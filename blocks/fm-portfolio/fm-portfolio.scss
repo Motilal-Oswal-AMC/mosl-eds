@@ -199,12 +199,13 @@
 
         .modal-content{
             max-width: 689px;
-            height: 90dvh;
+            height: 100dvh;
             background-color: transparent;
             overflow: hidden;
 
               @include media(mobile) {
        width: 100%;
+       height: 90dvh;
     }
         }
 
