@@ -25,4 +25,16 @@ export default function decorate(block) {
   ulfund.querySelectorAll('a').forEach((ela) => {
     ela.classList.add('ahreg');
   });
+
+  const goggleplaystore = block.querySelector('.fundgul');
+  dataMapMoObj.altFunction(
+    goggleplaystore.querySelector('.comlist.growth-sectri1 img'),
+    'Download on Google Play',
+  );
+
+  dataMapMoObj.altFunction(
+    goggleplaystore.querySelector('.comlist.growth-sectri2 img'),
+    'Download on the App Store',
+  );
+
 }
