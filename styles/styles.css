@@ -365,7 +365,7 @@ main>.section:first-of-type {
 
 @media (width <=768px) {
     main>.section:first-of-type {
-        margin-top: 10px;
+        margin-top: 76px;
     }
 }
 
@@ -603,13 +603,13 @@ body.noscroll {
     max-width: 1232px;
     width: 100%;
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 89px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     padding: 24px;
     position: sticky;
-    top: 124px;
+    top: 89px;
     background-color: #f5f5f5;
     z-index: 11;
 }
@@ -800,7 +800,7 @@ position: relative;
     }
 
     .section.breadcrumbs-fdp {
-        top: 104px;
+        top: 135px;
         padding: 16px;
     }
 }
