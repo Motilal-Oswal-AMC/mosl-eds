@@ -202,10 +202,17 @@
             height: 100dvh;
             background-color: transparent;
             overflow: hidden;
+
+              @include media(mobile) {
+       width: 100%;
+       height: 90dvh;
+    }
         }
 
         .close-button{
-            display: none;
+            display: block;
+            z-index: -1;
+            background-color: transparent;
         }
     }
 }
