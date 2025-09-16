@@ -117,4 +117,17 @@ export default async function decorate(block) {
     };
     phno.addEventListener('input', sanitizeInput);
   }
+
+  // Change select id and its label
+  function updateSelectIds(newSelectId, newLabelId) {
+    const selectEl = block.querySelector("form .countrycode select");
+    const labelEl = block.querySelector("form .countrycode label");
+    if (selectEl && labelEl) {
+      selectEl.id = newSelectId;
+      labelEl.setAttribute("for", newSelectId);
+      labelEl.id = newLabelId;
+    }
+  }
+  updateSelectIds("countrySelect", "countryLabel");
+
 }

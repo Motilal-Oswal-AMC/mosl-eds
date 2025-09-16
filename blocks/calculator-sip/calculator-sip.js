@@ -1,5 +1,5 @@
 import {
-  div, a, label, input, span, button, ul, img,
+  div, a, label, input, span, button, ul, li, img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 
@@ -52,7 +52,9 @@ export default function decorate(block) {
       }),
       div(
         { class: 'search-results-wrapper' },
-        ul({ id: 'searchResults', role: 'listbox', class: 'search-result-ul' }),
+        ul({ id: 'searchResults', role: 'listbox', class: 'search-result-ul' },
+          li({}, 'motilal oswal'),
+        ),
       ),
       span({ class: 'search-error error-hide' }, 'Fund not found'),
     ),
@@ -186,6 +188,7 @@ export default function decorate(block) {
   const amountInput = calContainer.querySelector('#investmentAmount');
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
+  const searchWrapper = document.querySelector('.search-results-wrapper')
 
   // Hide Search and Direct Growth for FDP Page
   if (block.parentElement.parentElement.classList.contains('fdp-calculator')) {
@@ -489,6 +492,7 @@ export default function decorate(block) {
       });
       searchResults.appendChild(lione);
     });
+    searchWrapper.style.display = 'block';
   });
 
   function addActive(items) {
@@ -558,7 +562,7 @@ export default function decorate(block) {
     const hero = sectionHero.querySelector('.default-content-wrapper');
     if (hero && !hero.querySelector('.hero-image')) {
       const iconPara = hero.querySelector('p:has(img)');
-      const heading = hero.querySelector('h3') || hero.querySelector('h4');
+      const heading = hero.querySelector('h2') || hero.querySelector('h4');
       const paras = hero.querySelectorAll('p');
       hero.innerHTML = '';
       const heroImage = div({ class: 'hero-image' }, iconPara);
