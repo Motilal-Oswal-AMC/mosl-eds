@@ -2,7 +2,7 @@ const dataCfObj = [
   {
     sebiCategory: 'Equity Fund',
     nfoFaceValue: '10',
-    dateOfAllotment: '2025-09-17',//'2019-10-17',
+    dateOfAllotment: '2025-09-17', // '2019-10-17',
     sebiSubCategory: 'Large and Midcap Fund',
     objective: 'Wealth Creation',
     fundSubCategorisation: 'Indian Equity - Large and Mid Cap',

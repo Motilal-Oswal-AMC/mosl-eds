@@ -36,5 +36,4 @@ export default function decorate(block) {
     goggleplaystore.querySelector('.comlist.growth-sectri2 img'),
     'Download on the App Store',
   );
-
 }

@@ -52,7 +52,8 @@ export default function decorate(block) {
       }),
       div(
         { class: 'search-results-wrapper' },
-        ul({ id: 'searchResults', role: 'listbox', class: 'search-result-ul' },
+        ul(
+          { id: 'searchResults', role: 'listbox', class: 'search-result-ul' },
           li({}, 'motilal oswal'),
         ),
       ),
@@ -188,7 +189,7 @@ export default function decorate(block) {
   const amountInput = calContainer.querySelector('#investmentAmount');
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
-  const searchWrapper = document.querySelector('.search-results-wrapper')
+  const searchWrapper = document.querySelector('.search-results-wrapper');
 
   // Hide Search and Direct Growth for FDP Page
   if (block.parentElement.parentElement.classList.contains('fdp-calculator')) {
