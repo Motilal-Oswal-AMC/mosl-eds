@@ -1407,4 +1407,5 @@ export default function decorate(block) {
         openWrapper.classList.remove('open');
       });
   });
+  return block;
 }

@@ -508,18 +508,17 @@ main {
                             gap: 12px;
                         }
 
-                        >li {
+                        >li.comlist.growth-sectri1 {
                             display: flex;
                             align-items: flex-start;
                             gap: 8px;
 
-                            ul {
+                            ul.growth-mainthr2 {
                                 margin: 0;
                                 padding: 0;
                                 list-style: none;
 
-                                li:first-child {
-                                    line-height: 0.1px;
+                                li.comlist.growth-subthr1:first-child {
                                     color: #FFF;
                                     font-family: $poppins;
                                     font-size: 12px;
@@ -535,7 +534,7 @@ main {
                                         }
                                 }
 
-                                li:nth-child(2) {
+                                li.comlist.growth-subthr2:nth-child(2) {
                                     line-height: 0.1px;
 
                                     .ahreg {
