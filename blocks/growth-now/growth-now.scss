@@ -508,7 +508,7 @@ main {
                             gap: 12px;
                         }
 
-                        >li.comlist.growth-sectri1 {
+                        >li.comlist {
                             display: flex;
                             align-items: flex-start;
                             gap: 8px;
@@ -527,17 +527,14 @@ main {
                                     line-height: 16px;
                                     cursor: pointer;
 
-                                        &:hover {
-                                            text-decoration-line: underline;
-                                            opacity: 1 !important;
-                                            color: #fff;
-                                        }
+                                        // &:hover {
+                                        //     text-decoration-line: underline;
+                                        //     opacity: 1 !important;
+                                        //     color: #fff;
+                                        // }
                                 }
                                 
                                 li.comlist.growth-subthr2:nth-child(2) {
-                                    line-height: 0.1px;
-
-                                    .ahreg {
                                     color: #FFF;
                                     font-family: $poppins;
                                     font-size: 14px;
@@ -546,12 +543,24 @@ main {
                                     line-height: 16px;
                                         cursor: pointer;
 
-                                        &:hover {
+                                       
+
+                                   a{
+                                     color: #FFF;
+                                    font-family: $poppins;
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 16px;
+                                    cursor: pointer;
+
+                                     &:hover {
                                             text-decoration-line: underline;
                                             opacity: 1 !important;
                                             color: #fff;
                                         }
-                                    }
+                                   }
+
                                 }
                             }
 
