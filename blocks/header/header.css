@@ -1,4 +1,10 @@
 /* header and nav layout */
+body.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 header .nav-wrapper {
   background-color: #FFF;
   color: #2E2A94;
@@ -993,9 +999,9 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   text-decoration: none;
 }
 
-header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2.open {
+/* header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2.open {
   display: block;
-}
+} */
 
 /* NFO Banner Section Css start */
 .header .nfo-banner {
@@ -2021,18 +2027,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   }
 
   header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2 {
-    display: none;
-    position: absolute;
     top: 100%;
-    left: 0;
     bottom: unset;
-    background-color: white;
-    min-width: 90px;
-    z-index: 100;
-    list-style: none;
-    padding: 0;
-    margin-top: 5px;
-    border-radius: 4px;
   }
 
   .header-top .header-top-sub5 .header-top-inner-text2>* {
