@@ -576,13 +576,6 @@ export default function decorate(block) {
   const section = calculatorBlockWrapper?.closest('.section');
   if (section) {
     const heroWrap = section.querySelector('.default-content-wrapper');
-    const herorel = heroWrap.querySelector('.hero-text');
-    const herop = herorel.cloneNode(true).children;
-    herorel.innerHTML = '';
-    herorel.append(selectedFundName);
-    Array.from(herop).forEach((elfundname) => {
-      herorel.append(elfundname);
-    });
     const calcWrap = section.querySelector('.calculator-sip-wrapper');
     if (heroWrap && calcWrap && !section.querySelector('.compounding-two-inner')) {
       const wrapper = div({ class: 'compounding-two-inner' });

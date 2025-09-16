@@ -431,15 +431,30 @@ export default async function decorate(block) {
       searchdrop.style.display = 'none';
     }
   });
+
   searchinpu.addEventListener('input', (event) => {
+    const mainblk = block.closest('.contact-us-map-container');
+    const pranmk = mainblk.querySelector('.location-map');
+    const pranmkv2 = mainblk.querySelector('.error-default');
     const inpval = event.target.value;
     if (inpval.length === 6) {
       const pinCity = datacfContact.data.data
         .filter((elementmap) => elementmap.contactAdd[0].pincode === inpval);
-      updateContentForCity(pinCity[0].contactAdd[0].city, detailsCol, mapCol);
-    } else {
+      if (pinCity.length !== 0) {
+        updateContentForCity(pinCity[0].contactAdd[0].city, detailsCol, mapCol);
+      }
+      pranmk.classList.remove('contact-data-not-found');
+      pranmkv2.classList.remove('show-contact-error');
+    } else if (inpval.length === 0) {
       const dropVal = block.querySelector('.location-value').textContent.trim();
       updateContentForCity(dropVal, detailsCol, mapCol);
+      pranmk.classList.remove('contact-data-not-found');
+      pranmkv2.classList.remove('show-contact-error');
+    } else {
+      // const dropVal = block.querySelector('.location-value').textContent.trim();
+      // updateContentForCity(dropVal, detailsCol, mapCol);
+      pranmk.classList.add('contact-data-not-found');
+      pranmkv2.classList.add('show-contact-error');
     }
   });
   onLoadContactusCities();
