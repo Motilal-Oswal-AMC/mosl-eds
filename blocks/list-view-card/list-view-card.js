@@ -97,10 +97,9 @@ export default function decorate(block) {
               ),
               div(
                 { class: 'fund-name-container' },
-                p({ class: 'brand-name-txt' }, 'Motilal Oswal'),
                 p(
                   { class: 'fund-name-txt' },
-                  block.schDetail.schemeName.replaceAll('Motilal Oswal', ''),
+                  block.schDetail.schemeName,
                 ),
               ),
               img({
@@ -203,7 +202,7 @@ export default function decorate(block) {
             span({ style: `display:${stylecagrval}` }, '%'),
           ),
 
-          p({ class: 'cagr-text' }, labelcagr),
+          p({ class: 'cagr-text' }, labelcagr.replace('Return', '')),
         ),
         div(
           { class: 'risk-star-icon' },

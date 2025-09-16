@@ -530,20 +530,24 @@ function searchFunctionality(block) {
   });
 
   document.addEventListener('click', (event) => {
-    if (!searchContainer.contains(event.target)) {
-      searchContainer.classList.remove('search-active');
-      // searchInput.value = ""
+    try {
+      if (!searchContainer.contains(event.target)) {
+        searchContainer.classList.remove('search-active');
+        // searchInput.value = ""
+      }
+      document.querySelectorAll('.cagr-container').forEach((el) => {
+        if (!el.contains(event.target)) {
+          el.querySelector('.dropdown-list').classList.remove('dropdown-active');
+        }
+      });
+      document.querySelectorAll('.card-category').forEach((el) => {
+        if (!el.contains(event.target)) {
+          el.querySelector('.dropdown-list').classList.remove('dropdown-active');
+        }
+      });
+    } catch (error) {
+      // console.log(error);
     }
-    document.querySelectorAll('.cagr-container').forEach((el) => {
-      if (!el.contains(event.target)) {
-        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
-      }
-    });
-    document.querySelectorAll('.card-category').forEach((el) => {
-      if (!el.contains(event.target)) {
-        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
-      }
-    });
   });
 
   if (searchInput.value.length === 0) {
@@ -2097,13 +2101,17 @@ export default function decorate(block) {
   });
 
   document.addEventListener('click', (event) => {
-    if (!block.querySelector('.sort-select-container').contains(event.target)) {
-      const sortcont = block.querySelector('.sort-select-container .dropdown-list');
-      sortcont.classList.remove('dropdown-active');
-    }
-    if (!block.querySelector('.return-select-container').contains(event.target)) {
-      const sortcont = block.querySelector('.return-select-container .dropdown-list');
-      sortcont.classList.remove('dropdown-active');
+    try {
+      if (!block.querySelector('.sort-select-container').contains(event.target)) {
+        const sortcont = block.querySelector('.sort-select-container .dropdown-list');
+        sortcont.classList.remove('dropdown-active');
+      }
+      if (!block.querySelector('.return-select-container').contains(event.target)) {
+        const sortcont = block.querySelector('.return-select-container .dropdown-list');
+        sortcont.classList.remove('dropdown-active');
+      }
+    } catch (error) {
+      // console.log(error);
     }
   });
 

@@ -264,9 +264,9 @@ export function evaluateByDays(pastDateStr) {
   const diffDays = Math.floor((Date.now() - new Date(pastDateStr)) / 86400000); // 1000*60*60*24
 
   if (diffDays < 0) return 'Date is in the future';
-  if (diffDays >= 180) return diffDays > 365 ? 'CAGR' : 'Annualised';
+  if (diffDays >= 180) return diffDays > 365 ? 'CAGR' : 'Return Annualised';
 
-  return 'Annualised';
+  return 'Return Annualised';
 }
 
 /* ---------------- Wishlist ---------------- */
