@@ -520,22 +520,19 @@ main {
 
                                 li:first-child {
                                     line-height: 0.1px;
-
-                                    a.ahreg {
                                     color: #FFF;
                                     font-family: $poppins;
                                     font-size: 12px;
                                     font-style: normal;
                                     font-weight: 400;
                                     line-height: 16px;
-                                        cursor: pointer;
+                                    cursor: pointer;
 
                                         &:hover {
                                             text-decoration-line: underline;
                                             opacity: 1 !important;
                                             color: #fff;
                                         }
-                                    }
                                 }
 
                                 li:nth-child(2) {
