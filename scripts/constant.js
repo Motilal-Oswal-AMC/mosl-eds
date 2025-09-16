@@ -92,5 +92,31 @@ const dataMapMoObj = {
       return text;
     }
   },
+  formatDate: (dateString) => {
+    const date = new Date(`${dateString}T00:00:00`);
+
+    // Array of month abbreviations
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+
+    // Function to get the correct ordinal suffix (st, nd, rd, th)
+    function getOrdinalSuffix(days) {
+      if (days > 3 && days < 21) return 'th'; // for teens
+      switch (days % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    }
+
+    const dayWithSuffix = day + getOrdinalSuffix(day);
+
+    // Combine parts into the final format
+    return `${dayWithSuffix} ${month} ${year}`;
+  },
 };
 export default dataMapMoObj;

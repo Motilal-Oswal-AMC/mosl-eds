@@ -820,7 +820,12 @@ export default function decorate(block) {
     // console.error('No fund data found for schcode:', schcodeFromStorage);
   }
   const col1 = block.children[0].querySelectorAll('p');
-  const col2 = block.children[1].querySelectorAll('p');
+  let col2 = '';
+
+  if (block.children[1] === undefined) {
+    return false;
+  }
+  col2 = block.children[1].querySelectorAll('p');
   const col3 = block.children[2].querySelectorAll('p');
 
   const lumpsumLabel = col1[1]?.textContent || '';
@@ -1402,4 +1407,5 @@ export default function decorate(block) {
         openWrapper.classList.remove('open');
       });
   });
+  return block;
 }

@@ -161,6 +161,7 @@ $fund-icon-bg: #BDCBFF;
 // ----------------------------------------
 $poppins: "Poppins", sans-serif;
 $butlerpro: "ButlerPro", sans-serif;
+$inter: "Inter", sans-serif;
 $font-weights: (
   light: 300,
   regular: 400,
@@ -173,6 +174,17 @@ $font-weights: (
 
 // Font mixin
 @mixin font-style($size, $line-height, $color, $weight: null, $family: $butlerpro) {
+  font-size: $size;
+  line-height: $line-height;
+  color: $color;
+  font-family: $family;
+
+  @if $weight != 'null' {
+    font-weight: $weight;
+  }
+}
+
+@mixin font-style-inter($size, $line-height, $color, $weight: null, $family: $inter) {
   font-size: $size;
   line-height: $line-height;
   color: $color;

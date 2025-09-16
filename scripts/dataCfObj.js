@@ -2,7 +2,7 @@ const dataCfObj = [
   {
     sebiCategory: 'Equity Fund',
     nfoFaceValue: '10',
-    dateOfAllotment: '2019-10-17',
+    dateOfAllotment: '2025-09-17', // '2019-10-17',
     sebiSubCategory: 'Large and Midcap Fund',
     objective: 'Wealth Creation',
     fundSubCategorisation: 'Indian Equity - Large and Mid Cap',
@@ -49,6 +49,7 @@ const dataCfObj = [
     entryLoad: '<p>NIL</p>\n',
     typeOfScheme: 'Large and Midcap Fund - An open ended equity scheme investing in both large cap and mid cap stocks',
     fundsTaggingSection: [
+      'NFO',
       'motilal-oswal:indian-equity-',
       'motilal-oswal:large-and-mid-cap',
       'motilal-oswal:active',

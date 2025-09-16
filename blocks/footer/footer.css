@@ -12,7 +12,7 @@
 .footer-wrapper .footer {
   background-color: #2e2a94;
   color: #fff;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   padding: 60px 24px 0;
   overflow: hidden;
 }
@@ -34,7 +34,7 @@
   white-space: unset;
   padding: 0;
   line-height: 0;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
 }
 
@@ -113,7 +113,7 @@
   font-size: 12px;
   line-height: 1.2;
   color: #fff;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
 }
 
@@ -135,7 +135,7 @@
 
 .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont1 {
   color: #FFF;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -172,7 +172,7 @@
   overflow: hidden;
   color: #FFF;
   text-overflow: ellipsis;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 400;
@@ -192,7 +192,7 @@
   align-self: stretch;
   height: 40px;
   color: rgb(255 255 255 / 50.2%);
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
@@ -209,7 +209,7 @@
   align-items: center;
   color: #2E2A94;
   text-align: center;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 500;
@@ -249,7 +249,7 @@
 .footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item .accordion-item-label p {
   width: 100%;
   color: #FFF;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;
@@ -289,7 +289,7 @@
 }
 
 .footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item .accordion-item-body ul.list-inneritem-1 li a {
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 400;
@@ -346,7 +346,7 @@
 .footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 .list-items2 li.item-list a.item-anchor,
 .footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 .list-items2 li.item-list a.item-anchor {
   color: #FFF;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 400;
@@ -356,7 +356,7 @@
 .footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content2 .list-items2 li:last-child a,
 .footer-wrapper .footer .footer-section2 .footer-sub3 .footer-sub-cont1 .section-content3 .list-items2 li:last-child a {
   color: #FFF;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;
@@ -378,7 +378,7 @@
 
 .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont1 {
   color: #FFF;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;
@@ -397,7 +397,7 @@
   justify-content: flex-start;
   gap: 4px;
   color: #FFF;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 400;
@@ -533,7 +533,7 @@
   .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-wrapper .footer-sub-cont3 .section-content2 .list-items2 li a,
   .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-wrapper .footer-sub-cont3 .section-content3 .list-items2 li a {
     color: #FFF;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
@@ -543,7 +543,7 @@
   .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-wrapper .footer-sub-cont3 .section-content2 .list-items2 li:last-child a,
   .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-wrapper .footer-sub-cont3 .section-content3 .list-items2 li:last-child a {
     color: #FFF;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 600;
@@ -568,7 +568,7 @@
   .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont1 {
     width: 37.3%;
     color: #FFF;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
@@ -604,7 +604,7 @@
     overflow: hidden;
     color: #FFF;
     text-overflow: ellipsis;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
@@ -622,7 +622,7 @@
     align-self: stretch;
     height: 40px;
     color: rgb(255 255 255 / 50.2%);
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
@@ -683,7 +683,7 @@
   }
 
   .footer-wrapper .footer .footer-section2 .accordion-wrapper .footer-sub-cont1 .accordion-item .accordion-item-body ul.list-inneritem-1 li.list-innerlist a {
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
@@ -718,7 +718,7 @@
 @media (width >= 900px) {
   .footer-wrapper .footer .footer-section3 .footer-sub1 .footer-sub-cont1 {
     color: #FFF;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 600;
@@ -737,7 +737,7 @@
   .footer-wrapper .footer .footer-section3 .footer-sub1 ul.footer-sub-cont2 li a.list-items1 {
     gap: 4px;
     color: #FFF;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;

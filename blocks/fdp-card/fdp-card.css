@@ -18,7 +18,7 @@ main {
   .section.fdp-card-container {
     flex-direction: column;
     gap: 50px;
-    margin-top: 94px;
+    margin-top: 4px;
   }
 }
 
@@ -764,7 +764,7 @@ main {
   }
 }
 
-.section.fdp-card-container .item2 .why-fund .default-content-wrapper h4 {
+.section.fdp-card-container .item2 .why-fund .default-content-wrapper h2 {
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
@@ -774,7 +774,7 @@ main {
 }
 
 @media (width <= 768px) {
-  .section.fdp-card-container .item2 .why-fund .default-content-wrapper h4 {
+  .section.fdp-card-container .item2 .why-fund .default-content-wrapper h2 {
     font-size: 24px;
     line-height: 28px;
   }

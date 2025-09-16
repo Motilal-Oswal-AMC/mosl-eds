@@ -222,6 +222,7 @@
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper {
   position: relative;
+  display: none;
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul {

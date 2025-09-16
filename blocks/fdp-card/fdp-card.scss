@@ -20,7 +20,7 @@ main {
   @media (width <=768px) {
     flex-direction: column;
     gap: 50px;
-    margin-top: 94px;
+    margin-top: 4px;
   }
 
   .fdp-card {
@@ -854,7 +854,7 @@ main {
           padding: 0;
         }
 
-        h4 {
+        h2 {
           @include font-style(32px, 40px, $primary-blue, 700, $butlerpro);
 
           margin: 0;

@@ -177,13 +177,24 @@ export default async function decorate(block) {
         hrefnaf.innerHTML = '';
         hrefnaf.append(frgnav.children[0]);
       }
+
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+
+          const newState = expanded ? 'false' : 'true';
+          navSection.setAttribute('aria-expanded', newState);
+
+          // ✅ Scroll lock toggle
+          if (newState === 'true') {
+            document.body.classList.add('no-scroll');
+          } else {
+            document.body.classList.remove('no-scroll');
+          }
         }
       });
+
       const subHeader = navSection.querySelectorAll('.section');
       dataMapMoObj.CLASS_PREFIXES = [
         'sub-popup-cont',
@@ -196,6 +207,7 @@ export default async function decorate(block) {
       ];
       subHeader.forEach((sublist) => dataMapMoObj.addIndexed(sublist));
     });
+
     dataMapMoObj.CLASS_PREFIXES = [
       'nav-sec-cont',
       'nav-sec-sec',
@@ -206,6 +218,7 @@ export default async function decorate(block) {
     ];
     dataMapMoObj.addIndexed(navSections);
   }
+
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     const search = navTools.querySelector('a[href*="search"]');
@@ -404,4 +417,10 @@ export default async function decorate(block) {
       }
     });
   }
+
+  const userProfile = block.querySelector('.nav-tools .nav-tools-sub4');
+  dataMapMoObj.altFunction(
+    userProfile.querySelector('.nav-tools-inner-net2 .icon-user-icon-header img'),
+    'User Profile',
+  );
 }

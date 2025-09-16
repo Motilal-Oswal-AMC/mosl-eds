@@ -1,5 +1,5 @@
 import {
-  div, a, label, input, span, button, ul, img,
+  div, a, label, input, span, button, ul, li, img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 
@@ -52,7 +52,10 @@ export default function decorate(block) {
       }),
       div(
         { class: 'search-results-wrapper' },
-        ul({ id: 'searchResults', role: 'listbox', class: 'search-result-ul' }),
+        ul(
+          { id: 'searchResults', role: 'listbox', class: 'search-result-ul' },
+          li({}, 'motilal oswal'),
+        ),
       ),
       span({ class: 'search-error error-hide' }, 'Fund not found'),
     ),
@@ -77,7 +80,9 @@ export default function decorate(block) {
           span({ class: 'toggle-label active' }, 'Direct'),
           label(
             { class: 'toggle-switch', for: 'planToggle' },
-            input({ type: 'checkbox', id: 'planToggle', class: 'toggle-inp' }),
+            input({
+              type: 'checkbox', id: 'planToggle', class: 'toggle-inp', 'aria-label': 'Switch between Direct and Regular Plan',
+            }),
             span({ class: 'slider' }),
           ),
           span({ class: 'toggle-label' }, 'Regular'),
@@ -184,6 +189,7 @@ export default function decorate(block) {
   const amountInput = calContainer.querySelector('#investmentAmount');
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
+  const searchWrapper = document.querySelector('.search-results-wrapper');
 
   // Hide Search and Direct Growth for FDP Page
   if (block.parentElement.parentElement.classList.contains('fdp-calculator')) {
@@ -487,6 +493,7 @@ export default function decorate(block) {
       });
       searchResults.appendChild(lione);
     });
+    searchWrapper.style.display = 'block';
   });
 
   function addActive(items) {
@@ -556,7 +563,7 @@ export default function decorate(block) {
     const hero = sectionHero.querySelector('.default-content-wrapper');
     if (hero && !hero.querySelector('.hero-image')) {
       const iconPara = hero.querySelector('p:has(img)');
-      const heading = hero.querySelector('h3') || hero.querySelector('h4');
+      const heading = hero.querySelector('h2') || hero.querySelector('h4');
       const paras = hero.querySelectorAll('p');
       hero.innerHTML = '';
       const heroImage = div({ class: 'hero-image' }, iconPara);
@@ -569,6 +576,13 @@ export default function decorate(block) {
   const section = calculatorBlockWrapper?.closest('.section');
   if (section) {
     const heroWrap = section.querySelector('.default-content-wrapper');
+    const herorel = heroWrap.querySelector('.hero-text');
+    const herop = herorel.cloneNode(true).children;
+    herorel.innerHTML = '';
+    herorel.append(selectedFundName);
+    Array.from(herop).forEach((elfundname) => {
+      herorel.append(elfundname);
+    });
     const calcWrap = section.querySelector('.calculator-sip-wrapper');
     if (heroWrap && calcWrap && !section.querySelector('.compounding-two-inner')) {
       const wrapper = div({ class: 'compounding-two-inner' });
