@@ -89,7 +89,7 @@
       margin: 0;
       padding: 0;
 
-      @include font-style(14px, 18px, #2E2A94, map.get($font-weights, semibold), $poppins);
+      @include font-style(14px, 18px, #2E2A94, map.get($font-weights, semibold), $inter);
     }
 
     .column-1 {
@@ -130,7 +130,7 @@
       margin: 0;
       padding: 0;
 
-      @include font-style(16px, 20px, #2E2A94, map.get($font-weights, semibold), $poppins);
+      @include font-style(16px, 20px, #2E2A94, map.get($font-weights, semibold), $inter);
 
       @include media(mobile) {
         font-size: 14px;
@@ -138,7 +138,7 @@
       }
 
       a {
-        @include font-style(18px, 24px, #5659FA, map.get($font-weights, semibold), $poppins);
+        @include font-style(18px, 24px, #5659FA, map.get($font-weights, semibold), $inter);
 
         @include media(mobile) {
           font-size: 14px;
@@ -163,7 +163,7 @@
 
       li.defli {
         color: #616161;
-        font-family: $poppins;
+        font-family: $inter;
         font-size: 14px;
         line-height: 20px;
 
@@ -176,7 +176,7 @@
 
     p.defone3 {
       color: #616161;
-      font-family: $poppins;
+      font-family: $inter;
       font-size: 14px;
       line-height: 20px;
       margin: 0;
@@ -225,7 +225,7 @@
   >div:first-child {
     h2 {
       color: #2E2A94;
-      font-family: $butlerpro;
+      font-family: $inter;
       font-size: 32px;
       font-weight: 700;
       line-height: 40px;
@@ -266,7 +266,7 @@
         .risk-meter-cont.corner-1 .column-1 p,
         .risk-meter-cont.corner-2 .column-1 p {
           color: #242177;
-          font-family: $poppins;
+          font-family: $inter;
           font-size: 18px;
           font-weight: 500;
           line-height: 24px;
@@ -284,7 +284,7 @@
         font-size: 18px;
         line-height: 24px;
         color: #242177;
-        font-family: $poppins;
+        font-family: $inter;
       }
     }
   }

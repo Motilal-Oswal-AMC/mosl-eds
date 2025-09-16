@@ -13,7 +13,7 @@
     .footer {
         background-color: $primary-blue;
         color: $primary-white;
-        font-family: $poppins;
+        font-family: $inter;
         padding: 60px 24px 0;
         overflow: hidden;
 
@@ -32,7 +32,7 @@
             white-space: unset;
             padding: 0;
             line-height: 0;
-            font-family: $poppins;
+            font-family: $inter;
             font-weight: 400;
 
             &:hover {
@@ -105,7 +105,7 @@
                     ul {
                         text-align: left;
 
-                        @include font-style(12px, 1.2, $primary-white, map.get($font-weights, regular), $poppins);
+                        @include font-style(12px, 1.2, $primary-white, map.get($font-weights, regular), $inter);
 
                         li:last-child {
                             font-size: 16px;
@@ -127,7 +127,7 @@
 
                 .footer-sub-cont1 {
                     color: #FFF;
-                    font-family: $poppins;
+                    font-family: $inter;
                     font-size: rem(16px);
                     font-style: normal;
                     font-weight: 400;
@@ -161,7 +161,7 @@
                                 overflow: hidden;
                                 color: #FFF;
                                 text-overflow: ellipsis;
-                                font-family: $poppins;
+                                font-family: $inter;
                                 font-size: rem(12px);
                                 font-style: normal;
                                 font-weight: 400;
@@ -181,7 +181,7 @@
                                 align-self: stretch;
                                 height: 40px;
                                 color: #FFFFFF80;
-                                font-family: $poppins;
+                                font-family: $inter;
                                 font-size: rem(14px);
                                 font-style: normal;
                                 font-weight: 400;
@@ -206,7 +206,7 @@
                                 align-items: center;
                                 color: #2E2A94;
                                 text-align: center;
-                                font-family: $poppins;
+                                font-family: $inter;
                                 font-size: rem(14px);
                                 font-style: normal;
                                 font-weight: 500;
@@ -249,7 +249,7 @@
                         p {
                             width: 100%;
                             color: #FFF;
-                            font-family: $poppins;
+                            font-family: $inter;
                             font-size: rem(12px);
                             font-style: normal;
                             font-weight: 600;
@@ -288,7 +288,7 @@
                                 color: #FFF;
 
                                 a {
-                                    font-family: $poppins;
+                                    font-family: $inter;
                                     font-size: rem(12px);
                                     font-style: normal;
                                     font-weight: 400;
@@ -353,7 +353,7 @@
                             li.item-list {
                                 a.item-anchor {
                                     color: #FFF;
-                                    font-family: $poppins;
+                                    font-family: $inter;
                                     font-size: rem(12px);
                                     font-style: normal;
                                     font-weight: 400;
@@ -364,7 +364,7 @@
                             li:last-child {
                                 a {
                                     color: #FFF;
-                                    font-family: $poppins;
+                                    font-family: $inter;
                                     font-size: rem(12px);
                                     font-style: normal;
                                     font-weight: 600;
@@ -391,7 +391,7 @@
 
                 .footer-sub-cont1 {
                     color: #FFF;
-                    font-family: $poppins;
+                    font-family: $inter;
                     font-size: rem(12px);
                     font-style: normal;
                     font-weight: 600;
@@ -409,7 +409,7 @@
 
                             gap: 4px;
                             color: #FFF;
-                            font-family: $poppins;
+                            font-family: $inter;
                             font-size: rem(12px);
                             font-style: normal;
                             font-weight: 400;
@@ -601,7 +601,7 @@
                                     li {
                                         a {
                                             color: #FFF;
-                                            font-family: $poppins;
+                                            font-family: $inter;
                                             font-size: rem(12px);
                                             font-style: normal;
                                             font-weight: 400;
@@ -612,7 +612,7 @@
                                     li:last-child {
                                         a {
                                             color: #FFF;
-                                            font-family: $poppins;
+                                            font-family: $inter;
                                             font-size: rem(12px);
                                             font-style: normal;
                                             font-weight: 600;
@@ -645,7 +645,7 @@
                     .footer-sub-cont1 {
                         width: 37.3%;
                         color: #FFF;
-                        font-family: $poppins;
+                        font-family: $inter;
                         font-size: rem(16px);
                         font-style: normal;
                         font-weight: 400;
@@ -679,7 +679,7 @@
                                         overflow: hidden;
                                         color: #FFF;
                                         text-overflow: ellipsis;
-                                        font-family: $poppins;
+                                        font-family: $inter;
                                         font-size: rem(12px);
                                         font-style: normal;
                                         font-weight: 400;
@@ -698,7 +698,7 @@
                                         align-self: stretch;
                                         height: 40px;
                                         color: #FFFFFF80;
-                                        font-family: $poppins;
+                                        font-family: $inter;
                                         font-size: rem(14px);
                                         font-style: normal;
                                         font-weight: 400;
@@ -756,7 +756,7 @@
 
                                 // p {
                                 //     color: #FFF;
-                                //     font-family: $poppins;
+                                //     font-family: $inter;
                                 //     font-size: rem(12px);
                                 //     font-style: normal;
                                 //     font-weight: 600;
@@ -774,7 +774,7 @@
                                         opacity: 0.8;
 
                                         a {
-                                            font-family: $poppins;
+                                            font-family: $inter;
                                             font-size: rem(12px);
                                             font-style: normal;
                                             font-weight: 400;
@@ -811,7 +811,7 @@
 
                     .footer-sub-cont1 {
                         color: #FFF;
-                        font-family: $poppins;
+                        font-family: $inter;
                         font-size: rem(12px);
                         font-style: normal;
                         font-weight: 600;
@@ -828,7 +828,7 @@
                             a.list-items1 {
                                 gap: 4px;
                                 color: #FFF;
-                                font-family: $poppins;
+                                font-family: $inter;
                                 font-size: rem(12px);
                                 font-style: normal;
                                 font-weight: 400;
