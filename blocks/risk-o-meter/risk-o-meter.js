@@ -34,9 +34,10 @@ export default function decorate(block) {
     } else {
       dataMapMoObj.addIndexed(Array.from(riskmet.children)[1]);
     }
-
-    Array.from(riskmet.querySelector('.defone2').children).forEach((elde) => {
-      elde.classList.add('defli');
-    });
+    if (riskmet.querySelector('.defone2') !== null) {
+      Array.from(riskmet.querySelector('.defone2').children).forEach((elde) => {
+        elde.classList.add('defli');
+      });
+    }
   }
 }
