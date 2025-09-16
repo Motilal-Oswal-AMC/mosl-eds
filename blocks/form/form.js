@@ -125,6 +125,7 @@ export default async function decorate(block) {
     if (selectEl && labelEl) {
       selectEl.id = newSelectId;
       labelEl.setAttribute("for", newSelectId);
+      selectEl.setAttribute("name", "addNumber");
       labelEl.id = newLabelId;
     }
   }
