@@ -76,8 +76,8 @@ export default function decorate(block) {
           { class: 'plan-type-toggle' },
           span({ class: 'toggle-label active' }, 'Direct'),
           label(
-            { class: 'toggle-switch', for:"planToggle" },
-            input({ type: 'checkbox', id: 'planToggle', class: 'toggle-inp' }),
+            { class: 'toggle-switch', for:'planToggle' },
+            input({ type: 'checkbox', id: 'planToggle', class: 'toggle-inp', "aria-label": 'Switch between Direct and Regular Plan' }),
             span({ class: 'slider' }),
           ),
           span({ class: 'toggle-label' }, 'Regular'),
