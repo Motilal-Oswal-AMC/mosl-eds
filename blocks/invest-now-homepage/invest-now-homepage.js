@@ -307,24 +307,14 @@ export async function existingUser(paramblock) {
         header,
       );
       console.log(rejsin);
-      const KRA_VERIFIED = ['002', '102', '202', '302', '402', '502'];
-      const KRA_VALIDATED = ['007', '107', '207', '307', '407', '507', '011', '111', '211', '311',
-        '411', '511', '012', '112', '212', '312', '412', '512'];
-      if (KRA_VERIFIED.includes(rejsin.data.cvlAppStatus)) {
-        localStorage.setItem('kraVerified', 'Y');
-      }
-
-      if (KRA_VALIDATED.includes(rejsin.data.cvlAppStatus)) {
-        localStorage.setItem('kraValidated', 'Y');
-      }
       if (rejsin.data !== null) {
-        const subtext = panForm.querySelector('.sub-otp-con3');
+        const subtext = pansuccessForm.querySelector('.sub-otp-con3');
         subtext.textContent = '';
         subtext.textContent = rejsin.data;
 
         const subevent = closestParam.querySelector('.sub-otp-con2');
         subevent.classList.add('sbmt-active');
-        const inotp = panForm.querySelectorAll('.otpfield input');
+        const inotp = pansuccessForm.querySelectorAll('.otpfield input');
         if (subevent.querySelector('.inner-otp-con1')) {
           subevent.querySelector('.inner-otp-con1').removeAttribute('href');
         }
@@ -334,18 +324,18 @@ export async function existingUser(paramblock) {
             optValue += elfor.value;
           });
           if (optValue.length < 6) {
-            panForm.querySelector('.otpfield').classList.add('otp-failed');
+            pansuccessForm.querySelector('.otpfield').classList.add('otp-failed');
           } else {
             const panNum = {
               panNo: param,
               optNo: optValue,
-              otpField: panForm.querySelector('.otpfield'),
+              otpField: pansuccessForm.querySelector('.otpfield'),
             };
             apiAuth(panNum);
           }
         });
       } else if (rejsin.message.toLocaleLowerCase() !== 'successful') {
-        const subtext = panForm.querySelector('.sub-otp-con3');
+        const subtext = pansuccessForm.querySelector('.sub-otp-con3');
         subtext.textContent = '';
         subtext.textContent = rejsin.message;
       }
@@ -369,6 +359,16 @@ export async function existingUser(paramblock) {
       const boolkyc = kycres === 'Y' ? 'true' : 'false';
       localStorage.setItem('kycstatus', boolkyc);
 
+      const KRA_VERIFIED = ['002', '102', '202', '302', '402', '502'];
+      const KRA_VALIDATED = ['007', '107', '207', '307', '407', '507', '011', '111', '211', '311',
+        '411', '511', '012', '112', '212', '312', '412', '512'];
+      if (KRA_VERIFIED.includes(rejsin.data.cvlAppStatus)) {
+        localStorage.setItem('kraVerified', 'Y');
+      }
+
+      if (KRA_VALIDATED.includes(rejsin.data.cvlAppStatus)) {
+        localStorage.setItem('kraValidated', 'Y');
+      }
       const chclick = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con2');
       chclick.removeAttribute('href');
       const resentBtn = pansuccessForm.querySelector('.sub-otp-con4 .otp-main-con1');
