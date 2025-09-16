@@ -1,44 +1,37 @@
 @import "../../../styles/fonts.css";
-
 .contact-us-parent {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent {
     gap: 30px;
   }
 }
-
 .contact-us-parent .location {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location {
     flex-direction: column;
     align-items: flex-start;
   }
 }
-
 .contact-us-parent .location .location-wrap {
   background-color: #fff;
   position: relative;
   width: 400px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location .location-wrap {
     width: 100%;
   }
 }
-
 .contact-us-parent .location .location-wrap .locate-label {
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 12px;
   position: absolute;
@@ -55,7 +48,6 @@
   line-height: 16px;
   margin: unset;
 }
-
 .contact-us-parent .location .location-wrap .location-dropdown {
   display: flex;
   height: 52px;
@@ -70,13 +62,11 @@
   position: relative;
   cursor: pointer;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location .location-wrap .location-dropdown {
     -webkit-tap-highlight-color: transparent;
   }
 }
-
 .contact-us-parent .location .location-wrap .location-dropdown::after {
   content: "";
   display: inline-block;
@@ -84,20 +74,17 @@
   height: 20px;
   background: url("/icons/arrow-down-black.svg"), no-repeat;
 }
-
 .contact-us-parent .location .location-wrap .location-dropdown .location-options {
   color: #111;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
 }
-
 .contact-us-parent .location .location-wrap .location-dropdown .location-options .location-value {
   margin: unset;
 }
-
 .contact-us-parent .location .location-wrap .location-dropdown .location-options ul {
   list-style-type: none;
   width: 400px;
@@ -109,51 +96,44 @@
   background-color: #fff;
   border-radius: 8px;
   border: 1px solid #EEE;
-  box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+  box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
   z-index: 2;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location .location-wrap .location-dropdown .location-options ul {
     width: 100%;
   }
 }
-
 .contact-us-parent .location .location-wrap .location-dropdown .location-options ul li {
   font-size: 12px;
   line-height: 16px;
   color: #111;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   padding: 12px;
   cursor: pointer;
 }
-
 .contact-us-parent .location .location-wrap .location-dropdown .location-options ul li:last-child {
   border-bottom: unset;
 }
-
 .contact-us-parent .location .simple-txt {
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 16px;
   color: #2E2A94;
   margin: unset;
 }
-
 .contact-us-parent .location .pincode-wrap {
   background-color: #fff;
   position: relative;
   display: inline-block;
   width: 320px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location .pincode-wrap {
     width: 100%;
   }
 }
-
 .contact-us-parent .location .pincode-wrap .location-pincd {
   position: absolute;
   top: 2px;
@@ -165,14 +145,13 @@
   outline: none;
   pointer-events: none;
   color: #424242;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
   margin: unset;
 }
-
 .contact-us-parent .location .pincode-wrap .search-loaction {
   width: 400px;
   height: 52px;
@@ -186,52 +165,45 @@
   align-items: center;
   gap: 10px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location .pincode-wrap .search-loaction {
     width: 100%;
   }
 }
-
-.contact-us-parent .location .pincode-wrap .search-loaction::placeholder {
+.contact-us-parent .location .pincode-wrap .search-loaction::-moz-placeholder {
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   padding-left: 35px;
 }
-
 .contact-us-parent .location .pincode-wrap .search-loaction::placeholder {
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   padding-left: 35px;
 }
-
 .contact-us-parent .location .pincode-wrap .search-loaction img {
   height: 20px;
   width: 20px;
 }
-
 .contact-us-parent .location .pincode-wrap .search-loaction .search-loaction-input {
   border: none;
   width: 100%;
 }
-
 .contact-us-parent .location .mobfeatrure {
   display: none;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location .mobfeatrure {
     margin-top: 14px;
     color: #424242;
-    font-family: Poppins, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -239,115 +211,98 @@
     gap: 10px;
   }
 }
-
-.contact-us-parent .location .mobfeatrure .featrure-input[type="radio"] {
+.contact-us-parent .location .mobfeatrure .featrure-input[type=radio] {
   accent-color: #2E2A94;
   border: none;
 }
-
-.contact-us-parent .location .mobfeatrure .featrure-input[type="radio"]:checked + label.featrure-label {
+.contact-us-parent .location .mobfeatrure .featrure-input[type=radio]:checked + label.featrure-label {
   color: #2E2A94;
   font-weight: 500;
   font-size: 16px;
 }
-
 .contact-us-parent .contact-feature {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .contact-us-parent .contact-feature .contact-branch {
-  font-family: ButlerPro, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   color: #2E2A94;
   font-size: 24px;
 }
-
 .contact-us-parent .contact-feature .feature-wrap {
   display: flex;
   gap: 16px;
   align-items: center;
 }
-
 .contact-us-parent .contact-feature .feature-wrap .featrure1,
 .contact-us-parent .contact-feature .feature-wrap .featrure2 {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
-.contact-us-parent .contact-feature .feature-wrap .featrure1 .featrure-input[type="radio"],
-.contact-us-parent .contact-feature .feature-wrap .featrure2 .featrure-input[type="radio"] {
+.contact-us-parent .contact-feature .feature-wrap .featrure1 .featrure-input[type=radio],
+.contact-us-parent .contact-feature .feature-wrap .featrure2 .featrure-input[type=radio] {
   accent-color: #2E2A94;
   border: none;
 }
-
-.contact-us-parent .contact-feature .feature-wrap .featrure1 .featrure-input[type="radio"]:checked + label.featrure-label,
-.contact-us-parent .contact-feature .feature-wrap .featrure2 .featrure-input[type="radio"]:checked + label.featrure-label {
+.contact-us-parent .contact-feature .feature-wrap .featrure1 .featrure-input[type=radio]:checked + label.featrure-label,
+.contact-us-parent .contact-feature .feature-wrap .featrure2 .featrure-input[type=radio]:checked + label.featrure-label {
   color: #2E2A94;
   font-weight: 500;
   font-size: 16px;
   cursor: pointer;
 }
-
 .contact-us-parent .contact-feature .feature-wrap .featrure1 label,
 .contact-us-parent .contact-feature .feature-wrap .featrure2 label {
   color: #424242;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   cursor: pointer;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .contact-feature .feature-wrap .featrure2 {
     display: none;
   }
 }
-
 .contact-us-parent .contact-feature .feature-wrap .featrure2 label {
   color: #424242;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   cursor: pointer;
 }
-
 .contact-us-parent .location-map {
   display: grid;
   grid-template-columns: 400px 816px;
   gap: 16px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location-map {
     grid-template-columns: 100%;
   }
 }
-
 .contact-us-parent .location-map .location-info {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location-map .location-info .mum-location {
     border-bottom: 0.5px solid #8E8E8E;
   }
 }
-
 .contact-us-parent .location-map .location-info .mum-location .location-head {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .contact-us-parent .location-map .location-info .mum-location .location-head .location-head1 {
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   color: #2E2A94;
   font-size: 14px;
   font-style: normal;
@@ -355,30 +310,27 @@
   line-height: 16px;
   margin: unset;
 }
-
 .contact-us-parent .location-map .location-info .mum-location .location-head .location-head2 {
   gap: 8px;
   opacity: 1;
   border-radius: 2px;
   padding: 4px;
   background-color: #D5DEFF;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   color: #2E2A94;
   font-size: 12px;
   line-height: 16px;
   margin: unset;
 }
-
 .contact-us-parent .location-map .location-info .mum-location .desc-wrap {
   padding-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-
 .contact-us-parent .location-map .location-info .mum-location .desc-wrap .desc-wrap-head {
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   color: #2E2A94;
   font-size: 14px;
@@ -386,23 +338,20 @@
   line-height: 16px;
   margin: unset;
 }
-
 .contact-us-parent .location-map .location-info .mum-location .desc-wrap .desc-wrap-description {
   color: #424242;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
   line-height: 20px;
   margin: unset;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location-map .location-info .mum-location .desc-wrap .desc-wrap-description {
     color: #616161;
   }
 }
-
 .contact-us-parent .location-map .location-info .mum-location .contact-number {
   padding-top: 16px;
   display: flex;
@@ -410,35 +359,30 @@
   list-style-type: none;
   margin: unset;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location-map .location-info .mum-location .contact-number {
     display: flex;
   }
 }
-
 .contact-us-parent .location-map .location-info .mum-location .contact-number .contact-number-link:nth-child(2) {
   list-style-type: disc;
   margin-left: 8px;
   color: #2B2E8C;
 }
-
 .contact-us-parent .location-map .location-info .mum-location .contact-number .contact-number-link .contact-txt {
   text-decoration: underline;
   color: #5659FA;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
 }
-
 .contact-us-parent .location-map .location-info .mum-location .contact-number .none {
   display: none;
 }
-
 .contact-us-parent .location-map .location-info .mum-location .info {
   padding-top: 16px;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   color: #757575;
   font-size: 12px;
@@ -446,37 +390,32 @@
   line-height: 16px;
   margin: unset;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location-map .location-info .mum-location .info {
     margin-bottom: 16px;
   }
 }
-
 .contact-us-parent .location-map .location-info .mal-location .heading1 .location-head1 {
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   color: #2E2A94;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
 }
-
 .contact-us-parent .location-map .location-info .mal-location .desc {
   padding-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location-map .location-info .mal-location .desc {
     padding-top: 7px;
   }
 }
-
 .contact-us-parent .location-map .location-info .mal-location .desc .desc-head {
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   color: #2E2A94;
   font-size: 14px;
@@ -484,32 +423,28 @@
   line-height: 16px;
   margin: unset;
 }
-
 .contact-us-parent .location-map .location-info .mal-location .desc .description {
   color: #424242;
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
   line-height: 20px;
   margin: unset;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location-map .location-info .mal-location .desc .description {
     color: #616161;
   }
 }
-
 .contact-us-parent .location-map .location-info .mal-location .contact {
   padding-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .contact-us-parent .location-map .location-info .mal-location .contact a {
-  font-family: Poppins, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
@@ -517,14 +452,12 @@
   text-decoration-style: solid;
   color: #5659FA;
 }
-
 .contact-us-parent .location-map .loc-geo {
   height: 471px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .contact-us-parent .location-map .loc-geo {
     height: 199px;
     grid-row: 1;
   }
-}
+}/*# sourceMappingURL=contact-us-map.css.map */

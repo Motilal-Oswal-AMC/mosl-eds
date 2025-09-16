@@ -16,7 +16,7 @@
       width: 100%;
       margin-bottom: 40px;
 
-      @include font-style(36px, 44px, $primary-blue, 700, $butlerpro);
+      @include font-style(36px, 44px, $primary-blue, 700, $inter);
 
       @media (width <=768px) {
         font-size: 32px;
@@ -60,7 +60,7 @@
             p:nth-child(1) {
               margin: 0;
 
-              @include font-style(18px, 24px, $primary-blue, 600, $poppins);
+              @include font-style(18px, 24px, $primary-blue, 600, $inter);
 
               @media (width <=768px) {
                 font-size: 16px;
@@ -72,7 +72,7 @@
             p:nth-child(2) {
               margin: 0;
 
-              @include font-style(14px, 20px, $color-text-body, 400, $poppins);
+              @include font-style(14px, 20px, $color-text-body, 400, $inter);
 
               @media (width <=768px) {
                 font-size: 12px;
@@ -115,7 +115,7 @@
                   18px,
                   map.get($blue-1, b500),
                   500,
-                  $poppins
+                  $inter
                 );
 
                 @media (width <=768px) {
@@ -159,13 +159,7 @@
                 gap: 1px;
                 margin: 0;
 
-                @include font-style(
-                  14px,
-                  20px,
-                  $color-text-body,
-                  400,
-                  $poppins
-                );
+                @include font-style(14px, 20px, $color-text-body, 400, $inter);
 
                 @media (width <=768px) {
                   font-size: 12px;
@@ -187,7 +181,7 @@
                     20px,
                     map.get($blue-1, b500),
                     400,
-                    $poppins
+                    $inter
                   );
 
                   text-decoration-line: underline;
@@ -208,5 +202,34 @@
         }
       }
     }
+  }
+}
+
+.default-content-wrapper.error-default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 80px;
+
+  .errormain1 {
+    .errrorsub1 {
+      max-width: 308px;
+      width: 100%;
+      height: 173.259px;
+    }
+  }
+
+  .comlist {
+    padding: 0;
+    margin: 0;
+  }
+
+  .errormain2 {
+    color: #616161;
+    text-align: center;
+
+    @include font-style(14px, 16px, $text-body-2, 500, $inter);
   }
 }

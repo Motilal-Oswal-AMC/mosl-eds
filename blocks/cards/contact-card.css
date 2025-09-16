@@ -15,7 +15,7 @@
   font-size: 36px;
   line-height: 44px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
 }
 @media (width <= 768px) {
@@ -58,7 +58,7 @@
   font-size: 18px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
 }
 @media (width <= 768px) {
@@ -73,7 +73,7 @@
   font-size: 14px;
   line-height: 20px;
   color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
 }
 @media (width <= 768px) {
@@ -113,7 +113,7 @@
   font-size: 12px;
   line-height: 18px;
   color: #4338f3;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
 }
 @media (width <= 768px) {
@@ -146,7 +146,7 @@
   font-size: 14px;
   line-height: 20px;
   color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
 }
 @media (width <= 768px) {
@@ -166,7 +166,7 @@
   font-size: 14px;
   line-height: 20px;
   color: #4338f3;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   text-decoration-line: underline;
   text-decoration-style: solid;
@@ -181,4 +181,31 @@
     font-size: 12px;
     line-height: 20px;
   }
+}
+
+.default-content-wrapper.error-default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 80px;
+}
+.default-content-wrapper.error-default .errormain1 .errrorsub1 {
+  max-width: 308px;
+  width: 100%;
+  height: 173.259px;
+}
+.default-content-wrapper.error-default .comlist {
+  padding: 0;
+  margin: 0;
+}
+.default-content-wrapper.error-default .errormain2 {
+  color: #616161;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  color: #616161;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
 }/*# sourceMappingURL=contact-card.css.map */

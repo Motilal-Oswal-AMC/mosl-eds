@@ -31,7 +31,7 @@
       }
 
       .locate-label {
-        font-family: $poppins;
+        font-family: $inter;
         font-weight: 400;
         font-size: 12px;
         position: absolute;
@@ -79,7 +79,7 @@
 
         .location-options {
           color: #111;
-          font-family: $poppins;
+          font-family: $inter;
           font-size: 16px;
           font-style: normal;
           font-weight: 500;
@@ -111,7 +111,7 @@
               font-size: 12px;
               line-height: 16px;
               color: #111;
-              font-family: $poppins;
+              font-family: $inter;
               font-weight: 400;
               padding: 12px;
               cursor: pointer;
@@ -127,7 +127,7 @@
     }
 
     .simple-txt {
-      font-family: $poppins;
+      font-family: $inter;
       font-weight: 500;
       font-size: 16px;
       color: #2E2A94;
@@ -155,7 +155,7 @@
         outline: none;
         pointer-events: none;
         color: #424242;
-        font-family: $poppins;
+        font-family: $inter;
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
@@ -186,7 +186,7 @@
 
         &::placeholder {
           color: #616161;
-          font-family: $poppins;
+          font-family: $inter;
           font-size: 14px;
           font-style: normal;
           font-weight: 400;
@@ -212,7 +212,7 @@
       @include media(mobile) {
         margin-top: 14px;
         color: #424242;
-        font-family: $poppins;
+        font-family: $inter;
         font-size: 14px;
         font-weight: 400;
         line-height: 20px;
@@ -239,7 +239,7 @@
     gap: 16px;
 
     .contact-branch {
-      font-family: $butlerpro;
+      font-family: $inter;
       font-weight: 700;
       color: #2E2A94;
       font-size: 24px;
@@ -270,7 +270,7 @@
 
         label {
           color: #424242;
-          font-family: $poppins;
+          font-family: $inter;
           font-size: 14px;
           font-weight: 400;
           line-height: 20px;
@@ -286,7 +286,7 @@
 
         label {
           color: #424242;
-          font-family: $poppins;
+          font-family: $inter;
           font-size: 14px;
           font-weight: 400;
           line-height: 20px;
@@ -324,7 +324,7 @@
           gap: 8px;
 
           .location-head1 {
-            font-family: $poppins;
+            font-family: $inter;
             color: #2E2A94;
             font-size: 14px;
             font-style: normal;
@@ -339,7 +339,7 @@
             border-radius: 2px;
             padding: 4px;
             background-color: #D5DEFF;
-            font-family: $poppins;
+            font-family: $inter;
             font-weight: 400;
             color: #2E2A94;
             font-size: 12px;
@@ -355,7 +355,7 @@
           gap: 2px;
 
           .desc-wrap-head {
-            font-family: $poppins;
+            font-family: $inter;
             font-weight: 500;
             color: #2E2A94;
             font-size: 14px;
@@ -366,7 +366,7 @@
 
           .desc-wrap-description {
             color: #424242;
-            font-family: $poppins;
+            font-family: $inter;
             font-weight: 400;
             font-size: 14px;
             font-style: normal;
@@ -400,7 +400,7 @@
             .contact-txt {
               text-decoration: underline;
               color: #5659FA;
-              font-family: $poppins;
+              font-family: $inter;
               font-weight: 500;
               font-size: 12px;
               line-height: 18px;
@@ -415,7 +415,7 @@
 
         .info {
           padding-top: 16px;
-          font-family: $poppins;
+          font-family: $inter;
           font-weight: 400;
           color: #757575;
           font-size: 12px;
@@ -432,7 +432,7 @@
       .mal-location {
         .heading1 {
           .location-head1 {
-            font-family: $poppins;
+            font-family: $inter;
             color: #2E2A94;
             font-size: 14px;
             font-style: normal;
@@ -452,7 +452,7 @@
           }
 
           .desc-head {
-            font-family: $poppins;
+            font-family: $inter;
             font-weight: 500;
             color: #2E2A94;
             font-size: 14px;
@@ -463,7 +463,7 @@
 
           .description {
             color: #424242;
-            font-family: $poppins;
+            font-family: $inter;
             font-weight: 400;
             font-size: 14px;
             font-style: normal;
@@ -483,7 +483,7 @@
           gap: 16px;
 
           a {
-            font-family: $poppins;
+            font-family: $inter;
             font-weight: 500;
             font-size: 12px;
             line-height: 18px;
