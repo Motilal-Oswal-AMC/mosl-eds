@@ -1,0 +1,211 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.section.contact-card {
+  max-width: 1265px;
+  width: 100%;
+  border: none;
+  margin: 0 auto;
+  background-color: #fff;
+
+  .default-content-wrapper {
+    width: 100%;
+
+    h3 {
+      width: 100%;
+      margin-bottom: 40px;
+
+      @include font-style(36px, 44px, $primary-blue, 700, $inter);
+
+      @media (width <=768px) {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  .cards-wrapper {
+    width: 100%;
+
+    .cards {
+      ul.contact-main1 {
+        display: flex;
+        justify-content: space-between;
+
+        @media (width <=768px) {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        li {
+          border: none;
+          display: flex;
+          gap: 16px;
+          padding: 16px 0;
+          max-width: 344px;
+
+          .cards-card-image {
+            img {
+              max-width: 40px;
+              width: 40px;
+              height: 40px;
+            }
+          }
+
+          .cards-card-body {
+            margin: 0;
+
+            p:nth-child(1) {
+              margin: 0;
+
+              @include font-style(18px, 24px, $primary-blue, 600, $inter);
+
+              @media (width <=768px) {
+                font-size: 16px;
+                line-height: 20px;
+                margin-bottom: 4px;
+              }
+            }
+
+            p:nth-child(2) {
+              margin: 0;
+
+              @include font-style(14px, 20px, $color-text-body, 400, $inter);
+
+              @media (width <=768px) {
+                font-size: 12px;
+                line-height: 16px;
+                margin-bottom: 4px;
+              }
+            }
+
+            ul {
+              margin: 0;
+              padding-top: 8px;
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+              align-items: start;
+
+              li:nth-child(1) {
+                margin: 0;
+
+                img {
+                  border-radius: 50%;
+                }
+              }
+
+              li.common-list {
+                // margin-left: 30px;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-decoration-skip-ink: auto;
+                text-decoration-thickness: auto;
+                text-underline-offset: auto;
+                text-underline-position: from-font;
+
+                @include font-style(
+                  12px,
+                  18px,
+                  map.get($blue-1, b500),
+                  500,
+                  $inter
+                );
+
+                @media (width <=768px) {
+                  color: $primary-blue;
+                }
+
+                img {
+                  border-radius: unset;
+                }
+
+                ul {
+                  display: flex;
+                  flex-direction: row;
+                  gap: 8px;
+                  align-items: center;
+
+                  li.contact-li2 {
+                    margin: 0;
+                  }
+                }
+              }
+
+              li.list-elem-5,li.list-elem-7{
+               margin-left: 30px;
+              }
+            }
+          }
+        }
+
+        li.contact-sub2 {
+          ul {
+            li.list-elem-12 {
+              margin: 0;
+            }
+          }
+        }
+
+        li.contact-sub3 {
+          gap: 0;
+
+          .cards-card-body {
+            ul {
+              li {
+                text-decoration: none;
+                gap: 1px;
+                margin: 0;
+
+                @include font-style(14px, 20px, $color-text-body, 400, $inter);
+
+                @media (width <=768px) {
+                  font-size: 12px;
+                  line-height: 16px;
+                }
+
+                span {
+                  width: 40px;
+                  height: 40px;
+
+                  img {
+                    border-radius: 0%;
+                  }
+                }
+
+                strong {
+                  @include font-style(
+                    14px,
+                    20px,
+                    map.get($blue-1, b500),
+                    400,
+                    $inter
+                  );
+
+                  text-decoration-line: underline;
+                  text-decoration-style: solid;
+                  text-decoration-skip-ink: auto;
+                  text-decoration-thickness: auto;
+                  text-underline-offset: 20%;
+                  cursor: pointer;
+
+                  @media (width <=768px) {
+                    font-size: 12px;
+                    line-height: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
