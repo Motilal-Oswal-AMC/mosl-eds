@@ -135,6 +135,7 @@
       .brand-star-wrap {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
 
         .brand-logo {
@@ -159,9 +160,16 @@
         }
 
         .star {
-          min-width: 28px;
-          width: 28px;
+          // min-width: 28px;
+          // width: 28px;
           height: 28px;
+          display: flex;
+          gap: 4px;
+          align-items: center;
+          font-family: $inter;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 16px;
           cursor: pointer;
           -webkit-tap-highlight-color: transparent;
 
@@ -603,11 +611,11 @@
 
       h1 {
         @include font-style(
-          $size: 36px,
+          $size: 32px,
           $line-height: 44px,
           $color: $primary-blue,
-          $weight: map.get($font-weights, bold),
-          $family: $butlerpro
+          $weight: map.get($font-weights, semibold),
+          $family: $inter
         );
 
         margin: 0 0 12px;
@@ -649,10 +657,10 @@
 
             @include font-style(
               $size: 14px,
-              $line-height: 20px,
+              $line-height: 16px,
               $color: $text-body-2,
               $weight: map.get($font-weights, regular),
-              $family: $poppins
+              $family: $inter
             );
 
             &[aria-selected="true"] {
@@ -660,8 +668,8 @@
                 $size: 14px,
                 $line-height: 16px,
                 $color: $primary-blue,
-                $weight: map.get($font-weights, medium),
-                $family: $poppins
+                $weight: map.get($font-weights, semibold),
+                $family: $inter
               );
 
               border-bottom: 2px solid #382ad7;
@@ -720,8 +728,8 @@
           $size: 14px,
           $line-height: 16px,
           $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $poppins
+          $weight: map.get($font-weights, regular),
+          $family: $inter
         );
 
         text-decoration: none;
@@ -766,6 +774,7 @@
               &[aria-selected="true"] {
                 border-bottom: 2px solid $primary-white;
                 color: $primary-white;
+                font-weight: 600;
               }
             }
           }

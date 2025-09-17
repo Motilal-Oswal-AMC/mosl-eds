@@ -911,8 +911,8 @@ button.swiper-pagination-bullet {
   margin: 0;
   color: #2e2a94;
   font-size: 16px;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
   line-height: 20px;
   padding: 12px;
   background-color: #fff;
@@ -1035,4 +1035,4 @@ button.swiper-pagination-bullet {
 }
 .block.home-banner .swiper-button-next::after {
   transform: rotate(180deg);
-}
+}/*# sourceMappingURL=home-banner.css.map */

@@ -15,11 +15,11 @@
 .section.cornerstones-advantage-cards-container .default-content-wrapper h6 {
   margin: 0 0 4px;
   text-align: center;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 44px;
   color: #2e2a94;
-  font-family: ButlerPro, sans-serif;
-  font-weight: 700;
+  font-family: 'inter', sans-serif;
+  font-weight: 600;
 }
 
 @media (width <= 768px) {
@@ -39,7 +39,7 @@
   font-size: 16px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   text-align: center;
   margin: 0;
@@ -134,7 +134,7 @@
   font-size: 18px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 500;
 }
 
@@ -151,7 +151,7 @@
   font-size: 16px;
   line-height: 24px;
   color: #616161;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   padding-bottom: 28px;
 }
@@ -190,6 +190,6 @@
   font-size: 14px;
   line-height: 20px;
   color: #4338f3;
-  font-family: Poppins, sans-serif;
-  font-weight: 500;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
 }

@@ -24,7 +24,7 @@
     h6 {
       margin: 0 0 8px;
 
-      @include font-style(16px, 24px, $primary-blue, 400, $poppins);
+      @include font-style(14px, 24px, $primary-blue, 500, $inter);
 
       @include media(mobile) {
         font-size: 12px;
@@ -184,7 +184,7 @@
       }
 
       li:first-of-type {
-        @include font-style(16px, 24px, $color-text-body, 400, $poppins);
+        @include font-style(16px, 24px, $color-text-body, 400, $inter);
 
         @include media(mobile) {
           font-size: 12px;
@@ -198,7 +198,7 @@
         gap: 8px;
         min-width: max-content;
 
-        @include font-style(16px, 20px, $color-text-body, 500, $poppins);
+        @include font-style(16px, 20px, $color-text-body, 500, $inter);
 
         color: #3025e0;
 

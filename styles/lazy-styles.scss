@@ -31,10 +31,11 @@
       padding-bottom: 8px;
       text-align: left;
 
-      @include font-style(36px,
-        44px,
+      @include font-style(32px,
+        40px,
         $primary-blue,
-        map.get($font-weights, bold));
+        map.get($font-weights, semibold),
+        $inter);
 
 
       @include media(mobile) {
@@ -54,7 +55,8 @@
         @include font-style(24px,
           28px,
           $primary-blue,
-          map.get($font-weights, bold));
+          map.get($font-weights, semibold),
+          $inter);
       }
     }
 
@@ -65,10 +67,10 @@
       max-width: 600px;
 
       @include font-style(16px,
-        20px,
+        24px,
         $primary-blue,
         map.get($font-weights, regular),
-        $poppins);
+        $inter);
 
       @include media(mobile) {
         font-size: 14px;
@@ -207,7 +209,7 @@
                 border-radius: map.get($radius, r40);
                 border: 0.5px solid #585ef9;
                 color: #2e2a94;
-                font-family: $poppins;
+                font-family: $inter;
                 font-size: 12px;
                 font-style: normal;
                 font-weight: 400;
@@ -224,7 +226,7 @@
 
                 li {
                   color: $text-body-2;
-                  font-family: $poppins;
+                  font-family: $inter;
                   font-size: 12px;
                   font-weight: 400;
                   line-height: 16px;
@@ -285,14 +287,14 @@
                   white-space: unset;
                   text-align: left;
 
-                  @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $poppins);
+                  @include font-style(18px, 24px, $primary-blue, map.get($font-weights, medium), $inter);
 
                   @include media(mobile) {
                     @include font-style(18px,
                       24px,
                       $primary-blue,
                       map.get($font-weights, medium),
-                      $poppins);
+                      $inter);
                   }
                 }
 
@@ -308,14 +310,14 @@
                   24px,
                   #616161,
                   map.get($font-weights, regular),
-                  $poppins);
+                  $inter);
 
                 @include media(mobile) {
-                  @include font-style(14px,
-                    20px,
+                  @include font-style(16px,
+                    24px,
                     #616161,
                     map.get($font-weights, regular),
-                    $poppins);
+                    $inter);
                 }
               }
             }
@@ -340,10 +342,10 @@
                   padding-left: 2px;
 
                   @include font-style(14px,
-                    20px,
+                    16px,
                     #4338F3,
-                    map.get($font-weights, medium),
-                    $poppins);
+                    map.get($font-weights, regular),
+                    $inter);
 
                 }
               }
@@ -484,7 +486,7 @@
           20px,
           $primary-white,
           map.get($font-weights, medium),
-          $poppins);
+          $inter);
 
         @include media(mobile) {
           width: 100%;
@@ -493,7 +495,7 @@
             20px,
             $primary-white,
             map.get($font-weights, medium),
-            $poppins);
+            $inter);
         }
       }
     }
@@ -592,7 +594,7 @@
               align-items: center;
               justify-content: space-between;
               color: #2E2A94;
-              font-family: Poppins, sans-serif;
+              font-family: $inter, sans-serif;
               font-size: 16px;
               font-style: normal;
               font-weight: 500;
@@ -655,7 +657,7 @@
 
               .quckaqweactmain2 {
                 color: #2E2A94;
-                font-family: Poppins, sans-serif;
+                font-family: $inter, sans-serif;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 500;
@@ -678,10 +680,10 @@
           margin: 0;
           padding: 0;
           color: #2E2A94;
-          font-family: Poppins, sans-serif;
+          font-family: $inter, sans-serif;
           font-weight: 600;
-          font-size: 24px;
-          line-height: 32px;
+          font-size: 20px;
+          line-height: 24px;
           white-space: nowrap;
         }
       }
@@ -762,12 +764,12 @@
 
             h2.card-title,
             h2.card-title-1 {
-              @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+              @include font-style(32px, 40px, $primary-blue, map.get($font-weights, semibold), $inter);
 
               margin: 0;
 
               @include media(mobile) {
-                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, semibold), $inter);
               }
             }
           }
@@ -1028,7 +1030,7 @@
 
             .fund-name-card {
               // max-width: 54.69%;
-              max-width: 250px;
+              max-width: 303px;
               width: 100%;
               padding: 4px 0;
 
@@ -1048,11 +1050,11 @@
                 // max-width: 240px;
                 text-wrap: balance;
 
-                @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $poppins);
+                @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $inter);
 
                 @include media(mobile) {
-                  font-size: 14px;
-                  line-height: 16px;
+                  font-size: 12px;
+                  line-height: 14px;
                 }
               }
             }

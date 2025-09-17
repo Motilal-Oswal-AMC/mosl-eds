@@ -87,8 +87,8 @@
               32px,
               40px,
               $primary-blue,
-              map.get($font-weights, bold),
-              $butlerpro
+              map.get($font-weights, semibold),
+              $inter
             );
 
             @include media(mobile) {
@@ -99,7 +99,7 @@
                 28px,
                 $primary-blue,
                 map.get($font-weights, bold),
-                $butlerpro
+                $inter
               );
             }
           }
@@ -108,7 +108,7 @@
             margin: 0;
             max-width: 450px;
 
-            @include font-style(16px, 24px, $primary-blue, 400, $poppins);
+            @include font-style(16px, 24px, $primary-blue, 400, $inter);
 
             @include media(mobile) {
               font-size: 14px;
@@ -159,14 +159,14 @@
                   16px,
                   $color-text-body,
                   map.get($font-weights, regular),
-                  $poppins
+                  $inter
                 );
               }
 
               .search-bar-inp {
                 width: 100%;
                 color: #2e2a94;
-                font-family: $poppins;
+                font-family: $inter;
                 font-size: 16px;
                 font-weight: 500;
                 line-height: 20px;
@@ -307,7 +307,7 @@
                   border: 1px solid #bdbdbd;
                   background: #fafafa;
                   color: #424242;
-                  font-family: $poppins;
+                  font-family: $inter;
                   font-size: 14px;
                   font-weight: 400;
                   line-height: 20px;
@@ -327,6 +327,10 @@
                     border: 1px solid #382ad7;
                     line-height: 16px;
                     font-weight: 500;
+                  }
+
+                  @include media(mobile) {
+                    line-height: 16px;
                   }
                 }
               }
@@ -348,10 +352,10 @@
 
                     @include font-style(
                       12px,
-                      16px,
+                      14px,
                       $neutrals-black,
                       500,
-                      $poppins
+                      $inter
                     );
 
                     &.active {
@@ -410,7 +414,7 @@
 
                   .select-selected-plan {
                     color: #2e2a94;
-                    font-family: $poppins;
+                    font-family: $inter;
                     font-size: 12px;
                     font-weight: 500;
                     line-height: 16px;
@@ -420,6 +424,7 @@
 
                     @include media(mobile) {
                       text-align: start;
+                      line-height: 14px;
                     }
 
                     &::after {
@@ -497,8 +502,9 @@
                     16px,
                     $color-text-body,
                     map.get($font-weights, regular),
-                    $poppins
                   );
+                  color: #616161;
+                  font-family: $inter;
 
                   @include media(mobile) {
                     text-align: start;
@@ -512,7 +518,7 @@
                     &::before {
                       content: "₹";
                       position: absolute;
-                      top: 1px;
+                      top: 3px;
                       left: 3px;
                       pointer-events: none;
                       color: #2e2a94;
@@ -521,23 +527,28 @@
                       font-weight: 500;
 
                       @include media(mobile) {
-                        top: 1.5px;
+                        top: 4px;
                         height: 100%;
+                        font-size: 16px;
                       }
                     }
 
                     .investment-inp {
                       color: #2e2a94;
-                      font-family: $poppins;
-                      font-size: 20px;
+                      font-family: $inter;
+                      font-size: 16px;
                       font-weight: 500;
-                      line-height: 24px;
+                      line-height: 20px;
                       height: 100%;
-                      padding-left: 15px;
+                      padding-left: 18px;
                       appearance: none;
                       outline: none;
                       background-color: transparent;
                       border: none;
+
+                      @include media(mobile) {
+                        padding-left: 8px;
+                      }
                     }
                   }
 
@@ -563,10 +574,10 @@
 
                     .select-selected {
                       color: #2e2a94;
-                      font-family: $poppins;
-                      font-size: 20px;
+                      font-family: $inter;
+                      font-size: 16px;
                       font-weight: 500;
-                      line-height: 24px;
+                      line-height: 20px;
                       cursor: pointer;
                       position: relative;
                       user-select: none;
@@ -647,31 +658,39 @@
                     16px,
                     $color-text-body,
                     map.get($font-weights, regular),
-                    $poppins
+                    $inter
                   );
                 }
 
                 .invested-amount-value {
-                  color: #2e2a94;
-                  font-family: $poppins;
+                  color: #111;
+                  font-family: $inter;
                   font-size: 14px;
-                  font-weight: 600;
+                  font-weight: 500;
                   line-height: 16px;
-                  margin-left: 4px;
+                  // margin-left: 4px;
                   position: relative;
-                  padding-left: 10px;
+                  padding-left: 12px;
 
                   &::before {
                     content: "₹";
                     position: absolute;
-                    left: 3px;
-                    top: 0;
+                    left: 0px;
+                    top: 1px;
                     pointer-events: none;
-                    color: #2e2a94;
+                    color: #111;
                     font-family: $poppins;
                     font-size: 14px;
                     font-weight: 600;
                     line-height: 16px;
+
+                    @include media(mobile) {
+                      color: #2E2A94;
+                    }
+                  }
+
+                  @include media(mobile) {
+                    color: #2E2A94
                   }
                 }
               }
@@ -703,8 +722,9 @@
                       16px,
                       $color-text-body,
                       map.get($font-weights, regular),
-                      $poppins
+                      $inter
                     );
+                    color: #616161;
 
                     @include media(mobile) {
                       white-space: nowrap;
@@ -713,29 +733,36 @@
 
                   .cal-desc-value {
                     color: #2e2a94;
-                    font-family: $poppins;
-                    font-size: 24px;
+                    font-family: $inter;
+                    font-size: 20px;
                     font-weight: 600;
-                    line-height: 32px;
+                    line-height: 24px;
                     text-align: left;
                     position: relative;
                     padding-left: 18px;
 
                     @include media(mobile) {
-                      font-size: 22px;
+                      font-size: 16px;
+                      line-height: 20px;
                     }
 
                     &::before {
                       content: "₹";
                       position: absolute;
                       left: 3px;
-                      bottom: 0;
+                      bottom: -6px;
                       pointer-events: none;
                       color: #2e2a94;
                       font-family: $poppins;
                       font-size: 22px;
                       font-weight: 400;
                       line-height: 32px;
+
+                      @include media(mobile) {
+                        font-size: 16px;
+                        line-height: 20px;
+                        bottom: -1px;
+                      }
                     }
                   }
                 }
@@ -760,7 +787,7 @@
                     background: $primary-blue;
                     border: none;
                     color: #fff;
-                    font-family: $poppins;
+                    font-family: $inter;
                     font-size: 16px;
                     font-weight: 500;
                     line-height: 20px;
@@ -807,14 +834,14 @@
               @include font-style(
                 14px,
                 20px,
-                map.get($blue-1, b500),
-                map.get($font-weights, medium),
-                $poppins
+                map.get($button-primary, default),
+                map.get($font-weights, regular),
+                $inter
               );
 
               @include media(mobile) {
-                font-size: 16px;
-                line-height: 24px;
+                font-size: 14px;
+                line-height: 20px;
               }
             }
           }
@@ -827,7 +854,7 @@
 
       p.disc-child-1 {
         color: #2e2a94;
-        font-family: Poppins, sans-serif;
+        font-family: 'Inter', sans-serif;
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
@@ -840,7 +867,7 @@
         font-size: 12px;
         line-height: 16px;
         color: #616161;
-        font-family: Poppins, sans-serif;
+        font-family: Inter, sans-serif;
         font-weight: 400;
       }
     }
