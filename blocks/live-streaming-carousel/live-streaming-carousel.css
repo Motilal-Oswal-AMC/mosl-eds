@@ -244,7 +244,6 @@
   position: relative;
   max-width: 816px;
   padding: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
@@ -259,12 +258,13 @@
 }
 .modal.block dialog .modal-content .live-streaming {
   padding: 24px;
-  height: auto;
   width: 100%;
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   align-self: flex-end;
+  max-height: 500px;
+  height: 100%;
 }
 @media (max-width: 768px) {
   .modal.block dialog .modal-content .live-streaming {

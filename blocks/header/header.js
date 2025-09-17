@@ -27,15 +27,15 @@ function closeOnEscape(e) {
 function closeOnFocusLost(e) {
   const nav = e.currentTarget;
   if (!nav.contains(e.relatedTarget)) {
-    const navSections = nav.querySelector('.nav-sections');
-    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections, false);
-    } else if (isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections, false);
-    }
+    // const navSections = nav.querySelector('.nav-sections');
+    // const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
+    // if (navSectionExpanded && isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleAllNavSections(navSections, false);
+    // } else if (isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleMenu(nav, navSections, false);
+    // }
   }
 }
 

@@ -597,9 +597,9 @@ main {
 .section.fdp-card-container .item2 .item2-ul li .active {
   display: flex;
   height: 40px;
-  padding: 0 12px;
+  padding: 6px 12px;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   border-bottom: 2px solid #382ad7;
   font-size: 14px;
   line-height: 16px;

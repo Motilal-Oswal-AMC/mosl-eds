@@ -305,6 +305,10 @@
           {
             "name": "NFO Banner",
             "value": "nfo-banner"
+          },
+          {
+            "name": "Show Contact Error",
+            "value": "show-contact-error"
           }
         ]
       },
