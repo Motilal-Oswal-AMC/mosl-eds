@@ -7,7 +7,6 @@
   background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #b9bbff 0%, #fff 50%, #b9bbff 100%) border-box;
   border: 1px solid transparent;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +23,6 @@
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   margin: 0;
@@ -57,11 +55,9 @@
   overflow: auto;
   background-color: #fff;
   border-radius: 8px;
-  border: 1px solid #EEE;
-  box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
+  border: 1px solid #eee;
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
-@media (max-width: 768px) {
 @media (max-width: 768px) {
   .section .card-container .card-wrapper .dropdown-list {
     width: 168px;
@@ -98,7 +94,6 @@
 }
 .section .card-container .card-upper-title {
   display: flex;
-  align-items: center;
   align-items: center;
   justify-content: space-between;
   align-items: start;
@@ -162,7 +157,6 @@
   min-height: 40px;
   margin: 0;
 }
-@media (max-width: 768px) {
 @media (max-width: 768px) {
   .section .card-container .card-upper-title .brand-fund-wrap .fund-name-title {
     min-height: unset;
@@ -232,7 +226,6 @@
   margin: 0 0 10px;
 }
 @media (max-width: 1025px) {
-@media (max-width: 1025px) {
   .section .card-container .cagr-container {
     height: 100%;
   }
@@ -289,7 +282,6 @@
   line-height: 16px;
   color: #2e312f;
   font-family: "Poppins", sans-serif;
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
   text-align: right;
   margin: 0;
@@ -303,7 +295,6 @@
   font-size: 11px;
   line-height: 15px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   display: block;
@@ -329,7 +320,6 @@
   margin: 8px 0 0;
 }
 @media (max-width: 768px) {
-@media (max-width: 768px) {
   .section .card-container .risk-container {
     padding-bottom: 8px;
   }
@@ -339,7 +329,6 @@
   line-height: 16px;
   color: #2e312f;
   font-family: "Poppins", sans-serif;
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -348,7 +337,6 @@
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   display: flex;
@@ -433,7 +421,6 @@
   padding: 40px 0 64px;
 }
 @media (max-width: 768px) {
-@media (max-width: 768px) {
   .section.fund-tab.tabs-container {
     padding: 40px 0 49px;
   }
@@ -443,11 +430,9 @@
   line-height: 44px;
   color: #2e2a94;
   font-family: "ButlerPro", sans-serif;
-  font-family: "ButlerPro", sans-serif;
   font-weight: 700;
   margin: 0 0 12px;
 }
-@media (max-width: 768px) {
 @media (max-width: 768px) {
   .section.fund-tab.tabs-container .default-content-wrapper h1 {
     font-size: 24px;
@@ -487,15 +472,12 @@
   line-height: 20px;
   color: #616161;
   font-family: "Poppins", sans-serif;
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
-.section.fund-tab.tabs-container .tabs-wrapper .wrappertablist .tabs-list .tabs-tab[aria-selected=true] {
 .section.fund-tab.tabs-container .tabs-wrapper .wrappertablist .tabs-list .tabs-tab[aria-selected=true] {
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   border-bottom: 2px solid #382ad7;
@@ -512,12 +494,10 @@
   margin: 0;
 }
 @media (max-width: 1299px) {
-@media (max-width: 1299px) {
   .section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container {
     max-width: 31.8%;
   }
 }
-@media (max-width: 768px) {
 @media (max-width: 768px) {
   .section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container {
     max-width: 100%;
@@ -548,13 +528,11 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
   text-decoration: none;
   display: block;
   margin: 0;
 }
-@media (max-width: 768px) {
 @media (max-width: 768px) {
   .section.fund-tab.tabs-container .btndesk,
   .section.fund-tab.tabs-container .btnmob {
@@ -566,7 +544,6 @@
   display: none;
 }
 @media (max-width: 768px) {
-@media (max-width: 768px) {
   .section.fund-tab.tabs-container .btnmob {
     display: block;
   }
@@ -576,7 +553,6 @@
   max-width: 100%;
   padding: 54px 0;
 }
-@media (max-width: 768px) {
 @media (max-width: 768px) {
   .section.fund-tab.tabs-container.our-popular-funds {
     padding: 40px 0 45px;
@@ -593,8 +569,6 @@
 }
 .section.fund-tab.tabs-container.our-popular-funds .default-content-wrapper .wrappertablist .tabs-list .tabs-tab[aria-selected=true],
 .section.fund-tab.tabs-container.our-popular-funds .tabs-wrapper .wrappertablist .tabs-list .tabs-tab[aria-selected=true] {
-.section.fund-tab.tabs-container.our-popular-funds .default-content-wrapper .wrappertablist .tabs-list .tabs-tab[aria-selected=true],
-.section.fund-tab.tabs-container.our-popular-funds .tabs-wrapper .wrappertablist .tabs-list .tabs-tab[aria-selected=true] {
   border-bottom: 2px solid #fff;
   color: #fff;
 }
@@ -606,5 +580,4 @@
 .section.fund-tab.tabs-container.our-popular-funds .wrappertablist .btndesk a {
   border: 1px solid #fff;
   color: #fff;
-}/*# sourceMappingURL=fund-card.css.map */
 }/*# sourceMappingURL=fund-card.css.map */
