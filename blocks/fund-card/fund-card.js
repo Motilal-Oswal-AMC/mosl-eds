@@ -111,7 +111,7 @@ export default function decorate(block) {
                   },
                   img({
                     class: 'star-icon',
-                    src: '../../icons/not-filled-star.svg',
+                    src: '../../icons/not-filled-white-star.svg',
                     alt: 'star-icon',
                   }),
                   img({
@@ -152,7 +152,7 @@ export default function decorate(block) {
               { class: 'banner-container' },
               img({
                 class: 'nfo-img',
-                src: '../../icons/nfo-img.png',
+                src: '../../icons/nfo-banner.png',
                 alt: 'NFO Image',
               }),
               span('Grab Them All'),
@@ -160,15 +160,8 @@ export default function decorate(block) {
             div(
               { class: 'timing-nfo-value' },
               div(
-                { class: 'datewrapper' },
-                div(
-                  { class: 'nfo-container' },
-                  span({ class: 'label-nfo' }, 'NFO Ends On:'),
-                ),
-                div(
-                  { class: 'timing-container' },
-                  p({ class: 'timing-text' }, dataMapMoObj.formatDate(block.dateOfAllotment)),
-                ),
+                { class: 'timing-container' },
+                span({ class: 'timing-text' }, `NFO Ends On: ${dataMapMoObj.formatDate(block.dateOfAllotment)}`),
               ),
               div(
                 { class: 'dis-investor' },

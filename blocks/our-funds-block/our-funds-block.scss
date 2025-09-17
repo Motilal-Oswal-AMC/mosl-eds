@@ -1340,16 +1340,9 @@ body {
             box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
 
             .card-upper-title {
-              .title-subtitle {
-                p {
-                  color: map.get($blue-1, b25);
-                }
-
-                .title-logo {
-                  h2 {
-                    color: $primary-white;
-                  }
-                }
+              .watchlistlabel,
+              .fund-name-title {
+                color: $primary-white;
               }
             }
 
@@ -1361,7 +1354,7 @@ body {
                   color: $primary-white;
 
                   &::after {
-                    background-color: map.get($blue-1, b300);
+                    background-color: $primary-white;
                   }
                 }
               }
@@ -1384,15 +1377,18 @@ body {
             }
 
             .banner-timing-container {
-              border-radius: 8px;
-              border: 0.5px solid rgb(255 255 255 / 22%);
-              box-shadow: 0 4px 50px 0 rgb(0 0 0 / 10%);
+              // border-radius: 8px;
+              // border: 0.5px solid rgb(255 255 255 / 22%);
+              // box-shadow: 0 4px 50px 0 rgb(0 0 0 / 10%);
 
               .banner-container {
-                //   max-width: 264px;
                 width: 100%;
-                height: 118px;
+                height: 74px;
                 position: relative;
+                border-radius: 12px;
+                border: 0 solid $neutrals-200;
+                background: $neutrals-50;
+                box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
 
                 &::before {
                   content: "";
@@ -1403,7 +1399,7 @@ body {
                   position: absolute;
                   top: 0;
                   left: 0;
-                  border-radius: 10px 0 0;
+                  border-radius: 12px 0 0 12px;
                 }
 
                 .nfo-img {
@@ -1411,36 +1407,36 @@ body {
                   // object-position: right;
                   width: 100%;
                   height: 100%;
-                  border-radius: 8px 8px 0 0;
+                  border-radius: 12px;
                 }
 
                 span {
                   position: absolute;
                   top: 0;
                   left: 0;
-                  padding: 19px 16px;
+                  padding: 13px 12px;
                   display: flex;
                   align-items: end;
-                  max-width: 122px;
+                  max-width: 114px;
                   width: 100%;
                   height: 100%;
 
-                  @include font-style(18px, 24px, $primary-white, 700, $butlerpro);
+                  @include font-style(18px, 24px, $primary-white, 600, $inter);
                 }
               }
 
               .timing-nfo-value {
-                background: rgb(255 255 255 / 8%);
+                // background: rgb(255 255 255 / 8%);
                 display: flex;
                 align-items: start;
                 justify-content: space-between;
                 gap: 20px;
-                padding: 8px 16px;
-                border-radius: 0 0 8px 8px;
+                padding-top: 24px;
 
-                .nfo-container {
-                  span {
-                    @include font-style(12px, 16px, $primary-white, 600, $poppins);
+                // border-radius: 0 0 8px 8px;
+                .timing-container {
+                  .timing-text {
+                    @include font-style(12px, 14px, $primary-white, 500, $inter);
 
                     display: flex;
                     gap: 4px;
@@ -1448,31 +1444,34 @@ body {
 
                     &::before {
                       content: "";
-                      width: 9px;
-                      height: 9px;
-                      background-color: #f00;
+                      width: 8px;
+                      height: 8px;
+                      background-color: map.get($danger, 600);
                       display: block;
                       border-radius: 50%;
                     }
                   }
                 }
 
-                .timing-container {
-                  .timing-text {
-                    @include font-style(12px, 16px, $primary-white, 400, $poppins);
+                .dis-investor{
+                  max-width: 20px;
+                  width: 100%;
+                  height: 20px;
+                  display: flex;
 
-                    margin: 0;
+                  .riskfactor-icon{
+                    width: 100%;
+                    height: 100%;
                   }
                 }
               }
             }
 
             .button-container {
-              margin: 16px 0 0;
+              margin: 24px 0 0;
 
               .know-more {
                 color: $primary-white;
-                padding: 6px 0;
               }
 
               .invest-now {
