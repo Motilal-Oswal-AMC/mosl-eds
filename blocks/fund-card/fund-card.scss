@@ -154,7 +154,12 @@
           gap: 4px;
 
           .watchlistlabel {
-            @include font-style(12px, 16px, $sub-header, 400, $inter);
+            @include font-style(map.get($typography-desktop, label-small-size), map.get($typography-desktop, label-small-line-height), $text-sub-header, 400, $body);
+            
+            @include media(mobile){
+              font-size: map.get($typography-mobile, label-small-size);
+              line-height: map.get($typography-mobile, label-small-line-height);
+            }
           }
 
           .star {
@@ -195,11 +200,11 @@
 
         .fund-name-title {
           @include font-style(
-            $size: 16px,
-            $line-height: 20px,
+            $size: map.get($typography-desktop, body-medium-semibold-size),
+            $line-height: map.get($typography-desktop, body-medium-semibold-line-height),
             $color: $neutrals-black,
             $weight: map.get($font-weights, semibold),
-            $family: $inter
+            $family: $body
           );
 
           min-height: 40px;
@@ -207,6 +212,8 @@
 
           @include media(mobile) {
             min-height: unset;
+            font-size: map.get($typography-mobile, body-medium-semibold-size);
+            line-height: map.get($typography-mobile, body-medium-semibold-line-height);
           }
         }
       }
@@ -214,17 +221,22 @@
 
     .card-category {
       // @include flex-center($align: center, $justify: flex-start);
-      gap: 4px 8px;
+      // gap: 4px 8px;
 
       // padding: 4px 0;
       // margin: 0 0 16px;
       margin: 0 0 40px;
-      flex-wrap: wrap;
+      
+      // flex-wrap: wrap;
 
       // margin-top: auto;
       // min-height: unset;
       // height: 100%;
       // height: auto;
+
+      @include media(mobile){
+        margin: 0 0 56px;
+      }
 
       .fundtagging-list {
         @include flex-center($align: center, $justify: flex-start);
@@ -236,15 +248,20 @@
 
         &-name {
           @include font-style(
-            $size: 12px,
-            $line-height: 14px,
+            $size: map.get($typography-desktop, body-xsmall-regular-size),
+            $line-height: map.get($typography-desktop, body-xsmall-regular-line-height),
             $color: $text-body-2,
             $weight: map.get($font-weights, regular),
-            $family: $inter
+            $family: $body
           );
           @include flex-center($align: center, $justify: flex-start);
 
           gap: 8px;
+
+          @include media(mobile){
+            font-size: map.get($typography-mobile, body-xsmall-regular-size);
+            line-height: map.get($typography-mobile, body-xsmall-regular-line-height);
+          }
 
           &::after {
             content: "";
@@ -314,10 +331,12 @@
       // box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
 
       // margin-top: auto;
-      margin: 0 0 10px;
+      margin: 0 0 24px;
 
       @include media(tab) {
-        height: 100%;
+        // height: 100%;
+        min-height: unset;
+        margin: 0 0 $spacing-24;
       }
 
       .cagr-dropdown {
@@ -336,12 +355,18 @@
 
         .cagr-txt {
           @include font-style(
-            $size: 12px,
-            $line-height: 14px,
-            $color: $color-text-body,
+            $size: map.get($typography-desktop, body-xsmall-regular-size),
+            $line-height: map.get($typography-desktop, body-xsmall-regular-line-height),
+            $color: $text-body,
             $weight: map.get($font-weights, regular),
-            $family: $inter
+            $family: $body
           );
+
+          @include media(mobile){
+            font-size: map.get($typography-mobile, body-xsmall-regular-size);
+            line-height: map.get($typography-mobile, body-xsmall-regular-line-height);
+            color: $text-sub-header;
+          }
         }
 
         .cagr-select-wrapper {
@@ -353,6 +378,7 @@
           max-width: 130px;
           width: 100%;
           position: relative;
+          margin: 4px 0 0;
 
           // @include media(desktop-sm) {
           //   width: 80px;
@@ -374,9 +400,14 @@
           // }
 
           .selectedtext{
-            @include font-style(12px, 14px, $primary-blue, map.get($font-weights, medium), $inter);
+            @include font-style(map.get($typography-desktop, body-xsmall-medium-size), map.get($typography-desktop, body-xsmall-medium-line-height), $blue-1-800-primary, map.get($font-weights, medium), $body);
 
             gap: 0;
+
+            @include media(mobile){
+              font-size: map.get($typography-mobile, body-xsmall-medium-size);
+              line-height: map.get($typography-mobile, body-xsmall-medium-line-height);
+            }
           }
         }
 
@@ -402,15 +433,24 @@
 
         .cagr-val-label {
           @include font-style(
-            $size: 24px,
-            $line-height: 32px,
-            $color: $primary-blue,
+            $size: map.get($typography-desktop, sub-header-large-size),
+            $line-height: map.get($typography-desktop, sub-header-large-line-height),
+            $color: $blue-1-800-primary,
             $weight: map.get($font-weights, medium),
-            $family: $inter
+            $family: $body
           );
 
           margin: 0;
-          text-align: right;
+
+          @include media(mobile){
+            @include font-style(
+            $size: map.get($typography-desktop, sub-header-large-size),
+            $line-height: 28px,
+            $color: $blue-1-800-primary,
+            $weight: map.get($font-weights, semibold),
+            $family: $title
+          );
+          }
         }
 
         .scheme-yet {
@@ -529,7 +569,7 @@
         .dis-investor {
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 4px;
 
           .person {
             width: 16px;
@@ -538,12 +578,17 @@
 
           .investor-txt {
             @include font-style(
-              $size: 12px,
-              $line-height: 14px,
+              $size: map.get($typography-desktop, body-xsmall-medium-size),
+              $line-height: map.get($typography-desktop, body-xsmall-medium-line-height),
               $color: $text-body-2,
               $weight: map.get($font-weights, medium),
-              $family: $inter
+              $family: $body
             );
+
+            @include media(mobile){
+              font-size: map.get($typography-mobile, body-xsmall-medium-size);
+              line-height: map.get($typography-mobile, body-xsmall-medium-line-height);
+            }
           }
         }
       }
@@ -557,6 +602,10 @@
       // gap: 24px 9.08%;
       gap: 24px 8px;
       margin: 24px 0 0;
+
+      @include media(mobile){
+        gap: $spacing-12;
+      }
 
       .card-btn {
         // max-width: 120px;
