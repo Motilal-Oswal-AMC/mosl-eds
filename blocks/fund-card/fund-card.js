@@ -101,7 +101,7 @@ export default function decorate(block) {
                         ).includes('star-filled')
                       ) {
                         event.target.parentElement.classList.add('star-filled');
-                      } else {
+                      } else {~
                         event.target.parentElement.classList.remove(
                           'star-filled',
                         );
