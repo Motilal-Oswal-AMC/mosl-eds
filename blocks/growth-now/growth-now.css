@@ -189,7 +189,7 @@ main {
   align-items: center;
   align-self: stretch;
   border-radius: 6px;
-  border: 1px solid #99A1B0;
+  border: 1px solid #9e9e9e;
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset {

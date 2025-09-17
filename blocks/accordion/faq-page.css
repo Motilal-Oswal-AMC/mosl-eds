@@ -196,7 +196,7 @@
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
   background-color: #fff;
   border-radius: 6px;
-  border: 1px solid #EEE;
+  border: 1px solid #eee;
   list-style: none;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist::-webkit-scrollbar {
@@ -229,7 +229,7 @@
   font-family: "Inter", sans-serif;
   font-weight: 400;
   padding: 12px;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid #eee;
   cursor: pointer;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .dropdownlist .singleval:last-of-type {

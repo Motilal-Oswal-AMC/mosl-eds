@@ -30,21 +30,18 @@
             }
 
             h3 {
-                color: $primary-blue;
-                font-family: $butlerpro;
-                font-size: 36px;
+                color: $blue-1-800-primary;
+                font-family: $title;
+                font-size: $heading-h4-size;
                 font-style: normal;
-                font-weight: 700;
-                line-height: 44px;
+                font-weight: 600;
+                line-height: $heading-h4-line-height-desktop;
                 margin: 0;
 
                 @include media(mobile) {
-                    color: var(--blue-1800-primary, #2E2A94);
-                    font-family: $butlerpro;
-                    font-size: 24px;
+                    font-size: $sub-header-large-size;
                     font-style: normal;
-                    font-weight: 700;
-                    line-height: 28px;
+                    line-height: $sub-header-medium-line-height-desktop;
                 }
             }
 
@@ -117,41 +114,41 @@
                             }
 
                             .fund-note {
-                                color: #5659FA;
-                                font-family: $poppins;
-                                font-size: 12px;
+                                color: $blue-1-500;
+                                font-family: $body;
+                                font-size: $body-xsmall-medium-size;
                                 font-style: normal;
-                                font-weight: 400;
-                                line-height: 16px;
+                                font-weight: 500;
+                                line-height: $body-xsmall-medium-line-height;
                                 margin: 0;
 
                                 @include media(mobile) {
-                                    color: #5659FA;
-                                    font-family: $poppins;
-                                    font-size: 12px;
+                                    color: $blue-1-400;
+                                    font-family: $body;
+                                    font-size: $body-xsmall-medium-size;
                                     font-style: normal;
-                                    font-weight: 400;
-                                    line-height: 16px
+                                    font-weight: 500;
+                                    line-height: $body-xsmall-medium-line-height;
                                 }
                             }
 
                             .fund-name {
                                 align-self: stretch;
-                                color: $primary-blue;
-                                font-family: $poppins;
-                                font-size: 20px;
+                                color: $blue-1-800-primary;
+                                font-family: $body;
+                                font-size: $body-xlarge-semibold-size;
                                 font-style: normal;
                                 font-weight: 500;
-                                line-height: 24px;
+                                line-height: $body-xlarge-semibold-line-height;
                                 margin: 0;
 
                                 @include media(mobile) {
-                                    color: var(--blue-1800-primary, #2E2A94);
-                                    font-family: $poppins;
-                                    font-size: 16px;
+                                    color: $blue-1-800-primary;
+                                    font-family: $body;
+                                    font-size: $body-medium-medium-size;
                                     font-style: normal;
                                     font-weight: 500;
-                                    line-height: 20px;
+                                    line-height: $body-medium-medium-line-height;
                                 }
                             }
                         }
@@ -202,12 +199,12 @@
 
                                     .fund-tag {
                                         display: flex;
-                                        color: $primary-blue;
-                                        font-family: $poppins;
-                                        font-size: 12px;
+                                        color: $blue-1-800-primary;
+                                        font-family: $body;
+                                        font-size: $body-small-regular-size;
                                         font-style: normal;
                                         font-weight: 400;
-                                        line-height: 16px;
+                                        line-height: $body-small-regular-line-height;
 
                                         @include media(mobile) {
                                             color: $primary-blue;

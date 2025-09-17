@@ -62,7 +62,7 @@ main {
   margin: 6px 0 0;
   background-color: #fff;
   border-radius: 8px;
-  border: 1px solid #EEE;
+  border: 1px solid #eee;
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist.dropdown-active {

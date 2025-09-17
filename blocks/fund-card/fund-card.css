@@ -55,7 +55,7 @@
   overflow: auto;
   background-color: #fff;
   border-radius: 8px;
-  border: 1px solid #EEE;
+  border: 1px solid #eee;
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
 @media (max-width: 768px) {
@@ -230,7 +230,7 @@
   padding: 24px 12px;
   border-radius: 12px;
   border: 0.5px solid #e8e8e8;
-  background: #FAFAFA;
+  background: #fafafa;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
   margin-top: auto;
 }
