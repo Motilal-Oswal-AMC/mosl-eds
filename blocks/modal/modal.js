@@ -223,7 +223,9 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     document.querySelector('main').append(block);
   }
   document.querySelector('.modal').classList.add('block');
-  document.querySelector('.modal').classList.add('modal-journey');
+  if (!document.querySelector('.modal .embed')) {
+    document.querySelector('.modal').classList.add('modal-journey');
+  }
 
   // Clean up the block and append the dialog
   block.innerHTML = '';
@@ -295,17 +297,12 @@ export function initializeModalHandlers() {
     }
 
     removeClassAfterDelay();
-    // const coBrandBtn = document.querySelector('.subbreadcrb4');
-
-    // coBrandBtn.addEventListener('click', () => {
     const modal = document.querySelector('.modal');
-    if (modal.querySelector('.fm-portfolio-container')) {
+    if (modal && modal.querySelector('.fm-portfolio-container')) {
       document.querySelector('.modal').classList.add('modal-journey-fund');
-    } else {
+    } else if (!modal.querySelector('.embed')) {
       document.querySelector('.modal').classList.add('modal-journey');
     }
-    // document.querySelector('.modal').classList.add('modal-journey');
-    // });
   });
 }
 
