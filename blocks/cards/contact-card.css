@@ -1,4 +1,5 @@
 @import "../../../styles/fonts.css";
+
 .section.contact-card {
   max-width: 1265px;
   width: 100%;
@@ -6,18 +7,21 @@
   margin: 0 auto;
   background-color: #fff;
 }
+
 .section.contact-card .default-content-wrapper {
   width: 100%;
 }
+
 .section.contact-card .default-content-wrapper h3 {
   width: 100%;
   margin-bottom: 40px;
   font-size: 36px;
   line-height: 44px;
   color: #2e2a94;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 700;
 }
+
 @media (width <= 768px) {
   .section.contact-card .default-content-wrapper h3 {
     font-size: 32px;
@@ -25,65 +29,76 @@
     margin-bottom: 24px;
   }
 }
+
 .section.contact-card .cards-wrapper {
   width: 100%;
 }
-.section.contact-card .cards-wrapper .cards ul {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 {
   display: flex;
   justify-content: space-between;
 }
+
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul {
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 {
     flex-direction: column;
     gap: 0;
   }
 }
-.section.contact-card .cards-wrapper .cards ul li {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li {
   border: none;
   display: flex;
   gap: 16px;
   padding: 16px 0;
   max-width: 344px;
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-image img {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-image img {
   max-width: 40px;
   width: 40px;
   height: 40px;
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body {
   margin: 0;
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body p:nth-child(1) {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(1) {
   margin: 0;
   font-size: 18px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 600;
 }
+
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul li .cards-card-body p:nth-child(1) {
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(1) {
     font-size: 16px;
     line-height: 20px;
     margin-bottom: 4px;
   }
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body p:nth-child(2) {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(2) {
   margin: 0;
   font-size: 14px;
   line-height: 20px;
   color: #424242;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
 }
+
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul li .cards-card-body p:nth-child(2) {
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(2) {
     font-size: 12px;
     line-height: 16px;
     margin-bottom: 4px;
   }
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body ul {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul {
   margin: 0;
   padding-top: 8px;
   display: flex;
@@ -91,21 +106,23 @@
   justify-content: start;
   align-items: start;
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body ul li:nth-child(1) {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li:nth-child(1) {
   margin: 0;
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body ul li:nth-child(1) img {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li:nth-child(1) img {
   border-radius: 50%;
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body ul li {
-  margin-left: 30px;
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list {
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-offset: auto;
@@ -113,99 +130,88 @@
   font-size: 12px;
   line-height: 18px;
   color: #4338f3;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 500;
 }
+
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul li .cards-card-body ul li {
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list {
     color: #2e2a94;
   }
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body ul li img {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list img {
   border-radius: unset;
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body ul li ul {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list ul {
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
 }
-.section.contact-card .cards-wrapper .cards ul li .cards-card-body ul li ul li {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list ul li.contact-li2 {
   margin: 0;
 }
-.section.contact-card .cards-wrapper .cards ul li:nth-child(2) ul li {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.list-elem-5, .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.list-elem-7 {
+  margin-left: 30px;
+}
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 ul li.list-elem-12 {
   margin: 0;
 }
-.section.contact-card .cards-wrapper .cards ul li:nth-child(3) {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 {
   gap: 0;
 }
-.section.contact-card .cards-wrapper .cards ul li:nth-child(3) .cards-card-body ul li {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li {
   text-decoration: none;
   gap: 1px;
   margin: 0;
   font-size: 14px;
   line-height: 20px;
   color: #424242;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
 }
+
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul li:nth-child(3) .cards-card-body ul li {
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li {
     font-size: 12px;
     line-height: 16px;
   }
 }
-.section.contact-card .cards-wrapper .cards ul li:nth-child(3) .cards-card-body ul li span {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li span {
   width: 40px;
   height: 40px;
 }
-.section.contact-card .cards-wrapper .cards ul li:nth-child(3) .cards-card-body ul li span img {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li span img {
   border-radius: 0%;
 }
-.section.contact-card .cards-wrapper .cards ul li:nth-child(3) .cards-card-body ul li strong {
+
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li strong {
   font-size: 14px;
   line-height: 20px;
   color: #4338f3;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-offset: 20%;
   cursor: pointer;
 }
+
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul li:nth-child(3) .cards-card-body ul li strong {
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li strong {
     font-size: 12px;
     line-height: 20px;
   }
 }
-
-.default-content-wrapper.error-default {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  margin-top: 80px;
-}
-.default-content-wrapper.error-default .errormain1 .errrorsub1 {
-  max-width: 308px;
-  width: 100%;
-  height: 173.259px;
-}
-.default-content-wrapper.error-default .comlist {
-  padding: 0;
-  margin: 0;
-}
-.default-content-wrapper.error-default .errormain2 {
-  color: #616161;
-  text-align: center;
-  font-size: 14px;
-  line-height: 16px;
-  color: #616161;
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-}/*# sourceMappingURL=contact-card.css.map */
