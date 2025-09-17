@@ -1,4 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
+import dataMapMoObj from '../../scripts/constant.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
@@ -21,4 +22,20 @@ export default function decorate(block) {
   });
   block.textContent = '';
   block.append(ul);
+
+  const blkmain = block.closest('.contact-card');
+  if (blkmain !== null) {
+    dataMapMoObj.CLASS_PREFIXES = ['contact-main', 'contact-sub', 'contact-inner', 'sub-contact'];
+    dataMapMoObj.addIndexed(block);
+
+    const listli = block.querySelectorAll('.contact-inner2 ul > li > ul');
+    const listul = block.querySelectorAll('.contact-inner2 ul > li');
+    dataMapMoObj.CLASS_PREFIXES = ['contact-li'];
+    Array.from(listli).forEach((inner) => {
+      dataMapMoObj.addIndexed(inner);
+    });
+
+    Array.from(listul).forEach((Element, index) => Element.classList.add(`list-elem-${index + 1}`));
+    Array.from(listul).forEach((Element) => Element.classList.add('common-list'));
+  }
 }

@@ -39,7 +39,7 @@
         44px,
         $primary-blue,
         map.get($font-weights, bold),
-        $butlerpro);
+        $inter);
 
       @include media(mobile) {
         gap: 8px;
@@ -62,7 +62,7 @@
         24px,
         $text-body-2,
         map.get($font-weights, regular),
-        $poppins);
+        $inter);
 
       @include media(mobile) {
         margin: 24px 0 0;
@@ -117,7 +117,7 @@
               20px,
               $text-body-2,
               map.get($font-weights, regular),
-              $poppins);
+              $inter);
 
             @include media(mobile) {
               padding: 10px 12px;
@@ -179,7 +179,7 @@
                 20px,
                 #2e2a94,//$text-body-2,
                 map.get($font-weights, medium),
-                $poppins);
+                $inter);
             }
 
             .cancel-btn {
@@ -250,7 +250,7 @@
                 16px,
                 $neutrals-black,
                 map.get($font-weights, regular),
-                $poppins);
+                $inter);
 
               padding: 12px;
               border-bottom: 1px solid $neutrals-200;
@@ -342,7 +342,7 @@
                         24px,
                         $primary-blue,
                         map.get($font-weights, medium),
-                        $poppins);
+                        $inter);
 
                       @include media(mobile) {
                         font-size: 16px;
@@ -365,7 +365,7 @@
                         24px,
                         $primary-white,
                         map.get($font-weights, regular),
-                        $poppins);
+                        $inter);
 
                       margin: 0;
 

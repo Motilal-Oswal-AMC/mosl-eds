@@ -35,7 +35,9 @@ export async function createModal(contentNodes) {
   }
 
   const block = buildBlock('modal', '');
-  document.querySelector('main').append(block);
+  if (document.querySelector('main .modal') === null) {
+    document.querySelector('main').append(block);
+  }
   decorateBlock(block);
   await loadBlock(block);
 
@@ -56,7 +58,9 @@ export async function createModal(contentNodes) {
   });
 
   block.innerHTML = '';
-  block.append(dialog);
+  if (block.closest('main').querySelectorAll('.modal').length <= 1) {
+    block.append(dialog);
+  }
 
   return {
     block,
@@ -215,13 +219,19 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
 
   // 3. Temporarily append to a new 'modal' block to load its content
   const block = buildBlock('modal', '');
-  document.querySelector('main').append(block);
+  if (document.querySelector('main .modal') === null) {
+    document.querySelector('main').append(block);
+  }
   document.querySelector('.modal').classList.add('block');
-  document.querySelector('.modal').classList.add('modal-journey');
+  if (!document.querySelector('.modal .embed')) {
+    document.querySelector('.modal').classList.add('modal-journey');
+  }
 
   // Clean up the block and append the dialog
   block.innerHTML = '';
-  block.append(dialog);
+  if (Array.from(block.classList).includes('block')) {
+    block.append(dialog);
+  }
 
   // Decorate and load blocks *within* the fragment
   // for (const innerBlock of dialog.querySelectorAll('.block')) {
@@ -246,7 +256,11 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
   });
 
   // 5. Show the modal
-  dialog.showModal();
+  try {
+    dialog.showModal();
+  } catch (error) {
+    // console.log(error);
+  }
   document.body.classList.add('modal-open', 'noscroll');
   // --- END: NEW LOGIC ---
 }
@@ -283,17 +297,12 @@ export function initializeModalHandlers() {
     }
 
     removeClassAfterDelay();
-    // const coBrandBtn = document.querySelector('.subbreadcrb4');
-
-    // coBrandBtn.addEventListener('click', () => {
     const modal = document.querySelector('.modal');
-    if (modal.querySelector('.fm-portfolio-container')) {
+    if (modal && modal.querySelector('.fm-portfolio-container')) {
       document.querySelector('.modal').classList.add('modal-journey-fund');
-    } else {
+    } else if (!modal.querySelector('.embed')) {
       document.querySelector('.modal').classList.add('modal-journey');
     }
-    // document.querySelector('.modal').classList.add('modal-journey');
-    // });
   });
 }
 

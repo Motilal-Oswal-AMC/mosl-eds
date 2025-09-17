@@ -355,18 +355,17 @@ main {
     gap: 12px;
   }
 }
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist {
   display: flex;
   align-items: flex-start;
   gap: 8px;
 }
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul li:first-child {
-  line-height: 0.1px;
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr1:first-child {
   color: #FFF;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
@@ -375,15 +374,7 @@ main {
   line-height: 16px;
   cursor: pointer;
 }
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul li:first-child:hover {
-  text-decoration-line: underline;
-  opacity: 1 !important;
-  color: #fff;
-}
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul li:nth-child(2) {
-  line-height: 0.1px;
-}
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul li:nth-child(2) .ahreg {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) {
   color: #FFF;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -392,12 +383,21 @@ main {
   line-height: 16px;
   cursor: pointer;
 }
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li ul li:nth-child(2) .ahreg:hover {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a {
+  color: #FFF;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  cursor: pointer;
+}
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a:hover {
   text-decoration-line: underline;
   opacity: 1 !important;
   color: #fff;
 }
-.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li .icon {
+.section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist .icon {
   width: 21px;
   height: 24px;
 }
