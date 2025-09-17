@@ -441,20 +441,18 @@ export default async function decorate(block) {
       const pinCity = datacfContact.data.data
         .filter((elementmap) => elementmap.contactAdd[0].pincode === inpval);
       if (pinCity.length !== 0) {
+        pranmk.classList.remove('contact-data-not-found');
+        pranmkv2.classList.remove('show-contact-error');
         updateContentForCity(pinCity[0].contactAdd[0].city, detailsCol, mapCol);
+      } else {
+        pranmk.classList.add('contact-data-not-found');
+        pranmkv2.classList.add('show-contact-error');
       }
-      pranmk.classList.remove('contact-data-not-found');
-      pranmkv2.classList.remove('show-contact-error');
     } else if (inpval.length === 0) {
       const dropVal = block.querySelector('.location-value').textContent.trim();
       updateContentForCity(dropVal, detailsCol, mapCol);
       pranmk.classList.remove('contact-data-not-found');
       pranmkv2.classList.remove('show-contact-error');
-    } else {
-      // const dropVal = block.querySelector('.location-value').textContent.trim();
-      // updateContentForCity(dropVal, detailsCol, mapCol);
-      pranmk.classList.add('contact-data-not-found');
-      pranmkv2.classList.add('show-contact-error');
     }
   });
   onLoadContactusCities();
