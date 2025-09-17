@@ -222,6 +222,7 @@
   justify-content: start;
   gap: 8px;
   flex-direction: column-reverse;
+  min-height: 88px;
   margin: 0 0 10px;
 }
 @media (max-width: 1025px) {
