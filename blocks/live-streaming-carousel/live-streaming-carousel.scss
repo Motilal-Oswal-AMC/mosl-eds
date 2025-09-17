@@ -24,11 +24,11 @@
     h6 {
       margin: 0 0 8px;
 
-      @include font-style(16px, 24px, $primary-blue, 400, $poppins);
+      @include font-style($body-small-medium-size, $body-small-medium-line-height, $blue-1-800-primary, 500, $body);
 
       @include media(mobile) {
-        font-size: 12px;
-        line-height: 16px;
+        font-size: $body-xsmall-medium-size;
+        line-height:$body-xsmall-medium-line-height;
       }
     }
   }
@@ -157,11 +157,11 @@
         & .total-slide {
           margin: 0;
 
-          @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+          @include font-style($body-small-regular-size, $body-small-regular-line-height, $blue-1-800-primary, 400, $body);
         }
 
         & .total-slide {
-          color: $neutrals-600;
+          color: $neutrals-700;
         }
       }
     }
@@ -184,11 +184,11 @@
       }
 
       li:first-of-type {
-        @include font-style(16px, 24px, $color-text-body, 400, $poppins);
+        @include font-style($body-medium-regular-size, $body-medium-regular-line-height, $neutrals-800, 400, $body);
 
         @include media(mobile) {
-          font-size: 12px;
-          line-height: 16px;
+          font-size: $paragraph-xsmall-size;
+          line-height: $paragraph-xsmall-line-height;
         }
       }
 
@@ -198,13 +198,13 @@
         gap: 8px;
         min-width: max-content;
 
-        @include font-style(16px, 20px, $color-text-body, 500, $poppins);
+        @include font-style($body-medium-medium-size, $body-medium-medium-line-height, $color-text-body, 500, $body);
 
         color: #3025e0;
 
         @include media(mobile) {
-          font-size: 14px;
-          line-height: 16px;
+          font-size: $body-small-medium-size;
+          line-height: $body-small-medium-line-height;
         }
 
         a {
