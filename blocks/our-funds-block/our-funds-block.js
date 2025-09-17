@@ -409,7 +409,7 @@ function searchFunctionality(block) {
   searchInput.addEventListener('input', (event) => {
     searchContainer.classList.add('search-active');
     filterListItems(event.target.value);
-    cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
+    cancelButton.style.display = event.target.value.length > 0 ? 'flex' : 'none';
   });
 
   let currentFocusIndex = -1;
@@ -495,7 +495,7 @@ function searchFunctionality(block) {
           listHeader.append(listviewblock(datatem[0]));
         }
       }
-      cancelButton.style.display = searchInput.value.length > 0 ? 'block' : 'none';
+      cancelButton.style.display = searchInput.value.length > 0 ? 'flex' : 'none';
       const flitwrap = block.querySelector('.applied-filter-wrap');
       if (Array.from(flitwrap.classList).includes('filter-active')) {
         flitwrap.classList.remove('filter-active');
@@ -796,6 +796,9 @@ export default function decorate(block) {
   if (funddata === undefined) {
     dataMapMoObj.funddata = dataCfObj.slice(0, 10); // .slice(0, 11);;
   }
+  const subfourer = block.querySelector('.block-subitem2');
+  const subun = subfourer.querySelector('.block-subitem-finelsub3 span');
+  const subfour = subun.cloneNode(true);
   const divfund = div(
     {
       class: 'blockwrapper',
@@ -857,9 +860,9 @@ export default function decorate(block) {
               block.querySelector(
                 '.block-subitem2 .block-subitem-finelsub2 span',
               ),
-              block.querySelector(
-                '.block-subitem2 .block-subitem-finelsub3 span',
-              ),
+              // block.querySelector(
+              //   '.block-subitem2 .block-subitem-finelsub3 span',
+              // ),
             ),
             div(
               {
@@ -867,7 +870,7 @@ export default function decorate(block) {
               },
               span(
                 block
-                  .querySelector('.block-subitem2 .block-subitem-finelsub3')
+                  .querySelector('.block-subitem2 .block-subitem-finelsub2')
                   .textContent.trim(),
               ),
             ),
@@ -881,16 +884,14 @@ export default function decorate(block) {
                 class: 'trendinglabel',
               },
               p(
-                block.querySelector(
-                  '.block-subitem2 .block-subitem-finelsub4 span',
-                ),
+                subfour,
               ),
               span(
                 {
                   class: 'trending-text',
                 },
                 block
-                  .querySelector('.block-subitem2 .block-subitem-finelsub5')
+                  .querySelector('.block-subitem2 .block-subitem-finelsub4')
                   .textContent.trim(),
               ),
             ),
@@ -898,7 +899,7 @@ export default function decorate(block) {
               {
                 class: 'trendingmostlist',
               },
-              block.querySelector('.block-subitem2 .block-subitem-finelsub6'),
+              block.querySelector('.block-subitem2 .block-subitem-finelsub5'),
             ),
           ),
         ),

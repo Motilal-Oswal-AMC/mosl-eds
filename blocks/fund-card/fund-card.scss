@@ -6,9 +6,10 @@
   .card-container {
     max-width: 296px;
     width: 100%;
-    padding: 16px;
-    border-radius: 8px;
-    background: linear-gradient(#fff, #fff) padding-box,
+    padding: 20px 16px 16px;
+    border-radius: 16px;
+    background:
+      linear-gradient(#fff, #fff) padding-box,
       linear-gradient(135deg, #b9bbff 0%, #fff 50%, #b9bbff 100%) border-box;
     border: 1px solid transparent;
     box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
@@ -24,13 +25,7 @@
 
       // All dropdown in card
       .selectedtext {
-        @include font-style(
-          12px,
-          16px,
-          $primary-blue,
-          map.get($font-weights, medium),
-          $poppins
-        );
+        @include font-style(12px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
 
         margin: 0;
         cursor: pointer;
@@ -99,13 +94,7 @@
         }
 
         li {
-          @include font-style(
-            12px,
-            16px,
-            $neutrals-black,
-            map.get($font-weights, regular),
-            $poppins
-          );
+          @include font-style(12px, 14px, $neutrals-black, map.get($font-weights, regular), $inter);
 
           padding: 12px;
 
@@ -125,7 +114,7 @@
       align-items: start;
 
       // gap: 30px;
-      gap: 6px;
+      gap: 16px;
       margin: 0 0 8px;
 
       // height: 100%;
@@ -139,9 +128,10 @@
 
         .brand-logo {
           position: relative;
-          min-width: 40px;
-          width: 40px;
-          height: 40px;
+
+          // min-width: 40px;
+          width: 32px;
+          height: 32px;
           box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
           border-radius: 50%;
 
@@ -158,21 +148,31 @@
           }
         }
 
-        .star {
-          min-width: 28px;
-          width: 28px;
-          height: 28px;
-          cursor: pointer;
-          -webkit-tap-highlight-color: transparent;
+        .star-wrap {
+          display: flex;
+          align-items: center;
+          gap: 4px;
 
-          &.star-filled .star-icon,
-          &:not(.star-filled) .fillstar-icon {
-            display: none;
+          .watchlistlabel {
+            @include font-style(12px, 16px, $sub-header, 400, $inter);
           }
 
-          img {
-            width: 100%;
-            height: 100%;
+          .star {
+            min-width: 28px;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+
+            &.star-filled .star-icon,
+            &:not(.star-filled) .fillstar-icon {
+              display: none;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
           }
         }
       }
@@ -180,25 +180,25 @@
       .brand-fund-wrap {
         width: 100%;
 
-        .brand-name-text {
-          margin: 0;
+        // .brand-name-text {
+        //   margin: 0;
 
-          @include font-style(
-            12px,
-            16px,
-            map.get($blue-1, b400),
-            map.get($font-weights, regular),
-            $poppins
-          );
-        }
+        //   @include font-style(
+        //     12px,
+        //     16px,
+        //     map.get($blue-1, b400),
+        //     map.get($font-weights, regular),
+        //     $poppins
+        //   );
+        // }
 
         .fund-name-title {
           @include font-style(
             $size: 16px,
             $line-height: 20px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
-            $family: $poppins
+            $color: $neutrals-black,
+            $weight: map.get($font-weights, semibold),
+            $family: $inter
           );
 
           min-height: 40px;
@@ -212,20 +212,18 @@
     }
 
     .card-category {
-      @include flex-center($align: center, $justify: flex-start);
-
-      // gap: 8px;
+      // @include flex-center($align: center, $justify: flex-start);
       gap: 4px 8px;
-      padding: 4px 0;
 
+      // padding: 4px 0;
       // margin: 0 0 16px;
-      margin: 0 0 22px;
+      margin: 0 0 40px;
       flex-wrap: wrap;
 
       // margin-top: auto;
       // min-height: unset;
       // height: 100%;
-      height: auto;
+      // height: auto;
 
       .fundtagging-list {
         @include flex-center($align: center, $justify: flex-start);
@@ -238,10 +236,10 @@
         &-name {
           @include font-style(
             $size: 12px,
-            $line-height: 16px,
-            $color: $primary-blue-1-900,
+            $line-height: 14px,
+            $color: $text-body-2,
             $weight: map.get($font-weights, regular),
-            $family: $poppins
+            $family: $inter
           );
           @include flex-center($align: center, $justify: flex-start);
 
@@ -249,11 +247,15 @@
 
           &::after {
             content: "";
-            min-width: 3px;
-            height: 3px;
+            min-width: 4px;
+            height: 4px;
             display: block;
-            background-color: $primary-blue;
+            background-color: $text-body-2;
             border-radius: 50%;
+          }
+
+          &:last-of-type::after {
+            content: unset;
           }
         }
       }
@@ -289,55 +291,56 @@
     }
 
     .cagr-container {
-      @include flex-center($align: center, $justify: space-between);
+      display: flex;
+      justify-content: start;
 
       // gap: 24px;
-      gap: 10px;
+      gap: 8px;
+      flex-direction: column-reverse;
 
       // min-height: 88px;
-      min-height: 109px;
+      // min-height: 109px;
 
       // height: 88px;
-      height: auto;
-      padding: 24px 12px;
+      // height: 100%;
 
+      // padding: 24px 12px;
       // padding: 12px;
       // align-self: stretch;
-      border-radius: 12px;
-      border: 0.5px solid #e8e8e8;
-      background: $neutrals-50;
-      box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
-      margin-top: auto;
+      // border-radius: 12px;
+      // border: 0.5px solid #e8e8e8;
+      // background: $neutrals-50;
+      // box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
+
+      // margin-top: auto;
+      margin: 0 0 10px;
 
       @include media(tab) {
         height: 100%;
       }
 
       .cagr-dropdown {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
-        flex: 1 0 0;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: flex-start;
+        // gap: 2px;
+
+        // flex: 1 0 0;
 
         // max-width: 46%;
         // width: 100%;
-        position: relative;
+        // position: relative;
 
-        // line-height: 0;
+        line-height: 0;
 
         .cagr-txt {
           @include font-style(
             $size: 12px,
-            $line-height: 16px,
-            $color: $neutrals-black,
-            $weight: map.get($font-weights, medium),
-            $family: $poppins
+            $line-height: 14px,
+            $color: $color-text-body,
+            $weight: map.get($font-weights, regular),
+            $family: $inter
           );
-
-          margin-bottom: 4px;
-
-          // padding-bottom: 4px;
         }
 
         .cagr-select-wrapper {
@@ -368,15 +371,21 @@
           //     top: 18px;
           //   }
           // }
+
+          .selectedtext{
+            @include font-style(12px, 14px, $primary-blue, map.get($font-weights, medium), $inter);
+
+            gap: 0;
+          }
         }
 
         .cagr-date {
           @include font-style(
             $size: 12px,
-            $line-height: 16px,
+            $line-height: 14px,
             $color: $primary-blue,
             $weight: map.get($font-weights, medium),
-            $family: $poppins
+            $family: $inter
           );
 
           margin: 0;
@@ -388,22 +397,19 @@
         // max-width: 46%;
         max-width: max-content;
         width: 100%;
+        line-height: 0;
 
-        h2 {
+        .cagr-val-label {
           @include font-style(
             $size: 24px,
             $line-height: 32px,
             $color: $primary-blue,
-            $weight: map.get($font-weights, semibold),
-            $family: $poppins
+            $weight: map.get($font-weights, medium),
+            $family: $inter
           );
 
           margin: 0;
           text-align: right;
-
-          span {
-            font-weight: map.get($font-weights, light);
-          }
         }
 
         .scheme-yet {
@@ -507,8 +513,10 @@
 
     .discription {
       // margin: 24px 0 0;
-      margin: 10px 0 0;
-      padding: 8px 12px;
+      // margin: 10px 0 0;
+      margin-top: auto;
+
+      // padding: 8px 12px;
 
       .dis-choosen {
         display: flex;
@@ -519,6 +527,7 @@
 
         .dis-investor {
           display: flex;
+          align-items: center;
           gap: 6px;
 
           .person {
@@ -529,10 +538,10 @@
           .investor-txt {
             @include font-style(
               $size: 12px,
-              $line-height: 16px,
-              $color: map.get($blue-1, b900),
-              $weight: map.get($font-weights, regular),
-              $family: $poppins
+              $line-height: 14px,
+              $color: $text-body-2,
+              $weight: map.get($font-weights, medium),
+              $family: $inter
             );
           }
         }
@@ -543,21 +552,24 @@
       @include flex-center($align: center, $justify: space-between);
 
       flex-wrap: wrap;
-      gap: 24px 9.08%;
-      margin: 20px 0 0;
+
+      // gap: 24px 9.08%;
+      gap: 24px 8px;
+      margin: 24px 0 0;
 
       .card-btn {
         // max-width: 120px;
-        max-width: 45.46%;
+        // max-width: 45.46%;
+        max-width: 48.4%;
         width: 100%;
         display: block;
 
         @include font-style(
           $size: 14px,
           $line-height: 16px,
-          $color: map.get($blue-1, b500),
+          $color: $primary-blue,
           $weight: map.get($font-weights, medium),
-          $family: $poppins
+          $family: $inter
         );
 
         margin: 0;
@@ -571,12 +583,13 @@
           text-decoration-line: underline;
 
           // text-underline-offset: 20%;
-          padding: 8px 0;
+          padding: 8px;
           cursor: pointer;
+          text-align: center;
         }
 
         &.invest-now {
-          border-radius: map.get($radius, r4);
+          border-radius: map.get($radius, r8);
           background: map.get($button-primary, default);
           padding: 8px 12px;
           text-align: center;

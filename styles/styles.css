@@ -348,7 +348,13 @@ main>.section>div {
 }
 
 main>.section:first-of-type {
-    margin-top: 25px;
+    margin-top: 31px;
+}
+
+@media (width <=1025px) {
+    main>.section:first-of-type {
+        margin-top: 73px;
+    }
 }
 
 @media (width <=1279px) {
@@ -363,11 +369,11 @@ main>.section:first-of-type {
     }
 }
 
-@media (width <=768px) {
+/* @media (width <=768px) {
     main>.section:first-of-type {
         margin-top: 76px;
     }
-}
+} */
 
 main .section.light,
 main .section.highlight {

@@ -28,18 +28,14 @@ body {
     &-wrapper {
       width: 100%;
       padding: 32px 0 50px;
-      background: radial-gradient(
-        50% 50% at 50% 50%,
-        #e5e7f7 0%,
-        rgb(229 231 247 / 0%) 100%
-      );
+      background: radial-gradient(50% 50% at 50% 50%, #e5e7f7 0%, rgb(229 231 247 / 0%) 100%);
 
       @include media(desktop-sm) {
         padding: 32px 16px 50px;
       }
 
       @include media(mobile) {
-        padding-top: 56px 16px 24px;
+        padding: 56px 16px 24px;
       }
     }
 
@@ -47,13 +43,12 @@ body {
       display: flex;
       justify-content: space-between;
       gap: 20px;
-      max-width: 1228px;
-      width: 100%;
 
       @include media(mobile) {
         flex-direction: column;
         gap: 36px;
-        padding: 24px 0 0;
+
+        // padding: 24px 0 0;
         max-width: 100%;
       }
 
@@ -61,7 +56,7 @@ body {
         .block-subitem-finelsub1 {
           margin: 0;
 
-          @include font-style(40px, 48px, $primary-blue, 700, $butlerpro);
+          @include font-style(40px, 48px, $primary-blue, 600, $inter);
 
           @include media(mobile) {
             font-size: 34px;
@@ -81,7 +76,8 @@ body {
 
         // max-width: 74.68%;
         // max-width: 74.6%;
-        max-width: 74.593%;
+        // max-width: 74.593%;
+        max-width: 74.676%;
         width: 100%;
 
         @include media(desktop-sm) {
@@ -106,9 +102,10 @@ body {
         .search-input {
           // max-width: 81.8%;
           // max-width: 82.2%;
-          max-width: 82.206%;
+          // max-width: 82.206%;
+          max-width: 83.044%;
           width: 100%;
-          padding: 12px 8px;
+          padding: 10px 8px;
           border-radius: 6px;
           outline: 1px solid map.get($strokes, default);
           display: flex;
@@ -117,12 +114,14 @@ body {
           position: relative;
 
           @include media(desktop-sm) {
-            max-width: 76.8%;
+            // max-width: 76.8%;
+            max-width: 79%;
           }
 
           @include media(tab) {
             // max-width: 69.7%;
-            max-width: 67.7%;
+            // max-width: 67.7%;
+            max-width: 70%;
           }
 
           @include media(mobile) {
@@ -136,19 +135,18 @@ body {
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            min-width: 20px;
-            height: 20px;
+            min-width: 24px;
+            height: 24px;
             display: block;
           }
 
           .search {
             width: 100%;
-
-            @include font-style(14px, 20px, #2e2a94, 400, $poppins);
-
             border: none;
             outline: none;
             background-color: transparent;
+
+            @include font-style(16px, 20px, #2e2a94, 400, $inter);
           }
 
           .cancel-search {
@@ -215,14 +213,13 @@ body {
 
           &.search-active {
             outline: 1px solid map.get($strokes, typing);
-            padding: 10px 8px;
 
             .search {
               caret-color: map.get($strokes, typing);
             }
 
             .cancel-search {
-              display: block;
+              display: flex;
             }
 
             .list-search {
@@ -235,49 +232,49 @@ body {
           display: flex;
           align-items: center;
           gap: 4px;
-
-          // padding: 8px 0;
           line-height: 0;
           cursor: pointer;
-          height: max-content;
 
           @include media(mobile) {
             grid-area: watchlist;
             margin-top: 20px;
+            padding: 8px 0;
           }
 
           .staricon {
             .icon {
-              width: 16px;
-              height: 16px;
+              width: 20px;
+              height: 20px;
               display: block;
               cursor: pointer;
             }
 
-            .icon-star-filled {
-              display: none;
-            }
+            // .icon-star-filled {
+            //   display: none;
+            // }
 
-            &.watchlist-active {
-              .icon {
-                display: none;
-              }
+            // &.watchlist-active {
+            //   .icon {
+            //     display: none;
+            //   }
 
-              .icon-star-filled {
-                display: block;
-              }
-            }
+            //   .icon-star-filled {
+            //     display: block;
+            //   }
+            // }
           }
 
           &text {
-            width: max-content;
-            line-height: 0;
-
             span {
-              @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+              @include font-style(14px, 16px, $primary-blue, 500, $inter);
 
-              // text-underline-offset: 20%;
               text-decoration-line: underline;
+
+              @include media(mobile) {
+                line-height: 20px;
+                font-weight: 400;
+                text-underline-offset: 20%;
+              }
             }
           }
         }
@@ -290,6 +287,7 @@ body {
           @include media(mobile) {
             grid-area: trending;
             align-items: center;
+            gap: 0;
 
             // overflow-x: auto;
             // overflow-y: hidden;
@@ -323,7 +321,7 @@ body {
             }
 
             .trending-text {
-              @include font-style(14px, 16px, $neutrals-black, 500, $poppins);
+              @include font-style(14px, 16px, $neutrals-black, 500, $inter);
             }
           }
 
@@ -341,7 +339,6 @@ body {
 
               @include media(mobile) {
                 flex-wrap: nowrap;
-                gap: 24px;
                 padding-right: 16px;
 
                 // overflow-x: auto;
@@ -355,6 +352,8 @@ body {
               }
 
               li {
+                line-height: 0;
+
                 @include media(mobile) {
                   white-space: nowrap;
                 }
@@ -363,13 +362,7 @@ body {
                   text-decoration-line: underline;
                   text-underline-offset: 20%;
 
-                  @include font-style(
-                    14px,
-                    20px,
-                    map.get($blue-1, b500),
-                    400,
-                    $poppins
-                  );
+                  @include font-style(14px, 20px, $primary-blue, 400, $inter);
                 }
               }
             }
@@ -381,7 +374,7 @@ body {
     .filter-cards {
       display: flex;
       gap: 16px;
-      margin: 56px 0 0;
+      margin: 48px 0 0;
 
       @include media(mobile) {
         //   display: none;
@@ -553,13 +546,7 @@ body {
                   border-bottom: 1px solid $neutrals-300;
 
                   span {
-                    @include font-style(
-                      16px,
-                      20px,
-                      $primary-blue,
-                      500,
-                      $poppins
-                    );
+                    @include font-style(16px, 20px, $primary-blue, 500, $poppins);
                   }
 
                   button {
@@ -569,13 +556,7 @@ body {
                     border: none;
                     border-radius: 0;
 
-                    @include font-style(
-                      14px,
-                      20px,
-                      $neutrals-600,
-                      400,
-                      $poppins
-                    );
+                    @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
                   }
                 }
               }
@@ -597,13 +578,7 @@ body {
                     border-left: 1px solid $neutrals-300;
                     padding: 18px 18px 22px;
 
-                    @include font-style(
-                      14px,
-                      16px,
-                      $primary-blue,
-                      500,
-                      $poppins
-                    );
+                    @include font-style(14px, 16px, $primary-blue, 500, $poppins);
                   }
                 }
               }
@@ -664,13 +639,7 @@ body {
                   }
 
                   label {
-                    @include font-style(
-                      14px,
-                      20px,
-                      $neutrals-black,
-                      400,
-                      $poppins
-                    );
+                    @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
 
                     display: flex;
                     align-items: center;
@@ -681,13 +650,7 @@ body {
                     position: relative;
 
                     .fund-length {
-                      @include font-style(
-                        14px,
-                        20px,
-                        $neutrals-600,
-                        400,
-                        $poppins
-                      );
+                      @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
                     }
                   }
 
@@ -733,13 +696,7 @@ body {
                       font-family: $poppins;
                       font-weight: 400;
 
-                      @include font-style(
-                        12px,
-                        16px,
-                        $text-body-2,
-                        400,
-                        $poppins
-                      );
+                      @include font-style(12px, 16px, $text-body-2, 400, $poppins);
 
                       // &::after {
                       //   content: "";
@@ -881,13 +838,7 @@ body {
                   border-bottom: 1px solid $neutrals-300;
 
                   span {
-                    @include font-style(
-                      16px,
-                      20px,
-                      $primary-blue,
-                      500,
-                      $poppins
-                    );
+                    @include font-style(16px, 20px, $primary-blue, 500, $poppins);
                   }
                 }
 
@@ -909,13 +860,7 @@ body {
                       padding: 24px 0 20px;
                       display: block;
 
-                      @include font-style(
-                        14px,
-                        16px,
-                        $neutrals-black,
-                        600,
-                        $poppins
-                      );
+                      @include font-style(14px, 16px, $neutrals-black, 600, $poppins);
                     }
 
                     .radio-label-container {
@@ -956,13 +901,7 @@ body {
                         }
 
                         label {
-                          @include font-style(
-                            14px,
-                            20px,
-                            $neutrals-black,
-                            400,
-                            $poppins
-                          );
+                          @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
 
                           width: 100%;
                           cursor: pointer;
@@ -994,23 +933,11 @@ body {
                     border-radius: 0;
                     cursor: pointer;
 
-                    @include font-style(
-                      14px,
-                      20px,
-                      $neutrals-600,
-                      400,
-                      $poppins
-                    );
+                    @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
                   }
 
                   button:last-of-type {
-                    @include font-style(
-                      16px,
-                      20px,
-                      $primary-blue,
-                      500,
-                      $poppins
-                    );
+                    @include font-style(16px, 20px, $primary-blue, 500, $poppins);
 
                     border-left: 1px solid $neutrals-300;
                   }
@@ -1044,7 +971,7 @@ body {
           align-items: center;
           flex-wrap: wrap;
           gap: 10px 20px;
-          margin: 0 0 20px;
+          margin: 0 0 12px;
 
           @include media(mbile) {
             margin: 0 0 32px;
@@ -1071,19 +998,13 @@ body {
               gap: 4px;
 
               .sort-pop-label {
-                @include font-style(14px, 20px, $text-body-2, 400, $poppins);
+                @include font-style(14px, 20px, $text-body-2, 400, $inter);
               }
 
               .sort-select-container,
               .return-select-container {
                 .selectedtext {
-                  @include font-style(
-                    14px,
-                    16px,
-                    $neutrals-black,
-                    map.get($font-weights, medium),
-                    $poppins
-                  );
+                  @include font-style(14px, 16px, $neutrals-black, map.get($font-weights, medium), $inter);
 
                   margin: 0;
                   cursor: pointer;
@@ -1144,13 +1065,7 @@ body {
                   }
 
                   li {
-                    @include font-style(
-                      12px,
-                      16px,
-                      $neutrals-black,
-                      map.get($font-weights, regular),
-                      $poppins
-                    );
+                    @include font-style(12px, 16px, $neutrals-black, map.get($font-weights, regular), $inter);
 
                     padding: 12px;
 
@@ -1176,9 +1091,9 @@ body {
                 content: "";
                 width: 1px;
                 height: 16px;
-                background-color: map.get($old-silver, 500);
+                background-color: map.get($strokes, default);
                 margin-left: 8px;
-                opacity: 0.45;
+                border-radius: 5px;
               }
             }
 
@@ -1194,8 +1109,13 @@ body {
             }
 
             .view-container {
-              border-right: 1px solid map.get($old-silver, 500);
-              padding-right: 12px;
+              &::after {
+                content: "";
+                width: 1px;
+                height: 16px;
+                background-color: map.get($strokes, default);
+                border-radius: 5px;
+              }
 
               .squareby-container,
               .listby-container {
@@ -1253,20 +1173,20 @@ body {
               .toggle-text {
                 margin: 0;
 
-                @include font-style(14px, 16px, map.get($blue-1, b700), 600, $poppins);
+                @include font-style(14px, 16px, map.get($blue-1, b700), 600, $inter);
               }
 
               .toggle-text:last-of-type {
-                @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
+                @include font-style(14px, 20px, $neutrals-black, 400, $inter);
               }
-              
+
               &.toggle-checked {
                 .toggle-text:first-of-type {
-                  @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
+                  @include font-style(14px, 20px, $neutrals-black, 400, $inter);
                 }
 
                 .toggle-text:last-of-type {
-                  @include font-style(14px, 16px, map.get($blue-1, b700), 600, $poppins);
+                  @include font-style(14px, 16px, map.get($blue-1, b700), 600, $inter);
                 }
               }
 
@@ -1276,14 +1196,15 @@ body {
                   position: absolute;
                   z-index: 1;
                   cursor: pointer;
+                  -webkit-tap-highlight-color: transparent;
                 }
 
                 .fund-toggle {
-                  width: 37px;
+                  width: 40px;
                   height: 20px;
-                  background-color: $neutrals-500;
+                  background-color: map.get($strokes, disabled);
                   display: block;
-                  border-radius: 16.7px;
+                  border-radius: 16.667px;
                   position: relative;
                   transition: all 0.2s;
                   cursor: pointer;
@@ -1291,21 +1212,21 @@ body {
 
                   &::before {
                     content: "";
-                    width: 17px;
-                    height: 17px;
+                    width: 16px;
+                    height: 16px;
                     display: block;
-                    background: #fff;
-                    border-radius: 50%;
-                    box-shadow: 0 3.333px 16.667px 0 rgb(0 0 0 / 10%);
+                    background: $primary-white;
+                    border-radius: 16px;
+                    box-shadow: 0 3.2px 16px 0 rgb(0 0 0 / 10%);
                     position: absolute;
-                    top: 1.67px;
-                    transform: translateX(1.67px);
-                    transition: all 0.2s;
+                    top: 2px;
+                    transform: translateX(2px);
+                    transition: all 0.3s;
                   }
                 }
 
                 input:checked + .fund-toggle::before {
-                  transform: translateX(18.67px);
+                  transform: translateX(22px);
                 }
               }
             }
@@ -1325,14 +1246,14 @@ body {
               }
 
               button {
-                margin: 0 0 0 12px;
+                margin: 0 0 0 8px;
                 background-color: transparent;
                 padding: 8px 12px;
-                border-radius: 4px;
+                border-radius: 8px;
                 border: 1px solid $primary-blue;
                 cursor: pointer;
 
-                @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+                @include font-style(14px, 16px, $primary-blue, 500, $inter);
               }
             }
           }
@@ -1375,7 +1296,7 @@ body {
             padding: 4px 12px;
 
             span {
-              @include font-style(12px, 16px, $text-body-2, 400, $poppins);
+              @include font-style(12px, 16px, $text-body-2, 400, $inter);
             }
 
             .filter-cross-icon {
@@ -1475,11 +1396,7 @@ body {
 
                 &::before {
                   content: "";
-                  background: linear-gradient(
-                    270deg,
-                    rgb(81 101 25 / 0%) 21.43%,
-                    rgb(48 57 23 / 40%) 100%
-                  );
+                  background: linear-gradient(270deg, rgb(81 101 25 / 0%) 21.43%, rgb(48 57 23 / 40%) 100%);
                   width: 100%;
                   height: 100%;
                   display: block;
@@ -1508,13 +1425,7 @@ body {
                   width: 100%;
                   height: 100%;
 
-                  @include font-style(
-                    18px,
-                    24px,
-                    $primary-white,
-                    700,
-                    $butlerpro
-                  );
+                  @include font-style(18px, 24px, $primary-white, 700, $butlerpro);
                 }
               }
 
@@ -1529,13 +1440,7 @@ body {
 
                 .nfo-container {
                   span {
-                    @include font-style(
-                      12px,
-                      16px,
-                      $primary-white,
-                      600,
-                      $poppins
-                    );
+                    @include font-style(12px, 16px, $primary-white, 600, $poppins);
 
                     display: flex;
                     gap: 4px;
@@ -1554,13 +1459,7 @@ body {
 
                 .timing-container {
                   .timing-text {
-                    @include font-style(
-                      12px,
-                      16px,
-                      $primary-white,
-                      400,
-                      $poppins
-                    );
+                    @include font-style(12px, 16px, $primary-white, 400, $poppins);
 
                     margin: 0;
                   }
@@ -1736,25 +1635,13 @@ body {
                     .brand-name-txt {
                       margin: 0;
 
-                      @include font-style(
-                        12px,
-                        16px,
-                        map.get($blue-1, b400),
-                        400,
-                        $poppins
-                      );
+                      @include font-style(12px, 16px, map.get($blue-1, b400), 400, $poppins);
                     }
 
                     .fund-name-txt {
                       margin: 0;
 
-                      @include font-style(
-                        14px,
-                        16px,
-                        $primary-blue,
-                        500,
-                        $poppins
-                      );
+                      @include font-style(14px, 16px, $primary-blue, 500, $poppins);
                     }
                   }
 
@@ -1781,13 +1668,7 @@ body {
                   }
 
                   .cagr-value {
-                    @include font-style(
-                      14px,
-                      16px,
-                      $primary-blue,
-                      600,
-                      $poppins
-                    );
+                    @include font-style(14px, 16px, $primary-blue, 600, $poppins);
 
                     display: flex;
                   }
@@ -1795,13 +1676,7 @@ body {
                   .cagr-text {
                     margin: 0;
 
-                    @include font-style(
-                      12px,
-                      16px,
-                      $neutrals-600,
-                      400,
-                      $poppins
-                    );
+                    @include font-style(12px, 16px, $neutrals-600, 400, $poppins);
                   }
                 }
 
@@ -1867,13 +1742,7 @@ body {
                     border: none;
                     border-radius: 4px;
 
-                    @include font-style(
-                      14px,
-                      16px,
-                      $primary-white,
-                      500,
-                      $poppins
-                    );
+                    @include font-style(14px, 16px, $primary-white, 500, $poppins);
                   }
                 }
               }
@@ -1923,13 +1792,7 @@ body {
                         line-height: 0;
 
                         .label-nfo {
-                          @include font-style(
-                            12px,
-                            16px,
-                            $primary-white,
-                            600,
-                            $poppins
-                          );
+                          @include font-style(12px, 16px, $primary-white, 600, $poppins);
 
                           display: flex;
                           align-items: center;
@@ -1950,13 +1813,7 @@ body {
                         p {
                           margin: 0;
 
-                          @include font-style(
-                            12px,
-                            16px,
-                            $primary-white,
-                            400,
-                            $poppins
-                          );
+                          @include font-style(12px, 16px, $primary-white, 400, $poppins);
                         }
                       }
                     }

@@ -89,34 +89,37 @@ export default function decorate(block) {
                 }),
               ),
               div(
-                {
-                  class: `star ${starClass}`,
-                  onclick: (event) => {
-                    if (
-                      !Array.from(
-                        event.target.parentElement.classList,
-                      ).includes('star-filled')
-                    ) {
-                      event.target.parentElement.classList.add('star-filled');
-                    } else {
-                      event.target.parentElement.classList.remove(
-                        'star-filled',
-                      );
-                    }
+                { class: 'star-wrap' },
+                span({ class: 'watchlistlabel' }, 'Watchlist'),
+                div(
+                  {
+                    class: `star ${starClass}`,
+                    onclick: (event) => {
+                      if (
+                        !Array.from(
+                          event.target.parentElement.classList,
+                        ).includes('star-filled')
+                      ) {
+                        event.target.parentElement.classList.add('star-filled');
+                      } else {
+                        event.target.parentElement.classList.remove(
+                          'star-filled',
+                        );
+                      }
+                    },
+                    schcode: block.schcode,
                   },
-                  schcode: block.schcode,
-                },
-                span({ class: 'watchlistlab' }, 'Watchlist'),
-                img({
-                  class: 'star-icon',
-                  src: '../../icons/not-filled-star.svg',
-                  alt: 'star-icon',
-                }),
-                img({
-                  class: 'fillstar-icon',
-                  src: '../../icons/filled-star.svg',
-                  alt: 'fillstar-icon',
-                }),
+                  img({
+                    class: 'star-icon',
+                    src: '../../icons/not-filled-star.svg',
+                    alt: 'star-icon',
+                  }),
+                  img({
+                    class: 'fillstar-icon',
+                    src: '../../icons/filled-star.svg',
+                    alt: 'fillstar-icon',
+                  }),
+                ),
               ),
             ),
             div(
@@ -225,33 +228,37 @@ export default function decorate(block) {
               }),
             ),
             div(
-              {
-                class: `star ${starClass}`,
-                onclick: (event) => {
-                  if (
-                    !Array.from(event.target.parentElement.classList).includes(
-                      'star-filled',
-                    )
-                  ) {
-                    event.target.parentElement.classList.add('star-filled');
-                  } else {
-                    event.target.parentElement.classList.remove('star-filled');
-                  }
-                  wishlist(block);
+              { class: 'star-wrap' },
+              span({ class: 'watchlistlabel' }, 'Watchlist'),
+              div(
+                {
+                  class: `star ${starClass}`,
+                  onclick: (event) => {
+                    if (
+                      !Array.from(
+                        event.target.parentElement.classList,
+                      ).includes('star-filled')
+                    ) {
+                      event.target.parentElement.classList.add('star-filled');
+                    } else {
+                      event.target.parentElement.classList.remove(
+                        'star-filled',
+                      );
+                    }
+                  },
+                  schcode: block.schcode,
                 },
-                schcode: block.schcode,
-              },
-              span({ class: 'watchlistlab' }, 'Watchlist'),
-              img({
-                class: 'star-icon',
-                src: '../../icons/not-filled-star.svg',
-                alt: 'star-icon',
-              }),
-              img({
-                class: 'fillstar-icon',
-                src: '../../icons/filled-star.svg',
-                alt: 'fillstar-icon',
-              }),
+                img({
+                  class: 'star-icon',
+                  src: '../../icons/not-filled-star.svg',
+                  alt: 'star-icon',
+                }),
+                img({
+                  class: 'fillstar-icon',
+                  src: '../../icons/filled-star.svg',
+                  alt: 'fillstar-icon',
+                }),
+              ),
             ),
           ),
           div(
@@ -376,7 +383,7 @@ export default function decorate(block) {
             {
               class: 'cagr-value',
             },
-            h2(`${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`, span('%')),
+            span({ class: 'cagr-val-label' }, `${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`, span('%')),
             p(
               {
                 class: 'scheme-yet',
@@ -418,7 +425,7 @@ export default function decorate(block) {
               },
               img({
                 class: 'icon person',
-                src: '../../icons/Icon.svg',
+                src: '../../icons/user-icon.svg',
                 alt: 'person',
               }),
               span({ class: 'investor-txt' }, '2.7L Investors in this fund'),
