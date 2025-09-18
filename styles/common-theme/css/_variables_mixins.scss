@@ -175,22 +175,12 @@ $font-weights: (
 );
 
 // Font mixin
-@mixin font-style($size, $line-height, $color, $weight: null, $family: $butlerpro) {
+@mixin font-style($size, $line-height, $color, $weight: null, $family: $body) {
   font-size: $size;
   line-height: $line-height;
   color: $color;
   font-family: $family;
-
-  @if $weight != 'null' {
-    font-weight: $weight;
-  }
-}
-
-@mixin font-style-inter($size, $line-height, $color, $weight: null, $family: $inter) {
-  font-size: $size;
-  line-height: $line-height;
-  color: $color;
-  font-family: $family;
+  font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
 
   @if $weight != 'null' {
     font-weight: $weight;
@@ -348,7 +338,9 @@ $weight-bold: "Bold";
 $spacing-none: 0px;
 $spacing-4: 4px;
 $spacing-8: 8px;
+$spacing-10: 10px;
 $spacing-12: 12px;
+$spacing-14: 14px;
 $spacing-16: 16px;
 $spacing-24: 24px;
 $spacing-32: 32px;
@@ -356,6 +348,7 @@ $spacing-40: 40px;
 $spacing-72: 72px;
 $border-radius-none: 0px;
 $border-radius-4: 4px;
+$border-radius-6: 6px;
 $border-radius-8: 8px;
 $border-radius-12: 12px;
 $border-radius-16: 16px;
@@ -518,6 +511,8 @@ $text-disclaimer: $neutrals-700;
 $text-typed-input: $neutrals-black;
 $text-button-focus: $blue-1-700;
 $text-button-disabled: $neutrals-500;
+$card-stroke: #B9BBFF;
+$surface-icon-primary-normal: $blue-1-800-primary;
 
 //semantic-lights end
 
@@ -612,6 +607,7 @@ $typography-desktop: (
   button-medium-line-height: $spacing-20,
   button-small-font: $body,
   button-small-weight: $weight-semibold,
+  button-small-size: $spacing-14,
   button-small-line-height: $spacing-16,
   label-medium-font: $body,
   label-medium-weight: $weight-regular,
@@ -651,6 +647,7 @@ $typography-desktop: (
   text-link-medium-line-height: $spacing-24,
   text-link-small-font: $body,
   text-link-small-weight: $weight-regular,
+  text-link-small-size: $spacing-16,
   text-link-small-line-height: $spacing-20,
   text-link-xsmall-font: $body,
   text-link-xsmall-weight: $weight-regular,
@@ -786,6 +783,7 @@ $typography-mobile: (
   paragraph-medium-line-height: $spacing-24,
   paragraph-small-font: $body,
   paragraph-small-weight: $weight-regular,
+  paragraph-small-size: $spacing-14,
   paragraph-small-line-height: $spacing-20,
   paragraph-xsmall-font: $body,
   paragraph-xsmall-weight: $weight-regular,
@@ -804,6 +802,7 @@ $typography-mobile: (
   text-link-medium-line-height: $spacing-24,
   text-link-small-font: $body,
   text-link-small-weight: $weight-regular,
+  text-link-small-size: $spacing-14,
   text-link-small-line-height: $spacing-20,
   text-link-xsmall-font: $body,
   text-link-xsmall-weight: $weight-regular,

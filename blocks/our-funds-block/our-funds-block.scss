@@ -56,7 +56,13 @@ body {
         .block-subitem-finelsub1 {
           margin: 0;
 
-          @include font-style(map.get($typography-desktop, heading-h2-size), map.get($typography-desktop, heading-h2-line-height), $blue-1-800-primary, 600, $title);
+          @include font-style(
+            map.get($typography-desktop, heading-h2-size),
+            map.get($typography-desktop, heading-h2-line-height),
+            $blue-1-800-primary,
+            600,
+            $title
+          );
 
           @include media(mobile) {
             font-size: 34px;
@@ -105,9 +111,9 @@ body {
           // max-width: 82.206%;
           max-width: 83.044%;
           width: 100%;
-          padding: 10px 8px;
-          border-radius: 6px;
-          outline: 1px solid map.get($strokes, default);
+          padding: $spacing-10 $spacing-8;
+          border-radius: $border-radius-6;
+          outline: $border-width-01 solid $strokes-default;
           display: flex;
           align-items: center;
           gap: 8px;
@@ -146,13 +152,24 @@ body {
             outline: none;
             background-color: transparent;
 
-            @include font-style(16px, 20px, #2e2a94, 400, $inter);
+            @include font-style(
+              map.get($typography-desktop, body-medium-regular-size),
+              map.get($typography-desktop, body-medium-regular-line-height),
+              $text-black,
+              400,
+              $body
+            );
+
+            @include media(mobile) {
+              font-size: map.get($typography-mobile, body-medium-regular-size);
+              line-height: map.get($typography-mobile, body-medium-regular-line-height);
+            }
           }
 
           .cancel-search {
-            max-width: 20px;
+            max-width: 24px;
             width: 100%;
-            height: 20px;
+            height: 24px;
             cursor: pointer;
             display: none;
 
@@ -167,7 +184,7 @@ body {
             top: 52px;
             left: 0;
             z-index: 10;
-            background-color: $primary-white;
+            background-color: $neutrals-white;
             border: 1px solid $neutrals-200;
             border-radius: 6px;
             width: 100%;
@@ -192,7 +209,7 @@ body {
 
             &::-webkit-scrollbar-track {
               width: 3px;
-              background-color: $primary-white;
+              background-color: $neutrals-white;
               border-radius: 0 6px 6px 0;
             }
 
@@ -203,19 +220,29 @@ body {
             }
 
             .list-fund-name {
-              @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
+              @include font-style(
+                map.get($typography-desktop, body-small-regular-size),
+                map.get($typography-desktop, label-large-line-height),
+                $neutrals-black,
+                400,
+                $body
+              );
 
-              // border-bottom: 1px solid $neutrals-200;
-              padding: 12px 36px;
+              padding: 12px 40px;
               cursor: pointer;
+
+              @include media(mobile) {
+                font-size: map.get($typography-mobile, paragraph-small-size);
+                line-height: map.get($typography-desktop, paragraph-small-line-height);
+              }
             }
           }
 
           &.search-active {
-            outline: 1px solid map.get($strokes, typing);
+            outline: 2px solid $strokes-typing;
 
             .search {
-              caret-color: map.get($strokes, typing);
+              caret-color: $strokes-typing;
             }
 
             .cancel-search {
@@ -266,13 +293,21 @@ body {
 
           &text {
             span {
-              @include font-style(14px, 16px, $primary-blue, 500, $inter);
+              @include font-style(
+                map.get($typography-desktop, body-small-medium-size),
+                map.get($typography-desktop, body-small-medium-line-height),
+                $text-text-link,
+                500,
+                $body
+              );
 
               text-decoration-line: underline;
 
               @include media(mobile) {
-                line-height: 20px;
+                font-size: map.get($typography-mobile, text-link-small-size);
+                line-height: map.get($typography-mobile, text-link-small-line-height);
                 font-weight: 400;
+                color: $text-button-default;
                 text-underline-offset: 20%;
               }
             }
@@ -321,7 +356,18 @@ body {
             }
 
             .trending-text {
-              @include font-style(14px, 16px, $neutrals-black, 500, $inter);
+              @include font-style(
+                map.get($typography-desktop, body-small-medium-size),
+                map.get($typography-desktop, body-small-medium-line-height),
+                $neutrals-black,
+                500,
+                $body
+              );
+
+              @include media(mobile) {
+                font-size: map.get($typography-desktop, body-small-medium-size);
+                line-height: map.get($typography-desktop, body-small-medium-line-height);
+              }
             }
           }
 
@@ -329,7 +375,7 @@ body {
             line-height: 0;
             overflow: hidden;
 
-            ul {
+            ul.block-subitem-finelsub5 {
               display: flex;
               align-items: center;
               flex-wrap: wrap;
@@ -362,7 +408,18 @@ body {
                   text-decoration-line: underline;
                   text-underline-offset: 20%;
 
-                  @include font-style(14px, 20px, $primary-blue, 400, $inter);
+                  @include font-style(
+                    14px,
+                    map.get($typography-desktop, text-link-small-line-height),
+                    $blue-1-800-primary,
+                    400,
+                    $body
+                  );
+
+                  @include media(mobile) {
+                    font-size: map.get($typography-mobile, text-link-small-size);
+                    line-height: map.get($typography-mobile, text-link-small-line-height);
+                  }
                 }
               }
             }
@@ -399,7 +456,7 @@ body {
           justify-content: space-between;
           position: fixed;
           z-index: 150;
-          background-color: $primary-white;
+          background-color: $neutrals-white;
           border-radius: 8px 8px 0 0;
           box-shadow: 0 -4px 12px 0 rgb(0 0 0 / 5%);
           max-width: 100%;
@@ -443,13 +500,20 @@ body {
               }
 
               p {
-                @include font-style(map.get($typography-desktop, body-small-semibold-size), 16px, $blue-1-800-primary, 600, $body);
+                @include font-style(
+                  map.get($typography-desktop, body-small-semibold-size),
+                  map.get($typography-desktop, body-small-semibold-line-height),
+                  $blue-1-800-primary,
+                  600,
+                  $body
+                );
 
                 // cursor: pointer;
                 margin: 0;
 
                 @include media(mobile) {
-                  @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                  font-size: map.get($typography-mobile, body-medium-medium-size);
+                  line-height: map.get($typography-mobile, body-medium-medium-line-height);
                 }
               }
             }
@@ -464,12 +528,12 @@ body {
                   gap: 8px;
                 }
 
-                .icon-filtericon{
+                .icon-filtericon {
                   max-width: 24px;
                   width: 100%;
                   height: 24px;
 
-                  img{
+                  img {
                     width: 100%;
                     height: 100%;
                   }
@@ -477,7 +541,13 @@ body {
               }
 
               .clearall-btn {
-                @include font-style(map.get($typography-desktop, body-small-semibold-size), map.get($typography-desktop, label-large-line-height), $neutrals-600, 400, $body);
+                @include font-style(
+                  map.get($typography-desktop, body-small-regular-size),
+                  map.get($typography-desktop, label-large-line-height),
+                  $neutrals-600,
+                  400,
+                  $body
+                );
 
                 margin: 0;
                 padding: 0;
@@ -507,6 +577,7 @@ body {
                   background-color: $neutrals-300;
                   position: absolute;
                   left: 0;
+                  top: 0;
                 }
               }
             }
@@ -535,7 +606,7 @@ body {
               @include media(mobile) {
                 // position: fixed;
                 // z-index: 12;
-                background-color: $primary-white;
+                background-color: $neutrals-white;
                 max-width: 100%;
                 width: 100%;
 
@@ -557,7 +628,13 @@ body {
                   border-bottom: 1px solid $neutrals-300;
 
                   span {
-                    @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                    @include font-style(
+                      map.get($typography-mobile, body-medium-regular-size),
+                      map.get($typography-mobile, body-medium-regular-line-height),
+                      $blue-1-800-primary,
+                      400,
+                      $body
+                    );
                   }
 
                   button {
@@ -567,7 +644,13 @@ body {
                     border: none;
                     border-radius: 0;
 
-                    @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
+                    @include font-style(
+                      map.get($typography-mobile, paragraph-small-size),
+                      map.get($typography-mobile, paragraph-small-line-height),
+                      $neutrals-600,
+                      400,
+                      $body
+                    );
                   }
                 }
               }
@@ -587,9 +670,14 @@ body {
 
                   .apply-btn {
                     border-left: 1px solid $neutrals-300;
-                    padding: 18px 18px 22px;
 
-                    @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+                    @include font-style(
+                      map.get($typography-mobile, body-small-regular-size),
+                      map.get($typography-mobile, body-small-regular-line-height),
+                      $blue-1-800-primary,
+                      400,
+                      $body
+                    );
                   }
                 }
               }
@@ -625,23 +713,35 @@ body {
 
                   .category-direct {
                     visibility: hidden;
-                    min-width: 20px;
-                    height: 20px;
+                    min-width: 24px;
+                    height: 24px;
                     cursor: pointer;
-                    margin: 1.67px;
                     appearance: none;
+
+                    @include media(mobile) {
+                      min-width: 20px;
+                      height: 20px;
+                    }
 
                     &::before,
                     &:checked::before {
                       content: "";
-                      background-image: url("../../icons/checkbox.svg");
+                      background-image: url("../../icons/checkbox-desk.svg");
                       background-position: center;
                       background-repeat: no-repeat;
                       background-size: cover;
-                      width: 20px;
-                      height: 20px;
+                      width: 22px;
+                      height: 22px;
+                      margin: 1px;
                       display: block;
                       visibility: visible;
+
+                      @include media(mobile) {
+                        background-image: url("../../icons/checkbox-mob.svg");
+                        width: 16.67px;
+                        height: 16.67px;
+                        margin: 1.67px;
+                      }
                     }
 
                     &:checked::before {
@@ -650,7 +750,13 @@ body {
                   }
 
                   label {
-                    @include font-style(map.get($typography-desktop, body-small-regular-size), map.get($typography-desktop, label-large-line-height), $neutrals-black, 400, $body);
+                    @include font-style(
+                      map.get($typography-desktop, body-small-regular-size),
+                      map.get($typography-desktop, label-large-line-height),
+                      $neutrals-black,
+                      400,
+                      $body
+                    );
 
                     display: flex;
                     align-items: center;
@@ -663,6 +769,11 @@ body {
                     .fund-length {
                       color: $neutrals-600;
                     }
+
+                    @include media(mobile) {
+                      font-size: map.get($typography-mobile, paragraph-small-size);
+                      line-height: map.get($typography-mobile, paragraph-small-line-height);
+                    }
                   }
 
                   .tooltip-wrap {
@@ -674,8 +785,8 @@ body {
 
                     // z-index: 10;
                     cursor: pointer;
-                    min-width: 12px;
-                    height: 12px;
+                    min-width: 16px;
+                    height: 16px;
                     display: flex;
 
                     @include media(mobile) {
@@ -691,59 +802,82 @@ body {
                     .tooltip-text {
                       display: none;
                       position: absolute;
-                      top: 17px;
-                      right: 0;
+                      bottom: 30px;
+                      left: 50%;
+                      transform: translateX(-50%);
                       z-index: 12;
                       margin: 0;
-                      width: 259px;
+                      width: 418px;
                       border-radius: 8px;
-                      border: 0.5px solid #9e9e9e;
-                      background-color: #fff;
-                      padding: 8px;
+                      border: 1px solid $neutrals-300;
+                      background-color: $neutrals-100;
+                      padding: 12px;
                       text-align: left;
-                      font-size: 12px;
-                      line-height: 16px;
-                      color: #616161;
-                      font-family: $poppins;
-                      font-weight: 400;
 
-                      @include font-style(12px, 16px, $text-body-2, 400, $poppins);
-
-                      // &::after {
-                      //   content: "";
-                      //   width: 20px;
-                      //   height: 20px;
-                      //   border: solid $neutrals-200;
-                      //   border-width: 0 1px 1px 0;
-                      //   border-radius: 0 0 8px;
-                      //   display: block;
-                      //   position: absolute;
-                      //   left: 49.5%;
-                      //   transform: rotate(45deg) translateX(-50%);
-                      //   bottom: -17px;
-                      //   background-color: $neutrals-50;
-                      // }
+                      @include font-style(
+                        map.get($typography-desktop, disclaimer-xsmall-size),
+                        map.get($typography-desktop, disclaimer-xsmall-line-height),
+                        $text-body-2,
+                        400,
+                        $body
+                      );
 
                       @include media(mobile) {
-                        right: 3px;
-                        left: unset;
-                        transform: unset;
-                        bottom: unset;
-                        top: 26px;
-                        width: 293px;
                         padding: 8px;
-                        text-align: left;
+                        font-size: map.get($typography-mobile, paragraph-xsmall-size);
+                        line-height: map.get($typography-mobile, paragraph-xsmall-line-height);
+                        width: 292px;
+                        left: unset;
+                        right: -8px;
+                        transform: unset;
+                        top: 100%;
+                        height: max-content;
+                        margin: 12px 0 0;
+                      }
 
-                        // &::after {
-                        //   transform: rotate(-135deg) translateX(-50%);
-                        //   bottom: unset;
-                        //   top: -8.8px;
-                        //   left: unset;
-                        //   right: 12px;
-                        //   width: 9.5px;
-                        //   height: 9.5px;
-                        //   border-radius: 0 0 4px;
-                        // }
+                      // &::after {
+                      //   content: '';
+                      //   background-image: url('../../icons/tooltip-arrow.svg');
+                      //   background-position: center;
+                      //   background-repeat: no-repeat;
+                      //   background-size: cover;
+                      //   width: 20px;
+                      //   height: 9px;
+                      //   display: block;
+                      //   position: absolute;
+                      //   left: 50%;
+                      //   transform: translateX(-50%);
+                      //   bottom: -9px;
+                      //   background-color: red;
+                      // }
+
+                      &::before {
+                        content: "";
+                        width: 16px;
+                        height: 16px;
+                        border: solid $neutrals-300;
+                        border-width: 0 1px 1px 0;
+                        border-radius: 0 0 8px;
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        transform: rotate(45deg);
+                        bottom: -8.2px;
+                        background-color: $neutrals-100;
+
+                        @include media(mobile) {
+                          bottom: unset;
+                          top: -6px;
+                          left: unset;
+                          margin: 0;
+                          right: 11px;
+                          width: 12px;
+                          height: 12px;
+                          border-radius: 0 0 5px;
+                          transform: rotate(-135deg);
+                        }
                       }
                     }
 
@@ -835,7 +969,7 @@ body {
 
                 // position: fixed;
                 // z-index: 12;
-                background-color: $primary-white;
+                background-color: $neutrals-white;
                 max-width: 100%;
                 width: 100%;
 
@@ -849,7 +983,13 @@ body {
                   border-bottom: 1px solid $neutrals-300;
 
                   span {
-                    @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                    @include font-style(
+                      map.get($typography-mobile, body-medium-regular-size),
+                      map.get($typography-mobile, body-medium-regular-line-height),
+                      $blue-1-800-primary,
+                      400,
+                      $body
+                    );
                   }
                 }
 
@@ -871,7 +1011,13 @@ body {
                       padding: 24px 0 20px;
                       display: block;
 
-                      @include font-style(14px, 16px, $neutrals-black, 600, $poppins);
+                      @include font-style(
+                        map.get($typography-mobile, body-small-medium-size),
+                        map.get($typography-mobile, body-small-medium-line-height),
+                        $neutrals-black,
+                        500,
+                        $body
+                      );
                     }
 
                     .radio-label-container {
@@ -886,17 +1032,17 @@ body {
 
                         input {
                           visibility: hidden;
-                          min-width: 20px;
+                          width: 20px;
                           height: 20px;
                           cursor: pointer;
                           appearance: none;
 
                           &::before {
                             content: "";
-                            min-width: 18px;
+                            min-width: 17px;
                             height: 17px;
                             display: block;
-                            border: 1.67px solid #2e2a94;
+                            border: 1.67px solid $blue-1-800-primary;
                             border-radius: 50%;
                             visibility: visible;
                             margin: 2px;
@@ -904,15 +1050,21 @@ body {
                         }
 
                         input:checked::before {
-                          outline: 1.67px solid #2e2a94;
-                          background: #2e2a94;
-                          border: 3px solid #fff;
-                          min-width: 19.33px;
-                          height: 19.33px;
+                          outline: 1.67px solid $blue-1-800-primary;
+                          background: $icon-primary;
+                          border: 3px solid $neutrals-white;
+                          min-width: 16.33px;
+                          height: 16.33px;
                         }
 
                         label {
-                          @include font-style(14px, 20px, $neutrals-black, 400, $poppins);
+                          @include font-style(
+                            map.get($typography-mobile, paragraph-small-size),
+                            map.get($typography-mobile, paragraph-small-line-height),
+                            $neutrals-black,
+                            400,
+                            $body
+                          );
 
                           width: 100%;
                           cursor: pointer;
@@ -930,7 +1082,7 @@ body {
                 .close-apply-btn {
                   display: flex;
                   justify-content: space-between;
-                  background-color: $primary-white;
+                  background-color: $neutrals-white;
                   box-shadow: 0 -4px 12px 0 rgb(0 0 0 / 5%);
                   border-radius: 8px 8px 0 0;
 
@@ -944,11 +1096,23 @@ body {
                     border-radius: 0;
                     cursor: pointer;
 
-                    @include font-style(14px, 20px, $neutrals-600, 400, $poppins);
+                    @include font-style(
+                      map.get($typography-mobile, paragraph-small-size),
+                      map.get($typography-mobile, paragraph-small-line-height),
+                      $neutrals-600,
+                      400,
+                      $body
+                    );
                   }
 
                   button:last-of-type {
-                    @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+                    @include font-style(
+                      map.get($typography-mobile, body-small-regular-size),
+                      map.get($typography-mobile, body-small-regular-line-height),
+                      $blue-1-800-primary,
+                      400,
+                      $body
+                    );
 
                     border-left: 1px solid $neutrals-300;
                   }
@@ -982,7 +1146,7 @@ body {
           align-items: center;
           flex-wrap: wrap;
           gap: 10px 20px;
-          margin: 0 0 12px;
+          margin: 0 0 20px;
 
           @include media(mbile) {
             margin: 0 0 32px;
@@ -1009,13 +1173,25 @@ body {
               gap: 4px;
 
               .sort-pop-label {
-                @include font-style(14px, 20px, $text-body-2, 400, $inter);
+                @include font-style(
+                  map.get($typography-desktop, body-small-regular-size),
+                  map.get($typography-desktop, label-large-line-height),
+                  $neutrals-700,
+                  400,
+                  $body
+                );
               }
 
               .sort-select-container,
               .return-select-container {
                 .selectedtext {
-                  @include font-style(14px, 16px, $neutrals-black, map.get($font-weights, medium), $inter);
+                  @include font-style(
+                    map.get($typography-desktop, body-small-regular-size),
+                    map.get($typography-desktop, body-small-regular-line-height),
+                    $neutrals-black,
+                    map.get($font-weights, medium),
+                    $body
+                  );
 
                   margin: 0;
                   cursor: pointer;
@@ -1076,7 +1252,13 @@ body {
                   }
 
                   li {
-                    @include font-style(12px, 16px, $neutrals-black, map.get($font-weights, regular), $inter);
+                    @include font-style(
+                      map.get($typography-desktop, body-small-regular-size),
+                      map.get($typography-desktop, label-large-line-height),
+                      $neutrals-black,
+                      map.get($font-weights, regular),
+                      $body
+                    );
 
                     padding: 12px;
 
@@ -1102,7 +1284,7 @@ body {
                 content: "";
                 width: 1px;
                 height: 16px;
-                background-color: map.get($strokes, default);
+                background-color: $neutrals-500;
                 margin-left: 8px;
                 border-radius: 5px;
               }
@@ -1124,7 +1306,7 @@ body {
                 content: "";
                 width: 1px;
                 height: 16px;
-                background-color: map.get($strokes, default);
+                background-color: $neutrals-500;
                 border-radius: 5px;
               }
 
@@ -1184,20 +1366,64 @@ body {
               .toggle-text {
                 margin: 0;
 
-                @include font-style(14px, 16px, map.get($blue-1, b700), 600, $inter);
+                @include font-style(
+                  map.get($typography-desktop, body-small-semibold-size),
+                  map.get($typography-desktop, body-small-semibold-line-height),
+                  $blue-1-700,
+                  600,
+                  $body
+                );
+
+                @include media(mobile) {
+                  font-size: map.get($typography-mobile, body-small-semibold-size);
+                  line-height: map.get($typography-mobile, body-small-semibold-line-height);
+                }
               }
 
               .toggle-text:last-of-type {
-                @include font-style(14px, 20px, $neutrals-black, 400, $inter);
+                @include font-style(
+                  map.get($typography-desktop, body-small-regular-size),
+                  map.get($typography-desktop, label-large-line-height),
+                  $neutrals-black,
+                  400,
+                  $body
+                );
+
+                @include media(mobile) {
+                  font-size: map.get($typography-mobile, paragraph-small-size);
+                  line-height: map.get($typography-mobile, paragraph-small-line-height);
+                }
               }
 
               &.toggle-checked {
                 .toggle-text:first-of-type {
-                  @include font-style(14px, 20px, $neutrals-black, 400, $inter);
+                  @include font-style(
+                    map.get($typography-desktop, body-small-regular-size),
+                    map.get($typography-desktop, label-large-line-height),
+                    $neutrals-black,
+                    400,
+                    $body
+                  );
+
+                  @include media(mobile) {
+                    font-size: map.get($typography-mobile, paragraph-small-size);
+                    line-height: map.get($typography-mobile, paragraph-small-line-height);
+                  }
                 }
 
                 .toggle-text:last-of-type {
-                  @include font-style(14px, 16px, map.get($blue-1, b700), 600, $inter);
+                  @include font-style(
+                    map.get($typography-desktop, body-small-semibold-size),
+                    map.get($typography-desktop, body-small-semibold-line-height),
+                    $blue-1-700,
+                    600,
+                    $body
+                  );
+
+                  @include media(mobile) {
+                    font-size: map.get($typography-mobile, body-small-semibold-size);
+                    line-height: map.get($typography-mobile, body-small-semibold-line-height);
+                  }
                 }
               }
 
@@ -1213,7 +1439,7 @@ body {
                 .fund-toggle {
                   width: 40px;
                   height: 20px;
-                  background-color: map.get($strokes, disabled);
+                  background-color: $neutrals-400;
                   display: block;
                   border-radius: 16.667px;
                   position: relative;
@@ -1226,7 +1452,7 @@ body {
                     width: 16px;
                     height: 16px;
                     display: block;
-                    background: $primary-white;
+                    background: $icon-white;
                     border-radius: 16px;
                     box-shadow: 0 3.2px 16px 0 rgb(0 0 0 / 10%);
                     position: absolute;
@@ -1259,12 +1485,17 @@ body {
               button {
                 margin: 0 0 0 8px;
                 background-color: transparent;
-                padding: 8px 12px;
-                border-radius: 8px;
-                border: 1px solid $primary-blue;
+                padding: $spacing-8 $spacing-12;
+                border-radius: $border-radius-8;
+                border: 1px solid $button-primary-default;
                 cursor: pointer;
 
-                @include font-style(14px, 16px, $primary-blue, 500, $inter);
+                @include font-style(map.get($typography-desktop, button-small-size), map.get($typography-desktop, button-small-line-height) , $text-button-default, 500, $body);
+
+                @include media(mobile){
+                  font-size: 14px;
+                  line-height: 16px;
+                }
               }
             }
           }
@@ -1302,18 +1533,30 @@ body {
             display: flex;
             align-items: center;
             min-width: max-content;
-            border: 1px solid #bdbdbd;
-            border-radius: 1000px;
-            padding: 4px 12px;
+            border: $border-width-01 solid $neutrals-400;
+            border-radius: $border-radius-circle;
+            padding: 6px $spacing-12;
+            gap: 4px;
 
             span {
-              @include font-style(12px, 16px, $text-body-2, 400, $inter);
+              @include font-style(
+                map.get($typography-desktop, body-small-regular-size),
+                map.get($typography-desktop, body-small-regular-line-height),
+                $text-body-2,
+                400,
+                $body
+              );
+
+              @include media(mobile) {
+                font-size: map.get($typography-mobile, body-small-regular-size);
+                line-height: map.get($typography-mobile, body-small-regular-line-height);
+              }
             }
 
             .filter-cross-icon {
-              max-width: 24px;
+              max-width: 20px;
               width: 100%;
-              height: 24px;
+              height: 20px;
               cursor: pointer;
             }
           }
@@ -1344,16 +1587,14 @@ body {
           }
 
           .nfo-card-container {
-            border-radius: map.get($radius, r8);
-            border: 1px solid #b9bbff;
-            background: unset;
-            background-color: $primary-blue;
-            box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
+            background:
+              linear-gradient($surface-icon-primary-normal, $surface-icon-primary-normal) padding-box,
+              linear-gradient(135deg, $card-stroke 0%, #fff 50%, $card-stroke 100%) border-box;
 
             .card-upper-title {
               .watchlistlabel,
               .fund-name-title {
-                color: $primary-white;
+                color: $text-white;
               }
             }
 
@@ -1362,10 +1603,10 @@ body {
 
               .fundtagging-list {
                 &-name {
-                  color: $primary-white;
+                  color: $text-white;
 
                   &::after {
-                    background-color: $primary-white;
+                    background-color: $text-white;
                   }
                 }
               }
@@ -1375,7 +1616,7 @@ body {
                 max-width: max-content;
 
                 p {
-                  color: $primary-white;
+                  color: $text-white;
                 }
               }
 
@@ -1432,7 +1673,18 @@ body {
                   width: 100%;
                   height: 100%;
 
-                  @include font-style(18px, 24px, $primary-white, 600, $inter);
+                  @include font-style(
+                    map.get($typography-desktop, body-large-semibold-size),
+                    map.get($typography-desktop, body-large-semibold-line-height),
+                    $neutrals-white,
+                    600,
+                    $body
+                  );
+
+                  @include media(mobile) {
+                    font-size: map.get($typography-mobile, body-large-semibold-size);
+                    line-height: map.get($typography-mobile, body-large-semibold-line-height);
+                  }
                 }
               }
 
@@ -1447,30 +1699,41 @@ body {
                 // border-radius: 0 0 8px 8px;
                 .timing-container {
                   .timing-text {
-                    @include font-style(12px, 14px, $primary-white, 500, $inter);
+                    @include font-style(
+                      map.get($typography-desktop, body-xsmall-medium-size),
+                      map.get($typography-desktop, body-xsmall-medium-line-height),
+                      $text-white,
+                      500,
+                      $body
+                    );
 
                     display: flex;
                     gap: 4px;
                     align-items: center;
 
+                    @include media(mobile) {
+                      font-size: map.get($typography-mobile, body-xsmall-medium-size);
+                      line-height: map.get($typography-mobile, body-xsmall-medium-line-height);
+                    }
+
                     &::before {
                       content: "";
                       width: 8px;
                       height: 8px;
-                      background-color: map.get($danger, 600);
+                      background-color: $strokes-error;
                       display: block;
                       border-radius: 50%;
                     }
                   }
                 }
 
-                .dis-investor{
+                .dis-investor {
                   max-width: 20px;
                   width: 100%;
                   height: 20px;
                   display: flex;
 
-                  .riskfactor-icon{
+                  .riskfactor-icon {
                     width: 100%;
                     height: 100%;
                   }
@@ -1482,12 +1745,12 @@ body {
               margin: 24px 0 0;
 
               .know-more {
-                color: $primary-white;
+                color: $neutrals-white;
               }
 
               .invest-now {
-                background-color: $primary-white;
-                color: $primary-blue;
+                background-color: $neutrals-white;
+                color: $blue-1-800-primary;
               }
             }
           }

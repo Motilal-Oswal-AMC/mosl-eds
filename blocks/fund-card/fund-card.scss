@@ -7,7 +7,7 @@
     max-width: 296px;
     width: 100%;
     padding: 20px 16px 16px;
-    border-radius: 16px;
+    border-radius: map.get($radius, r16);
     background:
       linear-gradient(#fff, #fff) padding-box,
       linear-gradient(135deg, #b9bbff 0%, #fff 50%, #b9bbff 100%) border-box;
@@ -115,7 +115,7 @@
 
       // gap: 30px;
       gap: 16px;
-      margin: 0 0 8px;
+      margin: 0 0 $spacing-8;
       height: 100%;
 
       // min-height: 50px;
@@ -444,7 +444,7 @@
 
           @include media(mobile){
             @include font-style(
-            $size: map.get($typography-desktop, sub-header-large-size),
+            $size: 24px,
             $line-height: 28px,
             $color: $blue-1-800-primary,
             $weight: map.get($font-weights, semibold),
@@ -597,7 +597,7 @@
     .button-container {
       @include flex-center($align: center, $justify: space-between);
 
-      flex-wrap: wrap;
+      // flex-wrap: wrap;
 
       // gap: 24px 9.08%;
       gap: 24px 8px;
@@ -613,15 +613,6 @@
         max-width: 48.4%;
         width: 100%;
         display: block;
-
-        @include font-style(
-          $size: 14px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $inter
-        );
-
         margin: 0;
         padding: 0;
         background-color: transparent;
@@ -629,21 +620,52 @@
         border: none;
         -webkit-tap-highlight-color: transparent;
 
+        @include media(mobile){
+          max-width: 48%;
+        }
+
         &.know-more {
           text-decoration-line: underline;
-
-          // text-underline-offset: 20%;
-          padding: 8px;
+          padding: $spacing-8 $spacing-12;
           cursor: pointer;
           text-align: center;
+
+          @include font-style(
+              $size: map.get($typography-desktop, button-small-size),
+              $line-height: map.get($typography-desktop, button-small-line-height),
+              $color: $text-text-link,
+              $weight: map.get($font-weights, medium),
+              $family: $body
+            );
+
+            @include media(mobile){
+              font-size: map.get($typography-mobile, text-link-small-size);
+              line-height: map.get($typography-mobile, text-link-small-line-height);
+              font-weight: map.get($font-weights, regular);
+              color: $text-button-default;
+              text-underline-offset: 20%;
+              padding: 0;
+            }
         }
 
         &.invest-now {
-          border-radius: map.get($radius, r8);
-          background: map.get($button-primary, default);
-          padding: 8px 12px;
+          border-radius: $border-radius-8;
+          background: $button-primary-default;
+          padding: $spacing-8 $spacing-12;
           text-align: center;
-          color: $primary-white;
+
+          @include font-style(
+              $size: map.get($typography-desktop, button-small-size),
+              $line-height: map.get($typography-desktop, button-small-line-height),
+              $color: $text-white,
+              $weight: map.get($font-weights, medium),
+              $family: $body
+            );
+
+            @include media(mobile){
+              font-size: 14px;
+              line-height: 16px;
+            }
         }
       }
     }

@@ -24,6 +24,7 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
   cursor: pointer;
@@ -85,6 +86,7 @@
   line-height: 14px;
   color: #111;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   padding: 12px;
   cursor: pointer;
@@ -128,6 +130,7 @@
   line-height: 16px;
   color: #212121;
   font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 @media (max-width: 768px) {
@@ -159,6 +162,7 @@
   line-height: 20px;
   color: #111;
   font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
   min-height: 40px;
   margin: 0;
@@ -192,6 +196,7 @@
   line-height: 14px;
   color: #616161;
   font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   display: flex;
   align-items: center;
@@ -256,6 +261,7 @@
   line-height: 14px;
   color: #424242;
   font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 @media (max-width: 768px) {
@@ -276,6 +282,7 @@
   line-height: 14px;
   color: #2e2a94;
   font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   gap: 0;
 }
@@ -290,6 +297,7 @@
   line-height: 14px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
   padding: 0;
@@ -305,6 +313,7 @@
   line-height: 32px;
   color: #2e2a94;
   font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
 }
@@ -314,6 +323,7 @@
     line-height: 28px;
     color: #2e2a94;
     font-family: "Inter";
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
@@ -322,6 +332,7 @@
   line-height: 16px;
   color: #2e312f;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   text-align: right;
   margin: 0;
@@ -336,6 +347,7 @@
   line-height: 15px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   display: block;
 }
@@ -369,6 +381,7 @@
   line-height: 16px;
   color: #2e312f;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -378,6 +391,7 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -416,6 +430,7 @@
   line-height: 14px;
   color: #616161;
   font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -428,7 +443,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 24px 8px;
   margin: 24px 0 0;
 }
@@ -441,11 +455,6 @@
   max-width: 48.4%;
   width: 100%;
   display: block;
-  font-size: 14px;
-  line-height: 16px;
-  color: #2e2a94;
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -453,18 +462,50 @@
   border: none;
   -webkit-tap-highlight-color: transparent;
 }
+@media (max-width: 768px) {
+  .section .card-container .button-container .card-btn {
+    max-width: 48%;
+  }
+}
 .section .card-container .button-container .card-btn.know-more {
   text-decoration-line: underline;
-  padding: 8px;
+  padding: 8px 12px;
   cursor: pointer;
   text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  color: #2e2a94;
+  font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .section .card-container .button-container .card-btn.know-more {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #2e2a94;
+    text-underline-offset: 20%;
+    padding: 0;
+  }
 }
 .section .card-container .button-container .card-btn.invest-now {
   border-radius: 8px;
   background: #2e2a94;
   padding: 8px 12px;
   text-align: center;
+  font-size: 14px;
+  line-height: 16px;
   color: #fff;
+  font-family: "Inter";
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .section .card-container .button-container .card-btn.invest-now {
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
 .section.fund-tab.tabs-container {
   width: 100%;
@@ -481,6 +522,7 @@
   line-height: 44px;
   color: #2e2a94;
   font-family: "ButlerPro", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 700;
   margin: 0 0 12px;
 }
@@ -523,6 +565,7 @@
   line-height: 20px;
   color: #616161;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .section.fund-tab.tabs-container .tabs-wrapper .wrappertablist .tabs-list .tabs-tab[aria-selected=true] {
@@ -530,6 +573,7 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   border-bottom: 2px solid #382ad7;
   padding: 12px;
@@ -579,6 +623,7 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   text-decoration: none;
   display: block;
