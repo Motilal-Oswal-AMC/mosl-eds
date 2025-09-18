@@ -176,8 +176,9 @@ main {
                     margin: 0;
                     padding: 0;
                     white-space: nowrap;
+                    font-style: normal;
 
-                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $butlerpro);
+                    @include font-style(map.get($typography-desktop, heading-h5-size), map.get($typography-desktop, heading-h5-line-height), $neutrals-white, 600, $title);
 
                     @media (width <=1279px) {
                         white-space: inherit;
@@ -185,7 +186,7 @@ main {
 
 
                     @include media(mobile) {
-                        @include font-style(28px, 32px, $primary-white, map.get($font-weights, medium), $butlerpro);
+                        @include font-style(map.get($typography-mobile, sub-header-large-size), map.get($typography-mobile, sub-header-medium-line-height), $neutrals-white, 600, $title);
                     }
                 }
 
@@ -270,15 +271,19 @@ main {
                         select {
                             background: transparent;
                             border: none;
-                            color: #FFF;
+                            color: $neutrals-white;
                             text-align: center;
-                            font-family: $poppins;
-                            font-size: 14px;
+                            font-family: $body;
+                            font-size: map.get($typography-desktop, body-medium-regular-size);
                             font-style: normal;
                             font-weight: 400;
-                            line-height: 20px;
+                            line-height: map.get($typography-desktop, body-medium-regular-line-height);
                             appearance: auto;
                             padding-right: 4px;
+
+                            @include media(mobile) {
+                                @include font-style(map.get($typography-mobile, body-medium-regular-size), map.get($typography-mobile, body-medium-regular-line-height), $neutrals-white, 400, $body);
+                            }
 
                             option {
                                 color: #fff;
@@ -297,18 +302,26 @@ main {
                                 min-width: 111px;
                                 background: transparent;
                                 box-shadow: none;
-                                color: #fff;
-                                font-family: $poppins;
-                                font-size: 14px;
+                                color: $neutrals-white;
+                                font-family: $body;
+                                font-size: map.get($typography-desktop, body-medium-regular-size);
                                 font-style: normal;
-                                font-weight: 500;
-                                line-height: 16px;
+                                font-weight: 400;
+                                line-height: map.get($typography-desktop, body-medium-regular-line-height);
                                 padding: 0;
                                 padding-inline: unset;
                                 padding-block: unset;
                                 border: none;
                                 text-align: left;
                                 padding-left: 10px;
+
+                                &::placeholder {
+                                    color: $neutrals-white;
+                                }
+
+                                @include media(mobile) {
+                                    @include font-style(map.get($typography-mobile, body-medium-regular-size), map.get($typography-mobile, body-medium-regular-line-height), $neutrals-white, 400, $body);
+                                }
                             }
 
                             // input::placeholder {
@@ -519,13 +532,17 @@ main {
                                 list-style: none;
 
                                 li.comlist.growth-subthr1:first-child {
-                                    color: #FFF;
-                                    font-family: $poppins;
-                                    font-size: 12px;
+                                    color: $neutrals-white;
+                                    font-family: $body;
+                                    font-size: map.get($typography-desktop, paragraph-xsmall-size);
                                     font-style: normal;
                                     font-weight: 400;
-                                    line-height: 16px;
+                                    line-height: map.get($typography-desktop, paragraph-xsmall-line-height);
                                     cursor: pointer;
+
+                                    @include media(mobile) {
+                                        @include font-style(map.get($typography-mobile, paragraph-xsmall-size), map.get($typography-mobile, paragraph-xsmall-line-height), $neutrals-white, 400, $body);
+                                    }
 
                                         // &:hover {
                                         //     text-decoration-line: underline;
@@ -541,18 +558,20 @@ main {
                                     font-style: normal;
                                     font-weight: 600;
                                     line-height: 16px;
-                                        cursor: pointer;
+                                    cursor: pointer;               
 
-                                       
-
-                                   a{
-                                     color: #FFF;
-                                    font-family: $poppins;
-                                    font-size: 12px;
+                                   a {
+                                    color: $neutrals-white;
+                                    font-family: $body;
+                                    font-size: map.get($typography-desktop, body-small-semibold-size);
                                     font-style: normal;
-                                    font-weight: 400;
-                                    line-height: 16px;
+                                    font-weight: 600;
+                                    line-height: map.get($typography-desktop, body-small-semibold-line-height);
                                     cursor: pointer;
+
+                                    @include media(mobile) {
+                                        @include font-style(map.get($typography-mobile, body-small-semibold-size), map.get($typography-mobile, body-small-semibold-line-height), $neutrals-white, 600, $body);    
+                                    }
 
                                      &:hover {
                                             text-decoration-line: underline;

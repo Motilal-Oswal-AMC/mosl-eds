@@ -125,11 +125,12 @@ main {
   margin: 0;
   padding: 0;
   white-space: nowrap;
-  font-size: 32px;
-  line-height: 40px;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 32px;
   color: #fff;
-  font-family: "ButlerPro", sans-serif;
-  font-weight: 700;
+  font-family: "Inter";
+  font-weight: 600;
 }
 @media (width <= 1279px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
@@ -138,11 +139,11 @@ main {
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 28px;
     color: #fff;
-    font-family: "ButlerPro", sans-serif;
-    font-weight: 500;
+    font-family: "Inter";
+    font-weight: 600;
   }
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 {
@@ -217,10 +218,10 @@ main {
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
   background: transparent;
   border: none;
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-family: "Inter";
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
@@ -228,6 +229,15 @@ main {
      -moz-appearance: auto;
           appearance: auto;
   padding-right: 4px;
+}
+@media (max-width: 768px) {
+  .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    font-family: "Inter";
+    font-weight: 400;
+  }
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select option {
   color: #fff;
@@ -243,17 +253,32 @@ main {
   background: transparent;
   box-shadow: none;
   color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-family: "Inter";
+  font-size: 16px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 16px;
+  font-weight: 400;
+  line-height: 20px;
   padding: 0;
   padding-inline: unset;
   padding-block: unset;
   border: none;
   text-align: left;
   padding-left: 10px;
+}
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::-moz-placeholder {
+  color: #fff;
+}
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input {
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    font-family: "Inter";
+    font-weight: 400;
+  }
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form .submit-wrapper {
@@ -366,13 +391,22 @@ main {
   list-style: none;
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr1:first-child {
-  color: #FFF;
-  font-family: "Poppins", sans-serif;
+  color: #fff;
+  font-family: "Inter";
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr1:first-child {
+    font-size: 12px;
+    line-height: 16px;
+    color: #fff;
+    font-family: "Inter";
+    font-weight: 400;
+  }
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) {
   color: #FFF;
@@ -384,13 +418,22 @@ main {
   cursor: pointer;
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a {
-  color: #FFF;
-  font-family: "Poppins", sans-serif;
-  font-size: 12px;
+  color: #fff;
+  font-family: "Inter";
+  font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 16px;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a {
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+    font-family: "Inter";
+    font-weight: 600;
+  }
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a:hover {
   text-decoration-line: underline;

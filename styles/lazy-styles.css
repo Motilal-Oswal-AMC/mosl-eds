@@ -657,7 +657,7 @@
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-weight: 600;
   margin: 0;
 }
@@ -667,7 +667,7 @@
     font-size: 24px;
     line-height: 28px;
     color: #2e2a94;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
     font-weight: 600;
   }
 }
@@ -714,8 +714,17 @@
   font-size: 16px;
   line-height: 20px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-weight: 500;
+}
+@media (max-width: 768px) {
+  .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .button-wrapper .button-container.watchlist-inneritems3 .button {
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    font-family: "Inter";
+    font-weight: 500;
+  }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .button-wrapper .button-container.watchlist-inneritems3 .button:hover {
   background: #1f1f47;
@@ -894,16 +903,20 @@
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card .fund-name {
   text-wrap: balance;
+  font-style: normal;
   font-size: 16px;
   line-height: 20px;
   color: #2e2a94;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-weight: 500;
 }
 @media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card .fund-name {
     font-size: 12px;
     line-height: 14px;
+    color: #2e2a94;
+    font-family: "Inter";
+    font-weight: 500;
   }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns-text {
@@ -911,14 +924,17 @@
   text-align: right;
   font-size: 12px;
   line-height: 16px;
-  color: #111;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  color: #424242;
+  font-family: "Inter";
+  font-weight: 400;
 }
 @media (max-width: 768px) {
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns-text {
-    font-size: 8.095px;
-    line-height: 10.794px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #424242;
+    font-family: "Inter";
+    font-weight: 400;
   }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns {
@@ -929,10 +945,10 @@
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percent,
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percentage {
   margin: 0;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 14px;
+  line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-weight: 600;
 }
 @media (max-width: 768px) {
@@ -940,6 +956,9 @@
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percentage {
     font-size: 14px;
     line-height: 16px;
+    color: #2e2a94;
+    font-family: "Inter";
+    font-weight: 600;
   }
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns .returns-percentage {
@@ -967,23 +986,24 @@
   font-size: 24px;
   line-height: 28px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
-  font-weight: 700;
+  font-family: "Inter";
+  font-weight: 600;
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp2 {
   font-size: 16px;
   line-height: 20px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-weight: 500;
   margin-bottom: 8px;
+  font-style: normal;
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp3 {
   margin-bottom: 0;
   font-size: 12px;
   line-height: 16px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  color: #424242;
+  font-family: "Inter";
   font-weight: 400;
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp4 {
@@ -1029,26 +1049,27 @@
     margin: 0;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp1 {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 32px;
+    line-height: 40px;
     color: #2e2a94;
-    font-family: "ButlerPro", sans-serif;
-    font-weight: 700;
+    font-family: "Inter";
+    font-weight: 600;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp2 {
     margin-bottom: 8px;
+    font-style: normal;
     font-size: 20px;
     line-height: 24px;
-    color: #2b2e8c;
-    font-family: "Poppins", sans-serif;
+    color: #2e2a94;
+    font-family: "Inter";
     font-weight: 500;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp3 {
     margin-bottom: 40px;
     font-size: 16px;
     line-height: 24px;
-    color: #2e2a94;
-    font-family: "Poppins", sans-serif;
+    color: #424242;
+    font-family: "Inter";
     font-weight: 400;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp4 {
