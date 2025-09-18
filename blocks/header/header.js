@@ -378,7 +378,7 @@ export default async function decorate(block) {
       navinner.querySelectorAll('ul').forEach((navel) => { navel.style.display = 'block'; });
 
       const navinnfive = navSections.querySelector('.nav-sec-sub5 .sub-popup-sub2 .sub-popup-inner-text2');
-      navinnfive.querySelectorAll('ul').forEach((five) => { five.style.display = 'flex'; });
+      navinnfive.querySelectorAll('ul').forEach((five) => { five.style.display = 'block'; });
 
       const navinnfour = navSections.querySelector('.nav-sec-sub4 .sub-popup-sub2 .sub-popup-inner-text2');
       navinnfour.querySelectorAll('ul').forEach((four) => { four.style.display = 'block'; });
@@ -414,6 +414,16 @@ export default async function decorate(block) {
           mosub.querySelector('.sub-popup-list5 ul').style.display = 'block';
           mosub.querySelector('.sub-popup-list6 ul').style.display = 'block';
         }
+      }
+    });
+
+    const searchtemp = block.querySelector('.nav-tools .nav-tools-sec1 .nav-tools-inner-net1');
+    searchtemp.addEventListener('click', () => {
+      const nfoban = block.querySelector('.nfo-banner');
+      if (nfoban.style.display === 'none') {
+        nfoban.style.display = 'block';
+      } else {
+        nfoban.style.display = 'none';
       }
     });
   }
