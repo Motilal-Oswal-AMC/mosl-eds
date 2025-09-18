@@ -94,7 +94,7 @@
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: "Inter";
+  font-family: Inter, sans-serif;
   font-weight: 400;
 }
 
@@ -148,17 +148,16 @@
   margin: 0;
   text-align: left;
   color: #2e2a94;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px;
 }
 
 @media (width <= 768px) {
   .think-equity-container .default-content-wrapper .item-child-1 {
     color: #2e2a94;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 24px;
@@ -184,9 +183,9 @@
   color: #fff;
   padding: 12px;
   border: none;
-  font-family: Poppins, sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 20px;
   text-decoration: none;
   cursor: pointer;
@@ -259,17 +258,19 @@
     min-height: 114px;
   }
 }
+
 .think-equity.block .imagelist1 .subimagelist h1, .think-equity.block .imagelist1 .subimagelist h2, .think-equity.block .imagelist1 .subimagelist h3, .think-equity.block .imagelist1 .subimagelist h4, .think-equity.block .imagelist1 .subimagelist h5, .think-equity.block .imagelist1 .subimagelist h6 {
   margin: 0;
   padding: 0;
   color: #2e2a94;
-  font-family: "Inter";
+  font-family: Inter, sans-serif;
   font-size: 32px;
   line-height: 40px;
   font-style: normal;
   font-weight: 600;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .think-equity.block .imagelist1 .subimagelist h1, .think-equity.block .imagelist1 .subimagelist h2, .think-equity.block .imagelist1 .subimagelist h3, .think-equity.block .imagelist1 .subimagelist h4, .think-equity.block .imagelist1 .subimagelist h5, .think-equity.block .imagelist1 .subimagelist h6 {
     font-size: 24px;
     line-height: 24px;

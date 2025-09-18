@@ -18,7 +18,7 @@
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
-  font-family: "Inter";
+  font-family: Inter, sans-serif;
   font-weight: 600;
 }
 
@@ -29,8 +29,12 @@
   .section.cornerstones-advantage-cards-container .default-content-wrapper h4,
   .section.cornerstones-advantage-cards-container .default-content-wrapper h5,
   .section.cornerstones-advantage-cards-container .default-content-wrapper h6 {
-    line-height: 24px;
     text-align: left;
+    font-size: 24px;
+    line-height: 24px;
+    color: #2e2a94;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
   }
 }
 
@@ -38,7 +42,7 @@
   font-size: 16px;
   line-height: 20px;
   color: #2e2a94;
-  font-family: "Inter";
+  font-family: Inter, sans-serif;
   font-weight: 400;
   text-align: center;
   margin: 0;
@@ -133,7 +137,7 @@
   font-size: 18px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: "Inter";
+  font-family: Inter, sans-serif;
   font-weight: 500;
 }
 
@@ -150,7 +154,7 @@
   font-size: 16px;
   line-height: 24px;
   color: #616161;
-  font-family: "Inter";
+  font-family: Inter, sans-serif;
   font-weight: 400;
   padding-bottom: 28px;
 }
@@ -189,6 +193,6 @@
   font-size: 14px;
   line-height: 20px;
   color: #4338f3;
-  font-family: "Inter";
+  font-family: Inter, sans-serif;
   font-weight: 500;
 }
