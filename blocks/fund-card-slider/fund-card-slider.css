@@ -1,54 +1,44 @@
 /*   alpha-value-notation */
-
 /*   media-feature-range-notation */
 @import "../../../styles/fonts.css";
 @import '../swiper/swiper-bundle.min.css';
-
 .section.fund-card-slider-container {
   position: relative;
   padding: 0 0 40px;
 }
-
 @media (width <= 768px) {
   .section.fund-card-slider-container {
     padding: 0 16px;
   }
 }
-
 .section.fund-card-slider-container .block {
   margin: 0;
 }
-
 .section.fund-card-slider-container .block .itemcards1 {
   padding-bottom: 24px;
 }
-
 .section.fund-card-slider-container .block .itemcards1 .subitemcards1 h4 {
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
-  font-family: ButlerPro, sans-serif;
+  font-family: "ButlerPro", sans-serif;
   font-weight: 700;
   margin: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.fund-card-slider-container .block .itemcards1 .subitemcards1 h4 {
     font-size: 24px;
     line-height: 28px;
   }
 }
-
 .section.fund-card-slider-container .block .card-slider-main {
   position: static;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.fund-card-slider-container .block .card-slider-main {
     padding: 0 0 64px;
   }
 }
-
 .section.fund-card-slider-container .block .card-slider-main .btn-wrapper {
   max-width: 92px;
   width: 100%;
@@ -61,8 +51,7 @@
   gap: 8px;
   justify-content: space-between;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.fund-card-slider-container .block .card-slider-main .btn-wrapper {
     display: block;
     top: unset;
@@ -71,7 +60,6 @@
     left: 9px;
   }
 }
-
 .section.fund-card-slider-container .block .card-slider-main .btn-wrapper div {
   display: flex;
   width: 32px;
@@ -82,14 +70,12 @@
   gap: 8px;
   border-radius: 16px;
   border: 0.8px solid #2e2a94;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
-
 .section.fund-card-slider-container .block .card-slider-main .btn-wrapper .swiper-button-next {
   background: #2e2a94;
   color: #fff;
 }
-
 .section.fund-card-slider-container .block .card-slider-main .btn-wrapper .swiper-button-next::after {
   content: "";
   display: inline-block;
@@ -100,7 +86,6 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 .section.fund-card-slider-container .block .card-slider-main .btn-wrapper .swiper-button-prev::after {
   content: "";
   display: inline-block;
@@ -111,7 +96,6 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 .section.fund-card-slider-container .block .card-slider-main .swiper-slide {
   height: auto;
-}
+}/*# sourceMappingURL=fund-card-slider.css.map */
