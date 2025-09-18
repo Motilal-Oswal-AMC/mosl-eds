@@ -368,6 +368,7 @@ $spacing-44: 44px;
 $spacing-56: 56px;
 $spacing-28: 28px;
 $spacing-20: 20px;
+$spacing-14: 14px;
 $spacing-60: 60px;
 $spacing-64: 64px;
 $spacing-68: 68px;
@@ -632,6 +633,7 @@ $typography-desktop: (
   paragraph-medium-line-height: $spacing-24,
   paragraph-small-font: $body,
   paragraph-small-weight: $weight-regular,
+  paragraph-small-size: $spacing-14,
   paragraph-small-line-height: $spacing-20,
   paragraph-xsmall-font: $body,
   paragraph-xsmall-weight: $weight-regular,
@@ -650,6 +652,7 @@ $typography-desktop: (
   text-link-medium-line-height: $spacing-24,
   text-link-small-font: $body,
   text-link-small-weight: $weight-regular,
+  text-link-small-size: $spacing-14,
   text-link-small-line-height: $spacing-20,
   text-link-xsmall-font: $body,
   text-link-xsmall-weight: $weight-regular,
