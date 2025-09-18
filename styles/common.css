@@ -1,24 +1,29 @@
 /*   alpha-value-notation */
+
 /* media-feature-range-notation */
 @import "../../../styles/fonts.css";
+
 .section.download {
   width: 100%;
   max-width: 100%;
 }
+
 @media (width <= 768px) {
   .section.download {
     padding: 0 16px;
   }
 }
+
 .section.download .default-content-wrapper > p.download-ul1 {
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: ButlerPro, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
   line-height: 40px;
   padding-bottom: 24px;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 {
   display: flex;
   flex-direction: column;
@@ -27,11 +32,13 @@
   padding: 0;
   /* stylelint-disable-next-line no-descending-specificity */
 }
+
 @media (width <= 768px) {
   .section.download .default-content-wrapper > ul.download-ul2 {
     gap: 24px;
   }
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3,
@@ -40,6 +47,7 @@
   list-style-type: none;
   height: 48px;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1 > ul.download-inner-ul1,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2 > ul.download-inner-ul1,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3 > ul.download-inner-ul1,
@@ -52,6 +60,7 @@
   padding: 0;
   align-items: center;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1 > ul.download-inner-ul1 li.download-first-list1:first-child,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2 > ul.download-inner-ul1 li.download-first-list1:first-child,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3 > ul.download-inner-ul1 li.download-first-list1:first-child,
@@ -61,12 +70,13 @@
   align-items: center;
   padding: 0 16px 0 0;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1 > ul.download-inner-ul1 li.download-first-list1:first-child:focus-visible,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2 > ul.download-inner-ul1 li.download-first-list1:first-child:focus-visible,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3 > ul.download-inner-ul1 li.download-first-list1:first-child:focus-visible,
@@ -75,6 +85,7 @@
   outline: 2px solid #2e2a94;
   outline-offset: 4px;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1 > ul.download-inner-ul1 li.download-first-list2:nth-child(2),
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2 > ul.download-inner-ul1 li.download-first-list2:nth-child(2),
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3 > ul.download-inner-ul1 li.download-first-list2:nth-child(2),
@@ -82,6 +93,7 @@
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li5 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) {
   cursor: pointer;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1:nth-child(1) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2:nth-child(1) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3:nth-child(1) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
@@ -93,12 +105,13 @@
   height: 48px;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   background-image: url("../../icons/dow1.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1:nth-child(2) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2:nth-child(2) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3:nth-child(2) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
@@ -110,12 +123,13 @@
   height: 48px;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   background-image: url("../../icons/dow2.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1:nth-child(3) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2:nth-child(3) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3:nth-child(3) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
@@ -127,12 +141,13 @@
   height: 48px;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   background-image: url("../../icons/dow3.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1:nth-child(4) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2:nth-child(4) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3:nth-child(4) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
@@ -144,12 +159,13 @@
   height: 48px;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   background-image: url("../../icons/dow4.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
 }
+
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1:nth-child(5) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2:nth-child(5) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3:nth-child(5) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
@@ -161,18 +177,19 @@
   height: 48px;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   background-image: url("../../icons/dow5.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .investnow {
     display: none;
   }
 }
+
 .investnow .default-content-wrapper {
   border-radius: 8px;
   background-image: url("../../icons/fdp/wealth-purpose-bg.svg");
@@ -184,41 +201,49 @@
   height: 192px;
   position: relative;
 }
+
 .investnow .default-content-wrapper p:nth-child(1) {
   position: absolute;
   left: 32px;
 }
+
 .investnow .default-content-wrapper p:nth-child(1) span {
   width: 171px;
   height: 156px;
 }
+
 .investnow .default-content-wrapper p:nth-child(2) {
   position: relative;
   left: 88px;
   top: 66px;
   color: #fff;
+
   /* Desktop/Header/H5 */
-  font-family: "ButlerPro", sans-serif;
+  font-family: ButlerPro, sans-serif;
   font-size: 28px;
   font-style: normal;
   font-weight: 500;
   line-height: 32px;
+
   /* 114.286% */
 }
+
 .investnow .default-content-wrapper .button-container {
   position: relative;
   text-align: end;
   bottom: 20px;
   right: 26px;
 }
+
 .investnow .default-content-wrapper .button-container .button {
   border-radius: 8px;
   background: #fff;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
+
   /* 114.286% */
-}/*# sourceMappingURL=common.css.map */
+}
