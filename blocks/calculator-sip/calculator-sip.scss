@@ -545,7 +545,7 @@
                       border: none;
 
                       @include media(mobile) {
-                        padding-left: 0;
+                        padding-left: 15px;
                         line-height: map.get($typography-desktop, body-medium-medium-line-height);
                       }
                     }
@@ -791,8 +791,8 @@
                     border: none;
                     color: $text-white;
                     font-family: $body;
-                    font-size: map.get($typography-mobile, button-medium-size);
-                    line-height:  map.get($typography-mobile, button-medium-line-height);;
+                    font-size: map.get($typography-desktop, button-medium-size);
+                    line-height:  map.get($typography-desktop, button-medium-line-height);
                     font-weight: 500;
                     cursor: pointer;
                     transition: background-color 0.2s ease;

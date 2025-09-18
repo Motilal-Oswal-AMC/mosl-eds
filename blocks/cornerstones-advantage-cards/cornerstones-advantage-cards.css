@@ -1,12 +1,10 @@
 /* Reset */
 @import "../../../styles/fonts.css";
-
 .section.cornerstones-advantage-cards-container {
   width: 100%;
   margin: 0 auto;
   padding: 40px 0;
 }
-
 .section.cornerstones-advantage-cards-container .default-content-wrapper h1,
 .section.cornerstones-advantage-cards-container .default-content-wrapper h2,
 .section.cornerstones-advantage-cards-container .default-content-wrapper h3,
@@ -18,11 +16,10 @@
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage-cards-container .default-content-wrapper h1,
   .section.cornerstones-advantage-cards-container .default-content-wrapper h2,
   .section.cornerstones-advantage-cards-container .default-content-wrapper h3,
@@ -33,29 +30,26 @@
     font-size: 24px;
     line-height: 24px;
     color: #2e2a94;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 600;
   }
 }
-
 .section.cornerstones-advantage-cards-container .default-content-wrapper p {
   font-size: 16px;
   line-height: 20px;
   color: #2e2a94;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   text-align: center;
   margin: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage-cards-container .default-content-wrapper p {
     font-size: 14px;
     line-height: 20px;
     text-align: left;
   }
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards {
   display: flex;
   flex-wrap: wrap;
@@ -63,49 +57,42 @@
   gap: 16px;
   margin: 40px 0 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards {
     flex-wrap: unset;
     flex-direction: column;
     gap: 24px;
   }
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item {
   max-width: 296px;
   width: 100%;
   min-height: 300px;
 }
-
-@media (width <= 1025px) {
+@media (max-width: 1025px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item {
     max-width: 32%;
   }
 }
-
 @media screen and (width <= 851px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item {
     max-width: 48%;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item {
     min-height: 168px;
     max-width: 100%;
     padding-right: 0;
   }
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item > div {
   height: 100%;
   display: flex;
   flex-direction: column;
   padding-right: 26px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item > div {
     padding-right: 0;
     padding-bottom: 16px;
@@ -116,32 +103,27 @@
     align-items: start;
   }
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child {
   margin: 0;
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-1, .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-1 .icon {
   width: 64px;
   height: 64px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-1, .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-1 .icon {
     grid-area: icon;
   }
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-2 {
   margin: 24px 0 8px;
   font-size: 18px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-2 {
     grid-area: heading;
     margin: 0 0 8px;
@@ -149,17 +131,15 @@
     line-height: 20px;
   }
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-3 {
   font-size: 16px;
   line-height: 24px;
   color: #616161;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   padding-bottom: 28px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-3 {
     font-size: 14px;
     line-height: 20px;
@@ -167,19 +147,16 @@
     white-space: break-spaces;
   }
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.button-container {
   margin-top: auto;
   line-height: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.button-container {
     grid-area: button;
     margin: 24px 0 0;
   }
 }
-
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.button-container .button {
   margin: 0;
   padding: 0;
@@ -193,6 +170,6 @@
   font-size: 14px;
   line-height: 20px;
   color: #4338f3;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
-}
+}/*# sourceMappingURL=cornerstones-advantage-cards.css.map */

@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /* Reset */
 @import "../../../styles/fonts.css";
 /* stylelint-disable */
@@ -866,4 +865,4 @@
   to {
     transform: translateX(100%);
   }
-}
+}/*# sourceMappingURL=invest-now-homepage.css.map */
