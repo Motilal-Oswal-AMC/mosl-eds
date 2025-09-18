@@ -24,11 +24,11 @@
     h6 {
       margin: 0 0 8px;
 
-      @include font-style($body-small-medium-size, $body-small-medium-line-height, $blue-1-800-primary, 500, $body);
+      @include font-style(map.get($typography-desktop , body-small-medium-size) , map.get($typography-desktop ,body-small-medium-line-height), $blue-1-800-primary, 500, $body);
 
       @include media(mobile) {
-        font-size: $body-xsmall-medium-size;
-        line-height:$body-xsmall-medium-line-height;
+        font-size: map.get($typography-mobile , body-xsmall-medium-size);
+        line-height:map.get($typography-mobile ,body-xsmall-medium-line-height);
       }
     }
   }
@@ -157,7 +157,7 @@
         & .total-slide {
           margin: 0;
 
-          @include font-style($body-small-regular-size, $body-small-regular-line-height, $blue-1-800-primary, 400, $body);
+          @include font-style(map.get($typography-desktop, body-small-regular-size), map.get($typography-desktop ,body-small-regular-line-height), $blue-1-800-primary, 400, $body);
         }
 
         & .total-slide {
@@ -184,11 +184,11 @@
       }
 
       li:first-of-type {
-        @include font-style($body-medium-regular-size, $body-medium-regular-line-height, $neutrals-800, 400, $body);
+        @include font-style(map.get($typography-desktop,body-medium-regular-size), map.get($typography-desktop,body-medium-regular-line-height), $neutrals-800, 400, $body);
 
         @include media(mobile) {
-          font-size: $paragraph-xsmall-size;
-          line-height: $paragraph-xsmall-line-height;
+          font-size: map.get($typography-mobile, paragraph-xsmall-size);
+          line-height:map.get($typography-mobile, paragraph-xsmall-line-height);
         }
       }
 
@@ -198,13 +198,13 @@
         gap: 8px;
         min-width: max-content;
 
-        @include font-style($body-medium-medium-size, $body-medium-medium-line-height, $color-text-body, 500, $body);
+        @include font-style(map.get($typography-desktop, body-medium-medium-size), map.get($typography-desktop,body-medium-medium-line-height), $color-text-body, 500, $body);
 
         color: #3025e0;
 
         @include media(mobile) {
-          font-size: $body-small-medium-size;
-          line-height: $body-small-medium-line-height;
+          font-size: map.get($typography-mobile, body-small-medium-size);
+          line-height: map.get($typography-mobile, body-small-medium-line-height);
         }
 
         a {

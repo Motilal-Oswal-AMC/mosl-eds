@@ -81,7 +81,7 @@
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-weight: 400;
 }
 @media (max-width: 768px) {
@@ -227,20 +227,20 @@
     min-height: 114px;
   }
 }
-.think-equity.block .imagelist1 .subimagelist h3 {
+.think-equity.block .imagelist1 .subimagelist h1, .think-equity.block .imagelist1 .subimagelist h2, .think-equity.block .imagelist1 .subimagelist h3, .think-equity.block .imagelist1 .subimagelist h4, .think-equity.block .imagelist1 .subimagelist h5, .think-equity.block .imagelist1 .subimagelist h6 {
   margin: 0;
   padding: 0;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
-  font-size: 36px;
-  line-height: 44px;
+  font-family: "Inter";
+  font-size: 32px;
+  line-height: 40px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
 }
 @media (max-width: 768px) {
-  .think-equity.block .imagelist1 .subimagelist h3 {
+  .think-equity.block .imagelist1 .subimagelist h1, .think-equity.block .imagelist1 .subimagelist h2, .think-equity.block .imagelist1 .subimagelist h3, .think-equity.block .imagelist1 .subimagelist h4, .think-equity.block .imagelist1 .subimagelist h5, .think-equity.block .imagelist1 .subimagelist h6 {
     font-size: 24px;
-    line-height: 28px;
+    line-height: 24px;
   }
 }
 .think-equity.block .imagelist1 .subimagelist::before {

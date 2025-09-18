@@ -361,7 +361,7 @@
   gap: 8px;
   border-radius: 16px;
   border: 0.8px solid #2e2a94;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 .section.future-building-container .future-building .btn-wrapper .swiper-button-next {
   background: #2e2a94;
@@ -521,12 +521,12 @@
   height: 24px;
 }
 .section.quick-actions .quckactmain1 .quckactmain-sub1 .quicksubactmain1 {
-  color: #2E2A94;
-  font-family: Poppins, sans-serif;
+  color: #2e2a94;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
-  line-height: 32px;
+  line-height: 24px;
 }
 @media (width >= 768px) {
   .section.quick-actions .quckactmain1 .quckactmain-sub1 {
@@ -560,8 +560,8 @@
     color: #2E2A94;
   }
   .section.quick-actions .quckactmain1 .quckactmain-sub1 .quckactmain-sub-wrp1 .quicksubactmain2 li.quicksubactlist .quckaqweactmain2 {
-    color: #2E2A94;
-    font-family: Poppins, sans-serif;
+    color: #2e2a94;
+    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;

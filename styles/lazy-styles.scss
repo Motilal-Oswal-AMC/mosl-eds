@@ -609,12 +609,12 @@
       }
 
       .quicksubactmain1 {
-        color: #2E2A94;
-        font-family: Poppins, sans-serif;
+        color: $blue-1-800-primary;
+        font-family: $body, sans-serif;
         font-weight: 600;
-        font-size: 24px;
+        font-size: map.get($typography-desktop ,body-xlarge-bold-size);
         font-style: normal;
-        line-height: 32px;
+        line-height: map.get($typography-desktop , body-xlarge-bold-line-height);
       }
     }
   }
@@ -654,12 +654,12 @@
 
 
               .quckaqweactmain2 {
-                color: #2E2A94;
-                font-family: Poppins, sans-serif;
-                font-size: 16px;
+                color: $blue-1-800-primary;
+                font-family: $body, sans-serif;
+                font-size: map.get($typography-desktop , body-medium-medium-size);
                 font-style: normal;
                 font-weight: 500;
-                line-height: 20px;
+                line-height: map.get($typography-desktop , body-medium-medium-line-height);
 
                 .icon {
                   display: none;
