@@ -26,7 +26,7 @@
         }
 
         p:nth-child(1) {
-            color: $primary-Blue-1-900;
+            color: $primary-blue-1-900;
             text-align: center;
             font-family: $butlerpro;
             font-size: 44px;
@@ -93,7 +93,7 @@
 
             .newssubitem .newsinneritem1 {
                 margin: 0;
-                color: $primary-Blue-1-900;
+                color: $primary-blue-1-900;
                 text-align: center;
                 font-family: $butlerpro;
                 font-size: 44px;
@@ -105,7 +105,7 @@
 
             .newssubitem .newsinneritem2 {
                 margin: 0;
-                color: $primary-Blue-1-900;
+                color: $primary-blue-1-900;
                 font-family: $poppins;
                 font-size: 24px;
                 font-style: normal;
@@ -149,7 +149,7 @@
                     flex-shrink: 0;
 
                     label {
-                        color: $primary-Blue-1-900;
+                        color: $primary-blue-1-900;
                         font-family: $poppins;
                         font-size: 14px;
                         font-style: normal;
@@ -170,13 +170,13 @@
                         padding: 8px 12px;
                         border-radius: 6px;
 
-                        &::placeholder {
-                            color: #616161;
-                            font-family: $poppins;
-                            font-size: 16px;
-                            font-weight: 500;
-                            line-height: 20px;
-                        }
+                        // &::placeholder {
+                        //     color: #616161;
+                        //     font-family: $poppins;
+                        //     font-size: 16px;
+                        //     font-weight: 500;
+                        //     line-height: 20px;
+                        // }
                     }
 
                     .error {

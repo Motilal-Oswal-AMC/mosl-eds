@@ -3,6 +3,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { loadAutoBlock } from '../../scripts/scripts.js';
+import { span } from '../../scripts/dom-helpers.js';
 
 /**
  * Initializes the scroll-to-top button.
@@ -160,4 +161,26 @@ export default async function decorate(block) {
   ).forEach((efthre) => {
     efthre.classList.add('footerthr');
   });
+
+  const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+  async function removeClassAfterDelay() {
+    await delay(2000);
+    if (block.querySelector('#form-email') !== null) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const formem = block.querySelector('#form-email');
+      formem.addEventListener('input', (event) => {
+        const closblock = event.target.closest('.email-wrapper');
+        if (closblock.querySelector('.errormsg') === null) {
+          closblock.append(span({ class: 'errormsg' }, 'Enter Valid Email'));
+        }
+        const inpval = event.target.value;
+        if (emailRegex.test(inpval)) {
+          closblock.querySelector('.errormsg').style.display = 'none';
+        } else {
+          closblock.querySelector('.errormsg').style.display = 'block';
+        }
+      });
+    }
+  }
+  removeClassAfterDelay();
 }

@@ -85,11 +85,11 @@
                 margin: 0;
 
                 @include font-style(
-                  14px,
-                  20px,
+                  map.get($typography-desktop, body-small-regular-size),
+                  map.get($typography-desktop, label-large-line-height),
                   $text-body-2,
                   map.get($font-weights, regular),
-                  $poppins
+                  $body
                 );
 
                 @include media(mobile) {
@@ -143,19 +143,19 @@
           width: 100%;
           margin: 0;
           text-align: left;
-          color: #2e2a94;
-          font-family: $poppins;
-          font-size: 20px;
+          color: $blue-1-800-primary;
+          font-family: $body;
+          font-size: map.get($typography-desktop , body-xlarge-semibold-size);
           font-style: normal;
           font-weight: 500;
-          line-height: 24px;
+          line-height: map.get($typography-desktop , Body-Xlarge-semibold-Line-Height);
 
           @include media(mobile) {
-            color: $primary-blue;
-            font-family: $poppins;
-            font-size: 20px;
+            color: $blue-1-800-primary;
+            font-family: $body;
+            font-size: map.get($typography-mobile , body-xlarge-semibold-size);
             font-weight: 500;
-            line-height: 24px;
+            line-height: map.get($typography-mobile , body-xlarge-semibold-line-height);
           }
         }
 
@@ -172,13 +172,13 @@
           .button {
             width: 100%;
             display: inline-block;
-            color: #fff;
+            color: $text-white;
             padding: 12px;
             border: none;
-            font-family: $poppins;
+            font-family: $body;
             font-weight: 500;
-            font-size: 1rem;
-            line-height: 20px;
+            font-size: map.get($typography-desktop , button-medium-size);
+            line-height: map.get($typography-desktop , button-medium-line-height);
             text-decoration: none;
             cursor: pointer;
             transition: background-color 0.2s ease-in-out,
@@ -256,19 +256,19 @@
           min-height: 114px;
         }
 
-        h3 {
+       h1, h2, h3 , h4, h5, h6 {
           margin: 0;
           padding: 0;
           color: #2e2a94;
-          font-family: $inter;
-          font-size: 32px;
-          line-height: 40px;
+          font-family: $title;
+          font-size: map.get($typography-desktop , heading-h4-size);
+          line-height: map.get($typography-desktop , heading-h4-line-height);
           font-style: normal;
           font-weight: 600;
 
           @include media(mobile) {
-            font-size: 24px;
-            line-height: 28px;
+            font-size: map.get($typography-desktop , sub-header-large-size);
+            line-height: map.get($typography-mobile , sub-header-medium-line-height);
           }
         }
 

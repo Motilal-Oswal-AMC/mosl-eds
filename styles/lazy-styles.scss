@@ -628,11 +628,11 @@
               align-items: center;
               justify-content: space-between;
               color: #2E2A94;
-              font-family: $inter, sans-serif;
-              font-size: 16px;
+              font-family: $body, sans-serif;
+              font-size: map.get($typography-mobile , body-medium-medium-size);
               font-style: normal;
               font-weight: 500;
-              line-height: 20px;
+              line-height: map.get($typography-mobile , body-medium-medium-line-height);
 
               .quckaqweactmain1 {
                 display: flex;
@@ -645,12 +645,12 @@
       }
 
       .quicksubactmain1 {
-        color: #2E2A94;
-        font-family: Poppins, sans-serif;
+        color: $blue-1-800-primary;
+        font-family: $title, sans-serif;
         font-weight: 600;
-        font-size: 24px;
+        font-size: map.get($typography-mobile ,Sub-Header-Large-Size);
         font-style: normal;
-        line-height: 32px;
+        line-height: map.get($typography-desktop ,sub-header-medium-line-height);
       }
     }
   }
@@ -690,12 +690,12 @@
 
 
               .quckaqweactmain2 {
-                color: #2E2A94;
-                font-family: $inter, sans-serif;
-                font-size: 16px;
+                color: $blue-1-800-primary;
+                font-family: $body, sans-serif;
+                font-size: map.get($typography-desktop , body-medium-medium-size);
                 font-style: normal;
                 font-weight: 500;
-                line-height: 20px;
+                line-height: map.get($typography-desktop , body-medium-medium-line-height);
 
                 .icon {
                   display: none;
@@ -713,11 +713,11 @@
         .quicksubactmain1 {
           margin: 0;
           padding: 0;
-          color: #2E2A94;
-          font-family: $inter, sans-serif;
+          color: $blue-1800-primary;
+          font-family: $body, sans-serif;
           font-weight: 600;
-          font-size: 20px;
-          line-height: 24px;
+          font-size: map.get($typography-desktop , Body-Xlarge-bold-Size); 
+          line-height: map.get($typography-desktop , Body-Xlarge-bold-Line-Height);
           white-space: nowrap;
         }
       }

@@ -1,4 +1,5 @@
 @import "../../../styles/fonts.css";
+
 .co-branding .co-branding-section {
   padding: 64px 16px 34px;
   max-width: 400px;
@@ -6,6 +7,7 @@
   border-radius: 24px 24px 0 0;
   background-color: #fff;
 }
+
 .co-branding .co-branding-section .crossparbtn {
   margin: 0;
   position: absolute;
@@ -16,10 +18,12 @@
   z-index: 10;
   cursor: pointer;
 }
+
 .co-branding .co-branding-section .crossparbtn .icon-modal-btn {
   width: 36px;
   height: 36px;
 }
+
 .co-branding .co-branding-section .crossparbtn .icon-modal-btn .img {
   width: 36px;
   height: 36px;
@@ -28,43 +32,50 @@
   justify-content: center;
   gap: 10px;
 }
+
 .co-branding .co-branding-section .co-heading {
   margin: 0 0 40px;
   font-size: 24px;
   line-height: 28px;
   color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-family: ButlerPro, sans-serif;
   font-weight: 700;
 }
+
 .co-branding .co-branding-section .cobrand-form, .co-branding .co-branding-section .cobrand-field {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
+
 .co-branding .co-branding-section .cobrand-field {
   gap: 0;
   position: relative;
 }
+
 .co-branding .co-branding-section .cobrand-field .error-msg {
   font-size: 8px;
   line-height: 12px;
   color: #ed2020;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   display: none;
   margin: 5px 0 0;
 }
+
 .co-branding .co-branding-section .cobrand-field .show-error {
   display: block;
 }
+
 .co-branding .co-branding-section .cobrand-field .hide-error {
   display: none;
 }
+
 .co-branding .co-branding-section .cobrand-label {
   font-size: 12px;
   line-height: 16px;
   color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   width: -moz-max-content;
   width: max-content;
@@ -74,6 +85,7 @@
   left: 8px;
   top: -8px;
 }
+
 .co-branding .co-branding-section .cobrand-input {
   padding: 10px 12px;
   border-radius: 6px;
@@ -81,20 +93,22 @@
   font-size: 16px;
   line-height: 20px;
   color: #111;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
 }
+
 .co-branding .co-branding-section .cobrand-btns {
   display: flex;
   gap: 12px;
   margin: 48px 0 40px;
 }
+
 .co-branding .co-branding-section .cobrand-btns .share,
 .co-branding .co-branding-section .cobrand-btns .download {
   font-size: 16px;
   line-height: 20px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 500;
   border: none;
   border-radius: 4px;
@@ -105,26 +119,31 @@
   background-color: transparent;
   cursor: pointer;
 }
+
 .co-branding .co-branding-section .cobrand-btns .share {
   border: 1px solid #2e2a94;
 }
+
 .co-branding .co-branding-section .cobrand-btns .download {
   background-color: #2e2a94;
   color: #fff;
 }
+
 .co-branding .co-branding-section .cobrand-disc .co-diclaimer,
 .co-branding .co-branding-section .cobrand-disc .co-listname {
   font-size: 12px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   margin: 0;
 }
+
 .co-branding .co-branding-section .cobrand-disc .co-listwrap .co-ullist {
   margin: 20px 0 0;
   padding: 0 0 0 20px;
 }
+
 .co-branding .co-branding-section .cobrand-disc .co-listwrap .co-ullist .co-listname {
   color: #616161;
 }
@@ -133,11 +152,13 @@
   display: block;
   overflow: hidden;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .modal-journey.modal.block {
     display: block;
   }
 }
+
 .modal-journey.modal.block dialog {
   padding: 0;
   margin: 0;
@@ -145,6 +166,7 @@
   justify-content: end;
   overflow: hidden;
 }
+
 .modal-journey.modal.block dialog .modal-content {
   position: relative;
   max-width: 400px;
@@ -154,14 +176,16 @@
   height: 100%;
   overflow: hidden;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .modal-journey.modal.block dialog .modal-content {
     height: 90vh;
   }
 }
+
 .modal-journey.modal.block dialog .close-button {
   display: block;
   z-index: -1;
   background: none;
   color: transparent;
-}/*# sourceMappingURL=co-branding.css.map */
+}
