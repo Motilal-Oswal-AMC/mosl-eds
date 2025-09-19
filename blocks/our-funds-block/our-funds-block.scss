@@ -1770,6 +1770,10 @@ body {
               border-radius: 8px;
               padding: 14px 20px;
 
+              @include media(desktop-sm){
+                gap: 22px;
+              }
+
               .list-header-text {
                 margin: 0;
 
@@ -1824,21 +1828,22 @@ body {
                 text-align: center;
               }
 
-              // @include media(desktop-sm) {
-              //   .list-header-text:nth-of-type(1) {
-              //     margin-right: 25px;
-              //     max-width: 40%;
-              //   }
+              @include media(desktop-sm) {
+                .list-header-text:nth-of-type(1) {
+                  margin-right: 25px;
+                  max-width: 40%;
+                  // max-width: 34.18%;
+                }
 
-              //   .list-header-text:nth-of-type(2) {
-              //     margin-right: 15px;
-              //     max-width: 12%;
-              //   }
+                .list-header-text:nth-of-type(2) {
+                  margin-right: 15px;
+                  max-width: 12%;
+                }
 
-              //   .list-header-text:nth-of-type(4) {
-              //     max-width: 10%;
-              //   }
-              // }
+                .list-header-text:nth-of-type(4) {
+                  max-width: 10%;
+                }
+              }
             }
           }
 
@@ -1861,8 +1866,8 @@ body {
                 gap: 25px;
                 padding: 16px 20px;
 
-                @include media(tab) {
-                  gap: 30px;
+                @include media(desktop-sm) {
+                  gap: 22px;
                 }
 
                 .fund-name-wrapper {
@@ -1992,14 +1997,14 @@ body {
                 }
 
                 .btn-invest {
-                  // max-width: 10%;
-                  // width: 100%;
+                  max-width: 11.364%;
+                  width: 100%;
                   display: flex;
                   justify-content: end;
-                  margin-left: 33px;
 
                   @include media(desktop-sm) {
-                    max-width: 10.7%;
+                    // max-width: 10.7%;
+                    max-width: 10.4%;
                   }
 
                   button {
@@ -2017,7 +2022,7 @@ body {
               }
 
               &.nfo-list-container {
-                background-color: $primary-blue;
+                background-color: $blue-1-800-primary;
 
                 .list-wrapper {
                   .fund-name-wrapper {

@@ -1529,6 +1529,11 @@
   border-radius: 8px;
   padding: 14px 20px;
 }
+@media (max-width: 1299px) {
+  .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper {
+    gap: 22px;
+  }
+}
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text {
   margin: 0;
   font-size: 14px;
@@ -1584,6 +1589,19 @@
   width: 100%;
   text-align: center;
 }
+@media (max-width: 1299px) {
+  .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(1) {
+    margin-right: 25px;
+    max-width: 40%;
+  }
+  .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(2) {
+    margin-right: 15px;
+    max-width: 12%;
+  }
+  .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(4) {
+    max-width: 10%;
+  }
+}
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container {
   margin: 8px 0 0;
 }
@@ -1602,9 +1620,9 @@
   gap: 25px;
   padding: 16px 20px;
 }
-@media (max-width: 1025px) {
+@media (max-width: 1299px) {
   .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper {
-    gap: 30px;
+    gap: 22px;
   }
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper {
@@ -1729,13 +1747,14 @@
   cursor: pointer;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .btn-invest {
+  max-width: 11.364%;
+  width: 100%;
   display: flex;
   justify-content: end;
-  margin-left: 33px;
 }
 @media (max-width: 1299px) {
   .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .btn-invest {
-    max-width: 10.7%;
+    max-width: 10.4%;
   }
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .btn-invest button {
