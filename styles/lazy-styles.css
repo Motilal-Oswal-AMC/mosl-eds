@@ -1053,7 +1053,7 @@
   font-size: 16px;
   line-height: 20px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   border-radius: 4px;
   background: #2e2a94;
@@ -1100,7 +1100,7 @@
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp3 {
     margin-bottom: 40px;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 24px;
     color: #424242;
     font-family: "Inter", sans-serif;
     font-weight: 400;
@@ -1121,7 +1121,7 @@
     font-size: 16px;
     line-height: 20px;
     color: #fff;
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 500;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub2 {
