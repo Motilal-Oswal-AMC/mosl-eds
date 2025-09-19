@@ -1763,23 +1763,23 @@ body {
 
           .list-header {
             .default-content-wrapper {
-              background-color: $primary-white;
+              background-color: $neutrals-white;
               display: flex;
               align-items: center;
-              gap: 22px;
+              gap: 25px;
               border-radius: 8px;
               padding: 14px 20px;
 
               .list-header-text {
                 margin: 0;
 
-                @include font-style(14px, 16px, $primary-blue, 600, $poppins);
+                @include font-style(map.get($typography-desktop, body-small-medium-size), map.get($typography-desktop, body-small-medium-line-height), $blue-1-800-primary, 500, $body);
               }
 
               .list-header-text:nth-of-type(1) {
-                max-width: 41.83%;
+                max-width: 45.228%;
                 width: 100%;
-                margin-right: 47px;
+                margin-right: 33px;
 
                 @include media(tab) {
                   margin: 0;
@@ -1789,7 +1789,7 @@ body {
               .list-header-text:nth-of-type(2) {
                 max-width: 9.44%;
                 width: 100%;
-                margin-right: 34px;
+                margin-right: 15px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -1824,21 +1824,21 @@ body {
                 text-align: center;
               }
 
-              @include media(desktop-sm) {
-                .list-header-text:nth-of-type(1) {
-                  margin-right: 25px;
-                  max-width: 40%;
-                }
+              // @include media(desktop-sm) {
+              //   .list-header-text:nth-of-type(1) {
+              //     margin-right: 25px;
+              //     max-width: 40%;
+              //   }
 
-                .list-header-text:nth-of-type(2) {
-                  margin-right: 15px;
-                  max-width: 12%;
-                }
+              //   .list-header-text:nth-of-type(2) {
+              //     margin-right: 15px;
+              //     max-width: 12%;
+              //   }
 
-                .list-header-text:nth-of-type(4) {
-                  max-width: 10%;
-                }
-              }
+              //   .list-header-text:nth-of-type(4) {
+              //     max-width: 10%;
+              //   }
+              // }
             }
           }
 
@@ -1846,29 +1846,31 @@ body {
             margin: 8px 0 0;
 
             .list-view-container {
-              background-color: $primary-white;
+              background-color: $neutrals-white;
               border-radius: 8px;
               transition: all 0.3s;
 
               &:hover {
-                background-color: map.get($blue-1, b25);
+                border: 1px solid $blue-1-50;
+                background-color: $blue-1-25;
               }
 
               .list-wrapper {
                 display: flex;
                 align-items: center;
-                gap: 22px;
-                padding: 14px 20px;
+                gap: 25px;
+                padding: 16px 20px;
 
                 @include media(tab) {
                   gap: 30px;
                 }
 
                 .fund-name-wrapper {
-                  max-width: 41.83%;
+                  max-width: 45.228%;
                   width: 100%;
-                  margin-right: 47px;
+                  margin-right: 33px;
                   display: flex;
+                  align-items: center;
                   gap: 8px;
 
                   @include media(desktop-sm) {
@@ -1881,9 +1883,9 @@ body {
                   }
 
                   .logo-container {
-                    max-width: 28px;
+                    max-width: 32px;
                     width: 100%;
-                    height: 28px;
+                    height: 32px;
                     margin-right: 2px;
                     box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
 
@@ -1901,35 +1903,27 @@ body {
                     }
                   }
 
-                  .fund-name-container {
-                    display: flex;
-                    flex-direction: column;
-
-                    .brand-name-txt {
-                      margin: 0;
-
-                      @include font-style(12px, 16px, map.get($blue-1, b400), 400, $poppins);
-                    }
+                  .fund-name-container {                    
+                    width: 100%;
 
                     .fund-name-txt {
                       margin: 0;
-
-                      @include font-style(14px, 16px, $primary-blue, 500, $poppins);
+                      
+                      @include font-style(map.get($typography-desktop, body-medium-medium-size), map.get($typography-desktop, body-medium-medium-line-height), $neutrals-black, 500, $body);
                     }
                   }
 
                   .logoscheme {
-                    max-width: 16px;
+                    max-width: 24px;
                     width: 100%;
-                    height: 16px;
-                    align-self: end;
+                    height: 24px;
                   }
                 }
 
                 .cagr-return {
                   max-width: 9.44%;
                   width: 100%;
-                  margin-right: 34px;
+                  margin-right: 15px;
                   display: flex;
                   flex-direction: column;
                   gap: 4px;
@@ -1941,7 +1935,7 @@ body {
                   }
 
                   .cagr-value {
-                    @include font-style(14px, 16px, $primary-blue, 600, $poppins);
+                    @include font-style(map.get($typography-desktop, body-medium-semibold-size), map.get($typography-desktop, body-medium-semibold-line-height), $blue-1-800-primary, 600, $body);
 
                     display: flex;
                   }
@@ -1949,7 +1943,7 @@ body {
                   .cagr-text {
                     margin: 0;
 
-                    @include font-style(12px, 16px, $neutrals-600, 400, $poppins);
+                    @include font-style(map.get($typography-desktop, label-small-size), map.get($typography-desktop, label-small-line-height), $neutrals-600, 400, $body);
                   }
                 }
 
@@ -1962,9 +1956,9 @@ body {
 
                   .risk-icon,
                   .riskfactor-icon {
-                    max-width: 20px;
+                    max-width: 24px;
                     width: 100%;
-                    height: 20px;
+                    height: 24px;
                   }
                 }
 
@@ -1998,24 +1992,26 @@ body {
                 }
 
                 .btn-invest {
-                  max-width: 12.7%;
-                  width: 100%;
+                  // max-width: 10%;
+                  // width: 100%;
                   display: flex;
                   justify-content: end;
+                  margin-left: 33px;
 
                   @include media(desktop-sm) {
                     max-width: 10.7%;
                   }
 
                   button {
-                    padding: 8px 12px;
+                    padding: $spacing-8 $spacing-12;
                     margin: 0;
-                    background-color: $primary-blue;
+                    background-color: $button-primary-default;
                     min-width: 67px;
+                    max-width: max-content;
                     border: none;
-                    border-radius: 4px;
+                    border-radius: $border-radius-8;
 
-                    @include font-style(14px, 16px, $primary-white, 500, $poppins);
+                    @include font-style(map.get($typography-desktop, button-small-size), map.get($typography-desktop, button-small-line-height), $text-white, 500, $body);
                   }
                 }
               }
@@ -2026,23 +2022,24 @@ body {
                 .list-wrapper {
                   .fund-name-wrapper {
                     flex-direction: column;
-                    gap: 12px;
+                    align-items: start;
+                    gap: 4px;
 
                     .fund-inner-wrapper {
                       display: flex;
-                      gap: 10px;
+                      align-items: center;
+                      width: 100%;
+
+                      // gap: 10px;
 
                       .fund-name-container {
                         // max-width: 189px;
-                        max-width: 51.57%;
-                        width: 100%;
-
-                        .brand-name-txt {
-                          color: map.get($blue-1, b50);
-                        }
+                        // max-width: 51.57%;
+                        // width: 100%;
 
                         .fund-name-txt {
-                          color: $primary-white;
+                          color: $neutrals-white;
+                          margin-left: 10px;
                         }
                       }
 
@@ -2065,7 +2062,7 @@ body {
                         line-height: 0;
 
                         .label-nfo {
-                          @include font-style(12px, 16px, $primary-white, 600, $poppins);
+                          @include font-style(12px, map.get($typography-desktop, paragraph-xsmall-line-height), $neutrals-white, 600, $body);
 
                           display: flex;
                           align-items: center;
@@ -2075,7 +2072,7 @@ body {
                             content: "";
                             width: 9px;
                             height: 9px;
-                            background-color: #f00;
+                            background-color: $strokes-error;
                             border-radius: 50%;
                             display: block;
                           }
@@ -2086,7 +2083,7 @@ body {
                         p {
                           margin: 0;
 
-                          @include font-style(12px, 16px, $primary-white, 400, $poppins);
+                          @include font-style(map.get($typography-desktop, disclaimer-xsmall-size), map.get($typography-desktop, disclaimer-xsmall-line-height), $neutrals-white, 400, $body);
                         }
                       }
                     }
@@ -2094,14 +2091,28 @@ body {
 
                   .cagr-return {
                     .cagr-value {
-                      color: $primary-white;
+                      color: $neutrals-white;
+                      display: flex;
+                      align-items: center;
+                      gap: 4px;
+
+                      &::after{
+                        content: '';
+                        background-image: url('../../icons/info-white.svg');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        width: 12px;
+                        height: 12px;
+                        display: block;
+                      }
                     }
                   }
 
                   .btn-invest {
                     button {
-                      background-color: $primary-white;
-                      color: $primary-blue;
+                      background-color: $surface-background;
+                      color: $button-primary-default;
                     }
                   }
                 }

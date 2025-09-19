@@ -1525,7 +1525,7 @@
   background-color: #fff;
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 25px;
   border-radius: 8px;
   padding: 14px 20px;
 }
@@ -1534,14 +1534,14 @@
   font-size: 14px;
   line-height: 16px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 600;
+  font-weight: 500;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(1) {
-  max-width: 41.83%;
+  max-width: 45.228%;
   width: 100%;
-  margin-right: 47px;
+  margin-right: 33px;
 }
 @media (max-width: 1025px) {
   .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(1) {
@@ -1551,7 +1551,7 @@
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(2) {
   max-width: 9.44%;
   width: 100%;
-  margin-right: 34px;
+  margin-right: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1584,19 +1584,6 @@
   width: 100%;
   text-align: center;
 }
-@media (max-width: 1299px) {
-  .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(1) {
-    margin-right: 25px;
-    max-width: 40%;
-  }
-  .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(2) {
-    margin-right: 15px;
-    max-width: 12%;
-  }
-  .section .our-funds-block .filter-cards .right-container .list-view-header .list-header .default-content-wrapper .list-header-text:nth-of-type(4) {
-    max-width: 10%;
-  }
-}
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container {
   margin: 8px 0 0;
 }
@@ -1606,13 +1593,14 @@
   transition: all 0.3s;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container:hover {
-  background-color: #EDF1FF;
+  border: 1px solid #d5deff;
+  background-color: #edf1ff;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper {
   display: flex;
   align-items: center;
-  gap: 22px;
-  padding: 14px 20px;
+  gap: 25px;
+  padding: 16px 20px;
 }
 @media (max-width: 1025px) {
   .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper {
@@ -1620,10 +1608,11 @@
   }
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper {
-  max-width: 41.83%;
+  max-width: 45.228%;
   width: 100%;
-  margin-right: 47px;
+  margin-right: 33px;
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 @media (max-width: 1299px) {
@@ -1638,9 +1627,9 @@
   }
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .logo-container {
-  max-width: 28px;
+  max-width: 32px;
   width: 100%;
-  height: 28px;
+  height: 32px;
   margin-right: 2px;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.07);
   display: flex;
@@ -1653,37 +1642,26 @@
   height: 100%;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container {
-  display: flex;
-  flex-direction: column;
-}
-.section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container .brand-name-txt {
-  margin: 0;
-  font-size: 12px;
-  line-height: 16px;
-  color: #5659FA;
-  font-family: "Poppins", sans-serif;
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
+  width: 100%;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .fund-name-container .fund-name-txt {
   margin: 0;
-  font-size: 14px;
-  line-height: 16px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #111;
+  font-family: "Inter";
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .fund-name-wrapper .logoscheme {
-  max-width: 16px;
+  max-width: 24px;
   width: 100%;
-  height: 16px;
-  align-self: end;
+  height: 24px;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .cagr-return {
   max-width: 9.44%;
   width: 100%;
-  margin-right: 34px;
+  margin-right: 15px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -1696,10 +1674,10 @@
   }
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .cagr-return .cagr-value {
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 20px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
   display: flex;
@@ -1709,7 +1687,7 @@
   font-size: 12px;
   line-height: 16px;
   color: #757575;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
@@ -1722,9 +1700,9 @@
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon .risk-icon,
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .risk-star-icon .riskfactor-icon {
-  max-width: 20px;
+  max-width: 24px;
   width: 100%;
-  height: 20px;
+  height: 24px;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .star {
   max-width: 8%;
@@ -1751,10 +1729,9 @@
   cursor: pointer;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .btn-invest {
-  max-width: 12.7%;
-  width: 100%;
   display: flex;
   justify-content: end;
+  margin-left: 33px;
 }
 @media (max-width: 1299px) {
   .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container .list-wrapper .btn-invest {
@@ -1766,12 +1743,14 @@
   margin: 0;
   background-color: #2e2a94;
   min-width: 67px;
+  max-width: -moz-max-content;
+  max-width: max-content;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 14px;
   line-height: 16px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
@@ -1780,21 +1759,17 @@
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper {
   flex-direction: column;
-  gap: 12px;
+  align-items: start;
+  gap: 4px;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper {
   display: flex;
-  gap: 10px;
-}
-.section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .fund-name-container {
-  max-width: 51.57%;
+  align-items: center;
   width: 100%;
-}
-.section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .fund-name-container .brand-name-txt {
-  color: #D5DEFF;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .fund-name-container .fund-name-txt {
   color: #fff;
+  margin-left: 10px;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .fund-name-wrapper .fund-inner-wrapper .logoscheme {
   margin-left: -3px;
@@ -1817,7 +1792,7 @@
   font-size: 12px;
   line-height: 16px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
   display: flex;
@@ -1828,7 +1803,7 @@
   content: "";
   width: 9px;
   height: 9px;
-  background-color: #f00;
+  background-color: #ee212e;
   border-radius: 50%;
   display: block;
 }
@@ -1837,12 +1812,25 @@
   font-size: 12px;
   line-height: 16px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter";
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .cagr-return .cagr-value {
   color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .cagr-return .cagr-value::after {
+  content: "";
+  background-image: url("../../icons/info-white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 12px;
+  height: 12px;
+  display: block;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container.nfo-list-container .list-wrapper .btn-invest button {
   background-color: #fff;
