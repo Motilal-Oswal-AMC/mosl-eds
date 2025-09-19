@@ -417,21 +417,21 @@ export default async function decorate(block) {
         }
       }
     });
-
-    const searchtemp = block.querySelector('.nav-tools .nav-tools-sec1 .nav-tools-inner-net1');
-    const iconcls = searchtemp.querySelector('.nav-tools-list-content1');
-    iconcls.addEventListener('click', () => {
-      const nfoban = block.querySelector('.nfo-banner');
-      const navblk = block.querySelector('nav');
-      if (nfoban.style.display === 'none') {
-        nfoban.style.display = 'block';
-        navblk.classList.add('nfo-nav');
-      } else {
-        nfoban.style.display = 'none';
-        navblk.classList.remove('nfo-nav');
-      }
-    });
   }
+
+  const searchtemp = block.querySelector('.nav-tools .nav-tools-sec1 .nav-tools-inner-net1');
+  const iconcls = searchtemp.querySelector('.nav-tools-list-content1');
+  iconcls.addEventListener('click', () => {
+    const nfoban = block.querySelector('.nfo-banner');
+    const navblk = block.querySelector('nav');
+    if (nfoban.style.display === 'none') {
+      nfoban.style.display = 'block';
+      navblk.classList.add('nfo-nav');
+    } else {
+      nfoban.style.display = 'none';
+      navblk.classList.remove('nfo-nav');
+    }
+  });
 
   const userProfile = block.querySelector('.nav-tools .nav-tools-sub4');
   dataMapMoObj.altFunction(
