@@ -433,6 +433,18 @@ export default async function decorate(block) {
     }
   });
 
+  const loginevent = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
+  loginevent.addEventListener('click', () => {
+    const nextel = loginevent.nextElementSibling;
+    if (nextel.style.display === 'none') {
+      nextel.style.display = 'block';
+    } else {
+      nextel.style.display = 'none';
+    }
+  });
+  Array.from(loginevent.querySelectorAll('a')).forEach((anchor) => {
+    anchor.removeAttribute('href');
+  });
   const userProfile = block.querySelector('.nav-tools .nav-tools-sub4');
   dataMapMoObj.altFunction(
     userProfile.querySelector('.nav-tools-inner-net2 .icon-user-icon-header img'),
