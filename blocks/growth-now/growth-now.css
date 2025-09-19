@@ -294,18 +294,24 @@ main {
   gap: 8px;
   border-radius: 4px;
   background: #FFF;
-  color: #2E2A94;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  color: #2e2a94;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px;
+  line-height: 20px;
   margin: 0;
   height: 40px;
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form .submit-wrapper .button {
     width: 100%;
+    color: #2e2a94;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
   }
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 {
@@ -410,7 +416,7 @@ main {
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) {
   color: #FFF;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

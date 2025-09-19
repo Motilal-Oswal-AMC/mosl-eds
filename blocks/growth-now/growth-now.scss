@@ -3,8 +3,8 @@
 /* media-feature-range-notation */
 
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 main {
     // background-color: $neutrals-100;
@@ -13,7 +13,7 @@ main {
 
 .section.growth-now-container {
     margin: 0;
-    
+
     // background-color: $neutrals-100;
     background-color: #fff;
     padding: 40px 0 50px;
@@ -395,17 +395,23 @@ main {
                             gap: 8px;
                             border-radius: 4px;
                             background: #FFF;
-                            color: #2E2A94;
-                            font-family: $poppins;
-                            font-size: 14px;
+                            color: $text-button-default;
+                            font-family: $body;
+                            font-size: map.get($typography-desktop, button-medium-size);
                             font-style: normal;
                             font-weight: 500;
-                            line-height: 16px;
+                            line-height: map.get($typography-desktop, button-medium-line-height);
                             margin: 0;
                             height: 40px;
 
                             @include media(mobile) {
                                 width: 100%;
+                                color: $text-button-default;
+                                font-family: $body;
+                                font-size: map.get($typography-mobile, button-medium-size);
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: map.get($typography-mobile, button-medium-line-height);
                             }
                         }
                     }
@@ -544,41 +550,41 @@ main {
                                         @include font-style(map.get($typography-mobile, paragraph-xsmall-size), map.get($typography-mobile, paragraph-xsmall-line-height), $neutrals-white, 400, $body);
                                     }
 
-                                        // &:hover {
-                                        //     text-decoration-line: underline;
-                                        //     opacity: 1 !important;
-                                        //     color: #fff;
-                                        // }
+                                    // &:hover {
+                                    //     text-decoration-line: underline;
+                                    //     opacity: 1 !important;
+                                    //     color: #fff;
+                                    // }
                                 }
-                                
+
                                 li.comlist.growth-subthr2:nth-child(2) {
                                     color: #FFF;
-                                    font-family: $poppins;
+                                    font-family: $body;
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 600;
                                     line-height: 16px;
-                                    cursor: pointer;               
-
-                                   a {
-                                    color: $neutrals-white;
-                                    font-family: $body;
-                                    font-size: map.get($typography-desktop, body-small-semibold-size);
-                                    font-style: normal;
-                                    font-weight: 600;
-                                    line-height: map.get($typography-desktop, body-small-semibold-line-height);
                                     cursor: pointer;
 
-                                    @include media(mobile) {
-                                        @include font-style(map.get($typography-mobile, body-small-semibold-size), map.get($typography-mobile, body-small-semibold-line-height), $neutrals-white, 600, $body);    
-                                    }
+                                    a {
+                                        color: $neutrals-white;
+                                        font-family: $body;
+                                        font-size: map.get($typography-desktop, body-small-semibold-size);
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: map.get($typography-desktop, body-small-semibold-line-height);
+                                        cursor: pointer;
 
-                                     &:hover {
+                                        @include media(mobile) {
+                                            @include font-style(map.get($typography-mobile, body-small-semibold-size), map.get($typography-mobile, body-small-semibold-line-height), $neutrals-white, 600, $body);
+                                        }
+
+                                        &:hover {
                                             text-decoration-line: underline;
                                             opacity: 1 !important;
                                             color: #fff;
                                         }
-                                   }
+                                    }
 
                                 }
                             }
