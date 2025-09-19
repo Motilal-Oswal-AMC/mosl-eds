@@ -163,20 +163,13 @@
 .section.freq-ask-ques .accordion-wrapper .accordion details summary::after {
   content: "";
   position: absolute;
-  top: 2px;
   right: 16px;
   width: 24px;
   height: 24px;
   border: none;
   border-width: unset;
-  transform: unset;
+  transform: translateY(-50%);
   background: url("../../icons/plus-blue.svg");
-}
-@media (max-width: 768px) {
-  .section.freq-ask-ques .accordion-wrapper .accordion details summary::after {
-    top: 12px;
-    right: 0;
-  }
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details .accordion-item-body {
   padding: 0 16px;
@@ -194,15 +187,9 @@
   background-color: transparent;
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary::after {
-  top: 15px;
   right: 12px;
   background: url("../../icons/mins-blue.svg");
-  transform: unset;
-}
-@media (max-width: 768px) {
-  .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary::after {
-    right: 0;
-  }
+  transform: translateY(-50%);
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary p {
   font-size: 18px;
