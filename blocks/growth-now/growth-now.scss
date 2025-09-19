@@ -186,7 +186,7 @@ main {
 
 
                     @include media(mobile) {
-                        @include font-style(map.get($typography-mobile, sub-header-large-size), map.get($typography-mobile, sub-header-medium-line-height), $neutrals-white, 600, $title);
+                        @include font-style(map.get($typography-mobile, sub-header-large-size), 28px, $neutrals-white, 600, $title);
                     }
                 }
 
