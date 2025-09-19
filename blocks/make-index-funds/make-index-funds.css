@@ -35,16 +35,13 @@
   font-size: 16px;
   line-height: 24px;
   color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
 }
 @media (max-width: 768px) {
   .section.make-index-funds-container > div:first-child p {
-    font-size: 14px;
-    line-height: 20px;
-    color: #2e2a94;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
   }
 }
 .section.make-index-funds-container > div:last-child {
@@ -85,7 +82,7 @@
     line-height: 20px;
     color: #fff;
     font-family: "Inter", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
   }
 }
