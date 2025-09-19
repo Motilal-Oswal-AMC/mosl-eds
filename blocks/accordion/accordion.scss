@@ -2,8 +2,8 @@
 
 /*   media-feature-range-notation */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 @import "./faq-page.css";
 
 .accordion-container {
@@ -16,7 +16,7 @@
 
     /*  -next-line no-descending-specificity */
     // Use the parent selector `&` to target an adjacent sibling
-    &+& {
+    & + & {
       margin-top: 24px;
     }
 
@@ -103,14 +103,14 @@
     // padding-top: 24px;
   }
 
-  >.default-content-wrapper,
+  > .default-content-wrapper,
   .accordion-wrapper {
     max-width: unset;
     margin: unset;
     padding: 0;
   }
 
-  &>.default-content-wrapper:nth-child(1) {
+  & > .default-content-wrapper:nth-child(1) {
     width: 100%;
 
     @include media(mobile) {
@@ -118,21 +118,25 @@
     }
 
     p {
-      @include font-style(36px,
-        44px,
-        $primary-blue,
-        map.get($font-weights, bold),
-        $butlerpro);
+      @include font-style(
+        map.get($typography-desktop, heading-h4-size),
+        map.get($typography-desktop, heading-h4-line-height),
+        $blue-1-800-primary,
+        600,
+        $title
+      );
 
       padding: 0;
       margin: 0;
 
       @include media(mobile) {
-        @include font-style(32px,
-          40px,
-          $primary-blue,
-          map.get($font-weights, bold),
-          $butlerpro);
+        @include font-style(
+          map.get($typography-mobile, sub-header-large-size),
+          28px,
+          $blue-1-800-primary,
+          600,
+          $title
+        );
       }
     }
   }
@@ -148,42 +152,42 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 52px;
+      // gap: 52px;
       flex: 1 0 0;
 
-      @include media(mobile) {
-        gap: 36px;
-      }
+      // @include media(mobile) {
+      //   gap: 36px;
+      // }
 
       details {
         width: 100%;
         border: none;
 
-        &+& {
+        & + & {
           margin-top: 24px;
         }
 
         p {
           margin: 0;
 
-          @include font-style(20px,
-            24px,
-            $primary-blue,
-            map.get($font-weights, medium),
-            $poppins);
+          @include font-style(
+            map.get($typography-desktop, body-large-semibold-size),
+            map.get($typography-desktop, body-large-semibold-line-height),
+            $blue-1-800-primary,
+            600,
+            $body
+          );
 
           @include media(mobile) {
-            @include font-style(16px,
-              20px,
-              $primary-blue,
-              map.get($font-weights, medium),
-              $poppins);
+            padding-right: 45px;
+            font-size: map.get($typography-mobile, body-medium-semibold-size);
+            line-height: map.get($typography-mobile, body-large-semibold-size);
           }
         }
 
         summary {
           position: relative;
-          padding: 0 40px 0 16px;
+          padding: $spacing-16 $spacing-none;
           cursor: pointer;
           list-style: none;
           overflow: hidden;
@@ -214,7 +218,7 @@
             // transition: all 0.3s ease-in-out;
 
             @include media(mobile) {
-              top: -2px;
+              top: 12px;
               right: 0;
             }
           }
@@ -225,38 +229,55 @@
         }
 
         &.accordion-item[open] {
-          background: #242177;
+          background: none;
           -webkit-tap-highlight-color: transparent;
           border-radius: 8px;
           transition: transform 0.2s;
 
           summary {
-            color: #fff;
+            color: #2e2a94;
 
             // background: #242177;
             border-radius: 8px 8px 0 0;
-            padding: 16px;
-            padding-bottom: 8px;
+            padding: $spacing-16 $spacing-none;
+            // padding-bottom: 8px;
             background-color: transparent;
 
             @include media(mobile) {
-              padding: 16px 12px;
-              padding-bottom: 8px;
+              // padding: 16px 12px;
+              // padding-bottom: 8px;
             }
 
             &::after {
               top: 15px;
-              right: 16px;
-              background: url("../../icons/mins-white.svg");
+              right: 12px;
+              background: url("../../icons/mins-blue.svg");
               transform: unset;
+
+               @include media(mobile) {
+               right: 0;
+            }
             }
 
             p {
-              color: #fff;
-              font-size: 18px;
+              @include font-style(
+                map.get($typography-desktop, body-large-semibold-size),
+                map.get($typography-desktop, body-large-semibold-line-height),
+                $blue-1-800-primary,
+                600,
+                $body
+              );
 
               @include media(mobile) {
                 padding-right: 45px;
+                font-size: map.get(
+                  $typography-mobile,
+                  body-medium-semibold-size
+                );
+                line-height: map.get(
+                  $typography-mobile,
+                  body-large-semibold-size
+                );
               }
             }
           }
@@ -266,7 +287,7 @@
             border: none;
             outline: none;
             margin-top: -1px;
-            padding: 16px;
+            padding: $spacing-16 $spacing-none;
             padding-top: 0;
             border-radius: 0 0 8px 8px;
 
@@ -277,27 +298,28 @@
             // transition: all 0.3s ease-in-out;
 
             @include media(mobile) {
-              padding: 16px 12px;
+              // padding: 16px 12px;
               padding-top: 0;
             }
 
             p {
               padding-right: 40px;
 
-              @include font-style(14px,
-                20px,
-                $primary-white,
-                map.get($font-weights, regular),
-                $poppins);
+              @include font-style(
+                map.get($typography-desktop, body-small-regular-size),
+                map.get($typography-desktop, label-large-line-height),
+                $neutrals-900,
+                400,
+                $body
+              );
 
               @include media(mobile) {
                 padding: 0;
-
-                @include font-style(12px,
-                  16px,
-                  $primary-white,
-                  map.get($font-weights, regular),
-                  $poppins);
+                font-size: map.get($typography-mobile, paragraph-xsmall-size);
+                line-height: map.get(
+                  $typography-mobile,
+                  paragraph-xsmall-line-height
+                );
               }
             }
           }
@@ -325,13 +347,13 @@
     }
   }
 
-  &>.default-content-wrapper:nth-child(3) {
+  & > .default-content-wrapper:nth-child(3) {
     grid-column: 2 / 2;
     grid-row: 2;
-    margin-top: 52px;
+    margin-top: 32px;
 
     // padding-left: 15px;
-    padding: 0 16px;
+    // pad/ding: 0 16px;
 
     @include media(mobile) {
       margin-top: 16px;
@@ -344,24 +366,19 @@
 
       a.button {
         margin: 0;
-        padding: 0;
-        background: transparent;
-        color: #4338f3;
-        font-family: $poppins;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 20px;
-        text-decoration-line: underline;
-        text-decoration-style: solid;
-        text-decoration-skip: ink;
-        text-decoration-skip-ink: auto;
-        text-decoration-thickness: auto;
-        text-underline-position: from-font;
-        border: none;
-        border-radius: unset;
-        white-space: unset;
-        overflow: hidden;
+        width: 124px;
+        padding: $spacing-8 $spacing-12;
+        justify-content: center;
+        align-items: center;
+        border-radius: $border-radius-8;
+        background: $button-primary-default;
+
+        
+ @include font-style(map.get($typography-desktop, button-small-size),
+                map.get($typography-desktop, Button-Small-Line-Height),
+                $text-white,
+                500,
+                $body);
       }
     }
 
