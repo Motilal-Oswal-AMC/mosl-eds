@@ -68,14 +68,14 @@
   padding: 0;
   max-width: 600px;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
   font-weight: 400;
 }
 @media (max-width: 768px) {
   .section.future-building-container > div.library-btn1 p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 20px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
@@ -305,7 +305,7 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   color: #616161;
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -698,7 +698,7 @@
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper h2.card-title,
   .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-left .card-left-title .titlewrapper h2.card-title-1 {
     font-size: 24px;
-    line-height: 24px;
+    line-height: 28px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
     font-weight: 600;

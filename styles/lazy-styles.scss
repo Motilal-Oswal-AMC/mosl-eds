@@ -74,13 +74,13 @@
       max-width: 600px;
 
       @include font-style(map.get($typography-desktop, body-medium-regular-size),
-        map.get($typography-desktop, body-medium-regular-line-height),
+        24px,
         $blue-1-800-primary,
         400,
         $body);
 
       @include media(mobile) {
-        @include font-style(map.get($typography-mobile, body-medium-regular-size),
+        @include font-style(map.get($typography-mobile, paragraph-small-size),
           map.get($typography-mobile, paragraph-small-line-height),
           $blue-1-800-primary,
           400,
@@ -333,7 +333,7 @@
                 padding: 0;
 
                 @include font-style(map.get($typography-desktop, body-medium-regular-size),
-                  map.get($typography-desktop, body-medium-regular-line-height),
+                  24px,
                   $text-body-2,
                   map.get($font-weights, regular),
                   $body);
@@ -803,7 +803,7 @@
               margin: 0;
 
               @include media(mobile) {
-                @include font-style(map.get($typography-mobile, sub-header-large-size), map.get($typography-mobile, sub-header-medium-line-height), $blue-1-800-primary, 600, $title);
+                @include font-style(map.get($typography-mobile, sub-header-large-size), 28px, $blue-1-800-primary, 600, $title);
               }
             }
           }
