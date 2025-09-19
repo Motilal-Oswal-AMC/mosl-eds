@@ -9,8 +9,8 @@
     padding: 20px 16px 16px;
     border-radius: map.get($radius, r16);
     background:
-      linear-gradient(#fff, #fff) padding-box,
-      linear-gradient(135deg, #b9bbff 0%, #fff 50%, #b9bbff 100%) border-box;
+      linear-gradient(var(--neutrals-white), var(--neutrals-white)) padding-box,
+      linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
     border: 1px solid transparent;
     box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
 
@@ -22,90 +22,6 @@
       flex-direction: column;
       height: 100%;
       width: 100%;
-
-      // All dropdown in card
-      .selectedtext {
-        @include font-style(12px, 16px, $primary-blue, map.get($font-weights, medium), $poppins);
-
-        margin: 0;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-
-        &::after {
-          content: "";
-          background: url("../../icons/down-arrow.svg") center/cover no-repeat;
-          min-width: 20px;
-          height: 20px;
-          display: block;
-        }
-
-        &.no-dropdown {
-          cursor: auto;
-
-          &::after {
-            content: unset;
-          }
-        }
-      }
-
-      .dropdown-list {
-        display: none;
-        position: absolute;
-
-        // top: 18px;
-        top: 100%;
-        left: 0;
-        z-index: 2;
-        width: 143px;
-
-        // max-height: 200px;
-        margin: 6px 0 0;
-        overflow: auto;
-        background-color: $primary-white;
-        border-radius: 8px;
-        border: 1px solid $neutrals-200;
-        box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
-
-        @include media(mobile) {
-          width: 168px;
-          left: unset;
-          right: 0;
-        }
-
-        &::-webkit-scrollbar {
-          width: 3px;
-        }
-
-        &::-webkit-scrollbar-track {
-          width: 3px;
-          background-color: $primary-white;
-          border-radius: 0 6px 6px 0;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          width: 3px;
-          background-color: #464343; //$primary-blue;
-        }
-
-        &.dropdown-active {
-          display: block;
-        }
-
-        li {
-          @include font-style(12px, 14px, $neutrals-black, map.get($font-weights, regular), $inter);
-
-          padding: 12px;
-
-          // border-bottom: 1px solid $neutrals-200;
-          cursor: pointer;
-
-          &:last-of-type {
-            border: none;
-          }
-        }
-      }
     }
 
     .card-upper-title {
@@ -115,7 +31,7 @@
 
       // gap: 30px;
       gap: 16px;
-      margin: 0 0 $spacing-8;
+      margin: 0 0 var(--spacing-8);
       height: 100%;
 
       // min-height: 50px;
@@ -154,11 +70,11 @@
           gap: 4px;
 
           .watchlistlabel {
-            @include font-style(map.get($typography-desktop, label-small-size), map.get($typography-desktop, label-small-line-height), $text-sub-header, 400, $body);
-            
-            @include media(mobile){
-              font-size: map.get($typography-mobile, label-small-size);
-              line-height: map.get($typography-mobile, label-small-line-height);
+            @include font-style(var(--label-small-size), var(--label-small-line-height), var(--text-sub-header), 400, var(--body));
+
+            @include media(mobile) {
+              font-size: var(--label-small-size);
+              line-height: var(--label-small-line-height);
             }
           }
 
@@ -193,18 +109,18 @@
         //     12px,
         //     16px,
         //     map.get($blue-1, b400),
-        //     map.get($font-weights, regular),
+        //     400,
         //     $poppins
         //   );
         // }
 
         .fund-name-title {
           @include font-style(
-            $size: map.get($typography-desktop, body-medium-semibold-size),
-            $line-height: map.get($typography-desktop, body-medium-semibold-line-height),
-            $color: $neutrals-black,
-            $weight: map.get($font-weights, semibold),
-            $family: $body
+            $size: var(--body-medium-semibold-size),
+            $line-height: var(--body-medium-semibold-line-height),
+            $color: var(--neutrals-black),
+            $weight: 600,
+            $family: var(--body)
           );
 
           min-height: 40px;
@@ -212,8 +128,8 @@
 
           @include media(mobile) {
             min-height: unset;
-            font-size: map.get($typography-mobile, body-medium-semibold-size);
-            line-height: map.get($typography-mobile, body-medium-semibold-line-height);
+            font-size: var(--body-medium-semibold-size);
+            line-height: var(--body-medium-semibold-line-height);
           }
         }
       }
@@ -226,7 +142,7 @@
       // padding: 4px 0;
       // margin: 0 0 16px;
       margin: 0 0 40px;
-      
+
       // flex-wrap: wrap;
 
       // margin-top: auto;
@@ -234,7 +150,7 @@
       // height: 100%;
       // height: auto;
 
-      @include media(mobile){
+      @include media(mobile) {
         margin: 0 0 56px;
       }
 
@@ -248,19 +164,19 @@
 
         &-name {
           @include font-style(
-            $size: map.get($typography-desktop, body-xsmall-regular-size),
-            $line-height: map.get($typography-desktop, body-xsmall-regular-line-height),
-            $color: $text-body-2,
-            $weight: map.get($font-weights, regular),
-            $family: $body
+            $size: var(--body-xsmall-regular-size),
+            $line-height: var(--body-xsmall-regular-line-height),
+            $color: var(--text-body-2),
+            $weight: 400,
+            $family: var(--body)
           );
           @include flex-center($align: center, $justify: flex-start);
 
           gap: 8px;
 
-          @include media(mobile){
-            font-size: map.get($typography-mobile, body-xsmall-regular-size);
-            line-height: map.get($typography-mobile, body-xsmall-regular-line-height);
+          @include media(mobile) {
+            font-size: var(--body-xsmall-regular-size);
+            line-height: var(--body-xsmall-regular-line-height);
           }
 
           &::after {
@@ -268,7 +184,7 @@
             min-width: 4px;
             height: 4px;
             display: block;
-            background-color: $text-body-2;
+            background-color: var(--text-body-2);
             border-radius: 50%;
           }
 
@@ -336,7 +252,7 @@
       @include media(tab) {
         // height: 100%;
         min-height: unset;
-        margin: 0 0 $spacing-24;
+        margin: 0 0 var(--spacing-24);
       }
 
       .cagr-dropdown {
@@ -355,17 +271,17 @@
 
         .cagr-txt {
           @include font-style(
-            $size: map.get($typography-desktop, body-xsmall-regular-size),
-            $line-height: map.get($typography-desktop, body-xsmall-regular-line-height),
-            $color: $text-body,
-            $weight: map.get($font-weights, regular),
-            $family: $body
+            $size: var(--body-xsmall-regular-size),
+            $line-height: var(--body-xsmall-regular-line-height),
+            $color: var(--text-body),
+            $weight: 400,
+            $family: var(--body)
           );
 
-          @include media(mobile){
-            font-size: map.get($typography-mobile, body-xsmall-regular-size);
-            line-height: map.get($typography-mobile, body-xsmall-regular-line-height);
-            color: $text-sub-header;
+          @include media(mobile) {
+            font-size: var(--body-xsmall-regular-size);
+            line-height: var(--body-xsmall-regular-line-height);
+            color: var(--text-sub-header);
           }
         }
 
@@ -399,14 +315,92 @@
           //   }
           // }
 
-          .selectedtext{
-            @include font-style(map.get($typography-desktop, body-xsmall-medium-size), map.get($typography-desktop, body-xsmall-medium-line-height), $blue-1-800-primary, map.get($font-weights, medium), $body);
+          .selectedtext {
+            @include font-style(
+              var(--body-xsmall-medium-size),
+              var(--body-xsmall-medium-line-height),
+              var(--blue-1-800-primary),
+              500,
+              var(--body)
+            );
 
-            gap: 0;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
 
-            @include media(mobile){
-              font-size: map.get($typography-mobile, body-xsmall-medium-size);
-              line-height: map.get($typography-mobile, body-xsmall-medium-line-height);
+            &::after {
+              content: "";
+              background: url("../../icons/down-arrow.svg") center/cover no-repeat;
+              min-width: 20px;
+              height: 20px;
+              display: block;
+            }
+
+            @include media(mobile) {
+              font-size: var(--body-xsmall-medium-size);
+              line-height: var(--body-xsmall-medium-line-height);
+            }
+          }
+
+          .dropdown-list {
+            display: none;
+            position: absolute;
+
+            // top: 18px;
+            top: 100%;
+            left: 0;
+            z-index: 2;
+            width: 143px;
+
+            // max-height: 200px;
+            margin: 6px 0 0;
+            overflow: auto;
+            background-color: var(--neutrals-white);
+            border-radius: var(--border-radius-8);
+            border: 1px solid var(--neutrals-200);
+            box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+
+            @include media(mobile) {
+              width: 168px;
+              left: unset;
+              right: 0;
+            }
+
+            &::-webkit-scrollbar {
+              width: 3px;
+            }
+
+            &::-webkit-scrollbar-track {
+              width: 3px;
+              background-color: var(--neutrals-white);
+              border-radius: 0 6px 6px 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              width: 3px;
+              background-color: #464343;
+            }
+
+            &.dropdown-active {
+              display: block;
+            }
+
+            li {
+              @include font-style(var(--body-small-regular-size), var(--label-large-line-height), var(--neutrals-black), 400, var(--body));
+
+              padding: 12px;
+              cursor: pointer;
+
+              @include media(mobile){
+                font-size: var(--body-small-regular-size);
+                line-height: var(--label-large-line-height);
+              }
+
+              &:last-of-type {
+                border: none;
+              }
             }
           }
         }
@@ -415,8 +409,8 @@
           @include font-style(
             $size: 12px,
             $line-height: 14px,
-            $color: $primary-blue,
-            $weight: map.get($font-weights, medium),
+            $color: var(--blue-1-800-primary),
+            $weight: 500,
             $family: $inter
           );
 
@@ -433,23 +427,23 @@
 
         .cagr-val-label {
           @include font-style(
-            $size: map.get($typography-desktop, sub-header-large-size),
-            $line-height: map.get($typography-desktop, sub-header-large-line-height),
-            $color: $blue-1-800-primary,
-            $weight: map.get($font-weights, medium),
-            $family: $body
+            $size: var(--sub-header-large-size),
+            $line-height: var(--sub-header-large-line-height),
+            $color: var(--blue-1-800-primary),
+            $weight: 500,
+            $family: var(--body)
           );
 
           margin: 0;
 
-          @include media(mobile){
+          @include media(mobile) {
             @include font-style(
-            $size: 24px,
-            $line-height: 28px,
-            $color: $blue-1-800-primary,
-            $weight: map.get($font-weights, semibold),
-            $family: $title
-          );
+              $size: 24px,
+              $line-height: 28px,
+              $color: var(--blue-1-800-primary),
+              $weight: 600,
+              $family: var(--title)
+            );
           }
         }
 
@@ -458,7 +452,7 @@
             $size: 12px,
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
-            $weight: map.get($font-weights, regular),
+            $weight: 400,
             $family: $poppins
           );
 
@@ -480,7 +474,7 @@
             $size: 11px,
             $line-height: 15px,
             $color: $primary-blue,
-            $weight: map.get($font-weights, regular),
+            $weight: 400,
             $family: $poppins
           );
 
@@ -521,7 +515,7 @@
           $size: 12px,
           $line-height: 16px,
           $color: map.get($dark-liver, 500),
-          $weight: map.get($font-weights, regular),
+          $weight: 400,
           $family: $poppins
         );
 
@@ -534,7 +528,7 @@
           $size: 12px,
           $line-height: 16px,
           $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
+          $weight: 500,
           $family: $poppins
         );
         @include flex-center($align: center, $justify: flex-start);
@@ -578,16 +572,16 @@
 
           .investor-txt {
             @include font-style(
-              $size: map.get($typography-desktop, body-xsmall-medium-size),
-              $line-height: map.get($typography-desktop, body-xsmall-medium-line-height),
-              $color: $text-body-2,
-              $weight: map.get($font-weights, medium),
-              $family: $body
+              $size: var(--body-xsmall-medium-size),
+              $line-height: var(--body-xsmall-medium-line-height),
+              $color: var(--text-body-2),
+              $weight: 500,
+              $family: var(--body)
             );
 
-            @include media(mobile){
-              font-size: map.get($typography-mobile, body-xsmall-medium-size);
-              line-height: map.get($typography-mobile, body-xsmall-medium-line-height);
+            @include media(mobile) {
+              font-size: var(--body-xsmall-medium-size);
+              line-height: var(--body-xsmall-medium-line-height);
             }
           }
         }
@@ -603,8 +597,8 @@
       gap: 24px 8px;
       margin: 24px 0 0;
 
-      @include media(mobile){
-        gap: $spacing-12;
+      @include media(mobile) {
+        gap: var(--spacing-12);
       }
 
       .card-btn {
@@ -620,52 +614,52 @@
         border: none;
         -webkit-tap-highlight-color: transparent;
 
-        @include media(mobile){
+        @include media(mobile) {
           max-width: 48%;
         }
 
         &.know-more {
           text-decoration-line: underline;
-          padding: $spacing-8 $spacing-12;
+          padding: var(--spacing-8) var(--spacing-12);
           cursor: pointer;
           text-align: center;
 
           @include font-style(
-              $size: map.get($typography-desktop, button-small-size),
-              $line-height: map.get($typography-desktop, button-small-line-height),
-              $color: $text-text-link,
-              $weight: map.get($font-weights, medium),
-              $family: $body
-            );
+            $size: var(--button-small-size),
+            $line-height: var(--button-small-line-height),
+            $color: var(--text-text-link),
+            $weight: 500,
+            $family: var(--body)
+          );
 
-            @include media(mobile){
-              font-size: map.get($typography-mobile, text-link-small-size);
-              line-height: map.get($typography-mobile, text-link-small-line-height);
-              font-weight: map.get($font-weights, regular);
-              color: $text-button-default;
-              text-underline-offset: 20%;
-              padding: 0;
-            }
+          @include media(mobile) {
+            font-size: var(--text-link-small-size);
+            line-height: var(--text-link-small-line-height);
+            font-weight: 400;
+            color: var(--text-button-default);
+            text-underline-offset: 20%;
+            padding: 0;
+          }
         }
 
         &.invest-now {
-          border-radius: $border-radius-8;
-          background: $button-primary-default;
-          padding: $spacing-8 $spacing-12;
+          border-radius: var(--border-radius-8);
+          background: var(--button-primary-default);
+          padding: var(--spacing-8) var(--spacing-12);
           text-align: center;
 
           @include font-style(
-              $size: map.get($typography-desktop, button-small-size),
-              $line-height: map.get($typography-desktop, button-small-line-height),
-              $color: $text-white,
-              $weight: map.get($font-weights, medium),
-              $family: $body
-            );
+            $size: var(--button-small-size),
+            $line-height: var(--button-small-line-height),
+            $color: var(--text-white),
+            $weight: 500,
+            $family: var(--body)
+          );
 
-            @include media(mobile){
-              font-size: 14px;
-              line-height: 16px;
-            }
+          @include media(mobile) {
+            font-size: 14px;
+            line-height: 16px;
+          }
         }
       }
     }
@@ -688,17 +682,17 @@
 
       h1 {
         @include font-style(
-          $size: 36px,
-          $line-height: 44px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, bold),
-          $family: $butlerpro
+          $size: var(--heading-h4-size),
+          $line-height: var(--heading-h4-line-height),
+          $color: var(--blue-1-800-primary),
+          $weight: 600,
+          $family: var(--title)
         );
 
-        margin: 0 0 12px;
+        margin: 0 0 20px;
 
         @include media(mobile) {
-          font-size: 24px;
+          font-size: var(--sub-header-large-size);
           line-height: 28px;
           margin: 0 0 24px;
         }
@@ -717,8 +711,7 @@
         .tabs-list {
           @include flex-center($align: center, $justify: flex-start);
 
-          gap: 0;
-          border-bottom: 1px solid #b6bcc7;
+          gap: 24px;
           max-width: max-content;
           margin-right: -16px;
 
@@ -729,28 +722,27 @@
           .tabs-tab {
             border: none;
             background-color: transparent;
-            padding: 10px 12px;
+            padding: var(--spacing-11) var(--spacing-none);
             cursor: pointer;
 
             @include font-style(
-              $size: 14px,
-              $line-height: 20px,
-              $color: $text-body-2,
-              $weight: map.get($font-weights, regular),
-              $family: $poppins
+              $size: var(--body-small-regular-size),
+              $line-height: var(--body-small-regular-line-height),
+              $color: var(--neutrals-700),
+              $weight: 400,
+              $family: var(--body)
             );
 
             &[aria-selected="true"] {
               @include font-style(
-                $size: 14px,
-                $line-height: 16px,
-                $color: $primary-blue,
-                $weight: map.get($font-weights, medium),
-                $family: $poppins
+                $size: var(--body-small-semibold-size),
+                $line-height: var(--body-small-semibold-line-height),
+                $color: var(--blue-1-800-primary),
+                $weight: 600,
+                $family: var(--body)
               );
 
-              border-bottom: 2px solid #382ad7;
-              padding: 12px;
+              border-bottom: 2px solid var(--blue-1-800-primary);
             }
           }
         }
@@ -791,22 +783,22 @@
       max-width: 120px;
       width: 100%;
       background-color: transparent;
-      border-radius: map.get($radius, r4);
+      border-radius: var(--border-radius-8);
       border: none;
 
       a {
-        border-radius: map.get($radius, r4);
-        border: 1px solid map.get($button-primary, default);
+        border-radius: var(--border-radius-8);
+        border: 1px solid var(--button-primary-default);
         width: 100%;
         background-color: transparent;
-        padding: 8px 12px;
+        padding: var(--spacing-8) var(--spacing-12);
 
         @include font-style(
-          $size: 14px,
-          $line-height: 16px,
-          $color: $primary-blue,
-          $weight: map.get($font-weights, medium),
-          $family: $poppins
+          $size: var(--button-small-size),
+          $line-height: var(--button-small-line-height),
+          $color: var(--text-button-default),
+          $weight: 500,
+          $family: var(--body)
         );
 
         text-decoration: none;
@@ -829,12 +821,12 @@
     }
 
     &.our-popular-funds {
-      background: $primary-blue;
+      background: var(--blue-1-800-primary);
       max-width: 100%;
-      padding: 54px 0;
+      padding: 66px 0;
 
       @include media(mobile) {
-        padding: 40px 0 45px;
+        padding: var(--spacing-40) 0;
       }
 
       .default-content-wrapper,
@@ -846,11 +838,11 @@
         .wrappertablist {
           .tabs-list {
             .tabs-tab {
-              color: map.get($blue-1, b200);
+              color: var(--blue-1-200);
 
               &[aria-selected="true"] {
-                border-bottom: 2px solid $primary-white;
-                color: $primary-white;
+                border-bottom: 2px solid var(--neutrals-white);
+                color: var(--neutrals-white);
               }
             }
           }
@@ -859,15 +851,20 @@
 
       .default-content-wrapper {
         h1 {
-          color: $primary-white;
+          color: var(--neutrals-white);
           margin: 0 0 8px;
         }
       }
 
-      .btnmob a,
-      .wrappertablist .btndesk a {
-        border: 1px solid $primary-white;
-        color: $primary-white;
+      .btnmob,
+      .btndesk {
+        border-radius: var(--border-radius-4);
+
+        a {
+          border-radius: var(--border-radius-4);
+          border: 1px solid var(--neutrals-white);
+          color: var(--neutrals-white);
+        }
       }
     }
   }
