@@ -915,7 +915,7 @@ body {
                       gap: 14px;
 
                       @include media(mobile) {
-                        gap: 12px;
+                        gap: 20px;
                       }
 
                       .checkbox-label-container {
@@ -1023,7 +1023,7 @@ body {
                     .radio-label-container {
                       display: flex;
                       flex-direction: column;
-                      gap: 12px;
+                      gap: 20px;
 
                       .radio-label {
                         display: flex;

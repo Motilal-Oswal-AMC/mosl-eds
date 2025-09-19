@@ -784,7 +784,7 @@
 }
 @media (max-width: 768px) {
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .innerindianequity .indian-equity-container {
-    gap: 12px;
+    gap: 20px;
   }
 }
 .section .our-funds-block .filter-cards .left-container .fundcategory-container .filter-overlay .filter-container .filter-list-wrapper .checkbox-label-container .innerindianequity .indian-equity-container .checkbox-label-container {
@@ -863,7 +863,7 @@
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .return-container .radio-label-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
   }
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .arrange-container .radio-label-container .radio-label,
   .section .our-funds-block .filter-cards .left-container .fundcategory-container .sort-overlay .sort-container .arrange-returns .return-container .radio-label-container .radio-label {
