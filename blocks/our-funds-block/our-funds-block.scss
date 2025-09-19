@@ -1369,7 +1369,7 @@ body {
                 @include font-style(
                   var(--body-small-semibold-size),
                   var(--body-small-semibold-line-height),
-                 var(-- blue-1-700),
+                  var(--blue-1-700),
                   600,
                   var(--body)
                 );
@@ -1415,7 +1415,7 @@ body {
                   @include font-style(
                     var(--body-small-semibold-size),
                     var(--body-small-semibold-line-height),
-                   var(-- blue-1-700),
+                    var(--blue-1-700),
                     600,
                     var(--body)
                   );
@@ -1490,9 +1490,15 @@ body {
                 border: 1px solid var(--button-primary-default);
                 cursor: pointer;
 
-                @include font-style(var(--button-small-size), var(--button-small-line-height) , var(--text-button-default), 500, var(--body));
+                @include font-style(
+                  var(--button-small-size),
+                  var(--button-small-line-height),
+                  var(--text-button-default),
+                  500,
+                  var(--body)
+                );
 
-                @include media(mobile){
+                @include media(mobile) {
                   font-size: 14px;
                   line-height: 16px;
                 }
@@ -1589,7 +1595,8 @@ body {
           .nfo-card-container {
             background:
               linear-gradient(var(--surface-icon-primary-normal), var(--surface-icon-primary-normal)) padding-box,
-              linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
+              linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%)
+                border-box;
 
             .card-upper-title {
               .watchlistlabel,
@@ -1770,14 +1777,20 @@ body {
               border-radius: 8px;
               padding: 14px 20px;
 
-              @include media(desktop-sm){
+              @include media(desktop-sm) {
                 gap: 22px;
               }
 
               .list-header-text {
                 margin: 0;
 
-                @include font-style(var(--body-small-medium-size), var(--body-small-medium-line-height), var(--blue-1-800-primary), 500, var(--body));
+                @include font-style(
+                  var(--body-small-medium-size),
+                  var(--body-small-medium-line-height),
+                  var(--blue-1-800-primary),
+                  500,
+                  var(--body)
+                );
               }
 
               .list-header-text:nth-of-type(1) {
@@ -1907,13 +1920,19 @@ body {
                     }
                   }
 
-                  .fund-name-container {                    
+                  .fund-name-container {
                     width: 100%;
 
                     .fund-name-txt {
                       margin: 0;
-                      
-                      @include font-style(var(--body-medium-medium-size), var(--body-medium-medium-line-height), var(--neutrals-black), 500, var(--body));
+
+                      @include font-style(
+                        var(--body-medium-medium-size),
+                        var(--body-medium-medium-line-height),
+                        var(--neutrals-black),
+                        500,
+                        var(--body)
+                      );
                     }
                   }
 
@@ -1939,7 +1958,13 @@ body {
                   }
 
                   .cagr-value {
-                    @include font-style(var(--body-medium-semibold-size), var(--body-medium-semibold-line-height), var(--blue-1-800-primary), 600, var(--body));
+                    @include font-style(
+                      var(--body-medium-semibold-size),
+                      var(--body-medium-semibold-line-height),
+                      var(--blue-1-800-primary),
+                      600,
+                      var(--body)
+                    );
 
                     display: flex;
                   }
@@ -1947,7 +1972,13 @@ body {
                   .cagr-text {
                     margin: 0;
 
-                    @include font-style(var(--label-small-size), var(--label-small-line-height), var(--neutrals-600), 400, var(--body));
+                    @include font-style(
+                      var(--label-small-size),
+                      var(--label-small-line-height),
+                      var(--neutrals-600),
+                      400,
+                      var(--body)
+                    );
                   }
                 }
 
@@ -2015,7 +2046,13 @@ body {
                     border: none;
                     border-radius: $border-radius-8;
 
-                    @include font-style(var(--button-small-size), var(--button-small-line-height), var(--text-white), 500, var(--body));
+                    @include font-style(
+                      var(--button-small-size),
+                      var(--button-small-line-height),
+                      var(--text-white),
+                      500,
+                      var(--body)
+                    );
                   }
                 }
               }
@@ -2066,7 +2103,13 @@ body {
                         line-height: 0;
 
                         .label-nfo {
-                          @include font-style(12px, var(--paragraph-xsmall-line-height), var(--neutrals-white), 600, var(--body));
+                          @include font-style(
+                            12px,
+                            var(--paragraph-xsmall-line-height),
+                            var(--neutrals-white),
+                            600,
+                            var(--body)
+                          );
 
                           display: flex;
                           align-items: center;
@@ -2087,7 +2130,13 @@ body {
                         p {
                           margin: 0;
 
-                          @include font-style(var(--disclaimer-xsmall-size), var(--disclaimer-xsmall-line-height), var(--neutrals-white), 400, var(--body));
+                          @include font-style(
+                            var(--disclaimer-xsmall-size),
+                            var(--disclaimer-xsmall-line-height),
+                            var(--neutrals-white),
+                            400,
+                            var(--body)
+                          );
                         }
                       }
                     }
@@ -2100,9 +2149,9 @@ body {
                       align-items: center;
                       gap: 4px;
 
-                      &::after{
-                        content: '';
-                        background-image: url('../../icons/info-white.svg');
+                      &::after {
+                        content: "";
+                        background-image: url("../../icons/info-white.svg");
                         background-position: center;
                         background-repeat: no-repeat;
                         background-size: cover;
