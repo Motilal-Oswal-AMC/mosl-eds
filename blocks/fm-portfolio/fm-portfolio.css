@@ -148,29 +148,29 @@
   margin: unset;
 }
 
-.modal.block dialog {
+.modal.modal-journey-fund.block dialog {
   max-width: 1560px;
   margin: 0 auto;
   justify-content: end;
 }
 @media (max-width: 768px) {
-  .modal.block dialog {
+  .modal.modal-journey-fund.block dialog {
     padding: 0;
   }
 }
-.modal.block dialog .modal-content {
+.modal.modal-journey-fund.block dialog .modal-content {
   max-width: 689px;
   height: 100dvh;
   background-color: transparent;
   overflow: hidden;
 }
 @media (max-width: 768px) {
-  .modal.block dialog .modal-content {
+  .modal.modal-journey-fund.block dialog .modal-content {
     width: 100%;
     height: 90dvh;
   }
 }
-.modal.block dialog .close-button {
+.modal.modal-journey-fund.block dialog .close-button {
   display: block;
   z-index: -1;
   background-color: transparent;
