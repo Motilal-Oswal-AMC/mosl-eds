@@ -62,6 +62,7 @@ function focusNavSection() {
 function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
+    section.style.pointerEvents = '';
   });
 }
 
@@ -179,13 +180,15 @@ export default async function decorate(block) {
         hrefnaf.append(frgnav.children[0]);
       }
 
-      navSection.addEventListener('click', () => {
+      navSection.addEventListener('mouseover', () => {
+        //('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
 
           const newState = expanded ? 'false' : 'true';
           navSection.setAttribute('aria-expanded', newState);
+          navSection.style.pointerEvents = 'none';
 
           // ✅ Scroll lock toggle
           if (newState === 'true') {
@@ -262,10 +265,13 @@ export default async function decorate(block) {
       event.stopPropagation();
     });
 
-    document.addEventListener('click', () => {
+    document.addEventListener('click', (event) => {
       if (dropMenu.classList.contains('open')) {
         dropMenu.classList.remove('open');
         dropTrigger.classList.remove('active');
+      }
+      if (!navSections.contains(event.target)) {
+        toggleAllNavSections(navSections);
       }
     });
   }
