@@ -154,10 +154,11 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination .total-slide {
   color: #616161;
+  font-weight: 400;
 }
 .section.live-streaming-carousel-container .live-streaming-carousel ul {
   padding: 16px 0 0;
@@ -177,7 +178,7 @@
 }
 .section.live-streaming-carousel-container .live-streaming-carousel ul li:first-of-type {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   color: #424242;
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -196,7 +197,7 @@
   min-width: max-content;
   font-size: 16px;
   line-height: 20px;
-  color: #424242;
+  color: #382ad7;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   color: #3025e0;

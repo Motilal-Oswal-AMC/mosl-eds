@@ -32,12 +32,12 @@
           text-align: left;
 
           @include font-style( map.get($typography-desktop, sub-header-large-size),
-          map.get($typography-mobile, sub-header-medium-line-height), $blue-1-800-primary, 600, $title);
+          28px, $blue-1-800-primary, 600, $title);
         }
       }
 
       p {
-        @include font-style(map.get($typography-desktop,body-medium-regular-size), map.get($typography-desktop,body-medium-regular-line-height), $blue-1-800-primary, 400, $body);
+        @include font-style(map.get($typography-desktop,body-medium-regular-size), 24px, $blue-1-800-primary, 400, $body);
 
         text-align: center;
         margin: 0;
@@ -169,8 +169,8 @@
               @include font-style(
                 14px,
                 map.get($typography-desktop, text-link-small-line-height),
-                map.get($blue-1, b500),
-                500,
+                $text-text-link,
+                400,
                 $body
               );
             }

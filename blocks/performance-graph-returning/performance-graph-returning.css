@@ -236,7 +236,7 @@
 }
 @media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-returns-main .fund-returns {
-    color: #2e2a94;
+    color: #424242;
     font-family: "Inter", sans-serif;
     font-size: 12px;
     font-style: normal;

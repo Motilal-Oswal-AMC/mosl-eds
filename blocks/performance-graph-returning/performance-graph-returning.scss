@@ -240,7 +240,7 @@
                                     line-height: map.get($typography-desktop, label-small-line-height);
 
                                     @include media(mobile) {
-                                        color: $blue-1-800-primary;
+                                        color: $text-body;
                                         font-family: $body;
                                         font-size: map.get($typography-mobile, paragraph-xsmall-size);
                                         font-style: normal;
