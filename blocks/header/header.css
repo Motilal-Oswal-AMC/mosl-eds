@@ -1224,9 +1224,9 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   transform: rotate(180deg);
 }
 
-/* header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2.open {
+header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2.open {
   display: block;
-} */
+}
 
 header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2 {
   display: none;
