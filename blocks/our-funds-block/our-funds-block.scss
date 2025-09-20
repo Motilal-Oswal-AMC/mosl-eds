@@ -1869,7 +1869,7 @@ body {
 
               &:hover {
                 border: 1px solid var(--blue-1-50);
-                background-color: $blue-1-25;
+                background-color: var(--blue-1-25);
               }
 
               .list-wrapper {
@@ -2044,7 +2044,7 @@ body {
                     min-width: 67px;
                     max-width: max-content;
                     border: none;
-                    border-radius: $border-radius-8;
+                    border-radius: var(--border-radius-8);
 
                     @include font-style(
                       var(--button-small-size),
