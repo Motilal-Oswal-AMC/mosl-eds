@@ -180,8 +180,8 @@ export default async function decorate(block) {
         hrefnaf.append(frgnav.children[0]);
       }
 
-      navSection.addEventListener('mouseover', () => {
-        //('click', () => {
+      navSection.addEventListener('click', () => {
+        // ('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
