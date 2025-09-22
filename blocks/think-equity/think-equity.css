@@ -63,8 +63,8 @@
   color: #2e2a94;
   font-size: 36px;
   font-weight: 600;
-  line-height: 42px;
-  font-family: "Poppins", sans-serif;
+  line-height: 44px;
+  font-family: "Inter", "sans-sarif";
   text-wrap: balance;
 }
 @media (max-width: 768px) {
