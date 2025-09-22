@@ -188,7 +188,7 @@ export default async function decorate(block) {
 
           const newState = expanded ? 'false' : 'true';
           navSection.setAttribute('aria-expanded', newState);
-          navSection.style.pointerEvents = 'none';
+          // navSection.style.pointerEvents = 'none';
 
           // ✅ Scroll lock toggle
           if (newState === 'true') {
