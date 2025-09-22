@@ -53,10 +53,11 @@
             text-align: center;
             margin: 0;
 
-            @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $poppins);
+            @include font-style(map.get($typography-desktop, body-medium-regular-size), 24px, $blue-1-800-primary, 400, $body);
 
             @include media(mobile) {
-                @include font-style(14px, 20px, $primary-blue, map.get($font-weights, regular), $poppins);
+                font-size: map.get($typography-mobile, paragraph-xsmall-size);
+                line-height: map.get($typography-mobile, paragraph-xsmall-line-height);
             }
         }
     }
@@ -90,7 +91,7 @@
                 @include font-style(map.get($typography-desktop, button-medium-size), map.get($typography-desktop, button-medium-line-height), $text-white, 500, $body);
 
                 @include media(mobile) {
-                    @include font-style(16px, 20px, $text-white, 400, $body);
+                    @include font-style(16px, 20px, $text-white, 500, $body);
                     font-style: normal;
                 }
             }
