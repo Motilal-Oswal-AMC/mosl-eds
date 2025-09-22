@@ -9,6 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+@import '../styles/tokens-variable.css';
 
 /* ------------------------------------------------------------------
  * GLOBAL RESET
@@ -351,7 +352,13 @@ main>.section>div {
 }
 
 main>.section:first-of-type {
-    margin-top: 25px;
+    margin-top: 31px;
+}
+
+@media (width <=1025px) {
+    main>.section:first-of-type {
+        margin-top: 73px;
+    }
 }
 
 @media (width <=1279px) {
@@ -366,11 +373,11 @@ main>.section:first-of-type {
     }
 }
 
-@media (width <=768px) {
+/* @media (width <=768px) {
     main>.section:first-of-type {
         margin-top: 0;
     }
-}
+} */
 
 main .section.light,
 main .section.highlight {

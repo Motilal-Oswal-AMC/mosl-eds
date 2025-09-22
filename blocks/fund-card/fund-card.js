@@ -264,33 +264,38 @@ export default function decorate(block) {
                 }),
               ),
               div(
-                {
-                  class: `star ${starClass}`,
-                  onclick: (event) => {
-                    if (
-                      !Array.from(
-                        event.target.parentElement.classList,
-                      ).includes('star-filled')
-                    ) {
-                      event.target.parentElement.classList.add('star-filled');
-                    } else {
-                      event.target.parentElement.classList.remove(
-                        'star-filled',
-                      );
-                    }
+                { class: 'star-wrap' },
+                span({ class: 'watchlistlabel' }, 'Watchlist'),
+                div(
+                  {
+                    class: `star ${starClass}`,
+                    onclick: (event) => {
+                      if (
+                        !Array.from(
+                          event.target.parentElement.classList,
+                        ).includes('star-filled')
+                      ) {
+                        event.target.parentElement.classList.add('star-filled');
+                      } else {
+                        event.target.parentElement.classList.remove(
+                          'star-filled',
+                        );
+                      }
+                      wishlist();
+                    },
+                    schcode: block.schcode,
                   },
-                  schcode: block.schcode,
-                },
-                img({
-                  class: 'star-icon',
-                  src: '../../icons/not-filled-star.svg',
-                  alt: 'star-icon',
-                }),
-                img({
-                  class: 'fillstar-icon',
-                  src: '../../icons/filled-star.svg',
-                  alt: 'fillstar-icon',
-                }),
+                  img({
+                    class: 'star-icon',
+                    src: '../../icons/not-filled-white-star.svg',
+                    alt: 'star-icon',
+                  }),
+                  img({
+                    class: 'fillstar-icon',
+                    src: '../../icons/filled-star.svg',
+                    alt: 'fillstar-icon',
+                  }),
+                ),
               ),
             ),
             div(
@@ -318,52 +323,6 @@ export default function decorate(block) {
               ),
             ),
             div(
-              { class: 'planlist-dropdown', style: `display:${classdropdown}` },
-              p(
-                {
-                  class: `selectedtext ${optionNamescls}`,
-                  onclick: (event) => {
-                    if (
-                      Array.from(
-                        event.target.nextElementSibling.classList,
-                      ).includes('dropdown-active')
-                    ) {
-                      event.target.nextElementSibling.classList.remove(
-                        'dropdown-active',
-                      );
-                    } else {
-                      event.target.nextElementSibling.classList.add(
-                        'dropdown-active',
-                      );
-                    }
-                  },
-                },
-                optionName,
-              ),
-              ul(
-                { class: 'dropdown-list', style: `display:${optionNamestyl}` },
-                ...DirectPlanlistArr.map((el) => li(
-                  {
-                    value: el.groupedCode,
-                    onclick: (event) => {
-                      const clodrp = event.currentTarget.closest('.dropdown-list');
-                      clodrp.classList.remove('dropdown-active');
-
-                      const name = event.currentTarget.textContent.trim();
-                      const plandrp = event.currentTarget.closest('.planlist-dropdown');
-
-                      const pElement = plandrp.querySelector('p');
-                      if (pElement) {
-                        pElement.innerText = name;
-                      }
-                      // planListEvent(event,block)
-                    },
-                  },
-                  el.optionName,
-                )),
-              ),
-            ),
-            div(
               { class: 'dis-investor' },
               img({
                 class: 'riskfactor-icon',
@@ -378,7 +337,7 @@ export default function decorate(block) {
               { class: 'banner-container' },
               img({
                 class: 'nfo-img',
-                src: '../../icons/nfo-img.png',
+                src: '../../icons/nfo-banner.png',
                 alt: 'NFO Image',
               }),
               span('Grab Them All'),
@@ -386,8 +345,8 @@ export default function decorate(block) {
             div(
               { class: 'timing-nfo-value' },
               div(
-                { class: 'nfo-container' },
-                span({ class: 'label-nfo' }, 'NFO'),
+                { class: 'timing-container' },
+                span({ class: 'timing-text' }, `NFO Ends On: ${dataMapMoObj.formatDate(block.dateOfAllotment)}`),
               ),
               div(
                 { class: 'timing-container' },
@@ -443,42 +402,47 @@ export default function decorate(block) {
               }),
             ),
             div(
-              {
-                class: `star ${starClass}`,
-                onclick: (event) => {
-                  if (
-                    !Array.from(event.target.parentElement.classList).includes(
-                      'star-filled',
-                    )
-                  ) {
-                    event.target.parentElement.classList.add('star-filled');
-                  } else {
-                    event.target.parentElement.classList.remove('star-filled');
-                  }
-                  wishlist(block);
+              { class: 'star-wrap' },
+              span({ class: 'watchlistlabel' }, 'Watchlist'),
+              div(
+                {
+                  class: `star ${starClass}`,
+                  onclick: (event) => {
+                    if (
+                      !Array.from(
+                        event.target.parentElement.classList,
+                      ).includes('star-filled')
+                    ) {
+                      event.target.parentElement.classList.add('star-filled');
+                    } else {
+                      event.target.parentElement.classList.remove(
+                        'star-filled',
+                      );
+                    }
+                    wishlist();
+                  },
+                  schcode: block.schcode,
                 },
-                schcode: block.schcode,
-              },
-              img({
-                class: 'star-icon',
-                src: '../../icons/not-filled-star.svg',
-                alt: 'star-icon',
-              }),
-              img({
-                class: 'fillstar-icon',
-                src: '../../icons/filled-star.svg',
-                alt: 'fillstar-icon',
-              }),
+                img({
+                  class: 'star-icon',
+                  src: '../../icons/not-filled-star.svg',
+                  alt: 'star-icon',
+                }),
+                img({
+                  class: 'fillstar-icon',
+                  src: '../../icons/filled-star.svg',
+                  alt: 'fillstar-icon',
+                }),
+              ),
             ),
           ),
           div(
             {
               class: 'brand-fund-wrap',
             },
-            p({ class: 'brand-name-text' }, 'Motilal Oswal'),
             h2(
               { class: 'fund-name-title' },
-              block.schDetail.schemeName.replaceAll('Motilal Oswal', ''),
+              block.schDetail.schemeName,
             ),
           ),
         ),
@@ -501,55 +465,6 @@ export default function decorate(block) {
                     .replaceAll('motilal-oswal:', '')
                     .replaceAll('-', ' '),
                 ),
-              )),
-            ),
-          ),
-          div(
-            { class: 'planlist-dropdown', style: `display:${classdropdown}` },
-            p(
-              {
-                class: `selectedtext ${optionNamescls}`,
-                onclick: (event) => {
-                  if (
-                    Array.from(
-                      event.target.nextElementSibling.classList,
-                    ).includes('dropdown-active')
-                  ) {
-                    event.target.nextElementSibling.classList.remove(
-                      'dropdown-active',
-                    );
-                  } else {
-                    event.target.nextElementSibling.classList.add(
-                      'dropdown-active',
-                    );
-                  }
-                },
-              },
-              optionName,
-            ),
-            ul(
-              { class: 'dropdown-list', style: `display:${optionNamestyl}` },
-              ...DirectPlanlistArr.map((el) => li(
-                {
-                  value: el.groupedCode,
-                  onclick: (event) => {
-                    const dropdown = event.currentTarget.closest('.planlist-dropdown');
-
-                    event.currentTarget
-                      .closest('.dropdown-list')
-                      .classList.remove('dropdown-active');
-
-                    if (dropdown) {
-                      const ptags = dropdown.querySelector('p');
-                      if (ptags) {
-                        ptags.innerText = event.currentTarget.textContent.trim();
-                      }
-                    }
-
-                    planListEvent(event, block);
-                  },
-                },
-                el.optionName,
               )),
             ),
           ),
@@ -607,15 +522,15 @@ export default function decorate(block) {
                         .querySelector('p').innerText = event.currentTarget.textContent.trim();
                       event.target
                         .closest('.cagr-container')
-                        .querySelector('.cagr-value h2').textContent = '';
+                        .querySelector('.cagr-value .cagr-val-label').textContent = '';
                       event.target
                         .closest('.cagr-container')
                         .querySelector(
-                          '.cagr-value h2',
+                          '.cagr-value .cagr-val-label',
                         ).textContent = `${cgarValue}`;
                       event.target
                         .closest('.cagr-container')
-                        .querySelector('.cagr-value h2')
+                        .querySelector('.cagr-value .cagr-val-label')
                         .append(span('%'));
                       const datedrp = event.currentTarget.closest('.cagr-dropdown');
                       if (
@@ -643,7 +558,7 @@ export default function decorate(block) {
             {
               class: 'cagr-value',
             },
-            h2(`${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`, span('%')),
+            span({ class: 'cagr-val-label' }, `${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`, span('%')),
             p(
               {
                 class: 'scheme-yet',
@@ -685,7 +600,7 @@ export default function decorate(block) {
               },
               img({
                 class: 'icon person',
-                src: '../../icons/Icon.svg',
+                src: '../../icons/user-icon.svg',
                 alt: 'person',
               }),
               span({ class: 'investor-txt' }, '2.7L Investors'),

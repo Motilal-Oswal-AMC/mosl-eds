@@ -409,7 +409,7 @@ function searchFunctionality(block) {
   searchInput.addEventListener('input', (event) => {
     searchContainer.classList.add('search-active');
     filterListItems(event.target.value);
-    cancelButton.style.display = event.target.value.length > 0 ? 'block' : 'none';
+    cancelButton.style.display = event.target.value.length > 0 ? 'flex' : 'none';
   });
 
   let currentFocusIndex = -1;
@@ -495,7 +495,7 @@ function searchFunctionality(block) {
           listHeader.append(listviewblock(datatem[0]));
         }
       }
-      cancelButton.style.display = searchInput.value.length > 0 ? 'block' : 'none';
+      cancelButton.style.display = searchInput.value.length > 0 ? 'flex' : 'none';
       const flitwrap = block.querySelector('.applied-filter-wrap');
       if (Array.from(flitwrap.classList).includes('filter-active')) {
         flitwrap.classList.remove('filter-active');
