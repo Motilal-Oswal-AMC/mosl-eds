@@ -68,13 +68,13 @@
                 color: $primary-blue;
                 font-size: 36px;
                 font-weight: 600;
-                line-height: 42px;
-                font-family: $poppins;
+                line-height: 44px;
+                font-family: 'Inter', 'sans-sarif';
                 text-wrap: balance;
 
                 @include media(mobile) {
-                  font-size: 16px;
-                  line-height: 20px;
+                  font-size: map.get($typography-mobile, body-medium-semibold-size);
+                  line-height: map.get($typography-mobile, body-medium-semibold-line-height);
                   margin: 0;
                   max-width: 32.36%;
                   width: 100%;
