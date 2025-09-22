@@ -216,14 +216,14 @@
 
   .default-content-wrapper {
     h4 {
-      @include font-style(2rem, 2.5rem, $primary-blue, 700, $butlerpro);
+      @include font-style(var(--body-xlarge-bold-size), var(--body-xlarge-bold-line-height) ,var(--blue-1-800-primary), 600, var(--body));
 
       margin: 0 0 2.5rem;
 
-      @media (width <= 768px) {
-        font-size: 1.5rem;
-        line-height: 1.75rem;
-      }
+      // @media (width <= 768px) {
+      //   font-size: 1.5rem;
+      //   line-height: 1.75rem;
+      // }
     }
   }
 
@@ -289,14 +289,14 @@
                 padding: 0;
               }
 
-              p:nth-child(1) {
-                @include font-style(
-                  1.125rem,
-                  1.5rem,
-                  $primary-blue,
-                  600,
-                  $poppins
-                );
+              p:nth-child(1) {               
+                @include font-style(var(--body-large-medium-size), var(--body-large-medium-line-height) ,var(--blue-1-800-primary), 500, var(--body));
+
+ 
+                @media (width <= 768px) {
+                  font-size:var(--body-medium-semibold-size);
+                  line-height: 1rem;
+                }
               }
 
               p:nth-child(2) {

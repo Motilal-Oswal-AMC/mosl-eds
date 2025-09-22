@@ -9,18 +9,13 @@
   }
 }
 .section.our-funds-fdp-container .default-content-wrapper h4 {
-  font-size: 2rem;
-  line-height: 2.5rem;
-  color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
-  font-weight: 700;
+  font-size: var(--body-xlarge-bold-size);
+  line-height: var(--body-xlarge-bold-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
   margin: 0 0 2.5rem;
-}
-@media (width <= 768px) {
-  .section.our-funds-fdp-container .default-content-wrapper h4 {
-    font-size: 1.5rem;
-    line-height: 1.75rem;
-  }
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp {
   display: flex;
@@ -74,17 +69,25 @@
   padding: 0;
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p:nth-child(1) {
-  font-size: 1.125rem;
-  line-height: 1.5rem;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-size: var(--body-large-medium-size);
+  line-height: var(--body-large-medium-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+}
+@media (width <= 768px) {
+  .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p:nth-child(1) {
+    font-size: var(--body-medium-semibold-size);
+    line-height: 1rem;
+  }
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p:nth-child(2) {
   font-size: 1rem;
   line-height: 1.5rem;
   color: #424242;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 @media (width <= 768px) {
@@ -111,6 +114,7 @@
   line-height: 1rem;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list .fund-aum {
@@ -125,6 +129,7 @@
   line-height: 1.25rem;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-list .fund-aum .fund-aum-rupee {
@@ -134,6 +139,7 @@
   line-height: 1.25rem;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-links a {
@@ -141,6 +147,7 @@
   line-height: 1.25rem;
   color: #4338f3;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   text-decoration-line: underline;
   text-decoration-style: solid;

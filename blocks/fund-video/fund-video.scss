@@ -6,8 +6,8 @@
 
 .section.fund-video-container {
   width: 100%;
-  background-color: #2e2a94;
-  padding: 40px 16px;
+  background-color: var(--blue-1-800-primary);
+  padding: 16px;
   border-radius: 8px;
 
   @media (width <= 768px) {
@@ -33,13 +33,8 @@
 
         div {
           p {
-            @include font-style(
-              22px,
-              32px,
-              map.get($button-secondary, default),
-              600,
-              $poppins
-            );
+          @include font-style(var(--body-xlarge-bold-size), var(--body-xlarge-bold-line-height), var(--neutrals-white), 600,var(--body));
+
 
             margin: 0;
           }
@@ -97,29 +92,20 @@
             max-width: 255px;
             margin: 10px 0;
 
-            @include font-style(
-              14px,
-              20px,
-              map.get($blue-1, b50),
-              400,
-              $poppins
-            );
+            @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), var(--blue-1-50), 400,var(--body));
+
 
             display: flex;
             flex-direction: column;
 
             strong {
-              @include font-style(
-                16px,
-                20px,
-                map.get($button-secondary, default),
-                600,
-                $poppins
-              );
+              @include font-style(var(--body-medium-medium-size), var(--body-medium-medium-line-height), var(--neutrals-white), 500,var(--body));
+
             }
 
             @media (width <= 768px) {
-              font-size: 14px;
+              font-size:var(--paragraph-xsmall-size);
+              line-height:var(--body-medium-regular-line-height);
               width: 158px;
               margin: 0;
             }

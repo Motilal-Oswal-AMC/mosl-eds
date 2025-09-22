@@ -1,8 +1,8 @@
 @import "../../../styles/fonts.css";
 .section.fund-video-container {
   width: 100%;
-  background-color: #2e2a94;
-  padding: 40px 16px;
+  background-color: var(--blue-1-800-primary);
+  padding: 16px;
   border-radius: 8px;
 }
 @media (width <= 768px) {
@@ -26,10 +26,11 @@
   max-width: 288px;
 }
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain1 div p {
-  font-size: 22px;
-  line-height: 32px;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-xlarge-bold-size);
+  line-height: var(--body-xlarge-bold-line-height);
+  color: var(--neutrals-white);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
   margin: 0;
 }
@@ -77,24 +78,27 @@
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundvedsubmain1 p {
   max-width: 255px;
   margin: 10px 0;
-  font-size: 14px;
-  line-height: 20px;
-  color: #D5DEFF;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--blue-1-50);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   display: flex;
   flex-direction: column;
 }
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundvedsubmain1 p strong {
-  font-size: 16px;
-  line-height: 20px;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
+  color: var(--neutrals-white);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
 }
 @media (width <= 768px) {
   .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundvedsubmain1 p {
-    font-size: 14px;
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--body-medium-regular-line-height);
     width: 158px;
     margin: 0;
   }
