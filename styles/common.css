@@ -11,13 +11,14 @@
   }
 }
 .section.download .default-content-wrapper > p.download-ul1 {
-  color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
-  font-size: 32px;
   font-style: normal;
-  font-weight: 700;
-  line-height: 40px;
   padding-bottom: 24px;
+  font-size: var(--body-xlarge-bold-size);
+  line-height: var(--body-xlarge-bold-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
 }
 .section.download .default-content-wrapper > ul.download-ul2 {
   display: flex;
@@ -60,12 +61,13 @@
   display: flex;
   align-items: center;
   padding: 0 16px 0 0;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
   font-style: normal;
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
-  line-height: 20px;
 }
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1 > ul.download-inner-ul1 li.download-first-list1:first-child:focus-visible,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2 > ul.download-inner-ul1 li.download-first-list1:first-child:focus-visible,
@@ -81,6 +83,24 @@
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li4 > ul.download-inner-ul1 li.download-first-list2:nth-child(2),
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li5 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) {
   cursor: pointer;
+}
+.section.download .default-content-wrapper > ul.download-ul2 > li.download-li1 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span,
+.section.download .default-content-wrapper > ul.download-ul2 > li.download-li2 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span,
+.section.download .default-content-wrapper > ul.download-ul2 > li.download-li3 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span,
+.section.download .default-content-wrapper > ul.download-ul2 > li.download-li4 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span,
+.section.download .default-content-wrapper > ul.download-ul2 > li.download-li5 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span {
+  width: 32px;
+  height: 32px;
+}
+@media (width <= 768px) {
+  .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span,
+  .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span,
+  .section.download .default-content-wrapper > ul.download-ul2 > li.download-li3 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span,
+  .section.download .default-content-wrapper > ul.download-ul2 > li.download-li4 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span,
+  .section.download .default-content-wrapper > ul.download-ul2 > li.download-li5 > ul.download-inner-ul1 li.download-first-list2:nth-child(2) span {
+    width: 24px;
+    height: 24px;
+  }
 }
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li1:nth-child(1) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,
 .section.download .default-content-wrapper > ul.download-ul2 > li.download-li2:nth-child(1) > ul.download-inner-ul1 > li.download-first-list1:first-child::before,

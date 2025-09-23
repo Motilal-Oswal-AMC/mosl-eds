@@ -69,13 +69,6 @@
   min-width: 28px;
   width: 28px;
   height: 28px;
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }

@@ -31,6 +31,7 @@
   line-height: 32px;
   color: #2e2a94;
   font-family: "ButlerPro", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 700;
 }
 .pan-valid-block .default-content-wrapper p {
@@ -145,6 +146,7 @@
   line-height: 20px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 .pan-valid-block .form-container .pan-container .radio-container .radios .radio-btns {
@@ -164,6 +166,7 @@
   line-height: 16px;
   color: #424242;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .pan-valid-block .form-container .pan-container .radio-container .radios .radio-btns div input {
@@ -183,6 +186,7 @@
   line-height: 16px;
   color: #111;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .pan-valid-block .form-container .pan-container .radio-container .kyc .subdiscriptin {
@@ -191,6 +195,7 @@
   line-height: 16px;
   color: #616161;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .pan-valid-block .form-container .name-container {
@@ -240,6 +245,7 @@
   line-height: 20px;
   color: #111;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .pan-valid-block .form-container .name-container .fdp-inp-wrap .pan-fields .country-code {
@@ -254,6 +260,7 @@
   line-height: 19.6px;
   color: #111;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .pan-valid-block .form-container .name-container .fdp-inp-wrap .pan-fields .country-code::before {
@@ -330,6 +337,7 @@
   line-height: 16px;
   color: #616161;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .pan-valid-block .tnc-container {
@@ -343,6 +351,7 @@
   line-height: 16px;
   color: #616161;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .pan-valid-block .tnc-container .panvalidsubinner3 a {
@@ -377,6 +386,7 @@
   line-height: 20px;
   color: #616161;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .pan-valid-block .tnc-container .active-form-btn {
@@ -416,6 +426,7 @@
   line-height: 32px;
   color: #2e2a94;
   font-family: "ButlerPro", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 700;
   margin: 0;
 }
@@ -452,6 +463,7 @@
   line-height: 24px;
   color: #424242;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 .section.otp-fdp .main-contaienr .wrapper-block .otpfield .otp-wrap:focus-within {
@@ -476,6 +488,7 @@
   line-height: 16px;
   color: #4338f3;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con1 .otp-main-con1 {
@@ -489,6 +502,7 @@
   line-height: 20px;
   color: #424242;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con4 .inner-otp-con2 .otp-main-con1 {
@@ -502,6 +516,7 @@
   line-height: 16px;
   color: #4338f3;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con2 {
@@ -527,6 +542,7 @@
   line-height: 20px;
   color: #616161;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con2.sbmt-active .inner-otp-con1 {
@@ -541,6 +557,7 @@
   line-height: 16px;
   color: #616161;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .section.otp-fdp .main-contaienr .wrapper-block .sub-otp-con3 strong {
