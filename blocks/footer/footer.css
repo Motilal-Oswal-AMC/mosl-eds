@@ -454,8 +454,8 @@
     width: 21px;
     height: 24px;
   }
-  .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-wrapper .footer-sub-cont3 .section-content2 .list-items2 li,
-  .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-wrapper .footer-sub-cont3 .section-content3 .list-items2 li {
+  .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-wrapper .footer-sub-cont3 .section-content2 .list-items2 li.list-inneritem-1,
+  .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-wrapper .footer-sub-cont3 .section-content3 .list-items2 li.list-inneritem-1 {
     color: #FFF;
     font-feature-settings: var(--font-features-default);
     font-family: "Inter", sans-serif;
