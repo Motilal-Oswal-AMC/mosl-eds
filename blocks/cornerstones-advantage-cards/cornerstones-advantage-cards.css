@@ -17,6 +17,7 @@
   line-height: 40px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 @media (max-width: 768px) {
@@ -31,6 +32,7 @@
     line-height: 28px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
@@ -39,6 +41,7 @@
   line-height: 24px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   text-align: center;
   margin: 0;
@@ -121,6 +124,7 @@
   line-height: 24px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -136,6 +140,7 @@
   line-height: 24px;
   color: #616161;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   padding-bottom: 28px;
 }
@@ -171,5 +176,6 @@
   line-height: 20px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }/*# sourceMappingURL=cornerstones-advantage-cards.css.map */

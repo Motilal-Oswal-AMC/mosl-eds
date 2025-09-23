@@ -700,6 +700,7 @@
   line-height: 20px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal p .modal-inputs-container .modal-cta .start-now {

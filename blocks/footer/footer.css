@@ -99,6 +99,7 @@
   line-height: 1.2;
   color: #fff;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .footer-wrapper .footer .footer-section1 .footer-sub1 .footer-sub-cont3 .section-content2 ul li:last-child,

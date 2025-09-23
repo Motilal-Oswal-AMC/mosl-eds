@@ -470,6 +470,7 @@
   line-height: 16px;
   color: #616161;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .section.contact-us-map-container .default-content-wrapper.show-contact-error {

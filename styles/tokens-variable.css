@@ -15,6 +15,7 @@
     /* Size tokens mode start */
 
     --spacing-none: 0px;
+    --spacing-2: 2px;
     --spacing-4: 4px;
     --spacing-8: 8px;
     --spacing-10: 10px;
@@ -225,6 +226,8 @@
     --heading-h5-weight: var(--weight-bold);
     --heading-h5-size: var(--spacing-28);
     --heading-h5-line-height: var(--spacing-32);
+    --heading-h6-size: var(--spacing-24);
+    --heading-h6-line-height: var(--spacing-28);
     --sub-header-large-font: var(--body);
     --sub-header-large-weight: var(--weight-medium);
     --sub-header-large-size: var(--spacing-24);

@@ -19,6 +19,7 @@
   line-height: 32px;
   color: #242177;
   font-family: "ButlerPro", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   grid-column: 1/2;
 }
@@ -33,6 +34,7 @@
   line-height: 32px;
   color: #242177;
   font-family: "ButlerPro", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   grid-column: 1/2;
   margin: 0;
@@ -51,6 +53,7 @@
   line-height: 16px;
   color: #fff;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   margin: 0;
   display: flex;
   width: 143px;
