@@ -13,6 +13,7 @@
     .footer {
         background-color: $primary-blue;
         color: $primary-white;
+        font-feature-settings: var(--font-features-default);
         font-family: $inter;
         padding: 60px 24px 0;
         overflow: hidden;
@@ -32,6 +33,7 @@
             white-space: unset;
             padding: 0;
             line-height: 0;
+            font-feature-settings: var(--font-features-default);
             font-family: $inter;
             font-weight: 400;
 
@@ -127,6 +129,7 @@
 
                 .footer-sub-cont1 {
                     color: #FFF;
+                    font-feature-settings: var(--font-features-default);
                     font-family: $inter;
                     font-size: rem(16px);
                     font-style: normal;
@@ -150,23 +153,24 @@
                             flex-grow: 1;
 
                             label {
-                                position: absolute;
-                                top: -7px;
-                                left: 8px;
-                                display: flex;
-                                padding: 0 4px;
-                                justify-content: center;
-                                align-items: center;
-                                gap: 10px;
-                                overflow: hidden;
-                                color: #FFF;
-                                text-overflow: ellipsis;
-                                font-family: $inter;
-                                font-size: rem(12px);
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: rem(16px);
-                                background: #2E2A94;
+                                // position: absolute;
+                                // top: -7px;
+                                // left: 8px;
+                                // display: flex;
+                                // padding: 0 4px;
+                                // justify-content: center;
+                                // align-items: center;
+                                // gap: 10px;
+                                // overflow: hidden;
+                                // color: #FFF;
+                                // text-overflow: ellipsis;
+                                // font-family: $inter;
+                                // font-size: rem(12px);
+                                // font-style: normal;
+                                // font-weight: 400;
+                                // line-height: rem(16px);
+                                // background: #2E2A94;
+                                display: none;
                             }
 
                             input {
@@ -181,6 +185,7 @@
                                 align-self: stretch;
                                 height: 40px;
                                 color: #FFFFFF80;
+                                font-feature-settings: var(--font-features-default);
                                 font-family: $inter;
                                 font-size: rem(14px);
                                 font-style: normal;
@@ -189,7 +194,7 @@
                                 border-radius: rem(6px);
                                 border: 1px solid #BDBDBD;
                                 background: transparent;
-                                
+
                                 // &::placeholder {
                                 //     color: #fff;
                                 // }
@@ -198,20 +203,20 @@
 
                         &.submit-btn {
                             .button {
+                                // width: 102px;
                                 display: flex;
-
-                                // width: 128px;
                                 padding: 10px 12px;
                                 justify-content: center;
                                 align-items: center;
                                 color: #2E2A94;
                                 text-align: center;
+                                font-feature-settings: var(--font-features-default);
                                 font-family: $inter;
                                 font-size: rem(16px);
                                 font-style: normal;
                                 font-weight: 500;
                                 line-height: rem(20px);
-                                border-radius: 4px;
+                                border-radius: 8px;
                                 background: #FFF;
                                 margin: 0;
                                 height: 40px;
@@ -249,8 +254,9 @@
                         p {
                             width: 100%;
                             color: #FFF;
+                            font-feature-settings: var(--font-features-default);
                             font-family: $inter;
-                            font-size: rem(12px);
+                            font-size: rem(14px);
                             font-style: normal;
                             font-weight: 600;
                             line-height: rem(16px);
@@ -288,6 +294,7 @@
                                 color: #FFF;
 
                                 a {
+                                    font-feature-settings: var(--font-features-default);
                                     font-family: $inter;
                                     font-size: rem(12px);
                                     font-style: normal;
@@ -319,13 +326,16 @@
                 display: flex;
                 gap: map.get($spacing, md);
                 align-items: flex-start;
-                padding: 0 20px;
-                margin-bottom: 24px;
+
+                // padding: 0 20px;
+                // margin-bottom: 24px;
 
                 .footer-sub-cont1 {
                     width: 100%;
                     display: flex;
-                    justify-content: space-between;
+                    gap: 32px;
+
+                    // justify-content: space-between;
 
                     .section-content1 {
                         display: none;
@@ -350,22 +360,22 @@
                         }
 
                         .list-items2 {
-                            li.item-list {
-                                a.item-anchor {
-                                    color: #FFF;
-                                    font-family: $inter;
-                                    font-size: rem(12px);
-                                    font-style: normal;
-                                    font-weight: 400;
-                                    line-height: rem(16px);
-                                }
+                            li.list-inneritem-1 {
+                                color: #FFF;
+                                font-feature-settings: var(--font-features-default);
+                                font-family: $inter;
+                                font-size: rem(14px);
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: rem(20px);
                             }
 
                             li:last-child {
                                 a {
                                     color: #FFF;
+                                    font-feature-settings: var(--font-features-default);
                                     font-family: $inter;
-                                    font-size: rem(12px);
+                                    font-size: rem(14px);
                                     font-style: normal;
                                     font-weight: 600;
                                     line-height: rem(16px);
@@ -382,7 +392,7 @@
             background: #242177;
             position: relative;
             z-index: 1;
-            padding: 16px 0;
+            padding: 24px 0;
 
             .footer-sub1 {
                 display: flex;
@@ -391,8 +401,9 @@
 
                 .footer-sub-cont1 {
                     color: #FFF;
+                    font-feature-settings: var(--font-features-default);
                     font-family: $inter;
-                    font-size: rem(12px);
+                    font-size: rem(14px);
                     font-style: normal;
                     font-weight: 600;
                     line-height: rem(16px);
@@ -400,8 +411,10 @@
 
                 .footer-sub-cont2 {
                     display: flex;
-                    flex-wrap: wrap;
-                    gap: 12px 32px;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    // flex-wrap: wrap;
 
                     li {
                         a.list-items1 {
@@ -409,11 +422,12 @@
 
                             gap: 4px;
                             color: #FFF;
+                            font-feature-settings: var(--font-features-default);
                             font-family: $inter;
-                            font-size: rem(12px);
+                            font-size: rem(14px);
                             font-style: normal;
                             font-weight: 400;
-                            line-height: normal;
+                            line-height: 20px;
 
                             span.list-inneritem-1 {
                                 display: flex;
@@ -563,7 +577,7 @@
                             // gap: map.get($spacing, md);
                             align-items: flex-start;
 
-                            .section-content1{
+                            .section-content1 {
                                 display: block;
                                 padding-bottom: 18px;
                                 line-height: 0;
@@ -599,21 +613,21 @@
 
                                 .list-items2 {
                                     li {
-                                        a {
-                                            color: #FFF;
-                                            font-family: $inter;
-                                            font-size: rem(12px);
-                                            font-style: normal;
-                                            font-weight: 400;
-                                            line-height: rem(16px);
-                                        }
+                                        color: #FFF;
+                                        font-feature-settings: var(--font-features-default);
+                                        font-family: $inter;
+                                        font-size: rem(14px);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: rem(20px);
                                     }
 
                                     li:last-child {
                                         a {
                                             color: #FFF;
+                                            font-feature-settings: var(--font-features-default);
                                             font-family: $inter;
-                                            font-size: rem(12px);
+                                            font-size: rem(14px);
                                             font-style: normal;
                                             font-weight: 600;
                                             line-height: rem(16px);
@@ -645,6 +659,7 @@
                     .footer-sub-cont1 {
                         width: 37.3%;
                         color: #FFF;
+                        font-feature-settings: var(--font-features-default);
                         font-family: $inter;
                         font-size: rem(16px);
                         font-style: normal;
@@ -680,6 +695,7 @@
                                         overflow: hidden;
                                         color: #FFF;
                                         text-overflow: ellipsis;
+                                        font-feature-settings: var(--font-features-default);
                                         font-family: $inter;
                                         font-size: rem(12px);
                                         font-style: normal;
@@ -700,6 +716,7 @@
                                         align-self: stretch;
                                         height: 40px;
                                         color: #FFFFFF80;
+                                        font-feature-settings: var(--font-features-default);
                                         font-family: $inter;
                                         font-size: rem(14px);
                                         font-style: normal;
@@ -712,7 +729,7 @@
 
                                 &.submit-btn {
                                     .button {
-                                        width: max-content;
+                                        width: 102px;
                                         padding: 10px 12px;
                                         border-radius: 8px;
                                         gap: rem(8px);
@@ -757,14 +774,12 @@
                                     display: none; // Hide chevron
                                 }
 
-                                // p {
-                                //     color: #FFF;
-                                //     font-family: $inter;
-                                //     font-size: rem(12px);
-                                //     font-style: normal;
-                                //     font-weight: 600;
-                                //     line-height: rem(16px);
-                                // }
+                                p {
+                                    font-size: rem(12px);
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: rem(14px);
+                                }
                             }
 
                             .accordion-item-body {
@@ -777,6 +792,7 @@
                                         opacity: 0.8;
 
                                         a {
+                                            font-feature-settings: var(--font-features-default);
                                             font-family: $inter;
                                             font-size: rem(12px);
                                             font-style: normal;
@@ -814,10 +830,11 @@
 
                     .footer-sub-cont1 {
                         color: #FFF;
+                        font-feature-settings: var(--font-features-default);
                         font-family: $inter;
-                        font-size: rem(12px);
+                        font-size: rem(14px);
                         font-style: normal;
-                        font-weight: 600;
+                        font-weight: 500;
                         line-height: rem(16px);
                     }
 
@@ -828,14 +845,15 @@
                         li {
                             line-height: rem(16px);
 
-                            a.list-items1 {
+                            .list-items1 {
                                 gap: 4px;
                                 color: #FFF;
+                                font-feature-settings: var(--font-features-default);
                                 font-family: $inter;
-                                font-size: rem(12px);
+                                font-size: rem(14px);
                                 font-style: normal;
                                 font-weight: 400;
-                                line-height: normal;
+                                line-height: 20px;
 
                                 .icon {
                                     display: flex;
