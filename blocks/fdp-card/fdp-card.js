@@ -59,7 +59,7 @@ export default function decorate(block) {
       finPlangrp.push(ret);
     }
   });
-  fundsTaggingSection.push(DirectPlanlistArr[0].optionName);
+  // fundsTaggingSection.push(DirectPlanlistArr[0].optionName);
   const navlistArr = cfObj[0].nav.filter(
     (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
   );
@@ -97,10 +97,10 @@ export default function decorate(block) {
       }
     });
     const middlediv = param.target.closest('.middlediv');
-    const parentdiv = middlediv.closest('.card-wrapper');
-    const tagsgrp = parentdiv.querySelector('.tags-grp');
-    tagsgrp.querySelectorAll('.list-tag')[2].textContent = '';
-    tagsgrp.querySelectorAll('.list-tag')[2].textContent = planType;
+    // const parentdiv = middlediv.closest('.card-wrapper');
+    // const tagsgrp = parentdiv.querySelector('.tags-grp');
+    // tagsgrp.querySelectorAll('.list-tag')[2].textContent = '';
+    // tagsgrp.querySelectorAll('.list-tag')[2].textContent = planType;
 
     // year
     const yrsdrp = middlediv.querySelector('.nav-return-grp .dropdown');
@@ -259,12 +259,6 @@ export default function decorate(block) {
           {
             class: 'title-discrption',
           },
-          p(
-            {
-              class: 'brand-name-text',
-            },
-            'Motilal Oswal',
-          ),
           div(
             {
               class: 'title title-logo',
@@ -274,7 +268,7 @@ export default function decorate(block) {
                 class: 'fund-name-title',
                 schcode: cfObj[0].schcode,
               },
-              cfObj[0].schDetail.schemeName.replace('Motilal Oswal', ''),
+              cfObj[0].schDetail.schemeName,
             ),
           ),
           span(

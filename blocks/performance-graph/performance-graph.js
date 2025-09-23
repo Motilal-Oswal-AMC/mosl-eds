@@ -183,9 +183,9 @@ export default function decorate(block) {
 
         xAxis.get('renderer').labels.template.setAll({
           // fill: window.am5.color(0x212121),
-          // fontFamily: 'Poppins',
+          // fontFamily: 'Inter',
           fill: window.am5.color(0x888888), // <-- Change color here (e.g., grey) // test
-          fontFamily: 'Poppins', // 'Arial',             // <-- Change font family here
+          fontFamily: 'Inter', // 'Arial',             // <-- Change font family here
           fontSize: 12,
           fontWeight: 400,
           paddingTop: 8,
@@ -217,7 +217,7 @@ export default function decorate(block) {
         // ADD THIS CODE BLOCK FOR Y-AXIS LABELS
         yAxis.get('renderer').labels.template.setAll({
           fill: window.am5.color(0x888888), // <-- Set your desired color
-          fontFamily: 'Poppins', // 'Arial',             // <-- Set your desired font family
+          fontFamily: 'Inter', // 'Arial',             // <-- Set your desired font family
           fontSize: 14,
         });
 
@@ -234,7 +234,7 @@ export default function decorate(block) {
         });
         sharedTooltip.label.setAll({
           fill: window.am5.color(0xffffff),
-          fontFamily: 'Poppins',
+          fontFamily: 'Inter',
           // fill: window.am5.color(0xffeecc),  // <-- Change text color (e.g., light yellow)
           // fontFamily: 'Courier New',       // <-- Change font family
           fontSize: 14,
@@ -419,7 +419,7 @@ export default function decorate(block) {
         // Also update your legend labels template for better alignment:
         legend.labels.template.setAll({
           fill: window.am5.color(0x333333),
-          fontFamily: 'Poppins',
+          fontFamily: 'Inter',
           fontSize: 16,
           fontWeight: '500',
           marginLeft: 6,

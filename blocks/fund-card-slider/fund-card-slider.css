@@ -18,17 +18,19 @@
   padding-bottom: 24px;
 }
 .section.fund-card-slider-container .block .itemcards1 .subitemcards1 h4 {
-  font-size: 32px;
-  line-height: 40px;
-  color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
-  font-weight: 700;
+  font-size: var(--body-xlarge-bold-size);
+  line-height: var(--body-xlarge-bold-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
   margin: 0;
 }
 @media (max-width: 768px) {
   .section.fund-card-slider-container .block .itemcards1 .subitemcards1 h4 {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: var(--sub-header-large-size);
+    line-height: var(--sub-header-medium-line-height);
+    font-family: var(--title);
   }
 }
 .section.fund-card-slider-container .block .card-slider-main {
