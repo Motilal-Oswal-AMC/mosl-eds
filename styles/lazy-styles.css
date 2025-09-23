@@ -33,6 +33,7 @@
   line-height: 40px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 @media (max-width: 768px) {
@@ -43,6 +44,7 @@
     line-height: 28px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
@@ -60,6 +62,7 @@
     line-height: 28px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
@@ -71,6 +74,7 @@
   line-height: 24px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 @media (max-width: 768px) {
@@ -79,6 +83,7 @@
     line-height: 20px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -216,6 +221,7 @@
     line-height: 16px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -241,6 +247,7 @@
     line-height: 16px;
     color: #616161;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -290,6 +297,7 @@
   line-height: 24px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -298,6 +306,7 @@
     line-height: 24px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
   }
 }
@@ -308,6 +317,7 @@
   line-height: 24px;
   color: #616161;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 @media (max-width: 768px) {
@@ -316,6 +326,7 @@
     line-height: 20px;
     color: #616161;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -342,6 +353,7 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 @media (max-width: 768px) {
@@ -350,6 +362,7 @@
     line-height: 16px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -462,6 +475,7 @@
   line-height: 20px;
   color: #fff;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -471,6 +485,7 @@
     line-height: 20px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
   }
 }
@@ -544,12 +559,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #2E2A94;
-  font-family: "Inter", sans-serif, sans-serif;
-  font-size: 16px;
-  font-style: normal;
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
-  line-height: 20px;
 }
 .section.quick-actions .quckactmain1 .quckactmain-sub1 .quckactmain-sub-wrp1 .quicksubactmain2 li.quicksubactlist .quckaqweactmain2 .quckaqweactmain1 {
   display: flex;
@@ -557,11 +572,8 @@
   height: 24px;
 }
 .section.quick-actions .quckactmain1 .quckactmain-sub1 .quicksubactmain1 {
-  color: #2e2a94;
-  font-family: "Inter", sans-serif, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  line-height: 28px;
+  font-size: var(--sub-header-large-size);
+  line-height: var(--sub-header-medium-line-height);
 }
 @media (width >= 768px) {
   .section.quick-actions .quckactmain1 .quckactmain-sub1 {
@@ -592,15 +604,11 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    color: #2E2A94;
+    color: var(--blue-1-800-primary);
   }
   .section.quick-actions .quckactmain1 .quckactmain-sub1 .quckactmain-sub-wrp1 .quicksubactmain2 li.quicksubactlist .quckaqweactmain2 {
-    color: #2e2a94;
-    font-family: "Inter", sans-serif, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
+    font-size: var(--body-medium-medium-size);
+    line-height: var(--body-medium-medium-line-height);
   }
   .section.quick-actions .quckactmain1 .quckactmain-sub1 .quckactmain-sub-wrp1 .quicksubactmain2 li.quicksubactlist .quckaqweactmain2 .icon {
     display: none;
@@ -612,10 +620,13 @@
   .section.quick-actions .quckactmain1 .quckactmain-sub1 .quicksubactmain1 {
     margin: 0;
     padding: 0;
-    color: #2e2a94;
-    font-family: "Inter", sans-serif, sans-serif;
-    font-weight: 600;
     white-space: nowrap;
+    font-size: var(--body-xlarge-bold-size);
+    line-height: var(--body-xlarge-bold-line-height);
+    color: var(--blue-1-800-primary);
+    font-family: var(--body);
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+    font-weight: 600;
   }
 }
 
@@ -691,6 +702,7 @@
   line-height: 40px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
   margin: 0;
 }
@@ -701,6 +713,7 @@
     line-height: 28px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
@@ -748,6 +761,7 @@
   line-height: 20px;
   color: #fff;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -756,6 +770,7 @@
     line-height: 20px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
   }
 }
@@ -932,6 +947,7 @@
   line-height: 16px;
   color: #5659FA;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-name-card .fund-name {
@@ -941,6 +957,7 @@
   line-height: 20px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -949,6 +966,7 @@
     line-height: 14px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
   }
 }
@@ -959,6 +977,7 @@
   line-height: 16px;
   color: #424242;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 @media (max-width: 768px) {
@@ -967,6 +986,7 @@
     line-height: 16px;
     color: #424242;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -982,6 +1002,7 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 @media (max-width: 768px) {
@@ -991,6 +1012,7 @@
     line-height: 16px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
@@ -1020,6 +1042,7 @@
   line-height: 28px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp2 {
@@ -1027,6 +1050,7 @@
   line-height: 20px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin-bottom: 8px;
   font-style: normal;
@@ -1037,6 +1061,7 @@
   line-height: 16px;
   color: #424242;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp4 {
@@ -1054,6 +1079,7 @@
   line-height: 20px;
   color: #fff;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   border-radius: 4px;
   background: #2e2a94;
@@ -1086,6 +1112,7 @@
     line-height: 40px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp2 {
@@ -1095,6 +1122,7 @@
     line-height: 24px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp3 {
@@ -1103,6 +1131,7 @@
     line-height: 24px;
     color: #424242;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp4 {
@@ -1122,6 +1151,7 @@
     line-height: 20px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
   }
   .section.welcome-component .welcomemain1 .welcomemain-sub2 {
