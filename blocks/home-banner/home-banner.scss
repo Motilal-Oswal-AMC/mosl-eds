@@ -54,14 +54,14 @@
       width: 56px;
       height: 56px;
       border-radius: 28px;
-      background: map.get($blue-1, b500);
+      background: var(--blue-1-500);
 
       @include flex-center($align: center, $justify: center);
 
       cursor: pointer;
 
       &:first-of-type {
-        background: map.get($blue-1, b900);
+        background: var(--blue-1-900);
       }
 
       &:last-of-type {
@@ -146,15 +146,12 @@
         margin: 27px 0 0 94px;
 
         .button {
+          @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), var(--blue-1-800-primary), 400, var(--body));
+
           margin: 0;
-          color: $primary-blue;
-          font-size: 16px;
-          font-weight: 400;
-          font-family: $inter;
-          line-height: 20px;
-          padding: 12px;
-          background-color: $primary-white;
-          border-radius: map.get($radius, r8);
+          padding: var(--spacing-12);
+          background-color: var(--neutrals-white);
+          border-radius: var(--border-radius-4);
           border: none;
           width: 100%;
           display: block;
@@ -193,14 +190,11 @@
         width: 100%;
 
         .button {
-          color: $primary-blue;
-          font-size: 14px;
-          line-height: 16px;
-          font-weight: 500;
-          font-family: $poppins;
-          background-color: $primary-white;
-          padding: 8px 12px;
-          border-radius: map.get($radius, r8);
+          @include font-style(var(--button-small-size), var(--button-small-line-height), var(--blue-1-800-primary), 500, var(--body));
+
+          background-color: var(--neutrals-white);
+          padding: var(--spacing-8) var(--spacing-12);
+          border-radius: var(--border-radius-4);
           width: 100%;
           margin: 0;
 
@@ -244,7 +238,7 @@
 
     .swiper-pagination-bullet {
       margin: 0;
-      border: 1px solid $primary-white;
+      border: 1px solid var(--surface-background);
       background-color: transparent;
       border-radius: map.get($radius, r50);
       opacity: 1;
@@ -253,15 +247,15 @@
       display: block;
 
       &.swiper-pagination-bullet-active {
-        background-color: $primary-white;
+        background-color: var(--surface-background);
       }
     }
   }
 
   .swiper-button-prev,
   .swiper-button-next {
-    background-color: $primary-white;
-    border-radius: map.get($radius, r50);
+    background-color: var(--surface-background);
+    border-radius: 30px;
     width: 40px;
     height: 40px;
     left: 27px;
