@@ -214,10 +214,10 @@ header .nav-brand {
   flex-shrink: 0;
   font-feature-settings: var(--font-features-default);
   font-family: var(--body);
-  font-size: var(--button-small-size);
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: var(--button-small-line-height);
+  line-height: 16px;
   border-radius: var(--border-radius-8);
   background: var(--blue-1-800-primary);
   white-space: nowrap;
@@ -1428,6 +1428,12 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 }
 
 @media (width >=900px) {
+  body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
   .header .nfo-banner {
     /* display: none; */
     margin: 0;
@@ -1493,6 +1499,11 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     padding: 6px 12px;
     border: none;
     height: max-content;
+    font-size: var(--button-small-size);
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--button-small-line-height);
+    border-radius: var(--border-radius-8);
   }
 
   .nfo-banner-sub2 .nfo-banner-inner-text1 .nfo-banner-list1 a {

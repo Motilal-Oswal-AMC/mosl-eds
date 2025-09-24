@@ -355,7 +355,7 @@
     /* typescale desktop end */
 }
 
-@media (width <=768px) {
+@media (width <=900px) {
     :root {
         /* typescale mobile start */
 

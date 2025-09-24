@@ -1,20 +1,11 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
+// import { loadAutoBlock } from '../../scripts/scripts.js';
+// import {a,button,div,h3,li,ul} from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
 export const isDesktop = window.matchMedia('(min-width: 900px)');
-
-/**
- * Toggles all nav sections
- * @param {Element} sections The container element
- * @param {Boolean} expanded Whether the element should be expanded or collapsed
- */
-function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', expanded);
-  });
-}
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -22,6 +13,7 @@ function closeOnEscape(e) {
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
     if (navSectionExpanded && isDesktop.matches) {
+      // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections);
       navSectionExpanded.focus();
     } else if (!isDesktop.matches) {
@@ -32,11 +24,27 @@ function closeOnEscape(e) {
   }
 }
 
+function closeOnFocusLost(e) {
+  const nav = e.currentTarget;
+  if (!nav.contains(e.relatedTarget)) {
+    // const navSections = nav.querySelector('.nav-sections');
+    // const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
+    // if (navSectionExpanded && isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleAllNavSections(navSections, false);
+    // } else if (isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleMenu(nav, navSections, false);
+    // }
+  }
+}
+
 function openOnKeydown(e) {
   const focused = document.activeElement;
   const isNavDrop = focused.className === 'nav-drop';
   if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
     const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
+    // eslint-disable-next-line no-use-before-define
     toggleAllNavSections(focused.closest('.nav-sections'));
     focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
   }
@@ -51,6 +59,12 @@ function focusNavSection() {
  * @param {Element} sections The container element
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
+function toggleAllNavSections(sections, expanded = false) {
+  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+    section.setAttribute('aria-expanded', expanded);
+    section.style.pointerEvents = '';
+  });
+}
 
 /**
  * Toggles the entire nav
@@ -80,12 +94,16 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
       drop.removeEventListener('focus', focusNavSection);
     });
   }
+
   // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
     // collapse menu on escape press
     window.addEventListener('keydown', closeOnEscape);
+    // collapse menu on focus lost
+    nav.addEventListener('focusout', closeOnFocusLost);
   } else {
     window.removeEventListener('keydown', closeOnEscape);
+    nav.removeEventListener('focusout', closeOnFocusLost);
   }
 }
 
@@ -98,17 +116,20 @@ export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
+
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.classList.add('nfo-nav');
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
+
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
   // const download = mainBlock.querySelector('main .download');
@@ -129,15 +150,18 @@ export default async function decorate(block) {
   }
   const dropdownTrigger = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
   const dropdownMenu = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
+
   if (dropdownTrigger && dropdownMenu) {
     dropdownTrigger.addEventListener('click', (event) => {
       event.stopPropagation();
       dropdownMenu.classList.toggle('open');
       dropdownTrigger.classList.toggle('active');
     });
+
     dropdownMenu.addEventListener('click', (event) => {
       event.stopPropagation();
     });
+
     document.addEventListener('click', () => {
       if (dropdownMenu.classList.contains('open')) {
         dropdownMenu.classList.remove('open');
@@ -147,9 +171,6 @@ export default async function decorate(block) {
   }
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    // A single timer is shared across all nav sections to prevent flickering.
-    let leaveTimer;
-
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection) => {
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
@@ -159,35 +180,22 @@ export default async function decorate(block) {
         hrefnaf.append(frgnav.children[0]);
       }
 
-      // --- Desktop Hover Logic ---
-      navSection.addEventListener('mouseenter', () => {
-        if (isDesktop.matches) {
-          // When entering a new item, cancel any pending timer to close a menu.
-          // This prevents flickering when moving between menu items.
-          clearTimeout(leaveTimer);
-          // Close all other menus before opening the new one.
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', 'true');
-          document.body.classList.add('no-scroll');
-        }
-      });
-
-      // When the mouse leaves the entire nav item area (L1 button + L2 menu),
-      // start a timer to close it.
-      navSection.addEventListener('mouseleave', () => {
-        if (isDesktop.matches) {
-          leaveTimer = setTimeout(() => {
-            toggleAllNavSections(navSections, false);
-            document.body.classList.remove('no-scroll');
-          }, 300); // A 300ms delay feels smooth and prevents accidental closing.
-        }
-      });
-
-      // --- Mobile Click Logic (Unaffected) ---
       navSection.addEventListener('click', () => {
-        if (!isDesktop.matches) {
+        // ('click', () => {
+        if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          toggleAllNavSections(navSections);
+
+          const newState = expanded ? 'false' : 'true';
+          navSection.setAttribute('aria-expanded', newState);
+          // navSection.style.pointerEvents = 'none';
+
+          // ✅ Scroll lock toggle
+          if (newState === 'true') {
+            document.body.classList.add('no-scroll');
+          } else {
+            document.body.classList.remove('no-scroll');
+          }
         }
       });
 
@@ -203,6 +211,7 @@ export default async function decorate(block) {
       ];
       subHeader.forEach((sublist) => dataMapMoObj.addIndexed(sublist));
     });
+
     dataMapMoObj.CLASS_PREFIXES = [
       'nav-sec-cont',
       'nav-sec-sec',
@@ -213,6 +222,7 @@ export default async function decorate(block) {
     ];
     dataMapMoObj.addIndexed(navSections);
   }
+
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     const search = navTools.querySelector('a[href*="search"]');
@@ -243,15 +253,18 @@ export default async function decorate(block) {
   }
   const dropTrigger = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text1');
   const dropMenu = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text2');
+
   if (dropTrigger && dropMenu) {
     dropTrigger.addEventListener('click', (event) => {
       event.stopPropagation();
       dropMenu.classList.toggle('open');
       dropTrigger.classList.toggle('active');
     });
+
     dropMenu.addEventListener('click', (event) => {
       event.stopPropagation();
     });
+
     document.addEventListener('click', (event) => {
       if (dropMenu.classList.contains('open')) {
         dropMenu.classList.remove('open');
@@ -259,10 +272,10 @@ export default async function decorate(block) {
       }
       if (!navSections.contains(event.target)) {
         toggleAllNavSections(navSections);
-        document.body.classList.remove('no-scroll');
       }
     });
   }
+
   const nfoBanner = nav.querySelector('.section.nfo-banner');
   if (nfoBanner) {
     dataMapMoObj.CLASS_PREFIXES = [
@@ -283,6 +296,7 @@ export default async function decorate(block) {
         liveIndicator.className = 'live-indicator';
         liveIndicatorContainer.appendChild(liveIndicator);
       }
+
       const timerContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list3');
       if (timerContainer) {
         const timerElement = document.createElement('span');
@@ -293,37 +307,47 @@ export default async function decorate(block) {
       }
       return null;
     };
+
     const startCountdown = (element) => {
       if (!element) {
         return;
       }
+
       const COUNTDOWN_DAYS = 2;
       const COUNTDOWN_HOURS = 20;
       const COUNTDOWN_MINUTES = 20;
       const ONE_SECOND_MS = 1000;
+
       const countDownDate = new Date();
       countDownDate.setDate(countDownDate.getDate() + COUNTDOWN_DAYS);
       countDownDate.setHours(countDownDate.getHours() + COUNTDOWN_HOURS);
       countDownDate.setMinutes(countDownDate.getMinutes() + COUNTDOWN_MINUTES);
       const countDownTime = countDownDate.getTime();
+
       const interval = setInterval(() => {
         const now = new Date().getTime();
         const distance = countDownTime - now;
+
         if (distance < 0) {
           clearInterval(interval);
           element.textContent = 'EXPIRED';
           return;
         }
+
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
         const pad = (num) => String(num).padStart(2, '0');
+
         element.textContent = `${pad(days)}d : ${pad(hours)}h : ${pad(minutes)}m`;
       }, ONE_SECOND_MS);
     };
+
     const timerElement = setupUI();
     startCountdown(timerElement);
   }());
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -339,10 +363,12 @@ export default async function decorate(block) {
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
     await delay(800);
@@ -354,10 +380,13 @@ export default async function decorate(block) {
       // const navsort = navshort.querySelector('.default-content-wrapper').firstElementChild;
       // navsort.querySelector('.li:nth-child(2)').style.display = 'flex';
       // navsort.querySelector('.sub-popup-list6 .sub-popup-list-content2').style.display = 'flex';
+
       const navinner = navSections.querySelector('.nav-sec-list1 .sub-popup-sub3 .sub-popup-inner-text2');
       navinner.querySelectorAll('ul').forEach((navel) => { navel.style.display = 'block'; });
+
       const navinnfive = navSections.querySelector('.nav-sec-sub5 .sub-popup-sub2 .sub-popup-inner-text2');
       navinnfive.querySelectorAll('ul').forEach((five) => { five.style.display = 'block'; });
+
       const navinnfour = navSections.querySelector('.nav-sec-sub4 .sub-popup-sub2 .sub-popup-inner-text2');
       navinnfour.querySelectorAll('ul').forEach((four) => { four.style.display = 'block'; });
     });
@@ -395,19 +424,26 @@ export default async function decorate(block) {
       }
     });
   }
+
   const searchtemp = block.querySelector('.nav-tools .nav-tools-sec1 .nav-tools-inner-net1');
   const iconcls = searchtemp.querySelector('.nav-tools-list-content1');
+  const navmain = block.closest('body');
+  const navblk = navmain.querySelector('main');
+  navblk.classList.add('nfo-nav');
   iconcls.addEventListener('click', () => {
     const nfoban = block.querySelector('.nfo-banner');
-    const navblk = block.querySelector('nav');
+    const navelement = block.querySelector('nav');
     if (nfoban.style.display === 'none') {
       nfoban.style.display = 'block';
       navblk.classList.add('nfo-nav');
+      navelement.classList.add('nfo-nav');
     } else {
       nfoban.style.display = 'none';
       navblk.classList.remove('nfo-nav');
+      navelement.classList.remove('nfo-nav');
     }
   });
+
   const loginevent = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
   loginevent.addEventListener('click', () => {
     const nextel = loginevent.nextElementSibling;
@@ -426,3 +462,10 @@ export default async function decorate(block) {
     'User Profile',
   );
 }
+
+// const nfoTop = document.querySelector('body');
+// const mainNfo = document.querySelector('main');
+
+// if (mainNfo) {
+//   mainNfo.classList.add('nfo-open');
+// }
