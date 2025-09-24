@@ -427,15 +427,20 @@ export default async function decorate(block) {
 
   const searchtemp = block.querySelector('.nav-tools .nav-tools-sec1 .nav-tools-inner-net1');
   const iconcls = searchtemp.querySelector('.nav-tools-list-content1');
+  const navmain = block.closest('body');
+  const navblk = navmain.querySelector('main');
+  navblk.classList.add('nfo-nav');
   iconcls.addEventListener('click', () => {
     const nfoban = block.querySelector('.nfo-banner');
-    const navblk = block.querySelector('nav');
+    const navelement = block.querySelector('nav');
     if (nfoban.style.display === 'none') {
       nfoban.style.display = 'block';
       navblk.classList.add('nfo-nav');
+      navelement.classList.add('nfo-nav');
     } else {
       nfoban.style.display = 'none';
       navblk.classList.remove('nfo-nav');
+      navelement.classList.remove('nfo-nav');
     }
   });
 
@@ -457,3 +462,10 @@ export default async function decorate(block) {
     'User Profile',
   );
 }
+
+// const nfoTop = document.querySelector('body');
+// const mainNfo = document.querySelector('main');
+
+// if (mainNfo) {
+//   mainNfo.classList.add('nfo-open');
+// }

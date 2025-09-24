@@ -1428,6 +1428,12 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 }
 
 @media (width >=900px) {
+  body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
   .header .nfo-banner {
     /* display: none; */
     margin: 0;

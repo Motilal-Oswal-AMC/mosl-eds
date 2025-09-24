@@ -41,6 +41,14 @@ export default function decorate(block) {
     allItems.forEach((item) => {
       item.setAttribute('open', '');
       // item.addEventListener('click', (e) => e.preventDefault());
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.addEventListener('resize', () => {
+          if (item.getAttribute('open')) {
+            item.setAttribute('open', '');
+          }
+        });
+      });
     });
   } else {
     // Normal accordion → first item open by default, only one open at a time
