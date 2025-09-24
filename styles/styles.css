@@ -9,6 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+@import '../styles/tokens-variable.css';
 
 /* ------------------------------------------------------------------
  * GLOBAL RESET
@@ -351,7 +352,13 @@ main>.section>div {
 }
 
 main>.section:first-of-type {
-    margin-top: 25px;
+    margin-top: 31px;
+}
+
+@media (width <=1025px) {
+    main>.section:first-of-type {
+        margin-top: 73px;
+    }
 }
 
 @media (width <=1279px) {
@@ -366,11 +373,11 @@ main>.section:first-of-type {
     }
 }
 
-@media (width <=768px) {
+/* @media (width <=768px) {
     main>.section:first-of-type {
         margin-top: 0;
     }
-}
+} */
 
 main .section.light,
 main .section.highlight {
@@ -654,13 +661,13 @@ body.noscroll {
 }
 
 .breadcrumbs-fdp>.default-content-wrapper>ul>li>a {
-    color: #424242;
+    color:var(--neutrals-700);
     text-align: center;
-    font-family: Poppins, sans-serif;
-    font-size: 12px;
+    font-family:var(--body);;
+    font-size: var(--paragraph-xsmall-size);
     font-style: normal;
     font-weight: 400;
-    line-height: 16px;
+    line-height: var(--paragraph-xsmall-line-height);
     background: none;
     margin: 0;
     padding: 0;
@@ -737,13 +744,13 @@ body.noscroll {
 }
 
 .breadcrumbs-fdp>ul.breadul>li.breadli>a {
-    color: #2e2a94;
+    color: var(--blue-1-800-primary);
     cursor: pointer;
-    font-family: Poppins, sans-serif;
-    font-size: 12px;
+    font-family :var(--body);
+    font-size: var(--paragraph-xsmall-size);
     font-style: normal;
     font-weight: 400;
-    line-height: 16px;
+    line-height: var(--paragraph-xsmall-line-height);
 }
 
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
@@ -803,7 +810,7 @@ position: relative;
     }
 
     .section.breadcrumbs-fdp {
-        top: 135px;
+        top: 119px;
         padding: 16px;
     }
 }

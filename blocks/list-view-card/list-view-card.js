@@ -123,7 +123,6 @@ export default function decorate(block) {
           div(
             { class: 'cagr-return' },
             div({ class: 'cagr-value' }, 'N/A'),
-            p({ class: 'cagr-text' }, 'CAGR'),
           ),
           div(
             { class: 'risk-star-icon' },
@@ -158,7 +157,7 @@ export default function decorate(block) {
             },
             img({
               class: 'star-icon',
-              src: '../../icons/not-filled-star.svg',
+              src: '../../icons/not-filled-white-star.svg',
               alt: 'star-icon',
             }),
             img({
@@ -185,8 +184,7 @@ export default function decorate(block) {
           ),
           div(
             { class: 'fund-name-container' },
-            p({ class: 'brand-name-txt' }, 'Motilal Oswal'),
-            p({ class: 'fund-name-txt' }, block.schDetail.schemeName.replaceAll('Motilal Oswal', '')),
+            p({ class: 'fund-name-txt' }, block.schDetail.schemeName),
           ),
           img({
             class: 'logoscheme',

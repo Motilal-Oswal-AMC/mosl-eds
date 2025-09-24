@@ -38,14 +38,14 @@
         h3 {
             margin: 0;
             padding-bottom: 4px;
+            font-style: normal;
 
-            @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+            @include font-style(map.get($typography-desktop, heading-h4-size), map.get($typography-desktop, heading-h4-line-height), $blue-1-800-primary, 600, $title);
 
             @include media(mobile) {
                 padding: 0 34px 4px;
 
-
-                @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+                @include font-style(map.get($typography-mobile, sub-header-large-size), 28px, $blue-1-800-primary, 600, $title);
             }
         }
 
@@ -53,10 +53,11 @@
             text-align: center;
             margin: 0;
 
-            @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $poppins);
+            @include font-style(map.get($typography-desktop, body-medium-regular-size), 24px, $blue-1-800-primary, 400, $body);
 
             @include media(mobile) {
-                @include font-style(14px, 20px, $primary-blue, map.get($font-weights, regular), $poppins);
+                font-size: map.get($typography-mobile, paragraph-xsmall-size);
+                line-height: map.get($typography-mobile, paragraph-xsmall-line-height);
             }
         }
     }
@@ -85,8 +86,14 @@
                 border-radius: 4px;
                 background: $primary-blue;
                 margin: 0;
+                font-style: normal;
 
-                @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $poppins);
+                @include font-style(map.get($typography-desktop, button-medium-size), map.get($typography-desktop, button-medium-line-height), $text-white, 500, $body);
+
+                @include media(mobile) {
+                    @include font-style(16px, 20px, $text-white, 500, $body);
+                    font-style: normal;
+                }
             }
         }
     }
@@ -189,7 +196,11 @@
                 .title h2 {
                     margin: 0;
 
-                    @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $poppins);
+                    @include font-style(map.get($typography-desktop, body-medium-medium-size), map.get($typography-desktop, body-medium-medium-line-height), $blue-1-800-primary, 500, $body);
+
+                    @include media(mobile) {
+                        @include font-style(map.get($typography-mobile, body-medium-medium-size), map.get($typography-mobile, body-medium-medium-line-height), $blue-1-800-primary, 500, $body);
+                    }
 
                 }
             }

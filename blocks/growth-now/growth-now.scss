@@ -3,8 +3,8 @@
 /* media-feature-range-notation */
 
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 main {
     // background-color: $neutrals-100;
@@ -13,7 +13,7 @@ main {
 
 .section.growth-now-container {
     margin: 0;
-    
+
     // background-color: $neutrals-100;
     background-color: #fff;
     padding: 40px 0 50px;
@@ -176,8 +176,9 @@ main {
                     margin: 0;
                     padding: 0;
                     white-space: nowrap;
+                    font-style: normal;
 
-                    @include font-style(32px, 40px, $primary-white, map.get($font-weights, bold), $butlerpro);
+                    @include font-style(map.get($typography-desktop, heading-h5-size), map.get($typography-desktop, heading-h5-line-height), $neutrals-white, 600, $title);
 
                     @media (width <=1279px) {
                         white-space: inherit;
@@ -185,7 +186,7 @@ main {
 
 
                     @include media(mobile) {
-                        @include font-style(28px, 32px, $primary-white, map.get($font-weights, medium), $butlerpro);
+                        @include font-style(map.get($typography-mobile, sub-header-large-size), 28px, $neutrals-white, 600, $title);
                     }
                 }
 
@@ -204,6 +205,7 @@ main {
                     order: 2;
                     width: 100%;
                     padding-bottom: 32px;
+                    z-index: 2;
 
                     .button-container {
                         margin: 0;
@@ -234,14 +236,16 @@ main {
                         width: 228px;
                         height: 40px;
                         display: flex;
-                        padding: 8px 12px;
+                        gap: 4px;
+                        // padding: 8px 12px;
                         align-items: center;
                         align-self: stretch;
                         border-radius: 6px;
-                        border: 1px solid $neutrals-500;
+                        border: unset;
 
                         @include media(mobile) {
                             width: 100%;
+                            padding: unset;
                         }
 
 
@@ -250,35 +254,58 @@ main {
                         }
 
                         .select-wrapper {
-                            border-radius: 3px 0 0 3px;
-                            border-right: 1px solid #6D798E;
-                            padding-right: 4px;
+                            // border-radius: 3px 0 0 3px;
+                            // border-right: 1px solid #6D798E;
+                            // padding-right: 4px;
                             display: flex;
                             align-items: center;
                             gap: 2px;
+                            padding: 10px 8px 10px 12px;
+                            border: 1px solid $neutrals-300;
+                            border-radius: 8px;
+                            width: 112px;
+                            height: 40px;
 
                             &::before {
                                 content: "";
                                 display: inline-block;
-                                width: 16px;
-                                height: 16px;
-                                background: url('../../icons/055-india.svg'), no-repeat, center, center;
+                                width: 28px;
+                                height: 20px;
+                                background: url('../../icons/national-flag.svg'), no-repeat, center, center;
                             }
 
+                        }
+
+                        .phnodata.field-wrapper {
+                            width: 188px;
+                            height: 40px;
+                            border: 1px solid $neutrals-300;
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            padding: 10px 12px;
+
+                            @include media(mobile) {
+                                width: 100%;
+                            }
                         }
 
                         select {
                             background: transparent;
                             border: none;
-                            color: #FFF;
+                            color: $neutrals-white;
                             text-align: center;
-                            font-family: $poppins;
-                            font-size: 14px;
+                            font-family: $body;
+                            font-size: map.get($typography-desktop, body-medium-regular-size);
                             font-style: normal;
                             font-weight: 400;
-                            line-height: 20px;
+                            line-height: map.get($typography-desktop, body-medium-regular-line-height);
                             appearance: auto;
                             padding-right: 4px;
+
+                            @include media(mobile) {
+                                @include font-style(map.get($typography-mobile, body-medium-regular-size), map.get($typography-mobile, body-medium-regular-line-height), $neutrals-white, 400, $body);
+                            }
 
                             option {
                                 color: #fff;
@@ -297,18 +324,26 @@ main {
                                 min-width: 111px;
                                 background: transparent;
                                 box-shadow: none;
-                                color: #fff;
-                                font-family: $poppins;
-                                font-size: 14px;
+                                color: $neutrals-white;
+                                font-family: $body;
+                                font-size: map.get($typography-desktop, body-medium-regular-size);
                                 font-style: normal;
-                                font-weight: 500;
-                                line-height: 16px;
+                                font-weight: 400;
+                                line-height: map.get($typography-desktop, body-medium-regular-line-height);
                                 padding: 0;
                                 padding-inline: unset;
                                 padding-block: unset;
                                 border: none;
                                 text-align: left;
-                                padding-left: 10px;
+                                // padding-left: 10px;
+
+                                &::placeholder {
+                                    color: $neutrals-white;
+                                }
+
+                                @include media(mobile) {
+                                    @include font-style(map.get($typography-mobile, body-medium-regular-size), map.get($typography-mobile, body-medium-regular-line-height), $neutrals-white, 400, $body);
+                                }
                             }
 
                             // input::placeholder {
@@ -380,19 +415,25 @@ main {
                             justify-content: center;
                             align-items: center;
                             gap: 8px;
-                            border-radius: 4px;
+                            border-radius: 8px;
                             background: #FFF;
-                            color: #2E2A94;
-                            font-family: $poppins;
-                            font-size: 14px;
+                            color: $text-button-default;
+                            font-family: $body;
+                            font-size: map.get($typography-desktop, button-medium-size);
                             font-style: normal;
                             font-weight: 500;
-                            line-height: 16px;
+                            line-height: map.get($typography-desktop, button-medium-line-height);
                             margin: 0;
                             height: 40px;
 
                             @include media(mobile) {
-                                width: 100%;
+                                width: 100% !important;
+                                color: $text-button-default;
+                                font-family: $body;
+                                font-size: map.get($typography-mobile, button-medium-size);
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: map.get($typography-mobile, button-medium-line-height);
                             }
                         }
                     }
@@ -519,47 +560,53 @@ main {
                                 list-style: none;
 
                                 li.comlist.growth-subthr1:first-child {
-                                    color: #FFF;
-                                    font-family: $poppins;
-                                    font-size: 12px;
+                                    color: $neutrals-white;
+                                    font-family: $body;
+                                    font-size: map.get($typography-desktop, paragraph-xsmall-size);
                                     font-style: normal;
                                     font-weight: 400;
-                                    line-height: 16px;
+                                    line-height: map.get($typography-desktop, paragraph-xsmall-line-height);
                                     cursor: pointer;
 
-                                        // &:hover {
-                                        //     text-decoration-line: underline;
-                                        //     opacity: 1 !important;
-                                        //     color: #fff;
-                                        // }
+                                    @include media(mobile) {
+                                        @include font-style(map.get($typography-mobile, paragraph-xsmall-size), map.get($typography-mobile, paragraph-xsmall-line-height), $neutrals-white, 400, $body);
+                                    }
+
+                                    // &:hover {
+                                    //     text-decoration-line: underline;
+                                    //     opacity: 1 !important;
+                                    //     color: #fff;
+                                    // }
                                 }
-                                
+
                                 li.comlist.growth-subthr2:nth-child(2) {
                                     color: #FFF;
-                                    font-family: $poppins;
+                                    font-family: $body;
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 600;
                                     line-height: 16px;
-                                        cursor: pointer;
-
-                                       
-
-                                   a{
-                                     color: #FFF;
-                                    font-family: $poppins;
-                                    font-size: 12px;
-                                    font-style: normal;
-                                    font-weight: 400;
-                                    line-height: 16px;
                                     cursor: pointer;
 
-                                     &:hover {
+                                    a {
+                                        color: $neutrals-white;
+                                        font-family: $body;
+                                        font-size: map.get($typography-desktop, body-small-semibold-size);
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: map.get($typography-desktop, body-small-semibold-line-height);
+                                        cursor: pointer;
+
+                                        @include media(mobile) {
+                                            @include font-style(map.get($typography-mobile, body-small-semibold-size), map.get($typography-mobile, body-small-semibold-line-height), $neutrals-white, 600, $body);
+                                        }
+
+                                        &:hover {
                                             text-decoration-line: underline;
                                             opacity: 1 !important;
                                             color: #fff;
                                         }
-                                   }
+                                    }
 
                                 }
                             }
@@ -588,7 +635,7 @@ main {
 
             .fund-us-container {
                 .fund-sec-1 {
-                    padding-right: 56px;
+                    padding-right: 11px;
 
                     @include media(mobile) {
                         padding: 0;
@@ -604,7 +651,7 @@ main {
                 }
 
                 .fund-sec-4 {
-                    display: none;
+                    // display: none;
 
                     @include media(mobile) {
                         display: block;

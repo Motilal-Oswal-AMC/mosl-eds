@@ -7,7 +7,7 @@
 
   &-container.section {
     margin: 0 auto;
-    background-color: #fff;
+    background-color: var(--surface-background);
   }
 
   &-container {
@@ -65,16 +65,22 @@
             .subitem-child {
               &-1 {
                 margin: 0 0 4px;
-                color: $primary-blue;
+                color: #2e2a94;
                 font-size: 36px;
                 font-weight: 600;
-                line-height: 42px;
-                font-family: $poppins;
+                line-height: 44px;
+                font-family: $inter;
                 text-wrap: balance;
 
                 @include media(mobile) {
-                  font-size: 16px;
-                  line-height: 20px;
+                  @include font-style(
+                    var(--body-medium-semibold-size),
+                    var(--body-medium-semibold-line-height),
+                    var(--blue-1-800-primary),
+                    600,
+                    var(--body)
+                  );
+
                   margin: 0;
                   max-width: 32.36%;
                   width: 100%;
@@ -85,14 +91,17 @@
                 margin: 0;
 
                 @include font-style(
-                  map.get($typography-desktop, body-small-regular-size),
-                  map.get($typography-desktop, label-large-line-height),
-                  $text-body-2,
-                  map.get($font-weights, regular),
-                  $body
+                  var(--body-small-regular-size),
+                  var(--label-large-line-height),
+                  var(--text-body-2),
+                  400,
+                  var(--body)
                 );
 
                 @include media(mobile) {
+                  font-size: var(--paragraph-small-size);
+                  line-height: var(--paragraph-small-line-height);
+                  color: var(--text-body);
                   text-wrap: unset;
                   max-width: 61%;
                   width: 100%;
@@ -143,19 +152,18 @@
           width: 100%;
           margin: 0;
           text-align: left;
-          color: $blue-1-800-primary;
-          font-family: $body;
-          font-size: map.get($typography-desktop , body-xlarge-semibold-size);
-          font-style: normal;
-          font-weight: 500;
-          line-height: map.get($typography-desktop , Body-Xlarge-semibold-Line-Height);
+
+          @include font-style(
+            var(--body-xlarge-semibold-size),
+            var(--body-xlarge-semibold-line-height),
+            var(--blue-1-800-primary),
+            500,
+            var(--body)
+          );
 
           @include media(mobile) {
-            color: $blue-1-800-primary;
-            font-family: $body;
-            font-size: map.get($typography-mobile , body-xlarge-semibold-size);
-            font-weight: 500;
-            line-height: map.get($typography-mobile , body-xlarge-semibold-line-height);
+            font-size: var(--body-xlarge-semibold-size);
+            line-height: var(--body-xlarge-semibold-line-height);
           }
         }
 
@@ -172,20 +180,29 @@
           .button {
             width: 100%;
             display: inline-block;
-            color: $text-white;
-            padding: 12px;
+            padding: var(--spacing-12);
             border: none;
-            font-family: $body;
-            font-weight: 500;
-            font-size: map.get($typography-desktop , button-medium-size);
-            line-height: map.get($typography-desktop , button-medium-line-height);
             text-decoration: none;
             cursor: pointer;
-            transition: background-color 0.2s ease-in-out,
+            transition:
+              background-color 0.2s ease-in-out,
               transform 0.2s ease-in-out;
-            border-radius: 4px;
-            background: #2e2a94;
+            border-radius: var(--border-radius-8);
+            background: var(--button-primary-default);
             margin: 0;
+
+            @include font-style(
+              var(--button-medium-size),
+              var(--button-medium-line-height),
+              var(--text-white),
+              500,
+              var(--body)
+            );
+
+            @include media(mobile) {
+              font-size: var(--button-medium-size);
+              line-height: var(--button-medium-line-height);
+            }
 
             &:hover,
             &:focus {
@@ -256,19 +273,26 @@
           min-height: 114px;
         }
 
-       h1, h2, h3 , h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
           margin: 0;
           padding: 0;
-          color: #2e2a94;
-          font-family: $title;
-          font-size: map.get($typography-desktop , heading-h4-size);
-          line-height: map.get($typography-desktop , heading-h4-line-height);
-          font-style: normal;
-          font-weight: 600;
+
+          @include font-style(
+            var(--heading-h4-size),
+            var(--heading-h4-line-height),
+            var(--blue-1-800-primary),
+            600,
+            var(--title)
+          );
 
           @include media(mobile) {
-            font-size: map.get($typography-desktop , sub-header-large-size);
-            line-height: map.get($typography-mobile , sub-header-medium-line-height);
+            font-size: var(--sub-header-large-size);
+            line-height: 28px;
           }
         }
 

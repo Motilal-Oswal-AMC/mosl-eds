@@ -80,14 +80,14 @@ export default function decorate(block) {
           { class: 'lower-right' },
           div(
             { class: 'fund-name-card' },
-            p(
-              { class: 'brand-text' },
-              block.querySelector('.watchlist-items2 .watchlist-inneritems1')
-                .innerText,
-            ),
+            // p(
+            //   { class: 'brand-text' },
+            //   block.querySelector('.watchlist-items2 .watchlist-inneritems1')
+            //     .innerText,
+            // ),
             div(
               { class: 'fund-name' },
-              data[0].schDetail.schemeName.replaceAll('Motilal Oswal', ''),
+              data[0].schDetail.schemeName,//.replaceAll('Motilal Oswal', ''),
             ),
           ),
           div(

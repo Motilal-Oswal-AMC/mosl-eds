@@ -3,10 +3,8 @@
 /* media-feature-range-notation */
 
 @use "sass:map";
-@use "../styles/common-theme/css/variables_mixins"as *;
-@use "../styles/common-theme/css/fluid-typography"as *;
-
-
+@use "../styles/common-theme/css/variables_mixins" as *;
+@use "../styles/common-theme/css/fluid-typography" as *;
 
 // Welcome Anushuka Component Start
 
@@ -59,7 +57,6 @@
 //                 margin-bottom: 40px;
 
 //                 @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $poppins);
-
 
 //                 @include media(mobile) {
 //                     margin-bottom: 0;
@@ -114,7 +111,6 @@
 
 // Welcome Anushuka Component End
 
-
 // Download Component start
 
 .section.download {
@@ -127,13 +123,16 @@
 
   .default-content-wrapper {
     > p.download-ul1 {
-      color: $primary-blue;
-      font-family: $butlerpro;
-      font-size: 32px;
       font-style: normal;
-      font-weight: 700;
-      line-height: 40px;
       padding-bottom: 24px;
+
+      @include font-style(
+        var(--body-xlarge-bold-size),
+        var(--body-xlarge-bold-line-height),
+        var(--blue-1-800-primary),
+        600,
+        var(--body)
+      );
     }
 
     > ul.download-ul2 {
@@ -146,7 +145,7 @@
       @media (width <= 768px) {
         gap: 24px;
       }
- /* stylelint-disable-next-line no-descending-specificity */
+      /* stylelint-disable-next-line no-descending-specificity */
       > li.download-li1,
       > li.download-li2,
       > li.download-li3,
@@ -168,12 +167,15 @@
               display: flex;
               align-items: center;
               padding: 0 16px 0 0;
-              color: $primary-blue;
-              font-family: $poppins;
-              font-size: 16px;
               font-style: normal;
-              font-weight: 500;
-              line-height: 20px;
+
+              @include font-style(
+                var(--body-medium-medium-size),
+                var(--body-medium-medium-line-height),
+                var(--blue-1-800-primary),
+                500,
+                var(--body)
+              );
 
               &:focus-visible {
                 outline: 2px solid #2e2a94;
@@ -184,12 +186,24 @@
 
           li.download-first-list2:nth-child(2) {
             cursor: pointer;
+
+            span {
+              width: 32px;
+              height: 32px;
+
+              @media (width <= 768px) {
+               width:24px ;
+               height: 24px;
+              }
+            }
           }
         }
 
         // Icon logic for each list item
         @for $i from 1 through 5 {
-          &:nth-child(#{$i}) > ul.download-inner-ul1 > li.download-first-list1:first-child::before {
+          &:nth-child(#{$i})
+            > ul.download-inner-ul1
+            > li.download-first-list1:first-child::before {
             content: "";
             display: inline-block;
             width: 48px;
@@ -213,76 +227,73 @@
 
 // Download Component End
 
-
 // Invest Now Scss Start
 .investnow {
-    @include media(mobile) {
-        display: none;
+  @include media(mobile) {
+    display: none;
+  }
+
+  .default-content-wrapper {
+    border-radius: 8px;
+
+    // background: #030C82;
+    background-image: url("../../icons/fdp/wealth-purpose-bg.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+
+    // height: 100%;
+    display: block;
+    height: 192px;
+    position: relative;
+
+    p:nth-child(1) {
+      position: absolute;
+      left: 32px;
+
+      span {
+        width: 171px;
+        height: 156px;
+      }
     }
 
-    .default-content-wrapper {
-        border-radius: 8px;
+    p:nth-child(2) {
+      position: relative;
+      left: 88px;
+      top: 66px;
+      color: $primary-white;
 
-        // background: #030C82;
-        background-image: url("../../icons/fdp/wealth-purpose-bg.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
+      /* Desktop/Header/H5 */
+      font-family: $butlerpro;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 32px;
 
-        // height: 100%;
-        display: block;
-        height: 192px;
-        position: relative;
-
-        p:nth-child(1) {
-            position: absolute;
-            left: 32px;
-
-            span {
-                width: 171px;
-                height: 156px;
-            }
-        }
-
-
-
-        p:nth-child(2) {
-            position: relative;
-            left: 88px;
-            top: 66px;
-            color: $primary-white;
-
-            /* Desktop/Header/H5 */
-            font-family: $butlerpro;
-            font-size: 28px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 32px;
-
-            /* 114.286% */
-        }
-
-        .button-container {
-            position: relative;
-            text-align: end;
-            bottom: 20px;
-            right: 26px;
-
-            .button {
-                border-radius: map.get($radius, r8);
-                background: $primary-white;
-                color: $primary-blue;
-                font-family: $poppins;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 16px;
-
-                /* 114.286% */
-            }
-        }
+      /* 114.286% */
     }
+
+    .button-container {
+      position: relative;
+      text-align: end;
+      bottom: 20px;
+      right: 26px;
+
+      .button {
+        border-radius: map.get($radius, r8);
+        background: $primary-white;
+        color: $primary-blue;
+        font-family: $poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+
+        /* 114.286% */
+      }
+    }
+  }
 }
 
 // Invest Now Scss Start
