@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "FDP FAQ",
+            "value": "fdp-faq"
+          },
+          {
             "name": "Show Modal",
             "value": "show-modal"
           },
