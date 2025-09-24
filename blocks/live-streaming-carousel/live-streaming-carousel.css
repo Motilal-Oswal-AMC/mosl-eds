@@ -2,7 +2,7 @@
 @import "../../../styles/fonts.css";
 @import "../swiper/swiper-bundle.min.css";
 .section.live-streaming-carousel-container {
-  margin: 24px 16px;
+  margin: 16px 16px 0;
 }
 .section.live-streaming-carousel-container .default-content-wrapper {
   padding: 0;
