@@ -316,9 +316,6 @@
     padding: 0 16px;
   }
 }
-.section.fdp-faq .accordion-wrapper .accordion {
-  gap: 40px;
-}
 @media (width <= 768px) {
   .section.fdp-faq .accordion-wrapper .accordion {
     gap: 0;
@@ -335,4 +332,22 @@
 }
 .section.fdp-faq div:nth-of-type(3) {
   margin-top: 16px;
+}
+.section.fdp-faq .default-content-wrapper:nth-child(1) p {
+  font-size: var(--body-xlarge-bold-size);
+  line-height: var(--body-xlarge-bold-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (width <= 768px) {
+  .section.fdp-faq .default-content-wrapper:nth-child(1) p {
+    font-size: var(--sub-header-large-size);
+    line-height: var(--sub-header-medium-line-height);
+    color: var(--blue-1-800-primary);
+    font-family: var(--title);
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+    font-weight: 600;
+  }
 }/*# sourceMappingURL=accordion.css.map */
