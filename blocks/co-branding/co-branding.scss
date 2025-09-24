@@ -3,191 +3,193 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .co-branding {
-  .co-branding-section{
-    padding: 64px 16px 34px;
-     max-width: 400px;
-
-    //  overflow: hidden;
-     height: 100dvh;
-      border-radius: 24px 24px 0 0;
-      background-color: #fff;
-
-      // overflow: auto;
+  .co-branding-section {
+    padding: 40px 16px 62px;
+    max-width: 400px;
+    height: 100%;
+    background-color: var(--neutrals-white);
     
-
-  .crossparbtn{
-    margin: 0;
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    display: flex;
-    border-radius: 18px;
-    z-index: 10;
-    cursor: pointer;
-
-    .icon-modal-btn{
-       width: 36px;
-    height: 36px;
-
-    .img{
-    width: 36px;
-    height: 36px;
-    padding: 11px;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    }
-  }
-  }
-
-  .co-heading {
-    margin: 0 0 40px;
-
-    @include font-style(
-      24px,
-      28px,
-      $primary-blue,
-      map.get($font-weights, bold),
-      $butlerpro
-    );
-  }
-
-  .cobrand {
-    &-form,
-    &-field {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    &-field {
-      gap: 0;
-      position: relative;
-
-      .error-msg {
-        @include font-style(
-          8px,
-          12px,
-          map.get($danger, 300),
-          map.get($font-weights, medium),
-          $poppins
-        );
-
-        display: none;
-        margin: 5px 0 0;
-      }
-
-      .show-error{
-        display: block
-      }
-
-      .hide-error{
-        display: none
-      }
-    }
-
-    &-label {
-      @include font-style(
-        12px,
-        16px,
-        $color-text-body,
-        map.get($font-weights, regular),
-        $poppins
-      );
-
-      width: max-content;
-      background-color: #fff;
-      padding: 0 4px;
+    .crossparbtn {
+      margin: 0;
       position: absolute;
-      left: 8px;
-      top: -8px;
+      top: 24px;
+      right: 24px;
+      display: flex;
+      border-radius: 18px;
+      z-index: 10;
+      cursor: pointer;
+
+      .icon-modal-btn {
+        width: 36px;
+        height: 36px;
+
+        .img {
+          width: 36px;
+          height: 36px;
+          padding: 11px;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
     }
 
-    &-input {
-      padding: 10px 12px;
-      border-radius: 6px;
-      border: 1px solid map.get($strokes, default);
+    .co-heading {
+      margin: 0 95px 44px 0;
 
       @include font-style(
-        16px,
-        20px,
-        $neutrals-black,
+        var(--sub-header-medium-size),
+        var(--sub-header-medium-line-height),
+        var(--blue-1-800-primary),
         map.get($font-weights, medium),
-        $poppins
+        var(--body)
       );
-    }
 
-    &-btns {
-      display: flex;
-      gap: 12px;
-      margin: 48px 0 40px;
-
-      .share,
-      .download {
-        @include font-style(
-          16px,
-          20px,
-          $primary-blue,
-          map.get($font-weights, medium),
-          $poppins
-        );
-
-        border: none;
-        border-radius: 4px;
-        margin: 0;
-        padding: 12px;
-        max-width: 49%;
-        width: 100%;
-        background-color: transparent;
-        cursor: pointer;
-      }
-
-      .share {
-        border: 1px solid $primary-blue;
-      }
-
-      .download {
-        background-color: $primary-blue;
-        color: $primary-white;
+      @include media(mobile) {
+        margin: 0 0 40px;
+        font-size: var(--paragraph-large-size);
+        line-height: var(--paragraph-medium-line-height);
       }
     }
 
-    &-disc {
-      .co-diclaimer,
-      .co-listname {
+    .cobrand {
+      &-form,
+      &-field {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      &-field {
+        gap: 0;
+        position: relative;
+
+        .error-msg {
+          @include font-style(8px, 12px, map.get($danger, 300), map.get($font-weights, medium), var(--body));
+
+          display: none;
+          margin: 5px 0 0;
+        }
+
+        .show-error {
+          display: block;
+        }
+
+        .hide-error {
+          display: none;
+        }
+      }
+
+      &-label {
         @include font-style(
-          12px,
-          16px,
-          $primary-blue,
+          var(--label-small-size),
+          var(--label-small-line-height),
+          var(--text-body),
           map.get($font-weights, regular),
-          $poppins
+          var(--body)
         );
 
-        margin: 0;
+        width: max-content;
+        background-color: var(--neutrals-white);
+        padding: 0 4px;
+        position: absolute;
+        left: 12px;
+        top: -8px;
+
+        @include media(mobile) {
+          font-size: var(--label-small-size);
+          line-height: var(--label-small-line-height);
+        }
       }
 
-      .co-listwrap {
-        .co-ullist {
-          margin: 20px 0 0;
-          padding: 0 0 0 20px;
+      &-input {
+        padding: var(--spacing-10) var(--spacing-12);
+        border-radius: var(--border-radius-8);
+        border: var(--border-width-01) solid var(--strokes-default);
 
-          .co-listname {
-            color: $text-body-2;
+        @include font-style(
+          var(--body-medium-regular-size),
+          var(--body-medium-regular-line-height),
+          var(--text-typed-input),
+          map.get($font-weights, regular),
+          var(--body)
+        );
 
-            // background-color: red;
+        @include media(mobile) {
+          font-size: var(--body-medium-regular-size);
+          line-height: var(--body-medium-regular-line-height);
+        }
+      }
+
+      &-btns {
+        display: flex;
+        gap: 12px;
+        margin: 48px 0 40px;
+
+        .share,
+        .download {
+          @include font-style(
+            var(--button-medium-size),
+            var(--button-medium-line-height),
+            var(--text-button-default),
+            map.get($font-weights, medium),
+            var(--body)
+          );
+
+          border: none;
+          border-radius: var(--border-radius-8);
+          margin: 0;
+          padding: var(--spacing-12);
+          max-width: 49%;
+          width: 100%;
+          background-color: transparent;
+          cursor: pointer;
+
+          @include media(mobile) {
+            font-size: var(--button-medium-size);
+            line-height: var(--button-medium-line-height);
+          }
+        }
+
+        .share {
+          border: 1px solid var(--button-primary-default);
+        }
+
+        .download {
+          background-color: var(--button-primary-default);
+          color: var(--text-white);
+        }
+      }
+
+      &-disc {
+        padding: 0 14px;
+
+        .co-diclaimer,
+        .co-listname {
+          @include font-style(var(--paragraph-xsmall-size), var(--paragraph-xsmall-line-height), var(--blue-1-800-primary), map.get($font-weights, regular), $poppins);
+
+          margin: 0;
+        }
+
+        .co-listwrap {
+          .co-ullist {
+            margin: 20px 0 0;
+            padding: 0 0 0 20px;
+
+            .co-listname {
+              color: var(--text-disclaimer);
+            }
           }
         }
       }
     }
   }
 }
-}
-
 
 .modal-journey.modal.block {
   display: block;
   overflow: hidden;
-  
+
   @include media(mobile) {
     display: block;
   }
@@ -200,25 +202,24 @@
     overflow: hidden;
 
     .modal-content {
-    position: relative;
-    max-width: 400px;
-    justify-content: center;
-    border-radius: 8px;
-    background:unset;
-    height: 100%;
-    overflow: hidden;
+      position: relative;
+      max-width: 400px;
+      justify-content: center;
+      border-radius: 0;
+      background: unset;
+      height: 100%;
+      overflow: hidden auto;
 
       @include media(mobile) {
-         height: 90vh;
+        height: 90vh;
       }
     }
 
     .close-button {
-        display: block;
-        z-index: -1;
-        background: none;
-        color: transparent;
-      }
+      display: block;
+      z-index: -1;
+      background: none;
+      color: transparent;
+    }
   }
 }
-
