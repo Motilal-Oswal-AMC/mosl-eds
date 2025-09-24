@@ -34,6 +34,7 @@
   line-height: 28px;
   color: #2e2a94;
   font-family: "ButlerPro", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 700;
 }
 .co-branding .co-branding-section .cobrand-form, .co-branding .co-branding-section .cobrand-field {
@@ -50,6 +51,7 @@
   line-height: 12px;
   color: #ed2020;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   display: none;
   margin: 5px 0 0;
@@ -65,6 +67,7 @@
   line-height: 16px;
   color: #424242;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   width: -moz-max-content;
   width: max-content;
@@ -82,6 +85,7 @@
   line-height: 20px;
   color: #111;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 .co-branding .co-branding-section .cobrand-btns {
@@ -95,6 +99,7 @@
   line-height: 20px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   border: none;
   border-radius: 4px;
@@ -118,6 +123,7 @@
   line-height: 16px;
   color: #2e2a94;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   margin: 0;
 }

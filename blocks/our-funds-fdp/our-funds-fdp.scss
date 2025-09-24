@@ -235,7 +235,7 @@
 
       .funds-container {
         display: flex;
-        background-color: $primary-white;
+        background-color: var(--neutrals-white);
         box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
         border-radius: 0.5rem;
         padding: 1rem;
@@ -284,6 +284,10 @@
             }
 
             .fund-manager-detail {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+
               p {
                 margin: 0;
                 padding: 0;
@@ -295,22 +299,15 @@
  
                 @media (width <= 768px) {
                   font-size:var(--body-medium-semibold-size);
-                  line-height: 1rem;
+                  line-height:var(--body-medium-semibold-line-height);
                 }
               }
 
               p:nth-child(2) {
-                @include font-style(
-                  1rem,
-                  1.5rem,
-                  $color-text-body,
-                  400,
-                  $poppins
-                );
+                  @include font-style(var(--body-small-regular-size), var(--body-small-regular-line-height) ,var(--text-body), 400, var(--body));
 
                 @media (width <= 768px) {
-                  font-size: 0.75rem;
-                  line-height: 1rem;
+                  font-size:var(--paragraph-xsmall-size);
                 }
               }
             }
@@ -325,19 +322,16 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              gap: 2px;
 
               .funds-time-text,
               .funds-time-year {
                 margin: 0;
                 padding: 0;
 
-                @include font-style(
-                  0.875rem,
-                  1rem,
-                  $primary-blue,
-                  500,
-                  $poppins
-                );
+                @include font-style(var(--body-small-medium-size), var(--body-small-medium-line-height) ,var(--neutrals-800), 500, var(--body));
+
+
               }
             }
 
@@ -350,26 +344,25 @@
                 margin: 0;
                 padding: 0;
 
-                @include font-style(
-                  0.875rem,
-                  1.25rem,
-                  $primary-blue,
-                  400,
-                  $poppins
-                );
+                @include font-style(var(--body-small-regular-size), var(--Body-Small-regular-Line-Height) ,var(--neutrals-800), 400, var(--body));
+                
+
+                 @media (width <= 768px) {
+                   font-size:var(--body-xsmall-regular-size);
+                  line-height:var(--body-xsmall-regular-line-height)
+            }
               }
 
               .fund-aum-rupee {
                 margin: 0;
                 padding: 0;
 
-                @include font-style(
-                  1rem,
-                  1.25rem,
-                  $primary-blue,
-                  600,
-                  $poppins
-                );
+                @include font-style(var(--body-small-semibold-size), var(--body-small-semibold-line-height) ,var(--neutrals-800), 600, var(--body));
+                
+                @media (width <= 768px) {
+                   font-size:var(--body-xsmall-semibold-size);
+                  line-height:var(--body-xsmall-semibold-line-height)
+            }
               }
             }
           }
@@ -377,13 +370,8 @@
 
         .fund-links {
           a {
-            @include font-style(
-              0.875rem,
-              1.25rem,
-              map.get($blue-1, b500),
-              500,
-              $poppins
-            );
+             @include font-style(var(--text-link-small-size), var(--Text-Link-Small-Line-Height) ,var(--text-text-link), 400, var(--body));
+
 
             text-decoration-line: underline;
             text-decoration-style: solid;

@@ -130,6 +130,7 @@ main {
   line-height: 32px;
   color: #fff;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 @media (width <= 1279px) {
@@ -143,6 +144,7 @@ main {
     line-height: 28px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
@@ -254,6 +256,7 @@ main {
     line-height: 20px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -294,6 +297,7 @@ main {
     line-height: 20px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -428,6 +432,7 @@ main {
     line-height: 16px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -455,6 +460,7 @@ main {
     line-height: 16px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }

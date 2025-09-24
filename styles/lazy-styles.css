@@ -500,6 +500,20 @@
 }
 .section.learning-fdp.future-building-container .library-btn1 h4 {
   display: block;
+  padding: 0;
+  font-size: var(--body-xlarge-bold-size);
+  line-height: var(--body-xlarge-bold-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .section.learning-fdp.future-building-container .library-btn1 h4 {
+    font-size: var(--sub-header-large-size);
+    line-height: var(--sub-header-medium-line-height);
+    font-family: var(--title);
+  }
 }
 .section.learning-fdp.future-building-container .library-btn2 .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 ul.cards-listcards1 li.card-list {
   font-size: 14px;

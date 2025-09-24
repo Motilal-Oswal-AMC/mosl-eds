@@ -52,14 +52,14 @@ export default function decorate(block) {
   cfObj[0].returns.forEach((ret) => {
     if (DirectPlanlistArr[0].groupedCode === (ret.plancode + ret.optioncode)) {
       [...Object.keys(ret)].forEach((key) => {
-        if (dataMapMoObj.ObjTemp[key]) {
-          tempReturns.push(dataMapMoObj.ObjTemp[key]);
+        if (dataMapMoObj.ObjTempfdp[key]) {
+          tempReturns.push(dataMapMoObj.ObjTempfdp[key]);
         }
       });
       finPlangrp.push(ret);
     }
   });
-  fundsTaggingSection.push(DirectPlanlistArr[0].optionName);
+  // fundsTaggingSection.push(DirectPlanlistArr[0].optionName);
   const navlistArr = cfObj[0].nav.filter(
     (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
   );
@@ -68,8 +68,8 @@ export default function decorate(block) {
   const [firstReturnYear] = tempReturns;
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
-    selectedReturn = '3 Years';
-  } else { selectedReturn = dataMapMoObj.selectreturns; }
+    selectedReturn = 'Since 3 years';
+  } else { selectedReturn = `Since ${dataMapMoObj.selectreturns.toLocaleLowerCase()}`; }
   const returnYear = tempReturns.includes(selectedReturn)
     ? selectedReturn
     : firstReturnYear;
@@ -89,18 +89,18 @@ export default function decorate(block) {
     cfObj[0].returns.forEach((ret) => {
       if ((ret.plancode + ret.optioncode) === plangrp[0].groupedCode) {
         [...Object.keys(ret)].forEach((key) => {
-          if (dataMapMoObj.ObjTemp[key]) {
-            tempReturnsec.push(dataMapMoObj.ObjTemp[key]);
+          if (dataMapMoObj.ObjTempfdp[key]) {
+            tempReturnsec.push(dataMapMoObj.ObjTempfdp[key]);
           }
         });
         returnValue.push(ret);
       }
     });
     const middlediv = param.target.closest('.middlediv');
-    const parentdiv = middlediv.closest('.card-wrapper');
-    const tagsgrp = parentdiv.querySelector('.tags-grp');
-    tagsgrp.querySelectorAll('.list-tag')[2].textContent = '';
-    tagsgrp.querySelectorAll('.list-tag')[2].textContent = planType;
+    // const parentdiv = middlediv.closest('.card-wrapper');
+    // const tagsgrp = parentdiv.querySelector('.tags-grp');
+    // tagsgrp.querySelectorAll('.list-tag')[2].textContent = '';
+    // tagsgrp.querySelectorAll('.list-tag')[2].textContent = planType;
 
     // year
     const yrsdrp = middlediv.querySelector('.nav-return-grp .dropdown');
@@ -138,7 +138,7 @@ export default function decorate(block) {
       },
       ...tempReturnsec.map((eloption) => li({
         class: 'listval',
-        value: dataMapMoObj.ObjTemp[eloption],
+        value: dataMapMoObj.ObjTempfdp[eloption],
       }, eloption)),
     );
     yrsdrp.append(drpyrs);
@@ -147,7 +147,7 @@ export default function decorate(block) {
     const cagrValue = middlediv.querySelector('.nav-return-grp .value-cagr');
     cagrValue.innerHTML = '';
     if (returnValue.length !== 0) {
-      cagrValue.append(returnValue[0][dataMapMoObj.ObjTemp[returnYear]]);
+      cagrValue.append(returnValue[0][dataMapMoObj.ObjTempfdp[returnYear]]);
       cagrValue.append(span({ class: 'percent' }, '%'));
     } else {
       cagrValue.append('NA');
@@ -259,12 +259,6 @@ export default function decorate(block) {
           {
             class: 'title-discrption',
           },
-          p(
-            {
-              class: 'brand-name-text',
-            },
-            'Motilal Oswal',
-          ),
           div(
             {
               class: 'title title-logo',
@@ -274,7 +268,7 @@ export default function decorate(block) {
                 class: 'fund-name-title',
                 schcode: cfObj[0].schcode,
               },
-              cfObj[0].schDetail.schemeName.replace('Motilal Oswal', ''),
+              cfObj[0].schDetail.schemeName,
             ),
           ),
           span(
@@ -405,7 +399,7 @@ export default function decorate(block) {
                 },
                 ...tempReturns.map((eloption) => li({
                   class: 'listval',
-                  value: dataMapMoObj.ObjTemp[eloption],
+                  value: dataMapMoObj.ObjTempfdp[eloption],
                 }, eloption)),
               ),
             ),
@@ -417,7 +411,7 @@ export default function decorate(block) {
                 {
                   class: 'value-cagr',
                 },
-                `${finPlangrp[0][dataMapMoObj.ObjTemp[returnYear]]}`,
+                `${finPlangrp[0][dataMapMoObj.ObjTempfdp[returnYear]]}`,
                 span({
                   class: 'percent',
                 }, '%'),

@@ -35,6 +35,7 @@
   line-height: 40px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 @media (max-width: 768px) {
@@ -43,6 +44,7 @@
     line-height: 28px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
@@ -79,6 +81,7 @@
   line-height: 20px;
   color: #fff;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -87,6 +90,7 @@
     line-height: 20px;
     color: #fff;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
@@ -168,6 +172,7 @@
   line-height: 16px;
   color: #5659FA;
   font-family: "Poppins", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 .broaden-your-research-container .broaden-your-research .card-wrap .title-subtitle .title h2 {
@@ -177,6 +182,7 @@
   line-height: 20px;
   color: #2e2a94;
   font-family: "Inter", sans-serif;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
@@ -185,6 +191,7 @@
     line-height: 20px;
     color: #2e2a94;
     font-family: "Inter", sans-serif;
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
   }
 }
