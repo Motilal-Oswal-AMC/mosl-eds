@@ -606,13 +606,15 @@ export default function decorate(block) {
 
     // Smooth scroll setup with dynamic header offset
     function setupSmoothScroll(linkSelector) {
-      Array.from(document.querySelectorAll(linkSelector)).forEach((el) => {
-        el.classList.remove('active');
-      });
-      const act = Array.from(document.querySelectorAll(linkSelector))[0];
-      if (act) {
-        act.classList.add('active');
-        act.style.display = 'none';
+      if (window.innerWidth < 900) {
+        Array.from(document.querySelectorAll(linkSelector)).forEach((el) => {
+          el.classList.remove('active');
+        });
+        const act = Array.from(document.querySelectorAll(linkSelector))[0];
+        if (act) {
+          act.classList.add('active');
+          act.parentElement.style.display = 'none';
+        }
       }
       document.querySelectorAll(linkSelector).forEach((link) => {
         link.addEventListener('click', (e) => {

@@ -596,6 +596,15 @@ main {
 .section.fdp-card-container .item2 .item2-ul li {
   text-align: start;
   white-space: nowrap;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .item2-ul li {
+    justify-content: start;
+  }
 }
 .section.fdp-card-container .item2 .item2-ul li.tab-li-item2, .section.fdp-card-container .item2 .item2-ul li.tab-li-item3, .section.fdp-card-container .item2 .item2-ul li.tab-li-item5, .section.fdp-card-container .item2 .item2-ul li.tab-li-item10, .section.fdp-card-container .item2 .item2-ul li.tab-li-item11, .section.fdp-card-container .item2 .item2-ul li.tab-li-item12 {
   display: none;
@@ -617,14 +626,24 @@ main {
   }
 }
 .section.fdp-card-container .item2 .item2-ul li a {
-  font-size: var(--paragraph-medium-size);
-  line-height: var(--paragraph-medium-line-height);
-  color: var(--text-body);
+  font-size: var(--body-small-regular-size);
+  line-height: var(--body-small-regular-line-height);
+  color: var(--neutrals-700);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   padding: var(--spacing-10) var(--spacing-none);
   cursor: pointer;
+}
+@media (width <= 768px) {
+  .section.fdp-card-container .item2 .item2-ul li a {
+    font-size: var(--paragraph-medium-size);
+    line-height: var(--paragraph-medium-line-height);
+    color: var(--text-body);
+    font-family: var(--body);
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+    font-weight: 400;
+  }
 }
 .section.fdp-card-container .item2 .item2-ul li .active {
   display: flex;
@@ -632,12 +651,13 @@ main {
   padding: var(--spacing-10) var(--spacing-none);
   justify-content: start;
   align-items: start;
+  border-bottom: 2px solid var(--blue-1-800-primary);
   font-size: var(--body-small-semibold-size);
   line-height: var(--body-small-semibold-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
+  font-weight: 600;
 }
 .section.fdp-card-container .item2 .selectedtext-fdp {
   display: none;

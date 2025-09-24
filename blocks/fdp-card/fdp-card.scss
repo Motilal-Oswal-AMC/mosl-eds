@@ -722,6 +722,15 @@ main {
       li {
         text-align: start;
         white-space: nowrap;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+         @media (width <=768px) {
+          justify-content: start;
+        }
+
 
         // padding: var(--spacing-10) var(--spacing-none);
 
@@ -753,9 +762,9 @@ main {
 
         a {
           @include font-style(
-            var(--paragraph-medium-size),
-            var(--paragraph-medium-line-height  ),
-            var(--text-body),
+            var(--body-small-regular-size),
+            var(--body-small-regular-line-height),
+            var(--neutrals-700),
             400,
             var(--body)
           );
@@ -763,12 +772,15 @@ main {
           padding: var(--spacing-10) var(--spacing-none);
           cursor: pointer;
 
-          // @media (width <=768px) {
-          //   text-wrap: nowrap;
-          //   font-size: 16px;
-          //   line-height: 24px;
-          //   padding: 0;
-          // }
+          @media (width <=768px) {
+            @include font-style(
+              var(--paragraph-medium-size),
+              var(--paragraph-medium-line-height),
+              var(--text-body),
+              400,
+              var(--body)
+            );
+          }
         }
 
         .active {
@@ -777,13 +789,13 @@ main {
           padding: var(--spacing-10) var(--spacing-none);
           justify-content: start;
           align-items: start;
-          // border-bottom: 2px solid var(--blue-1-800-primary);
+          border-bottom: 2px solid var(--blue-1-800-primary);
 
           @include font-style(
             var(--body-small-semibold-size),
             var(--body-small-semibold-line-height),
             var(--blue-1-800-primary),
-            500,
+            600,
             var(--body)
           );
         }
@@ -803,14 +815,14 @@ main {
         padding: 16px;
         position: relative;
         cursor: pointer;
-        
+
         @include font-style(
-            var(--body-medium-medium-size),
-            var(--body-medium-medium-line-height),
-            var(--blue-1-800-primary),
-            400,
-            var(--body)
-          );
+          var(--body-medium-medium-size),
+          var(--body-medium-medium-line-height),
+          var(--blue-1-800-primary),
+          400,
+          var(--body)
+        );
 
         &::after {
           content: "";
