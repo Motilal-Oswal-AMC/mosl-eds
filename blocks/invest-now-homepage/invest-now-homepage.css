@@ -92,7 +92,6 @@
   height: 100%;
   background-color: white;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
-  transition: right 0.1s ease-in-out;
   z-index: 1000;
 }
 @media (max-width: 768px) {
@@ -110,7 +109,8 @@
   padding: 0;
   background: white;
   height: 100%;
-  overflow: auto;
+  overflow: hidden auto;
+  scrollbar-width: none;
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper {
@@ -139,7 +139,7 @@
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container {
-    padding: 64px 16;
+    padding: 64px 16px;
     max-width: 100%;
     max-height: inherit;
   }
@@ -791,16 +791,13 @@
   display: flex;
   align-items: unset;
   justify-content: end;
-  overflow: hidden;
+  overflow: hidden auto;
+  scrollbar-width: none;
   padding: unset;
-  transform: translateX(100%);
   transition: all 1.2s;
 }
 .modal.modal-journey.block dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.7);
-}
-.modal.modal-journey.block dialog[open] {
-  transform: translateX(0);
 }
 @media (width <= 768px) {
   .modal.modal-journey.block dialog[open] {
@@ -817,6 +814,7 @@
   display: flex;
   justify-content: end;
   align-items: end;
+  max-width: 100%;
   width: 100%;
   height: 100%;
   background-color: transparent;
@@ -839,5 +837,6 @@
   .modal.modal-journey.block dialog .modal-content .otp-fdp,
   .modal.modal-journey.block dialog .modal-content .fdp-kyc-form {
     border-radius: 24px 24px 0 0;
+    max-width: 100%;
   }
 }/*# sourceMappingURL=invest-now-homepage.css.map */

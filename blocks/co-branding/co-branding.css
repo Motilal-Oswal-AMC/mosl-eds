@@ -198,6 +198,7 @@
   background: unset;
   height: 100%;
   overflow: hidden auto;
+  scrollbar-width: none;
 }
 @media (max-width: 768px) {
   .modal-journey.modal.block dialog .modal-content {

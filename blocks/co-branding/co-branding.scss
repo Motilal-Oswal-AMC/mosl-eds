@@ -218,6 +218,7 @@
       background: unset;
       height: 100%;
       overflow: hidden auto;
+      scrollbar-width: none;
 
       @include media(mobile) {
         max-width: 100%;

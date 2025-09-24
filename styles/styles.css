@@ -357,7 +357,7 @@ main>.section:first-of-type {
 
 @media (width <=1025px) {
     main>.section:first-of-type {
-        margin-top: 73px;
+        margin-top: 60px;
     }
 }
 
@@ -621,7 +621,9 @@ body.noscroll {
     justify-content: space-between;
     padding: 24px;
     position: sticky;
-    top: 89px;
+    
+    /* top: 89px; */
+    top: 132px;
     background-color: #f5f5f5;
     z-index: 11;
 }
@@ -813,7 +815,7 @@ position: relative;
     }
 
     .section.breadcrumbs-fdp {
-        top: 119px;
+        top: 116px;
         padding: 16px;
     }
 }
@@ -1032,6 +1034,7 @@ position: relative;
     .pan-details-modal .mainpandts1 {
         padding: 64px 16px;
         border-radius: 32px 32px 0 0;
+        max-width: 100%;
     }
 }
 
@@ -1082,12 +1085,12 @@ position: relative;
 }
 
 .modal-show {
-    right: 0;
+    /* right: 0; */
     animation: slide-in 1.2s forwards;
 }
 
 .modal {
-    right: -400px;
+    /* right: -400px; */
     transform: translateX(100%);
 }
 
