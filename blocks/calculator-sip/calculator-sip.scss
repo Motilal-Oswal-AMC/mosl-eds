@@ -8,20 +8,18 @@
 .section {
   &.compounding,
   &.fdp-calculator {
-    background: $primary-white;
+    background-color: var(--neutrals-white);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
     align-self: stretch;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    border-radius: 8px;
+    padding: 40px 0;
     margin-top: 0;
 
     @include media(mobile) {
       padding: 40px 16px;
-      background-color: map.get($blue-1, b25);
+      background-color: var(--blue-1-25);
       gap: 40px;
     }
 
@@ -48,7 +46,7 @@
         flex-shrink: 0;
         display: flex;
         flex-direction: row;
-        gap: map.get($spacing, md);
+        gap: 16px;
         padding: 0;
         width: 100%;
 
@@ -84,23 +82,17 @@
             margin: 0 0 4px;
 
             @include font-style(
-              map.get($typography-desktop, heading-h4-size),
-              map.get($typography-desktop, heading-h4-line-height),
-              $blue-1-800-primary,
+              var(--heading-h4-size),
+              var(--heading-h4-line-height),
+              var(--blue-1-800-primary),
               map.get($font-weights, semibold),
-              $title
+              var(--title)
             );
 
             @include media(mobile) {
               margin-bottom: 0;
-
-              @include font-style(
-                map.get($typography-desktop, sub-header-large-size),
-                map.get($typography-desktop, sub-header-medium-line-height),
-                $primary-blue,
-                map.get($font-weights, bold),
-                $inter
-              );
+              font-size: var(--sub-header-large-size);
+              line-height: var(--sub-header-medium-line-height);
             }
           }
 
@@ -108,11 +100,11 @@
             margin: 0;
             max-width: 450px;
 
-            @include font-style(map.get($typography-desktop, body-medium-regular-size), 24px, $primary-blue, 400, $body);
+            @include font-style(var(--body-medium-regular-size), 24px, var(--blue-1-800-primary), 400, var(--body));
 
             @include media(mobile) {
-              font-size: map.get($typography-desktop, paragraph-small-size);
-              line-height: map.get($typography-desktop, paragraph-small-line-height);
+              font-size: var(--paragraph-small-size);
+              line-height: var(--paragraph-small-line-height);
             }
           }
         }
@@ -125,15 +117,11 @@
 
         .calculator-sip {
           @include media(mobile) {
-            background: #fff;
-            border-radius: map.get($radius, r8);
-            padding: 24px 16px;
             align-self: stretch;
-            box-shadow: $box-shadow-soft;
           }
 
           .cal-container {
-            background: $surface-background;
+            background: var(--neutrals-white);
             border-radius: 8px;
             align-self: stretch;
             display: flex;
@@ -149,32 +137,39 @@
               display: flex;
               flex-direction: column;
               position: relative;
-              gap: map.get($spacing, xs);
+              gap: 6px;
 
               .search-bar-label {
                 text-align: left;
 
                 @include font-style(
-                  map.get($typography-desktop, disclaimer-xsmall-size),
-                   map.get($typography-desktop, disclaimer-xsmall-line-height),
-                  $text-body,
+                  var(--disclaimer-xsmall-size),
+                  var(--disclaimer-xsmall-line-height),
+                  var(--text-body),
                   map.get($font-weights, regular),
-                  $body
+                  var(--body)
                 );
+
+                @include media(mobile) {
+                  font-size: var(--label-small-size);
+                  line-height: var(--label-small-line-height);
+                }
               }
 
               .search-bar-inp {
+                @include font-style(
+                  var(--body-medium-medium-size),
+                  var(--body-medium-medium-line-height),
+                  var(--blue-1-800-primary),
+                  map.get($font-weights, medium),
+                  var(--body)
+                );
+
                 width: 100%;
-                color: $blue-1-800-primary;
-                font-family: $body;
-                font-size:  map.get($typography-desktop, body-medium-medium-size);
-                font-weight: 500;
-                line-height:  map.get($typography-desktop, body-medium-medium-line-height);
-                background: url("../../icons/search-icon.svg") no-repeat left 0
-                  center;
+                background: url("../../icons/search-icon.svg") no-repeat left 0 center;
                 background-size: 20px 20px;
                 border: none;
-                border-bottom: 1px solid $neutrals-400;
+                border-bottom: 1px solid var(--neutrals-400);
                 padding-bottom: 8px;
                 outline: none;
                 padding-left: 24px;
@@ -182,6 +177,8 @@
 
                 @include media(mobile) {
                   padding-right: 40px;
+                  font-size: var(--body-medium-medium-size);
+                  line-height: var(--body-medium-medium-line-height);
                 }
 
                 &:active {
@@ -203,13 +200,13 @@
                 display: none;
 
                 .search-result-ul {
-                  font-family: Poppins, sans-serif;
+                  font-family: var(--body);
                   list-style: none;
                   margin: 0;
                   padding: 0;
                   max-height: 200px;
                   overflow-y: auto;
-                  background: $primary-white;
+                  background: var(--neutrals-white);
                   position: absolute;
                   width: 100%;
                   z-index: 99;
@@ -225,7 +222,7 @@
 
                   &::-webkit-scrollbar-track {
                     width: 3px;
-                    background-color: $primary-white;
+                    background-color: var(--neutrals-white);
                     border-radius: 0 6px 6px 0;
                   }
 
@@ -265,7 +262,7 @@
                 font-size: 12px;
                 line-height: 16px;
                 color: map.get($danger, 300);
-                font-family: Poppins, sans-serif;
+                font-family: var(--body);
                 font-weight: 400;
 
                 &.error-hide {
@@ -291,41 +288,48 @@
 
               .scheme-btns-wrapper {
                 display: flex;
-                gap: map.get($spacing, sm);
+                gap: 8px;
 
                 .scheme-btn {
                   display: flex;
                   width: 104px;
                   height: 32px;
-                  padding: $spacing-8 $spacing-12;
+                  padding: var(--spacing-8) var(--spacing-12);
                   justify-content: center;
                   align-items: center;
-                  border-radius: $border-radius-circle;
-                  border: $border-width-01 solid $strokes-disabled;
-                  background: $surface-disabled;
-                  font-family: $inter;
-                  font-size:  map.get($typography-desktop, body-small-regular-size);
-                  font-weight: 400;
-                  line-height:  map.get($typography-desktop, body-small-regular-line-height);
-                  color: $text-body;
+                  border-radius: var(--border-radius-circle);
+                  border: var(--border-width-01) solid var(--strokes-disabled);
+                  background: var(--surface-disabled);
                   margin: 0;
                   margin-top: 4px;
                   cursor: pointer;
                   transition: all 0.2s ease;
 
+                  @include font-style(
+                    var(--body-small-regular-size),
+                    var(--body-small-regular-line-height),
+                    var(--text-body),
+                    map.get($font-weights, regular),
+                    var(--body)
+                  );
+
+                  @include media(mobile) {
+                    font-size: var(--body-small-regular-size);
+                    line-height: var(--body-small-regular-line-height);
+                  }
+
                   &:hover {
-                    background: $primary-blue;
-                    color: $primary-white;
+                    background: var(--blue-1-800-primary);
+                    color: var(--neutrals-white);
                   }
 
                   &.active {
-                    background: $surface-selected;
-                    color: $text-button-default;
-                    border: $border-width-01 solid $strokes-selected;
-                    line-height: map.get($typography-desktop, body-small-medium-line-height);
-                    font-size: map.get($typography-desktop, body-small-medium-size);
+                    background: var(--surface-selected);
+                    color: var(--text-button-default);
+                    border: var(--border-width-01) solid var(--strokes-selected);
+                    line-height: var(--body-small-medium-line-height);
+                    font-size: var(--body-small-medium-size);
                     font-weight: 500;
-                    
                   }
 
                   @include media(mobile) {
@@ -344,21 +348,26 @@
                   display: flex;
                   flex: 1 1 45%;
                   align-items: center;
-                  gap: map.get($spacing, sm);
+                  gap: 8px;
 
                   .toggle-label {
                     cursor: pointer;
-                    font-family: $body;
+                    font-family: var(--body);
 
                     @include font-style(
-                       map.get($typography-desktop, body-xsmall-medium-size),map.get($typography-desktop, body-xsmall-medium-line-height),
-                      $neutrals-black,
+                      var(--body-xsmall-medium-size),
+                      var(--body-xsmall-medium-line-height),
+                      var(--blue-1-800-primary),
                       500,
-                      $body
+                      var(--body)
                     );
 
-                    &.active {
-                      color: $blue-1-800-primary;
+                    // &.active {
+                    //   color: var(--blue-1-800-primary);
+                    // }
+
+                    &:last-of-type{
+                      color: var(--neutrals-black);
                     }
                   }
 
@@ -379,7 +388,7 @@
                       inset: 0;
                       transition: 0.4s;
                       border-radius: 16.667px;
-                      background: $icon-primary;
+                      background: var(--icon-primary);
                       cursor: pointer;
 
                       &::before {
@@ -389,7 +398,7 @@
                         width: 16.5px;
                         left: 2px;
                         bottom: 2px;
-                        background-color: white;
+                        background-color: var(--neutrals-white);
                         transition: 0.4s;
                         border-radius: 16.667px;
 
@@ -411,17 +420,22 @@
                   min-width: 200px;
 
                   .select-selected-plan {
-                    color: $blue-1-800-primary;
-                    font-family: $body;
-                    font-size: map.get($typography-desktop, body-xsmall-medium-size);
-                    font-weight: 500;
-                    line-height: map.get($typography-desktop, body-xsmall-medium-line-height);
                     cursor: pointer;
                     position: relative;
                     user-select: none;
 
+                    @include font-style(
+                      var(--body-xsmall-medium-size),
+                      var(--body-xsmall-medium-line-height),
+                      var(--blue-1-800-primary),
+                      500,
+                      var(--body)
+                    );
+
                     @include media(mobile) {
                       text-align: start;
+                      font-size: var(--body-xsmall-medium-size);
+                      line-height: var(--body-xsmall-medium-line-height);
                     }
 
                     &::after {
@@ -444,7 +458,7 @@
                     top: 110%;
                     left: 0;
                     right: 0;
-                    background: $primary-white;
+                    background: var(--neutrals-white);
                     border-radius: map.get($radius, r8);
                     box-shadow: $box-shadow-soft;
                     z-index: 10;
@@ -463,9 +477,9 @@
                       @include font-style(
                         14px,
                         20px,
-                        $color-text-body,
+                        var(--color-text-body),
                         map.get($font-weights, regular),
-                        $body
+                        var(--body)
                       );
 
                       &:hover {
@@ -495,48 +509,66 @@
                 .labelforlumsum,
                 .tenure-label {
                   @include font-style(
-                    map.get($typography-desktop, label-small-size),
-                    map.get($typography-desktop, label-small-line-height),
-                    $text-body-2,
-                    map.get($font-weights, regular),
+                    var(--label-small-size),
+                    var(--label-small-line-height),
+                    var(--text-body-2),
+                    map.get($font-weights, regular)
                   );
 
                   // color: #616161;
-                  font-family: $body;
+                  font-family: var(--body);
 
                   @include media(mobile) {
                     text-align: start;
+                    font-size: var(--label-small-size);
+                    line-height: var(--label-small-line-height);
                   }
                 }
 
                 .sip-wrapper {
                   .input-with-symbol {
                     position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 18px;
+
+                    @include media(mobile){
+                      gap: 15px;
+                    }
 
                     &::before {
                       content: "₹";
                       position: absolute;
-                      top: 3px;
+                      top: 50%;
                       left: 3px;
+                      transform: translateY(-50%);
                       pointer-events: none;
-                      color: #2e2a94;
-                      font-family: $body;
-                      font-size: 20px;
-                      font-weight: 500;
+
+                      @include font-style(
+                        var(--body-medium-medium-size),
+                        var(--body-medium-medium-line-height),
+                        var(--blue-1-800-primary),
+                        map.get($font-weights, regular),
+                        var(--body)
+                      );
 
                       @include media(mobile) {
-                        top: 4px;
-                        height: 100%;
-                        font-size: 16px;
+                        // top: 4px;
+                        // height: 100%;
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
                       }
                     }
 
                     .investment-inp {
-                      color:$blue-1-800-primary;
-                      font-family:$body;
-                      font-size: map.get($typography-desktop, body-medium-medium-size);
-                      font-weight: 500;
-                      line-height: map.get($typography-desktop, body-medium-medium-line-height);
+                      @include font-style(
+                        var(--body-medium-medium-size),
+                        var(--body-medium-medium-line-height),
+                        var(--blue-1-800-primary),
+                        map.get($font-weights, regular),
+                        var(--body)
+                      );
+
                       height: 100%;
                       padding-left: 18px;
                       appearance: none;
@@ -546,7 +578,8 @@
 
                       @include media(mobile) {
                         padding-left: 15px;
-                        line-height: map.get($typography-desktop, body-medium-medium-line-height);
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
                       }
                     }
                   }
@@ -554,7 +587,7 @@
                   .amount-error {
                     font-size: 10px;
                     line-height: 16px;
-                    font-family: $body;
+                    font-family: var(--body);
                     color: #f05353;
 
                     &.error-hide {
@@ -572,11 +605,14 @@
                     position: relative;
 
                     .select-selected {
-                      color:$blue-1-800-primary;
-                      font-family:$body;
-                      font-size: map.get($typography-desktop, body-medium-medium-size);
-                      font-weight: 500;
-                      line-height: map.get($typography-desktop, body-medium-medium-line-height);
+                      @include font-style(
+                        var(--body-medium-medium-size),
+                        var(--body-medium-medium-line-height),
+                        var(--blue-1-800-primary),
+                        map.get($font-weights, medium),
+                        var(--body)
+                      );
+
                       cursor: pointer;
                       position: relative;
                       user-select: none;
@@ -584,6 +620,8 @@
 
                       @include media(mobile) {
                         text-align: start;
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
                       }
 
                       &::after {
@@ -594,8 +632,7 @@
                         transform: translateY(-50%);
                         width: 8px;
                         height: 4px;
-                        background: url("../../icons/Frame.svg") no-repeat
-                          center;
+                        background: url("../../icons/Frame.svg") no-repeat center;
                         background-size: contain;
                         transition: transform 0.2s ease;
                       }
@@ -607,7 +644,7 @@
                       top: 110%;
                       left: 0;
                       right: 0;
-                      background: $primary-white;
+                      background: var(--neutrals-white);
                       border-radius: map.get($radius, r8);
                       box-shadow: $box-shadow-soft;
                       z-index: 10;
@@ -625,9 +662,9 @@
                         @include font-style(
                           14px,
                           20px,
-                          $color-text-body,
+                          var(--color-text-body),
                           map.get($font-weights, regular),
-                          $body
+                          var(--body)
                         );
 
                         &:hover {
@@ -653,22 +690,30 @@
 
                 .invested-label {
                   @include font-style(
-                    map.get($typography-desktop, disclaimer-xsmall-size),
-                    map.get($typography-desktop, disclaimer-xsmall-line-height),
-                    $text-body,
+                    var(--disclaimer-xsmall-size),
+                    var(--disclaimer-xsmall-line-height),
+                    var(--text-body),
                     map.get($font-weights, regular),
-                    $body
+                    var(--body)
                   );
+
+                  @include media(mobile) {
+                    font-size: var(--label-small-size);
+                    line-height: var(--label-small-line-height);
+                  }
                 }
 
                 .invested-amount-value {
-                  color: $text-black;
-                  font-family: $body;
-                  font-size: map.get($typography-desktop, body-small-medium-size);
-                   line-height: map.get($typography-desktop, body-small-medium-line-height);
-                  font-weight: 500;
                   position: relative;
                   padding-left: 10px;
+
+                  @include font-style(
+                    var(--body-small-medium-size),
+                    var(--body-small-medium-line-height),
+                    var(--blue-1-800-primary),
+                    map.get($font-weights, medium),
+                    var(--body)
+                  );
 
                   &::before {
                     content: "₹";
@@ -676,19 +721,24 @@
                     left: 0;
                     top: 1px;
                     pointer-events: none;
-                    color: #111;
-                    font-family: $body;
-                    font-size: 14px;
-                    font-weight: 600;
-                    line-height: 16px;
+
+                    @include font-style(
+                      var(--body-small-medium-size),
+                      var(--body-small-medium-line-height),
+                      var(--blue-1-800-primary),
+                      map.get($font-weights, medium),
+                      var(--body)
+                    );
 
                     @include media(mobile) {
-                      color: #2E2A94;
+                      font-size: var(--body-small-medium-size);
+                      line-height: var(--body-small-medium-line-height);
                     }
                   }
 
                   @include media(mobile) {
-                    color: #2E2A94
+                    font-size: var(--body-small-medium-size);
+                    line-height: var(--body-small-medium-line-height);
                   }
                 }
               }
@@ -715,40 +765,37 @@
                   gap: map.get($spacing, xxs);
 
                   .cal-desc-label {
-                     @include font-style(
-                    map.get($typography-desktop, label-small-size),
-                    map.get($typography-desktop, label-small-line-height),
-                    $text-body-2,
-                    map.get($font-weights, regular),
-                  );
-
-                  font-family: $body;
+                    @include font-style(
+                      var(--label-small-size),
+                      var(--label-small-line-height),
+                      var(--text-body-2),
+                      map.get($font-weights, regular),
+                      var(--body)
+                    );
 
                     @include media(mobile) {
                       white-space: nowrap;
+                      font-size: var(--label-small-size);
+                      line-height: var(--label-small-line-height);
                     }
                   }
 
                   .cal-desc-value {
-                    color: $blue-1-800-primary;
-
                     @include font-style(
-                    map.get($typography-desktop, body-xlarge-bold-size),
-                    map.get($typography-desktop, body-xlarge-bold-line-height),
-                    $blue-1-800-primary,
-                    600,
-                  );  
+                      var(--body-xlarge-bold-size),
+                      var(--body-xlarge-bold-line-height),
+                      var(--blue-1-800-primary),
+                      600,
+                      var(--body)
+                    );
 
                     text-align: left;
                     position: relative;
                     padding-left: 18px;
-                    font-family:$body;
-
 
                     @include media(mobile) {
-                      font-size: map.get($typography-mobile, body-medium-semibold-size);
-                      line-height:  map.get($typography-mobile, body-medium-semibold-line-height);
-                   
+                      font-size: var(--body-medium-semibold-size);
+                      line-height: var(--body-medium-semibold-line-height);
                     }
 
                     &::before {
@@ -756,15 +803,18 @@
                       position: absolute;
                       left: 3px;
                       pointer-events: none;
-                      color: $blue-1-800-primary;
-                      font-family: $body;
-                      font-size:  map.get($typography-desktop, body-xlarge-bold-size),;
-                      font-weight: 600;
-                      line-height:  map.get($typography-desktop, body-xlarge-bold-line-height),;
+
+                      @include font-style(
+                        var(--body-xlarge-bold-size),
+                        var(--body-xlarge-bold-line-height),
+                        var(--blue-1-800-primary),
+                        600,
+                        var(--body)
+                      );
 
                       @include media(mobile) {
-                      font-size: map.get($typography-mobile, body-medium-semibold-size);
-                      line-height:  map.get($typography-mobile, body-medium-semibold-line-height);
+                        font-size: var(--body-medium-semibold-size);
+                        line-height: var(--body-medium-semibold-line-height);
                       }
                     }
                   }
@@ -782,29 +832,34 @@
 
                   .sip-btn {
                     display: flex;
-                    padding: $spacing-12;
+                    padding: var(--spacing-12);
                     justify-content: center;
                     align-items: center;
                     gap: map.get($spacing, xs);
-                    border-radius:$border-radius-8;
-                    background: $button-primary-default;
+                    border-radius: var(--border-radius-8);
+                    background: var(--button-primary-default);
                     border: none;
-                    color: $text-white;
-                    font-family: $body;
-                    font-size: map.get($typography-desktop, button-medium-size);
-                    line-height:  map.get($typography-desktop, button-medium-line-height);
-                    font-weight: 500;
                     cursor: pointer;
                     transition: background-color 0.2s ease;
                     width: 164px;
 
+                    @include font-style(
+                      var(--button-medium-size),
+                      var(--button-medium-line-height),
+                      var(--text-white),
+                      500,
+                      var(--body)
+                    );
+
                     @include media(mobile) {
                       width: 100%;
                       margin: 0;
+                      font-size: var(--button-medium-size);
+                      line-height: var(--button-medium-line-height);
                     }
 
                     &:hover {
-                      background: $primary-blue-dark;
+                      background: var(--primary-blue-dark);
                     }
                   }
                 }
@@ -813,12 +868,16 @@
 
             .no-returns-msg {
               margin-top: map.get($spacing, xs);
-              color: $text-text-link;
-              font-size: map.get($typography-desktop, body-small-medium-size);
-              line-height: map.get($typography-desktop, text-link-small-line-height);
               background-color: rgb(251 238 221);
               padding: map.get($spacing, xxs);
-              font-family: $body;
+
+              @include font-style(
+                var(--body-small-medium-size),
+                var(--text-link-small-line-height),
+                var(--text-text-link),
+                400,
+                var(--body)
+              );
             }
           }
 
@@ -836,15 +895,12 @@
               text-decoration: underline;
 
               @include font-style(
-               map.get($typography-desktop, body-small-medium-size),
-              map.get($typography-desktop, text-link-small-line-height),
-                map.get($button-primary, default),
+                var(--body-small-medium-size),
+                var(--text-link-small-line-height),
+                var(--text-button-default),
                 map.get($font-weights, regular),
-                $body
+                var(--body)
               );
-
-              color: $text-text-link;
-
             }
           }
         }
@@ -852,25 +908,40 @@
     }
 
     .default-content-wrapper:last-of-type {
-      // padding: 0;
+      padding: 0;
 
       p.disc-child-1 {
-        color: $blue-1-800-primary;
-        font-family: $body;
-        font-size: map.get($typography-desktop, disclaimer-xsmall-size);
-        font-style: normal;
-        font-weight: 400;
-        line-height:  map.get($typography-desktop, disclaimer-xsmall-line-height);
+        @include font-style(
+          var(--disclaimer-xsmall-size),
+          var(--disclaimer-xsmall-line-height),
+          var(--blue-1-800-primary),
+          400,
+          var(--body)
+        );
+
         margin: 0;
+
+        @include media(mobile) {
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
       }
 
       ul.disc-child-2 {
         padding-left: 24px;
-        font-size:  map.get($typography-desktop, disclaimer-xsmall-size);
-        line-height: map.get($typography-desktop, disclaimer-xsmall-line-height);
-        color:$text-disclaimer;
-        font-family:$body;
-        font-weight: 400;
+
+        @include font-style(
+          var(--disclaimer-xsmall-size),
+          var(--disclaimer-xsmall-line-height),
+          var(--text-disclaimer),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
       }
     }
   }
@@ -883,7 +954,7 @@
 
     @include media(mobile) {
       padding: 40px 16px;
-      background-color: #fff;
+      background-color: var(--neutrals-white);
       gap: 0;
     }
 
@@ -959,6 +1030,6 @@
   }
 
   &.compounding.calculator-sip-container:not(.fdp-calculator) {
-    background-color: $blue-1-25;
+    background-color: var(--blue-1-25);
   }
 }

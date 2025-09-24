@@ -497,7 +497,7 @@
 
         p:nth-child(2) {
           p {
-            @include font-style(var(--body-medium-regular-size), 20px , var(--text-body-2), 500, var(--body));
+            @include font-style(var(--body-medium-regular-size), 24px , var(--text-body-2), 500, var(--body));
  
             margin: 0;
 
@@ -562,7 +562,7 @@
 
             .key-facts-amounts-title:nth-child(1) {
               @include font-style(var(--body-medium-medium-size),
-                var(--body-medium-medium-line-height),
+                24 px,
                 var(--blue-1-800-primary),
                 500,
                 var(--body) );
@@ -632,7 +632,7 @@
                 }
 
                 p:nth-child(2) {
-                  @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), $text-body-2, 400,var(--body));
+                  @include font-style(var(--body-medium-regular-size), 24px , $text-body-2, 400,var(--body));
  
                   margin: 0;
  

@@ -830,14 +830,14 @@ button.swiper-pagination-bullet {
   width: 56px;
   height: 56px;
   border-radius: 28px;
-  background: #4338f3;
+  background: var(--blue-1-500);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 .section.home-banner-container ul li:first-of-type {
-  background: #242177;
+  background: var(--blue-1-900);
 }
 .section.home-banner-container ul li:last-of-type {
   display: none;
@@ -908,15 +908,16 @@ button.swiper-pagination-bullet {
   margin: 27px 0 0 94px;
 }
 .home-banner .sub-home-banner .sub-banner-item-2 .button-container .button {
-  margin: 0;
-  color: #2e2a94;
-  font-size: 16px;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
-  font-family: "Inter", sans-serif;
-  line-height: 20px;
-  padding: 12px;
-  background-color: #fff;
-  border-radius: 8px;
+  margin: 0;
+  padding: var(--spacing-12);
+  background-color: var(--neutrals-white);
+  border-radius: var(--border-radius-4);
   border: none;
   width: 100%;
   display: block;
@@ -950,14 +951,15 @@ button.swiper-pagination-bullet {
   width: 100%;
 }
 .home-banner .sub-home-banner .sub-banner-item-3 .button-container .button {
-  color: #2e2a94;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: var(--button-small-size);
+  line-height: var(--button-small-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
-  background-color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
+  background-color: var(--neutrals-white);
+  padding: var(--spacing-8) var(--spacing-12);
+  border-radius: var(--border-radius-4);
   width: 100%;
   margin: 0;
 }
@@ -995,7 +997,7 @@ button.swiper-pagination-bullet {
 }
 .block.home-banner .swiper-pagination .swiper-pagination-bullet {
   margin: 0;
-  border: 1px solid #fff;
+  border: 1px solid var(--surface-background);
   background-color: transparent;
   border-radius: 50%;
   opacity: 1;
@@ -1004,12 +1006,12 @@ button.swiper-pagination-bullet {
   display: block;
 }
 .block.home-banner .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: #fff;
+  background-color: var(--surface-background);
 }
 .block.home-banner .swiper-button-prev,
 .block.home-banner .swiper-button-next {
-  background-color: #fff;
-  border-radius: 50%;
+  background-color: var(--surface-background);
+  border-radius: 30px;
   width: 40px;
   height: 40px;
   left: 27px;
