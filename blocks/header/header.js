@@ -128,23 +128,47 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
+  // Find the main .nav-brand container once.
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  // const download = mainBlock.querySelector('main .download');
-  if (navBrand != null) {
-    dataMapMoObj.CLASS_PREFIXES = [
-      'navbrand-cont',
-      'navbrand-sec',
-      'navbrand-sub',
-      'navbrand-inner-net',
-      'navbrand-list',
-      'navbrand-list-content',
-    ];
-    dataMapMoObj.addIndexed(navBrand);
-  }
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  // Guard clause: If the .nav-brand element doesn't exist, prevent errors.
+  if (navBrand) {
+    // --- Section 1: Data Indexing and Button Cleanup (from your snippet) ---
+
+    // Set up the class prefixes for your dataMapMoObj utility.
+    if (typeof dataMapMoObj !== 'undefined' && dataMapMoObj.addIndexed) {
+      dataMapMoObj.CLASS_PREFIXES = [
+        'navbrand-cont',
+        'navbrand-sec',
+        'navbrand-sub',
+        'navbrand-inner-net',
+        'navbrand-list',
+        'navbrand-list-content',
+      ];
+      dataMapMoObj.addIndexed(navBrand);
+    }
+
+    // Find and clean up the legacy button wrapper, if it exists.
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = ''; // Remove all classes from the link itself.
+      const buttonContainer = brandLink.closest('.button-container');
+      if (buttonContainer) {
+        buttonContainer.className = ''; // Remove all classes from its container.
+      }
+    }
+
+    // Select both the desktop and mobile logo containers within the navBrand element.
+    const logoContainers = navBrand.querySelectorAll('.navbrand-sec1, .navbrand-sec2');
+
+    logoContainers.forEach((container) => {
+      // Change the cursor to a pointer to show it's clickable.
+      container.style.cursor = 'pointer';
+
+      // Add the click event listener to redirect to the home page.
+      container.addEventListener('click', () => {
+        window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/motilalfigma/home-page';
+      });
+    });
   }
   const dropdownTrigger = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
   const dropdownMenu = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
@@ -511,10 +535,3 @@ export default async function decorate(block) {
     );
   }
 }
-
-// const nfoTop = document.querySelector('body');
-// const mainNfo = document.querySelector('main');
-
-// if (mainNfo) {
-//   mainNfo.classList.add('nfo-open');
-// }
