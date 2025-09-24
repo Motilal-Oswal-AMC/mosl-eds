@@ -87,7 +87,7 @@ export default function decorate(block) {
             // ),
             div(
               { class: 'fund-name' },
-              data[0].schDetail.schemeName,//.replaceAll('Motilal Oswal', ''),
+              data[0].schDetail.schemeName, // .replaceAll('Motilal Oswal', ''),
             ),
           ),
           div(

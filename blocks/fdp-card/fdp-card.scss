@@ -99,6 +99,7 @@ main {
 
           .listval {
             padding: 8px 12px;
+
             // border-bottom: 1px solid #eee;
             cursor: pointer;
 
@@ -377,6 +378,7 @@ main {
                     width: 7.667px;
                     height: 3.667px;
                     display: block;
+
                     /* transform: rotate(90deg); */
                     position: absolute;
                     top: 16%;
@@ -595,6 +597,7 @@ main {
 
               @include media(mobile) {
                 max-width: 100%;
+
                 // margin-left: -7px;
               }
 
@@ -719,6 +722,7 @@ main {
       li {
         text-align: start;
         white-space: nowrap;
+
         // padding: var(--spacing-10) var(--spacing-none);
 
         &.tab-li-item2,
@@ -736,6 +740,7 @@ main {
 
         @media (width <=768px) {
           margin: 0 auto;
+
           // margin-bottom: 10px;
           background: $primary-white;
           padding: 16px;
