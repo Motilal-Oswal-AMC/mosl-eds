@@ -24,11 +24,11 @@
     h6 {
       margin: 0 0 8px;
 
-      @include font-style(map.get($typography-desktop , body-small-medium-size) , map.get($typography-desktop ,body-small-medium-line-height), $blue-1-800-primary, 500, $body);
+      @include font-style(var(--body-small-medium-size) , var(--body-small-medium-line-height), var(--blue-1-800-primary), 500, var(--body));
 
       @include media(mobile) {
-        font-size: map.get($typography-mobile , body-xsmall-medium-size);
-        line-height:map.get($typography-mobile ,body-xsmall-medium-line-height);
+        font-size: var(--body-xsmall-medium-size);
+        line-height:var(--body-xsmall-medium-line-height);
       }
     }
   }
@@ -118,7 +118,7 @@
           max-width: 26px;
           height: 2px;
           border-radius: 10px;
-          background-color: $neutrals-300;
+          background-color: var(--neutrals-300);
 
           &-bullet {
             background-color: transparent;
@@ -129,7 +129,7 @@
           }
 
           &-bullet-active {
-            background-color: map.get($button-primary, default);
+            background-color: var(--blue-1-800-primary);
           }
         }
       }
@@ -153,16 +153,27 @@
           bottom: 8px;
         }
 
-        & .current-slide,
+        & .current-slide {
+          margin: 0;
+
+          @include font-style(var(--body-small-medium-size), var(--body-small-medium-line-height), var(--blue-1-800-primary), 500, var(--body));
+
+          @include media(mobile){
+            font-size: var(--body-small-medium-size);
+            line-height: var(--body-small-medium-line-height);
+          }
+
+        }
+        
         & .total-slide {
           margin: 0;
 
-          @include font-style(map.get($typography-desktop, body-small-regular-size), map.get($typography-desktop ,body-small-regular-line-height), $blue-1-800-primary, 500, $body);
-        }
+          @include font-style(var(--body-small-regular-size), var(--body-small-regular-line-height), var(--neutrals-700), 400, var(--body));
 
-        & .total-slide {
-          color: $neutrals-700;
-          font-weight: 400;
+          @include media(mobile){
+            font-size: var(--body-small-regular-size);
+            line-height: var(--body-small-regular-line-height);
+          }
         }
       }
     }
@@ -185,11 +196,11 @@
       }
 
       li:first-of-type {
-        @include font-style(map.get($typography-desktop,body-medium-regular-size), 24px, $neutrals-800, 400, $body);
+        @include font-style(var(--body-medium-regular-size), 24px, var(--neutrals-800), 400, var(--body));
 
         @include media(mobile) {
-          font-size: map.get($typography-mobile, paragraph-xsmall-size);
-          line-height:map.get($typography-mobile, paragraph-xsmall-line-height);
+          font-size: var(--paragraph-xsmall-size);
+          line-height:var(--paragraph-xsmall-line-height);
         }
       }
 
@@ -199,13 +210,11 @@
         gap: 8px;
         min-width: max-content;
 
-        @include font-style(map.get($typography-desktop, body-medium-medium-size), map.get($typography-desktop,body-medium-medium-line-height), $text-header, 500, $body);
-
-        color: #3025e0;
+        @include font-style(var(--body-medium-medium-size), var(--body-medium-medium-line-height), var(--text-header), 500, var(--body));
 
         @include media(mobile) {
-          font-size: map.get($typography-mobile, body-small-medium-size);
-          line-height: map.get($typography-mobile, body-small-medium-line-height);
+          font-size: var(--body-small-medium-size);
+          line-height: var(--body-small-medium-line-height);
         }
 
         a {
@@ -214,7 +223,7 @@
       }
     }
 
-    .swiper-slide:first-of-type {
+    .swiper-slide[data-swiper-slide-index='0'] {
       ul {
         li:last-of-type {
           &::before {
@@ -223,7 +232,7 @@
             height: 9px;
             display: block;
             background-color: #f00;
-            border-radius: map.get($radius, r50);
+            border-radius: 50%;
           }
         }
       }

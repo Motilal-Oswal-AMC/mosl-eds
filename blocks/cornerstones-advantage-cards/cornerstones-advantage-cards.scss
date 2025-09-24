@@ -24,27 +24,24 @@
         margin: 0 0 4px;
         text-align: center;
 
-        @include font-style( map.get($typography-desktop,heading-h4-size), map.get($typography-desktop , heading-h4-line-height), $blue-1-800-primary, 600, $title);
+        @include font-style( var(--heading-h4-size), var(--heading-h4-line-height), var(--blue-1-800-primary), 600, var(--title));
 
         @include media(mobile) {
-          // font-size: map.get($typography-mobile, sub-header-large-size);
-          // line-height: map.get($typography-mobile, sub-header-medium-line-height);
           text-align: left;
-
-          @include font-style( map.get($typography-desktop, sub-header-large-size),
-          28px, $blue-1-800-primary, 600, $title);
+          font-size: var(--sub-header-large-size);
+          line-height: 28px;
         }
       }
 
       p {
-        @include font-style(map.get($typography-desktop,body-medium-regular-size), 24px, $blue-1-800-primary, 400, $body);
+        @include font-style(var(--body-medium-regular-size), 24px, var(--blue-1-800-primary), 400, var(--body));
 
         text-align: center;
         margin: 0;
 
         @include media(mobile) {
-          font-size: 14px;
-          line-height: map.get($typography-mobile, paragraph-small-line-height);
+          font-size: var(--paragraph-small-size);
+          line-height: var(--paragraph-small-line-height);
           text-align: left;
         }
       }
@@ -123,24 +120,24 @@
           &.item-child-2 {
             margin: 24px 0 8px;
 
-            @include font-style(map.get($typography-desktop,body-large-medium-size), map.get($typography-mobile , body-large-medium-line-height), $blue-1-800-primary, 500, $body);
+            @include font-style(var(--body-large-medium-size), var(--body-large-medium-line-height), var(--blue-1-800-primary), 500, var(--body));
 
             @include media(mobile) {
               grid-area: heading;
               margin: 0 0 8px;
-              font-size: map.get($typography-mobile, body-medium-medium-size);
-              line-height: map.get($typography-mobile, body-medium-medium-line-height);
+              font-size: var(--body-medium-medium-size);
+              line-height: var(--body-medium-medium-line-height);
             }
           }
 
           &.item-child-3 {
-            @include font-style(map.get($typography-desktop, body-medium-regular-size), 24px, $text-body-2, 400, $body);
+            @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
 
             padding-bottom: 28px;
 
             @include media(mobile) {
-              font-size: 14px;
-              line-height: map.get($typography-mobile, paragraph-small-line-height);
+              font-size: var(--paragraph-small-size);
+              line-height: var(--paragraph-small-line-height);
               padding-bottom: 0;
               white-space: break-spaces;
             }
@@ -167,12 +164,17 @@
               text-align: left;
 
               @include font-style(
-                14px,
-                map.get($typography-desktop, text-link-small-line-height),
-                $text-text-link,
+                var(--text-link-small-size),
+                var(--text-link-small-line-height),
+                var(--text-text-link),
                 400,
-                $body
+                var(--body)
               );
+
+              @include media(mobile){
+                font-size: var(--text-link-small-size);
+                line-height: var(--text-link-small-line-height);
+              }
             }
           }
         }
