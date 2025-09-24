@@ -58,12 +58,12 @@
   align-items: center;
 }
 .key-facts-container .default-content-wrapper ol li h4 {
-  font-size: 32px;
-  line-height: 40px;
-  color: #2e2a94;
-  font-family: "ButlerPro", sans-serif;
+  font-size: var(--body-xlarge-bold-size);
+  line-height: var(--body-xlarge-bold-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 700;
+  font-weight: 600;
   padding: 0;
   margin: 0;
   display: flex;
@@ -73,8 +73,8 @@
 }
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper ol li h4 {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: var(--body-xlarge-bold-size);
+    line-height: var(--body-xlarge-bold-line-height);
   }
 }
 .key-facts-container .default-content-wrapper ol li h4 span {
@@ -104,10 +104,10 @@
   }
 }
 .key-facts-container .default-content-wrapper ol li ol li:nth-child(2) {
-  font-size: 12px;
-  line-height: 16px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--paragraph-xsmall-size);
+  line-height: var(--paragraph-xsmall-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   padding: 4px;
@@ -144,19 +144,19 @@
   }
 }
 .key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(1) {
-  font-size: 14px;
-  line-height: 16px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
 }
 .key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(2) p {
-  font-size: 20px;
-  line-height: 24px;
-  color: #2e2a94;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-medium-regular-size);
+  line-height: 20px;
+  color: var(--text-body-2);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
@@ -208,19 +208,19 @@
   gap: 4px;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-title:nth-child(1) {
-  font-size: 14px;
-  line-height: 16px;
-  color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-sub:nth-child(2) {
-  font-size: 14px;
-  line-height: 20px;
-  color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--Text-Body-2);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   margin: 0;
@@ -271,10 +271,10 @@
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1),
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
   text-wrap: nowrap;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
   color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
@@ -287,20 +287,26 @@
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2),
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
   color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   margin: 0;
 }
+@media (width <= 768px) {
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2),
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) {
+    font-size: var(--paragraph-small-size);
+  }
+}
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(2) p,
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) p {
-  font-size: 14px;
-  line-height: 20px;
-  color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--text-body-2);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   margin: 0;
@@ -311,10 +317,10 @@
   gap: 16px;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy p.load-policy-para {
-  font-size: 14px;
-  line-height: 16px;
-  color: #242177;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
@@ -329,11 +335,17 @@
   margin-left: 10px;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list .load-policy-list-ul li {
-  font-size: 14px;
-  line-height: 20px;
-  color: #616161;
-  font-family: "Poppins", sans-serif;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--text-body-2);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   margin: 0;
+}
+@media (width <= 768px) {
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list .load-policy-list-ul li {
+    font-size: var(--paragraph-small-size);
+    line-height: var(--paragraph-small-line-height);
+  }
 }/*# sourceMappingURL=key-facts.css.map */
