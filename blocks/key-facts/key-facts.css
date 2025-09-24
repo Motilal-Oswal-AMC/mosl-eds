@@ -256,7 +256,7 @@
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div,
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
-  max-width: 192px;
+  max-width: 129px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -270,7 +270,6 @@
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1),
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
-  text-wrap: nowrap;
   font-size: var(--body-medium-medium-size);
   line-height: var(--body-medium-medium-line-height);
   color: #242177;
