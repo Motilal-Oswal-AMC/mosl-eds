@@ -23,6 +23,7 @@
     --spacing-12: 12px;
     --spacing-14: 14px;
     --spacing-16: 16px;
+    --spacing-18: 16px;
     --spacing-24: 24px;
     --spacing-32: 32px;
     --spacing-40: 40px;
@@ -443,6 +444,8 @@
         --button-large-size: var(--spacing-16);
         --button-large-line-height: var(--spacing-24);
         --button-medium-font: var(--body);
+        --button-medium-size: var(--spacing-16);
+        --button-medium-line-height: var(--spacing-20);
         --button-medium-weight: var(--weight-semibold);
         --button-small-font: var(--body);
         --button-small-weight: var(--weight-semibold);
@@ -461,6 +464,7 @@
         --paragraph-xlarge-line-height: var(--spacing-32);
         --paragraph-large-font: var(--body);
         --paragraph-large-weight: var(--weight-regular);
+        --paragraph-large-size: var(--spacing-18);
         --paragraph-large-line-height: var(--spacing-28);
         --paragraph-medium-font: var(--body);
         --paragraph-medium-weight: var(--weight-regular);
