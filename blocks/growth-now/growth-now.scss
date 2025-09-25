@@ -215,7 +215,7 @@ main {
                 form {
                     display: flex;
                     align-items: center;
-                    gap: 5px;
+                    gap: 12px;
 
                     @include media(mobile) {
                         flex-direction: column;
