@@ -629,7 +629,9 @@ body.noscroll {
     justify-content: space-between;
     padding: 24px;
     position: sticky;
-    top: 89px;
+    
+    /* top: 89px; */
+    top: 132px;
     background-color: #f5f5f5;
     z-index: 11;
 }
@@ -821,7 +823,7 @@ position: relative;
     }
 
     .section.breadcrumbs-fdp {
-        top: 119px;
+        top: 116px;
         padding: 16px;
     }
 
@@ -1045,6 +1047,7 @@ position: relative;
     .pan-details-modal .mainpandts1 {
         padding: 64px 16px;
         border-radius: 32px 32px 0 0;
+        max-width: 100%;
     }
 }
 
@@ -1095,12 +1098,12 @@ position: relative;
 }
 
 .modal-show {
-    right: 0;
+    /* right: 0; */
     animation: slide-in 1.2s forwards;
 }
 
 .modal {
-    right: -400px;
+    /* right: -400px; */
     transform: translateX(100%);
 }
 
@@ -1128,6 +1131,18 @@ z-index: -1;
     }
 }
 
+@media screen and (width <=768px) {
+    @keyframes slide-in {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+}
+
 @keyframes slide-out {
     from {
         transform: translateX(0);
@@ -1135,5 +1150,17 @@ z-index: -1;
 
     to {
         transform: translateX(100%);
+    }
+}
+
+@media screen and (width <=768px) {
+    @keyframes slide-out {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(100%);
+        }
     }
 }
