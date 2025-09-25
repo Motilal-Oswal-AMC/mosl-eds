@@ -409,6 +409,7 @@
   align-items: center;
   margin: 0;
   line-height: 0;
+  height: 14px;
 }
 .section .card-container .discription .dis-choosen .dis-investor {
   display: flex;
