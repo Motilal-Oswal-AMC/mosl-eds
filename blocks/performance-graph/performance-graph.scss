@@ -177,6 +177,11 @@
             var(--body)
           );
 
+          @media (width <=768px) {
+            font-size: var(--paragraph-small-size);
+            line-height: var(--paragraph-small-line-height);
+          }
+
           // Accessibility: focus & hover styles
           // &:focus {
           //   outline: 2px solid $primary-blue;
