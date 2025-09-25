@@ -171,7 +171,7 @@ export default async function decorate(block) {
       formem.addEventListener('input', (event) => {
         const closblock = event.target.closest('.email-wrapper');
         if (closblock.querySelector('.errormsg') === null) {
-          closblock.append(span({ class: 'errormsg' }, 'Enter Valid Email'));
+          closblock.append(span({ class: 'errormsg' }, 'Enter a valid email address'));
         }
         const inpval = event.target.value;
         if (emailRegex.test(inpval)) {

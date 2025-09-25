@@ -571,17 +571,17 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 .nav-tools-inner-net1 .na
 
 header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 li .comlist {
   display: flex;
-  padding: 12px;
+  padding: var(--spacing-12);
   align-items: center;
-  gap: 10px;
+  gap: var(--spacing-10);
   align-self: stretch;
   color: var(--neutrals-black);
   font-feature-settings: var(--font-features-default);
   font-family: var(--body);
-  font-size: 14px;
+  font-size: var(--body-small-regular-size);
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: var(--label-large-line-height);
 }
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li {
@@ -590,11 +590,10 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 li .comlist {
   font-feature-settings: var(--font-features-default);
   font-family: var(--body);
   font-size: var(--paragraph-small-size);
-  ;
   font-weight: 400;
   line-height: var(--paragraph-small-line-height);
   padding: 0;
-  padding-bottom: 16px;
+  padding-bottom: var(--spacing-16);
 }
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li:last-child {
@@ -604,7 +603,7 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 li .comlist {
 section.sub-popup-header .default-content-wrapper .sub-popup-sec1 {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-16);
 }
 
 .sub-popup-header.calculator-header .sub-popup-sec1 .sub-popup-sub3 {
@@ -1521,8 +1520,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   .nfo-banner-sub1 .nfo-banner-inner-text1 li.nfo-banner-list4 {
     padding-left: 0;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
   }
 
   header .nav-wrapper {
@@ -1570,7 +1569,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   header nav .nav-sections .nav-sec-sec1 .nav-drop p.nav-sec-inner-text1 {
     font-size: var(--body-small-regular-size);
     font-weight: 400;
-    line-height: var(--body-small-regular-line-height);
+    line-height: var(--label-large-line-height);
   }
 
 
@@ -1709,8 +1708,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     gap: 10px;
     height: 100%;
     color: var(--neutrals-black);
-    font-size: 14px;
-    line-height: 20px;
+    font-size: var(--body-small-regular-size);
+    line-height: var(--label-large-line-height);
   }
 
   header nav .nav-sections {
@@ -1807,10 +1806,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     color: var(--neutrals-white);
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
-    font-size: 14px;
+    font-size: var(--body-small-regular-size);
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
+    line-height: var(--label-large-line-height);
     padding: 0;
   }
 
@@ -1990,8 +1989,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   }
 
   header nav .header-top .default-content-wrapper .header-top-sec1 li.comlist a {
-    font-size: 12px;
-    line-height: normal;
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
   }
 
   .section.sub-popup-header.our-popular-funds .default-content-wrapper .sub-popup-sec2 ul li a {
@@ -2550,10 +2549,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     color: var(--blue-1-800-primary);
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
-    font-size: 14px;
+    font-size: var(--button-small-size);
     font-style: normal;
     font-weight: 500;
-    line-height: 16px;
+    line-height: var(--button-small-line-height);
   }
 
   header nav .nav-tools .nav-tools-cont1 .nav-tools-sec1 .nav-tools-sub1 .nav-tools-inner-net1,
@@ -2635,7 +2634,6 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     height: auto;
   }
 
-
   header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 p {
     display: flex;
     align-items: center;
@@ -2643,10 +2641,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     color: var(--neutrals-200);
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
-    font-size: 12px;
+    font-size: var(--paragraph-xsmall-size);
     font-style: normal;
     font-weight: 400;
-    line-height: 16px;
+    line-height: var(--paragraph-xsmall-line-height);
   }
 
   header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 {
@@ -2690,10 +2688,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
   header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2 .header-top-list-content1 {
     height: 100%;
-    padding: 12px;
+    padding: var(--spacing-12);
     color: var(--neutrals-black);
-    font-size: 14px;
-    line-height: 20px;
+    font-size: var(--body-small-regular-size);
+    line-height: var(--label-large-line-height);
   }
 
   header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2 .header-top-list-content1:hover {
