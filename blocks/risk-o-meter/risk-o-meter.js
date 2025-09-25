@@ -15,16 +15,17 @@ export default function decorate(block) {
 
   dataMapMoObj.CLASS_PREFIXES = [];
   dataMapMoObj.CLASS_PREFIXES = ['risk'];
-  // if (block.closest('.product-label')) {
-  //   dataMapMoObj.addIndexed(block.closest('.product-label'));
+  if (block.closest('.product-label')) {
+    dataMapMoObj.addIndexed(block.closest('.product-label'));
 
-  //   const risks = block.closest('.product-label');
-  //   const divwrapper = document.createElement('div');
-  //   divwrapper.classList.add('risk-o-meter-container');
-  //   divwrapper.append(risks.querySelector('.risk2'));
-  //   divwrapper.append(risks.querySelector('.risk3'));
-  //   risks.append(divwrapper);
-  // }
+    const risks = block.closest('.product-label');
+    const divwrapper = document.createElement('div');
+    divwrapper.classList.add('risk-o-meter-container');
+    divwrapper.classList.add('risk-container');
+    divwrapper.append(risks.querySelector('.risk2'));
+    divwrapper.append(risks.querySelector('.risk3'));
+    risks.append(divwrapper);
+  }
   if (block.closest('.risk-o-meter-container')) {
     dataMapMoObj.CLASS_PREFIXES = ['defone', 'deftwo', 'defthree', 'deffour'];
     if (riskmet.querySelector('.risk-wrapper')) {
