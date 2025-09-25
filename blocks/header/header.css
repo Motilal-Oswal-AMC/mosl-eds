@@ -194,9 +194,9 @@ header .nav-brand {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: var(--border-radius-8);
   border: 1px solid var(--neutrals-200);
-  box-shadow: 0 0 14px 0 #282828;
+  box-shadow: 0 0 14px 0 #2828280F;
 }
 
 .nav-brand .navbrand-sec3 .navbrand-inner-net2.open {
@@ -557,9 +557,9 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 .nav-tools-inner-net2 {
   min-width: 121px;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 0 0 8px 8px;
+  border-radius: var(--border-radius-8);
   border: 1px solid var(--neutrals-200);
-  box-shadow: 0 0 14px 0 #282828;
+  box-shadow: 0 0 14px 0 #2828280F;
   background: var(--neutrals-white);
   margin-top: 13px;
   display: none;
@@ -582,6 +582,12 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 li .comlist {
   font-style: normal;
   font-weight: 400;
   line-height: var(--label-large-line-height);
+  transition: color 0.3s ease;
+}
+
+header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 li .comlist:hover {
+  background-color: #efeded;
+  border-radius: var(--border-radius-8);
 }
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li {
@@ -1285,7 +1291,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   min-width: 88px;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 8px 8px 0 0;
+  border-radius: var(--border-radius-8);
   border: 1px solid var(--neutrals-200);
   box-shadow: 0 0 14px 0 #2828280F;
 }
@@ -1424,6 +1430,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
 .nfo-banner-list-content1:hover {
   opacity: 0.8;
+
 }
 
 @media (width >=900px) {
@@ -1696,7 +1703,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     list-style: none;
     padding: 0;
     margin-top: 5px;
-    border-radius: 4px;
+    border-radius: var(--border-radius-8);
   }
 
   .nav-brand .navbrand-sec3 .navbrand-inner-net2.open {
@@ -2695,6 +2702,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   }
 
   header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2 .header-top-list-content1:hover {
-    background-color: transparent;
+    background-color: #efeded;
+    border-radius: var(--border-radius-8);
   }
 }
