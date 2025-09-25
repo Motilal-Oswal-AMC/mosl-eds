@@ -20,11 +20,18 @@ export default function decorate(block) {
 
     const risks = block.closest('.product-label');
     const divwrapper = document.createElement('div');
+    divwrapper.classList.add('section');
     divwrapper.classList.add('risk-o-meter-container');
     divwrapper.classList.add('risk-container');
     divwrapper.append(risks.querySelector('.risk2'));
     divwrapper.append(risks.querySelector('.risk3'));
     risks.append(divwrapper);
+    risks.querySelector('.risk3 h3').classList.add('defone1');
+    risks.querySelector('.risk3 ul').classList.add('defone2');
+    Array.from(risks.querySelector('.risk3 ul').children).forEach((el) => {
+      el.classList.add('defli');
+    });
+    risks.querySelector('.risk3 p ').classList.add('defone3');
   }
   if (block.closest('.risk-o-meter-container')) {
     dataMapMoObj.CLASS_PREFIXES = ['defone', 'deftwo', 'defthree', 'deffour'];

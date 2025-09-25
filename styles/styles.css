@@ -361,6 +361,9 @@ main>.section:first-of-type {
 
 main.nfo-nav .section:first-of-type {
     margin-top: 76px;
+        display: flex
+;
+    flex-direction: column-reverse;
 }
 
 @media (width <=1025px) {
