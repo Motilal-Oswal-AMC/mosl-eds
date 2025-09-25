@@ -1,16 +1,19 @@
 @import "../../../styles/fonts.css";
+
 .performance-graph {
   padding-top: 22px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 @media (width <= 768px) {
   .performance-graph {
     padding: 0 16px;
     height: unset;
   }
 }
+
 .performance-graph .fund-note-container h2 {
   font-size: var(--body-xlarge-bold-size);
   line-height: var(--body-xlarge-bold-line-height);
@@ -21,24 +24,31 @@
   padding: 0;
   margin: 0;
 }
+
 .performance-graph .fund-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 @media (width <= 768px) {
   .performance-graph .fund-main {
     display: table;
   }
 }
+
 .performance-graph .fund-main .fund-filters .chart-filter-bar {
   display: flex;
   gap: 8px;
 }
+
 .performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn {
   margin: 0;
   width: 56px;
   height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: var(--spacing-8) var(--spacing-12);
   border-radius: var(--border-radius-circle);
   border: var(--border-width-01) solid var(--strokes-disabled);
@@ -51,15 +61,18 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
+
 .performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn:hover {
   border-color: #2e2a94;
 }
+
 @media (width <= 768px) {
   .performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn {
     min-width: 32px;
     height: 40px;
   }
 }
+
 .performance-graph .fund-main .fund-filters .chart-filter-bar .active {
   border: var(--border-width-01) solid var(--strokes-selected);
   background-color: var(--surface-selected);
@@ -70,18 +83,21 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
+
 .performance-graph .fund-main .fund-cagr {
   display: flex;
   gap: 8px;
   align-self: center;
   justify-content: center;
 }
+
 @media (width <= 768px) {
   .performance-graph .fund-main .fund-cagr {
     justify-content: flex-start;
     margin-top: 16px;
   }
 }
+
 .performance-graph .fund-main .fund-cagr .graph-cagr p {
   padding: 0;
   margin: 0;
@@ -92,6 +108,7 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
+
 .performance-graph .fund-main .fund-cagr .fund-cagr-container {
   font-size: var(--body-medium-semibold-size);
   line-height: var(--body-medium-semibold-line-height);
@@ -100,13 +117,14 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
+
 .performance-graph #chartdiv {
   width: 100%;
   height: 432px;
   flex-shrink: 0;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
 }
 
 /* -----------------------------------
@@ -118,10 +136,11 @@
     transition: none !important;
   }
 }
+
 @media (prefers-contrast: more) {
   .filter-btn {
     border-color: black !important;
     background-color: white !important;
     color: black !important;
   }
-}/*# sourceMappingURL=performance-graph.css.map */
+}

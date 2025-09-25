@@ -559,6 +559,7 @@ table>tbody>tr>td:nth-child(7) {
   align-items: center;
   gap: 8px;
 }
+
 /* 
 .section.periodicreturn .tab-btn .tabs-tab:first-of-type {
   padding: 8px 32px;
@@ -670,7 +671,9 @@ table>tbody>tr>td:nth-child(7) {
 
 .tabs-panel .periodic-returns .fund-name-value.benchmark-funds .fund-name {
   font-weight: 400;
+
   /* fon/t-size: 14px; */
+
   /* line-height: 20px; */
   background-color: #E0E0E0;
 }

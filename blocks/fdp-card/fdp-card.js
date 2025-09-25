@@ -606,12 +606,25 @@ export default function decorate(block) {
 
     // Smooth scroll setup with dynamic header offset
     function setupSmoothScroll(linkSelector) {
+      if (window.innerWidth < 900) {
+        Array.from(document.querySelectorAll(linkSelector)).forEach((el) => {
+          el.classList.remove('active');
+        });
+        const act = Array.from(document.querySelectorAll(linkSelector))[0];
+        if (act) {
+          act.classList.add('active');
+          act.parentElement.style.display = 'none';
+        }
+      }
       document.querySelectorAll(linkSelector).forEach((link) => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           Array.from(e.target.closest('.item2-ul').children).forEach((el) => {
             const linkclass = el.querySelector('a');
             linkclass.classList.remove('active');
+            if (linkclass.style.display === 'none') {
+              linkclass.style.display = 'block';
+            }
           });
           const targetId = link.getAttribute('href');
           e.target.classList.add('active');
