@@ -734,7 +734,7 @@
                   @include font-style(
                     var(--disclaimer-xsmall-size),
                     var(--disclaimer-xsmall-line-height),
-                    var(--text-body),
+                    var(--text-body-2),
                     map.get($font-weights, regular),
                     var(--body)
                   );
