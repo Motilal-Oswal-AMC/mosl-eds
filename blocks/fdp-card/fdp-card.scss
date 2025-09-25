@@ -68,7 +68,7 @@ main {
           left: 0;
           z-index: 5;
           width: 100%;
-          height: 150px;
+          height: 191px;
           overflow: auto;
           margin: 6px 0 0;
           background-color: $primary-white;
@@ -98,11 +98,18 @@ main {
           }
 
           .listval {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
+            padding: 8px 12px;
+
+            // border-bottom: 1px solid #eee;
             cursor: pointer;
 
-            @include font-style(12px, 16px, $neutrals-black, 400, $poppins);
+            @include font-style(
+              var(--paragraph-xsmall-size),
+              var(--paragraph-xsmall-line-height),
+              var(--text-body),
+              400,
+              var(--body)
+            );
           }
         }
 
@@ -254,7 +261,8 @@ main {
 
           .dropdownmidle {
             position: relative;
-            max-width: max-content;
+            max-width: 333px;
+            width: 100%;
             margin: 0 0 8px;
 
             .label-text {
@@ -295,7 +303,7 @@ main {
             gap: 16px;
 
             @include media(mobile) {
-              padding-right: 35px;
+              // padding-right: 35px;
               justify-content: space-between;
             }
 
@@ -303,6 +311,7 @@ main {
               // max-width: 52.18%;
               // max-width: 192px;
               // width: 100%;
+              position: relative;
               width: auto;
               display: flex;
               flex-wrap: wrap;
@@ -338,8 +347,9 @@ main {
               }
 
               .dropdown {
-                position: relative;
+                // position: relative;
                 max-width: max-content;
+                width: 100%;
 
                 .selectedtext {
                   color: $primary-blue;
@@ -368,17 +378,18 @@ main {
                     width: 7.667px;
                     height: 3.667px;
                     display: block;
+
                     /* transform: rotate(90deg); */
                     position: absolute;
-                    top: 39%;
-                    right: -32%;
+                    top: 16%;
+                    right: 28%;
                     cursor: pointer;
                   }
                 }
 
                 .dropdownlist {
                   // width: 70px;
-                  width: max-content;
+                  width: 78%;
                   height: auto;
 
                   // top: 22px;
@@ -586,7 +597,8 @@ main {
 
               @include media(mobile) {
                 max-width: 100%;
-                margin-left: -7px;
+
+                // margin-left: -7px;
               }
 
               a.submit {
@@ -710,6 +722,16 @@ main {
       li {
         text-align: start;
         white-space: nowrap;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+         @media (width <=768px) {
+          justify-content: start;
+        }
+
+
         // padding: var(--spacing-10) var(--spacing-none);
 
         &.tab-li-item2,
@@ -727,9 +749,10 @@ main {
 
         @media (width <=768px) {
           margin: 0 auto;
+
           // margin-bottom: 10px;
           background: $primary-white;
-          padding: 16px;
+          padding: 8px 16px;
           cursor: pointer;
 
           &:last-of-type {
@@ -750,10 +773,13 @@ main {
           cursor: pointer;
 
           @media (width <=768px) {
-            text-wrap: nowrap;
-            font-size: 16px;
-            line-height: 24px;
-            padding: 0;
+            @include font-style(
+              var(--paragraph-medium-size),
+              var(--paragraph-medium-line-height),
+              var(--text-body),
+              400,
+              var(--body)
+            );
           }
         }
 
@@ -761,7 +787,7 @@ main {
           display: flex;
           height: 40px;
           padding: var(--spacing-10) var(--spacing-none);
-          justify-content: center;
+          justify-content: start;
           align-items: start;
           border-bottom: 2px solid var(--blue-1-800-primary);
 
@@ -769,7 +795,7 @@ main {
             var(--body-small-semibold-size),
             var(--body-small-semibold-line-height),
             var(--blue-1-800-primary),
-            500,
+            600,
             var(--body)
           );
         }
@@ -790,7 +816,13 @@ main {
         position: relative;
         cursor: pointer;
 
-        @include font-style(16px, 20px, $primary-blue, 500, $poppins);
+        @include font-style(
+          var(--body-medium-medium-size),
+          var(--body-medium-medium-line-height),
+          var(--blue-1-800-primary),
+          400,
+          var(--body)
+        );
 
         &::after {
           content: "";

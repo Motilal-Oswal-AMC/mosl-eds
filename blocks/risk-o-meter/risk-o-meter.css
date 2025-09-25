@@ -56,13 +56,15 @@
   border-radius: 8px;
   background: #FFF;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column-reverse;
 }
 .section.risk-o-meter-container .risk-o-meter {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 80px;
-  margin: 76px 0 40px;
+  margin: 48px 0 40px;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container .risk-o-meter {
@@ -109,7 +111,6 @@
   alt: "";
 }
 .section.risk-o-meter-container > .default-content-wrapper {
-  border-top: 0.5px solid #8695AF;
   padding-top: 16px;
   margin: 0 24px 24px;
   display: flex;

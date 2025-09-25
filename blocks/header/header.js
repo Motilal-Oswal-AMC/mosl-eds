@@ -6,6 +6,16 @@ import dataMapMoObj from '../../scripts/constant.js';
 
 // media query match that indicates mobile/tablet width
 export const isDesktop = window.matchMedia('(min-width: 900px)');
+/**
+ * Toggles all nav sections
+ * @param {Element} sections The container element
+ * @param {Boolean} expanded Whether the element should be expanded or collapsed
+ */
+function toggleAllNavSections(sections, expanded = false) {
+  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+    section.setAttribute('aria-expanded', expanded);
+  });
+}
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -27,15 +37,15 @@ function closeOnEscape(e) {
 function closeOnFocusLost(e) {
   const nav = e.currentTarget;
   if (!nav.contains(e.relatedTarget)) {
-    // const navSections = nav.querySelector('.nav-sections');
-    // const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    // if (navSectionExpanded && isDesktop.matches) {
-    //   // eslint-disable-next-line no-use-before-define
-    //   toggleAllNavSections(navSections, false);
-    // } else if (isDesktop.matches) {
-    //   // eslint-disable-next-line no-use-before-define
-    //   toggleMenu(nav, navSections, false);
-    // }
+    const navSections = nav.querySelector('.nav-sections');
+    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
+    if (navSectionExpanded && isDesktop.matches) {
+      // eslint-disable-next-line no-use-before-define
+      toggleAllNavSections(navSections, false);
+    } else if (isDesktop.matches) {
+      // eslint-disable-next-line no-use-before-define
+      toggleMenu(nav, navSections, false);
+    }
   }
 }
 
@@ -52,18 +62,6 @@ function openOnKeydown(e) {
 
 function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
-}
-
-/**
- * Toggles all nav sections
- * @param {Element} sections The container element
- * @param {Boolean} expanded Whether the element should be expanded or collapsed
- */
-function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', expanded);
-    section.style.pointerEvents = '';
-  });
 }
 
 /**
@@ -130,23 +128,47 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
+  // Find the main .nav-brand container once.
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  // const download = mainBlock.querySelector('main .download');
-  if (navBrand != null) {
-    dataMapMoObj.CLASS_PREFIXES = [
-      'navbrand-cont',
-      'navbrand-sec',
-      'navbrand-sub',
-      'navbrand-inner-net',
-      'navbrand-list',
-      'navbrand-list-content',
-    ];
-    dataMapMoObj.addIndexed(navBrand);
-  }
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  // Guard clause: If the .nav-brand element doesn't exist, prevent errors.
+  if (navBrand) {
+    // --- Section 1: Data Indexing and Button Cleanup (from your snippet) ---
+
+    // Set up the class prefixes for your dataMapMoObj utility.
+    if (typeof dataMapMoObj !== 'undefined' && dataMapMoObj.addIndexed) {
+      dataMapMoObj.CLASS_PREFIXES = [
+        'navbrand-cont',
+        'navbrand-sec',
+        'navbrand-sub',
+        'navbrand-inner-net',
+        'navbrand-list',
+        'navbrand-list-content',
+      ];
+      dataMapMoObj.addIndexed(navBrand);
+    }
+
+    // Find and clean up the legacy button wrapper, if it exists.
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = ''; // Remove all classes from the link itself.
+      const buttonContainer = brandLink.closest('.button-container');
+      if (buttonContainer) {
+        buttonContainer.className = ''; // Remove all classes from its container.
+      }
+    }
+
+    // Select both the desktop and mobile logo containers within the navBrand element.
+    const logoContainers = navBrand.querySelectorAll('.navbrand-sec1, .navbrand-sec2');
+
+    logoContainers.forEach((container) => {
+      // Change the cursor to a pointer to show it's clickable.
+      container.style.cursor = 'pointer';
+
+      // Add the click event listener to redirect to the home page.
+      container.addEventListener('click', () => {
+        window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/motilalfigma/home-page';
+      });
+    });
   }
   const dropdownTrigger = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
   const dropdownMenu = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
@@ -156,6 +178,11 @@ export default async function decorate(block) {
       event.stopPropagation();
       dropdownMenu.classList.toggle('open');
       dropdownTrigger.classList.toggle('active');
+      const logineventab = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
+      const nextel = logineventab.nextElementSibling;
+      if (nextel.style.display === 'block') {
+        nextel.style.display = 'none';
+      }
     });
 
     dropdownMenu.addEventListener('click', (event) => {
@@ -171,6 +198,9 @@ export default async function decorate(block) {
   }
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    // A single timer is shared across all nav sections to prevent flickering.
+    let leaveTimer;
+
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection) => {
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
@@ -180,22 +210,44 @@ export default async function decorate(block) {
         hrefnaf.append(frgnav.children[0]);
       }
 
-      navSection.addEventListener('click', () => {
-        // ('click', () => {
+      // --- Desktop Hover Logic ---
+      navSection.addEventListener('mouseenter', () => {
         if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          // When entering a new item, cancel any pending timer to close a menu.
+          // This prevents flickering when moving between menu items
+          clearTimeout(leaveTimer);
+          // Close all other menus before opening the new one.
           toggleAllNavSections(navSections);
+          navSection.setAttribute('aria-expanded', 'true');
+          document.body.classList.add('no-scroll');
 
-          const newState = expanded ? 'false' : 'true';
-          navSection.setAttribute('aria-expanded', newState);
-          // navSection.style.pointerEvents = 'none';
+          navSection.querySelector('ul > li').addEventListener('mouseleave', () => {
+            if (isDesktop.matches) {
+              leaveTimer = setTimeout(() => {
+                toggleAllNavSections(navSections, false);
+                document.body.classList.remove('no-scroll');
+              }, 300); // A 300ms delay feels smooth and prevents accidental closing.
+            }
+          });
+        }
+      });
 
-          // ✅ Scroll lock toggle
-          if (newState === 'true') {
-            document.body.classList.add('no-scroll');
-          } else {
+      // When the mouse leaves the entire nav item area (L1 button + L2 menu),
+      // start a timer to close it.
+      navSection.addEventListener('mouseleave', () => {
+        if (isDesktop.matches) {
+          leaveTimer = setTimeout(() => {
+            toggleAllNavSections(navSections, false);
             document.body.classList.remove('no-scroll');
-          }
+          }, 300); // A 300ms delay feels smooth and prevents accidental closing.
+        }
+      });
+
+      // --- Mobile Click Logic (Unaffected) ---
+      navSection.addEventListener('click', () => {
+        if (!isDesktop.matches) {
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
 
@@ -259,6 +311,11 @@ export default async function decorate(block) {
       event.stopPropagation();
       dropMenu.classList.toggle('open');
       dropTrigger.classList.toggle('active');
+      const logineventab = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
+      const nextel = logineventab.nextElementSibling;
+      if (nextel.style.display === 'block') {
+        nextel.style.display = 'none';
+      }
     });
 
     dropMenu.addEventListener('click', (event) => {
@@ -272,6 +329,7 @@ export default async function decorate(block) {
       }
       if (!navSections.contains(event.target)) {
         toggleAllNavSections(navSections);
+        document.body.classList.remove('no-scroll');
       }
     });
   }
@@ -418,8 +476,10 @@ export default async function decorate(block) {
         submenu.closest('li').setAttribute('aria-expanded', 'true');
         if (submenu.closest('.nav-sec-sub2')) {
           const mosub = submenu.querySelector('.sub-popup-sec1 .sub-popup-sub3');
-          mosub.querySelector('.sub-popup-list5 ul').style.display = 'block';
-          mosub.querySelector('.sub-popup-list6 ul').style.display = 'block';
+          if (mosub) {
+            mosub.querySelector('.sub-popup-list5 ul').style.display = 'block';
+            mosub.querySelector('.sub-popup-list6 ul').style.display = 'block';
+          }
         }
       }
     });
@@ -427,15 +487,20 @@ export default async function decorate(block) {
 
   const searchtemp = block.querySelector('.nav-tools .nav-tools-sec1 .nav-tools-inner-net1');
   const iconcls = searchtemp.querySelector('.nav-tools-list-content1');
+  const navmain = block.closest('body');
+  const navblk = navmain.querySelector('main');
+  navblk.classList.add('nfo-nav');
   iconcls.addEventListener('click', () => {
     const nfoban = block.querySelector('.nfo-banner');
-    const navblk = block.querySelector('nav');
+    const navelement = block.querySelector('nav');
     if (nfoban.style.display === 'none') {
       nfoban.style.display = 'block';
       navblk.classList.add('nfo-nav');
+      navelement.classList.add('nfo-nav');
     } else {
       nfoban.style.display = 'none';
       navblk.classList.remove('nfo-nav');
+      navelement.classList.remove('nfo-nav');
     }
   });
 
@@ -451,9 +516,22 @@ export default async function decorate(block) {
   Array.from(loginevent.querySelectorAll('a')).forEach((anchor) => {
     anchor.removeAttribute('href');
   });
+  document.addEventListener('click', (event) => {
+    try {
+      const logineventab = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
+      if (!logineventab.contains(event.target)) {
+        const nextel = logineventab.nextElementSibling;
+        nextel.style.display = 'none';
+      }
+    } catch (error) {
+      // console.log(error)
+    }
+  });
   const userProfile = block.querySelector('.nav-tools .nav-tools-sub4');
-  dataMapMoObj.altFunction(
-    userProfile.querySelector('.nav-tools-inner-net2 .icon-user-icon-header img'),
-    'User Profile',
-  );
+  if (userProfile.querySelector('.nav-tools-inner-net2 .icon-user-icon-header img')) {
+    dataMapMoObj.altFunction(
+      userProfile.querySelector('.nav-tools-inner-net2 .icon-user-icon-header img'),
+      'User Profile',
+    );
+  }
 }

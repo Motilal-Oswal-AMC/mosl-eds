@@ -171,6 +171,14 @@
             "value": "highlight"
           },
           {
+            "name": "FDP FAQ Change",
+            "value": "fdp-faq-change"
+          },
+          {
+            "name": "Risk-o-Meter FDP",
+            "value": "fdp-risk-o-meter"
+          },
+          {
             "name": "Show Modal",
             "value": "show-modal"
           },
