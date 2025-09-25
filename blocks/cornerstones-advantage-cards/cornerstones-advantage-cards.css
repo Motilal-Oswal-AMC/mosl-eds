@@ -3,7 +3,12 @@
 .section.cornerstones-advantage-cards-container {
   width: 100%;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 40px 0 56px;
+}
+@media (max-width: 768px) {
+  .section.cornerstones-advantage-cards-container {
+    padding: 24px 0 8px;
+  }
 }
 .section.cornerstones-advantage-cards-container .default-content-wrapper h1,
 .section.cornerstones-advantage-cards-container .default-content-wrapper h2,
@@ -80,7 +85,7 @@
 }
 @media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item {
-    min-height: 168px;
+    min-height: unset;
     max-width: 100%;
     padding-right: 0;
   }
@@ -126,7 +131,7 @@
 @media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.item-child-2 {
     grid-area: heading;
-    margin: 0 0 8px;
+    margin: 0 0 4px;
     font-size: var(--body-medium-medium-size);
     line-height: var(--body-medium-medium-line-height);
   }
@@ -155,7 +160,7 @@
 @media (max-width: 768px) {
   .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.button-container {
     grid-area: button;
-    margin: 24px 0 0;
+    margin: 20px 0 0;
   }
 }
 .section.cornerstones-advantage .cornerstones-advantage-cards .cards-item .item-child.button-container .button {
