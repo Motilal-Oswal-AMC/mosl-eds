@@ -903,7 +903,7 @@ button.swiper-pagination-bullet {
   display: block;
 }
 .home-banner .sub-home-banner .sub-banner-item-2 .button-container {
-  max-width: 176px;
+  max-width: 164px;
   width: 100%;
   margin: 27px 0 0 94px;
 }
@@ -1037,4 +1037,4 @@ button.swiper-pagination-bullet {
 }
 .block.home-banner .swiper-button-next::after {
   transform: rotate(180deg);
-}
+}/*# sourceMappingURL=home-banner.css.map */

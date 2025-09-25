@@ -515,6 +515,7 @@
         border-radius: map.get($radius, r4);
         background: map.get($button-primary, default);
         height: 44px;
+        width: 240px;
 
         @include font-style(16px,
           20px,
