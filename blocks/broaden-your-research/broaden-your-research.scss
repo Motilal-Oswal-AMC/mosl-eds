@@ -63,13 +63,13 @@
 
             a {
                 display: flex;
-                width: 176px;
+                width: 328px;
                 height: 44px;
                 padding: 12px;
                 justify-content: center;
                 align-items: center;
                 gap: 8px;
-                border-radius: 4px;
+                border-radius: 8px;
                 background: $primary-blue;
                 margin: 0;
                 font-style: normal;
@@ -78,6 +78,8 @@
 
                 @include media(mobile) {
                     @include font-style(map.get($typography-mobile, body-medium-regular-size), map.get($typography-mobile, body-medium-regular-line-height), $text-white, 400, $body);
+
+                    width: 176px;
                 }
             }
         }
@@ -114,6 +116,10 @@
                 display: flex;
                 align-items: stretch;
                 height: 265px;
+
+                @include media(mobile) {
+                    height: 250px;
+                }
             }
         }
 
@@ -130,7 +136,7 @@
             flex-direction: column;
             padding: 8px;
             width: 192px !important;
-            min-height: 210px;
+            min-height: 184px;
             height: fit-content;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-radius: 8px;
@@ -195,13 +201,14 @@
                     list-style: none;
                     padding: 0;
                     margin: 0;
-                    height: 32px;
+                    
+                    // height: 32px;
                     line-height: normal;
 
                     @include flex-center(flex-end, space-between);
 
                     li {
-                        height: -webkit-fill-available;
+                        height: 24px;
                         line-height: normal;
 
                         a {
@@ -210,14 +217,14 @@
                     }
 
                     li:nth-child(2) {
-                        padding-top: 5px;
+                        // padding-top: 5px;
                     }
                 }
 
                 .icon {
                     display: inline-block;
-                    width: 32px;
-                    height: 32px;
+                    width: 24px;
+                    height: 24px;
 
                     // Style the external link icon to look like a button
                     &.icon-external-link {

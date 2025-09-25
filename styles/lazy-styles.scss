@@ -9,6 +9,10 @@
   position: relative;
   padding-top: 40px;
 
+  @include media(mobile) {
+    padding-top: unset;
+  }
+
   .future-building-wrapper {
     @include media(mobile) {
       padding-right: 0;
@@ -217,7 +221,7 @@
                 align-items: center;
                 gap: 8px;
                 border-radius: map.get($radius, r40);
-                border: 0.5px solid #585ef9;
+                border: 0.5px solid var(--strokes-default);
                 color: $blue-1-800-primary;
                 font-family: $body;
                 font-size: map.get($typography-desktop, label-small-size);
@@ -290,7 +294,7 @@
             }
 
             &>li.cards-list-1-cards2 {
-              margin-bottom: 8px;
+              margin-bottom: 4px;
               min-height: 48px;
 
               p {
@@ -349,7 +353,7 @@
             }
 
             &>li.cards-list-1-cards4 {
-              margin-top: 24px;
+              margin-top: 16px;
 
               .button-container {
                 margin: 0;
@@ -501,9 +505,15 @@
     }
 
     p.libr-btn-p {
+      max-width: 240px;
       width: 100%;
       margin: 0;
       padding: 0;
+
+      @include media(mobile) {
+        max-width: 340px;
+        width: 100%;
+      }
 
       a.libr-btn-a {
         margin: 0;
@@ -512,7 +522,7 @@
         justify-content: center;
         align-items: center;
         gap: 4px;
-        border-radius: map.get($radius, r4);
+        border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
         height: 44px;
 
@@ -618,6 +628,10 @@
           display: flex;
           flex-direction: column;
 
+          @include media(mobile) {
+            margin-top: unset;
+          }
+
           li.quicksubactlist {
             display: flex;
             max-width: 100%;
@@ -657,7 +671,11 @@
       }
 
       .quicksubactmain1 {
+        color: $blue-1-800-primary;
+        font-family: $title, sans-serif;
+        font-weight: 600;
         font-size: var(--sub-header-large-size);
+        font-style: normal;
         line-height: var(--sub-header-medium-line-height);
       }
     }
@@ -717,6 +735,11 @@
         .quicksubactmain1 {
           margin: 0;
           padding: 0;
+          color: $blue-1-800-primary;
+          font-family: $body, sans-serif;
+          font-weight: 600;
+          font-size: var(--body-xlarge-bold-size);
+          line-height: var(--body-xlarge-bold-line-height);
           white-space: nowrap;
 
           @include font-style(
@@ -797,6 +820,11 @@
           .watchlist-logo {
             width: 64px;
             height: 64px;
+
+            @include media(mobile) {
+              width: 48px;
+              height: 48px;
+            }
           }
 
           .titlewrapper {
@@ -847,12 +875,13 @@
               text-decoration: none;
               display: inline-block;
               display: flex;
-              width: 176px;
+              width: 100%;
+              max-width: 328px;
               padding: 12px;
               justify-content: center;
               align-items: center;
               gap: 8px;
-              border-radius: 4px;
+              border-radius: 8px;
               background: $primary-blue;
               transition: background 0.3s ease;
               border: none;
@@ -862,6 +891,8 @@
 
               @include media(mobile) {
                 @include font-style(map.get($typography-mobile, button-medium-size), map.get($typography-mobile, button-medium-line-height), $text-white, 500, $body);
+                
+                max-width: 100%;
               }
 
               &:hover {
@@ -1027,6 +1058,11 @@
                 width: 32px;
                 height: 32px;
 
+                @include media (mobile) {
+                  width: 24px;
+                  height: 24px;
+                }
+
                 .riskfactor-icon {
                   width: 100%;
                   height: 100%;
@@ -1042,8 +1078,8 @@
 
                 li:first-child {
                   .icon {
-                    width: 32px;
-                    height: 32px;
+                    width: 20px;
+                    height: 20px;
 
                     img {
                       width: 100%;
@@ -1077,7 +1113,8 @@
               // max-width: 54.69%;
               max-width: 303px;
               width: 100%;
-              padding: 4px 0;
+              
+              // padding: 4px 0;
 
               @include media(mobile) {
                 padding: 0;
@@ -1139,7 +1176,7 @@
 
                 .returns-percentage {
                   // @include font-style(24px, 32px, $primary-blue, map.get($font-weights, light), $poppins);
-                  font-weight: map.get($font-weights, light);
+                  // font-weight: map.get($font-weights, light);
                 }
               }
             }
@@ -1197,7 +1234,7 @@
 
         .welcomeactmain1 {
           display: flex;
-          width: 176px;
+          width: 330px;
           padding: 12px;
           justify-content: center;
           align-items: center;
@@ -1208,6 +1245,10 @@
           border-radius: 4px;
           background: $primary-blue;
           text-align: center;
+
+          @include media(mobile) {
+            width: 340px;
+          }
         }
       }
     }
@@ -1264,7 +1305,8 @@
 
           .welcomeactmain1 {
             display: flex;
-            width: 176px;
+            width: 100%;
+            max-width: 256px;
             padding: 12px;
             justify-content: center;
             align-items: center;

@@ -15,176 +15,6 @@ import {
   wishlist,
 } from '../../scripts/scripts.js';
 
-function planListEvent(param, block) {
-  // Planlist onchange with changing cagr container
-  let tempReturns = [];
-  const codeTempArr = [];
-  const tempreturnsec = [];
-  block.returns.forEach((el) => {
-    codeTempArr.push(el.plancode + el.optioncode);
-    if (param.target.getAttribute('value') === el.plancode + el.optioncode) {
-      [...Object.keys(el)].forEach((key) => {
-        if (key === 'inception_Ret') {
-          tempReturns.unshift(dataMapMoObj.ObjTemp[key]);
-        } else {
-          tempReturns.push(dataMapMoObj.ObjTemp[key]);
-        }
-      });
-      tempreturnsec.push(el);
-    }
-  });
-  tempReturns = tempReturns.filter((temel) => temel);
-  const [firstReturnYear] = tempReturns;
-  const valRet = dataMapMoObj.selectreturns === '' ? '3 Years' : dataMapMoObj.selectreturns;
-  const selectedReturn = valRet; // dataMapMoObj.selectreturns;
-  const returnYear = tempReturns.includes(selectedReturn)
-    ? selectedReturn
-    : firstReturnYear;
-  param.target
-    .closest('.card-wrapper')
-    .querySelector('.cagr-container').innerHTML = '';
-  const dspdate = returnYear === 'Since Inception' ? 'block' : 'none';
-  if (
-    codeTempArr.includes(param.target.getAttribute('value'))
-    && tempReturns.length !== 0
-  ) {
-    param.target
-      .closest('.card-wrapper')
-      .querySelector('.cagr-container')
-      .classList.remove('not-provided');
-    const dropdown = div(
-      {
-        class: 'cagr-dropdown',
-      },
-      span({ class: 'cagr-txt' }, 'Annualised'),
-      div(
-        {
-          class: 'cagr-select-wrapper',
-        },
-        p(
-          {
-            class: 'selectedtext',
-            onclick: (event) => {
-              if (Array.from(event.target.nextElementSibling.classList).includes('dropdown-active')) {
-                event.target.nextElementSibling.classList.remove('dropdown-active');
-              } else {
-                event.target.nextElementSibling.classList.add('dropdown-active');
-              }
-            },
-          },
-          returnYear,
-        ),
-        ul(
-          { class: 'dropdown-list', schcode: block.schcode },
-          ...tempReturns.map((eloption) => li(
-            {
-              class: 'returnyears',
-              value: dataMapMoObj.ObjTemp[eloption],
-              onclick: (event) => {
-                const cgarValue = tempreturnsec[0][event.target.getAttribute('value')];
-                event.currentTarget
-                  .closest('.dropdown-list')
-                  .classList.remove('dropdown-active');
-                event.currentTarget
-                  .closest('.cagr-select-wrapper')
-                  .querySelector('p').innerText = '';
-                event.currentTarget
-                  .closest('.cagr-select-wrapper')
-                  .querySelector('p').innerText = event.currentTarget.textContent.trim();
-                event.target
-                  .closest('.cagr-container')
-                  .querySelector('.cagr-value h2').textContent = '';
-                event.target
-                  .closest('.cagr-container')
-                  .querySelector(
-                    '.cagr-value h2',
-                  ).textContent = `${cgarValue}`;
-                event.target
-                  .closest('.cagr-container')
-                  .querySelector('.cagr-value h2')
-                  .append(span('%'));
-                const datedrp = event.currentTarget.closest('.cagr-dropdown');
-                if (event.target.textContent.trim() === 'Since Inception') {
-                  datedrp.querySelector('.cagr-date').style.display = 'block';
-                } else {
-                  datedrp.querySelector('.cagr-date').style.display = 'none';
-                }
-              },
-            },
-            eloption,
-          )),
-        ),
-      ),
-      p(
-        {
-          class: 'cagr-date',
-          style: `display:${dspdate}`,
-        },
-        '24 Jul ‘24',
-      ),
-    );
-    const dropvalue = div(
-      {
-        class: 'cagr-value',
-      },
-      h2(
-        `${tempreturnsec[0][dataMapMoObj.ObjTemp[returnYear]]}`,
-        span('%'),
-      ),
-      p(
-        {
-          class: 'scheme-yet',
-          style: 'display:none',
-        },
-        'Scheme is yet to complete 10 Years',
-      ),
-    );
-    const droplessthan = div(
-      {
-        class: 'cagr-desc',
-      },
-      span(
-        { class: 'cagr-desc-text' },
-        'Return is not provided because thescheme has not completed 6 months',
-      ),
-    );
-    param.target
-      .closest('.card-wrapper')
-      .querySelector('.cagr-container')
-      .append(dropdown, dropvalue, droplessthan);
-  } else {
-    param.target
-      .closest('.card-wrapper')
-      .querySelector('.cagr-container')
-      .classList.remove('not-provided');
-    const dropdown = div(
-      {
-        class: 'cagr-dropdown',
-      },
-      span({ class: 'cagr-txt' }, 'Return (Absolute)'),
-    );
-    const dropvalue = div(
-      {
-        class: 'cagr-value',
-      },
-      h2('NA'),
-    );
-    const droplessthan = div(
-      {
-        class: 'cagr-desc',
-      },
-      span(
-        { class: 'cagr-desc-text' },
-        'Return is not provided because thescheme has not completed 6 months',
-      ),
-    );
-    param.target
-      .closest('.card-wrapper')
-      .querySelector('.cagr-container')
-      .append(dropdown, dropvalue, droplessthan);
-  }
-}
-
 function toTitleCase(str) {
   return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
 }
@@ -224,10 +54,6 @@ export default function decorate(block) {
   const labelcagr = evaluateByDays(block.dateOfAllotment);
   const classplan = DirectPlanlistArr.length !== 0 && tempReturns.length !== 0 ? '' : ' not-provided';
   const dropdowndot = DirectPlanlistArr.length !== 0 ? '' : 'no-planlist';
-  const classdropdown = DirectPlanlistArr.length !== 0 ? 'flex' : 'none';
-  const optionName = DirectPlanlistArr.length !== 0 ? DirectPlanlistArr[0].optionName : '';
-  const optionNamestyl = DirectPlanlistArr.length === 1 ? 'none' : '';
-  const optionNamescls = DirectPlanlistArr.length === 1 ? 'no-dropdown' : '';
   const [fstRetYear] = tempReturns;
   const valRet = dataMapMoObj.selectreturns === '' ? '3 Years' : dataMapMoObj.selectreturns;
   const returnYear = tempReturns.includes(valRet)
@@ -603,7 +429,7 @@ export default function decorate(block) {
                 src: '../../icons/user-icon.svg',
                 alt: 'person',
               }),
-              span({ class: 'investor-txt' }, '2.7L Investors'),
+              span({ class: 'investor-txt' }, '2.7L Investors in this fund'),
             ),
             a(
               {

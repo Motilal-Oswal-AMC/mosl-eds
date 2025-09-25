@@ -79,7 +79,7 @@
 
         @include media(mobile) {
           // min-height: 176px;
-          min-height: 168px;
+          min-height: 136px;
           max-width: 100%;
           padding-right: 0;
         }
@@ -149,7 +149,7 @@
 
             @include media(mobile) {
               grid-area: button;
-              margin: 24px 0 0;
+              margin: 16px 0 0;
             }
 
             .button {

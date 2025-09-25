@@ -226,7 +226,7 @@
                                 @include media(mobile) {
                                     display: flex;
                                     align-items: center;
-                                    gap: 8px;
+                                    gap: 4px;
                                     align-self: stretch;
                                 }
 
@@ -320,7 +320,8 @@
                 .invest-now-btn-mobile {
                     @include media(mobile) {
                         padding-top: 4px;
-                        padding-bottom: 8px;
+                        padding-bottom: 26px;
+                        width: 100%;
                     }
 
                     .button-mobile {
@@ -339,13 +340,14 @@
                             color: $primary-white;
                             cursor: pointer;
                             transition: background-color 0.2s ease;
-                            width: 176px;
+                            
+                            // width: 176px;
                             margin: 0;
-                            font-family: $body;
-                            font-size: map.get($typography-mobile, button-small-size);
+                            font-family: var(--body);
+                            font-size: 14px;
                             font-style: normal;
                             font-weight: 500;
-                            line-height: map.get($typography-mobile, button-small-line-height);
+                            line-height: 16px;
                         }
                     }
                 }
