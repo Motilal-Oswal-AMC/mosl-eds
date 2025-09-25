@@ -571,7 +571,7 @@
             }
 
             .key-facts-amounts-sub:nth-child(2) {
-              @include font-style(var(--body-medium-regular-size), var( --body-medium-regular-line-height), var(--Text-Body-2), 400, var(--body) );
+              @include font-style(var(--body-medium-regular-size), var( --body-medium-regular-line-height), var(--text-body-2), 400, var(--body) );
  
               margin: 0;
             }
@@ -632,7 +632,7 @@
                 }
 
                 p:nth-child(2) {
-                  @include font-style(var(--body-medium-regular-size), 24px , $text-body-2, 400,var(--body));
+                  @include font-style(var(--body-medium-regular-size), 24px , var(--text-body-2), 400,var(--body));
  
                   margin: 0;
  
