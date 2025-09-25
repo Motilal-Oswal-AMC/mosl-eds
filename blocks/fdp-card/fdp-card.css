@@ -16,7 +16,7 @@ main {
   .section.fdp-card-container {
     flex-direction: column;
     gap: 50px;
-    margin-top: 64px;
+    margin-top: 0;
   }
 }
 .section.fdp-card-container .fdp-card {
