@@ -5,6 +5,12 @@ body.no-scroll {
   width: 100%;
 }
 
+header a.button:focus,
+button:hover,
+button:focus {
+  background-color: transparent;
+}
+
 header .nav-wrapper {
   background-color: var(--blue-1-800-primary);
   color: var(--neutrals-white);
@@ -513,7 +519,7 @@ header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1[aria-expanded="true
 }
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 {
-  margin-top: 8px;
+  margin-top: 16px;
   padding-left: 16px;
   border-left: 1px solid #E0E0E0;
 }
@@ -595,11 +601,18 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 li .comlist:hover {
   color: var(--neutrals-black);
   font-feature-settings: var(--font-features-default);
   font-family: var(--body);
-  font-size: var(--paragraph-small-size);
   font-weight: 400;
-  line-height: var(--paragraph-small-line-height);
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
   padding: 0;
   padding-bottom: var(--spacing-16);
+}
+
+.section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li a {
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
 }
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li:last-child {
@@ -684,6 +697,10 @@ header nav .nav-sections ul>li>ul {
   padding: 14px 0;
 }
 
+.section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li.comlist[aria-expanded="true"]:first-child {
+  padding-top: 0;
+}
+
 .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5,
 .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list6 {
   padding-left: 3px;
@@ -736,10 +753,10 @@ header nav .nav-sections ul>li>ul {
   color: var(--neutrals-black);
   font-feature-settings: var(--font-features-default);
   font-family: var(--body);
-  font-size: 12px;
+  font-size: var(--paragraph-xsmall-size);
   font-style: normal;
   font-weight: 400;
-  line-height: 16px;
+  line-height: var(--paragraph-xsmall-line-height);
   padding-top: 4px;
 }
 
@@ -904,7 +921,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 }
 
 .sub-popup-header .sub-popup-cont1 .sub-popup-sec1 .comlist.sub-popup-inner-text2 {
-  margin-top: 12px;
+  margin-top: 16px;
   padding-left: 16px;
   border-left: 1px solid #E0E0E0;
 }
@@ -2012,6 +2029,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
   .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
     color: var(--neutrals-800);
+    font-size: var(--body-small-regular-size);
+    line-height: var(--label-large-line-height);
   }
 
   .investor-edu-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2>li.comlist {
@@ -2127,7 +2146,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     color: var(--blue-1-800-primary);
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
-    font-size: var(--body-small-semibold-size);
+    font-size: var(--body-medium-semibold-size);
     font-style: normal;
     font-weight: 600;
     line-height: var(--body-medium-semibold-line-height);
@@ -2212,7 +2231,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     background: var(--neutrals-white);
     padding: 0;
     margin: 0;
-    padding-top: 28px;
+    padding-top: 24px;
   }
 
   .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5 {
@@ -2236,8 +2255,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
   .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list6 a.comlist {
     padding: 0;
     font-weight: 600;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: var(--body-xsmall-semibold-size);
+    line-height: var(--body-xsmall-semibold-line-height);
   }
 
   .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5 .sub-popup-list-content2 li.comlist,
@@ -2329,7 +2348,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     color: var(--blue-1-500);
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
-    font-size: var(--text-link-small-size);
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: var(--text-link-small-line-height);

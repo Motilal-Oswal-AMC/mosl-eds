@@ -1,6 +1,7 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
+import dataCfObj from '../../scripts/dataCfObj.js';
 // import { loadAutoBlock } from '../../scripts/scripts.js';
 // import {a,button,div,h3,li,ul} from '../../scripts/dom-helpers.js';
 
@@ -228,6 +229,52 @@ export default async function decorate(block) {
                 document.body.classList.remove('no-scroll');
               }, 300); // A 300ms delay feels smooth and prevents accidental closing.
             }
+          });
+        }
+        if (Array.from(navSection.classList).includes('nav-sec-sub2')) {
+          const navdirect = navSection.querySelector('.nav-sec-inner-text2 .sub-popup-sec1');
+          Array.from(navdirect.children).forEach((element) => {
+            const listel = element.querySelector('.sub-popup-inner-text2');
+            listel.querySelectorAll('a').forEach((ael) => {
+              ael.removeAttribute('href');
+              ael.addEventListener('click', (event) => {
+                // localStorage.removeItem('viewmark');
+                // localStorage.removeItem('planCode');
+                let textcurr = event.currentTarget.textContent.trim();
+                dataMapMoObj.selectviewFunds = '';
+                if (Array.from(event.currentTarget.classList).length === 0) {
+                  dataCfObj.forEach((datael) => {
+                    if (datael.schDetail.schemeName === `Motilal Oswal ${textcurr}`) {
+                      dataMapMoObj.selectviewFunds = datael.schcode;
+                    }
+                  });
+                  if (dataMapMoObj.selectviewFunds !== '') {
+                    localStorage.setItem('planCode', `Direct:${dataMapMoObj.selectviewFunds}`);
+                    const pathname = '/motilalfigma/our-funds/funds-details-page';
+                    window.location.href = `${window.location.origin}${pathname}`;
+                  }
+                } else {
+                  if (textcurr === 'ETFs') {
+                    textcurr = 'ETF';
+                  }
+                  if (textcurr === 'Large & Mid Cap') {
+                    textcurr = 'large-and-mid-cap';
+                  }
+                  if (textcurr === 'Multi Cap') {
+                    textcurr = 'multi-cap-fund';
+                  }
+                  if (textcurr === 'View All Funds') {
+                    const pathname = '/motilalfigma/our-funds';
+                    window.location.href = `${window.location.origin}${pathname}`;
+                    return false;
+                  }
+                  dataMapMoObj.selectviewFunds = textcurr.toLocaleLowerCase().split(' ').join('-');
+                  localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
+                  const pathname = '/motilalfigma/our-funds';
+                  window.location.href = `${window.location.origin}${pathname}`;
+                }
+              });
+            });
           });
         }
       });
@@ -504,9 +551,9 @@ export default async function decorate(block) {
     }
   });
 
-  const loginevent = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
+  const loginevent = block.querySelector('.nav-tools .nav-tools-sub4');// .nav-tools-inner-net1');
   loginevent.addEventListener('click', () => {
-    const nextel = loginevent.nextElementSibling;
+    const nextel = loginevent.querySelector('ul');
     if (nextel.style.display === 'none') {
       nextel.style.display = 'block';
     } else {
