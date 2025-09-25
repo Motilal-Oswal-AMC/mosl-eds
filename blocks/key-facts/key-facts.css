@@ -219,7 +219,7 @@
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-sub:nth-child(2) {
   font-size: var(--body-medium-regular-size);
   line-height: var(--body-medium-regular-line-height);
-  color: var(--Text-Body-2);
+  color: var(--text-body-2);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
@@ -288,7 +288,7 @@
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(2) {
   font-size: var(--body-medium-regular-size);
   line-height: 24px;
-  color: #616161;
+  color: var(--text-body-2);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;

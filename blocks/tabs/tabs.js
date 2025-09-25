@@ -666,8 +666,12 @@ export default async function decorate(block) {
       }
     });
     document.querySelectorAll('.card-category').forEach((el) => {
-      if (!el.contains(event.target)) {
-        el.querySelector('.dropdown-list').classList.remove('dropdown-active');
+      try {
+        if (!el.contains(event.target)) {
+          el.querySelector('.dropdown-list').classList.remove('dropdown-active');
+        }
+      } catch (error) {
+        // console.log(error);
       }
     });
   });
