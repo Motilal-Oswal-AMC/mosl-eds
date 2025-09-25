@@ -2,7 +2,7 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, div, input, ul, li, img, p,
+  button, a, div, input, ul, li, img, table, thead, tbody, tr, th, td
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
@@ -199,6 +199,10 @@ export default async function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['headgrp', 'headlist'];
     dataMapMoObj.addIndexed(defaultwrapper[1]);
     const headtitle = defaultwrapper[1].querySelector('.headgrp1').cloneNode(true);
+    headtitle.prepend(th({ class: 'comthst' }));
+    const headstring = headtitle.outerHTML;
+    const strhead = headstring.replaceAll('ul', 'tr').replaceAll('li', 'th');
+
     defaultwrapper[1].querySelector('.headgrp1').style.display = 'none';
     Array.from(headtitle.children).forEach((el) => {
       el.classList.add('data-name');
@@ -230,44 +234,43 @@ export default async function decorate(block) {
           returnValue.push(ret);
         }
       });
-      const divret = div(
+      const divret = tbody(
         { class: 'fund-data-table' },
-        div(
+        tr(
           { class: 'fund-name-value return-funds' },
-          p({ class: 'fund-name' }, cfObj[0].schDetail.schemeName),
-          ul(
-            { class: 'fund-data-list' },
-            li({ class: 'fund-data' }, formatReturn((returnValue[0][`oneYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((returnValue[0][`threeYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((returnValue[0][`fiveYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((returnValue[0][`sevenYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((returnValue[0][`tenYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((returnValue[0][`inception${param}`]))),
-          ),
+          td({ class: 'fund-name' }, cfObj[0].schDetail.schemeName),
+          // ul(
+          //   { class: 'fund-data-list' },
+            td({ class: 'fund-data' }, formatReturn((returnValue[0][`oneYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((returnValue[0][`threeYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((returnValue[0][`fiveYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((returnValue[0][`sevenYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((returnValue[0][`tenYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((returnValue[0][`inception${param}`]))),
+          // ),
         ),
-        ...cfObj[0].benchmarkreturns.map((el) => div(
+        ...cfObj[0].benchmarkreturns.map((el) => tr(
           { class: 'fund-name-value benchmark-funds' },
-          p({ class: 'fund-name' }, el.groupName),
-          ul(
-            { class: 'fund-data-list' },
-            li({ class: 'fund-data' }, formatReturn((el[`oneYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((el[`threeYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((el[`fiveYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((el[`sevenYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((el[`tenYear${param}`]))),
-            li({ class: 'fund-data' }, formatReturn((el[`inception${param}`]))),
-          ),
+          td({ class: 'fund-name' }, el.groupName),
+          // ul(
+          //   { class: 'fund-data-list' },
+            td({ class: 'fund-data' }, formatReturn((el[`oneYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((el[`threeYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((el[`fiveYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((el[`sevenYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((el[`tenYear${param}`]))),
+            td({ class: 'fund-data' }, formatReturn((el[`inception${param}`]))),
+          // ),
         )),
       );
-      const tabmo = div(
+      const tabmo = table(
         { class: 'periodic-returns' },
-        div(
+        thead(
           { class: 'fund-data-title' },
-          p({ class: 'fund-title' }),
-          headtitle,
         ),
         divret,
       );
+      tabmo.querySelector('.fund-data-title').innerHTML = strhead;
       if (param === '_Ret') {
         block.querySelector('.tabpanel1').innerHTML = '';
         block.querySelector('.tabpanel1').append(tabmo);

@@ -8,11 +8,12 @@
     // max-width: 1264px;
     width: 100%;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 0 56px;
 
-    // @include media(mobile) {
-    //   max-width: 100%;
-    // }
+    @include media(mobile) {
+      // max-width: 100%;
+      padding: 24px 0 8px;
+    }
 
     .default-content-wrapper{
       h1,
@@ -124,7 +125,7 @@
 
             @include media(mobile) {
               grid-area: heading;
-              margin: 0 0 8px;
+              margin: 0 0 4px;
               font-size: var(--body-medium-medium-size);
               line-height: var(--body-medium-medium-line-height);
             }

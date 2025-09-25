@@ -176,7 +176,7 @@
 
                             input {
                                 width: 100%;
-                                min-width: 240px;
+                                min-width: 200px;
                                 display: flex;
                                 padding: var(--spacing-8) var(--spacing-12);
                                 flex-direction: column;
@@ -695,15 +695,15 @@
                                         gap: 4px;
                                         align-self: stretch;
                                         height: 40px;
-                                        color: #FFFFFF80;
+                                        color: var(--neutrals-200);
                                         font-feature-settings: var(--font-features-default);
                                         font-family: var(--body);
-                                        font-size:  var(--body-medium-regular-size);
+                                        font-size: var(--body-medium-regular-size);
                                         font-style: normal;
                                         font-weight: 400;
-                                        line-height:var(--body-medium-regular-line-height);
+                                        line-height: var(--body-medium-regular-line-height);
                                         border-radius: rem(8px);
-                                        border: 1px solid #BDBDBD;
+                                        border: var(--border-width-01) solid var(--neutrals-white);
                                     }
 
                                     .errormsg {
