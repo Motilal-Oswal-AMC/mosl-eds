@@ -6,6 +6,7 @@
   .card-container {
     max-width: 296px;
     width: 100%;
+    height: max-content;
     padding: 20px 16px 16px;
     border-radius: map.get($radius, r16);
     background:
@@ -152,7 +153,7 @@
       // height: auto;
 
       @include media(mobile) {
-        margin: 0 0 56px;
+        margin: 0 0 38px;
       }
 
       .fundtagging-list {
@@ -248,7 +249,7 @@
       // box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
 
       // margin-top: auto;
-      margin: 0 0 24px;
+      margin: 0 0 16px;
 
       @include media(tab) {
         // height: 100%;
@@ -639,7 +640,6 @@
             font-weight: 400;
             color: var(--text-button-default);
             text-underline-offset: 20%;
-            padding: 0;
           }
         }
 
@@ -805,6 +805,11 @@
         text-decoration: none;
         display: block;
         margin: 0;
+
+        @include media(mobile) {
+          font-size: 14px;
+          line-height: 16px;
+        }
       }
 
       @include media(mobile) {
@@ -818,6 +823,8 @@
 
       @include media(mobile) {
         display: block;
+        max-width: 160px;
+        width: 100%;
       }
     }
 
@@ -861,10 +868,23 @@
       .btndesk {
         border-radius: var(--border-radius-4);
 
+        @include media(mobile) {
+          border-radius: 8px;
+          max-width: 160px;
+          width: 100%;
+          height: 32px;
+        }
+
         a {
           border-radius: var(--border-radius-4);
           border: 1px solid var(--neutrals-white);
           color: var(--neutrals-white);
+
+          @include media(mobile) {
+            border-radius: var(--border-radius-8);
+            font-size: 14px;
+            line-height: var(--button-small-line-height);
+          }
         }
       }
     }

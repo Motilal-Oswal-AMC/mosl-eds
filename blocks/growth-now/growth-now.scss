@@ -16,7 +16,7 @@ main {
 
     // background-color: $neutrals-100;
     background-color: #fff;
-    padding: 40px 0 50px;
+    padding: 40px 0 ;
 
     @include media(mobile) {
         padding: 40px 0;
@@ -73,7 +73,7 @@ main {
         @include media(mobile) {
             flex-direction: column;
             position: relative;
-            padding: 16px;
+            padding: 24px;
             overflow: hidden;
         }
 
@@ -152,12 +152,12 @@ main {
             }
 
             .fund-sec-2 {
-                display: none;
+                // display: none;
             }
 
             .fund-sec-3 {
                 padding-left: 8px;
-                padding-right: 54px;
+                padding-right: 32px;
 
                 @include media (desktop-sm) {
                     padding: 0;
@@ -193,7 +193,7 @@ main {
             }
 
             .fund-sec-4 {
-                padding-right: 62px;
+                padding-right: 37px;
 
                 @include media (desktop-sm) {
                     padding: 0;
@@ -288,6 +288,7 @@ main {
 
                             @include media(mobile) {
                                 width: 100%;
+                                max-width: 176px;
                             }
                         }
 
@@ -411,7 +412,7 @@ main {
                         }
 
                         .button {
-                            width: 112px;
+                            width: 123px;
                             display: flex;
                             padding: 12px;
                             justify-content: center;
@@ -511,9 +512,10 @@ main {
                 }
 
                 .fund-sec-2 {
-                    display: block;
+                    display: flex;
                     padding-right: 18px;
-                    height: 100%;
+                    height: 84px;
+                    width: 102px;
 
                     // @include media (desktop-sm) {
                     //     padding: 0;
@@ -632,7 +634,7 @@ main {
     &.homepage-growth {
         .growth-now {
             @include media (mobile) {
-                gap: 32px;
+                gap: 47px;
             }
 
             .fund-us-container {
@@ -645,7 +647,7 @@ main {
                 }
 
                 .fund-sec-3 {
-                    padding-right: 28px;
+                    // padding-right: 32px;
 
                     @include media(mobile) {
                         padding-right: 0;
@@ -662,8 +664,18 @@ main {
 
                     .submit-wrapper {
                         .button {
-                            width: 112px;
+                            width: 123px;
                         }
+                    }
+                }
+            }
+
+            .growth-now-row-2 {
+                .fund-sec-1 {
+                    margin-right: 25px;
+
+                    @include media(mobile) {
+                        margin-right: unset;
                     }
                 }
             }

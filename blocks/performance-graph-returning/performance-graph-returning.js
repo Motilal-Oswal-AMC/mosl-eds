@@ -101,10 +101,10 @@ export default function decorate(block) {
           // minGridDistance: 80, // Ensures enough space for year
         }),
         // tooltip: window.am5.Tooltip.new(root, {}),
-        tooltip: window.am5.Tooltip.new(root, {
-          // ✨ Set the format for the tooltip when hovering over the axis
-          dateFormat: 'MMM yyyy',
-        }),
+        // tooltip: window.am5.Tooltip.new(root, {
+        //   // ✨ Set the format for the tooltip when hovering over the axis
+        //   dateFormat: 'MMM yyyy',
+        // }),
       }),
     );
 
@@ -118,11 +118,12 @@ export default function decorate(block) {
       // text: '{valueX.formatDate('MMM yy')}', // Should show 'Jul 24', 'Sep 24'
       text: '{valueX.formatDate("MMM yy")}', // Note the single quotes around yy
       fill: window.am5.color('#212121'), // A dark color for the text
-      fontFamily: 'Poppins', // As requested
+      fontFamily: 'Inter', // As requested
       fontSize: '14px', // Font size
       fontWeight: '500', // A medium font weight
       textAlign: 'center',
       paddingTop: 10,
+      // lineHeight: '16px',
     });
 
     // Custom formatter for x-axis labels
@@ -201,9 +202,10 @@ export default function decorate(block) {
 
     tooltip.label.setAll({
       fill: window.am5.color('#FFF'),
-      fontFamily: 'Poppins', // Inter, sans-serif
+      fontFamily: 'Inter', // Inter, sans-serif
       fontSize: 14,
       fontWeight: '500',
+      // lineHeight: '16px',
     });
 
     series.strokes.template.setAll({

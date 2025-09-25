@@ -1,7 +1,6 @@
 import {
   div,
   h2,
-  p,
   img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -53,10 +52,9 @@ function createCardElement(cardData, brandName, iconsTemplate) {
     ),
     div(
       { class: 'title-subtitle' },
-      p(brandName),
       div(
         { class: 'title title-logo' },
-        h2(cardData.schDetail.schemeName.replaceAll('Motilal Oswal', '')), // Or use dynamic data: h2(cardData.name || 'Scheme Name')
+        h2(cardData.schDetail.schemeName),
       ),
     ),
     // Create an empty container for the icons

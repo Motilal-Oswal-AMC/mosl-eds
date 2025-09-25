@@ -85,6 +85,18 @@ export default async function decorate(block) {
   ];
   dataMapMoObj.addIndexed(block);
 
+  // const logoContainers = document.querySelector('.footer-sub-cont1 .section-content1');
+
+  // logoContainers.forEach((container) => {
+  //   // Change the cursor to a pointer to show it's clickable.
+  //   container.style.cursor = 'pointer';
+
+  //   // Add the click event listener to redirect to the home page.
+  //   container.addEventListener('click', () => {
+  //     window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/motilalfigma/home-page';
+  //   });
+  // });
+
   block.querySelectorAll('.accordion-item-body .list-inneritem-1').forEach((ele) => {
     Array.from(ele.children).forEach((el) => {
       el.classList.add('list-innerlist');

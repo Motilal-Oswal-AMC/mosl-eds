@@ -45,11 +45,19 @@ export default function decorate(block) {
         autocomplete: 'off',
         class: 'search-bar-inp',
       }),
-      img({
-        class: 'cancel-btn',
-        src: '../../icons/input-cancel.svg',
-        alt: 'cancel button',
-      }),
+      div(
+        { class: 'cancel-search-wrap searchbar-active' },
+        img({
+          class: 'cancel-btn',
+          src: '../../icons/input-cancel.svg',
+          alt: 'cancel button',
+        }),
+        img({
+          class: 'search-btn',
+          src: '../../icons/search-icon.svg',
+          alt: 'cancel button',
+        }),
+      ),
       div(
         { class: 'search-results-wrapper' },
         ul(
@@ -131,7 +139,7 @@ export default function decorate(block) {
           { class: 'tenure-wrapper custom-select' },
           label({ class: 'tenure-label' }, col2[3].textContent.trim()),
           div(
-            { class: 'select-selected' },
+            { class: 'select-selected fdp-select-selected' },
             `${col3[0].textContent.trim()} Years`,
           ),
           div({ class: 'select-options', role: 'listbox' }),
@@ -473,7 +481,8 @@ export default function decorate(block) {
       // const errorLi = document.createElement('li');
       // errorLi.textContent = 'Fund not found';
       // searchResults.appendChild(errorLi);
-      calContainer.querySelector('.cancel-btn').style.display = 'block';
+      // calContainer.querySelector('.cancel-btn').style.display = 'block';
+      calContainer.querySelector('.cancel-search-wrap').classList.remove('searchbar-active');
       const searchError = document.querySelector('.search-error');
       searchError.classList.remove('error-hide');
       return; // Stop further execution
@@ -485,11 +494,14 @@ export default function decorate(block) {
       lione.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
       lione.addEventListener('click', () => {
         searchInput.value = name;
+        // searchInput.style.backgroundPosition = 'left center';
+        // searchInput.style.paddingLeft = '24px';
         selectedFund = dataCfObj.find((f) => f.schDetail.schemeName === name);
         searchResults.innerHTML = '';
         updatePlanOptions(selectedFund);
         updateReturnRate();
-        calContainer.querySelector('.cancel-btn').style.display = 'block';
+        // calContainer.querySelector('.cancel-btn').style.display = 'block';
+        calContainer.querySelector('.cancel-search-wrap').classList.remove('searchbar-active');
       });
       searchResults.appendChild(lione);
     });
@@ -521,9 +533,11 @@ export default function decorate(block) {
       }
     } else if (e.key === 'Escape') { searchResults.innerHTML = ''; currentFocus = -1; searchInput.value = selectedFundName; } else if (e.key === 'Backspace' || e.key === 'Delete') {
       if (searchInput.value.length === 1) {
-        calContainer.querySelector('.cancel-btn').style.display = 'none';
+        // calContainer.querySelector('.cancel-btn').style.display = 'none';
+        calContainer.querySelector('.cancel-search-wrap').classList.add('searchbar-active');
       } else if (searchInput.value.length > 1) {
-        calContainer.querySelector('.cancel-btn').style.display = 'block';
+        // calContainer.querySelector('.cancel-btn').style.display = 'block';
+        calContainer.querySelector('.cancel-search-wrap').classList.remove('searchbar-active');
       }
     }
   });
@@ -533,12 +547,15 @@ export default function decorate(block) {
     if (!searchbar.contains(event.target)) {
       searchResults.innerHTML = '';
       searchInput.value = selectedFund.schDetail.schemeName;
-      calContainer.querySelector('.cancel-btn').style.display = 'block';
+      // calContainer.querySelector('.cancel-btn').style.display = 'block';
+      calContainer.querySelector('.cancel-search-wrap').classList.remove('searchbar-active');
     }
   });
   calContainer.querySelector('.cancel-btn').addEventListener('click', () => {
     searchInput.value = '';
     searchResults.innerHTML = '';
+    // searchInput.style.backgroundPosition = 'right';
+    // searchInput.style.paddingLeft = '0px';
     schemeNames.forEach((el) => {
       const ligrp = document.createElement('li');
       ligrp.innerHTML = el.replace(new RegExp(`(${''})`, 'gi'), '<strong>$1</strong>');
@@ -549,11 +566,13 @@ export default function decorate(block) {
         searchResults.innerHTML = '';
         updatePlanOptions(selectedFund);
         updateReturnRate();
-        calContainer.querySelector('.cancel-btn').style.display = 'block';
+        // calContainer.querySelector('.cancel-btn').style.display = 'block';
+        calContainer.querySelector('.cancel-search-wrap').classList.remove('searchbar-active');
       });
       searchResults.appendChild(ligrp);
     });
-    calContainer.querySelector('.cancel-btn').style.display = 'none';
+    // calContainer.querySelector('.cancel-btn').style.display = 'none';
+    calContainer.querySelector('.cancel-search-wrap').classList.add('searchbar-active');
   });
   // -------------------------------
   // ✅ 7. SECTION HERO LAYOUT FIX
