@@ -75,7 +75,7 @@ header nav[aria-expanded='true'].nfo-nav {
 
 header nav p {
   margin: 0;
-  line-height: 16px;
+  line-height: 0px;
 }
 
 header nav a:any-link {
