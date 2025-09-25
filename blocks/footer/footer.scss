@@ -151,6 +151,7 @@
 
                         &.email-wrapper {
                             flex-grow: 1;
+                            position: relative;
 
                             label {
                                 // position: absolute;
@@ -195,9 +196,27 @@
                                 border: var(--border-width-01) solid var(--neutrals-white);
                                 background: transparent;
 
-                                // &::placeholder {
-                                //     color: #fff;
-                                // }
+                                &::placeholder {
+                                    color: var(--neutrals-200);
+                                    font-feature-settings: var(--font-features-default);
+                                    font-family: var(--body);
+                                    font-size: var(--body-medium-regular-size);
+                                    font-weight: 400;
+                                    line-height: var(--body-medium-regular-line-height);
+                                }
+                            }
+
+                            .errormsg {
+                                position: absolute;
+                                bottom: -20px;
+                                color: #d93025;
+                                font-weight: 400;
+                                font-feature-settings: var(--font-features-default);
+                                font-style: italic;
+                                font-size: var(--paragraph-xsmall-size);
+                                line-height: var(--paragraph-xsmall-line-height);
+                                margin-top: 4px;
+                                margin-left: 5px;
                             }
                         }
 
@@ -435,7 +454,7 @@
                                 height: 16px;
                                 justify-content: center;
                                 align-items: center;
-                                
+
                                 // padding: 0 1.334px 2px 1.333px;
                             }
 
@@ -642,6 +661,7 @@
                             .field-wrapper {
                                 &.email-wrapper {
                                     flex-grow: 1;
+                                    position: relative;
 
                                     label {
                                         // position: absolute;
@@ -678,12 +698,25 @@
                                         color: #FFFFFF80;
                                         font-feature-settings: var(--font-features-default);
                                         font-family: var(--body);
-                                        font-size: rem(14px);
+                                        font-size:  var(--body-medium-regular-size);
                                         font-style: normal;
                                         font-weight: 400;
-                                        line-height: rem(20px);
+                                        line-height:var(--body-medium-regular-line-height);
                                         border-radius: rem(8px);
                                         border: 1px solid #BDBDBD;
+                                    }
+
+                                    .errormsg {
+                                        position: absolute;
+                                        bottom: -20px;
+                                        color: #d93025;
+                                        font-weight: 400;
+                                        font-feature-settings: var(--font-features-default);
+                                        font-style: italic;
+                                        font-size: var(--paragraph-xsmall-size);
+                                        line-height: var(--paragraph-xsmall-line-height);
+                                        margin-top: 4px;
+                                        margin-left: 5px;
                                     }
                                 }
 
