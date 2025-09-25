@@ -1165,6 +1165,7 @@ main {
   .sticky-item1 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     .sticky-sub-item1 {
       padding: 0;
@@ -1172,15 +1173,16 @@ main {
       margin: 0;
 
       .sticky-inner-item1 {
-        a {
-          @include font-style(
-            12px,
-            16px,
-            map.get($blue-1, b400),
-            400,
-            $poppins
+        width: 176px;
+
+         @include font-style(
+            var(--body-small-medium-size),
+            var(--body-small-medium-line-height),
+            var(--blue-1-800-primary),
+            500,
+            var(--body)
           );
-        }
+     
       }
 
       .sticky-inner-item2 {
@@ -1190,19 +1192,26 @@ main {
 
     .sticky-sub-item2 {
       display: flex;
-      width: 132px;
-      padding: 8px 12px;
+      width: 124px;
+      height: max-content;
+      padding: var(--spacing-8) var(--spacing-12);
       justify-content: center;
       align-items: center;
       gap: 8px;
       flex-shrink: 0;
-      border-radius: 4px;
-      background: #2e2a94;
+      border-radius:var(--border-radius-8);
+      background: var(--button-primary-default);
       text-align: center;
       margin: 0;
       cursor: pointer;
 
-      @include font-style(14px, 16px, $primary-white, 500, $poppins);
+      @include font-style(
+            14px,
+            16px,
+            var(--text-white),
+            500,
+            var(--body)
+          );
     }
   }
 }
