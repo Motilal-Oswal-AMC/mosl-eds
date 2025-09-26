@@ -674,6 +674,8 @@
   max-width: -moz-max-content;
   max-width: max-content;
   margin-right: -16px;
+  overflow: auto hidden;
+  scrollbar-width: none;
 }
 .section.fund-tab.tabs-container .tabs-wrapper .wrappertablist .tabs-list::-webkit-scrollbar {
   display: none;
