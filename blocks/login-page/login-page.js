@@ -1,15 +1,9 @@
 import {
   div,
   p,
-  h3,
-  img,
-  button,
   input,
   label,
   span,
-  ul,
-  li,
-  // placeholder,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
@@ -29,7 +23,7 @@ export default function decorate(block) {
       div(
         { class: 'user-input-error' },
         label({ class: 'input-lable' }, 'Enter PAN'),
-        input({ class: 'user-input' }),
+        input({ class: 'user-input', placeholder: 'Enter Pan' }),
         p({ class: 'error-login' }, 'Please enter a valid PAN'),
       ),
     ),
