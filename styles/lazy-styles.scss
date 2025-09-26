@@ -674,12 +674,13 @@
 
       .quicksubactmain1 {
         color: $blue-1-800-primary;
-        font-family: $title;
+        font-family: var(--title);
         font-weight: 600;
         font-size: var(--sub-header-large-size);
         font-style: normal;
         line-height: var(--sub-header-medium-line-height);
-        margin: 0;
+        margin-top: 0;
+        margin-bottom: 0;
       }
     }
   }
