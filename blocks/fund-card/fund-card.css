@@ -828,5 +828,8 @@
     border-radius: var(--border-radius-8);
     font-size: 14px;
     line-height: var(--button-small-line-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }/*# sourceMappingURL=fund-card.css.map */
