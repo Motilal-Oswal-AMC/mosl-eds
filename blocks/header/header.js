@@ -184,6 +184,13 @@ export default async function decorate(block) {
       if (nextel.style.display === 'block') {
         nextel.style.display = 'none';
       }
+      const headerTo = nav.querySelector('.section.header-top');
+      const dropTrigge = headerTo.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text1');
+      const dropMen = headerTo.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text2');
+      if (dropMen.classList.contains('open')) {
+        dropMen.classList.remove('open');
+        dropTrigge.classList.remove('active');
+      }
     });
 
     dropdownMenu.addEventListener('click', (event) => {
@@ -231,6 +238,26 @@ export default async function decorate(block) {
             }
           });
         }
+        //
+        const headerTop = nav.querySelector('.section.header-top');
+        const dropTrigger = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text1');
+        const dropMenu = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text2');
+        const dropdownTrigge = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
+        const dropdownMer = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
+
+        if (dropMenu.classList.contains('open')) {
+          dropMenu.classList.remove('open');
+          dropTrigger.classList.remove('active');
+        }
+        const logineventab = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
+        const nextel = logineventab.nextElementSibling;
+        if (nextel.style.display === 'block') {
+          nextel.style.display = 'none';
+        }
+        if (dropdownMer.classList.contains('open')) {
+          dropdownMer.classList.remove('open');
+          dropdownTrigge.classList.remove('active');
+        }
         if (Array.from(navSection.classList).includes('nav-sec-sub2')) {
           const navdirect = navSection.querySelector('.nav-sec-inner-text2 .sub-popup-sec1');
           Array.from(navdirect.children).forEach((element) => {
@@ -238,8 +265,6 @@ export default async function decorate(block) {
             listel.querySelectorAll('a').forEach((ael) => {
               ael.removeAttribute('href');
               ael.addEventListener('click', (event) => {
-                // localStorage.removeItem('viewmark');
-                // localStorage.removeItem('planCode');
                 let textcurr = event.currentTarget.textContent.trim();
                 dataMapMoObj.selectviewFunds = '';
                 if (Array.from(event.currentTarget.classList).length === 0) {
@@ -362,6 +387,12 @@ export default async function decorate(block) {
       const nextel = logineventab.nextElementSibling;
       if (nextel.style.display === 'block') {
         nextel.style.display = 'none';
+      }
+      const dropdownTrigge = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
+      const dropdownMer = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
+      if (dropdownMer.classList.contains('open')) {
+        dropdownMer.classList.remove('open');
+        dropdownTrigge.classList.remove('active');
       }
     });
 
