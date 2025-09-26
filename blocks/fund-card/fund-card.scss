@@ -900,6 +900,8 @@
           gap: 24px;
           max-width: max-content;
           margin-right: -16px;
+          overflow: auto hidden;
+          scrollbar-width: none;
 
           &::-webkit-scrollbar {
             display: none;
@@ -927,6 +929,10 @@
                 var(--body));
 
               border-bottom: 2px solid var(--blue-1-800-primary);
+            }
+
+            &:last-of-type{
+              padding-right: 16px;
             }
           }
         }

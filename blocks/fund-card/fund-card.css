@@ -674,6 +674,8 @@
   max-width: -moz-max-content;
   max-width: max-content;
   margin-right: -16px;
+  overflow: auto hidden;
+  scrollbar-width: none;
 }
 .section.fund-tab.tabs-container .tabs-wrapper .wrappertablist .tabs-list::-webkit-scrollbar {
   display: none;
@@ -698,6 +700,9 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
   border-bottom: 2px solid var(--blue-1-800-primary);
+}
+.section.fund-tab.tabs-container .tabs-wrapper .wrappertablist .tabs-list .tabs-tab:last-of-type {
+  padding-right: 16px;
 }
 .section.fund-tab.tabs-container .tabs-wrapper .tabs-panel {
   justify-content: flex-start;
