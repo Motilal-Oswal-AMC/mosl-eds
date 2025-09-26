@@ -778,6 +778,8 @@ export default function decorate(block) {
   let checkboxSel = '';
   let funddata;
   if (localStorage.getItem('viewmark')) {
+    const fundlast = dataMapMoObj.data.fundCategory;
+    const indiansub = fundlast[fundlast.length - 1];
     checkboxSel = localStorage.getItem('viewmark');
     dataMapMoObj.data.fundCategory.forEach((el) => {
       if (el[checkboxSel]) {
@@ -785,6 +787,11 @@ export default function decorate(block) {
       }
     });
     dataMapMoObj.data.fundType.forEach((el) => {
+      if (el[checkboxSel]) {
+        funddata = el[checkboxSel];
+      }
+    });
+    indiansub.indianEquitySub.forEach((el) => {
       if (el[checkboxSel]) {
         funddata = el[checkboxSel];
       }
@@ -1070,6 +1077,7 @@ export default function decorate(block) {
                             type: 'checkbox',
                             id: `ind${ind + 1}`,
                             dataattr: elme[Object.keys(elme)].join('-'),
+                            datakey: Object.keys(elme)[0],
                             onclick: () => {
                               if (window.innerWidth < 786) {
                                 const temp = [];
