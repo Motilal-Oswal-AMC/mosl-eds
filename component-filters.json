@@ -46,7 +46,8 @@
       "pan-valid-block",
       "invest-now-homepage",
       "fm-portfolio",
-      "login-page"
+      "login-page",
+      "login-image-item"
     ]
   },
   {
@@ -147,7 +148,6 @@
   {
     "id": "login-page",
     "components": [
-      "login-image-item",
       "login-rt-item"
     ]
   }
