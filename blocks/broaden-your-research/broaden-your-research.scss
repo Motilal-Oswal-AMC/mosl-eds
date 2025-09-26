@@ -30,7 +30,12 @@
 
     >div:first-child {
         text-align: center;
-        margin: 14px 0 40px;
+        padding: 14px 0 40px;
+        margin: 0 auto;
+
+        @include media(mobile){
+            padding: 5px 0 40px;
+        }
 
         p {
             margin: 0;
