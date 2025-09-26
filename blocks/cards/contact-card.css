@@ -1,223 +1,204 @@
 @import "../../../styles/fonts.css";
-
-.section.contact-card {
-  max-width: 1265px;
+.cards > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-gap: 24px;
+}
+.cards > ul > li img {
   width: 100%;
-  border: none;
-  margin: 0 auto;
-  background-color: #fff;
+  aspect-ratio: 4/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: url("");
+}
+.cards .cards-card-body {
+  margin: 16px 16px 16px 0;
+}
+@media (max-width: 768px) {
+  .cards .cards-card-body {
+    margin: 16px 16px 0 0;
+  }
+}
+.cards .cards-card-image {
+  line-height: 0;
+  aspect-ratio: 1/1;
+}
+@media (max-width: 768px) {
+  .cards .cards-card-image {
+    aspect-ratio: unset;
+    height: 359px;
+  }
 }
 
-.section.contact-card .default-content-wrapper {
-  width: 100%;
+.behind-the-content {
+  padding: 40px 16px;
+  text-align: center;
+  overflow: hidden;
 }
-
-.section.contact-card .default-content-wrapper h3 {
-  width: 100%;
-  margin-bottom: 40px;
-  font-size: 36px;
-  line-height: 44px;
+@media (max-width: 768px) {
+  .behind-the-content {
+    padding: unset;
+  }
+}
+.behind-the-content h1 {
+  font-family: "ButlerPro", sans-serif;
   color: #2e2a94;
-  font-family: Inter, sans-serif;
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 700;
+  line-height: 1.2;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-size: 28px;
+  margin-bottom: 8px;
+  margin-top: unset;
 }
-
-@media (width <= 768px) {
-  .section.contact-card .default-content-wrapper h3 {
-    font-size: 32px;
-    line-height: 40px;
-    margin-bottom: 24px;
+@media (max-width: 768px) {
+  .behind-the-content h1 {
+    text-align: left;
   }
 }
-
-.section.contact-card .cards-wrapper {
-  width: 100%;
+.behind-the-content p {
+  font-size: 16px;
+  color: #424242;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto 40px;
 }
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 {
-  display: flex;
-  justify-content: space-between;
-}
-
-@media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 {
-    flex-direction: column;
-    gap: 0;
+@media (max-width: 768px) {
+  .behind-the-content p {
+    color: #2E2A94;
+    line-height: 24px;
+    margin: unset;
+    text-align: center;
   }
 }
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li {
-  border: none;
+.behind-the-content .cards-wrapper {
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.behind-the-content .cards-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.behind-the-content .cards ul {
   display: flex;
   gap: 16px;
-  padding: 16px 0;
-  max-width: 344px;
+  list-style: none;
+  padding: 4px 16px 20px 16px;
+  margin: 0 -16px;
 }
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-image img {
-  max-width: 40px;
-  width: 40px;
-  height: 40px;
+@media (max-width: 768px) {
+  .behind-the-content .cards ul {
+    padding: 4px 16px 0;
+  }
 }
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body {
-  margin: 0;
+.behind-the-content .cards ul li {
+  flex: 0 0 70%;
+  border-radius: 12px;
+  text-align: left;
+  overflow: hidden;
 }
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(1) {
-  margin: 0;
-  font-size: 18px;
-  line-height: 24px;
-  color: #2e2a94;
-  font-family: Inter, sans-serif;
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+.behind-the-content .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 8px;
+}
+.behind-the-content .cards-card-body {
+  padding: 8px 16px 16px 0;
+}
+@media (max-width: 768px) {
+  .behind-the-content .cards-card-body {
+    padding: 8px 16px 0 0;
+  }
+}
+.behind-the-content .cards-card-body p:first-of-type {
   font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 4px;
+  text-align: left;
+  color: #2E2A94;
 }
-
-@media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(1) {
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 4px;
-  }
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(2) {
-  margin: 0;
+.behind-the-content .cards-card-body p:last-of-type {
   font-size: 14px;
-  line-height: 20px;
   color: #424242;
-  font-family: Inter, sans-serif;
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
+  text-align: left;
+  margin-bottom: unset;
 }
-
-@media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(2) {
-    font-size: 12px;
-    line-height: 16px;
-    margin-bottom: 4px;
+.behind-the-content .button-container {
+  margin-top: 40px;
+}
+@media (max-width: 768px) {
+  .behind-the-content .button-container {
+    margin-top: 20px;
   }
 }
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul {
-  margin: 0;
-  padding-top: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li:nth-child(1) {
-  margin: 0;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li:nth-child(1) img {
-  border-radius: 50%;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list {
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
-  font-size: 12px;
-  line-height: 18px;
-  color: #4338f3;
-  font-family: Inter, sans-serif;
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
-}
-
-@media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list {
-    color: #2e2a94;
-  }
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list img {
-  border-radius: unset;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list ul {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list ul li.contact-li2 {
-  margin: 0;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.list-elem-5, .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.list-elem-7 {
-  margin-left: 30px;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 ul li.list-elem-12 {
-  margin: 0;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 {
-  gap: 0;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li {
+.behind-the-content .button-container .button {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: #2e2a94;
+  color: #fff;
   text-decoration: none;
-  gap: 1px;
-  margin: 0;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   line-height: 20px;
-  color: #424242;
-  font-family: Inter, sans-serif;
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
-}
-
-@media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li {
-    font-size: 12px;
-    line-height: 16px;
-  }
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li span {
-  width: 40px;
-  height: 40px;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li span img {
-  border-radius: 0%;
-}
-
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li strong {
-  font-size: 14px;
-  line-height: 20px;
-  color: #4338f3;
-  font-family: Inter, sans-serif;
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: 20%;
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 16px 0;
+  margin-bottom: unset;
 }
-
-@media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li strong {
-    font-size: 12px;
-    line-height: 20px;
+@media (max-width: 768px) {
+  .behind-the-content .button-container .button {
+    margin: 16px 0;
   }
 }
+.behind-the-content .button-container .button:hover {
+  background-color: #2b2e8c;
+  transform: translateY(-2px);
+}
+
+@media (width >= 900px) {
+  .behind-the-content {
+    padding: 40px 24px 0;
+  }
+  .behind-the-content h1 {
+    color: #2E2A94;
+    text-align: center;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-feature-settings: "liga" off;
+    font-family: "ButlerPro", sans-serif;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.5rem;
+  }
+  .behind-the-content p {
+    color: #2E2A94;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    max-width: 100%;
+  }
+  .behind-the-content .cards-wrapper {
+    overflow-x: visible;
+  }
+  .behind-the-content .cards ul {
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+  }
+  .behind-the-content .cards ul li {
+    max-width: 24.1%;
+    flex: 0 0 24.1%;
+  }
+}/*# sourceMappingURL=contact-card.css.map */

@@ -2,210 +2,247 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-.section.contact-card {
-  max-width: 1265px;
-  width: 100%;
-  border: none;
-  margin: 0 auto;
-  background-color: #fff;
+.cards {
+  >ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+    grid-gap: 24px;
 
-  .default-content-wrapper {
-    width: 100%;
+    >li {
+      // border: 1px solid #dadada;
+      // background-color: var(--background-color);
 
-    h3 {
-      width: 100%;
-      margin-bottom: 40px;
-
-      @include font-style(36px, 44px, $primary-blue, 700, $inter);
-
-      @media (width <=768px) {
-        font-size: 32px;
-        line-height: 40px;
-        margin-bottom: 24px;
+      img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        background: url('');
       }
     }
   }
 
+  .cards-card-body {
+    margin: 16px 16px 16px 0;
+
+    @include media(mobile) {
+      margin: 16px 16px 0 0;
+    }
+  }
+
+  .cards-card-image {
+    line-height: 0;
+
+    // width: 296px;
+    // height: 296px;
+    aspect-ratio: 1/1;
+
+    @include media(mobile) {
+      aspect-ratio: unset;
+      height: 359px;
+    }
+  }
+}
+
+// Define the specific breakpoint for this component
+$breakpoint-desktop: 900px;
+
+// --- 1. Base styles for mobile (default) ---
+// These styles create a horizontally scrolling list on small screens.
+
+.behind-the-content {
+  padding: 40px 16px;
+  text-align: center;
+  overflow: hidden;
+
+  @include media(mobile) {
+    padding: unset;
+  }
+
+  h1 {
+    @include typography-h2;
+
+    font-size: 28px;
+    margin-bottom: map.get($spacing, xs);
+    margin-top: unset;
+
+    @include media(mobile) {
+      text-align: left;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: $color-text-body;
+    font-family: $poppins;
+    font-weight: map.get($font-weights, regular);
+    max-width: 600px;
+    margin: 0 auto 40px;
+
+    @include media(mobile) {
+      color: #2E2A94;
+      line-height: 24px;
+
+      // margin-top: 20px;
+      margin: unset;
+      text-align: center;
+    }
+  }
+
   .cards-wrapper {
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .cards ul {
+    display: flex;
+    gap: map.get($spacing, md); // 16px
+    list-style: none;
+    padding: 4px map.get($spacing, md) 20px map.get($spacing, md);
+    margin: 0 (map.get($spacing, md) * -1);
+
+    @include media(mobile) {
+      padding: 4px 16px 0;
+    }
+
+    li {
+      flex: 0 0 70%;
+
+      // background-color: $primary-white;
+      border-radius: map.get($radius, r12);
+
+      // box-shadow: $box-shadow-soft;
+      text-align: left;
+      overflow: hidden;
+    }
+  }
+
+  .cards-card-image img {
     width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 8px;
+  }
 
-    .cards {
-      ul.contact-main1 {
-        display: flex;
-        justify-content: space-between;
+  .cards-card-body {
+    // padding: map.get($spacing, md); // 16px
+    padding: 8px 16px 16px 0;
 
-        @media (width <=768px) {
-          flex-direction: column;
-          gap: 0;
-        }
+    @include media(mobile) {
+      padding: 8px 16px 0 0;
+    }
 
-        li {
-          border: none;
-          display: flex;
-          gap: 16px;
-          padding: 16px 0;
-          max-width: 344px;
+    p:first-of-type {
+      font-weight: map.get($font-weights, semibold);
+      font-size: 18px;
+      
+      // color: $primary-black;
+      margin-bottom: map.get($spacing, xxs);
+      text-align: left;
+      color: #2E2A94;
+    }
 
-          .cards-card-image {
-            img {
-              max-width: 40px;
-              width: 40px;
-              height: 40px;
-            }
-          }
+    p:last-of-type {
+      font-size: 14px;
+      color: $color-text-body;
+      text-align: left;
+      margin-bottom: unset;
+    }
+  }
 
-          .cards-card-body {
-            margin: 0;
+  .button-container {
+    // margin-top: map.get($spacing, lg); // 24px
+    margin-top: 40px;
 
-            p:nth-child(1) {
-              margin: 0;
+    @include media(mobile) {
+      margin-top: 20px;
+    }
 
-              @include font-style(18px, 24px, $primary-blue, 600, $inter);
+    .button {
+      display: inline-block;
+      padding: map.get($spacing, sm) map.get($spacing, xl);
+      background-color: map.get($button-primary, default);
+      color: $primary-white;
+      text-decoration: none;
+      font-family: $poppins;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: map.get($font-weights, medium);
+      border-radius: map.get($radius, r4);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 16px 0;
+      margin-bottom: unset;
 
-              @media (width <=768px) {
-                font-size: 16px;
-                line-height: 20px;
-                margin-bottom: 4px;
-              }
-            }
+      @include media(mobile){
+        margin: 16px 0;
+      }
 
-            p:nth-child(2) {
-              margin: 0;
-
-              @include font-style(14px, 20px, $color-text-body, 400, $inter);
-
-              @media (width <=768px) {
-                font-size: 12px;
-                line-height: 16px;
-                margin-bottom: 4px;
-              }
-            }
-
-            ul {
-              margin: 0;
-              padding-top: 8px;
-              display: flex;
-              flex-direction: column;
-              justify-content: start;
-              align-items: start;
-
-              li:nth-child(1) {
-                margin: 0;
-
-                img {
-                  border-radius: 50%;
-                }
-              }
-
-              li.common-list {
-                // margin-left: 30px;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-decoration-line: underline;
-                text-decoration-style: solid;
-                text-decoration-skip-ink: auto;
-                text-decoration-thickness: auto;
-                text-underline-offset: auto;
-                text-underline-position: from-font;
-
-                @include font-style(
-                  12px,
-                  18px,
-                  map.get($blue-1, b500),
-                  500,
-                  $inter
-                );
-
-                @media (width <=768px) {
-                  color: $primary-blue;
-                }
-
-                img {
-                  border-radius: unset;
-                }
-
-                ul {
-                  display: flex;
-                  flex-direction: row;
-                  gap: 8px;
-                  align-items: center;
-
-                  li.contact-li2 {
-                    margin: 0;
-                  }
-                }
-              }
-
-              li.list-elem-5,li.list-elem-7{
-               margin-left: 30px;
-              }
-            }
-          }
-        }
-
-        li.contact-sub2 {
-          ul {
-            li.list-elem-12 {
-              margin: 0;
-            }
-          }
-        }
-
-        li.contact-sub3 {
-          gap: 0;
-
-          .cards-card-body {
-            ul {
-              li {
-                text-decoration: none;
-                gap: 1px;
-                margin: 0;
-
-                @include font-style(14px, 20px, $color-text-body, 400, $inter);
-
-                @media (width <=768px) {
-                  font-size: 12px;
-                  line-height: 16px;
-                }
-
-                span {
-                  width: 40px;
-                  height: 40px;
-
-                  img {
-                    border-radius: 0%;
-                  }
-                }
-
-                strong {
-                  @include font-style(
-                    14px,
-                    20px,
-                    map.get($blue-1, b500),
-                    400,
-                    $inter
-                  );
-
-                  text-decoration-line: underline;
-                  text-decoration-style: solid;
-                  text-decoration-skip-ink: auto;
-                  text-decoration-thickness: auto;
-                  text-underline-offset: 20%;
-                  cursor: pointer;
-
-                  @media (width <=768px) {
-                    font-size: 12px;
-                    line-height: 20px;
-                  }
-                }
-              }
-            }
-          }
-        }
+      &:hover {
+        background-color: map.get($button-primary, hover);
+        transform: translateY(-2px);
       }
     }
   }
 }
 
+
+// --- 2. Styles for screens 900px and wider ---
+// This media query activates to create the 4-column grid layout.
+
+@media (width >=$breakpoint-desktop) {
+  .behind-the-content {
+    padding: 40px 24px 0;
+
+    // max-width: 1200px;
+    // margin: 0 auto;
+
+    h1 {
+      color: #2E2A94;
+      text-align: center;
+      font-variant-numeric: lining-nums proportional-nums;
+      font-feature-settings: 'liga' off;
+      font-family: $butlerpro;
+      font-size: rem(48px);
+      font-style: normal;
+      font-weight: 700;
+      line-height: rem(56px);
+    }
+
+    p {
+      color: #2E2A94;
+      text-align: center;
+      font-family: $poppins;
+      font-size: rem(16px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: rem(24px);
+      max-width: 100%;
+    }
+
+    .cards-wrapper {
+      overflow-x: visible;
+    }
+
+    .cards ul {
+      display: flex;
+      grid-template-columns: repeat(4, 1fr); // Switch to 4 columns
+      gap: map.get($spacing, md); // 16px
+      padding: 0;
+      margin: 0;
+
+      li {
+        max-width: 24.1%;
+        flex: 0 0 24.1%;
+      }
+    }
+  }
+}
