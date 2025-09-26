@@ -868,13 +868,11 @@
       // max-width: 100%;
 
       h1 {
-        @include font-style(
-          $size: var(--heading-h4-size),
+        @include font-style($size: var(--heading-h4-size),
           $line-height: var(--heading-h4-line-height),
           $color: var(--blue-1-800-primary),
           $weight: 600,
-          $family: var(--title)
-        );
+          $family: var(--title));
 
         margin: 0 0 20px;
 
@@ -912,22 +910,18 @@
             padding: var(--spacing-11) var(--spacing-none);
             cursor: pointer;
 
-            @include font-style(
-              $size: var(--body-small-regular-size),
+            @include font-style($size: var(--body-small-regular-size),
               $line-height: var(--body-small-regular-line-height),
               $color: var(--neutrals-700),
               $weight: 400,
-              $family: var(--body)
-            );
+              $family: var(--body));
 
             &[aria-selected="true"] {
-              @include font-style(
-                $size: var(--body-small-semibold-size),
+              @include font-style($size: var(--body-small-semibold-size),
                 $line-height: var(--body-small-semibold-line-height),
                 $color: var(--blue-1-800-primary),
                 $weight: 600,
-                $family: var(--body)
-              );
+                $family: var(--body));
 
               border-bottom: 2px solid var(--blue-1-800-primary);
             }
@@ -980,13 +974,11 @@
         background-color: transparent;
         padding: var(--spacing-8) var(--spacing-12);
 
-        @include font-style(
-          $size: var(--button-small-size),
+        @include font-style($size: var(--button-small-size),
           $line-height: var(--button-small-line-height),
           $color: var(--text-button-default),
           $weight: 500,
-          $family: var(--body)
-        );
+          $family: var(--body));
 
         text-decoration: none;
         display: block;
