@@ -626,6 +626,7 @@
   .section.fund-tab.tabs-container .btnmob a {
     font-size: 14px;
     line-height: 16px;
+    height: 32px;
   }
 }
 @media (max-width: 768px) {
