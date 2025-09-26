@@ -6,7 +6,7 @@
 }
 @media (max-width: 768px) {
   .section.live-streaming-carousel-container {
-    padding: var(--spacing-16);
+    margin: var(--spacing-16);
   }
 }
 .section.live-streaming-carousel-container .default-content-wrapper {
