@@ -137,7 +137,7 @@
 
             @include media(mobile) {
               gap: 24px;
-              padding: 12px 16px;
+              padding: 24px 16px 16px;
             }
 
             .search-bar-wrapper {
@@ -724,6 +724,10 @@
               gap: 24px;
               margin-top: -4px;
 
+              @include media(mobile){
+                margin: 0;
+              }
+
               .invested-amount {
                 display: flex;
                 align-items: flex-start;
@@ -940,6 +944,7 @@
             @include media(mobile) {
               text-align: center;
               padding-bottom: 24px;
+              padding-top: 0;
             }
 
             .view-othercal-btn {
