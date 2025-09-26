@@ -111,7 +111,11 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-.performance-graph {
+// .section.performance-graph-container{
+//   margin-top: 0;
+
+//   .performance-graph-wrapper{
+  .performance-graph {
   padding-top: 22px;
   display: flex;
   flex-direction: column;
@@ -267,6 +271,8 @@
     box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   }
 }
+// }
+// }
 
 /* -----------------------------------
    Accessibility Media Queries

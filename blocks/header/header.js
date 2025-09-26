@@ -244,7 +244,7 @@ export default async function decorate(block) {
                 dataMapMoObj.selectviewFunds = '';
                 if (Array.from(event.currentTarget.classList).length === 0) {
                   dataCfObj.forEach((datael) => {
-                    if (datael.schDetail.schemeName === `Motilal Oswal ${textcurr}`) {
+                    if (datael.schDetail.schemeName === textcurr) {
                       dataMapMoObj.selectviewFunds = datael.schcode;
                     }
                   });
