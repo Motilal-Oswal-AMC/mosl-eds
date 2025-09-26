@@ -127,12 +127,12 @@
 .section.risk-o-meter-container > .default-content-wrapper h3.defone1 {
   margin: 0;
   padding: 0;
-  font-size: var(--body-large-semibold-size);
-  line-height: var(--body-large-semibold-line-height);
-  color: var(--neutrals-800);
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
+  color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container > .default-content-wrapper h3.defone1 {
@@ -141,12 +141,12 @@
   }
 }
 .section.risk-o-meter-container > .default-content-wrapper h3.defone1 a {
-  font-size: var(--body-large-semibold-size);
-  line-height: var(--body-large-semibold-line-height);
-  color: var(--blue-1-400);
+  font-size: var(--body-medium-medium-size);
+  line-height: var(--body-medium-medium-line-height);
+  color: var(--blue-1-300);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container > .default-content-wrapper h3.defone1 a {
@@ -174,7 +174,7 @@
   line-height: 20px;
   font-size: var(--body-small-regular-size);
   line-height: var(--label-large-line-height);
-  color: var(--neutrals-800);
+  color: var(--neutrals-black);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
@@ -186,9 +186,9 @@
   }
 }
 .section.risk-o-meter-container > .default-content-wrapper p.defone3 {
-  font-size: var(--body-small-regular-size);
-  line-height: var(--label-large-line-height);
-  color: var(--neutrals-800);
+  font-size: var(--disclaimer-xsmall-size);
+  line-height: var(--disclaimer-xsmall-line-height);
+  color: var(--neutrals-black);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
@@ -203,7 +203,7 @@
 .section.risk-o-meter-container > .default-content-wrapper p.defone3 a.deftwo1 {
   font-size: var(--body-small-regular-size);
   line-height: var(--label-large-line-height);
-  color: var(--blue-1-400);
+  color: var(--icon-error);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;

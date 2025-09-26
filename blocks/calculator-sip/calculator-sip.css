@@ -850,6 +850,7 @@
 @media (max-width: 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn {
     width: 100%;
+    height: 40px;
     margin: 0;
     font-size: var(--button-medium-size);
     line-height: var(--button-medium-line-height);
