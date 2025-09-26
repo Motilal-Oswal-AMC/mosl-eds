@@ -1,0 +1,258 @@
+@import "../../../styles/fonts.css";
+.section.login-page-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 84px 208px;
+  gap: 16px;
+  background-color: var(--surface-background);
+}
+@media (max-width: 768px) {
+  .section.login-page-container {
+    display: flex;
+    padding: var(--spacing-28) var(--spacing-20) var(--spacing-40) var(--spacing-20);
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+  }
+}
+.section.login-page-container .login-image-item-wrapper {
+  max-width: 504px;
+  width: 100%;
+}
+.section.login-page-container .login-image-item-wrapper .login-image-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+.section.login-page-container .login-image-item-wrapper .login-image-item .login-image-item1 .comlist.login-image-inner-item1 {
+  max-width: 504px;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: var(--heading-h5-size);
+  line-height: var(--heading-h5-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--title);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-image-item-wrapper .login-image-item .login-image-item1 .comlist.login-image-inner-item1 {
+    font-size: var(--sub-header-large-size);
+    line-height: 28px;
+  }
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-image-item-wrapper .login-image-item .login-image-item2 {
+    display: none;
+  }
+}
+.section.login-page-container .login-image-item-wrapper .login-image-item .login-image-item2 .login-image-sub-item1 {
+  padding: 0 17.5px;
+}
+.section.login-page-container .login-image-item-wrapper .login-image-item .login-image-item2 .login-image-sub-item1 img {
+  max-width: 496px;
+  width: 100%;
+  max-height: 264px;
+  height: 100%;
+}
+.section.login-page-container .login-page-wrapper {
+  display: flex;
+  max-width: 504px;
+  width: 100%;
+  padding: var(--spacing-24);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-56);
+  flex-shrink: 0;
+  border-radius: var(--border-radius-16);
+  border: 1px solid #b9bbff;
+  background: var(--surface-background, #fff);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-page-wrapper {
+    padding: 20px;
+  }
+}
+.section.login-page-container .login-page-wrapper .main-login-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-56);
+}
+.section.login-page-container .login-page-wrapper .main-login-page .login-pan-label {
+  display: flex;
+  padding: var(--spacing-none);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-28);
+  align-self: stretch;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .login-pan-label .user-pan-para {
+  font-style: normal;
+  font-size: var(--sub-header-medium-size);
+  line-height: var(--sub-header-medium-line-height);
+  color: var(--text-black);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-page-wrapper .main-login-page .login-pan-label .user-pan-para {
+    font-size: var(--paragraph-large-size);
+    line-height: var(--paragraph-medium-line-height);
+  }
+}
+.section.login-page-container .login-page-wrapper .main-login-page .login-pan-label .user-input-error {
+  width: 100%;
+  position: relative;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .login-pan-label .user-input-error .input-lable {
+  overflow: hidden;
+  font-style: normal;
+  position: absolute;
+  top: -6px;
+  left: 11px;
+  background: #fff;
+  font-size: var(--label-small-size);
+  line-height: var(--label-small-line-height);
+  color: var(--text-body);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .login-pan-label .user-input-error .user-input {
+  width: 100%;
+  display: flex;
+  padding: var(--spacing-8) var(--spacing-12);
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: var(--border-radius-8);
+  border: var(--border-width-01) solid var(--strokes-default);
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--text-typed-input);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .login-pan-label .user-input-error .error-login {
+  font-style: normal;
+  position: absolute;
+  top: 32px;
+  font-size: var(--paragraph-xsmall-size);
+  line-height: var(--paragraph-xsmall-line-height);
+  color: var(--text-error);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .btn-descr {
+  display: flex;
+  padding: var(--spacing-none);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-20);
+  align-self: stretch;
+  border-radius: var(--border-radius-none);
+}
+.section.login-page-container .login-page-wrapper .main-login-page .btn-descr .auth.btn {
+  cursor: pointer;
+  display: flex;
+  height: 44px;
+  padding: var(--spacing-12);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-8);
+  align-self: stretch;
+  border-radius: var(--border-radius-8);
+  background: var(--button-primary-default);
+  margin: 0;
+  text-align: center;
+  font-style: normal;
+  font-size: var(--button-medium-size);
+  line-height: var(--button-medium-line-height);
+  color: var(--text-white);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .btn-descr .discr-new-invester {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .btn-descr .discr-new-invester .discr {
+  font-style: normal;
+  margin: 0;
+  font-size: var(--disclaimer-xsmall-size);
+  line-height: var(--disclaimer-xsmall-line-height);
+  color: var(--text-disclaimer);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-page-wrapper .main-login-page .btn-descr .discr-new-invester .discr {
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
+  }
+}
+.section.login-page-container .login-page-wrapper .main-login-page .btn-descr .discr-new-invester .discr .terms-disc {
+  cursor: pointer;
+  font-style: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: 20%;
+  text-underline-position: from-font;
+  margin: 0 5px;
+  font-size: var(--text-link-xsmall-size);
+  line-height: var(--text-link-xsmall-line-height);
+  color: var(--text-text-link);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .btn-descr .discr-new-invester .new-invest {
+  margin: 0;
+  font-style: normal;
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--text-black);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-page-wrapper .main-login-page .btn-descr .discr-new-invester .new-invest {
+    font-size: var(--paragraph-small-size);
+    line-height: var(--paragraph-small-line-height);
+  }
+}
+.section.login-page-container .login-page-wrapper .main-login-page .btn-descr .discr-new-invester .new-invest .new-invest-disc {
+  cursor: pointer;
+  font-style: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: 20%;
+  text-underline-position: from-font;
+  margin: 0 5px;
+  font-size: var(--text-link-xsmall-size);
+  line-height: var(--text-link-xsmall-line-height);
+  color: var(--text-text-link);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}/*# sourceMappingURL=login-page.css.map */
