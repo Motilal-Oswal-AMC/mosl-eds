@@ -585,7 +585,7 @@
                         var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
                         var(--blue-1-800-primary),
-                        map.get($font-weights, regular),
+                        map.get($font-weights, medium),
                         var(--body)
                       );
 
@@ -602,7 +602,7 @@
                         var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
                         var(--blue-1-800-primary),
-                        map.get($font-weights, regular),
+                        map.get($font-weights, medium),
                         var(--body)
                       );
 
