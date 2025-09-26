@@ -724,6 +724,10 @@
               gap: 24px;
               margin-top: -4px;
 
+              @include media(mobile) {
+                margin-top: 0px;
+              }
+
               .invested-amount {
                 display: flex;
                 align-items: flex-start;
