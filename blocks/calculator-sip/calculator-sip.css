@@ -147,7 +147,7 @@
 @media (max-width: 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container {
     gap: 24px;
-    padding: 12px 16px;
+    padding: 24px 16px 16px;
   }
 }
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper {
@@ -665,7 +665,7 @@
 }
 @media (max-width: 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper {
-    margin-top: 0px;
+    margin: 0;
   }
 }
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount {
@@ -850,6 +850,7 @@
 @media (max-width: 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn {
     width: 100%;
+    height: 40px;
     margin: 0;
     font-size: var(--button-medium-size);
     line-height: var(--button-medium-line-height);
@@ -878,6 +879,7 @@
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal {
     text-align: center;
     padding-bottom: 24px;
+    padding-top: 0;
   }
 }
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal .view-othercal-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal .view-othercal-btn {
