@@ -356,7 +356,7 @@
 
               // top: 18px;
               top: 100%;
-              left: 0;
+              left: 12px;
               z-index: 2;
               width: 143px;
 
@@ -370,7 +370,7 @@
 
               @include media(mobile) {
                 width: 168px;
-                left: unset;
+                left: 12px;
                 right: 0;
               }
 
@@ -384,10 +384,10 @@
                 border-radius: 0 6px 6px 0;
               }
 
-              &::-webkit-scrollbar-thumb {
-                width: 3px;
-                background-color: #464343;
-              }
+              // &::-webkit-scrollbar-thumb {
+              //   width: 3px;
+              //   background-color: #464343;
+              // }
 
               &.dropdown-active {
                 display: block;
@@ -395,8 +395,8 @@
 
               li {
                 @include font-style(
-                  var(--body-small-regular-size),
-                  var(--label-large-line-height),
+                  var(--paragraph-xsmall-size),
+                  var(--paragraph-xsmall-line-height),
                   var(--neutrals-black),
                   400,
                   var(--body)
