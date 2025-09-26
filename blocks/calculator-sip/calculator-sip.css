@@ -147,7 +147,7 @@
 @media (max-width: 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container {
     gap: 24px;
-    padding: 12px 16px;
+    padding: 24px 16px;
   }
 }
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper {
