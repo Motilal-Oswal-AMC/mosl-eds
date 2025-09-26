@@ -47,7 +47,8 @@
       "invest-now-homepage",
       "fm-portfolio",
       "start-building",
-      "our-experts"
+      "our-experts",
+      "popular-article"
     ]
   },
   {
@@ -143,6 +144,12 @@
       "our-fund-block-item",
       "our-fund-left-item",
       "our-fund-right-item"
+    ]
+  },
+  {
+    "id": "popular-article",
+    "components": [
+      "popular-article-item"
     ]
   }
 ]
