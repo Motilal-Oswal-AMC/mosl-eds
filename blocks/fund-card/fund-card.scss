@@ -117,13 +117,11 @@
         // }
 
         .fund-name-title {
-          @include font-style(
-            $size: var(--body-medium-semibold-size),
+          @include font-style($size: var(--body-medium-semibold-size),
             $line-height: var(--body-medium-semibold-line-height),
             $color: var(--neutrals-black),
             $weight: 600,
-            $family: var(--body)
-          );
+            $family: var(--body));
 
           min-height: 40px;
           margin: 0;
@@ -165,13 +163,11 @@
         flex-wrap: wrap;
 
         &-name {
-          @include font-style(
-            $size: var(--body-xsmall-regular-size),
+          @include font-style($size: var(--body-xsmall-regular-size),
             $line-height: var(--body-xsmall-regular-line-height),
             $color: var(--text-body-2),
             $weight: 400,
-            $family: var(--body)
-          );
+            $family: var(--body));
           @include flex-center($align: center, $justify: flex-start);
 
           gap: 8px;
@@ -272,13 +268,11 @@
         line-height: 0;
 
         .cagr-txt {
-          @include font-style(
-            $size: var(--body-xsmall-regular-size),
+          @include font-style($size: var(--body-xsmall-regular-size),
             $line-height: var(--body-xsmall-regular-line-height),
             $color: var(--text-body),
             $weight: 400,
-            $family: var(--body)
-          );
+            $family: var(--body));
 
           @include media(mobile) {
             font-size: var(--body-xsmall-regular-size);
@@ -318,13 +312,11 @@
           // }
 
           .selectedtext {
-            @include font-style(
-              var(--body-xsmall-medium-size),
+            @include font-style(var(--body-xsmall-medium-size),
               var(--body-xsmall-medium-line-height),
               var(--blue-1-800-primary),
               500,
-              var(--body)
-            );
+              var(--body));
 
             margin: 0;
             cursor: pointer;
@@ -366,8 +358,9 @@
 
             @include media(mobile) {
               width: 168px;
-              left: unset;
+              left: 12px;
               right: 0;
+              margin-top: unset;
             }
 
             &::-webkit-scrollbar {
@@ -382,7 +375,7 @@
 
             &::-webkit-scrollbar-thumb {
               width: 3px;
-              background-color: #464343;
+              // background-color: #464343;
             }
 
             &.dropdown-active {
@@ -395,9 +388,9 @@
               padding: 12px;
               cursor: pointer;
 
-              @include media(mobile){
-                font-size: var(--body-small-regular-size);
-                line-height: var(--label-large-line-height);
+              @include media(mobile) {
+                font-size: var(--paragraph-xsmall-size);
+                line-height: var(--paragraph-xsmall-line-height);
               }
 
               &:last-of-type {
@@ -408,13 +401,11 @@
         }
 
         .cagr-date {
-          @include font-style(
-            $size: 12px,
+          @include font-style($size: 12px,
             $line-height: 14px,
             $color: var(--blue-1-800-primary),
             $weight: 500,
-            $family: $inter
-          );
+            $family: $inter );
 
           margin: 0;
           padding: 0;
@@ -428,35 +419,29 @@
         line-height: 0;
 
         .cagr-val-label {
-          @include font-style(
-            $size: var(--sub-header-large-size),
+          @include font-style($size: var(--sub-header-large-size),
             $line-height: var(--sub-header-large-line-height),
             $color: var(--blue-1-800-primary),
             $weight: 500,
-            $family: var(--body)
-          );
+            $family: var(--body));
 
           margin: 0;
 
           @include media(mobile) {
-            @include font-style(
-              $size: 24px,
+            @include font-style($size: 24px,
               $line-height: 28px,
               $color: var(--blue-1-800-primary),
               $weight: 600,
-              $family: var(--title)
-            );
+              $family: var(--title));
           }
         }
 
         .scheme-yet {
-          @include font-style(
-            $size: 12px,
+          @include font-style($size: 12px,
             $line-height: 16px,
             $color: map.get($dark-liver, 500),
             $weight: 400,
-            $family: $poppins
-          );
+            $family: $poppins );
 
           text-align: right;
           margin: 0;
@@ -472,13 +457,11 @@
         width: 100%;
 
         .cagr-desc-text {
-          @include font-style(
-            $size: 11px,
+          @include font-style($size: 11px,
             $line-height: 15px,
             $color: $primary-blue,
             $weight: 400,
-            $family: $poppins
-          );
+            $family: $poppins );
 
           // padding: 8px 0;
           display: block;
@@ -513,26 +496,22 @@
       }
 
       .risk-label {
-        @include font-style(
-          $size: 12px,
+        @include font-style($size: 12px,
           $line-height: 16px,
           $color: map.get($dark-liver, 500),
           $weight: 400,
-          $family: $poppins
-        );
+          $family: $poppins );
 
         margin: 0;
         padding: 0;
       }
 
       .risk-text {
-        @include font-style(
-          $size: 12px,
+        @include font-style($size: 12px,
           $line-height: 16px,
           $color: $primary-blue,
           $weight: 500,
-          $family: $poppins
-        );
+          $family: $poppins );
         @include flex-center($align: center, $justify: flex-start);
 
         gap: 4px;
@@ -574,13 +553,11 @@
           }
 
           .investor-txt {
-            @include font-style(
-              $size: var(--body-xsmall-medium-size),
+            @include font-style($size: var(--body-xsmall-medium-size),
               $line-height: var(--body-xsmall-medium-line-height),
               $color: var(--text-body-2),
               $weight: 500,
-              $family: var(--body)
-            );
+              $family: var(--body));
 
             @include media(mobile) {
               font-size: var(--body-xsmall-medium-size);
@@ -627,13 +604,11 @@
           cursor: pointer;
           text-align: center;
 
-          @include font-style(
-            $size: var(--button-small-size),
+          @include font-style($size: var(--button-small-size),
             $line-height: var(--button-small-line-height),
             $color: var(--text-text-link),
             $weight: 500,
-            $family: var(--body)
-          );
+            $family: var(--body));
 
           @include media(mobile) {
             font-size: var(--text-link-small-size);
@@ -650,13 +625,11 @@
           padding: var(--spacing-8) var(--spacing-12);
           text-align: center;
 
-          @include font-style(
-            $size: var(--button-small-size),
+          @include font-style($size: var(--button-small-size),
             $line-height: var(--button-small-line-height),
             $color: var(--text-white),
             $weight: 500,
-            $family: var(--body)
-          );
+            $family: var(--body));
 
           @include media(mobile) {
             font-size: 14px;
@@ -683,13 +656,11 @@
       // max-width: 100%;
 
       h1 {
-        @include font-style(
-          $size: var(--heading-h4-size),
+        @include font-style($size: var(--heading-h4-size),
           $line-height: var(--heading-h4-line-height),
           $color: var(--blue-1-800-primary),
           $weight: 600,
-          $family: var(--title)
-        );
+          $family: var(--title));
 
         margin: 0 0 20px;
 
@@ -727,22 +698,18 @@
             padding: var(--spacing-11) var(--spacing-none);
             cursor: pointer;
 
-            @include font-style(
-              $size: var(--body-small-regular-size),
+            @include font-style($size: var(--body-small-regular-size),
               $line-height: var(--body-small-regular-line-height),
               $color: var(--neutrals-700),
               $weight: 400,
-              $family: var(--body)
-            );
+              $family: var(--body));
 
             &[aria-selected="true"] {
-              @include font-style(
-                $size: var(--body-small-semibold-size),
+              @include font-style($size: var(--body-small-semibold-size),
                 $line-height: var(--body-small-semibold-line-height),
                 $color: var(--blue-1-800-primary),
                 $weight: 600,
-                $family: var(--body)
-              );
+                $family: var(--body));
 
               border-bottom: 2px solid var(--blue-1-800-primary);
             }
@@ -795,13 +762,11 @@
         background-color: transparent;
         padding: var(--spacing-8) var(--spacing-12);
 
-        @include font-style(
-          $size: var(--button-small-size),
+        @include font-style($size: var(--button-small-size),
           $line-height: var(--button-small-line-height),
           $color: var(--text-button-default),
           $weight: 500,
-          $family: var(--body)
-        );
+          $family: var(--body));
 
         text-decoration: none;
         display: block;

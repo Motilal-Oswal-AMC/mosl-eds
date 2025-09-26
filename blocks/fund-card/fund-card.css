@@ -248,8 +248,9 @@
 @media (max-width: 768px) {
   .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list {
     width: 168px;
-    left: unset;
+    left: 12px;
     right: 0;
+    margin-top: unset;
   }
 }
 .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list::-webkit-scrollbar {
@@ -262,7 +263,6 @@
 }
 .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list::-webkit-scrollbar-thumb {
   width: 3px;
-  background-color: #464343;
 }
 .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list.dropdown-active {
   display: block;
@@ -279,8 +279,8 @@
 }
 @media (max-width: 768px) {
   .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list li {
-    font-size: var(--body-small-regular-size);
-    line-height: var(--label-large-line-height);
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
   }
 }
 .section .card-container .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list li:last-of-type {
