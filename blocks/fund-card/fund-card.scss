@@ -930,6 +930,10 @@
 
               border-bottom: 2px solid var(--blue-1-800-primary);
             }
+
+            &:last-of-type{
+              padding-right: 16px;
+            }
           }
         }
       }

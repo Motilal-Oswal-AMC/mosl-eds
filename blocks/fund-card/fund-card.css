@@ -701,6 +701,9 @@
   font-weight: 600;
   border-bottom: 2px solid var(--blue-1-800-primary);
 }
+.section.fund-tab.tabs-container .tabs-wrapper .wrappertablist .tabs-list .tabs-tab:last-of-type {
+  padding-right: 16px;
+}
 .section.fund-tab.tabs-container .tabs-wrapper .tabs-panel {
   justify-content: flex-start;
   align-items: stretch;
