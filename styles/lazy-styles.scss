@@ -295,6 +295,7 @@
 
             &>li.cards-list-1-cards2 {
               margin-bottom: 4px;
+
               // min-height: 48px;
 
               p {
@@ -673,11 +674,12 @@
 
       .quicksubactmain1 {
         color: $blue-1-800-primary;
-        font-family: $title, sans-serif;
+        font-family: $title;
         font-weight: 600;
         font-size: var(--sub-header-large-size);
         font-style: normal;
         line-height: var(--sub-header-medium-line-height);
+        margin: 0;
       }
     }
   }
