@@ -1,8 +1,6 @@
 /*   alpha-value-notation */
-
 /* media-feature-range-notation */
 @import "../../../styles/fonts.css";
-
 main {
   background-color: #fff;
 }
@@ -10,19 +8,16 @@ main {
 .section.growth-now-container {
   margin: 0;
   background-color: #fff;
-  padding: 40px 0 50px;
+  padding: 40px 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container {
     padding: 40px 0;
   }
 }
-
 .section.growth-now-container img {
   height: 100%;
 }
-
 .section.growth-now-container .growth-now {
   display: flex;
   padding: 32px;
@@ -32,65 +27,55 @@ main {
   background: #2E2A94;
   height: 160px;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .section.growth-now-container .growth-now {
     gap: 15px;
   }
 }
-
-@media (width <= 1025px) {
+@media (max-width: 1025px) {
   .section.growth-now-container .growth-now {
     height: 100%;
     align-items: flex-start;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now {
     flex-direction: column;
     position: relative;
-    padding: 16px;
+    padding: 24px;
     overflow: hidden;
   }
 }
-
-@media (width <= 1025px) {
+@media (max-width: 1025px) {
   .section.growth-now-container .growth-now .growth-now-row-1 {
     gap: 10px;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .growth-now-row-1 {
     width: 100%;
   }
 }
-
-@media (width <= 1025px) {
+@media (max-width: 1025px) {
   .section.growth-now-container .growth-now .growth-now-row-2 {
     gap: 10px;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container {
   display: flex;
   align-items: center;
   gap: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container {
     flex-direction: column;
     align-items: flex-start;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-1 {
   padding-right: 21px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-1 {
     padding: 0;
     order: 3;
@@ -98,15 +83,13 @@ main {
     bottom: -1px;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-1 img {
   width: 109px;
   height: 160px;
   flex-shrink: 0;
   margin-bottom: -12px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-1 img {
     width: 142px;
     height: 173px;
@@ -117,30 +100,22 @@ main {
        object-position: bottom;
   }
 }
-
-.section.growth-now-container .growth-now .fund-us-container .fund-sec-2 {
-  display: none;
-}
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 {
   padding-left: 8px;
-  padding-right: 54px;
+  padding-right: 32px;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 {
     padding: 0;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 {
     padding: 0;
     padding-bottom: 16px;
     order: 1;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
   max-inline-size: 11ch;
   text-wrap: balance;
@@ -151,39 +126,34 @@ main {
   font-size: 28px;
   line-height: 32px;
   color: #fff;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
-
 @media (width <= 1279px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
     white-space: inherit;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
     font-size: 24px;
     line-height: 28px;
     color: #fff;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 {
-  padding-right: 62px;
+  padding-right: 37px;
 }
-
-@media (width <= 1299px) {
+@media (max-width: 1299px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 {
     padding: 0;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 {
     display: block;
     padding: 0;
@@ -192,31 +162,26 @@ main {
     padding-bottom: 32px;
     z-index: 2;
   }
-
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 .button-container {
     margin: 0;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 12px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form {
     flex-direction: column;
     align-items: flex-start;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form .fieldset-wrapper {
     width: 100%;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset {
   width: 228px;
   height: 40px;
@@ -227,18 +192,15 @@ main {
   border-radius: 6px;
   border: unset;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset {
     width: 100%;
     padding: unset;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .field-wrapper {
   line-height: normal;
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .select-wrapper {
   display: flex;
   align-items: center;
@@ -249,7 +211,6 @@ main {
   width: 112px;
   height: 40px;
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .select-wrapper::before {
   content: "";
   display: inline-block;
@@ -257,7 +218,6 @@ main {
   height: 20px;
   background: url("../../icons/national-flag.svg"), no-repeat, center, center;
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata.field-wrapper {
   width: 188px;
   height: 40px;
@@ -267,19 +227,18 @@ main {
   align-items: center;
   padding: 10px 12px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata.field-wrapper {
     width: 100%;
+    max-width: 176px;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
   background: transparent;
   border: none;
   color: #fff;
   text-align: center;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -289,35 +248,31 @@ main {
           appearance: auto;
   padding-right: 4px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
     font-size: 16px;
     line-height: 20px;
     color: #fff;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select option {
   color: #fff;
   background-color: #111;
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select option:checked {
   color: #fff;
   background-color: #111;
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input {
   width: 100%;
   min-width: 111px;
   background: transparent;
   box-shadow: none;
   color: #fff;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -328,34 +283,29 @@ main {
   border: none;
   text-align: left;
 }
-
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::-moz-placeholder {
+  color: #fff;
+}
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
   color: #fff;
 }
-
-.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
-  color: #fff;
-}
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input {
     font-size: 16px;
     line-height: 20px;
     color: #fff;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form .submit-wrapper {
     width: 100%;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form .submit-wrapper .button {
-  width: 112px;
+  width: 123px;
   display: flex;
   padding: 12px;
   justify-content: center;
@@ -364,7 +314,7 @@ main {
   border-radius: 8px;
   background: #FFF;
   color: #2e2a94;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -372,36 +322,31 @@ main {
   margin: 0;
   height: 40px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form .submit-wrapper .button {
     width: 100% !important;
     color: #2e2a94;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 {
   display: flex;
   align-items: center;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 {
     width: 100%;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-1 {
   padding-right: 44px;
   margin-bottom: -25px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-1 {
     padding: 0;
     margin: 0;
@@ -414,37 +359,32 @@ main {
     height: max-content;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-1 img {
   width: 100%;
   height: 100%;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-1 img {
     width: 45px;
     height: auto;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-2 {
-  display: block;
+  display: flex;
   padding-right: 18px;
-  height: 100%;
+  height: 84px;
+  width: 102px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-2 {
     padding: 0;
     display: none;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 {
   padding: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 {
     display: flex;
     justify-content: flex-end;
@@ -453,7 +393,6 @@ main {
     padding-top: 68px;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child {
   list-style: none;
   margin: 0;
@@ -462,125 +401,112 @@ main {
   flex-direction: column;
   gap: 9px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child {
     gap: 12px;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist {
   display: flex;
   align-items: flex-start;
   gap: 8px;
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr1:first-child {
   color: #fff;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
   cursor: pointer;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr1:first-child {
     font-size: 12px;
     line-height: 16px;
     color: #fff;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) {
   color: #FFF;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
   cursor: pointer;
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a {
   color: #fff;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
   cursor: pointer;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a {
     font-size: 14px;
     line-height: 16px;
     color: #fff;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a:hover {
   text-decoration-line: underline;
   opacity: 1 !important;
   color: #fff;
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist .icon {
   width: 21px;
   height: 24px;
 }
-
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-4 {
   display: none;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container.homepage-growth .growth-now {
-    gap: 32px;
+    gap: 47px;
   }
 }
-
 .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-1 {
   padding-right: 11px;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-1 {
     padding: 0;
   }
 }
-
-.section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-3 {
-  padding-right: 28px;
-}
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-3 {
     padding-right: 0;
   }
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-4 {
     display: block;
     padding: 0;
   }
 }
-
 .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-4 .submit-wrapper .button {
-  width: 112px;
+  width: 123px;
 }
+.section.growth-now-container.homepage-growth .growth-now .growth-now-row-2 .fund-sec-1 {
+  margin-right: 25px;
+}
+@media (max-width: 768px) {
+  .section.growth-now-container.homepage-growth .growth-now .growth-now-row-2 .fund-sec-1 {
+    margin-right: unset;
+  }
+}/*# sourceMappingURL=growth-now.css.map */

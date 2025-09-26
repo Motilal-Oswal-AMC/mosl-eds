@@ -82,8 +82,8 @@ export default function decorate(block) {
   function planGrpEvent(param) {
     const tempReturnsec = [];
     const returnValue = [];
-    const valueText = param.target.textContent.trim();
-    const planType = valueText.replace(' |', '');
+    // const valueText = param.target.textContent.trim();
+    // const planType = valueText.replace(' |', '');
     const plangrp = DirectPlanlistArr.filter((el) => el.groupedCode === param.target.getAttribute('datacode'));
 
     cfObj[0].returns.forEach((ret) => {

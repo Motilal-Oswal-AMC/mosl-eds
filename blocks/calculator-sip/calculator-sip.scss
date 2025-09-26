@@ -56,10 +56,14 @@
         }
 
         .hero-image {
+          p {
+            margin: unset;
+          }
+
           .icon-analytics {
             flex: 0 0 auto;
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             flex-shrink: 0;
           }
         }
@@ -118,6 +122,8 @@
         .calculator-sip {
           @include media(mobile) {
             align-self: stretch;
+            background-color: var(--neutrals-white);
+            border-radius: 8px;
           }
 
           .cal-container {
@@ -126,21 +132,24 @@
             align-self: stretch;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
             padding: 24px;
 
             @include media(mobile) {
               gap: 24px;
+              padding: 12px 16px;
             }
 
             .search-bar-wrapper {
               display: flex;
               flex-direction: column;
               position: relative;
-              gap: 6px;
+
+              // gap: map.get($spacing, xs);
 
               .search-bar-label {
                 text-align: left;
+                margin-bottom: 6px;
 
                 @include font-style(
                   var(--disclaimer-xsmall-size),
@@ -166,17 +175,20 @@
                 );
 
                 width: 100%;
-                background: url("../../icons/search-icon.svg") no-repeat left 0 center;
-                background-size: 20px 20px;
+                color: $blue-1-800-primary;
+                font-family: $body;
+                font-size:  map.get($typography-desktop, body-medium-medium-size);
+                font-weight: 500;
+                line-height:  map.get($typography-desktop, body-medium-medium-line-height);
                 border: none;
                 border-bottom: 1px solid var(--neutrals-400);
                 padding-bottom: 8px;
                 outline: none;
-                padding-left: 24px;
                 border-radius: unset;
 
                 @include media(mobile) {
                   padding-right: 40px;
+                  padding-bottom: 10px;
                   font-size: var(--body-medium-medium-size);
                   line-height: var(--body-medium-medium-line-height);
                 }
@@ -186,13 +198,33 @@
                 }
               }
 
-              .cancel-btn {
-                height: 20px;
-                width: 20px;
+              .cancel-search-wrap{
                 position: absolute;
                 right: 13px;
                 bottom: 8px;
-                cursor: pointer;
+                height: 20px;
+                width: 20px;
+
+                .cancel-btn,
+                .search-btn {
+                  height: 100%;
+                  width: 100%;
+                  cursor: pointer;
+                }
+
+                .search-btn{
+                  display: none;
+                }
+
+                &.searchbar-active{
+                  .search-btn{
+                    display: block;
+                  }
+
+                  .cancel-btn{
+                    display: none;
+                  }
+                }
               }
 
               .search-results-wrapper {
@@ -264,6 +296,8 @@
                 color: map.get($danger, 300);
                 font-family: var(--body);
                 font-weight: 400;
+                position: absolute;
+                bottom: -17px;
 
                 &.error-hide {
                   display: none;
@@ -284,6 +318,7 @@
                 padding: 0;
                 background-color: transparent;
                 box-shadow: none;
+                margin-bottom: 8px;
               }
 
               .scheme-btns-wrapper {
@@ -341,6 +376,7 @@
               .plan-options-wrapper {
                 display: flex;
                 flex-wrap: wrap;
+                align-items: center;
                 gap: 24px;
                 margin: 8px 0;
 
@@ -494,14 +530,15 @@
                 display: flex;
                 flex-wrap: wrap;
                 gap: 24px;
-                margin: 8px 0;
+
+                // margin: 8px 0;
 
                 .sip-wrapper,
                 .tenure-wrapper {
                   flex: 1 1 45%;
                   display: flex;
                   flex-direction: column;
-                  gap: map.get($spacing, xs);
+                  gap: 4px;
                   min-width: 200px;
                 }
 
@@ -616,7 +653,11 @@
                       cursor: pointer;
                       position: relative;
                       user-select: none;
-                      padding-bottom: 4px;
+
+                      // padding-bottom: 4px;
+                      display: flex;
+                      align-items: center;
+                      height: 20px;
 
                       @include media(mobile) {
                         text-align: start;
@@ -681,6 +722,7 @@
               display: flex;
               flex-direction: column;
               gap: 24px;
+              margin-top: -4px;
 
               .invested-amount {
                 display: flex;
@@ -692,7 +734,7 @@
                   @include font-style(
                     var(--disclaimer-xsmall-size),
                     var(--disclaimer-xsmall-line-height),
-                    var(--text-body),
+                    var(--text-body-2),
                     map.get($font-weights, regular),
                     var(--body)
                   );
@@ -754,7 +796,7 @@
                   flex-wrap: wrap;
                   justify-content: space-between;
                   align-items: flex-start;
-                  gap: map.get($spacing, md);
+                  gap: 24px;
                   text-align: left;
                 }
 
@@ -818,6 +860,14 @@
                       }
                     }
                   }
+
+                  .return-cagr{
+                    padding-left: 0;
+
+                     &::before {
+                    content: '';
+                  }
+                  }
                 }
 
                 .start-sip-btn {
@@ -827,7 +877,8 @@
                   @include media(mobile) {
                     position: static;
                     width: 100%;
-                    padding-top: 8px;
+
+                    // padding-top: 8px;
                   }
 
                   .sip-btn {
@@ -888,7 +939,7 @@
 
             @include media(mobile) {
               text-align: center;
-              padding-top: 16px;
+              padding-bottom: 24px;
             }
 
             .view-othercal-btn {
@@ -1017,7 +1068,7 @@
               }
 
               .custom-select{
-                .select-selected{
+                .select-selected.fdp-select-selected{
                   width:90px;                
                 }
               }

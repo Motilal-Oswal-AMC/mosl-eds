@@ -12,7 +12,7 @@
 
     @include media(mobile) {
       // max-width: 100%;
-      padding: 24px 0 8px;
+      padding: 24px 0 12px;
     }
 
     .default-content-wrapper{
@@ -80,8 +80,7 @@
 
         @include media(mobile) {
           // min-height: 176px;
-          // min-height: 168px;
-          min-height: unset;
+          min-height: 136px;
           max-width: 100%;
           padding-right: 0;
         }
@@ -151,7 +150,7 @@
 
             @include media(mobile) {
               grid-area: button;
-              margin: 20px 0 0;
+              margin: 16px 0 0;
             }
 
             .button {

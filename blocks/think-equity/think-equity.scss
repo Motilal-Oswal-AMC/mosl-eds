@@ -14,7 +14,7 @@
     padding: 40px 0;
 
     @include media(tab) {
-      padding: 40px 16px;
+      padding: 40px 16px 0;
     }
 
     .think-equity-wrapper {
@@ -67,7 +67,7 @@
                 margin: 0 0 4px;
                 color: #2e2a94;
                 font-size: 36px;
-                font-weight: 600;
+                font-weight: 700;
                 line-height: 44px;
                 font-family: $inter;
                 text-wrap: balance;
@@ -178,6 +178,7 @@
           }
 
           .button {
+            min-width: 328px;
             width: 100%;
             display: inline-block;
             padding: var(--spacing-12);
@@ -230,13 +231,13 @@
     margin-bottom: 24px;
 
     @include media(tab) {
-      padding: 0 16px;
+      // padding: 0 16px;
     }
 
     @include media(mobile) {
       justify-content: space-around;
       flex-direction: column;
-      gap: 24px;
+      gap: 8px;
       margin-bottom: 40px;
     }
 
@@ -255,11 +256,11 @@
       min-height: 237px;
 
       @include media(mobile) {
-        padding: 0 27px;
+        padding: 0;
         flex-basis: 100%;
-        max-width: 93.18%;
+        max-width: 268px;
         width: 100%;
-        min-height: 114px;
+        min-height: 120px;
       }
 
       .subimagelist {
@@ -321,15 +322,17 @@
 
     & .imagelist2 {
       flex-basis: 55.6%;
+      height: 303px;
+      width: 685px;
 
       @include media(mobile) {
-        margin: 0 9px;
-        width: 322px;
+        // margin: 0 9px;
+         width: 340px;
         height: 145px;
 
         .subimagelist,
         .subimagelist picture {
-          height: 145px;
+          height: 156px;
           line-height: 0;
           display: block;
 
