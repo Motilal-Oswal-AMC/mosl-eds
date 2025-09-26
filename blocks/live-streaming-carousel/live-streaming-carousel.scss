@@ -13,11 +13,11 @@
   //   margin: var(--spacing-16);
   // }
   // @include media(desktop-md) {
-  //   padding: 24px 16px;
+  //   padding: 24px 16px;s
   // }
 
   @include media(mobile){
-    padding: var(--spacing-16);
+    margin: var(--spacing-16);
   }
     
 
