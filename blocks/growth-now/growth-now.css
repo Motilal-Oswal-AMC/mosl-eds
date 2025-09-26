@@ -22,7 +22,6 @@ main {
   display: flex;
   padding: 32px;
   align-items: center;
-  justify-content: space-between;
   border-radius: 16px;
   background: #2E2A94;
   height: 160px;
@@ -123,10 +122,10 @@ main {
   padding: 0;
   white-space: nowrap;
   font-style: normal;
-  font-size: 28px;
-  line-height: 32px;
-  color: #fff;
-  font-family: "Inter", sans-serif;
+  font-size: var(--heading-h5-size);
+  line-height: var(--heading-h5-line-height);
+  color: var(--neutrals-white);
+  font-family: var(--title);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
@@ -137,16 +136,16 @@ main {
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 p {
-    font-size: 24px;
+    font-size: var(--sub-header-large-size);
     line-height: 28px;
-    color: #fff;
-    font-family: "Inter", sans-serif;
+    color: var(--neutrals-white);
+    font-family: var(--title);
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 {
-  padding-right: 37px;
+  padding-right: 47px;
 }
 @media (max-width: 1299px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 {
@@ -206,7 +205,7 @@ main {
   align-items: center;
   gap: 2px;
   padding: 10px 8px 10px 12px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--neutrals-300);
   border-radius: 8px;
   width: 112px;
   height: 40px;
@@ -221,7 +220,7 @@ main {
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata.field-wrapper {
   width: 188px;
   height: 40px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--neutrals-300);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -236,13 +235,14 @@ main {
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--neutrals-white);
   text-align: center;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-family: var(--body);
+  font-size: var(--body-medium-regular-size);
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: var(--body-medium-regular-line-height);
+  font-feature-settings: var(--font-features-default);
   -webkit-appearance: auto;
      -moz-appearance: auto;
           appearance: auto;
@@ -250,10 +250,10 @@ main {
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
-    font-size: 16px;
-    line-height: 20px;
-    color: #fff;
-    font-family: "Inter", sans-serif;
+    font-size: var(--body-medium-regular-size);
+    line-height: var(--body-medium-regular-line-height);
+    color: var(--neutrals-white);
+    font-family: var(--body);
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
@@ -271,12 +271,13 @@ main {
   min-width: 111px;
   background: transparent;
   box-shadow: none;
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+  color: var(--neutrals-white);
+  font-family: var(--body);
+  font-size: var(--body-medium-regular-size);
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: var(--body-medium-regular-line-height);
+  font-feature-settings: var(--font-features-default);
   padding: 0;
   padding-inline: unset;
   padding-block: unset;
@@ -284,17 +285,17 @@ main {
   text-align: left;
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::-moz-placeholder {
-  color: #fff;
+  color: var(--neutrals-white);
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
-  color: #fff;
+  color: var(--neutrals-white);
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input {
-    font-size: 16px;
-    line-height: 20px;
-    color: #fff;
-    font-family: "Inter", sans-serif;
+    font-size: var(--body-medium-regular-size);
+    line-height: var(--body-medium-regular-line-height);
+    color: var(--neutrals-white);
+    font-family: var(--body);
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
@@ -313,24 +314,25 @@ main {
   gap: 8px;
   border-radius: 8px;
   background: #FFF;
-  color: #2e2a94;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+  color: var(--text-button-default);
+  font-family: var(--body);
+  font-size: var(--button-medium-size);
   font-style: normal;
   font-weight: 500;
-  line-height: 20px;
+  line-height: var(--button-medium-line-height);
+  font-feature-settings: var(--font-features-default);
   margin: 0;
   height: 40px;
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form .submit-wrapper .button {
     width: 100% !important;
-    color: #2e2a94;
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
+    color: var(--text-button-default);
+    font-family: var(--body);
+    font-size: var(--button-medium-size);
     font-style: normal;
     font-weight: 500;
-    line-height: 20px;
+    line-height: var(--button-medium-line-height);
   }
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 {
@@ -400,6 +402,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 9px;
+  min-width: 126px;
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child {
@@ -417,27 +420,28 @@ main {
   list-style: none;
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr1:first-child {
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  font-size: 12px;
+  color: var(--neutrals-white);
+  font-family: var(--body);
+  font-size: var(--paragraph-xsmall-size);
   font-style: normal;
   font-weight: 400;
-  line-height: 16px;
+  line-height: var(--paragraph-xsmall-line-height);
+  font-feature-settings: var(--font-features-default);
   cursor: pointer;
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr1:first-child {
-    font-size: 12px;
-    line-height: 16px;
-    color: #fff;
-    font-family: "Inter", sans-serif;
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
+    color: var(--neutrals-white);
+    font-family: var(--body);
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 400;
   }
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) {
   color: #FFF;
-  font-family: "Inter", sans-serif;
+  font-family: var(--body);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -445,20 +449,21 @@ main {
   cursor: pointer;
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a {
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
+  color: var(--neutrals-white);
+  font-family: var(--body);
+  font-size: var(--body-small-semibold-size);
   font-style: normal;
   font-weight: 600;
-  line-height: 16px;
+  line-height: var(--body-small-semibold-line-height);
+  font-feature-settings: var(--font-features-default);
   cursor: pointer;
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-3 ul.fundgul:first-child > li.comlist ul.growth-mainthr2 li.comlist.growth-subthr2:nth-child(2) a {
-    font-size: 14px;
-    line-height: 16px;
-    color: #fff;
-    font-family: "Inter", sans-serif;
+    font-size: var(--body-small-semibold-size);
+    line-height: var(--body-small-semibold-line-height);
+    color: var(--neutrals-white);
+    font-family: var(--body);
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 600;
   }
@@ -481,7 +486,7 @@ main {
   }
 }
 .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-1 {
-  padding-right: 11px;
+  padding-right: 10px;
 }
 @media (max-width: 768px) {
   .section.growth-now-container.homepage-growth .growth-now .fund-us-container .fund-sec-1 {
