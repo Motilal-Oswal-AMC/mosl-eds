@@ -205,34 +205,17 @@
   margin-top: 4px;
   margin-left: 5px;
 }
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-fail, .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-success {
-  position: relative;
-}
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-fail input, .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-success input {
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-fail,
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-success {
   border: var(--border-width-01) solid #ff8088;
   padding: 10px 40px 10px 12px;
+  background: url("../../icons/error-cross.svg") no-repeat right 12px center;
 }
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-fail::after, .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-success::after {
-  content: "";
-  background-image: url("../../icons/error-cross.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 24px;
-  height: 24px;
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-}
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-success input {
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-success {
   border: var(--border-width-01) solid #00c35d;
+  background: url("../../icons/success-cross.svg") no-repeat right 12px center;
 }
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-success::after {
-  background-image: url("../../icons/success-cross.svg");
-}
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper.email-success .errormsg {
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-success + .errormsg {
   color: #00c35d;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.submit-btn .button {
@@ -614,14 +597,17 @@
     margin-top: 4px;
     margin-left: 5px;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper.email-fail input, .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper.email-success input {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-fail,
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-success {
     border: var(--border-width-01) solid #ff8088;
     padding: 10px 40px 10px 12px;
+    background: url("../../icons/error-cross.svg") no-repeat right 12px center;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper.email-success input {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-success {
     border: var(--border-width-01) solid #00c35d;
+    background: url("../../icons/success-cross.svg") no-repeat right 12px center;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper.email-success .errormsg {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-success + .errormsg {
     color: #00c35d;
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.submit-btn .button {
