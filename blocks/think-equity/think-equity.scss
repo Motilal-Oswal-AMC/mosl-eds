@@ -170,7 +170,7 @@
         &-2.button-container {
           margin: 0;
           line-height: 0;
-          max-width: 256px;
+          max-width: 328px;
           width: 100%;
 
           @include media(mobile) {
@@ -178,7 +178,6 @@
           }
 
           .button {
-            min-width: 328px;
             width: 100%;
             display: inline-block;
             padding: var(--spacing-12);
@@ -237,7 +236,7 @@
     @include media(mobile) {
       justify-content: space-around;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
       margin-bottom: 40px;
     }
 

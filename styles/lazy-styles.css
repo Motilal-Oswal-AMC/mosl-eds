@@ -604,11 +604,13 @@
 }
 .section.quick-actions .quckactmain1 .quckactmain-sub1 .quicksubactmain1 {
   color: #2e2a94;
-  font-family: "Inter", sans-serif, sans-serif;
+  font-family: var(--title);
   font-weight: 600;
   font-size: var(--sub-header-large-size);
   font-style: normal;
   line-height: var(--sub-header-medium-line-height);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 @media (width >= 768px) {
   .section.quick-actions .quckactmain1 .quckactmain-sub1 {

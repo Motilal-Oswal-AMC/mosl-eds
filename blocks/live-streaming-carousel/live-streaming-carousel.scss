@@ -6,15 +6,21 @@
 
 .section.live-streaming-carousel-container {
   // padding: 24px;
-  margin: 16px 16px 0;
+  margin: 24px 16px;
 
   // to be confirmed
   // @include media(mobile) {
   //   margin: var(--spacing-16);
   // }
   // @include media(desktop-md) {
-  //   padding: 24px 16px;
+  //   padding: 24px 16px;s
   // }
+
+  @include media(mobile){
+    margin: var(--spacing-16);
+  }
+    
+
   .default-content-wrapper {
     // max-width: 1232px;
     padding: 0;
