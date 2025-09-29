@@ -403,14 +403,20 @@
 
       li {
         display: flex;
+        gap: 8px;
         flex-wrap: wrap;
-        justify-content: space-between;
+        // justify-content: space-between;
         list-style: none;
         align-items: center;
 
+        &:first-child {
+          min-width: 511px;
+          width: 100%;
+        }
+
         h4 {
           @include font-style(var(--body-xlarge-bold-size), var(--body-xlarge-bold-line-height), var(--blue-1-800-primary), 600, var(--body));
- 
+
           padding: 0;
           margin: 0;
           display: flex;
@@ -424,9 +430,9 @@
           }
 
           span {
-            max-width: 72px;
+            max-width: 56px;
             width: 100%;
-            max-height: 72px;
+            max-height: 56px;
             height: 100%;
 
             @media (width <=768px) {
@@ -439,7 +445,8 @@
         ol {
           width: calc(100% - 72px);
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
+          gap: 8px;
           margin: 0;
           align-items: center;
 
@@ -452,7 +459,7 @@
 
           li:nth-child(2) {
             @include font-style(var(--paragraph-xsmall-size), var(--paragraph-xsmall-line-height), var(--blue-1-800-primary), 500, var(--body));
- 
+
             padding: 4px;
             margin: 0;
             border-radius: 2px;
@@ -460,6 +467,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            max-width: 169px;
+            width: 100%;
 
             @media (width <=768px) {
               font-weight: 400;
@@ -478,12 +488,12 @@
     .key-facts-section {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 40px;
 
       .investment-objective {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 8px;
 
         @media (width <=768px) {
           gap: 12px;
@@ -491,14 +501,14 @@
 
         p:nth-child(1) {
           @include font-style(var(--body-medium-medium-size), var(--body-medium-medium-line-height), var(--blue-1-800-primary), 500, var(--body));
- 
+
           margin: 0;
         }
 
         p:nth-child(2) {
           p {
-            @include font-style(var(--body-medium-regular-size), 24px , var(--text-body-2), 500, var(--body));
- 
+            @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+
             margin: 0;
 
             @media (width <=768px) {
@@ -512,13 +522,14 @@
           margin: 0;
 
           .read-toggle-btn {
-            @include font-style(16px,
-              24px,
-              map.get($blue-1, b500),
-              500,
-              $poppins );
+            @include font-style(14px,
+              var(--text-link-small-line-height),
+              var(--text-text-link),
+              400,
+              var(--body));
 
             text-decoration: underline;
+            text-underline-offset: 20%;
 
             // position: absolute;
             // bottom: 1%;
@@ -541,13 +552,13 @@
       .key-facts-amounts {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 40px;
 
         .minimum-amount {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          height: 60px;
+          // height: 60px;
 
           @media (width <=768px) {
             flex-wrap: wrap;
@@ -558,21 +569,29 @@
           div {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 8px;
+
+            .key-facts-amounts-title {
+
+              & .block-subitem-finelsub2,
+              & .block-subitem-finelsub3 {
+                margin: unset;
+              }
+            }
 
             .key-facts-amounts-title:nth-child(1) {
               @include font-style(var(--body-medium-medium-size),
-                24 px,
+                var(--body-medium-medium-line-height),
                 var(--blue-1-800-primary),
                 500,
-                var(--body) );
- 
+                var(--body));
+
               margin: 0;
             }
 
             .key-facts-amounts-sub:nth-child(2) {
-              @include font-style(var(--body-medium-regular-size), var( --body-medium-regular-line-height), var(--text-body-2), 400, var(--body) );
- 
+              @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+
               margin: 0;
             }
           }
@@ -581,7 +600,7 @@
         .key-plans {
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 40px;
 
           @media (width <=768px) {
             flex-direction: column-reverse;
@@ -590,13 +609,13 @@
           .aum-benchmark {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 40px;
 
             .aum-groups,
             .benchmark-groups {
               display: flex;
               justify-content: space-between;
-              height: 60px;
+              // height: 60px;
 
               @media (width <=768px) {
                 flex-wrap: wrap;
@@ -609,7 +628,7 @@
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                gap: 4px;
+                gap: 8px;
 
                 @media (width <=768px) {
                   max-width: 164px;
@@ -621,32 +640,32 @@
                   @media (width <=768px) {
                     text-wrap: wrap;
                   }
- 
+
                   @include font-style(var(--body-medium-medium-size),
                     var(--body-medium-medium-line-height),
-                    $primary-blue-1-900,
+                    var(--blue-1-800-primary),
                     500,
-                    var(--body) );
- 
+                    var(--body));
+
                   margin: 0;
                 }
 
                 p:nth-child(2) {
-                  @include font-style(var(--body-medium-regular-size), 24px , var(--text-body-2), 400,var(--body));
- 
+                  @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+
                   margin: 0;
- 
+
                   @media (width <=768px) {
                     font-size: var(--paragraph-small-size);
                   }
- 
+
                   p {
                     @include font-style(var(--body-medium-regular-size),
                       var(--body-medium-regular-line-height),
                       var(--text-body-2),
                       400,
-                      var(--body) );
- 
+                      var(--body));
+
                     margin: 0;
                   }
                 }
@@ -657,16 +676,20 @@
           .load-policy {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 8px;
 
             p.load-policy-para {
               @include font-style(var(--body-medium-medium-size),
                 var(--body-medium-medium-line-height),
                 var(--blue-1-800-primary),
                 500,
-                var(--body) );
- 
+                var(--body));
+
               margin: 0;
+
+              & .block-subitem-finelsub4 {
+                margin: unset;
+              }
             }
 
             .load-policy-list {
@@ -676,16 +699,17 @@
 
               .load-policy-list-ul {
                 margin: unset;
-                margin-left: 10px;
+                margin-left: 12px;
+                padding-left: 10px;
 
                 li {
-                  @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), var(--text-body-2), 400, var(--body) );
- 
+                  @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+
                   margin: 0;
- 
+
                   @media (width <=768px) {
                     font-size: var(--paragraph-small-size);
-                    line-height: var(--paragraph-small-line-height);  
+                    line-height: var(--paragraph-small-line-height);
                   }
                 }
               }
