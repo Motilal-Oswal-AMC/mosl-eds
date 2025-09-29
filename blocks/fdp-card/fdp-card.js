@@ -73,6 +73,10 @@ export default function decorate(block) {
   const returnYear = tempReturns.includes(selectedReturn)
     ? selectedReturn
     : firstReturnYear;
+  let textvalret = selectedReturn;
+  if (returnYear !== 'Since Inception') {
+    textvalret = returnYear.replace('Since', '');
+  }
   dataMapMoObj.gropcodevalue = DirectPlanlistArr[0].groupedCode;
   dataMapMoObj.fundManagerDetails = cfObj[0].fundManager;
   const navdatecss = navlistArr[0].nav_date === undefined ? 'none' : 'block';
@@ -373,7 +377,8 @@ export default function decorate(block) {
                     }
                   },
                 },
-                returnYear,
+                textvalret,
+                // returnYear,
               ),
               ul(
                 {
@@ -382,8 +387,12 @@ export default function decorate(block) {
                     const valueText = event.target.textContent.trim();
                     const parentClosest = event.target.closest('.dropdown');
                     const ptext = parentClosest.querySelector('.selectedtext');
+                    let textval = valueText;
+                    if (textval !== 'Since Inception') {
+                      textval = valueText.replace('Since', '');
+                    }
                     ptext.innerText = '';
-                    ptext.innerText = valueText;
+                    ptext.innerText = textval;
 
                     const returnClass = event.target.closest('.return-grp');
                     const valueCagr = returnClass.querySelector('.value-cagr');

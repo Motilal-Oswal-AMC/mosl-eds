@@ -168,8 +168,8 @@ export default async function decorate(block) {
   // added show modal
 
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
-  async function removeClassAfterDelay() {
-    await delay(1200);
+  async function removeClassAfterDelay(time) {
+    await delay(time);
     const bodym = document.querySelector('body');
     bodym.classList.remove('modal-open');
     bodym.classList.remove('noscroll');
@@ -179,12 +179,12 @@ export default async function decorate(block) {
   paramo.classList.add('modal-show');
   paramo.classList.remove('hide-modal');
   if (block.closest('.fm-portfolio-container')) {
-    const colseicon = paramo.querySelector('.fm-portfolio-container .icon-modal-btn');// ('.co-branding-container');
+    const colseicon = paramo.querySelector('.fm-portfolio-container .icon-modal-cross-btn');// ('.co-branding-container');
     colseicon.addEventListener('click', () => {
       const mainmodal = block.closest('.fm-portfolio-container');
       mainmodal.classList.remove('modal-show');
       mainmodal.classList.add('hide-modal');
-      removeClassAfterDelay();
+      removeClassAfterDelay(1200);
     });
   }
 }

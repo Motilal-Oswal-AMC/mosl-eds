@@ -41,19 +41,21 @@ export default function decorate(block) {
 
   let root = null;
   let cachedAPIData = null;
-  const planType = 'Direct';
-  const planOption = 'Growth';
+  let planType = 'Direct';
+  let planOption = 'Growth';
 
   const planCodeObj = localStorage.getItem('planCode') || 'Direct:LM';
   const schcode = planCodeObj.split(':')[1];
   const selectedFund = dataCfObj.find((fund) => fund.schcode === schcode);
 
   // 2. Get the returns data for the current fund immediately.
-  const targetPlan = selectedFund?.planList
-    .find((ptar) => ptar.planName === planType && ptar.optionName === planOption);
+  const targetPlan = selectedFund?.planList;
+  // .find((ptar) => ptar.planName === planType && ptar.optionName === planOption);
   // const { planCodeobj, optionCode } = targetPlan || {};
-  const optionCode = targetPlan.optionCode || {};
-  const planCodeobj = targetPlan.planCode || {};
+  const optionCode = targetPlan[0].optionCode || {};
+  const planCodeobj = targetPlan[0].planCode || {};
+  planType = targetPlan[0].planName;
+  planOption = targetPlan[0].optionName;
 
   const targetReturns = targetPlan
     ? selectedFund.returns.find((rtar) => (
@@ -78,12 +80,14 @@ export default function decorate(block) {
   }
 
   // 4. Set a smart default active filter. Fallback to the first available one.
-  let activeFilter = dynamicFilters.includes('1Y') ? '1Y' : (dynamicFilters[0] || 'All');
+  let activeFilter = dynamicFilters.includes('3Y') ? '3Y' : (dynamicFilters[0] || 'All');
+  const ind = Object.values(returnKeyMapToLabel).indexOf(activeFilter);
+  const indval = Object.keys(returnKeyMapToLabel)[ind];
 
   // --- END: MODIFIED CODE ---
 
   const filterSelectedEl = span({ class: 'filter-selected' });
-  const cagrValueEl = span({ class: 'cagr-value' });
+  const cagrValueEl = span({ class: 'cagr-value' }, targetReturns[indval]);
 
   const topBar = div({ class: 'fund-note-container' }, fundNote);
   const middleBar = div(
@@ -546,7 +550,7 @@ export default function decorate(block) {
         );
         const targetReturnssec = selectedFund?.returns.find(
           (r) => r.plancode === targetPlansec?.planCode
-            && r.optioncode === targetPlan?.optionCode,
+            && r.optioncode === targetPlansec?.optionCode,
         );
 
         const currentFundDetails = {
@@ -608,8 +612,8 @@ export default function decorate(block) {
   }
 
   function updateReturnsDisplay(filter) {
-    const planTypesec = 'Direct';
-    const planOptionsec = 'Growth';
+    // const planTypesec = 'Direct';
+    // const planOptionsec = 'Growth';
 
     if (!selectedFund) {
       cagrValueEl.textContent = 'N/A';
@@ -617,14 +621,16 @@ export default function decorate(block) {
       return;
     }
 
-    const targetPlantri = selectedFund.planList
-      .find((pplan) => pplan.planName === planTypesec && pplan.optionName === planOptionsec);
+    const targetPlantri = selectedFund.planList[0];
+    // planTypesec = targetReturnstri[0].planName;
+    // planOptionsec = targetPlantri[0].optionName;
+    // .find((pplan) => pplan.planName === planTypesec && pplan.optionName === planOptionsec);
     // Destructure properties from targetPlantri first
-    const { planCodeel, optionCodede } = targetPlantri || {};
+    const { planCode, optionCode } = targetPlantri || {};
 
     const targetReturnstri = targetPlantri
       ? selectedFund.returns.find(
-        (r) => r.plancode === planCodeel && r.optioncode === optionCodede,
+        (r) => r.plancode === planCode && r.optioncode === optionCode,
       )
       : null;
 

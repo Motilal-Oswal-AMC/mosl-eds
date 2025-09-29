@@ -2,7 +2,7 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, div, input, ul, li, img, table, thead, tbody, tr, th, td
+  button, a, div, input, ul, li, img, table, thead, tbody, tr, th, td,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
@@ -241,12 +241,12 @@ export default async function decorate(block) {
           td({ class: 'fund-name' }, cfObj[0].schDetail.schemeName),
           // ul(
           //   { class: 'fund-data-list' },
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`oneYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`threeYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`fiveYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`sevenYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`tenYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`inception${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`oneYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`threeYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`fiveYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`sevenYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`tenYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`inception${param}`]))),
           // ),
         ),
         ...cfObj[0].benchmarkreturns.map((el) => tr(
@@ -254,12 +254,12 @@ export default async function decorate(block) {
           td({ class: 'fund-name' }, el.groupName),
           // ul(
           //   { class: 'fund-data-list' },
-            td({ class: 'fund-data' }, formatReturn((el[`oneYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`threeYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`fiveYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`sevenYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`tenYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`inception${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`oneYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`threeYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`fiveYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`sevenYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`tenYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`inception${param}`]))),
           // ),
         )),
       );
