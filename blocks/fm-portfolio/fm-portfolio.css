@@ -73,7 +73,17 @@
   border: 1px solid var(--neutrals-300);
   border-radius: var(--border-radius-8);
   width: 651px;
-  box-shadow: unset;
+}
+.section.fm-portfolio-container .fm-portfolio-wrapper .fm-portfolio .portfolio-composition .fm-scheme-table table::-webkit-scrollbar {
+  height: 3px;
+}
+.section.fm-portfolio-container .fm-portfolio-wrapper .fm-portfolio .portfolio-composition .fm-scheme-table table::-webkit-scrollbar-track {
+  background-color: var(--neutrals-white);
+  border-radius: 6px;
+}
+.section.fm-portfolio-container .fm-portfolio-wrapper .fm-portfolio .portfolio-composition .fm-scheme-table table::-webkit-scrollbar-thumb {
+  background-color: #6e6c6c;
+  border-radius: 6px;
 }
 .section.fm-portfolio-container .fm-portfolio-wrapper .fm-portfolio .portfolio-composition .fm-scheme-table table thead {
   border-bottom: 1px solid var(--neutrals-300);
@@ -230,6 +240,7 @@
   .modal.modal-journey-fund.block dialog .modal-content {
     width: 100%;
     height: 90dvh;
+    border-radius: 24px;
   }
 }
 .modal.modal-journey-fund.block dialog .close-button {
