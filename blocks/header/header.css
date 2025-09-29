@@ -1961,7 +1961,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     }
 
     .section.sub-popup-header.services-header .default-content-wrapper .sub-popup-sec1 {
-        gap: 30px 98px;
+        gap: 38px 98px;
         justify-content: flex-start;
     }
 
@@ -2041,6 +2041,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         font-style: normal;
         font-weight: 400;
         line-height: var(--label-large-line-height);
+    }
+
+    .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li a.comlist {
+        color: var(--neutrals-800);
     }
 
     .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
@@ -2396,6 +2400,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
     .section.sub-popup-header.calculator-header .default-content-wrapper .sub-popup-sec1 {
         grid-template-columns: repeat(2, 1fr);
+        gap: 141px 0;
     }
 
     /* 
