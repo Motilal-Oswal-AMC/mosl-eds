@@ -462,7 +462,7 @@ export default function decorate(block) {
                 Number(navlistArr[0].latnav).toFixed(2),
                 span({
                   class: 'percent',
-                }, '%'),
+                }),
               ),
               div(
                 {

@@ -647,7 +647,7 @@ body.noscroll {
     overflow-x: auto;
     word-break: unset;
     align-items: center;
-    gap: 16px;
+    /* gap: 16px; */
 }
 
 .breadcrumbs-fdp>.default-content-wrapper::-webkit-scrollbar {
@@ -723,14 +723,14 @@ body.noscroll {
     align-items: center;
     list-style: none;
     margin: 0;
-    height: 24px;
+    /* height: 24px; */
 }
 
 .breadcrumbs-fdp>ul.breadul>li.breadli {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 12px;
+    /* padding-right: 12px; */
 
     /* border-right: 1px solid #616161; */
     position: relative;
@@ -739,8 +739,8 @@ body.noscroll {
 .breadcrumbs-fdp>ul.breadul>li.breadli::before {
     position: absolute;
     content: "/";
-    margin-right: 4px;
-    right: -12px;
+    /* margin-right: 4px; */
+    right: -16px;
     top: 0;
     color: #616161;
     font-family: Poppins, sans-serif;
