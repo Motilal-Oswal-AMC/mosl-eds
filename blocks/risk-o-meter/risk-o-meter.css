@@ -17,8 +17,8 @@
   top: 24px;
   right: 24px;
   display: flex;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   padding: 11px;
   align-items: center;
   justify-content: center;
@@ -41,7 +41,7 @@
 .modal.block dialog > .modal-content {
   position: relative;
   max-width: 816px;
-  padding: 0;
+  padding: 24px;
   display: block;
   align-items: center;
   justify-content: center;
@@ -56,21 +56,21 @@
   border-radius: 8px;
   background: #FFF;
   display: flex;
+  gap: 40px;
   flex-direction: column-reverse;
+  margin-top: 40px !important;
 }
 .section.risk-o-meter-container .risk-o-meter {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 80px;
-  margin: 48px 0 40px;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container .risk-o-meter {
     flex-direction: column;
     padding: 0;
-    gap: 40px;
-    margin: 32px 0 40px;
+    gap: 24px;
   }
 }
 .section.risk-o-meter-container .corner-1,
@@ -111,8 +111,6 @@
   alt: "";
 }
 .section.risk-o-meter-container > .default-content-wrapper {
-  padding-top: 16px;
-  margin: 0 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -208,11 +206,13 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   text-decoration: none;
+  padding-right: 3px;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container > .default-content-wrapper p.defone3 a.deftwo1 {
     font-size: var(--paragraph-small-size);
     line-height: var(--paragraph-small-line-height);
+    padding-right: unset;
   }
 }
 .section.risk-o-meter-container > .default-content-wrapper p.defone3 a.deftwo1:focus-visible {

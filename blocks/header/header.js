@@ -38,15 +38,15 @@ function closeOnEscape(e) {
 function closeOnFocusLost(e) {
   const nav = e.currentTarget;
   if (!nav.contains(e.relatedTarget)) {
-    const navSections = nav.querySelector('.nav-sections');
-    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections, false);
-    } else if (isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections, false);
-    }
+    // const navSections = nav.querySelector('.nav-sections');
+    // const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
+    // if (navSectionExpanded && isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleAllNavSections(navSections, false);
+    // } else if (isDesktop.matches) {
+    //   // eslint-disable-next-line no-use-before-define
+    //   toggleMenu(nav, navSections, false);
+    // }
   }
 }
 
@@ -219,24 +219,30 @@ export default async function decorate(block) {
       }
 
       // --- Desktop Hover Logic ---
-      navSection.addEventListener('mouseenter', () => {
+      navSection.addEventListener('click', () => { // mouseenter
         if (isDesktop.matches) {
           // When entering a new item, cancel any pending timer to close a menu.
           // This prevents flickering when moving between menu items
           clearTimeout(leaveTimer);
-          // Close all other menus before opening the new one.
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', 'true');
+          // Close all other menus before opening the new one
+          if (navSection.getAttribute('aria-expanded') === 'true') {
+            navSection.setAttribute('aria-expanded', 'false');
+            toggleAllNavSections(navSections);
+          } else {
+            toggleAllNavSections(navSections);
+            navSection.setAttribute('aria-expanded', 'true');
+          }
+
           document.body.classList.add('no-scroll');
 
-          navSection.querySelector('ul > li').addEventListener('mouseleave', () => {
-            if (isDesktop.matches) {
-              leaveTimer = setTimeout(() => {
-                toggleAllNavSections(navSections, false);
-                document.body.classList.remove('no-scroll');
-              }, 300); // A 300ms delay feels smooth and prevents accidental closing.
-            }
-          });
+          // navSection.querySelector('ul > li').addEventListener('mouseleave', () => {
+          //   if (isDesktop.matches) {
+          //     leaveTimer = setTimeout(() => {
+          //       toggleAllNavSections(navSections, false);
+          //       document.body.classList.remove('no-scroll');
+          //     }, 300); // A 300ms delay feels smooth and prevents accidental closing.
+          //   }
+          // });
         }
         //
         const headerTop = nav.querySelector('.section.header-top');
@@ -306,14 +312,14 @@ export default async function decorate(block) {
 
       // When the mouse leaves the entire nav item area (L1 button + L2 menu),
       // start a timer to close it.
-      navSection.addEventListener('mouseleave', () => {
-        if (isDesktop.matches) {
-          leaveTimer = setTimeout(() => {
-            toggleAllNavSections(navSections, false);
-            document.body.classList.remove('no-scroll');
-          }, 300); // A 300ms delay feels smooth and prevents accidental closing.
-        }
-      });
+      // navSection.addEventListener('mouseleave', () => {
+      //   if (isDesktop.matches) {
+      //     leaveTimer = setTimeout(() => {
+      //       toggleAllNavSections(navSections, false);
+      //       document.body.classList.remove('no-scroll');
+      //     }, 300); // A 300ms delay feels smooth and prevents accidental closing.
+      //   }
+      // });
 
       // --- Mobile Click Logic (Unaffected) ---
       navSection.addEventListener('click', () => {

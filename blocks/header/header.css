@@ -5,6 +5,16 @@ body.no-scroll {
     width: 100%;
 }
 
+header .nav-wrapper a.button:any-link,
+button {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--blue-1-800-primary);
+    border: none;
+    border-radius: unset;
+}
+
 header a.button:focus,
 button:hover,
 button:focus {
@@ -19,15 +29,6 @@ header .nav-wrapper {
     position: fixed;
 }
 
-header .nav-wrapper a.button:any-link,
-button {
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    color: var(--blue-1-800-primary);
-    border: none;
-    border-radius: unset;
-}
 
 header nav .nav-wrapper ul {
     list-style: none;
@@ -40,7 +41,7 @@ header nav {
     display: grid;
 
     /* grid-template: "nfo-banner nfo-banner nfo-banner"auto "brand tools hamburger"var(--nav-height) "sections sections sections"1fr / auto 1fr auto; */
-    grid-template: "brand tools hamburger"var(--nav-height) "sections sections sections"1fr / auto 1fr auto;
+    grid-template: "brand tools hamburger" var(--nav-height) "sections sections sections" 1fr / auto 1fr auto;
     align-items: center;
     margin: auto;
     max-width: 1248px;
@@ -53,14 +54,14 @@ header nav {
 }
 
 header nav.nfo-nav {
-    grid-template: "nfo-banner nfo-banner nfo-banner"auto "brand tools hamburger"var(--nav-height) "sections sections sections"1fr / auto 1fr auto;
+    grid-template: "nfo-banner nfo-banner nfo-banner" auto "brand tools hamburger" var(--nav-height) "sections sections sections" 1fr / auto 1fr auto;
 }
 
 header nav[aria-expanded='true'] {
     /* grid-template:
     "nfo-banner nfo-banner nfo-banner" auto "brand tools hamburger" var(--nav-height) "sections sections sections" 1fr / auto 1fr auto; */
     grid-template:
-        "brand tools hamburger"var(--nav-height) "sections sections sections"1fr / auto 1fr auto;
+        "brand tools hamburger" var(--nav-height) "sections sections sections" 1fr / auto 1fr auto;
     overflow: auto;
     min-height: 100dvh;
     height: 136px;
@@ -70,7 +71,7 @@ header nav[aria-expanded='true'] {
 
 header nav[aria-expanded='true'].nfo-nav {
     grid-template:
-        "nfo-banner nfo-banner nfo-banner"auto "brand tools hamburger"var(--nav-height) "sections sections sections"1fr / auto 1fr auto;
+        "nfo-banner nfo-banner nfo-banner" auto "brand tools hamburger" var(--nav-height) "sections sections sections" 1fr / auto 1fr auto;
 }
 
 header nav p {
@@ -190,8 +191,8 @@ header .nav-brand {
 .nav-brand .navbrand-sec3 .navbrand-inner-net2 {
     display: none;
     position: absolute;
-    top: 39px;
-    left: 0;
+    top: 38px;
+    left: -10px;
     background-color: var(--neutrals-white);
     min-width: 115px;
     width: max-content;
@@ -200,7 +201,7 @@ header .nav-brand {
     list-style: none;
     padding: 0;
     margin: 0;
-    border-radius: var(--border-radius-8);
+    border-radius: 0 0 8px 8px;
     border: 1px solid var(--neutrals-200);
     box-shadow: 0 0 14px 0 #2828280F;
 }
@@ -514,9 +515,9 @@ header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-te
     padding: 4px 0;
 }
 
-header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1[aria-expanded="true"] .sub-popup-inner-text1 {
+/* header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1[aria-expanded="true"] .sub-popup-inner-text1 {
     font-weight: 600;
-}
+} */
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 {
     margin-top: 16px;
@@ -563,7 +564,7 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 .nav-tools-inner-net2 {
     min-width: 121px;
     flex-direction: column;
     align-items: flex-start;
-    border-radius: var(--border-radius-8);
+    border-radius: 0 0 8px 8px;
     border: 1px solid var(--neutrals-200);
     box-shadow: 0 0 14px 0 #2828280F;
     background: var(--neutrals-white);
@@ -609,6 +610,7 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 li .comlist:hover {
 }
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li a {
+    color: var(--neutrals-black);
     font-family: var(--body);
     font-weight: 400;
     font-size: var(--body-small-regular-size);
@@ -714,7 +716,7 @@ header nav .nav-sections ul>li>ul {
 } */
 
 .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
-    color: var(--neutrals-800);
+    color: var(--neutrals-black);
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
     font-size: var(--paragraph-small-size);
@@ -735,6 +737,11 @@ header nav .nav-sections ul>li>ul {
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
+}
+
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5 ul.comlist,
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list6 ul.comlist {
+    display: block !important;
 }
 
 
@@ -764,9 +771,17 @@ header nav .nav-sections ul>li>ul {
     padding: 0;
 }
 
+.section.sub-popup-header.our-popular-funds .default-content-wrapper .sub-popup-sec1 .comlist.sub-popup-inner-text2 .sub-popup-list-content2 li>a {
+    color: var(--neutrals-800);
+}
+
 .investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 .sub-popup-list-content2 .sub-popup-list-row1 {
     color: var(--neutrals-black);
     padding: 0;
+}
+
+.investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 .sub-popup-list-content2 .sub-popup-list-row1 .button-container .button {
+    color: var(--neutrals-800);
 }
 
 .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 {
@@ -1574,8 +1589,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
     header .header nav.nfo-nav {
         grid-template:
-            "nfo-banner nfo-banner nfo-banner"auto "brand header-top header-top"
-            "brand sections tools"1fr / auto 1fr auto;
+            "nfo-banner nfo-banner nfo-banner" auto "brand header-top header-top"
+            "brand sections tools" 1fr / auto 1fr auto;
     }
 
     header nav[aria-expanded='true'] {
@@ -1946,7 +1961,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     }
 
     .section.sub-popup-header.services-header .default-content-wrapper .sub-popup-sec1 {
-        gap: 30px 98px;
+        gap: 38px 98px;
         justify-content: flex-start;
     }
 
@@ -2026,6 +2041,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         font-style: normal;
         font-weight: 400;
         line-height: var(--label-large-line-height);
+    }
+
+    .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li a.comlist {
+        color: var(--neutrals-800);
     }
 
     .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
@@ -2381,6 +2400,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
     .section.sub-popup-header.calculator-header .default-content-wrapper .sub-popup-sec1 {
         grid-template-columns: repeat(2, 1fr);
+        gap: 141px 0;
     }
 
     /* 
@@ -2571,6 +2591,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
     header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 .nav-tools-inner-net2 {
         top: 29px;
+        border-radius: 8px;
     }
 
     .nav-tools .nav-tools-cont1 .nav-tools-sec1 .nav-tools-sub4 .nav-tools-inner-net1 {
