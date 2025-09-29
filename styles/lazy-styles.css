@@ -1080,7 +1080,6 @@
   position: relative;
   flex-direction: column;
   gap: 40px;
-  padding-bottom: 80px;
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 {
   list-style: none;
