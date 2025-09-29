@@ -305,12 +305,12 @@ function searchFunctionality(block) {
 
   const flpboolean = document.querySelector('.fund-toggle-wrap input').checked;
   const planflow = flpboolean ? 'Regular' : 'Direct';
-  const mop = document.querySelector('.fund-toggle-wrap input');
-  if (flpboolean) {
-    mop.closest('.togglebtn').classList.add('toggle-checked');
-  } else {
-    mop.closest('.togglebtn').classList.remove('toggle-checked');
-  }
+  // const mop = document.querySelector('.fund-toggle-wrap input');
+  // if (flpboolean) {
+  //   mop.closest('.togglebtn').classList.add('toggle-checked');
+  // } else {
+  //   mop.closest('.togglebtn').classList.remove('toggle-checked');
+  // }
   let datacd = [];
   const dataouter = [];
   dataCfObj.forEach((elde, indexde) => {
