@@ -276,6 +276,9 @@
             background-color: transparent;
             overflow: hidden;
             border-radius: 0;
+            padding: 0;
+
+            
 
             @include media(mobile) {
                 width: 100%;
