@@ -304,6 +304,7 @@ export default async function decorate(block) {
                   const pathname = '/motilalfigma/our-funds';
                   window.location.href = `${window.location.origin}${pathname}`;
                 }
+                return textcurr;
               });
             });
           });
@@ -322,12 +323,12 @@ export default async function decorate(block) {
       // });
 
       // --- Mobile Click Logic (Unaffected) ---
-      navSection.addEventListener('click', () => {
-        if (!isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
+      // navSection.addEventListener('click', () => {
+      //   if (!isDesktop.matches) {
+      //     const expanded = navSection.getAttribute('aria-expanded') === 'true';
+      //     navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      //   }
+      // });
 
       const subHeader = navSection.querySelectorAll('.section');
       dataMapMoObj.CLASS_PREFIXES = [
