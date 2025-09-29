@@ -99,12 +99,16 @@ export default function decorate(block) {
       div({ class: 'fund-cagr-container' }, filterSelectedEl, cagrValueEl),
     ),
   );
-
   block.innerHTML = '';
-  block.prepend(topBar, middleBar);
+  block.prepend(topBar);
 
   const graphDiv = div({ id: 'chartdiv' });
-  block.append(graphDiv);
+  const middleContainer = div(
+    { class: 'wrapnote' },
+    middleBar,
+    graphDiv,
+  );
+  block.append(middleContainer);
 
   // --- STATE & API LOGIC ---
   const useLiveAPI = true;
@@ -188,10 +192,11 @@ export default function decorate(block) {
         xAxis.get('renderer').labels.template.setAll({
           // fill: window.am5.color(0x212121),
           // fontFamily: 'Inter',
-          fill: window.am5.color(0x888888), // <-- Change color here (e.g., grey) // test
+          fill: window.am5.color('#212121'), // <-- Change color here (e.g., grey) // test
           fontFamily: 'Inter', // 'Arial',             // <-- Change font family here
-          fontSize: 12,
-          fontWeight: 400,
+          fontSize: 14,
+          fontWeight: 500,
+          linHight: '16px',
           paddingTop: 8,
         });
 
@@ -208,12 +213,11 @@ export default function decorate(block) {
         // Show only bottom X axis baseline
         xAxis.get('renderer').setAll({
           strokeOpacity: 1,
-          stroke: window.am5.color(0xcccccc),
+          stroke: window.am5.color('#2E2A94'),
         });
-
         // Show only left Y axis baseline
         yAxis.get('renderer').setAll({
-          strokeOpacity: 1,
+          strokeOpacity: 0,
           stroke: window.am5.color(0xcccccc),
         });
 
@@ -223,6 +227,7 @@ export default function decorate(block) {
           fill: window.am5.color(0x888888), // <-- Set your desired color
           fontFamily: 'Inter', // 'Arial',             // <-- Set your desired font family
           fontSize: 14,
+          // color: '#616161',
         });
 
         // Shared tooltip
@@ -421,16 +426,31 @@ export default function decorate(block) {
         });
 
         // Also update your legend labels template for better alignment:
-        legend.labels.template.setAll({
-          fill: window.am5.color(0x333333),
+        let lengendCss = {
+          fill: window.am5.color('#2E2A94'),
           fontFamily: 'Inter',
-          fontSize: 16,
-          fontWeight: '500',
+          fontSize: 14,
+          fontWeight: '400',
           marginLeft: 6,
+          lineHight: '16px',
           centerY: window.am5.p50, // Vertically center the text
           paddingTop: 0, // Remove any top padding
           paddingBottom: 0, // Remove any bottom padding
-        });
+        };
+        if (window.innerWidth < 900) {
+          lengendCss = {
+            fill: window.am5.color('#2E2A94'),
+            fontFamily: 'Inter',
+            fontSize: 14,
+            fontWeight: '500',
+            marginLeft: 6,
+            lineHight: '16px',
+            centerY: window.am5.p50, // Vertically center the text
+            paddingTop: 0, // Remove any top padding
+            paddingBottom: 0, // Remove any bottom padding
+          };
+        }
+        legend.labels.template.setAll(lengendCss);
         legend.data.setAll(chart.series.values);
 
         // Center the legend group and keep items tight
