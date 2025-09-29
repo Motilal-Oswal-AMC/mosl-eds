@@ -478,7 +478,7 @@ table>tbody>tr>td:nth-child(7) {
 
 /* New Periodic Returns CSS Start */
 .section .section.periodicreturn {
-  margin: 80px 0;
+  margin: 64px 0;
 }
 
 .section.periodicreturn .tabs-list {
@@ -651,7 +651,7 @@ table>tbody>tr>td:nth-child(7) {
   line-height: var(--disclaimer-xsmall-line-height);
   font-family: var(--body);
   font-feature-settings: var(--font-features-default);
-  margin: 0 16px 0 0;
+  /* margin: 0 16px 0 0; */
 }
 
 .section.periodicreturn .default-content-wrapper:last-of-type .headgrp2 .headlist2 {
