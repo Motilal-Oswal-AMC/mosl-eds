@@ -555,7 +555,17 @@ footer .footer[data-block-status="loaded"] {
     background: unset;
 }
 
+.fdp-card-container .comlist .tabs-container {
+    margin: 24px 0 0;
+}
 
+.fdp-card-container .fund-philosophy-video.section {
+    margin: unset;
+}
+
+.fdp-card-container .key-facts-container.section {
+    margin-top: unset;
+}
 
 
 @media (width <=768px) {

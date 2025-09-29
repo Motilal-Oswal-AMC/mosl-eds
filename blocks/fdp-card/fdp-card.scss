@@ -972,8 +972,8 @@ main {
     //  accessibility    Done
 
     .why-fund {
-      margin: 40px 0;
-      padding: 40px 0;
+      margin: 64px 0;
+      // padding: 40px 0;
 
       @media (width <=768px) {
         padding: 0 16px;
@@ -1035,7 +1035,7 @@ main {
             ol.whyfund-inner-li2 {
               display: flex;
               flex-direction: column;
-              gap: 8px;
+              gap: 4px;
               list-style: none;
               margin: 0;
 
@@ -1043,7 +1043,7 @@ main {
                 // @include font-style(18px, 24px, $primary-blue, 500, $poppins);
                 @include font-style(
                   var(--body-medium-medium-size),
-                  var(--Body-Medium-medium-Line-Height),
+                  var(--body-medium-medium-line-height),
                   var(--blue-1-800-primary),
                   500,
                   var(--body)
@@ -1059,7 +1059,7 @@ main {
                 // @include font-style(16px, 24px, $text-body-2, 400, $poppins);
                 @include font-style(
                   var(--body-medium-regular-size),
-                  var(--body-medium-regular-line-height),
+                  24px,
                   var(--text-body-2),
                   400,
                   var(--body)
