@@ -5,6 +5,16 @@ body.no-scroll {
     width: 100%;
 }
 
+header .nav-wrapper a.button:any-link,
+button {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--blue-1-800-primary);
+    border: none;
+    border-radius: unset;
+}
+
 header a.button:focus,
 button:hover,
 button:focus {
@@ -19,15 +29,6 @@ header .nav-wrapper {
     position: fixed;
 }
 
-header .nav-wrapper a.button:any-link,
-button {
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    color: var(--blue-1-800-primary);
-    border: none;
-    border-radius: unset;
-}
 
 header nav .nav-wrapper ul {
     list-style: none;
@@ -514,9 +515,9 @@ header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-te
     padding: 4px 0;
 }
 
-header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1[aria-expanded="true"] .sub-popup-inner-text1 {
+/* header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1[aria-expanded="true"] .sub-popup-inner-text1 {
     font-weight: 600;
-}
+} */
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 {
     margin-top: 16px;
@@ -609,6 +610,7 @@ header nav .nav-tools .nav-tools-cont1 .nav-tools-sub4 li .comlist:hover {
 }
 
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li a {
+    color: var(--neutrals-black);
     font-family: var(--body);
     font-weight: 400;
     font-size: var(--body-small-regular-size);
@@ -714,7 +716,7 @@ header nav .nav-sections ul>li>ul {
 } */
 
 .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
-    color: var(--neutrals-800);
+    color: var(--neutrals-black);
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
     font-size: var(--paragraph-small-size);
@@ -735,6 +737,11 @@ header nav .nav-sections ul>li>ul {
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
+}
+
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5 ul.comlist,
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list6 ul.comlist {
+    display: block !important;
 }
 
 
@@ -762,6 +769,10 @@ header nav .nav-sections ul>li>ul {
 
 .section.sub-popup-header.our-popular-funds .default-content-wrapper .sub-popup-sec1 .comlist.sub-popup-inner-text2 .sub-popup-list-content2 li.comlist {
     padding: 0;
+}
+
+.section.sub-popup-header.our-popular-funds .default-content-wrapper .sub-popup-sec1 .comlist.sub-popup-inner-text2 .sub-popup-list-content2 li>a {
+    color: var(--neutrals-800);
 }
 
 .investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 .sub-popup-list-content2 .sub-popup-list-row1 {
