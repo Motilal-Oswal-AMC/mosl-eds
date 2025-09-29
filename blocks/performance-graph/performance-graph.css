@@ -1,6 +1,6 @@
 @import "../../../styles/fonts.css";
 .performance-graph {
-  padding-top: 22px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -105,8 +105,14 @@
   font-size: var(--body-medium-semibold-size);
   line-height: var(--body-medium-semibold-line-height);
   color: var(--blue-1-800-primary);
-  font-family: var(--body);
+  font-family: "Inter", sans-serif;
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: var(--body);
+}
+.performance-graph .fund-main .fund-cagr .fund-cagr-container .filter-selected {
+  font-weight: 400;
+}
+.performance-graph .fund-main .fund-cagr .fund-cagr-container .cagr-value {
   font-weight: 600;
 }
 .performance-graph #chartdiv {

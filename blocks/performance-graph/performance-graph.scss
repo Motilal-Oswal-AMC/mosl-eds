@@ -116,7 +116,7 @@
 
 //   .performance-graph-wrapper{
   .performance-graph {
-  padding-top: 22px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -255,9 +255,17 @@
           var(--body-medium-semibold-size),
           var(--body-medium-semibold-line-height),
           var(--blue-1-800-primary),
-          600,
+          // 600,
           var(--body)
         );
+
+        .filter-selected {
+          font-weight: 400;
+        }
+
+        .cagr-value {
+          font-weight: 600;
+        }
       }
     }
   }
