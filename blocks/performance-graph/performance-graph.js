@@ -216,6 +216,14 @@ export default function decorate(block) {
           stroke: window.am5.color('#2E2A94'),
         });
         // Show only left Y axis baseline
+        if (window.innerWidth < 900) {
+          yAxis.setAll({
+            marginLeft: -25, // Add space to the left of the axis
+            marginRight: 0, // Add space to the right of the axis
+            paddingTop: 0, // Add space at the top of the axis scale
+            paddingBottom: 0, // Add space at the bottom of the axis scale
+          });
+        }
         yAxis.get('renderer').setAll({
           strokeOpacity: 0,
           stroke: window.am5.color(0xcccccc),
@@ -437,6 +445,15 @@ export default function decorate(block) {
           paddingTop: 0, // Remove any top padding
           paddingBottom: 0, // Remove any bottom padding
         };
+        let legendset = {
+          layout: root.horizontalLayout,
+          centerX: window.am5.p50,
+          x: window.am5.p50,
+          centerY: window.am5.p100,
+          y: window.am5.percent(110),
+          paddingLeft: 0,
+          paddingRight: 0,
+        };
         if (window.innerWidth < 900) {
           lengendCss = {
             fill: window.am5.color('#2E2A94'),
@@ -449,21 +466,21 @@ export default function decorate(block) {
             paddingTop: 0, // Remove any top padding
             paddingBottom: 0, // Remove any bottom padding
           };
+          legendset = {
+            layout: root.horizontalLayout,
+            centerX: window.am5.p50,
+            x: window.am5.p50,
+            centerY: window.am5.p100,
+            y: window.am5.percent(110),
+            paddingLeft: -25,
+            paddingRight: 0,
+          };
         }
         legend.labels.template.setAll(lengendCss);
         legend.data.setAll(chart.series.values);
 
         // Center the legend group and keep items tight
-        legend.setAll({
-          layout: root.horizontalLayout,
-          centerX: window.am5.p50,
-          x: window.am5.p50,
-          centerY: window.am5.p100,
-          y: window.am5.percent(110),
-          paddingLeft: 0,
-          paddingRight: 0,
-        });
-
+        legend.setAll(legendset);
         // Make sure item containers size to content (no forced width)
         legend.itemContainers.template.set('width', null);
 
