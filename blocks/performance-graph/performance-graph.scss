@@ -122,8 +122,9 @@
   gap: 16px;
 
   @media (width <=768px) {
-    padding: 0 16px;
+    padding: 0;
     height: unset;
+    gap : 24px;
   }
 
   .fund-note-container {
@@ -139,11 +140,21 @@
       padding: 0;
       margin: 0;
 
-      // @media (width <=768px) {
-      //   font-size: 24px;
-      //   line-height: 28px;
-      // }
+      @media (width <=768px) {
+       padding: 0 16px;
+      }
     }
+  }
+
+  .wrapnote{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    
+  @media (width <=768px) {
+    background-color:  var(--neutrals-white);
+    padding: 21px 16px; 
   }
 
   .fund-main {
@@ -227,12 +238,13 @@
     .fund-cagr {
       display: flex;
       gap: 8px;
-      align-self: center;
+      align-items: center;
       justify-content: center;
 
       @media (width <=768px) {
         justify-content: flex-start;
         margin-top: 16px;
+        align-items: center;
       }
 
       .graph-cagr {
@@ -251,6 +263,17 @@
       }
 
       .fund-cagr-container {
+        .filter-selected{
+           @include font-style(
+          var(--body-medium-regular-size),
+          var(--body-medium-regular-line-height),
+          var(--blue-1-800-primary),
+          400,
+          var(--body)
+        );
+        }
+
+        .cagr-value{
         @include font-style(
           var(--body-medium-semibold-size),
           var(--body-medium-semibold-line-height),
@@ -278,6 +301,7 @@
     background-color: $primary-white;
     box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   }
+}
 }
 // }
 // }

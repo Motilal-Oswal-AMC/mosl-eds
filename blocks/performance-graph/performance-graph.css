@@ -7,8 +7,9 @@
 }
 @media (width <= 768px) {
   .performance-graph {
-    padding: 0 16px;
+    padding: 0;
     height: unset;
+    gap: 24px;
   }
 }
 .performance-graph .fund-note-container h2 {
@@ -21,21 +22,37 @@
   padding: 0;
   margin: 0;
 }
-.performance-graph .fund-main {
+@media (width <= 768px) {
+  .performance-graph .fund-note-container h2 {
+    padding: 0 16px;
+  }
+}
+.performance-graph .wrapnote {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (width <= 768px) {
+  .performance-graph .wrapnote {
+    background-color: var(--neutrals-white);
+    padding: 21px 16px;
+  }
+}
+.performance-graph .wrapnote .fund-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 @media (width <= 768px) {
-  .performance-graph .fund-main {
+  .performance-graph .wrapnote .fund-main {
     display: table;
   }
 }
-.performance-graph .fund-main .fund-filters .chart-filter-bar {
+.performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar {
   display: flex;
   gap: 8px;
 }
-.performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn {
+.performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .filter-btn {
   margin: 0;
   width: 56px;
   height: 32px;
@@ -55,21 +72,21 @@
   font-weight: 400;
 }
 @media (width <= 768px) {
-  .performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn {
+  .performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .filter-btn {
     font-size: var(--paragraph-small-size);
     line-height: var(--paragraph-small-line-height);
   }
 }
-.performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn:hover {
+.performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .filter-btn:hover {
   border-color: #2e2a94;
 }
 @media (width <= 768px) {
-  .performance-graph .fund-main .fund-filters .chart-filter-bar .filter-btn {
+  .performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .filter-btn {
     min-width: 32px;
     height: 40px;
   }
 }
-.performance-graph .fund-main .fund-filters .chart-filter-bar .active {
+.performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .active {
   border: var(--border-width-01) solid var(--strokes-selected);
   background-color: var(--surface-selected);
   font-size: var(--body-small-medium-size);
@@ -79,19 +96,20 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
-.performance-graph .fund-main .fund-cagr {
+.performance-graph .wrapnote .fund-main .fund-cagr {
   display: flex;
   gap: 8px;
-  align-self: center;
+  align-items: center;
   justify-content: center;
 }
 @media (width <= 768px) {
-  .performance-graph .fund-main .fund-cagr {
+  .performance-graph .wrapnote .fund-main .fund-cagr {
     justify-content: flex-start;
     margin-top: 16px;
+    align-items: center;
   }
 }
-.performance-graph .fund-main .fund-cagr .graph-cagr p {
+.performance-graph .wrapnote .fund-main .fund-cagr .graph-cagr p {
   padding: 0;
   margin: 0;
   font-size: var(--label-large-size);
@@ -101,7 +119,15 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
-.performance-graph .fund-main .fund-cagr .fund-cagr-container {
+.performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .filter-selected {
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .cagr-value {
   font-size: var(--body-medium-semibold-size);
   line-height: var(--body-medium-semibold-line-height);
   color: var(--blue-1-800-primary);
@@ -115,7 +141,7 @@
 .performance-graph .fund-main .fund-cagr .fund-cagr-container .cagr-value {
   font-weight: 600;
 }
-.performance-graph #chartdiv {
+.performance-graph .wrapnote #chartdiv {
   width: 100%;
   height: 432px;
   flex-shrink: 0;
