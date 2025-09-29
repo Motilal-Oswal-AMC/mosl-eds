@@ -780,6 +780,10 @@ header nav .nav-sections ul>li>ul {
     padding: 0;
 }
 
+.investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 .sub-popup-list-content2 .sub-popup-list-row1 .button-container .button {
+    color: var(--neutrals-800);
+}
+
 .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 {
     display: flex;
     flex-direction: column;
