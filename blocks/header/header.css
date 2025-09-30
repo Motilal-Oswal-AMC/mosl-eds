@@ -472,7 +472,7 @@ header nav .nav-sections .nav-sec-sec1 .nav-drop[aria-expanded="true"]::after {
 }
 
 .section.sub-popup-header .sub-popup-sec2 {
-    padding-top: 8px;
+    padding-top: 14px;
 }
 
 .section.sub-popup-header .sub-popup-sec3 {
@@ -1359,6 +1359,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub5 .header-top-inner-text2 .header-top-list-content1 {
     /* display: flex; */
     width: 100%;
+    min-width: 88px;
     color: var(--neutrals-black);
     height: auto;
     padding: 12px;
