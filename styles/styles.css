@@ -571,6 +571,15 @@ footer .footer[data-block-status="loaded"] {
     .fdp-card-container .fund-philosophy-video.section {
         padding: 40px 16px;
     }
+
+    .fdp-card-container .comlist .tabs-container {
+        margin: 40px 0;
+    }
+
+    .tabs-container .icon.icon-excel {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 @media (width <=768px) {

@@ -490,6 +490,10 @@
       flex-direction: column;
       gap: 40px;
 
+      @include media(mobile) {
+        gap: 24px;
+      }
+
       .investment-objective {
         display: flex;
         flex-direction: column;
@@ -513,6 +517,8 @@
 
             @media (width <=768px) {
               padding-right: 10px;
+              font-size: var(--paragraph-small-size);
+              line-height: var(--paragraph-small-line-height);
             }
           }
         }
@@ -554,6 +560,10 @@
         flex-direction: column;
         gap: 40px;
 
+        @include media(mobile) {
+          gap: 24px;
+        }
+
         .minimum-amount {
           display: flex;
           justify-content: space-between;
@@ -562,7 +572,7 @@
 
           @media (width <=768px) {
             flex-wrap: wrap;
-            gap: 32px;
+            gap: 24px;
             height: unset;
           }
 
@@ -611,6 +621,10 @@
             flex-direction: column;
             gap: 40px;
 
+            @include media(mobile) {
+              gap: 24px;
+            }
+
             .aum-groups,
             .benchmark-groups {
               display: flex;
@@ -631,7 +645,9 @@
                 gap: 8px;
 
                 @media (width <=768px) {
-                  max-width: 164px;
+                  width: 162px;
+                  max-width: 100%;
+                  gap: 4px;
                 }
 
                 p:nth-child(1) {
