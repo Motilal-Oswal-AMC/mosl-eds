@@ -65,7 +65,7 @@
   width: 100%;
   border-radius: 8px;
   background: #FFF;
-  // box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 12px 0 #0000000D;
   display: flex;
   gap: 40px;
   flex-direction: column-reverse;
@@ -74,6 +74,11 @@
   &.risk-container {
     margin-top: unset !important;
     padding: 16px;
+
+    @include media(mobile) {
+      padding: 40px 16px;
+      gap: 32px;
+    }
   }
 
   .risk-o-meter {
@@ -146,21 +151,22 @@
       margin: 0;
       padding: 0;
 
-      @include font-style(var(--body-medium-medium-size),
-        var(--body-medium-medium-line-height),
-        var(--blue-1-800-primary),
+      @include font-style(var(--body-large-semibold-size),
+        var(--body-large-semibold-line-height),
+        var(--neutrals-800),
         500,
         var(--body));
 
       @include media(mobile) {
         font-size: var(--body-small-medium-size);
         line-height: var(--body-small-medium-line-height);
+        font-weight: 600
       }
 
       a {
-        @include font-style(var(--body-medium-medium-size),
-          var(--body-medium-medium-line-height),
-          var(--blue-1-300),
+        @include font-style(var(--body-large-semibold-size),
+          var(--body-large-semibold-line-height),
+          var(--blue-1-400),
           500,
           var(--body));
 
@@ -193,7 +199,7 @@
 
         @include font-style(var(--body-small-regular-size),
           var(--label-large-line-height),
-          var(--neutrals-black),
+          var(--neutrals-800),
           400,
           var(--body));
 
@@ -205,11 +211,15 @@
     }
 
     p.defone3 {
-      @include font-style(var(--disclaimer-xsmall-size),
-        var(--disclaimer-xsmall-line-height),
-        var(--neutrals-black),
+      @include font-style(var(--body-small-regular-size),
+        var(--label-large-line-height),
+        var(--neutrals-800),
         400,
         var(--body));
+
+        .comlist.defthree1 {
+          color: var(--blue-1-400);
+        }
 
       @include media(mobile) {
         font-size: var(--paragraph-small-size);
@@ -270,9 +280,10 @@
 
   @include media(mobile) {
     padding: 40px 16px;
-    background: #FFF;
-    box-shadow: 0 4px 12px 0 #0000000D;
-    gap: 8px;
+    margin: unset !important;
+    // background: #FFF;
+    // box-shadow: 0 4px 12px 0 #0000000D;
+    // gap: 8px;
   }
 
   >div:first-child {

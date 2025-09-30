@@ -61,6 +61,11 @@
   min-width: 511px;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .key-facts-container .default-content-wrapper ol li:first-child {
+    min-width: unset;
+  }
+}
 .key-facts-container .default-content-wrapper ol li h4 {
   font-size: var(--body-xlarge-bold-size);
   line-height: var(--body-xlarge-bold-line-height);

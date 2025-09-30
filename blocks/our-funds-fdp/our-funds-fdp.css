@@ -17,6 +17,11 @@
   font-weight: 600;
   margin: 0 0 2.5rem;
 }
+@media (width <= 768px) {
+  .section.our-funds-fdp-container .default-content-wrapper h4 {
+    margin: 0 0 16px 0;
+  }
+}
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp {
   display: flex;
   flex-direction: column;

@@ -11,6 +11,11 @@
   &.learning-fdp {
     padding: 0 0 24px 0 !important;
     margin: 0 0 40px 0;
+
+    @include media(mobile) {
+      margin: 40px 16px;
+      padding: unset !important;
+    }
   }
 
   @include media(mobile) {
@@ -173,6 +178,10 @@
         .swiper-slide-cards-2 {
           padding-top: 24px;
 
+          @include media(mobile) {
+            padding: 24px 0;
+          }
+
           >ul.cards-listcards1 {
             list-style: none;
             padding: 0;
@@ -211,7 +220,7 @@
 
               @include media(mobile) {
                 margin-bottom: 24px;
-                gap: 16px;
+                gap: 8px;
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-start;
@@ -241,6 +250,8 @@
                     $blue-1-800-primary,
                     400,
                     $body);
+                    gap: 4px;
+                    padding: 0 8px;
                 }
               }
 
@@ -570,7 +581,7 @@
 
          @include media(mobile) {
             font-size: var(--sub-header-large-size);
-            line-height: var(--sub-header-medium-line-height);
+            line-height: 28px;
             font-family:var(--title);
           }
     }
@@ -599,7 +610,8 @@
     margin-top: 48px;
 
     @include media(mobile) {
-      padding: 0 16px 0 0;
+      padding: unset;
+      margin-top: 24px;
     }
 
     .button-container.libr-btn-p {

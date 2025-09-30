@@ -9,6 +9,11 @@
 .section.fund-card-slider-container.table-wrapper {
   padding: 0 0 24px 0;
 }
+@media (max-width: 768px) {
+  .section.fund-card-slider-container.table-wrapper {
+    padding: 0 0 0 16px;
+  }
+}
 @media (width <= 768px) {
   .section.fund-card-slider-container {
     padding: 0 16px;
@@ -32,7 +37,7 @@
 @media (max-width: 768px) {
   .section.fund-card-slider-container .block .itemcards1 .subitemcards1 h4 {
     font-size: var(--sub-header-large-size);
-    line-height: var(--sub-header-medium-line-height);
+    line-height: 28px;
     font-family: var(--title);
   }
 }

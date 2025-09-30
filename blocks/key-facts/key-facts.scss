@@ -412,6 +412,10 @@
         &:first-child {
           min-width: 511px;
           width: 100%;
+
+          @include media(mobile) {
+            min-width: unset
+          }
         }
 
         h4 {

@@ -12,6 +12,10 @@
 
   &.table-wrapper {
     padding: 0 0 24px 0;
+
+    @include media(mobile) {
+      padding: 0 0 0 16px;
+    }
   }
  
 @media (width <= 768px) {
@@ -34,7 +38,7 @@
 
           @include media(mobile) {
             font-size: var(--sub-header-large-size);
-            line-height: var(--sub-header-medium-line-height);
+            line-height: 28px;
             font-family:var(--title);
           }
         }
