@@ -1522,8 +1522,33 @@
         "label": "Enter Label Benchmark"
       }
     ]
-  },
-  {
+  },{
+    "id": "popular-article-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Future Building Item Description",
+        "value": ""
+      }
+    ]
+  },{
     "id": "start-building",
     "fields": [
       {
@@ -1582,30 +1607,35 @@
         "valueType": "string"
       }
     ]
-  },
-  {
-    "id": "popular-article-item",
+  },{
+    "id": "fdp-campaign",
     "fields": [
       {
         "component": "reference",
+        "valueType": "string",
         "name": "image",
-        "label": "Image",
+        "label": "Image for Desktop",
         "multi": false
       },
       {
         "component": "text",
+        "valueType": "string",
         "name": "imageAlt",
-        "label": "Alt Text"
+        "label": "Alt for Desktop",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image2",
+        "label": "Image for Mobile",
+        "multi": false
       },
       {
         "component": "text",
-        "name": "col_link",
-        "label": "Image Link"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Future Building Item Description",
+        "valueType": "string",
+        "name": "image2Alt",
+        "label": "Alt for mobile",
         "value": ""
       }
     ]

@@ -143,7 +143,17 @@
   position: relative;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper label {
-  display: none;
+  color: var(--text-white);
+  font-feature-settings: var(--font-features-default);
+  font-family: var(--body);
+  font-size: var(--label-small-size);
+  font-weight: 400;
+  line-height: var(--label-small-line-height);
+  position: absolute;
+  left: 12px;
+  top: -8px;
+  background-color: var(--blue-1-800-primary);
+  padding: 0 4px;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input {
   width: 100%;
@@ -186,14 +196,27 @@
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .errormsg {
   position: absolute;
   bottom: -20px;
-  color: #d93025;
+  color: #ff8088;
   font-weight: 400;
+  font-family: var(--body);
   font-feature-settings: var(--font-features-default);
-  font-style: italic;
   font-size: var(--paragraph-xsmall-size);
   line-height: var(--paragraph-xsmall-line-height);
   margin-top: 4px;
   margin-left: 5px;
+}
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-fail,
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-success {
+  border: var(--border-width-01) solid #ff8088;
+  padding: 10px 40px 10px 12px;
+  background: url("../../icons/error-cross.svg") no-repeat right 12px center;
+}
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-success {
+  border: var(--border-width-01) solid #00c35d;
+  background: url("../../icons/success-cross.svg") no-repeat right 12px center;
+}
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-success + .errormsg {
+  color: #00c35d;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.submit-btn .button {
   display: flex;
@@ -541,11 +564,12 @@
     position: relative;
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper label {
-    display: none;
+    font-size: var(--label-small-size);
+    line-height: var(--label-small-line-height);
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input {
     display: flex;
-    padding: 8px 12px;
+    padding: var(--spacing-10) var(--spacing-12);
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
@@ -565,14 +589,26 @@
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper .errormsg {
     position: absolute;
     bottom: -20px;
-    color: #d93025;
+    color: #ff8088;
     font-weight: 400;
     font-feature-settings: var(--font-features-default);
-    font-style: italic;
     font-size: var(--paragraph-xsmall-size);
     line-height: var(--paragraph-xsmall-line-height);
     margin-top: 4px;
     margin-left: 5px;
+  }
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-fail,
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-success {
+    border: var(--border-width-01) solid #ff8088;
+    padding: 10px 40px 10px 12px;
+    background: url("../../icons/error-cross.svg") no-repeat right 12px center;
+  }
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-success {
+    border: var(--border-width-01) solid #00c35d;
+    background: url("../../icons/success-cross.svg") no-repeat right 12px center;
+  }
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-success + .errormsg {
+    color: #00c35d;
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.submit-btn .button {
     width: 102px;
@@ -750,9 +786,9 @@
   pointer-events: auto;
 }
 .footer-wrapper .scroll-to-top:hover {
-  background: #7E97FD;
+  background: #7e97fd;
 }
 .footer-wrapper .scroll-to-top-icon path {
   stroke-width: 2px;
-  stroke: #2E2A94;
+  stroke: #2e2a94;
 }/*# sourceMappingURL=footer.css.map */

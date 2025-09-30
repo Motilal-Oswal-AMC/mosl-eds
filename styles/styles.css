@@ -1160,6 +1160,10 @@ z-index: -1;
 }
 
 @media screen and (width <=768px) {
+    main.nfo-nav .section:first-of-type.performance-graph-container {
+        margin-top: 40px;
+    }
+    
     @keyframes slide-out {
         from {
             transform: translateY(0);

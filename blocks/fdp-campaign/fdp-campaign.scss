@@ -1,0 +1,34 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.section.table-wrapper.fdp-campaign-container {
+  margin-top: 64px;
+
+  @media (width <=768px) {
+    margin: 40px 16px;
+  }
+
+  .fdp-campaign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    .compaign1 {
+      display: block;
+
+      @media (width <=768px) {
+        display: none;
+      }
+    }
+
+    .compaign2 {
+      display: none;
+
+      @media (width <=768px) {
+        display: block;
+      }
+    }
+  }
+}

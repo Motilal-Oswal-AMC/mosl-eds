@@ -1,7 +1,7 @@
 //  Accessibility Done 
 
-@use '../../styles/common-theme/css/variables_mixins'as *;
-@use '../../styles/common-theme/css/fluid-typography'as *;
+@use '../../styles/common-theme/css/variables_mixins' as *;
+@use '../../styles/common-theme/css/fluid-typography' as *;
 @use 'sass:map';
 
 .modal.block dialog {
@@ -23,8 +23,8 @@
   top: 24px;
   right: 24px;
   display: flex;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   padding: 11px;
   align-items: center;
   justify-content: center;
@@ -50,8 +50,8 @@
 .modal.block dialog>.modal-content {
   position: relative;
   max-width: 816px;
-  padding: 0;
-  display: block;//flex;
+  padding: 24px;
+  display: block; //flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
@@ -66,22 +66,23 @@
   border-radius: 8px;
   background: #FFF;
   // box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
-      display: flex
-;
-    flex-direction: column-reverse;
+  display: flex;
+  gap: 40px;
+  flex-direction: column-reverse;
+  margin-top: 40px !important;
 
   .risk-o-meter {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 80px;
-    margin: 48px 0 40px;
+    // margin: 40px 0 0;
 
     @include media(mobile) {
       flex-direction: column;
       padding: 0;
-      gap: 40px;
-      margin: 32px 0 40px;
+      gap: 24px;
+      // margin: 32px 0 40px;
     }
   }
 
@@ -93,13 +94,11 @@
       margin: 0;
       padding: 0;
 
-      @include font-style(
-            var(--body-medium-semibold-size),
-            var(--body-medium-semibold-line-height),
-            var(--blue-1-800-primary),
-            600,
-            var(--body)
-          );
+      @include font-style(var(--body-medium-semibold-size),
+        var(--body-medium-semibold-line-height),
+        var(--blue-1-800-primary),
+        600,
+        var(--body));
 
     }
 
@@ -126,8 +125,8 @@
 
   >.default-content-wrapper {
     // border-top: 0.5px solid #8695AF;
-    padding-top: 16px;
-    margin:0 16px;
+    // padding-top: 16px;
+    // margin:0 16px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -142,13 +141,11 @@
       margin: 0;
       padding: 0;
 
-       @include font-style(
-            var(--body-medium-medium-size),
-            var(--body-medium-medium-line-height),
-            var(--blue-1-800-primary),
-            500,
-            var(--body)
-          );
+      @include font-style(var(--body-medium-medium-size),
+        var(--body-medium-medium-line-height),
+        var(--blue-1-800-primary),
+        500,
+        var(--body));
 
       @include media(mobile) {
         font-size: var(--body-small-medium-size);
@@ -156,17 +153,15 @@
       }
 
       a {
-        @include font-style(
-            var(--body-medium-medium-size),
-            var(--body-medium-medium-line-height),
-            var(--blue-1-300),
-            500,
-            var(--body)
-          );
+        @include font-style(var(--body-medium-medium-size),
+          var(--body-medium-medium-line-height),
+          var(--blue-1-300),
+          500,
+          var(--body));
 
         @include media(mobile) {
-           font-size: var(--body-small-medium-size);
-        line-height: var(--body-small-medium-line-height);
+          font-size: var(--body-small-medium-size);
+          line-height: var(--body-small-medium-line-height);
         }
 
         &:focus-visible {
@@ -191,51 +186,47 @@
         font-size: 14px;
         line-height: 20px;
 
-         @include font-style(
-            var(--body-small-regular-size),
-            var(--label-large-line-height),
-            var(--neutrals-black),
-            400,
-            var(--body)
-          );
+        @include font-style(var(--body-small-regular-size),
+          var(--label-large-line-height),
+          var(--neutrals-black),
+          400,
+          var(--body));
 
         @include media(mobile) {
-           font-size: var(--paragraph-small-size);
-        line-height: var(--paragraph-small-line-height);
+          font-size: var(--paragraph-small-size);
+          line-height: var(--paragraph-small-line-height);
         }
       }
     }
 
     p.defone3 {
-      @include font-style(
-            var(--disclaimer-xsmall-size),
-            var(--disclaimer-xsmall-line-height),
-            var(--neutrals-black),
-            400,
-            var(--body)
-          );
+      @include font-style(var(--disclaimer-xsmall-size),
+        var(--disclaimer-xsmall-line-height),
+        var(--neutrals-black),
+        400,
+        var(--body));
 
-           @include media(mobile) {
-           font-size: var(--paragraph-small-size);
+      @include media(mobile) {
+        font-size: var(--paragraph-small-size);
         line-height: var(--paragraph-small-line-height);
-        }
+      }
 
       margin: 0;
 
       a.deftwo1 {
-        @include font-style(
-            var(--body-small-regular-size),
-            var(--label-large-line-height),
-            var(--icon-error),
-            400,
-            var(--body)
-          );
-          
-        text-decoration: none;
+        @include font-style(var(--body-small-regular-size),
+          var(--label-large-line-height),
+          var(--icon-error),
+          400,
+          var(--body));
 
-         @include media(mobile) {
-           font-size: var(--paragraph-small-size);
-        line-height: var(--paragraph-small-line-height);
+        text-decoration: none;
+        padding-right: 3px;
+
+        @include media(mobile) {
+          font-size: var(--paragraph-small-size);
+          line-height: var(--paragraph-small-line-height);
+          padding-right: unset;
         }
 
 
@@ -283,13 +274,11 @@
     h2 {
       margin: 0;
 
-       @include font-style(
-            var(--body-xlarge-bold-size),
-            var(--body-xlarge-bold-line-height),
-            var(--blue-1-800-primary),
-            600,
-            var(--body)
-          );
+      @include font-style(var(--body-xlarge-bold-size),
+        var(--body-xlarge-bold-line-height),
+        var(--blue-1-800-primary),
+        600,
+        var(--body));
     }
   }
 
@@ -350,6 +339,6 @@
   }
 }
 
-.section.risk-o-meter-container.risk-container{
+.section.risk-o-meter-container.risk-container {
   margin: 0;
 }

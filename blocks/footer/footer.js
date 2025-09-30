@@ -181,15 +181,20 @@ export default async function decorate(block) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const formem = block.querySelector('#form-email');
       formem.addEventListener('input', (event) => {
-        const closblock = event.target.closest('.email-wrapper');
+        const closblock = event.target.closest('.footer');
         if (closblock.querySelector('.errormsg') === null) {
-          closblock.append(span({ class: 'errormsg' }, 'Enter a valid email address'));
+          closblock.querySelector('.field-wrapper').append(span({ class: 'errormsg' }, 'Enter a valid email address'));
         }
         const inpval = event.target.value;
+        const inpelm = event.target.classList;
         if (emailRegex.test(inpval)) {
-          closblock.querySelector('.errormsg').style.display = 'none';
+          closblock.querySelector('.errormsg').style.display = 'block';
+          inpelm.remove('email-fail');
+          inpelm.add('email-success');
         } else {
           closblock.querySelector('.errormsg').style.display = 'block';
+          inpelm.add('email-fail');
+          inpelm.remove('email-success');
         }
       });
     }

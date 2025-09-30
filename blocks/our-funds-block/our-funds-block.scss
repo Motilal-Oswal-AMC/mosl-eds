@@ -181,14 +181,16 @@ body {
 
           .list-search {
             position: absolute;
-            top: 52px;
+
+            // top: 52px;
+            top: 100%;
             left: 0;
             z-index: 10;
             background-color: var(--neutrals-white);
             border: 1px solid var(--neutrals-200);
             border-radius: 6px;
             width: 100%;
-            margin: 0;
+            margin: 4px 0 0;
             max-height: 352px;
             overflow: auto;
             list-style: none;
@@ -1395,37 +1397,37 @@ body {
                 }
               }
 
-              &.toggle-checked {
-                .toggle-text:first-of-type {
-                  @include font-style(
-                    var(--body-small-regular-size),
-                    var(--label-large-line-height),
-                    var(--neutrals-black),
-                    400,
-                    var(--body)
-                  );
+              // &.toggle-checked {
+              //   .toggle-text:first-of-type {
+              //     @include font-style(
+              //       var(--body-small-regular-size),
+              //       var(--label-large-line-height),
+              //       var(--neutrals-black),
+              //       400,
+              //       var(--body)
+              //     );
 
-                  @include media(mobile) {
-                    font-size: var(--paragraph-small-size);
-                    line-height: var(--paragraph-small-line-height);
-                  }
-                }
+              //     @include media(mobile) {
+              //       font-size: var(--paragraph-small-size);
+              //       line-height: var(--paragraph-small-line-height);
+              //     }
+              //   }
 
-                .toggle-text:last-of-type {
-                  @include font-style(
-                    var(--body-small-semibold-size),
-                    var(--body-small-semibold-line-height),
-                    var(--blue-1-700),
-                    600,
-                    var(--body)
-                  );
+              //   .toggle-text:last-of-type {
+              //     @include font-style(
+              //       var(--body-small-semibold-size),
+              //       var(--body-small-semibold-line-height),
+              //       var(--blue-1-700),
+              //       600,
+              //       var(--body)
+              //     );
 
-                  @include media(mobile) {
-                    font-size: var(--body-small-semibold-size);
-                    line-height: var(--body-small-semibold-line-height);
-                  }
-                }
-              }
+              //     @include media(mobile) {
+              //       font-size: var(--body-small-semibold-size);
+              //       line-height: var(--body-small-semibold-line-height);
+              //     }
+              //   }
+              // }
 
               .fund-toggle-wrap {
                 input {
