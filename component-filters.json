@@ -49,7 +49,8 @@
       "fdp-campaign",
       "start-building",
       "our-experts",
-      "popular-article"
+      "popular-article",
+      "moedge-building"
     ]
   },
   {
@@ -154,7 +155,7 @@
     ]
   },
   {
-    "id": "Moedge Building",
+    "id": "moedge-building",
     "components": [
       "moedge-building-item"
     ]
