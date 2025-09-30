@@ -50,7 +50,6 @@
 @media (max-width: 768px) {
   .section.compounding .compounding-two-inner .default-content-wrapper, .section.fdp-calculator .compounding-two-inner .default-content-wrapper {
     align-items: flex-start;
-    padding-top: 40px;
   }
 }
 .section.compounding .compounding-two-inner .default-content-wrapper .hero-image p, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-image p {
@@ -879,8 +878,7 @@
 @media (max-width: 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal {
     text-align: center;
-    padding-bottom: 24px;
-    padding-top: 0;
+    padding: 16px 0;
   }
 }
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal .view-othercal-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal .view-othercal-btn {
@@ -986,6 +984,11 @@
 }
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal {
   display: none;
+}
+@media (max-width: 768px) {
+  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal {
+    display: block;
+  }
 }
 .section.fdp-calculator .default-content-wrapper:last-of-type p.disc-child-1 {
   margin-bottom: 20px;

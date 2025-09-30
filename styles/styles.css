@@ -567,6 +567,11 @@ footer .footer[data-block-status="loaded"] {
     margin-top: unset;
 }
 
+@media (width <=768px) {
+    .fdp-card-container .fund-philosophy-video.section {
+        padding: 40px 16px;
+    }
+}
 
 @media (width <=768px) {
 
@@ -641,7 +646,7 @@ body.noscroll {
     justify-content: space-between;
     padding: 24px;
     position: sticky;
-    
+
     /* top: 89px; */
     top: 132px;
     background-color: #f5f5f5;
@@ -781,7 +786,7 @@ body.noscroll {
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
     max-width: 170px;
     width: 100%;
-    background-color:var(--neutrals-white) ;
+    background-color: var(--neutrals-white);
     flex-direction: column;
     align-items: center;
     gap: 8px;
@@ -812,11 +817,11 @@ body.noscroll {
     font-style: normal;
     padding: 12px;
     align-items: center;
-    font-size:var(--body-xsmall-regular-size);
+    font-size: var(--body-xsmall-regular-size);
     line-height: var(--body-xsmall-regular-line-height);
     font-weight: 400;
-    font-family:var(--body) ;
-    color: var(--text-body) ;
+    font-family: var(--body);
+    color: var(--text-body);
 }
 
 /* 
@@ -840,8 +845,8 @@ position: relative;
     }
 
     .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
-         font-size:var(--paragraph-xsmall-size);
-    line-height: var(--paragraph-xsmall-line-height);
+        font-size: var(--paragraph-xsmall-size);
+        line-height: var(--paragraph-xsmall-line-height);
     }
 }
 
@@ -1123,7 +1128,7 @@ position: relative;
     padding: 0;
 }
 
-main.nfo-nav .section:first-of-type.performance-graph-container{
+main.nfo-nav .section:first-of-type.performance-graph-container {
     margin-top: 20px;
 }
 
@@ -1173,7 +1178,7 @@ z-index: -1;
     main.nfo-nav .section:first-of-type.performance-graph-container {
         margin-top: 40px;
     }
-    
+
     @keyframes slide-out {
         from {
             transform: translateY(0);

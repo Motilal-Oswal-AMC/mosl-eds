@@ -53,7 +53,7 @@
 
         @include media(mobile) {
           align-items: flex-start;
-          padding-top: 40px;
+          // padding-top: 40px;
         }
 
         .hero-image {
@@ -946,8 +946,7 @@
 
             @include media(mobile) {
               text-align: center;
-              padding-bottom: 24px;
-              padding-top: 0;
+              padding: 16px 0;
             }
 
             .view-othercal-btn {
@@ -1086,6 +1085,10 @@
 
           .view-btn-cal {
             display: none;
+
+            @include media(mobile) {
+              display: block;
+            }
           }
         }
       }

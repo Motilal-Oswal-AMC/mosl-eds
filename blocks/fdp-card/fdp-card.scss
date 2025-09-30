@@ -977,6 +977,7 @@ main {
 
       @media (width <=768px) {
         padding: 0 16px;
+        margin: 40px 0;
       }
 
       .default-content-wrapper {
@@ -988,6 +989,7 @@ main {
 
         @media (width <=768px) {
           padding: 0;
+          gap: 24px;
         }
 
         h2 {
@@ -1002,8 +1004,8 @@ main {
           margin: 0;
 
           @media (width <=768px) {
-            font-size: 24px;
-            line-height: 28px;
+            font-size: 20px;
+            line-height: 24px;
           }
         }
 
@@ -1038,6 +1040,10 @@ main {
               gap: 4px;
               list-style: none;
               margin: 0;
+
+              @include media(mobile) {
+                gap: 8px;
+              }
 
               li.whyfund-innertext-li1:nth-child(1) {
                 // @include font-style(18px, 24px, $primary-blue, 500, $poppins);
