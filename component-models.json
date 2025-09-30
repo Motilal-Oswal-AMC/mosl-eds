@@ -1516,5 +1516,46 @@
         "label": "Enter Label Benchmark"
       }
     ]
+  },
+  {
+    "id":"step-up-block",
+    "fields":[
+      {
+        "component": "richtext",
+        "name": "col1_richtext",
+        "value": "",
+        "label": "Enter context for Checkbox",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col1_stepupamt",
+        "label": "Enter label for Step up amount"
+      },
+      {
+        "component": "text",
+        "name": "col1_frequency",
+        "label": "Enter label for Frequency"
+      },
+      {
+        "component": "richtext",
+        "name": "col1_rich",
+        "value": "",
+        "label": "Enter Discription before SIP Calculation",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col2_frequency",
+        "label": "Enter label for Max SIP Amount"
+      },
+      {
+        "component": "richtext",
+        "name": "col2_rich",
+        "value": "",
+        "label": "Enter Discription after SIP Calculation",
+        "valueType": "string"
+      }
+    ]
   }
 ]
