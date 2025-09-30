@@ -71,6 +71,11 @@
   flex-direction: column-reverse;
   margin-top: 40px !important;
 
+  &.risk-container {
+    margin-top: unset !important;
+    padding: 16px;
+  }
+
   .risk-o-meter {
     display: flex;
     justify-content: space-between;

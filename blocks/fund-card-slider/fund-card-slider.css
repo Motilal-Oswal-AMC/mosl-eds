@@ -6,6 +6,9 @@
   position: relative;
   padding: 0 0 40px;
 }
+.section.fund-card-slider-container.table-wrapper {
+  padding: 0 0 24px 0;
+}
 @media (width <= 768px) {
   .section.fund-card-slider-container {
     padding: 0 16px;
