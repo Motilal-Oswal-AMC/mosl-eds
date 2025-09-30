@@ -379,6 +379,7 @@
   gap: 24px;
 }
 .section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input .reg-mob-con-code {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -392,6 +393,87 @@
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
+  position: absolute;
+  top: -9px;
+  left: 13px;
+  background: white;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input .block-label-input {
+  max-width: 372px;
+  width: 100%;
+  position: relative;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input .block-label-input .input-reg {
+  max-width: 372px;
+  width: 100%;
+  display: flex;
+  padding: var(--spacing-8) var(--spacing-12);
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: var(--border-radius-8);
+  border: var(--border-width-01, 1px) solid var(--strokes-default);
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input .block-label-input .contry-code {
+  max-width: 112px;
+  width: 100%;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input .cont-code {
+  max-width: 112px;
+  width: 100%;
+  display: flex;
+  height: 40px;
+  padding: var(--spacing-10) var(--spacing-8) var(--spacing-10) var(--spacing-12);
+  align-items: center;
+  align-self: stretch;
+  border-radius: var(--border-radius-8);
+  border: var(--border-width-02) solid var(--strokes-default);
+  justify-content: center;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input .cont-code .contry-code-para {
+  margin: 0;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--text-default-input);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .email-cty-name {
+  display: flex;
+  gap: 24px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .email-cty-name .block-rex {
+  max-width: 372px;
+  width: 100%;
+  position: relative;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .email-cty-name .block-rex .label-rex {
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--text-default-input);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+  position: absolute;
+  top: -9px;
+  left: 13px;
+  background: white;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .email-cty-name .input-rex {
+  max-width: 372px;
+  width: 100%;
+  display: flex;
+  padding: var(--spacing-8) var(--spacing-12);
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: var(--border-radius-8);
+  border: var(--border-width-01, 1px) solid var(--strokes-default);
 }
 .section.login-page-container .login-page-wrapper .main-login-page .btn-descr {
   display: flex;
@@ -496,4 +578,16 @@
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
+}
+
+.section.login-register {
+  padding: 40px 104px;
+}
+.section.login-register .login-image-item-wrapper {
+  max-width: 400px;
+  width: 100%;
+}
+.section.login-register .login-page-wrapper {
+  max-width: 816px;
+  width: 100%;
 }/*# sourceMappingURL=login-page.css.map */

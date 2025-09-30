@@ -4,6 +4,9 @@ import {
 import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
+  const pagecontain = block.closest('.login-page-container');
+  pagecontain.classList.add('login-register');
+
   const loginImage = document.querySelector('.login-image-item');
   dataMapMoObj.CLASS_PREFIXES = [
     'login-item',
@@ -164,9 +167,9 @@ export default function decorate(block) {
         div(
           { class: 'reg-mob-con-code' },
           div(
-            { class: 'cont-code-block cont block-label-input' },
-            label({ class: 'contry-code-label label-reg' }, '+91'),
-            input({ class: 'contry-code input-reg' }),
+            { class: 'cont-code-block cont block-label-input cont-code' },
+            p({ class: 'contry-code-para' }, '+91'),
+            // input({ class: 'contry-code input-reg' }),
           ),
           div(
             { class: 'cont-code-block block-label-input' },
@@ -180,14 +183,14 @@ export default function decorate(block) {
       div(
         { class: 'email-cty-name' },
         div(
-          { class: 'email-block' },
-          label({ class: 'label-email' }, 'Email ID'),
-          input({ class: 'email-input' }),
+          { class: 'email-block block-rex' },
+          label({ class: 'label-email label-rex' }, 'Email ID'),
+          input({ class: 'email-input input-rex' }),
         ),
         div(
-          { class: 'city-block' },
-          label({ class: 'label-city' }, 'City Name'),
-          input({ class: 'city-input' }),
+          { class: 'city-block block-rex' },
+          label({ class: 'label-city label-rex' }, 'City Name'),
+          input({ class: 'city-input input-rex' }),
         ),
       ),
     ),
