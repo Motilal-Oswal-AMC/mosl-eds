@@ -203,7 +203,7 @@
 @import "../fund-card/fund-card.css";
 
 .section.our-funds-fdp-container {
-  padding: 40px 0;
+  padding: 24px 0;
 
   @media (width <= 768px) {
     padding: 0 16px;
@@ -362,7 +362,7 @@
 
                 @include font-style(
                   var(--body-small-regular-size),
-                  var(--Body-Small-regular-Line-Height),
+                  var(--body-small-regular-line-height),
                   var(--neutrals-800),
                   400,
                   var(--body)
@@ -399,7 +399,7 @@
           a {
             @include font-style(
               var(--text-link-small-size),
-              var(--Text-Link-Small-Line-Height),
+              var(--text-link-small-line-height),
               var(--text-text-link),
               400,
               var(--body)

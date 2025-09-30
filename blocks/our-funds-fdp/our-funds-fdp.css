@@ -1,7 +1,7 @@
 @import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
 .section.our-funds-fdp-container {
-  padding: 40px 0;
+  padding: 24px 0;
 }
 @media (width <= 768px) {
   .section.our-funds-fdp-container {
@@ -131,7 +131,7 @@
   margin: 0;
   padding: 0;
   font-size: var(--body-small-regular-size);
-  line-height: var(--Body-Small-regular-Line-Height);
+  line-height: var(--body-small-regular-line-height);
   color: var(--neutrals-800);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -161,7 +161,7 @@
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-links a {
   font-size: var(--text-link-small-size);
-  line-height: var(--Text-Link-Small-Line-Height);
+  line-height: var(--text-link-small-line-height);
   color: var(--text-text-link);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
