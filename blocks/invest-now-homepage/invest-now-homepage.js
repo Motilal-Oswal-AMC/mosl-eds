@@ -814,8 +814,7 @@ export default function decorate(block) {
   let fundNameFromData;
   if (fundData) {
     // console.log('Found Fund Data:', fundData);
-    fundNameFromData = fundData.schDetail.schemeName
-      .replaceAll('Motilal Oswal', '');
+    fundNameFromData = fundData.schDetail.schemeName;
   } else {
     // console.error('No fund data found for schcode:', schcodeFromStorage);
   }
@@ -846,7 +845,7 @@ export default function decorate(block) {
   // const ctaLabel = col3[2]?.textContent || '';
 
   // Frequency options (mirror your JSON)
-  const brandName = 'Motilal Oswal';
+  // const brandName = 'Motilal Oswal';
   // const logoSrc = '../../icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
   const logoSrc = `../../icons/iconfund/${mop}`;
@@ -862,6 +861,7 @@ export default function decorate(block) {
     'Weekly',
   ];
   const endDateOptions = ['Until I cancel', 'Select Date'];
+  const startDateOptions = ['Until I cancel', 'Select Date'];
 
   block.innerHTML = '';
 
@@ -895,17 +895,25 @@ export default function decorate(block) {
         ),
         div(
           { class: 'modal-header-subtitle' },
-          p({ class: 'brandname' }, brandName),
+          // p({ class: 'brandname' }, brandName),
           h3({ class: 'fund-name' }, fundNameFromData),
+          div({ class : 'dropdown-wrap' },
+            p({ class : 'selected-txt' }, 'Growth'),
+            ul({ class: 'dropdown-list' },
+              li({ class : 'list-name' },'1Y'),
+              li({ class : 'list-name' },'3Y'),
+              li({ class : 'list-name' },'5Y'),
+            )
+          ),
         ),
       ),
       div(
         { class: 'modal-toggle' },
         div(
-          { class: 'modal-btn-lumpsum active' },
-          button({ class: 'lumpsum-btn' }, lumpsumLabel),
+          { class: 'modal-btn-lumpsum lumsum-sip-btn active' },
+          button({ class: 'lumsip-btn' }, lumpsumLabel),
         ),
-        div({ class: 'modal-btn-sip' }, button({ class: 'sip-btn' }, sipLabel)),
+        div({ class: 'modal-btn-sip lumsum-sip-btn' }, button({ class: 'lumsip-btn' }, sipLabel)),
       ),
     ),
     div(
@@ -916,7 +924,7 @@ export default function decorate(block) {
           { class: 'modal-inputs' },
           div(
             { class: 'modal-input' },
-            label(inputLabel),
+            label({ class: 'invest-amnt-label' }, inputLabel),
             div(
               { class: 'modal-input-symbol' },
               // input({ type: 'number', value: defaultAmount, class: 'amount-input' })),
@@ -927,41 +935,22 @@ export default function decorate(block) {
                 value: defaultAmount,
                 class: 'amount-input',
               }),
-              span(
-                { class: 'amount-error error-hide' },
-                'Amount must be between 500 and 1000000',
-              ),
+            ),
+            span({ class: 'amount-word-format' }, 'Rupees ten thousand only'),
+            span(
+              { class: 'amount-error error-hide' },
+              'Amount must be between 500 and 1000000',
             ),
           ),
           div(
             { class: 'modal-suggestions' },
-            ...suggestions.map((s) => button({ class: 'suggestion-btn' }, `₹ ${s}`)),
+            ...suggestions.map((s) => button({ class: 'suggestion-btn' }, `+₹${s}`)),
           ),
         ),
         div(
           { class: 'modal-input-fields hidden' },
           div(
             { class: 'modal-sip' },
-            div(
-              { class: 'modal-sip-starts' },
-              div(
-                { class: 'sip-starts-maintext' },
-                p({ class: 'sip-starts-text' }, 'SIP starts from '),
-              ),
-              div(
-                { class: 'sip-starts-maindate' },
-                p({ class: 'sip-starts-date' }, getTodaysDateFormatted()),
-                // button({ class: 'calendar-btn' },
-                //   img({ src: calendarIconSrc, alt: 'Calendar Icon' })
-                // ))
-                img({
-                  class: 'calendar-btn',
-                  src: calendarIconSrc,
-                  alt: 'Calendar Icon',
-                  'aria-label': 'Select start date',
-                }),
-              ),
-            ),
             div(
               { class: 'modal-start-today' },
               label(
@@ -981,16 +970,20 @@ export default function decorate(block) {
                 ),
               ),
             ),
-          ),
-          div(
-            { class: 'date-drop-down' },
-            createCustomDropdown(
-              'frequency',
-              'Frequency',
-              frequencyOptions,
-              frequency,
+            div(
+              { class: 'modal-sip-dropdown' },
+              div(
+                { class: 'date-drop-down' },
+                createCustomDropdown('startDate', 'Start Date', startDateOptions, 'anurag'),
+                createCustomDropdown(
+                  'frequency',
+                  'Frequency',
+                  frequencyOptions,
+                  frequency,
+                ),
+                createCustomDropdown('endDate', 'End Date', endDateOptions, endDate),
+              ),
             ),
-            createCustomDropdown('endDate', 'End Date', endDateOptions, endDate),
           ),
         ),
       ),
@@ -1093,7 +1086,7 @@ export default function decorate(block) {
       suggestionButtons.forEach((b) => b.classList.remove('active'));
       // Add .active to the clicked button
       btn.classList.add('active');
-      const value = btn.textContent.split(' ')[1];
+      const value = btn.textContent.split('₹')[1];
       amountInput.value = value;
       amountInput.dispatchEvent(new Event('input'));
     });
@@ -1106,7 +1099,7 @@ export default function decorate(block) {
     let hasActiveMatch = false;
     suggestionButtons.forEach((btn) => {
     // Check if the button's text matches the input's value
-      if (`₹ ${currentValue}` === btn.textContent.trim()) { // Added .trim() for robustness
+      if (currentValue === btn.textContent.split('₹')[1]) { // Added .trim() for robustness
         btn.classList.add('active');
         hasActiveMatch = true; // This reassignment is now valid
       } else {
