@@ -532,7 +532,9 @@ header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-te
     font-style: normal;
     font-weight: 500;
     line-height: var(--body-small-medium-line-height);
-    padding: 4px 0;
+    min-height: 20px;
+
+    /* padding: 4px 0; */
 }
 
 /* header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1[aria-expanded="true"] .sub-popup-inner-text1 {
@@ -854,7 +856,9 @@ header nav .nav-sections ul>li>ul {
     font-style: normal;
     font-weight: 500;
     line-height: var(--body-small-medium-line-height);
-    padding: 4px 0;
+    min-height: 20px;
+
+    /* padding: 4px 0; */
 }
 
 /* .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li.comlist[aria-expanded="true"] .sub-popup-inner-text1 {
@@ -1823,6 +1827,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         background-color: var(--neutrals-white);
     }
 
+    header nav .sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text1 {
+        min-height: inherit;
+    }
+
     header nav .nav-sections .nav-sec-sec1 .nav-drop::after,
     .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text1::after,
     .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li.comlist .sub-popup-inner-text1::after {
@@ -2213,6 +2221,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         font-weight: 600;
         font-size: var(--body-xsmall-medium-size);
         line-height: var(--body-xsmall-semibold-line-height);
+        min-height: inherit;
     }
 
     .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 {
