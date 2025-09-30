@@ -1544,7 +1544,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "imageAlt2",
+        "name": "image2Alt",
         "label": "Alt for mobile",
         "value": ""
       }
