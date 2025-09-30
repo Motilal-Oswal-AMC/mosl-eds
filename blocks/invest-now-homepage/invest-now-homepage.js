@@ -795,11 +795,8 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
   return div(
     { class: 'custom-select-wrapper', id: `custom-select-${id}` },
     label({ class: 'custom-select-label' }, labelText),
-    div({ class: 'select-selected' }, defaultValue),
-    div(
-      { class: 'select-options' },
-      ul(...options.map((opt) => li({ 'data-value': opt }, opt))),
-    ),
+    p({ class: 'select-selected' }, defaultValue),
+    ul({ class: 'select-options' }, ...options.map((opt) => li({ 'data-value': opt }, opt))),
     input({ type: 'hidden', id, value: defaultValue }),
   );
 }
@@ -866,23 +863,20 @@ export default function decorate(block) {
         div({ class: 'discripone' }, fieldlabel1),
       ),
       div(
-        { class: 'form-container'},
+        { class: 'form-container' },
         div(
           { class: 'input-wrapper' },
           div(
             { class: 'inputfield' },
             div(
               { class: 'stepupfield' },
-              p(
-                { class: 'stepuplabel' },
+              label(
+                { class: 'stepuplabel', for: 'stepamnt' },
                 fieldlabel2,
               ),
-              div(
-                { class: 'stepupinpt' },
-                input({
-                  class: 'stepupamt', type: 'text', placeholder: fieldlabel2,
-                }),
-              ),
+              input({
+                class: 'stepupamt', type: 'text', id: 'stepamnt', value: '1,000', placeholder: fieldlabel2,
+              }),
             ),
             div(
               {
@@ -896,7 +890,7 @@ export default function decorate(block) {
               ),
             ),
           ),
-          div(
+          p(
             { class: 'stepdisp' },
             fieldlabel6,
           ),
@@ -907,17 +901,14 @@ export default function decorate(block) {
         div(
           { class: 'maxsipfield' },
           div(
-            { class: 'stepupfield' },
-            p(
-              { class: 'stepuplabel' },
+            { class: 'maxstepupfield' },
+            label(
+              { class: 'maxstepuplabel', for: 'maxsipamnt' },
               fieldlabel4,
             ),
-            div(
-              { class: 'stepupinpt' },
-              input({
-                class: 'stepupamt', type: 'text', placeholder: fieldlabel4,
-              }),
-            ),
+            input({
+              class: 'maxstepupamt', type: 'text', id: 'maxsipamnt', value: '24,000', placeholder: fieldlabel4,
+            }),
           ),
         ),
         div(
@@ -961,7 +952,8 @@ export default function decorate(block) {
   // const logoSrc = '../../icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
   const logoSrc = `../../icons/iconfund/${mop}`;
-  const calendarIconSrc = '../../icons/calendar.svg'; // Replace with your real calendar icon path
+  // const calendarIconSrc = '../../icons/calendar.svg';
+  // // Replace with your real calendar icon path
   const infotoolsrc = '../../icons/infotooltip.svg';
   const closesrc = '../../icons/cross.svg';
   const frequencyOptions = [
@@ -1009,13 +1001,15 @@ export default function decorate(block) {
           { class: 'modal-header-subtitle' },
           // p({ class: 'brandname' }, brandName),
           h3({ class: 'fund-name' }, fundNameFromData),
-          div({ class : 'dropdown-wrap' },
-            p({ class : 'selected-txt' }, 'Growth'),
-            ul({ class: 'dropdown-list' },
-              li({ class : 'list-name' },'1Y'),
-              li({ class : 'list-name' },'3Y'),
-              li({ class : 'list-name' },'5Y'),
-            )
+          div(
+            { class: 'dropdown-wrap' },
+            p({ class: 'selected-txt' }, 'Growth'),
+            ul(
+              { class: 'dropdown-list' },
+              li({ class: 'list-name' }, '1Y'),
+              li({ class: 'list-name' }, '3Y'),
+              li({ class: 'list-name' }, '5Y'),
+            ),
           ),
         ),
       ),
@@ -1066,9 +1060,10 @@ export default function decorate(block) {
             div(
               { class: 'modal-start-today' },
               label(
+                { class: 'start-today-label' },
                 input({ type: 'checkbox', class: 'start-today-checkbox' }),
-                span({ class: 'custom-box' }),
-                span(' Start Today'),
+                // span({ class: 'custom-box' }),
+                span({ class: 'label-txt' }, ' Start Today'),
               ),
               div(
                 { class: 'start-today-note' },
@@ -1457,7 +1452,7 @@ export default function decorate(block) {
       displayDate.textContent = `${day} ${month} ${year}`;
     }
   }
-  flakterDate(calendarIcon, sipDateDisplay);
+  // flakterDate(calendarIcon, sipDateDisplay); //temp
   // flakterDateV2(finsel, dateSel, 'Monthly');
   // --- CORRECTED CUSTOM DROPDOWN LOGIC ---
   block.querySelectorAll('.custom-select-wrapper').forEach((wrapper) => {
