@@ -92,7 +92,7 @@
     .main-login-page {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-56);
+      // gap: var(--spacing-56);
 
       .login-pan-label {
         display: flex;
@@ -101,6 +101,12 @@
         align-items: flex-start;
         gap: var(--spacing-28);
         align-self: stretch;
+        padding-bottom: 36px;
+
+        @include media(mobile) {
+          gap: var(--spacing-24);
+          padding-bottom: 48px;
+        }
 
         .user-pan-para {
           font-style: normal;
@@ -141,6 +147,7 @@
           }
 
           .user-input {
+            max-width: 372px;
             width: 100%;
             display: flex;
             padding: var(--spacing-8) var(--spacing-12);
@@ -177,6 +184,331 @@
         }
       }
 
+      .response-block {
+        .kycblock {
+          display: flex;
+          flex-direction: column;
+          gap: 36px;
+          padding-bottom: 36px;
+
+          @include media(mobile) {
+            gap: 40px;
+            padding-bottom: 20px;
+          }
+
+          .enter-input-block {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .enter-label {
+              font-style: normal;
+
+              @include font-style(
+                var(--label-small-size),
+                var(--label-small-line-height),
+                #48535f,
+                400,
+                var(--body)
+              );
+            }
+
+            .input-resend {
+              display: flex;
+              align-items: center;
+              gap: 16px;
+
+              .otp-inputs-block {
+                display: flex;
+                height: 40px;
+                align-items: flex-start;
+                gap: var(--spacing-8);
+
+                .otp-input {
+                  display: flex;
+                  width: 40px;
+                  padding: 2px 13px 3px 14px;
+                  justify-content: center;
+                  align-items: center;
+                  aspect-ratio: 1/1;
+                  border-radius: var(--border-radius-8);
+                  border: var(--border-width-01, 1px) solid
+                    var(--strokes-default, #9e9e9e);
+                }
+              }
+
+              .resend {
+                margin: 0;
+                font-style: normal;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-decoration-skip-ink: auto;
+                text-decoration-thickness: auto;
+                text-underline-offset: 20%; /* 2.8px */
+                text-underline-position: from-font;
+                cursor: pointer;
+
+                @include font-style(
+                  var(--text-link-small-size),
+                  var(--text-link-small-line-height),
+                  var(--text-text-link),
+                  400,
+                  var(--body)
+                );
+              }
+            }
+          }
+
+          .otp-para-block {
+            .otp-para {
+              margin: 0;
+              font-style: normal;
+
+              @include font-style(
+                var(--body-small-regular-size),
+                var(--label-large-line-height),
+                var(--text-body-2),
+                400,
+                var(--body)
+              );
+            }
+          }
+        }
+
+        .passcode-main {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+          padding-bottom: 20px;
+
+          .label-pass {
+            .passcode-label {
+              font-style: normal;
+
+              @include font-style(
+                var(--label-small-size),
+                var(--label-small-line-height),
+                #48535f,
+                400,
+                var(--body)
+              );
+            }
+
+            .pass-input {
+              display: flex;
+              gap: 8px;
+              align-items: center;
+
+              .pass-code-input {
+                display: flex;
+                width: 40px;
+                padding: 2px 13px 3px 14px;
+                justify-content: center;
+                align-items: center;
+                aspect-ratio: 1/1;
+                border-radius: var(--border-radius-8);
+                border: var(--border-width-01, 1px) solid
+                  var(--strokes-default, #9e9e9e);
+              }
+            }
+          }
+
+          .forget-pass {
+            margin: 0;
+
+            .pass-para {
+              margin: 0;
+              font-style: normal;
+              text-decoration-line: underline;
+              text-decoration-style: solid;
+              text-decoration-skip-ink: auto;
+              text-decoration-thickness: auto;
+              text-underline-offset: 20%; /* 2.8px */
+              text-underline-position: from-font;
+              cursor: pointer;
+
+              @include font-style(
+                var(--text-link-small-size),
+                var(--text-link-small-line-height),
+                var(--text-text-link),
+                400,
+                var(--body)
+              );
+            }
+          }
+        }
+
+        .main-register {
+          .text-status-block {
+            display: flex;
+            padding: var(--spacing-16);
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-16);
+            align-self: stretch;
+            border-radius: var(--border-radius-8);
+            border: 1px solid var(--icon-warning);
+            background: #fff3e0;
+
+            .radio-text {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+
+              .radio-text {
+                margin: 0;
+                font-style: normal;
+
+                @include font-style(
+                  var(--label-large-size),
+                  var(--label-large-line-height),
+                  #231f20,
+                  400,
+                  var(--body)
+                );
+              }
+
+              .text-radio-input {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .radio-label-input {
+                  display: flex;
+                  gap: 4px;
+                  align-items: center;
+
+                  .radio-label {
+                    font-style: normal;
+
+                    @include font-style(
+                      var(--body-small-medium-size),
+                      var(--body-small-medium-line-height),
+                      var(--text-black),
+                      500,
+                      var(--body)
+                    );
+                  }
+
+                  .radio-input {
+                    width: 24px;
+                    height: 24px;
+                    flex-shrink: 0;
+                    color: #757575;
+                    border: 2px solid #757575;
+                  }
+                }
+              }
+            }
+
+            .disc-text {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+
+              .text-registered {
+                margin: 0;
+                font-style: normal;
+
+                @include font-style(
+                  14px,
+                  var(--label-medium-line-height),
+                  var(#231f20),
+                  400,
+                  var(--body)
+                );
+              }
+
+              .disc-text-all {
+                margin: 0;
+                font-style: normal;
+
+                @include font-style(
+                  var(--body-small-regular-size),
+                  var(--label-large-line-height),
+                  var(--text-body),
+                  400,
+                  var(--body)
+                );
+              }
+            }
+          }
+
+          .register-input-block {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 32px 0 40px 0;
+
+            @include media(mobile) {
+              gap: 36px;
+            }
+
+            .name-number-input {
+              display: flex;
+              gap: 24px;
+
+              .reg-mob-con-code {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+              }
+
+              // input{
+              //   max-width: 372px;
+              //   width: 100%;
+              // }
+
+              .label-reg {
+                font-style: normal;
+
+                @include font-style(
+                  var(--body-medium-regular-size),
+                  var(--body-medium-regular-line-height),
+                  var(--text-default-input),
+                  400,
+                  var(--body)
+
+                );
+
+                // position: absolute;
+                // // background-color: red;
+                // top: 10%;
+              }
+
+              // .input-reg {
+              //   display: flex;
+              //    max-width: 372px;
+              //    width: 100%;
+              //   padding: var(--spacing-8) var(--spacing-12);
+              //   flex-direction: column;
+              //   justify-content: flex-end;
+              //   align-items: flex-start;
+              //   gap: 4px;
+              //   align-self: stretch;
+              //   border-radius: var(--border-radius-8);
+              //   border: var(--border-width-01) solid var(--strokes-default);
+              // }
+
+              // .block-label-input {
+              //   display: flex;
+              //   max-width: 372px;
+              //   height: 40px;
+              //   flex-direction: column;
+              //   align-items: flex-start;
+              //   gap: var(--spacing-4);
+              //   flex-shrink: 0;
+              //   position: relative;
+              // }
+
+             
+              
+            }
+          }
+        }
+      }
+
       .btn-descr {
         display: flex;
         padding: var(--spacing-none);
@@ -187,6 +519,7 @@
         border-radius: var(--border-radius-none);
 
         .auth.btn {
+          max-width: 372px;
           cursor: pointer;
           display: flex;
           height: 44px;

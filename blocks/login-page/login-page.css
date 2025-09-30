@@ -81,7 +81,6 @@
 .section.login-page-container .login-page-wrapper .main-login-page {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-56);
 }
 .section.login-page-container .login-page-wrapper .main-login-page .login-pan-label {
   display: flex;
@@ -90,6 +89,13 @@
   align-items: flex-start;
   gap: var(--spacing-28);
   align-self: stretch;
+  padding-bottom: 36px;
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-page-wrapper .main-login-page .login-pan-label {
+    gap: var(--spacing-24);
+    padding-bottom: 48px;
+  }
 }
 .section.login-page-container .login-page-wrapper .main-login-page .login-pan-label .user-pan-para {
   font-style: normal;
@@ -125,6 +131,7 @@
   font-weight: 400;
 }
 .section.login-page-container .login-page-wrapper .main-login-page .login-pan-label .user-input-error .user-input {
+  max-width: 372px;
   width: 100%;
   display: flex;
   padding: var(--spacing-8) var(--spacing-12);
@@ -153,6 +160,239 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-bottom: 36px;
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock {
+    gap: 40px;
+    padding-bottom: 20px;
+  }
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .enter-input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .enter-input-block .enter-label {
+  font-style: normal;
+  font-size: var(--label-small-size);
+  line-height: var(--label-small-line-height);
+  color: #48535f;
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .enter-input-block .input-resend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .enter-input-block .input-resend .otp-inputs-block {
+  display: flex;
+  height: 40px;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .enter-input-block .input-resend .otp-inputs-block .otp-input {
+  display: flex;
+  width: 40px;
+  padding: 2px 13px 3px 14px;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  border-radius: var(--border-radius-8);
+  border: var(--border-width-01, 1px) solid var(--strokes-default, #9e9e9e);
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .enter-input-block .input-resend .resend {
+  margin: 0;
+  font-style: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: 20%; /* 2.8px */
+  text-underline-position: from-font;
+  cursor: pointer;
+  font-size: var(--text-link-small-size);
+  line-height: var(--text-link-small-line-height);
+  color: var(--text-text-link);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .otp-para-block .otp-para {
+  margin: 0;
+  font-style: normal;
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--text-body-2);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .passcode-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 20px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .passcode-main .label-pass .passcode-label {
+  font-style: normal;
+  font-size: var(--label-small-size);
+  line-height: var(--label-small-line-height);
+  color: #48535f;
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .passcode-main .label-pass .pass-input {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .passcode-main .label-pass .pass-input .pass-code-input {
+  display: flex;
+  width: 40px;
+  padding: 2px 13px 3px 14px;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  border-radius: var(--border-radius-8);
+  border: var(--border-width-01, 1px) solid var(--strokes-default, #9e9e9e);
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .passcode-main .forget-pass {
+  margin: 0;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .passcode-main .forget-pass .pass-para {
+  margin: 0;
+  font-style: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: 20%; /* 2.8px */
+  text-underline-position: from-font;
+  cursor: pointer;
+  font-size: var(--text-link-small-size);
+  line-height: var(--text-link-small-line-height);
+  color: var(--text-text-link);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block {
+  display: flex;
+  padding: var(--spacing-16);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  align-self: stretch;
+  border-radius: var(--border-radius-8);
+  border: 1px solid var(--icon-warning);
+  background: #fff3e0;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .radio-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .radio-text .radio-text {
+  margin: 0;
+  font-style: normal;
+  font-size: var(--label-large-size);
+  line-height: var(--label-large-line-height);
+  color: #231f20;
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .radio-text .text-radio-input {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .radio-text .text-radio-input .radio-label-input {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .radio-text .text-radio-input .radio-label-input .radio-label {
+  font-style: normal;
+  font-size: var(--body-small-medium-size);
+  line-height: var(--body-small-medium-line-height);
+  color: var(--text-black);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .radio-text .text-radio-input .radio-label-input .radio-input {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #757575;
+  border: 2px solid #757575;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .disc-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .disc-text .text-registered {
+  margin: 0;
+  font-style: normal;
+  font-size: 14px;
+  line-height: var(--label-medium-line-height);
+  color: var(#231f20);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .text-status-block .disc-text .disc-text-all {
+  margin: 0;
+  font-style: normal;
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--text-body);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 32px 0 40px 0;
+}
+@media (max-width: 768px) {
+  .section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block {
+    gap: 36px;
+  }
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input {
+  display: flex;
+  gap: 24px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input .reg-mob-con-code {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .main-register .register-input-block .name-number-input .label-reg {
+  font-style: normal;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--text-default-input);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
 .section.login-page-container .login-page-wrapper .main-login-page .btn-descr {
   display: flex;
   padding: var(--spacing-none);
@@ -163,6 +403,7 @@
   border-radius: var(--border-radius-none);
 }
 .section.login-page-container .login-page-wrapper .main-login-page .btn-descr .auth.btn {
+  max-width: 372px;
   cursor: pointer;
   display: flex;
   height: 44px;

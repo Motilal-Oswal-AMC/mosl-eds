@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "login Registered",
+            "value": "login-registered"
+          },
+          {
             "name": "FDP FAQ Change",
             "value": "fdp-faq-change"
           },
