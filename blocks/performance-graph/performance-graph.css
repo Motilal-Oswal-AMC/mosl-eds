@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  /* -----------------------------------
+     Accessibility Media Queries
+  ----------------------------------- */
 }
 @media (width <= 768px) {
   .performance-graph {
@@ -131,17 +134,17 @@
   font-size: var(--body-medium-semibold-size);
   line-height: var(--body-medium-semibold-line-height);
   color: var(--blue-1-800-primary);
-  font-family: "Inter", sans-serif;
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: var(--body);
-}
-.performance-graph .fund-main .fund-cagr .fund-cagr-container .filter-selected {
-  font-weight: 400;
-}
-.performance-graph .fund-main .fund-cagr .fund-cagr-container .cagr-value {
   font-weight: 600;
 }
-.performance-graph .wrapnote #chartdiv {
+.performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .cagr-value .filter-selected {
+  font-weight: 400;
+}
+.performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .cagr-value .cagr-value {
+  font-weight: 600;
+}
+.performance-graph .wrapnote .fund-main #chartdiv {
   width: 100%;
   height: 432px;
   flex-shrink: 0;
@@ -149,18 +152,14 @@
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 }
-
-/* -----------------------------------
-   Accessibility Media Queries
------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  .performance-graph * {
     animation: none !important;
     transition: none !important;
   }
 }
 @media (prefers-contrast: more) {
-  .filter-btn {
+  .performance-graph .filter-btn {
     border-color: black !important;
     background-color: white !important;
     color: black !important;
