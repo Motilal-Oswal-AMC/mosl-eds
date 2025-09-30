@@ -820,115 +820,115 @@ export default function decorate(block) {
   }
 
   // Step up UI
-  const stepblk = block.closest('.invest-now-homepage-container');
-  let divstepup;
-  const blkcompo = stepblk.querySelector('.step-up-block-wrapper');
-  console.log(blkcompo);
+  // const stepblk = block.closest('.invest-now-homepage-container');
+  // let divstepup;
+  // const blkcompo = stepblk.querySelector('.step-up-block-wrapper');
+  // console.log(blkcompo);
 
-  if (blkcompo) {
-    dataMapMoObj.CLASS_PREFIXES = ['mainstepup', 'substepup', 'innerstepup',
-      'stepupmain', 'stepupsub', 'stepupinner',
-    ];
-    dataMapMoObj.addIndexed(blkcompo);
-    const checkboxcont = blkcompo.querySelector('.substepup1 .stepupmain1').cloneNode(true);
-    const fieldlabel1 = blkcompo.querySelector('.substepup1 .stepupmain2').textContent.trim();
-    const fieldlabel2 = blkcompo.querySelector('.substepup1 .stepupmain3').textContent.trim();
-    const fieldlabel3 = blkcompo.querySelector('.substepup1 .stepupmain4').textContent.trim();
-    const fieldlabel4 = blkcompo.querySelector('.substepup2 .stepupmain1').textContent.trim();
-    const fieldlabel5 = blkcompo.querySelector('.substepup2 .stepupmain2').textContent.trim();
-    const fieldlabel6 = blkcompo.querySelector('.substepup1 .stepupmain5').textContent.trim();
-    const stepupOptions = [
-      'Yearly',
-      'Daily',
-      'Fortnightly',
-      'Monthly',
-      'Quarterly',
-      'Weekly',
-    ];
+  // if (blkcompo) {
+  //   dataMapMoObj.CLASS_PREFIXES = ['mainstepup', 'substepup', 'innerstepup',
+  //     'stepupmain', 'stepupsub', 'stepupinner',
+  //   ];
+  //   dataMapMoObj.addIndexed(blkcompo);
+  //   const checkboxcont = blkcompo.querySelector('.substepup1 .stepupmain1').cloneNode(true);
+  //   const fieldlabel1 = blkcompo.querySelector('.substepup1 .stepupmain2').textContent.trim();
+  //   const fieldlabel2 = blkcompo.querySelector('.substepup1 .stepupmain3').textContent.trim();
+  //   const fieldlabel3 = blkcompo.querySelector('.substepup1 .stepupmain4').textContent.trim();
+  //   const fieldlabel4 = blkcompo.querySelector('.substepup2 .stepupmain1').textContent.trim();
+  //   const fieldlabel5 = blkcompo.querySelector('.substepup2 .stepupmain2').textContent.trim();
+  //   const fieldlabel6 = blkcompo.querySelector('.substepup1 .stepupmain5').textContent.trim();
+  //   const stepupOptions = [
+  //     'Yearly',
+  //     'Daily',
+  //     'Fortnightly',
+  //     'Monthly',
+  //     'Quarterly',
+  //     'Weekly',
+  //   ];
 
-    checkboxcont.prepend(input({
-      class: 'stepup-box',
-      type: 'checkbox',
-      onclick: (event) => {
-        const chkevent = event.target.closest('.steup-container');
-        if (Array.from(chkevent.classList).includes('stepup-active')) {
-          chkevent.classList.remove('stepup-active');
-        } else {
-          chkevent.classList.add('stepup-active');
-        }
-      },
-    }));
-    divstepup = div(
-      { class: 'steup-container' },
-      div(
-        { class: 'stepup-checkbox' },
-        checkboxcont,
-        div({ class: 'discripone' }, fieldlabel1),
-      ),
-      div(
-        { class: 'form-container'},
-        div(
-          { class: 'input-wrapper' },
-          div(
-            { class: 'inputfield' },
-            div(
-              { class: 'stepupfield' },
-              p(
-                { class: 'stepuplabel' },
-                fieldlabel2,
-              ),
-              div(
-                { class: 'stepupinpt' },
-                input({
-                  class: 'stepupamt', type: 'text', placeholder: fieldlabel2,
-                }),
-              ),
-            ),
-            div(
-              {
-                class: 'stepupfieldrop',
-              },
-              createCustomDropdown(
-                'stepup-dropdown',
-                fieldlabel3,
-                stepupOptions,
-                stepupOptions[0],
-              ),
-            ),
-          ),
-          div(
-            { class: 'stepdisp' },
-            fieldlabel6,
-          ),
-        ),
-      ),
-      div(
-        { class: 'input-contain' },
-        div(
-          { class: 'maxsipfield' },
-          div(
-            { class: 'stepupfield' },
-            p(
-              { class: 'stepuplabel' },
-              fieldlabel4,
-            ),
-            div(
-              { class: 'stepupinpt' },
-              input({
-                class: 'stepupamt', type: 'text', placeholder: fieldlabel4,
-              }),
-            ),
-          ),
-        ),
-        div(
-          { class: 'discription2' },
-          fieldlabel5,
-        ),
-      ),
-    );
-  } else {
-    divstepup = '';
-  }
+  //   checkboxcont.prepend(input({
+  //     class: 'stepup-box',
+  //     type: 'checkbox',
+  //     onclick: (event) => {
+  //       const chkevent = event.target.closest('.steup-container');
+  //       if (Array.from(chkevent.classList).includes('stepup-active')) {
+  //         chkevent.classList.remove('stepup-active');
+  //       } else {
+  //         chkevent.classList.add('stepup-active');
+  //       }
+  //     },
+  //   }));
+  //   divstepup = div(
+  //     { class: 'steup-container' },
+  //     div(
+  //       { class: 'stepup-checkbox' },
+  //       checkboxcont,
+  //       div({ class: 'discripone' }, fieldlabel1),
+  //     ),
+  //     div(
+  //       { class: 'form-container'},
+  //       div(
+  //         { class: 'input-wrapper' },
+  //         div(
+  //           { class: 'inputfield' },
+  //           div(
+  //             { class: 'stepupfield' },
+  //             p(
+  //               { class: 'stepuplabel' },
+  //               fieldlabel2,
+  //             ),
+  //             div(
+  //               { class: 'stepupinpt' },
+  //               input({
+  //                 class: 'stepupamt', type: 'text', placeholder: fieldlabel2,
+  //               }),
+  //             ),
+  //           ),
+  //           div(
+  //             {
+  //               class: 'stepupfieldrop',
+  //             },
+  //             createCustomDropdown(
+  //               'stepup-dropdown',
+  //               fieldlabel3,
+  //               stepupOptions,
+  //               stepupOptions[0],
+  //             ),
+  //           ),
+  //         ),
+  //         div(
+  //           { class: 'stepdisp' },
+  //           fieldlabel6,
+  //         ),
+  //       ),
+  //     ),
+  //     div(
+  //       { class: 'input-contain' },
+  //       div(
+  //         { class: 'maxsipfield' },
+  //         div(
+  //           { class: 'stepupfield' },
+  //           p(
+  //             { class: 'stepuplabel' },
+  //             fieldlabel4,
+  //           ),
+  //           div(
+  //             { class: 'stepupinpt' },
+  //             input({
+  //               class: 'stepupamt', type: 'text', placeholder: fieldlabel4,
+  //             }),
+  //           ),
+  //         ),
+  //       ),
+  //       div(
+  //         { class: 'discription2' },
+  //         fieldlabel5,
+  //       ),
+  //     ),
+  //   );
+  // } else {
+  //   divstepup = '';
+  // }
 
   const col1 = block.children[0].querySelectorAll('p');
   let col2 = '';
@@ -1097,7 +1097,7 @@ export default function decorate(block) {
               ),
             ),
           ),
-          divstepup,
+          // divstepup,
         ),
       ),
       div(
@@ -1514,8 +1514,8 @@ export default function decorate(block) {
       });
   });
 
-  if (blkcompo) {
-    blkcompo.style.display = 'none';
-  }
+  // if (blkcompo) {
+  //   blkcompo.style.display = 'none';
+  // }
   return block;
 }
