@@ -152,5 +152,11 @@
     "components": [
       "popular-article-item"
     ]
+  },
+  {
+    "id": "Moedge Building",
+    "components": [
+      "moedge-building-item"
+    ]
   }
 ]

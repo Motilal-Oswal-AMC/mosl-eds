@@ -1522,7 +1522,8 @@
         "label": "Enter Label Benchmark"
       }
     ]
-  },{
+  },
+  {
     "id": "popular-article-item",
     "fields": [
       {
@@ -1548,7 +1549,8 @@
         "value": ""
       }
     ]
-  },{
+  },
+  {
     "id": "start-building",
     "fields": [
       {
@@ -1607,7 +1609,8 @@
         "valueType": "string"
       }
     ]
-  },{
+  },
+  {
     "id": "fdp-campaign",
     "fields": [
       {
@@ -1636,6 +1639,33 @@
         "valueType": "string",
         "name": "image2Alt",
         "label": "Alt for mobile",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "moedge-building-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "motilal edge Building Item Description",
         "value": ""
       }
     ]
