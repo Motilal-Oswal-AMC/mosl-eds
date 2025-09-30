@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign1 {
   display: block;
