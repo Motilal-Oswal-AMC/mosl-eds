@@ -241,7 +241,7 @@
 
             // background: #242177;
             border-radius: 8px 8px 0 0;
-            padding: $spacing-16 $spacing-none;
+            padding: $spacing-16 $spacing-none $spacing-8 $spacing-none;
 
             // padding-bottom: 8px;
             background-color: transparent;
@@ -264,11 +264,11 @@
 
             p {
               @include font-style(
-                map.get($typography-desktop, body-large-semibold-size),
-                map.get($typography-desktop, body-large-semibold-line-height),
-                $blue-1-800-primary,
+                var(--body-medium-semibold-size),
+                var(--body-medium-semibold-line-height),
+                var(--blue-1-800-primary),
                 600,
-                $body
+                var(--body)
               );
 
               @include media(mobile) {
@@ -309,11 +309,11 @@
               padding-right: 40px;
 
               @include font-style(
-                map.get($typography-desktop, body-small-regular-size),
-                map.get($typography-desktop, label-large-line-height),
-                $neutrals-900,
+                var(--body-small-regular-size),
+                var(--label-large-line-height),
+                var(--neutrals-900),
                 400,
-                $body
+                var(--body)
               );
 
               @include media(mobile) {
@@ -353,7 +353,7 @@
   & > .default-content-wrapper:nth-child(3) {
     grid-column: 2 / 2;
     grid-row: 2;
-    margin-top: 32px;
+    margin-top: 16px;
 
     // padding-left: 15px;
     // pad/ding: 0 16px;
@@ -417,8 +417,9 @@
 .section.fdp-faq {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 40px 0 0;
+  gap: 16px;
+  padding: 0 0 64px 0;
+  margin: unset !important;
 
   @media (width <=768px) {
     padding: 0 16px;
