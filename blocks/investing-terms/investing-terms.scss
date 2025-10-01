@@ -133,24 +133,19 @@
         font-style: normal;
         cursor: pointer;
 
-        
-          @include font-style(
-            var(--button-large-size,18px),
-            var(--button-large-line-height),
-            var(--text-white),
-            500,
-            var(--body)
-          );
+        @include font-style(
+          var(--button-large-size, 18px),
+          var(--button-large-line-height),
+          var(--text-white),
+          500,
+          var(--body)
+        );
 
-           @include media(mobile) {
-        //   font-size: var(--button-medium-size);
-        font-size: 30px;
+        @include media(mobile) {
+          //   font-size: var(--button-medium-size);
+          font-size: 30px;
           line-height: var(--button-medium-line-height);
         }
-
-
-
-        
       }
     }
   }

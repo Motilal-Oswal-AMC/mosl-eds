@@ -47,7 +47,8 @@
       "invest-now-homepage",
       "fm-portfolio",
       "fdp-campaign",
-      "investing-terms"
+      "investing-terms",
+      "global-dashboard"
     ]
   },
   {
@@ -150,6 +151,13 @@
     "components": [
       "investing-image-item",
       "investing-text-item"
+    ]
+  },
+  {
+    "id": "global-dashboard",
+    "components": [
+      "global-image-item",
+      "global-text-item"
     ]
   }
 ]
