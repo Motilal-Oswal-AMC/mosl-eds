@@ -1,1 +1,77 @@
-/*# sourceMappingURL=popular-acticles.css.map */
+@import "../../../styles/fonts.css";
+:root {
+  --tab-border-color: #e0e0e0;
+  --tab-active-bg: #6a38ee;
+  --tab-active-color: #fff;
+  --tab-inactive-bg: #f5f5f5;
+  --tab-inactive-color: #333;
+  --card-border-radius: 8px;
+  --card-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+  --link-color: #6a38ee;
+  --spacing-unit: 8px;
+}
+
+.popular-artical.tabs-container {
+  max-width: 100%;
+}
+.popular-artical.tabs-container p,
+.popular-artical.tabs-container a {
+  margin: 0;
+  padding: 0;
+  line-height: 10px;
+}
+.popular-artical.tabs-container .default-content-wrapper h6 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+.popular-artical.tabs-container .tabs .tabs-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-unit);
+  border: none;
+  margin-bottom: calc(var(--spacing-unit) * 4);
+}
+.popular-artical.tabs-container .tabs .tabs-list .tabs-tab {
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+  border: 1px solid var(--tab-border-color);
+  border-radius: 20px;
+  background-color: var(--tab-inactive-bg);
+  color: var(--tab-inactive-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.popular-artical.tabs-container .tabs .tabs-list .tabs-tab p {
+  margin: 0;
+}
+.popular-artical.tabs-container .tabs .tabs-list .tabs-tab:hover {
+  background-color: #e9e2fd;
+}
+.popular-artical.tabs-container .tabs .tabs-list .tabs-tab[aria-selected=true] {
+  background-color: var(--tab-active-bg);
+  color: var(--tab-active-color);
+  border-color: var(--tab-active-bg);
+}
+.popular-artical.tabs-container .tabs .tabs-panel {
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  overflow: auto;
+}
+.popular-artical.tabs-container .tabs .tabs-panel[aria-hidden=false] {
+  display: block;
+}
+.popular-artical.tabs-container .default-content-wrapper:last-of-type {
+  text-align: center;
+  margin-top: calc(var(--spacing-unit) * 4);
+}
+.popular-artical.tabs-container .default-content-wrapper:last-of-type a {
+  background-color: var(--tab-active-bg);
+  color: var(--tab-active-color);
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 4);
+  border-radius: var(--card-border-radius);
+  text-decoration: none;
+  font-weight: 600;
+}/*# sourceMappingURL=popular-acticles.css.map */
