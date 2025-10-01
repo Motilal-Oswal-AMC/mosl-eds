@@ -1607,7 +1607,7 @@ body {
               align-items: center;
               gap: 25px;
               border-radius: 8px;
-              padding: 14px 20px;
+              padding: 8px 20px;
 
               @include media(desktop-sm) {
                 gap: 22px;
@@ -1615,6 +1615,7 @@ body {
 
               .list-header-text {
                 margin: 0;
+                padding: 6px 0;
 
                 @include font-style(
                   var(--body-small-medium-size),
