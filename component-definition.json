@@ -747,7 +747,7 @@
             }
           }
         },
-         {
+        {
           "title": "Investing Text Item",
           "id": "investing-text-item",
           "plugins": {

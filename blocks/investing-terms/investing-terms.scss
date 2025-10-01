@@ -1,0 +1,40 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.investing-terms {
+  display: flex;
+  gap: 16px;
+padding: var(--spacing-40);
+border-radius: 8px;
+background: var(--blue-1-50);
+
+
+  @include media(mobile) {
+    flex-direction: column;
+  }
+
+  .inversting1 {
+    .inverstingsub1 {
+         width: 88px;
+        
+      .inverstingsubinner4 {
+        width: 88px;
+        height: 88px;
+        flex-shrink: 0;
+        object-fit: cover;
+        
+      }
+    }
+  }
+}
+
+//  @include font-style(var(--body-medium-medium-size),
+//                 var(--body-medium-medium-line-height),
+//                 var(--blue-1-800-primary),
+//                 500,
+//                 var(--body));
+
+//  @include media(mobile) {
+//           gap: 24px;
+//         }

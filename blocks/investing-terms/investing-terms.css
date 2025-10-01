@@ -1,0 +1,23 @@
+@import "../../../styles/fonts.css";
+.investing-terms {
+  display: flex;
+  gap: 16px;
+  padding: var(--spacing-40);
+  border-radius: 8px;
+  background: var(--blue-1-50);
+}
+@media (max-width: 768px) {
+  .investing-terms {
+    flex-direction: column;
+  }
+}
+.investing-terms .inversting1 .inverstingsub1 {
+  width: 88px;
+}
+.investing-terms .inversting1 .inverstingsub1 .inverstingsubinner4 {
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=investing-terms.css.map */
