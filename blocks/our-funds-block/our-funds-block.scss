@@ -156,8 +156,8 @@ body {
             @include font-style(
               var(--body-medium-regular-size),
               var(--body-medium-regular-line-height),
-              var(--text-black),
-              400,
+              var(--blue-1-800-primary),
+              500,
               var(--body)
             );
 
