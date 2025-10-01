@@ -141,7 +141,7 @@
 .performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .cagr-value .cagr-value {
   font-weight: 600;
 }
-.performance-graph .wrapnote .fund-main #chartdiv {
+.performance-graph .wrapnote #chartdiv {
   width: 100%;
   height: 432px;
   flex-shrink: 0;
