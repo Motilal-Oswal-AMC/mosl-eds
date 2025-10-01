@@ -706,7 +706,8 @@ main {
   }
 }
 .section.fdp-card-container .item2 .why-fund {
-  margin: 64px 0;
+  margin: 24px 0;
+  padding: 40px 0;
 }
 @media (width <= 768px) {
   .section.fdp-card-container .item2 .why-fund {
