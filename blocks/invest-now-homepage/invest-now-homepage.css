@@ -640,6 +640,7 @@
   top: 50%;
   transform: translateY(-50%);
   right: 100%;
+  margin-right: 12px;
   background-color: var(--surface-background-neutral-subtle);
   border-radius: var(--border-radius-8);
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.16);
@@ -650,7 +651,7 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap::after {
   content: "";
-  border-left: 10px solid red;
+  border-left: 10px solid var(--surface-background-neutral-subtle);
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   width: 8px;

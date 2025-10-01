@@ -676,6 +676,7 @@
                             top: 50%;
                             transform: translateY(-50%);
                             right: 100%;
+                            margin-right: 12px;
                             background-color: var(--surface-background-neutral-subtle);
                             border-radius: var(--border-radius-8);
                             box-shadow: 0 6px 16px 0 rgb(0 0 0 / 16%);
@@ -686,8 +687,7 @@
 
                             &::after {
                               content: "";
-                              // border-left: 30px solid var(--surface-background-neutral-subtle);
-                              border-left: 10px solid red;
+                              border-left: 10px solid var(--surface-background-neutral-subtle);
                               border-top: 8px solid transparent;
                               border-bottom: 8px solid transparent;
                               width: 8px;
