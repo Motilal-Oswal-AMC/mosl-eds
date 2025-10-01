@@ -384,6 +384,7 @@ main.nfo-nav .section:first-of-type {
 @media (width <=900px) {
     main>.section>div {
         padding: 0 16px;
+        gap: 16px;
     }
 }
 
@@ -833,6 +834,12 @@ body.noscroll {
     color: var(--text-body);
 }
 
+.breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
+    height: 20px;
+    width: 20px;
+    display: flex;
+}
+
 /* 
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2)>li{
 position: relative;
@@ -850,7 +857,7 @@ position: relative;
 
     .section.breadcrumbs-fdp {
         top: 116px;
-        padding: 16px;
+        padding: 16px 0;
     }
 
     .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {

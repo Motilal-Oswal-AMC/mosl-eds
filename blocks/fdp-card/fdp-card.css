@@ -15,7 +15,7 @@ main {
 @media (width <= 768px) {
   .section.fdp-card-container {
     flex-direction: column;
-    gap: 50px;
+    gap: 4px;
     margin-top: 0;
   }
 }
@@ -91,7 +91,7 @@ main {
   color: var(--text-body);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
+  font-weight: 500;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .brandlogo-callicons {
   display: flex;
@@ -182,6 +182,7 @@ main {
     margin: 0;
     font-size: var(--paragraph-xsmall-size);
     line-height: var(--paragraph-xsmall-line-height);
+    padding-top: 8px;
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .fundtagging-grp .tags-grp {
@@ -191,6 +192,11 @@ main {
   gap: 4px;
   list-style: none;
   margin: 20px 0 0;
+}
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .fundtagging-grp .tags-grp {
+    margin-top: 16px;
+  }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .fundtagging-grp .tags-grp .list-tag {
   border-radius: var(--border-radius-12);
@@ -205,6 +211,8 @@ main {
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .fundtagging-grp .tags-grp .list-tag {
+    height: 24px;
+    padding: 5px 10px;
     font-size: var(--body-xsmall-regular-size);
     line-height: var(--body-xsmall-regular-line-height);
     color: var(--blue-1-800-primary);
@@ -408,7 +416,7 @@ main {
   color: var(--text-success);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv {
