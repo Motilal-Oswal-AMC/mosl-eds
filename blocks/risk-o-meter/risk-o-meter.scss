@@ -64,12 +64,16 @@
   //   padding: 24px;
   width: 100%;
   border-radius: 8px;
-  background: #FFF;
+  background: var(--neutrals-white);
   box-shadow: 0 4px 12px 0 #0000000D;
   display: flex;
-  gap: 40px;
+  gap: 48px;
   flex-direction: column-reverse;
   margin-top: 40px !important;
+
+  @include media(mobile){
+    gap: 16px;
+  }
 
   &.risk-container {
     margin-top: unset !important;
@@ -85,7 +89,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 80px;
+    flex-direction: row-reverse;
+    padding: 0 33px;
+
+    // padding: 0 80px;
     // margin: 40px 0 0;
 
     @include media(mobile) {
@@ -154,25 +161,24 @@
       @include font-style(var(--body-large-semibold-size),
         var(--body-large-semibold-line-height),
         var(--neutrals-800),
-        500,
+        600,
         var(--body));
 
       @include media(mobile) {
-        font-size: var(--body-small-medium-size);
-        line-height: var(--body-small-medium-line-height);
-        font-weight: 600
+        font-size: var(--body-medium-semibold-size);
+        line-height: var(--body-medium-semibold-line-height);
       }
 
       a {
         @include font-style(var(--body-large-semibold-size),
           var(--body-large-semibold-line-height),
           var(--blue-1-400),
-          500,
+          600,
           var(--body));
 
         @include media(mobile) {
-          font-size: var(--body-small-medium-size);
-          line-height: var(--body-small-medium-line-height);
+          font-size: var(--body-medium-semibold-size);
+          line-height: var(--body-medium-semibold-line-height);
         }
 
         &:focus-visible {
@@ -231,12 +237,13 @@
       a.deftwo1 {
         @include font-style(var(--body-small-regular-size),
           var(--label-large-line-height),
-          var(--icon-error),
+          var(--blue-1-400),
           400,
           var(--body));
 
         text-decoration: none;
-        padding-right: 3px;
+
+        // padding-right: 3px;
 
         @include media(mobile) {
           font-size: var(--paragraph-small-size);

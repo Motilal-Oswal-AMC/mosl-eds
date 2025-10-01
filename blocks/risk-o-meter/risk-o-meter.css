@@ -54,10 +54,10 @@
 .section.risk-o-meter-container {
   width: 100%;
   border-radius: 8px;
-  background: #FFF;
+  background: var(--neutrals-white);
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.0509803922);
   display: flex;
-  gap: 40px;
+  gap: 48px;
   flex-direction: column-reverse;
   margin-top: 40px !important;
 }
@@ -75,7 +75,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 80px;
+  flex-direction: row-reverse;
+  padding: 0 33px;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container .risk-o-meter {
@@ -141,7 +142,7 @@
   color: var(--neutrals-800);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
+  font-weight: 600;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container > .default-content-wrapper h3.defone1 {
@@ -221,7 +222,6 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   text-decoration: none;
-  padding-right: 3px;
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container > .default-content-wrapper p.defone3 a.deftwo1 {
