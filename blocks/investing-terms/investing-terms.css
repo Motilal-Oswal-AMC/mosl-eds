@@ -125,7 +125,7 @@
 }
 @media (max-width: 768px) {
   .investing-terms .inversting2 .inverstingsub1 .inverstinginner5 {
-    font-size: var(--button-medium-size);
+    font-size: 30px;
     line-height: var(--button-medium-line-height);
   }
 }/*# sourceMappingURL=investing-terms.css.map */
