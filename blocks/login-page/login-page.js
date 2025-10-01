@@ -101,7 +101,7 @@ export default function decorate(block) {
 
   // kycVerifiedAdd.append(kycVerified);
 
-  const passcodeBlock = div(
+  const twoFactor = div(
     { class: 'passcode-main' },
     div(
       { class: 'label-pass' },
@@ -120,9 +120,9 @@ export default function decorate(block) {
     ),
   );
 
-  // block when need to use passcode
+  // block when need to use Two Factor Authentication
 
-  // kycVerifiedAdd.append(passcodeBlock);
+  // kycVerifiedAdd.append(twoFactor);
 
   const kycRegistered = div(
     { class: 'main-register' },
@@ -196,5 +196,6 @@ export default function decorate(block) {
     ),
   );
 
+  // kycRegistered  for Registered UI
   kycVerifiedAdd.append(kycRegistered);
 }
