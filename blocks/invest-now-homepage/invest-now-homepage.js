@@ -1013,14 +1013,6 @@ export default function decorate(block) {
           ),
         ),
       ),
-      div(
-        { class: 'modal-toggle' },
-        div(
-          { class: 'modal-btn-lumpsum lumsum-sip-btn active' },
-          button({ class: 'lumsip-btn' }, lumpsumLabel),
-        ),
-        div({ class: 'modal-btn-sip lumsum-sip-btn' }, button({ class: 'lumsip-btn' }, sipLabel)),
-      ),
     ),
     div(
       { class: 'modal-inputs-container' },
@@ -1028,6 +1020,14 @@ export default function decorate(block) {
         { class: 'modal-inputs-subcontainer' },
         div(
           { class: 'modal-inputs' },
+          div(
+            { class: 'modal-toggle' },
+            div(
+              { class: 'modal-btn-lumpsum lumsum-sip-btn active' },
+              button({ class: 'lumsip-btn' }, lumpsumLabel),
+            ),
+            div({ class: 'modal-btn-sip lumsum-sip-btn' }, button({ class: 'lumsip-btn' }, sipLabel)),
+          ),
           div(
             { class: 'modal-input' },
             label({ class: 'invest-amnt-label' }, inputLabel),
