@@ -1605,7 +1605,7 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "mobil-image",
+        "name": "mobile-image",
         "label": "Image for Mobile",
         "multi": false
       },
