@@ -24,7 +24,6 @@
   justify-content: center;
   gap: 10px;
   border-radius: 18px;
-  background: #2E2A94;
   z-index: 10;
   cursor: pointer;
 }
@@ -36,6 +35,7 @@
 .modal.block dialog .close-button .icon.icon-close::after {
   width: 13px;
   height: 1.5px;
+  background-color: #2E2A94;
 }
 
 .modal.block dialog > .modal-content {
