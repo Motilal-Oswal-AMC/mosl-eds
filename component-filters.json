@@ -46,7 +46,8 @@
       "pan-valid-block",
       "invest-now-homepage",
       "fm-portfolio",
-      "fdp-campaign"
+      "fdp-campaign",
+      "investing-terms"
     ]
   },
   {
@@ -142,6 +143,13 @@
       "our-fund-block-item",
       "our-fund-left-item",
       "our-fund-right-item"
+    ]
+  },
+  {
+    "id": "investing-terms",
+    "components": [
+      "investing-image-item",
+      "investing-text-item"
     ]
   }
 ]

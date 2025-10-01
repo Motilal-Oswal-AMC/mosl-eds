@@ -33,3 +33,26 @@
     }
   }
 }
+
+
+.section.table-wrapper.fdp-campaign-container.investor-banner{
+ .fdp-campaign-wrapper{
+  padding: 0;
+  
+  .fdp-campaign {
+    .compaign1 {
+      .compaignsub1{
+        height: 255px;
+        object-fit: cover;
+
+        img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+  }
+}
+
+}

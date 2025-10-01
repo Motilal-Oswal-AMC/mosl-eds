@@ -28,4 +28,17 @@
   .section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign2 {
     display: block;
   }
+}
+
+.section.table-wrapper.fdp-campaign-container.investor-banner .fdp-campaign-wrapper {
+  padding: 0;
+}
+.section.table-wrapper.fdp-campaign-container.investor-banner .fdp-campaign-wrapper .fdp-campaign .compaign1 .compaignsub1 {
+  height: 255px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section.table-wrapper.fdp-campaign-container.investor-banner .fdp-campaign-wrapper .fdp-campaign .compaign1 .compaignsub1 img {
+  height: 100%;
+  width: 100%;
 }/*# sourceMappingURL=fdp-campaign.css.map */
