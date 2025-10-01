@@ -1075,8 +1075,8 @@ export default function decorate(block) {
                   { class: 'sip-note-highlight' },
                   img({ class: '', src: infotoolsrc, alt: 'information' }),
                   div({ class: 'tooltip-wrap' },
-                    p(),
-                    button(),
+                    p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
+                    button({ class:'tooltip-btn-mob' }, 'Ok'),
                   )
                 ),
               ),
@@ -1108,30 +1108,30 @@ export default function decorate(block) {
   );
 
   // Tooltip
-  const tooltip = div(
-    { class: 'sip-tooltip hide' },
-    div(
-      { class: 'modal-btn tooltip-btn' },
-      span(
-        { class: 'close-btn' },
-        img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' }),
-      ),
-    ),
-    div(
-      { class: 'tooltip-box' },
-      p({ class: 'tooltip-note' }, 'Note'),
-      div(
-        { class: 'tooltip-info' },
-        'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.',
-      ),
-    ),
-  );
+  // const tooltip = div(
+  //   { class: 'sip-tooltip hide' },
+  //   div(
+  //     { class: 'modal-btn tooltip-btn' },
+  //     span(
+  //       { class: 'close-btn' },
+  //       img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' }),
+  //     ),
+  //   ),
+  //   div(
+  //     { class: 'tooltip-box' },
+  //     p({ class: 'tooltip-note' }, 'Note'),
+  //     div(
+  //       { class: 'tooltip-info' },
+  //       'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.',
+  //     ),
+  //   ),
+  // );
 
   const modalContainer = div(
     { class: 'invest-now-container', id: 'invest-now-wrapper-flat' },
     closebtn,
     modal,
-    tooltip,
+    // tooltip,
   );
   block.append(modalContainer);
 
@@ -1253,18 +1253,18 @@ export default function decorate(block) {
   syncSuggestionButtonsState();
 
   // 3. tooltip disaply
-  const sipNote = block.querySelector('.sip-note-highlight');
-  const sipText = block.querySelector('.sip-tooltip');
-  sipNote.addEventListener('click', () => {
-    sipText.classList.add('show');
-    sipText.classList.remove('hide');
-  });
+  // const sipNote = block.querySelector('.sip-note-highlight');
+  // const sipText = block.querySelector('.sip-tooltip');
+  // sipNote.addEventListener('click', () => {
+  //   sipText.classList.add('show');
+  //   sipText.classList.remove('hide');
+  // });
 
-  const closeTooltip = block.querySelector('.tooltip-btn');
-  closeTooltip.addEventListener('click', () => {
-    sipText.classList.add('hide');
-    sipText.classList.remove('show');
-  });
+  // const closeTooltip = block.querySelector('.tooltip-btn');
+  // closeTooltip.addEventListener('click', () => {
+  //   sipText.classList.add('hide');
+  //   sipText.classList.remove('show');
+  // });
 
   // 4. flat date picker
   const calendarIcon = block.querySelector('.calendar-btn');

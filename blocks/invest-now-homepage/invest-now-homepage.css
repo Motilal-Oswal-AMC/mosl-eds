@@ -633,6 +633,60 @@
   margin: 0;
   cursor: pointer;
   display: flex;
+  position: relative;
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 100%;
+  background-color: var(--surface-background-neutral-subtle);
+  border-radius: var(--border-radius-8);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.16);
+  padding: var(--spacing-12);
+  width: 272px;
+  z-index: 2;
+  display: none;
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap::after {
+  content: "";
+  border-left: 10px solid red;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  width: 8px;
+  height: 8px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap .tooltip-text {
+  margin: 0;
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--neutrals-900);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap .tooltip-text {
+    color: var(--neutrals-800);
+    font-size: var(--paragraph-medium-size);
+    line-height: var(--paragraph-medium-line-height);
+  }
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap .tooltip-btn-mob {
+  display: none;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap .tooltip-btn-mob {
+    display: block;
+  }
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight:hover .tooltip-wrap {
+  display: block;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-sip-dropdown .date-drop-down {
   display: flex;

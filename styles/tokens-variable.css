@@ -196,6 +196,7 @@
     --text-button-focus: var(--blue-1-700);
     --text-button-disabled: var(--neutrals-500);
     --surface-icon-primary-normal: var(--blue-1-800-primary);
+    --surface-background-neutral-subtle: var(--neutrals-white);
 
     /* semantic light end */
 
