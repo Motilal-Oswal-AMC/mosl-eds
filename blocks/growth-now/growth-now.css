@@ -21,6 +21,7 @@
   border-radius: 16px;
   background: #2E2A94;
   height: 160px;
+  overflow: hidden;
 }
 @media (max-width: 1299px) {
   .section.growth-now-container .growth-now {

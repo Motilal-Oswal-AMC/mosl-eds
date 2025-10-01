@@ -60,6 +60,7 @@
         border-radius: 16px;
         background: #2E2A94;
         height: 160px;
+        overflow: hidden;
 
         @include media (desktop-sm) {
             gap: 15px;
