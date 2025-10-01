@@ -2,6 +2,7 @@
 @import "../fund-card/fund-card.css";
 .section.our-funds-fdp-container {
   padding: 24px 0;
+  margin-bottom: unset !important;
 }
 @media (width <= 768px) {
   .section.our-funds-fdp-container {

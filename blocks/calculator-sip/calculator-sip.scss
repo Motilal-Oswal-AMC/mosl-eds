@@ -1009,6 +1009,7 @@
     align-self: stretch;
     box-shadow: $box-shadow-soft;
     padding: 40px 24px;
+    margin-bottom: unset !important;
 
     @include media(mobile) {
       padding: 40px 16px;
