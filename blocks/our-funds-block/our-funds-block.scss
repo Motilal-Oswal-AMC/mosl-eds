@@ -1615,6 +1615,7 @@ body {
 
               .list-header-text {
                 margin: 0;
+                padding: 6px 0;
 
                 @include font-style(
                   var(--body-small-medium-size),
