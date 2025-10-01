@@ -1699,7 +1699,8 @@ body {
             .list-view-container {
               background-color: var(--neutrals-white);
               border-radius: 8px;
-              transition: all 0.3s;
+              transition: border 0.3s;
+              border: 1px solid transparent;
 
               &:hover {
                 border: 1px solid var(--blue-1-50);
