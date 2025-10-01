@@ -356,6 +356,8 @@
     overflow: hidden;
     height: -moz-max-content;
     height: max-content;
+    width: -moz-max-content;
+    width: max-content;
   }
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-1 img {
