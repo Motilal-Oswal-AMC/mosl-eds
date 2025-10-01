@@ -85,7 +85,7 @@
 }
 @media (max-width: 768px) {
   .section.risk-o-meter-container .risk-o-meter {
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 0;
     gap: 24px;
   }
