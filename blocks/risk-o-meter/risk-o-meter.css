@@ -87,7 +87,7 @@
   .section.risk-o-meter-container .risk-o-meter {
     flex-direction: column-reverse;
     padding: 0;
-    gap: 24px;
+    gap: 40px;
   }
 }
 .section.risk-o-meter-container .corner-1,
