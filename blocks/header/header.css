@@ -326,6 +326,8 @@ header nav .nav-sections .nav-sec-sec1 {
     flex-direction: column;
     gap: 28px;
     margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 
     /* margin-top: 28px; */
 }
