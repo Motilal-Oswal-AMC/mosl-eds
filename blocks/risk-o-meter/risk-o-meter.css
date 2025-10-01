@@ -50,6 +50,11 @@
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   height: auto;
 }
+@media (max-width: 768px) {
+  .modal.block dialog > .modal-content {
+    max-width: 91.4%;
+  }
+}
 
 .section.risk-o-meter-container {
   width: 100%;
