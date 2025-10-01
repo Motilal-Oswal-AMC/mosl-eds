@@ -110,6 +110,7 @@
 
         .user-pan-para {
           font-style: normal;
+          margin: 0;
 
           @include font-style(
             var(--sub-header-medium-size),
@@ -120,7 +121,7 @@
           );
 
           @include media(mobile) {
-            font-size: var(--paragraph-large-size);
+            font-size: 18px;
             line-height: var(--paragraph-medium-line-height);
           }
         }
@@ -413,7 +414,7 @@
                 @include font-style(
                   14px,
                   var(--label-medium-line-height),
-                  var(#231f20),
+                  #231f20,
                   400,
                   var(--body)
                 );
@@ -448,6 +449,10 @@
               display: flex;
               gap: 24px;
 
+              @include media(mobile) {
+                flex-direction: column;
+              }
+
               .reg-mob-con-code {
                 width: 100%;
                 display: flex;
@@ -465,15 +470,15 @@
                 font-style: normal;
 
                 @include font-style(
-                  var(--body-medium-regular-size),
-                  var(--body-medium-regular-line-height),
-                  var(--text-default-input),
+                  var(--label-small-size),
+                  var(--label-small-line-height),
+                  var(--text-body),
                   400,
                   var(--body)
                 );
 
                 position: absolute;
-                top: -9px;
+                top: -6px;
                 left: 13px;
                 background: white;
               }
@@ -487,7 +492,7 @@
                   max-width: 372px;
                   width: 100%;
                   display: flex;
-                  padding: var(--spacing-8) var(--spacing-12);
+                  padding: var(--spacing-10) var(--spacing-12);
                   flex-direction: column;
                   justify-content: flex-end;
                   align-items: flex-start;
@@ -515,22 +520,20 @@
                 align-items: center;
                 align-self: stretch;
                 border-radius: var(--border-radius-8);
-                border: var(--border-width-02) solid
-                  var(--strokes-default);
-                  justify-content: center;
+                border: var(--border-width-01) solid var(--strokes-default);
+                justify-content: center;
 
-                  .contry-code-para{
-                    margin: 0;
+                .contry-code-para {
+                  margin: 0;
 
-                     @include font-style(
-                  var(--body-medium-regular-size),
-                  var(--body-medium-regular-line-height),
-                  var(--text-default-input),
-                  400,
-                  var(--body)
-                );
-
-                  }
+                  @include font-style(
+                    var(--body-medium-regular-size),
+                    var(--body-medium-regular-line-height),
+                    var(--text-default-input),
+                    400,
+                    var(--body)
+                  );
+                }
               }
 
               // .input-reg {
@@ -559,44 +562,47 @@
               // }
             }
 
-            .email-cty-name{
+            .email-cty-name {
               display: flex;
               gap: 24px;
 
-              .block-rex{
+              @include media(mobile) {
+                flex-direction: column;
+              }
+
+              .block-rex {
                 max-width: 372px;
-              width: 100%;
+                width: 100%;
                 position: relative;
 
-                .label-rex{
-                   @include font-style(
-                  var(--body-medium-regular-size),
-                  var(--body-medium-regular-line-height),
-                  var(--text-default-input),
-                  400,
-                  var(--body)
-                );
+                .label-rex {
+                  @include font-style(
+                    var(--label-small-size),
+                    var(--label-small-line-height),
+                    var(--text-body),
+                    400,
+                    var(--body)
+                  );
 
-                position: absolute;
-                top: -9px;
-                left: 13px;
-                background: white;
+                  position: absolute;
+                  top: -6px;
+                  left: 13px;
+                  background: white;
                 }
               }
 
-              .input-rex{
-                 max-width: 372px;
-                  width: 100%;
-                  display: flex;
-                  padding: var(--spacing-8) var(--spacing-12);
-                  flex-direction: column;
-                  justify-content: flex-end;
-                  align-items: flex-start;
-                  gap: 4px;
-                  align-self: stretch;
-                  border-radius: var(--border-radius-8);
-                  border: var(--border-width-01, 1px) solid
-                    var(--strokes-default);
+              .input-rex {
+                max-width: 372px;
+                width: 100%;
+                display: flex;
+                padding: var(--spacing-10) var(--spacing-12);
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-start;
+                gap: 4px;
+                align-self: stretch;
+                border-radius: var(--border-radius-8);
+                border: var(--border-width-01, 1px) solid var(--strokes-default);
               }
             }
           }
@@ -725,6 +731,10 @@
 
 .section.login-register {
   padding: 40px 104px;
+
+  @include media(mobile) {
+    padding: 20px;
+  }
 
   .login-image-item-wrapper {
     max-width: 400px;
