@@ -14,7 +14,8 @@ body {
 
 .section {
   &.our-funds-block-container {
-    background-color: var(--neutrals-100);
+    // background-color: var(--neutrals-100);
+    background-color: #fff;
 
     // padding: 0 0 50px;
     margin: 0;
@@ -1615,6 +1616,7 @@ body {
 
               .list-header-text {
                 margin: 0;
+                padding: 6px 0;
 
                 @include font-style(
                   var(--body-small-medium-size),
