@@ -1071,9 +1071,13 @@ export default function decorate(block) {
                   { class: 'sip-note' },
                   'Your 1st SIP Installment will be debited today ',
                 ),
-                span(
+                div(
                   { class: 'sip-note-highlight' },
                   img({ class: '', src: infotoolsrc, alt: 'information' }),
+                  div({ class: 'tooltip-wrap' },
+                    p(),
+                    button(),
+                  )
                 ),
               ),
             ),

@@ -109,8 +109,7 @@
   padding: 0;
   background: white;
   height: 100%;
-  overflow: hidden auto;
-  scrollbar-width: none;
+  overflow: hidden;
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper {
@@ -135,15 +134,13 @@
   max-width: 372px;
   width: 100%;
   height: 100%;
-  overflow: hidden auto;
-  scrollbar-width: none;
+  overflow: hidden;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container::-webkit-scrollbar {
   display: none;
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container {
-    padding: 40px 16px 0;
     max-width: 100%;
     max-height: inherit;
   }
@@ -202,6 +199,11 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-header-container {
+    padding: var(--spacing-40) 0 var(--spacing-16);
+  }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-header-container .modal-header {
   display: flex;
@@ -284,6 +286,11 @@
   align-self: stretch;
   height: 100%;
   justify-content: space-between;
+  overflow: auto;
+  scrollbar-width: none;
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container::-webkit-scrollbar {
+  display: none;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer {
   display: flex;
@@ -558,6 +565,13 @@
   min-width: 16px;
   height: 16px;
 }
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today label.start-today-label .start-today-checkbox {
+    min-width: 24px;
+    height: 24px;
+    padding: 3px;
+  }
+}
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today label.start-today-label .start-today-checkbox::before {
   content: "";
   background-image: url("../../icons/sip-check.svg");
@@ -567,6 +581,12 @@
   width: 14.67px;
   height: 14.67px;
   display: block;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today label.start-today-label .start-today-checkbox::before {
+    width: 18px;
+    height: 18px;
+  }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today label.start-today-label .start-today-checkbox:checked::before {
   background-image: url("../../icons/sip-checked.svg");
@@ -714,6 +734,13 @@
      -moz-appearance: none;
           appearance: none;
 }
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .stepup-checkbox .stepupmain1 .stepup-box {
+    min-width: 24px;
+    height: 24px;
+    padding: 3px;
+  }
+}
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .stepup-checkbox .stepupmain1 .stepup-box::before {
   content: "";
   background-image: url("../../icons/sip-check.svg");
@@ -724,6 +751,12 @@
   height: 14.67px;
   display: block;
   visibility: visible;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .stepup-checkbox .stepupmain1 .stepup-box::before {
+    width: 18px;
+    height: 18px;
+  }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .stepup-checkbox .stepupmain1 .stepup-box:checked::before {
   background-image: url("../../icons/sip-checked.svg");
@@ -1022,6 +1055,9 @@
   align-items: center;
   gap: 12px;
   padding: var(--spacing-16) 0;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-cta .modal-cta-btn {
   padding: var(--spacing-12);
@@ -1127,8 +1163,7 @@
   display: flex;
   align-items: unset;
   justify-content: end;
-  overflow: hidden auto;
-  scrollbar-width: none;
+  overflow: hidden;
   padding: unset;
   transition: all 1.2s;
 }
@@ -1155,7 +1190,7 @@
   height: 100%;
   background-color: transparent;
   box-shadow: unset;
-  overflow: hidden auto;
+  overflow: hidden;
   padding: 0;
   border-radius: 0;
 }

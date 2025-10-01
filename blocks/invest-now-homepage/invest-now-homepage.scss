@@ -33,8 +33,9 @@
     padding: 0;
     background: white;
     height: 100%;
-    overflow: hidden auto;
-    scrollbar-width: none;
+    overflow: hidden;
+
+    // scrollbar-width: none;
 
     @include media(mobile) {
       border-radius: 24px 24px 0 0;
@@ -62,15 +63,15 @@
 
         // height: 100vh;
         height: 100%;
-        overflow: hidden auto;
-        scrollbar-width: none;
+        overflow: hidden;
+
+        // scrollbar-width: none;
 
         &::-webkit-scrollbar {
           display: none;
         }
 
         @include media(mobile) {
-          padding: 40px 16px 0;
           max-width: 100%;
           max-height: inherit;
         }
@@ -131,6 +132,10 @@
               position: sticky;
               top: 0;
               z-index: 1;
+
+              @include media(mobile){
+                padding: var(--spacing-40) 0 var(--spacing-16);
+              }
 
               .modal-header {
                 display: flex;
@@ -238,6 +243,12 @@
               align-self: stretch;
               height: 100%;
               justify-content: space-between;
+              overflow: auto;
+              scrollbar-width: none;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
 
               .modal-inputs-subcontainer {
                 display: flex;
@@ -583,6 +594,12 @@
                           min-width: 16px;
                           height: 16px;
 
+                          @include media(mobile) {
+                            min-width: 24px;
+                            height: 24px;
+                            padding: 3px;
+                          }
+
                           &::before {
                             content: "";
                             background-image: url("../../icons/sip-check.svg");
@@ -592,6 +609,11 @@
                             width: 14.67px;
                             height: 14.67px;
                             display: block;
+
+                            @include media(mobile) {
+                              width: 18px;
+                              height: 18px;
+                            }
                           }
 
                           &:checked {
@@ -769,6 +791,12 @@
                           padding: 0.67px;
                           appearance: none;
 
+                          @include media(mobile) {
+                            min-width: 24px;
+                            height: 24px;
+                            padding: 3px;
+                          }
+
                           &::before {
                             content: "";
                             background-image: url("../../icons/sip-check.svg");
@@ -779,6 +807,11 @@
                             height: 14.67px;
                             display: block;
                             visibility: visible;
+
+                            @include media(mobile) {
+                              width: 18px;
+                              height: 18px;
+                            }
                           }
 
                           &:checked::before {
@@ -1136,6 +1169,9 @@
                 align-items: center;
                 gap: 12px;
                 padding: var(--spacing-16) 0;
+                position: sticky;
+                bottom: 0;
+                background-color: #fff;
 
                 .modal-cta-btn {
                   padding: var(--spacing-12);
@@ -1153,12 +1189,12 @@
                     var(--body)
                   );
 
-                  @include media(mobile){
+                  @include media(mobile) {
                     font-size: var(--button-medium-size);
                     line-height: var(--button-medium-line-height);
                   }
 
-                  &.start-now{
+                  &.start-now {
                     background-color: var(--button-primary-default);
                     color: var(--text-white);
                   }
@@ -1300,8 +1336,9 @@
     display: flex;
     align-items: unset;
     justify-content: end;
-    overflow: hidden auto;
-    scrollbar-width: none;
+    overflow: hidden;
+
+    // scrollbar-width: none;
     padding: unset;
 
     // transform: translateX(100%);
@@ -1341,7 +1378,7 @@
       height: 100%;
       background-color: transparent;
       box-shadow: unset;
-      overflow: hidden auto;
+      overflow: hidden;
       padding: 0;
       border-radius: 0;
 
