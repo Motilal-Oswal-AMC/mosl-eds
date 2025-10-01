@@ -1097,8 +1097,8 @@ export default function decorate(block) {
       ),
       div(
         { class: 'modal-cta' },
-        button({ class: 'buy-now-btn' }, 'BUY NOW'),
-        button({ class: 'start-now' }, 'Start Now'),
+        button({ class: 'buy-now-btn modal-cta-btn' }, 'BUY NOW'),
+        button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
       ),
     ),
   );
