@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "Investor Banner",
+            "value": "investor-banner"
+          },
+          {
             "name": "FDP FAQ Change",
             "value": "fdp-faq-change"
           },
