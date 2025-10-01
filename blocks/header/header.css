@@ -1191,7 +1191,7 @@ header .nav-tools .nav-tools-cont1>ul {
     margin: 0;
 }
 
-header nav .nav-tools .nav-tools-cont1>ul {
+header nav .nav-tools .nav-tools-cont1 .nav-tools-sec1 .nav-tools-sub1 {
     pointer-events: none;
 }
 
@@ -1935,7 +1935,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         gap: 20px;
         list-style: none;
         margin: 0;
-        pointer-events: none;
+        
+        /* pointer-events: none; */
     }
 
     header nav .nav-tools .nav-tools-cont1>ul>li>ul {
