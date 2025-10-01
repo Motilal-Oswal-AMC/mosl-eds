@@ -8,7 +8,7 @@
 }
 
 .section.our-funds-block-container {
-  background-color: #fff;
+  background-color: var(--neutrals-100);
   margin: 0;
 }
 .section .our-funds-block-wrapper {
