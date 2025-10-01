@@ -7,7 +7,7 @@ main {
 
 .section.growth-now-container {
   margin: 0;
-  background-color: var(--neutrals-100);
+  background-color: #fff;
   padding: 40px 0 50px;
 }
 @media (max-width: 768px) {
