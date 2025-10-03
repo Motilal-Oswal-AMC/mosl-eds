@@ -9,7 +9,7 @@
 }
 @media (width <= 768px) {
   .section.download {
-    padding: 0 16px;
+    padding: 40px 16px;
   }
 }
 .section.download .default-content-wrapper > p.download-ul1 {
