@@ -81,7 +81,7 @@ function hideFormsClick(btn) {
     // v3 for otp
 
     const classAddv3 = card2.querySelector('.otp-fdp');
-    if (Array.from(classAdd.classList).includes('hide-modal')) {
+    if (Array.from(classAdd.classList).includes('hide-mdodal')) {
       classAddv3.classList.remove('hide-modal');
     }
     classAddv3.classList.add('hide-modal');
@@ -802,7 +802,13 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 }
 
 export default function decorate(block) {
+  const mainclass = block.closest('main');
   dataMapMoObj.panDlts = {};
+  if (mainclass.querySelector('.added-fund-cart')) {
+    dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
+    dataMapMoObj.addIndexed(mainclass.querySelector('.added-fund-cart'));
+    // return false;
+  }
   loadCSS('../../scripts/flatpickr.min.css');
   const schcodeFromStorage = localStorage.getItem('schcodeactive');
   const fundData = dataCfObj.find(
@@ -1074,10 +1080,11 @@ export default function decorate(block) {
                 div(
                   { class: 'sip-note-highlight' },
                   img({ class: '', src: infotoolsrc, alt: 'information' }),
-                  div({ class: 'tooltip-wrap' },
+                  div(
+                    { class: 'tooltip-wrap' },
                     p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
-                    button({ class:'tooltip-btn-mob' }, 'Ok'),
-                  )
+                    button({ class: 'tooltip-btn-mob' }, 'Ok'),
+                  ),
                 ),
               ),
             ),
@@ -1101,7 +1108,22 @@ export default function decorate(block) {
       ),
       div(
         { class: 'modal-cta' },
-        button({ class: 'buy-now-btn modal-cta-btn' }, 'BUY NOW'),
+        button({ class: 'buy-now-btn modal-cta-btn',
+          onclick:() => {
+            const mainmo = block.closest('main');
+            const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
+            const panMod = mainmo.querySelector('.added-fund-cart'); // .style.display = 'block';
+            investMod.classList.add('hide-element');
+            panMod.classList.add('show-element');
+
+            const classAddv2 = mainmo.querySelector('.added-fund-cart');
+            if (Array.from(classAddv2.classList).includes('hide-modal')) {
+              classAddv2.classList.remove('hide-modal');
+            }
+            classAddv2.classList.remove('hide-modal');
+            classAddv2.classList.add('modal-show');
+          }
+         }, 'BUY NOW'),
         button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
       ),
     ),
@@ -1516,5 +1538,6 @@ export default function decorate(block) {
   if (blkcompo) {
     blkcompo.style.display = 'none';
   }
+
   return block;
 }

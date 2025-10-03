@@ -1385,6 +1385,126 @@
   }
 }
 
+.added-fund-cart {
+  width: 372px;
+  height: 100%;
+  background-color: var(--neutrals-white);
+  z-index: 1000;
+  position: relative;
+
+  @include media(mobile){
+    border-radius: 32px 32px 0 0;
+  }
+
+  .addcartmain1 {
+    padding: 136px 16px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include media(mobile){
+      padding: 40px 16px 0;
+    }
+
+    .addcartsub1 {
+      margin: 0;
+      width: 67px;
+      height: 67px;
+
+      .icon.addcartinner1 {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .addcartsub2 {
+      margin: 32px 0 0;
+
+      @include font-style(
+        var(--body-xlarge-bold-size),
+        var(--body-xlarge-bold-line-height),
+        var(--surface-text-positive-intense),
+        600,
+        var(--body)
+      );
+
+      @include media(mobile) {
+        font-size: var(--body-xlarge-bold-size);
+        line-height: var(--body-xlarge-bold-line-height);
+      }
+    }
+
+    .addcartsub3 {
+      margin: 16px 0 0;
+
+      @include font-style(
+        var(--body-large-regular-size),
+        var(--body-large-regular-line-height),
+        var(--neutrals-700),
+        400,
+        var(--body)
+      );
+
+      @include media(mobile) {
+        font-size: var(--body-large-regular-size);
+        line-height: var(--body-large-regular-line-height);
+      }
+
+      .addcartinner1 {
+        font-weight: 400;
+      }
+    }
+
+    .addcartsub4 {
+      padding: 12px 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: auto 0 0;
+
+      li.comlist {
+        padding: var(--spacing-12);
+        border-radius: var(--border-radius-8);
+        background-color: var(--button-primary-default);
+        max-width: 48.236%;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+
+        @include font-style(
+          var(--button-medium-size),
+          var(--button-medium-line-height),
+          var(--text-white),
+          500,
+          var(--body)
+        );
+
+        @include media(mobile){
+          font-size: var(--button-medium-size);
+          line-height: var(--button-medium-line-height);
+        }
+
+        &.addcartinner1{
+          border: 1px solid var(--button-primary-default);
+          color: var(--text-button-default);
+          background-color: transparent;
+        }
+      }
+    }
+
+    .addcartsub5 {
+      margin: 0;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
 .modal.modal-journey.block {
   dialog {
     // max-width: 100%;
