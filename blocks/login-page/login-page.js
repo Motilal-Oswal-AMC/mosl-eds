@@ -99,7 +99,7 @@ export default function decorate(block) {
 
   // block when need to response kyc succssess
 
-  // kycVerifiedAdd.append(kycVerified);
+  kycVerifiedAdd.append(kycVerified);
 
   const twoFactor = div(
     { class: 'passcode-main' },
@@ -122,7 +122,7 @@ export default function decorate(block) {
 
   // block when need to use Two Factor Authentication
 
-  // kycVerifiedAdd.append(twoFactor);
+  kycVerifiedAdd.append(twoFactor);
 
   const kycRegistered = div(
     { class: 'main-register' },
