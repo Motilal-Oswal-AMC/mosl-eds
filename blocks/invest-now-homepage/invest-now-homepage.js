@@ -196,7 +196,6 @@ export async function existingUser(paramblock) {
         'https://api.moamc.com/MFTransaction/api/InvestorDetails/panDetail',
         request,
       );
-      console.log(rejsin);
       const guestFlag = localStorage.getItem('isGuest');
       if (guestFlag === 'true') {
         setCookie('accessToken', rejsin.data.accessToken);
@@ -213,7 +212,7 @@ export async function existingUser(paramblock) {
         window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -262,7 +261,6 @@ export async function existingUser(paramblock) {
         'https://api.moamc.com/prelogin/api/KYC/GetKYCData',
         reqGetckyc,
       );
-      console.log(rejsin.data);
       if (rejsin.data !== null) {
         // username
         kycForm.querySelector('.user-pan-name').value = rejsin.data.investorName;
@@ -275,7 +273,7 @@ export async function existingUser(paramblock) {
         kycForm.querySelector('.user-email').setAttribute('readonly', '');
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -306,7 +304,6 @@ export async function existingUser(paramblock) {
         request,
         header,
       );
-      console.log(rejsin);
       if (rejsin.data !== null) {
         const subtext = pansuccessForm.querySelector('.sub-otp-con3');
         subtext.textContent = '';
@@ -644,7 +641,6 @@ export async function existingUser(paramblock) {
         'https://api.moamc.com/LoginAPI/api/Login/GetClientType',
         request,
       );
-      console.log(rejsin);
       dataMapMoObj.panRes = rejsin;
 
       // const isSuccess = rejsin.data.existingClient === '' ? false : true;
@@ -679,7 +675,7 @@ export async function existingUser(paramblock) {
         const parcloset = closestParam.querySelector('.fdp-card-container');
         const paranearby = parcloset.querySelector('.dropdownmidle .selecttext');
         const planCodenearby = paranearby.getAttribute('dataattr');
-        const dataplan = dataCfObj.filter((eldata) => eldata.schcode === schemeCode);
+        const dataplan = dataCfObj.cfDataObjs.filter((eldata) => eldata.schcode === schemeCode);
         const amcPlanCode = dataplan[0].moAmcCode;
         const optioncode = dataplan[0].planList
           .filter((elop) => elop.groupedCode === planCodenearby);
@@ -699,7 +695,7 @@ export async function existingUser(paramblock) {
 
       kycCall(userPanNumber);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -808,7 +804,7 @@ export default function decorate(block) {
   dataMapMoObj.panDlts = {};
   loadCSS('../../scripts/flatpickr.min.css');
   const schcodeFromStorage = localStorage.getItem('schcodeactive');
-  const fundData = dataCfObj.find(
+  const fundData = dataCfObj.cfDataObjs.find(
     (fund) => fund.schcode === schcodeFromStorage,
   );
   let fundNameFromData;
@@ -1245,7 +1241,7 @@ export default function decorate(block) {
         defaultDate.setDate(targetDay);
 
         disableRule = [
-          function (date) {
+          (date) => {
             const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
             const targetDayInMonth = Math.min(recurringDay, lastDayOfMonth);
             return date.getDate() !== targetDayInMonth;
@@ -1259,9 +1255,7 @@ export default function decorate(block) {
         defaultDate.setFullYear(today.getFullYear() + 1);
 
         disableRule = [
-          function (date) {
-            return date.getDate() !== recurringDay || date.getMonth() !== recurringMonth;
-          },
+          (date) => date.getDate() !== recurringDay || date.getMonth() !== recurringMonth,
         ];
         break;
       }
@@ -1270,9 +1264,7 @@ export default function decorate(block) {
         defaultDate.setDate(today.getDate() + 7);
 
         disableRule = [
-          function (date) {
-            return date.getDay() !== recurringDayOfWeek;
-          },
+          (date) => date.getDay() !== recurringDayOfWeek,
         ];
         break;
       }
@@ -1281,7 +1273,7 @@ export default function decorate(block) {
         defaultDate.setDate(today.getDate() + 14);
 
         disableRule = [
-          function (date) {
+          (date) => {
             // Calculate difference in whole days for reliability
             const diffDays = Math.round((date.getTime() - startTime) / (1000 * 60 * 60 * 24));
             return diffDays % 14 !== 0;
@@ -1295,7 +1287,7 @@ export default function decorate(block) {
         defaultDate.setMonth(today.getMonth() + 3);
 
         disableRule = [
-          function (date) {
+          (date) => {
             const yearDiffInMonths = (date.getFullYear() - today.getFullYear()) * 12;
             const monthDiffInMonths = date.getMonth() - startMonth;
             const monthDiff = yearDiffInMonths + monthDiffInMonths;

@@ -10,7 +10,6 @@ import {
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import {
-  getTimeLeft,
   evaluateByDays,
   wishlist,
 } from '../../scripts/scripts.js';

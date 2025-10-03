@@ -29,9 +29,8 @@ export default async function decorate(block) {
   if (dataMapMoObj.fundManagerDetails.length !== 0) {
     fundManagers = dataMapMoObj.fundManagerDetails;
   } else {
-    fundManagers = objData[0].fundManager;
+    fundManagers = objData.cfDataObjs[0].fundManager;
   }
-  console.log(fundManagers);
   const selectedAgent = localStorage.getItem('FM-AgentName');
 
   fundManagers.forEach((e) => {
@@ -70,13 +69,8 @@ export default async function decorate(block) {
             managerId = el.managerId;
           }
         });
-        console.log(managerId);
-        console.log(managerSchemesAll);
-
         managerSchemes = managerSchemesAll.filter((item) => item.managerId === managerId);
         uniqueSchemes = [...new Map(managerSchemes.map((s) => [s.schemeName, s])).values()];
-        console.log(uniqueSchemes);
-
         uniquePeriods = [...new Set(managerSchemes.map((item) => item.period))];
 
         sortedPeriods = uniquePeriods
@@ -93,7 +87,7 @@ export default async function decorate(block) {
           sortedPeriods.push('si');
         }
       } catch (error) {
-        console.log('failed', error);
+        // console.log('failed', error);
       }
     }
   }

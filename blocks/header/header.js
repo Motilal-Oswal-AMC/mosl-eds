@@ -283,7 +283,7 @@ export default async function decorate(block) {
 
                     if (Array.from(event.currentTarget.classList).length === 0) {
                       // Logic for specific fund links
-                      dataCfObj.forEach((datael) => {
+                      dataCfObj.cfDataObjs.forEach((datael) => {
                         if (datael.schDetail.schemeName === textcurr) {
                           dataMapMoObj.selectviewFunds = datael.schcode;
                         }
