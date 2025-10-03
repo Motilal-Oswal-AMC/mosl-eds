@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "login Registered",
+            "value": "login-registered"
+          },
+          {
             "name": "FDP FAQ Change",
             "value": "fdp-faq-change"
           },
@@ -1547,6 +1551,44 @@
         "name": "image2Alt",
         "label": "Alt for mobile",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "login-image-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "login-rt-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   }
