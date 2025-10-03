@@ -1392,7 +1392,7 @@
   z-index: 1000;
   position: relative;
 
-  @include media(mobile){
+  @include media(mobile) {
     border-radius: 32px 32px 0 0;
     width: 100%;
   }
@@ -1403,7 +1403,7 @@
     display: flex;
     flex-direction: column;
 
-    @include media(mobile){
+    @include media(mobile) {
       padding: 40px 16px 0;
     }
 
@@ -1482,12 +1482,12 @@
           var(--body)
         );
 
-        @include media(mobile){
+        @include media(mobile) {
           font-size: var(--button-medium-size);
           line-height: var(--button-medium-line-height);
         }
 
-        &.addcartinner1{
+        &.addcartinner1 {
           border: 1px solid var(--button-primary-default);
           color: var(--text-button-default);
           background-color: transparent;
@@ -1504,6 +1504,233 @@
       height: 24px;
       z-index: 2;
       cursor: pointer;
+    }
+  }
+}
+
+.two-step-auth {
+  width: 372px;
+  height: 100%;
+  background-color: var(--neutrals-white);
+  z-index: 1000;
+  display: block;
+  
+  @include media(mobile) {
+    border-radius: 32px 32px 0 0;
+    width: 100%;
+  }
+  
+  .two-step-wrap {
+    padding: 48px 16px;
+    height: 100%;
+    position: relative;
+
+    .modal-cross-wrap{
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      cursor: pointer;
+
+      .twostepinner1{
+        margin: 0;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .two-step-heading {
+      margin: 0 0 var(--spacing-20);
+
+      @include font-style(
+        var(--sub-header-medium-size),
+        var(--sub-header-medium-line-height),
+        var(--text-black),
+        500,
+        var(--body)
+      );
+
+      @include media(mobile) {
+        font-size: var(--paragraph-large-size);
+        line-height: var(--paragraph-medium-line-height);
+      }
+    }
+
+    .passcode-wrap {
+      padding: 0 0 20px;
+
+      .passcode-label {
+        @include font-style(
+          var(--label-small-size),
+          var(--label-small-line-height),
+          var(--mo-body-copy-other),
+          400,
+          var(--body)
+        );
+
+        margin: 0 0 var(--spacing-8);
+
+        @include media(mobile) {
+          font-size: var(--label-small-size);
+          line-height: var(--label-small-line-height);
+        }
+      }
+
+      .passcode-error {
+        @include font-style(
+          var(--paragraph-xsmall-size),
+          var(--paragraph-xsmall-line-height),
+          var(--text-error),
+          400,
+          var(--body)
+        );
+
+        display: none;
+        padding: 8px 0 0;
+
+        @include media(mobile) {
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
+      }
+
+      .passcode-inp-wrap {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-8);
+
+        .passcode-field {
+          width: 40px;
+          height: 40px;
+          padding: 8px;
+          border: 1px solid var(--strokes-on-surface-02);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+
+          &:focus-within {
+            border: var(--border-width-02) solid var(--strokes-typing);
+          }
+
+          .passcode-inp {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            border: none;
+            outline: none;
+
+            @include font-style(
+              var(--body-xlarge-semibold-size),
+              var(--body-xlarge-semibold-line-height),
+              var(--strokes-on-surface-02),
+              600,
+              var(--body)
+            );
+
+            &:focus {
+              caret-color: var(--strokes-typing);
+            }
+          }
+        }
+
+        &.passcode-fail {
+          .passcode-field {
+            border: 1px solid var(--strokes-error);
+
+            .passcode-inp {
+              color: var(--icon-error);
+            }
+          }
+
+          + .passcode-error {
+            display: block;
+          }
+        }
+
+        &.passcode-success {
+          .passcode-field {
+            border: 1px solid var(--strokes-success);
+
+            .passcode-inp {
+              color: var(--icon-success);
+            }
+          }
+
+          + .passcode-error {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .frgt-pass-btn {
+      @include font-style(
+        var(--text-link-small-size),
+        var(--text-link-small-line-height),
+        var(--text-text-link),
+        400,
+        var(--body)
+      );
+
+      display: block;
+      text-decoration: underline;
+      text-underline-offset: 20%;
+      padding: 20px 0 0;
+      cursor: pointer;
+
+      @include media(mobile) {
+        font-size: var(--text-link-small-size);
+        line-height: var(--text-link-small-line-height);
+      }
+    }
+
+    .cont-btn {
+      padding: var(--spacing-12);
+      border-radius: var(--border-radius-8);
+      background-color: var(--button-primary-default);
+      margin: var(--spacing-20) 0;
+      width: 100%;
+      cursor: pointer;
+
+      @include font-style(
+        var(--button-medium-size),
+        var(--button-medium-line-height),
+        var(--text-white),
+        500,
+        var(--body)
+      );
+
+      @include media(mobile) {
+        font-size: var(--button-medium-size);
+        line-height: var(--button-medium-line-height);
+      }
+    }
+
+    .terms-cons {
+      .twostepinner1 {
+        margin: 0;
+
+        @include font-style(
+          var(--disclaimer-xsmall-size),
+          var(--disclaimer-xsmall-line-height),
+          var(--text-disclaimer),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
+
+        &.twostepsubinner1 {
+          color: var(--text-text-link);
+          font-size: var(--text-link-xsmall-size);
+          line-height: var(--text-link-xsmall-line-height);
+          text-decoration: underline;
+          text-underline-offset: 20%;
+        }
+      }
     }
   }
 }
@@ -1591,7 +1818,7 @@
 
 // .modal-show {
 //   // right: 0;
-//   animation: slide-in 1.2s forwards;
+//   animation: slide-in 1.2s for wards;
 // }
 
 // .hide-modal {

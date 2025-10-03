@@ -9,6 +9,7 @@ import {
   span,
   ul,
   li,
+  h2,
 } from '../../scripts/dom-helpers.js';
 import '../../scripts/flatpickr.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -819,8 +820,62 @@ export default function decorate(block) {
   if (mainclass.querySelector('.added-fund-cart')) {
     dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
     dataMapMoObj.addIndexed(mainclass.querySelector('.added-fund-cart'));
-    const mod5 = mainclass.querySelector('.added-fund-cart .addcartsub5 .icon-modal-cross-btn');
+    const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
     hideFormsClick(mod5);
+    // return false;
+  }
+  const twoStepAuthMain = mainclass.querySelector('.two-step-auth');
+
+  if (twoStepAuthMain) {
+    dataMapMoObj.CLASS_PREFIXES = ['twostepmain', 'twostepsub', 'twostepinner', 'twostepsubinner'];
+    dataMapMoObj.addIndexed(mainclass.querySelector('.two-step-auth'));
+
+    const twoStpTitle = twoStepAuthMain.querySelector('.twostepsub1').textContent;
+    const twostppasscodelabel = twoStepAuthMain.querySelector('.twostepsub2').textContent;
+    const twostpfrgtpass = twoStepAuthMain.querySelector('.twostepsub3').textContent;
+    const twostpcontbtn = twoStepAuthMain.querySelector('.twostepsub4').textContent;
+    const twostpterms = twoStepAuthMain.querySelector('.twostepsub5').cloneNode(true);
+    const twostpcrossbtn = twoStepAuthMain.querySelector('.twostepsub6').cloneNode(true);
+    twoStepAuthMain.querySelector('.twostepmain1').style.display = 'none';
+
+    const twoStepMainStr = div(
+      { class: 'two-step-wrap' },
+      div({ class: 'modal-cross-wrap' }, twostpcrossbtn),
+      h2({ class: 'two-step-heading' }, twoStpTitle),
+      div(
+        { class: 'passcode-wrap' },
+        p({ class: 'passcode-label' }, twostppasscodelabel),
+        div(
+          { class: 'passcode-inp-wrap' },
+          div(
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+          ),
+          div(
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+          ),
+          div(
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+          ),
+          div(
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+          ),
+        ),
+        span({ class: 'passcode-error' }, 'Incorrect Passcode'),
+      ),
+      button({ class: 'frgt-pass-btn' }, twostpfrgtpass),
+      button({ class: 'cont-btn' }, twostpcontbtn),
+      div({ class: 'terms-cons' }, twostpterms),
+    );
+
+    if (!twoStepAuthMain.querySelector('.two-step-wrap')) {
+      twoStepAuthMain.append(twoStepMainStr);
+      const mod6 = twoStepAuthMain.querySelector('.two-step-wrap .icon-modal-cross-btn');
+      hideFormsClick(mod6);
+    }
     // return false;
   }
   loadCSS('../../scripts/flatpickr.min.css');
