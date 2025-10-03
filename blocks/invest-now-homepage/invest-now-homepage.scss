@@ -1241,6 +1241,8 @@
                   width: 100%;
                   border-radius: var(--border-radius-8);
                   border: 1px solid var(--button-primary-default);
+                  margin: 0;
+                  background-color: transparent;
                   cursor: pointer;
 
                   @include font-style(
@@ -1676,6 +1678,10 @@
       text-decoration: underline;
       text-underline-offset: 20%;
       padding: 20px 0 0;
+      border-radius: 0;
+      background-color: transparent;
+      border: none;
+      margin: 0;
       cursor: pointer;
 
       @include media(mobile) {
