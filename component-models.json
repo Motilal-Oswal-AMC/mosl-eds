@@ -1622,7 +1622,7 @@
       }
     ]
   },
-   {
+  {
     "id": "global-text-item",
     "fields": [
       {
@@ -1631,6 +1631,23 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-service-item",
+    "fields": [
+       {
+        "component": "richtext",
+        "name": "richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Fragment URL"
       }
     ]
   }

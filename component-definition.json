@@ -807,6 +807,36 @@
               }
             }
           }
+        },
+        {
+          "title": "Our Service",
+          "id": "our-service",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Our Service",
+                  "model": "our-service"
+                }
+              }
+            }
+          }
+        },
+         {
+          "title": "Our Service Item",
+          "id": "global-image-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Our Service Item",
+                  "model": "our-service-item"
+                }
+              }
+            }
+          }
         }
       ]
     }

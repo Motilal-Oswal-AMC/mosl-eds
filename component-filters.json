@@ -48,7 +48,8 @@
       "fm-portfolio",
       "fdp-campaign",
       "investing-terms",
-      "global-dashboard"
+      "global-dashboard",
+      "our-service"
     ]
   },
   {
@@ -158,6 +159,13 @@
     "components": [
       "global-image-item",
       "global-text-item"
+    ]
+  },
+  {
+    "id": "our-service",
+    "components": [
+      "global-image-item",
+      "our-service-item"
     ]
   }
 ]
