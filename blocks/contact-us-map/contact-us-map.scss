@@ -548,7 +548,13 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 80px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+
+    @include media(mobile) {
+      margin: 40px 0;
+      padding-bottom: 27px;
+    }
 
     .errormain1 {
       .errrorsub1 {
@@ -561,13 +567,18 @@
     .comlist {
       padding: 0;
       margin: 0;
+      max-height: 174px;
     }
 
     .errormain2 {
       color: #616161;
       text-align: center;
 
-      @include font-style(14px, 16px, $text-body-2, 500, $inter);
+      @include font-style(var(--body-small-regular-size), 
+      var(--body-small-regular-line-height), 
+      var(--text-body), 
+      400, 
+      var(--body));
     }
   }
 

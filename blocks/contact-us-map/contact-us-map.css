@@ -489,7 +489,14 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-top: 80px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+@media (max-width: 768px) {
+  .section.contact-us-map-container .default-content-wrapper.error-default {
+    margin: 40px 0;
+    padding-bottom: 27px;
+  }
 }
 .section.contact-us-map-container .default-content-wrapper.error-default .errormain1 .errrorsub1 {
   max-width: 308px;
@@ -499,16 +506,17 @@
 .section.contact-us-map-container .default-content-wrapper.error-default .comlist {
   padding: 0;
   margin: 0;
+  max-height: 174px;
 }
 .section.contact-us-map-container .default-content-wrapper.error-default .errormain2 {
   color: #616161;
   text-align: center;
-  font-size: 14px;
-  line-height: 16px;
-  color: #616161;
-  font-family: "Inter", sans-serif;
+  font-size: var(--body-small-regular-size);
+  line-height: var(--body-small-regular-line-height);
+  color: var(--text-body);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
+  font-weight: 400;
 }
 .section.contact-us-map-container .default-content-wrapper.show-contact-error {
   display: flex;
