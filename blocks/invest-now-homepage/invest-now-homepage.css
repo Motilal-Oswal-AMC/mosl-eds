@@ -1326,7 +1326,6 @@
   height: 100%;
   background-color: var(--neutrals-white);
   z-index: 1000;
-  display: block;
 }
 @media (max-width: 768px) {
   .two-step-auth {
