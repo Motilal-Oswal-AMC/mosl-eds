@@ -164,7 +164,6 @@
   {
     "id": "our-service",
     "components": [
-      "global-image-item",
       "our-service-item"
     ]
   }
