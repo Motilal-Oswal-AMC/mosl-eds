@@ -183,20 +183,109 @@
   justify-content: start;
   align-items: start;
 }
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list {
+  list-style-type: none;
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list.list-elem-16,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list.list-elem-16,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list.list-elem-16 {
+  font-size: var(--body-small-regular-size);
+  color: var(--text-body);
+  font-family: var(--body);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--label-large-line-height);
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list.list-elem-19,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list.list-elem-19,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list.list-elem-19 {
+  color: var(--text-body);
+  font-family: var(--body);
+  font-size: var(--body-small-regular-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--label-large-line-height);
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list.list-elem-19 strong,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list.list-elem-19 strong,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list.list-elem-19 strong {
+  color: var(--text-text-link, #2E2A94);
+  font-family: var(--body);
+  font-size: var(--text-link-small-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--text-link-small-line-height);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: 20%;
+  text-underline-position: from-font;
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list ul {
+  list-style-type: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1),
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1),
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1) {
   margin: 0;
   gap: 8px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 12px;
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-2, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-15, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-18,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1).list-elem-2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1).list-elem-15,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1).list-elem-18,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1).list-elem-2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1).list-elem-15,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1).list-elem-18 {
+  padding-right: unset;
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1).list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1).list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1).list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1).list-elem-10::before {
+  content: "";
+  min-width: 4px;
+  height: 4px;
+  display: block;
+  background-color: var(--text-body-2);
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1) img,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1) img,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1) img {
   border-radius: 50%;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12 {
   padding: 0;
   display: flex;
   justify-content: center;
@@ -215,30 +304,114 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list .icon,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list .icon,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list .icon {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9 .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12 .icon {
   height: 40px;
   width: 40px;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-5, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-10,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-5,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-10,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-5,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-10 {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1.list-elem-5, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12.list-elem-10 {
   margin-right: 13px;
   position: relative;
   gap: 8px;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-10::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-10::before,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-5::before,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-10::before,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-5::before,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-10::before,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-5::before,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-10::before,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-5::before,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-10::before {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1.list-elem-5.list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1.list-elem-5.list-elem-10::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1.list-elem-10.list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12.list-elem-10.list-elem-10::before {
   content: "";
   min-width: 4px;
   height: 4px;
@@ -248,23 +421,60 @@
   position: absolute;
   right: -13px;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list img,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list img,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list img {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9 img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12 img {
   border-radius: unset;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list ul,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list ul,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list ul {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9 ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12 ul {
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
   margin: unset;
+  list-style-type: none;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list ul li.contact-li2,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list ul li.contact-li2,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list ul li.contact-li2 {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-7 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-9 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-12 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-1 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-4 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-7 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-9 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.list-elem-12 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-1 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-4 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9 ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12 ul li.contact-li2 {
   margin: 0;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 ul li.list-elem-12 {
