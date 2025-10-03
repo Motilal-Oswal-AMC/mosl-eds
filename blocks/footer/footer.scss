@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 .sr-only {
     position: absolute;
@@ -18,7 +18,7 @@
         padding: 60px 24px 0;
         overflow: hidden;
 
-        @include media (mobile) {
+        @include media(mobile) {
             padding: 60px 0 0;
         }
 
@@ -154,24 +154,17 @@
                             position: relative;
 
                             label {
-                                // position: absolute;
-                                // top: -7px;
-                                // left: 8px;
-                                // display: flex;
-                                // padding: 0 4px;
-                                // justify-content: center;
-                                // align-items: center;
-                                // gap: 10px;
-                                // overflow: hidden;
-                                // color: var(--neutrals-white);
-                                // text-overflow: ellipsis;
-                                // font-family: var(--body);
-                                // font-size: rem(12px);
-                                // font-style: normal;
-                                // font-weight: 400;
-                                // line-height: rem(16px);
-                                // background: #2E2A94;
-                                display: none;
+                                color: var(--text-white);
+                                font-feature-settings: var(--font-features-default);
+                                font-family: var(--body);
+                                font-size: var(--label-small-size);
+                                font-weight: 400;
+                                line-height: var(--label-small-line-height);
+                                position: absolute;
+                                left: 12px;
+                                top: -8px;
+                                background-color: var(--blue-1-800-primary);
+                                padding: 0 4px;
                             }
 
                             input {
@@ -209,14 +202,49 @@
                             .errormsg {
                                 position: absolute;
                                 bottom: -20px;
-                                color: #d93025;
+                                color: #ff8088;
                                 font-weight: 400;
+                                font-family: var(--body);
                                 font-feature-settings: var(--font-features-default);
-                                font-style: italic;
                                 font-size: var(--paragraph-xsmall-size);
                                 line-height: var(--paragraph-xsmall-line-height);
                                 margin-top: 4px;
                                 margin-left: 5px;
+                            }
+
+                            input.email-fail,
+                            input.email-success {
+                                border: var(--border-width-01) solid #ff8088;
+                                padding: 10px 40px 10px 12px;
+                                background: url("../../icons/error-cross.svg") no-repeat right 12px center;
+
+                                // &::after {
+                                //     content: "";
+                                //     background-image: url("../../icons/error-cross.svg");
+                                //     background-position: center;
+                                //     background-repeat: no-repeat;
+                                //     background-size: cover;
+                                //     width: 24px;
+                                //     height: 24px;
+                                //     display: block;
+                                //     position: absolute;
+                                //     top: 50%;
+                                //     right: 12px;
+                                //     transform: translateY(-50%);
+                                // }
+                            }
+
+                            input.email-success {
+                                border: var(--border-width-01) solid #00c35d;
+                                background: url("../../icons/success-cross.svg") no-repeat right 12px center;
+
+                                // &::after {
+                                //     background-image: url("../../icons/success-cross.svg");
+                                // }
+
+                                & + .errormsg {
+                                    color: #00c35d;
+                                }
                             }
                         }
 
@@ -240,7 +268,6 @@
                                 margin: 0;
                                 height: 40px;
                                 border: none;
-
                             }
                         }
                     }
@@ -282,12 +309,12 @@
                         }
 
                         &::after {
-                            content: '';
+                            content: "";
                             position: unset;
                             display: inline-block;
                             width: 22px;
                             height: 20px;
-                            background: url('../../icons/direction-down-footer.svg');
+                            background: url("../../icons/direction-down-footer.svg");
                             background-repeat: no-repeat;
                             background-position: center;
                             border: none;
@@ -338,7 +365,6 @@
                         transform: rotate(180deg);
                     }
                 }
-
             }
 
             .footer-sub3 {
@@ -457,7 +483,6 @@
 
                                 // padding: 0 1.334px 2px 1.333px;
                             }
-
                         }
                     }
 
@@ -617,7 +642,6 @@
                             }
                         }
                     }
-
                 }
             }
 
@@ -633,8 +657,7 @@
                     justify-content: space-between;
                     margin: 0;
                     padding-bottom: 32px;
-                    border-bottom: 2px solid #FFF3;
-
+                    border-bottom: 2px solid #fff3;
 
                     .footer-sub-cont1 {
                         width: 37.3%;
@@ -644,7 +667,7 @@
                         font-size: var(--body-medium-regular-size);
                         font-style: normal;
                         font-weight: 400;
-                        line-height: var(--body-medium-regular-line-height);
+                        line-height: 24px;
                         margin: 0;
                         padding: 0;
                     }
@@ -664,31 +687,14 @@
                                     position: relative;
 
                                     label {
-                                        // position: absolute;
-                                        // top: -7px;
-                                        // left: 8px;
-                                        // display: flex;
-                                        // padding: 0 4px;
-                                        // justify-content: center;
-                                        // align-items: center;
-                                        // gap: 10px;
-                                        // overflow: hidden;
-                                        // color: #FFF;
-                                        // text-overflow: ellipsis;
-                                        // font-feature-settings: var(--font-features-default);
-                                        // font-family: var(--body);
-                                        // font-size: rem(12px);
-                                        // font-style: normal;
-                                        // font-weight: 400;
-                                        // line-height: rem(16px);
-                                        // background: #2E2A94;
-                                        display: none;
+                                        font-size: var(--label-small-size);
+                                        line-height: var(--label-small-line-height);
                                     }
 
                                     input {
                                         // width: 100%;
                                         display: flex;
-                                        padding: 8px 12px;
+                                        padding: var(--spacing-10) var(--spacing-12);
                                         flex-direction: column;
                                         justify-content: flex-end;
                                         align-items: flex-start;
@@ -709,14 +715,29 @@
                                     .errormsg {
                                         position: absolute;
                                         bottom: -20px;
-                                        color: #d93025;
+                                        color: #ff8088;
                                         font-weight: 400;
                                         font-feature-settings: var(--font-features-default);
-                                        font-style: italic;
                                         font-size: var(--paragraph-xsmall-size);
                                         line-height: var(--paragraph-xsmall-line-height);
                                         margin-top: 4px;
                                         margin-left: 5px;
+                                    }
+
+                                    input.email-fail,
+                                    input.email-success {
+                                        border: var(--border-width-01) solid #ff8088;
+                                        padding: 10px 40px 10px 12px;
+                                        background: url("../../icons/error-cross.svg") no-repeat right 12px center;
+                                    }
+
+                                    input.email-success {
+                                        border: var(--border-width-01) solid #00c35d;
+                                        background: url("../../icons/success-cross.svg") no-repeat right 12px center;
+
+                                        & + .errormsg {
+                                            color: #00c35d;
+                                        }
                                     }
                                 }
 
@@ -910,7 +931,9 @@
         cursor: pointer;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.2s ease;
+        transition:
+            opacity 0.3s ease,
+            transform 0.2s ease;
         z-index: 10;
         margin: 0;
         border: none;
@@ -918,7 +941,7 @@
         line-height: normal;
         white-space: unset;
 
-        @include media (mobile) {
+        @include media(mobile) {
             right: 16px;
         }
     }
@@ -929,11 +952,11 @@
     }
 
     .scroll-to-top:hover {
-        background: #7E97FD;
+        background: #7e97fd;
     }
 
     .scroll-to-top-icon path {
         stroke-width: 2px;
-        stroke: #2E2A94;
+        stroke: #2e2a94;
     }
 }

@@ -29,7 +29,7 @@
       }
 
       .fundvedmain1 {
-        max-width: 220px;
+        max-width: 288px;
 
         div {
           p {
@@ -92,7 +92,7 @@
             max-width: 255px;
             margin: 10px 0;
 
-            @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), var(--blue-1-50), 400,var(--body));
+            @include font-style(var(--body-medium-regular-size), 24px, var(--blue-1-50), 400,var(--body));
 
 
             display: flex;

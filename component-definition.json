@@ -670,7 +670,6 @@
               }
             }
           }
-    
         },
         {
           "title": "Pan Valid Block",
@@ -697,6 +696,21 @@
                 "template": {
                   "name": "FM Portfolio",
                   "model": "fm-portfolio"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fdp Campaign",
+          "id": "fdp-campaign",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fdp Campaign",
+                  "model": "fdp-campaign"
                 }
               }
             }

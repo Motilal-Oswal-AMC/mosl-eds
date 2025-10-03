@@ -10,7 +10,6 @@ import {
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import {
-  getTimeLeft,
   evaluateByDays,
   wishlist,
 } from '../../scripts/scripts.js';
@@ -126,10 +125,9 @@ export default function decorate(block) {
             ),
             div(
               { class: 'brand-fund-wrap' },
-              p({ class: 'brand-name-text' }, 'Motilal Oswal'),
               h2(
                 { class: 'fund-name-title' },
-                block.schDetail.schemeName.replaceAll('Motilal Oswal', ''),
+                block.schDetail.schemeName,
               ),
             ),
           ),
@@ -147,14 +145,6 @@ export default function decorate(block) {
                     .toUpperCase(),
                 )),
               ),
-            ),
-            div(
-              { class: 'dis-investor' },
-              img({
-                class: 'riskfactor-icon',
-                src: `../../icons/nfo-risk-icon/${nfosvg}`,
-                alt: 'risk icon',
-              }),
             ),
           ),
           div(
@@ -175,8 +165,12 @@ export default function decorate(block) {
                 span({ class: 'timing-text' }, `NFO Ends On: ${dataMapMoObj.formatDate(block.dateOfAllotment)}`),
               ),
               div(
-                { class: 'timing-container' },
-                p({ class: 'timing-text' }, getTimeLeft(block.dateOfAllotment)),
+                { class: 'dis-investor' },
+                img({
+                  class: 'riskfactor-icon',
+                  src: `../../icons/nfo-risk-icon/${nfosvg}`,
+                  alt: 'risk icon',
+                }),
               ),
             ),
           ),

@@ -31,7 +31,7 @@ export default function decorate(block) {
   dataMapMoObj.addIndexed(whyFund);
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const planslabel = planCode.split(':')[1];
-  const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+  const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
   dataMapMoObj.CLASS_PREFIXES = ['compound-item', 'compound-sub-item', 'compound-inner-item'];
   dataMapMoObj.addIndexed(block);
 
@@ -73,6 +73,10 @@ export default function decorate(block) {
   const returnYear = tempReturns.includes(selectedReturn)
     ? selectedReturn
     : firstReturnYear;
+  let textvalret = selectedReturn;
+  if (returnYear !== 'Since Inception') {
+    textvalret = returnYear.replace('Since', '');
+  }
   dataMapMoObj.gropcodevalue = DirectPlanlistArr[0].groupedCode;
   dataMapMoObj.fundManagerDetails = cfObj[0].fundManager;
   const navdatecss = navlistArr[0].nav_date === undefined ? 'none' : 'block';
@@ -373,7 +377,8 @@ export default function decorate(block) {
                     }
                   },
                 },
-                returnYear,
+                textvalret,
+                // returnYear,
               ),
               ul(
                 {
@@ -382,8 +387,12 @@ export default function decorate(block) {
                     const valueText = event.target.textContent.trim();
                     const parentClosest = event.target.closest('.dropdown');
                     const ptext = parentClosest.querySelector('.selectedtext');
+                    let textval = valueText;
+                    if (textval !== 'Since Inception') {
+                      textval = valueText.replace('Since', '');
+                    }
                     ptext.innerText = '';
-                    ptext.innerText = valueText;
+                    ptext.innerText = textval;
 
                     const returnClass = event.target.closest('.return-grp');
                     const valueCagr = returnClass.querySelector('.value-cagr');
@@ -453,7 +462,7 @@ export default function decorate(block) {
                 Number(navlistArr[0].latnav).toFixed(2),
                 span({
                   class: 'percent',
-                }, '%'),
+                }),
               ),
               div(
                 {
@@ -729,7 +738,7 @@ export default function decorate(block) {
       alert('URL copied to clipboard!');
     } catch (err) {
       // Catch potential errors and inform the user
-      console.error('Failed to copy URL: ', err);
+      // console.error('Failed to copy URL: ', err);
       alert('Could not copy URL. Please make sure the window is focused.');
     }
   });

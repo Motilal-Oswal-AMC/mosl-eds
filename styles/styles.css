@@ -363,6 +363,8 @@ main.nfo-nav .section:first-of-type {
     margin-top: 76px;
 }
 
+
+
 @media (width <=1025px) {
     main>.section:first-of-type {
         margin-top: 0;
@@ -382,6 +384,7 @@ main.nfo-nav .section:first-of-type {
 @media (width <=900px) {
     main>.section>div {
         padding: 0 16px;
+        gap: 16px;
     }
 }
 
@@ -553,8 +556,32 @@ footer .footer[data-block-status="loaded"] {
     background: unset;
 }
 
+.fdp-card-container .comlist .tabs-container {
+    margin: 24px 0 0;
+}
 
+.fdp-card-container .fund-philosophy-video.section {
+    margin: unset;
+}
 
+.fdp-card-container .key-facts-container.section {
+    margin-top: unset;
+}
+
+@media (width <=768px) {
+    .fdp-card-container .fund-philosophy-video.section {
+        padding: 40px 16px;
+    }
+
+    .fdp-card-container .comlist .tabs-container {
+        margin: 40px 0;
+    }
+
+    .tabs-container .icon.icon-excel {
+        width: 16px;
+        height: 16px;
+    }
+}
 
 @media (width <=768px) {
 
@@ -629,7 +656,7 @@ body.noscroll {
     justify-content: space-between;
     padding: 24px;
     position: sticky;
-    
+
     /* top: 89px; */
     top: 132px;
     background-color: #f5f5f5;
@@ -645,7 +672,7 @@ body.noscroll {
     overflow-x: auto;
     word-break: unset;
     align-items: center;
-    gap: 16px;
+    /* gap: 16px; */
 }
 
 .breadcrumbs-fdp>.default-content-wrapper::-webkit-scrollbar {
@@ -721,14 +748,14 @@ body.noscroll {
     align-items: center;
     list-style: none;
     margin: 0;
-    height: 24px;
+    /* height: 24px; */
 }
 
 .breadcrumbs-fdp>ul.breadul>li.breadli {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 12px;
+    /* padding-right: 12px; */
 
     /* border-right: 1px solid #616161; */
     position: relative;
@@ -737,8 +764,8 @@ body.noscroll {
 .breadcrumbs-fdp>ul.breadul>li.breadli::before {
     position: absolute;
     content: "/";
-    margin-right: 4px;
-    right: -12px;
+    /* margin-right: 4px; */
+    right: -16px;
     top: 0;
     color: #616161;
     font-family: Poppins, sans-serif;
@@ -769,7 +796,7 @@ body.noscroll {
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
     max-width: 170px;
     width: 100%;
-    background-color:var(--neutrals-white) ;
+    background-color: var(--neutrals-white);
     flex-direction: column;
     align-items: center;
     gap: 8px;
@@ -800,11 +827,17 @@ body.noscroll {
     font-style: normal;
     padding: 12px;
     align-items: center;
-    font-size:var(--body-xsmall-regular-size);
+    font-size: var(--body-xsmall-regular-size);
     line-height: var(--body-xsmall-regular-line-height);
     font-weight: 400;
-    font-family:var(--body) ;
-    color: var(--text-body) ;
+    font-family: var(--body);
+    color: var(--text-body);
+}
+
+.breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
+    height: 20px;
+    width: 20px;
+    display: flex;
 }
 
 /* 
@@ -823,13 +856,13 @@ position: relative;
     }
 
     .section.breadcrumbs-fdp {
-        top: 116px;
-        padding: 16px;
+        top: 114px;
+        padding: 16px 0;
     }
 
     .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
-         font-size:var(--paragraph-xsmall-size);
-    line-height: var(--paragraph-xsmall-line-height);
+        font-size: var(--paragraph-xsmall-size);
+        line-height: var(--paragraph-xsmall-line-height);
     }
 }
 
@@ -1111,6 +1144,10 @@ position: relative;
     padding: 0;
 }
 
+main.nfo-nav .section:first-of-type.performance-graph-container {
+    margin-top: 20px;
+}
+
 /* .modal.block.modal-journey>dialog[open]>.close-button {
 background-color: transparent;
 color:transparent;
@@ -1154,6 +1191,10 @@ z-index: -1;
 }
 
 @media screen and (width <=768px) {
+    main.nfo-nav .section:first-of-type.performance-graph-container {
+        margin-top: 40px;
+    }
+
     @keyframes slide-out {
         from {
             transform: translateY(0);

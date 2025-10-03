@@ -19,7 +19,7 @@ export default function decorate(block) {
     });
   });
 
-  const data = dataCfObj.filter((el) => {
+  const data = dataCfObj.cfDataObjs.filter((el) => {
     if ([...el.fundsTaggingSection].includes('motilal-oswal:conservative')) {
       return true;
     }

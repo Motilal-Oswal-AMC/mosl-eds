@@ -6,17 +6,17 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-main {
-    // background-color: $neutrals-100;
-    background-color: #fff;
-}
+// main {
+//     // background-color: $neutrals-100;
+//     background-color: #fff;
+// }
 
 .section.growth-now-container {
     margin: 0;
+    background-color: var(--neutrals-100);
 
-    // background-color: $neutrals-100;
-    background-color: #fff;
-    padding: 40px 0 ;
+    // background-color: #fff;
+    padding: 40px 0 50px;
 
     @include media(mobile) {
         padding: 40px 0;
@@ -55,10 +55,12 @@ main {
         display: flex;
         padding: 32px;
         align-items: center;
-        justify-content: space-between;
+
+        // justify-content: space-between;
         border-radius: 16px;
         background: #2E2A94;
         height: 160px;
+        overflow: hidden;
 
         @include media (desktop-sm) {
             gap: 15px;
@@ -120,7 +122,9 @@ main {
             }
 
             .fund-sec-1 {
-                padding-right: 21px;
+                margin-right: 19px;
+                width: 109px;
+                height: 160px;
 
                 // @include media (desktop-sm) {
                 //     padding: 0;
@@ -156,7 +160,7 @@ main {
             }
 
             .fund-sec-3 {
-                padding-left: 8px;
+                // padding-left: 8px;
                 padding-right: 32px;
 
                 @include media (desktop-sm) {
@@ -165,7 +169,8 @@ main {
 
                 @include media(mobile) {
                     padding: 0;
-                    padding-bottom: 16px;
+
+                    // padding-bottom: 16px;
                     order: 1;
                 }
 
@@ -178,7 +183,7 @@ main {
                     white-space: nowrap;
                     font-style: normal;
 
-                    @include font-style(map.get($typography-desktop, heading-h5-size), map.get($typography-desktop, heading-h5-line-height), $neutrals-white, 600, $title);
+                    @include font-style(var(--heading-h5-size), var(--heading-h5-line-height), var(--neutrals-white), 600, var(--title));
 
                     @media (width <=1279px) {
                         white-space: inherit;
@@ -186,14 +191,14 @@ main {
 
 
                     @include media(mobile) {
-                        @include font-style(map.get($typography-mobile, sub-header-large-size), 28px, $neutrals-white, 600, $title);
+                        @include font-style(var(--sub-header-large-size), 28px, var(--neutrals-white), 600, var(--title));
                     }
                 }
 
             }
 
             .fund-sec-4 {
-                padding-right: 37px;
+                padding-right: 47px;
 
                 @include media (desktop-sm) {
                     padding: 0;
@@ -205,6 +210,7 @@ main {
                     order: 2;
                     width: 100%;
                     padding-bottom: 32px;
+                    padding-top: 24px;
                     z-index: 2;
 
                     .button-container {
@@ -262,7 +268,7 @@ main {
                             align-items: center;
                             gap: 2px;
                             padding: 10px 8px 10px 12px;
-                            border: 1px solid $neutrals-300;
+                            border: 1px solid var(--neutrals-300);
                             border-radius: 8px;
                             width: 112px;
                             height: 40px;
@@ -280,7 +286,7 @@ main {
                         .phnodata.field-wrapper {
                             width: 188px;
                             height: 40px;
-                            border: 1px solid $neutrals-300;
+                            border: 1px solid var(--neutrals-300);
                             border-radius: 8px;
                             display: flex;
                             align-items: center;
@@ -295,18 +301,19 @@ main {
                         select {
                             background: transparent;
                             border: none;
-                            color: $neutrals-white;
+                            color: var(--neutrals-white);
                             text-align: center;
-                            font-family: $body;
-                            font-size: map.get($typography-desktop, body-medium-regular-size);
+                            font-family: var(--body);
+                            font-size: var(--body-medium-regular-size);
                             font-style: normal;
                             font-weight: 400;
-                            line-height: map.get($typography-desktop, body-medium-regular-line-height);
+                            line-height: var(--body-medium-regular-line-height);
+                            font-feature-settings: var(--font-features-default);
                             appearance: auto;
                             padding-right: 4px;
 
                             @include media(mobile) {
-                                @include font-style(map.get($typography-mobile, body-medium-regular-size), map.get($typography-mobile, body-medium-regular-line-height), $neutrals-white, 400, $body);
+                                @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), var(--neutrals-white), 400, var(--body));
                             }
 
                             option {
@@ -326,12 +333,13 @@ main {
                                 min-width: 111px;
                                 background: transparent;
                                 box-shadow: none;
-                                color: $neutrals-white;
-                                font-family: $body;
-                                font-size: map.get($typography-desktop, body-medium-regular-size);
+                                color: var(--neutrals-white);
+                                font-family: var(--body);
+                                font-size: var(--body-medium-regular-size);
                                 font-style: normal;
                                 font-weight: 400;
-                                line-height: map.get($typography-desktop, body-medium-regular-line-height);
+                                line-height: var(--body-medium-regular-line-height);
+                                font-feature-settings: var(--font-features-default);
                                 padding: 0;
                                 padding-inline: unset;
                                 padding-block: unset;
@@ -341,11 +349,11 @@ main {
                                 // padding-left: 10px;
 
                                 &::placeholder {
-                                    color: $neutrals-white;
+                                    color: var(--neutrals-white);
                                 }
 
                                 @include media(mobile) {
-                                    @include font-style(map.get($typography-mobile, body-medium-regular-size), map.get($typography-mobile, body-medium-regular-line-height), $neutrals-white, 400, $body);
+                                    @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), var(--neutrals-white), 400, var(--body));
                                 }
                             }
 
@@ -420,23 +428,24 @@ main {
                             gap: 8px;
                             border-radius: 8px;
                             background: #FFF;
-                            color: $text-button-default;
-                            font-family: $body;
-                            font-size: map.get($typography-desktop, button-medium-size);
+                            color: var(--text-button-default);
+                            font-family: var(--body);
+                            font-size: var(--button-medium-size);
                             font-style: normal;
                             font-weight: 500;
-                            line-height: map.get($typography-desktop, button-medium-line-height);
+                            line-height: var(--button-medium-line-height);
+                            font-feature-settings: var(--font-features-default);
                             margin: 0;
                             height: 40px;
 
                             @include media(mobile) {
                                 width: 100% !important;
-                                color: $text-button-default;
-                                font-family: $body;
-                                font-size: map.get($typography-mobile, button-medium-size);
+                                color: var(--text-button-default);
+                                font-family: var(--body);
+                                font-size: var(--button-medium-size);
                                 font-style: normal;
                                 font-weight: 500;
-                                line-height: map.get($typography-mobile, button-medium-line-height);
+                                line-height: var(--button-medium-line-height);
                             }
                         }
                     }
@@ -492,6 +501,7 @@ main {
                         right: 24px;
                         overflow: hidden;
                         height: max-content;
+                        width: max-content;
 
                         // img {
                         //     width: 45px;
@@ -548,6 +558,7 @@ main {
                         display: flex;
                         flex-direction: column;
                         gap: 9px;
+                        min-width: 126px;
 
                         @include media(mobile) {
                             gap: 12px;
@@ -564,16 +575,17 @@ main {
                                 list-style: none;
 
                                 li.comlist.growth-subthr1:first-child {
-                                    color: $neutrals-white;
-                                    font-family: $body;
-                                    font-size: map.get($typography-desktop, paragraph-xsmall-size);
+                                    color: var(--neutrals-white);
+                                    font-family: var(--body);
+                                    font-size: var(--paragraph-xsmall-size);
                                     font-style: normal;
                                     font-weight: 400;
-                                    line-height: map.get($typography-desktop, paragraph-xsmall-line-height);
+                                    line-height: var(--paragraph-xsmall-line-height);
+                                    font-feature-settings: var(--font-features-default);
                                     cursor: pointer;
 
                                     @include media(mobile) {
-                                        @include font-style(map.get($typography-mobile, paragraph-xsmall-size), map.get($typography-mobile, paragraph-xsmall-line-height), $neutrals-white, 400, $body);
+                                        @include font-style(var(--paragraph-xsmall-size), var(--paragraph-xsmall-line-height), var(--neutrals-white), 400, var(--body));
                                     }
 
                                     // &:hover {
@@ -585,7 +597,7 @@ main {
 
                                 li.comlist.growth-subthr2:nth-child(2) {
                                     color: #FFF;
-                                    font-family: $body;
+                                    font-family: var(--body);
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 600;
@@ -593,16 +605,17 @@ main {
                                     cursor: pointer;
 
                                     a {
-                                        color: $neutrals-white;
-                                        font-family: $body;
-                                        font-size: map.get($typography-desktop, body-small-semibold-size);
+                                        color: var(--neutrals-white);
+                                        font-family: var(--body);
+                                        font-size: var(--body-small-semibold-size);
                                         font-style: normal;
                                         font-weight: 600;
-                                        line-height: map.get($typography-desktop, body-small-semibold-line-height);
+                                        line-height: var(--body-small-semibold-line-height);
+                                        font-feature-settings: var(--font-features-default);
                                         cursor: pointer;
 
                                         @include media(mobile) {
-                                            @include font-style(map.get($typography-mobile, body-small-semibold-size), map.get($typography-mobile, body-small-semibold-line-height), $neutrals-white, 600, $body);
+                                            @include font-style(var(--body-small-semibold-size), var(--body-small-semibold-line-height), var(--neutrals-white), 600, var(--body));
                                         }
 
                                         &:hover {
@@ -639,7 +652,7 @@ main {
 
             .fund-us-container {
                 .fund-sec-1 {
-                    padding-right: 11px;
+                    padding-right: 10px;
 
                     @include media(mobile) {
                         padding: 0;

@@ -2,7 +2,7 @@ import { toClassName } from '../../scripts/aem.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import fundCardblock from '../fund-card/fund-card.js';
 import {
-  button, a, div, input, ul, li, img, table, thead, tbody, tr, th, td
+  button, a, div, input, ul, li, img, table, thead, tbody, tr, th, td,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 
@@ -53,7 +53,7 @@ export default async function decorate(block) {
   });
   if (block.closest('.our-popular-funds')) {
     block.closest('.our-popular-funds').classList.add('fund-tab');
-    let dataCf = dataCfObj.slice(0, 4);
+    let dataCf = dataCfObj.cfDataObjs.slice(0, 4);
 
     Array.from(tablist.children).forEach((element) => {
       element.addEventListener('click', (event) => {
@@ -62,15 +62,23 @@ export default async function decorate(block) {
         });
 
         if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-trending-funds') {
-          dataCf = dataCfObj.slice(1, 5);
+          const shcodeArr = dataCfObj.trendingFunds.map((elmap) => elmap.split(':')[1]);
+          dataCf = dataCfObj.cfDataObjs.filter((data) => shcodeArr.includes(data.schcode));
+          if (dataCf.length > 4) {
+            dataCf = dataCf.slice(0, 4);
+          }
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-most-searched-funds') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:active') ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(1, 5);
+          const shcodeArr = dataCfObj.mostSearchedFunds.map((elmap) => elmap.split(':')[1]);
+          dataCf = dataCfObj.cfDataObjs.filter((data) => shcodeArr.includes(data.schcode));
+          if (dataCf.length > 4) {
+            dataCf = dataCf.slice(0, 4);
+          }
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-most-bought-funds') {
-          dataCf = dataCfObj.map((elem) => (elem.fundCategorisation === 'Passive Funds' ? elem : ''));
-          dataCf = dataCf.filter((el) => el);
-          dataCf = dataCf.slice(1, 5);
+          const shcodeArr = dataCfObj.mostBoughtFunds.map((elmap) => elmap.split(':')[1]);
+          dataCf = dataCfObj.cfDataObjs.filter((data) => shcodeArr.includes(data.schcode));
+          if (dataCf.length > 4) {
+            dataCf = dataCf.slice(0, 4);
+          }
         }
         block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).innerHTML = '';
         dataCf.map((elementfunds) => block.querySelector(`#${event.currentTarget.getAttribute('aria-controls')}`).append(fundCardblock(elementfunds)));
@@ -101,8 +109,7 @@ export default async function decorate(block) {
   }
   if (block.closest('.known-our-funds')) {
     block.closest('.known-our-funds').classList.add('fund-tab');
-    // let dataCf = dataCfObj.slice(1, 5);
-    let dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:indian-equity-') ? elem : ''));
+    let dataCf = dataCfObj.cfDataObjs.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:indian-equity-') ? elem : ''));
     dataCf = dataCf.filter((el) => el);
     dataCf = dataCf.slice(0, 4);
     Array.from(tablist.children).forEach((element) => {
@@ -112,26 +119,25 @@ export default async function decorate(block) {
         });
 
         if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-indian-equity') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:indian-equity-') ? elem : ''));
+          dataCf = dataCfObj.cfDataObjs.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:indian-equity-') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(0, 4);
           dataMapMoObj.selectviewFunds = 'indian-equity';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-international-equity') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:international-equity') ? elem : ''));
+          dataCf = dataCfObj.cfDataObjs.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:international-equity') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataMapMoObj.selectviewFunds = 'international-equity';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-hybrid-balanced') { // tabpanel-index
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced') ? elem : ''));
+          dataCf = dataCfObj.cfDataObjs.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:hybrid-&-balanced') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
-          // dataCf = dataCf.slice(1, 5);
           dataMapMoObj.selectviewFunds = 'hybrid-&-balanced';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-index') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:index-funds') ? elem : ''));
+          dataCf = dataCfObj.cfDataObjs.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:index-funds') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(1, 5);
           dataMapMoObj.selectviewFunds = 'index-funds';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-etfs') {
-          dataCf = dataCfObj.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:etf') ? elem : ''));
+          dataCf = dataCfObj.cfDataObjs.map((elem) => ([...elem.fundsTaggingSection].includes('motilal-oswal:etf') ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(1, 5);
           dataMapMoObj.selectviewFunds = 'etf';
@@ -227,7 +233,7 @@ export default async function decorate(block) {
       dataMapMoObj.attr = param;
       const planCode = localStorage.getItem('planCode') || 'Direct:LM';
       const planslabel = planCode.split(':')[1];
-      const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+      const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
       const cfObj = planObj;
       cfObj[0].returns.forEach((ret) => {
         if (ret.plancode + ret.optioncode === dataMapMoObj.gropcodevalue) {
@@ -241,12 +247,12 @@ export default async function decorate(block) {
           td({ class: 'fund-name' }, cfObj[0].schDetail.schemeName),
           // ul(
           //   { class: 'fund-data-list' },
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`oneYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`threeYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`fiveYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`sevenYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`tenYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((returnValue[0][`inception${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`oneYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`threeYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`fiveYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`sevenYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`tenYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((returnValue[0][`inception${param}`]))),
           // ),
         ),
         ...cfObj[0].benchmarkreturns.map((el) => tr(
@@ -254,12 +260,12 @@ export default async function decorate(block) {
           td({ class: 'fund-name' }, el.groupName),
           // ul(
           //   { class: 'fund-data-list' },
-            td({ class: 'fund-data' }, formatReturn((el[`oneYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`threeYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`fiveYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`sevenYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`tenYear${param}`]))),
-            td({ class: 'fund-data' }, formatReturn((el[`inception${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`oneYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`threeYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`fiveYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`sevenYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`tenYear${param}`]))),
+          td({ class: 'fund-data' }, formatReturn((el[`inception${param}`]))),
           // ),
         )),
       );
@@ -365,7 +371,7 @@ export default async function decorate(block) {
   if (block.parentElement.parentElement.classList.contains('tabdiv')) {
     const planCode = localStorage.getItem('planCode') || 'Direct:LM';
     const planslabel = planCode.split(':')[1];
-    const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+    const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
     dataMapMoObj.scheme = planObj;
     generateBarChart(planObj[0].sector);
   }
@@ -375,13 +381,11 @@ export default async function decorate(block) {
       const tabId = tabBtn.id.replace('tab-', '');
       const panel = document.getElementById(`tabpanel-${tabId}`);
       if (tabId === 'sector-holdings') {
-        // dataselected = dataCfObj[0].sector
         if (panel && !panel.querySelector('.chart-wrapper')) {
-          const chart = generateBarChart(dataMapMoObj.scheme[0].sector);// (dataCfObj[0].sector);
+          const chart = generateBarChart(dataMapMoObj.scheme[0].sector);
           panel.appendChild(chart);
         }
       } else if (tabId === 'stock-holdings') {
-        // dataselected = dataCfObj[0].holdings
         if (panel && !panel.querySelector('.chart-wrapper')) {
           const chart = generateBarChartHoldings(dataMapMoObj.scheme[0].holdings);
           panel.appendChild(chart);

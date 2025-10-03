@@ -152,7 +152,7 @@
 .think-equity-container .default-content-wrapper .item-child-2.button-container {
   margin: 0;
   line-height: 0;
-  max-width: 256px;
+  max-width: 328px;
   width: 100%;
 }
 @media (max-width: 768px) {
@@ -161,7 +161,6 @@
   }
 }
 .think-equity-container .default-content-wrapper .item-child-2.button-container .button {
-  min-width: 328px;
   width: 100%;
   display: inline-block;
   padding: var(--spacing-12);
@@ -200,7 +199,7 @@
   .think-equity.block {
     justify-content: space-around;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     margin-bottom: 40px;
   }
 }
