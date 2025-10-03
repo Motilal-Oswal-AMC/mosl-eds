@@ -60,6 +60,10 @@
   background: #FFF;
   box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   height: auto;
+
+  @include media(mobile){
+    max-width: 91.4%;
+  }
 }
 
 .section.risk-o-meter-container {
@@ -67,7 +71,8 @@
   width: 100%;
   border-radius: 8px;
   background: var(--neutrals-white);
-  box-shadow: 0 4px 12px 0 #0000000D;
+  
+  // box-shadow: 0 4px 12px 0 #0000000D;
   display: flex;
   gap: 48px;
   flex-direction: column-reverse;
