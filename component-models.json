@@ -321,6 +321,10 @@
           {
             "name": "Added Fund Cart",
             "value": "added-fund-cart"
+          },
+          {
+            "name": "Two Step Verification",
+            "value": "two-step-auth"
           }
         ]
       },
