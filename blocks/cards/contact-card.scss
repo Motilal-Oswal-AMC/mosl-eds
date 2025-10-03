@@ -29,9 +29,8 @@
         @include media(mobile) {
           height: 40px;
         }
-      }
 
-      .icon.icon-past-performance-cal {
+        .icon {
         height: 48px;
         width: 48px;
 
@@ -39,6 +38,7 @@
           height: 40px;
           width: 40px;
         }
+      }
       }
 
       ul.cont-us-head-ul2 {
@@ -181,6 +181,7 @@
 
               li:nth-child(1) {
                 margin: 0;
+                gap: 8px;
 
                 img {
                   border-radius: 50%;
@@ -209,6 +210,7 @@
                 &.list-elem-10 {
                   margin-right: 13px;
                   position: relative;
+                  gap: 8px;
 
                   &.list-elem-5::before,
                   &.list-elem-10::before {
@@ -317,5 +319,12 @@
         }
       }
     }
+  }
+}
+
+.contact-us-parent-wrapper {
+  .section.growth-now-container {
+    background-color: unset;
+    padding: 40px 0;
   }
 }

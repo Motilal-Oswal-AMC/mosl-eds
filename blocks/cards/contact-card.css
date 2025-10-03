@@ -29,12 +29,12 @@
     height: 40px;
   }
 }
-.section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .icon.icon-past-performance-cal {
+.section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .cont-us-head-ul1 .icon {
   height: 48px;
   width: 48px;
 }
 @media (max-width: 768px) {
-  .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .icon.icon-past-performance-cal {
+  .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .cont-us-head-ul1 .icon {
     height: 40px;
     width: 40px;
   }
@@ -187,6 +187,7 @@
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1),
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1) {
   margin: 0;
+  gap: 8px;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1) img,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1) img,
@@ -227,6 +228,7 @@
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-10 {
   margin-right: 13px;
   position: relative;
+  gap: 8px;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-10::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-10::before,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-5::before,
@@ -315,4 +317,9 @@
     font-size: 12px;
     line-height: 20px;
   }
+}
+
+.contact-us-parent-wrapper .section.growth-now-container {
+  background-color: unset;
+  padding: 40px 0;
 }/*# sourceMappingURL=contact-card.css.map */

@@ -485,4 +485,6 @@ export default async function decorate(block) {
 
   dataMapMoObj.CLASS_PREFIXES = ['cont-us-head', 'cont-us-head-li', 'cont-us-head-ul', 'cont-us-txt-li'];
   dataMapMoObj.addIndexed(demo);  
+
+  document.querySelector('.contact-card').parentElement.classList.add('contact-us-parent-wrapper');
 }
