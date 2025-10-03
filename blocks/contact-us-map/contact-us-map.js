@@ -393,20 +393,6 @@ export default async function decorate(block) {
           }),
         ),
       ),
-      div(
-        {
-          class: 'mobfeatrure',
-        },
-        input({
-          type: 'radio',
-          name: 'radio',
-          id: `mob-${mobduplicate.split(' ').at(0)}`,
-          value: 'AMC Branch',
-        }),
-        label({
-          for: `mob-${mobduplicate.split(' ').at(0)}`,
-        }, mobduplicate),
-      ),
     ),
     div(
       {
@@ -480,4 +466,11 @@ export default async function decorate(block) {
   dataMapMoObj.addIndexed(errdefault);
   const err = errdefault.querySelector('.errormain1 .errorinner1');
   err.setAttribute('alt', 'ErrorImage');
+
+  const demo =document.querySelector('.contact-card .default-content-wrapper');
+
+  dataMapMoObj.CLASS_PREFIXES = ['cont-us-head', 'cont-us-head-li', 'cont-us-head-ul', 'cont-us-txt-li'];
+  dataMapMoObj.addIndexed(demo);  
+
+  document.querySelector('.contact-card').parentElement.classList.add('contact-us-parent-wrapper');
 }

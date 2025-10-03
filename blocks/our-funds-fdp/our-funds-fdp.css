@@ -1,7 +1,8 @@
 @import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
 .section.our-funds-fdp-container {
-  padding: 40px 0;
+  padding: 24px 0;
+  margin-bottom: unset !important;
 }
 @media (width <= 768px) {
   .section.our-funds-fdp-container {
@@ -16,6 +17,11 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
   margin: 0 0 2.5rem;
+}
+@media (width <= 768px) {
+  .section.our-funds-fdp-container .default-content-wrapper h4 {
+    margin: 0 0 16px 0;
+  }
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp {
   display: flex;
@@ -131,7 +137,7 @@
   margin: 0;
   padding: 0;
   font-size: var(--body-small-regular-size);
-  line-height: var(--Body-Small-regular-Line-Height);
+  line-height: var(--body-small-regular-line-height);
   color: var(--neutrals-800);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -161,7 +167,7 @@
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-links a {
   font-size: var(--text-link-small-size);
-  line-height: var(--Text-Link-Small-Line-Height);
+  line-height: var(--text-link-small-line-height);
   color: var(--text-text-link);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -219,6 +225,23 @@
   max-width: 100%;
   height: 100%;
   margin: 0;
+}
+.modal.modal-journey-fund dialog .modal-content .fm-portfolio-container::-webkit-scrollbar {
+  width: 3px;
+}
+.modal.modal-journey-fund dialog .modal-content .fm-portfolio-container::-webkit-scrollbar-track {
+  width: 3px;
+  background-color: var(--neutrals-white);
+  border-radius: 0 6px 6px 0;
+}
+.modal.modal-journey-fund dialog .modal-content .fm-portfolio-container::-webkit-scrollbar-thumb {
+  width: 3px;
+  background-color: #6e6c6c;
+}
+@media (max-width: 768px) {
+  .modal.modal-journey-fund dialog .modal-content .fm-portfolio-container {
+    border: 1px solid #9E9E9E;
+  }
 }
 @media (width <= 768px) {
   .modal.modal-journey-fund dialog .modal-content .fm-portfolio-container {

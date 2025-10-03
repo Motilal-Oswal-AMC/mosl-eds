@@ -46,13 +46,14 @@
         flex-shrink: 0;
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: 16px;
         padding: 0;
         width: 100%;
 
         @include media(mobile) {
           align-items: flex-start;
-          padding-top: 40px;
+          // padding-top: 40px;
         }
 
         .hero-image {
@@ -945,8 +946,7 @@
 
             @include media(mobile) {
               text-align: center;
-              padding-bottom: 24px;
-              padding-top: 0;
+              padding: 16px 0;
             }
 
             .view-othercal-btn {
@@ -1009,6 +1009,7 @@
     align-self: stretch;
     box-shadow: $box-shadow-soft;
     padding: 40px 24px;
+    margin-bottom: unset !important;
 
     @include media(mobile) {
       padding: 40px 16px;
@@ -1085,6 +1086,10 @@
 
           .view-btn-cal {
             display: none;
+
+            @include media(mobile) {
+              display: block;
+            }
           }
         }
       }

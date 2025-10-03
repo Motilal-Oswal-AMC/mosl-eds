@@ -10,9 +10,9 @@ export default function decorate(block) {
 
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const planslabel = planCode.split(':')[1];
-  const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+  const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
   const plantag = planObj[0].fundsTaggingSection[0];
-  const cardtemp = dataCfObj.filter(
+  const cardtemp = dataCfObj.cfDataObjs.filter(
     (el) => (el.fundsTaggingSection.includes(plantag) && el.schcode !== planslabel),
   );
   let data;

@@ -11,7 +11,7 @@ export default function decorate(block) {
   });
 
   if (block.closest('.index-fund')) { // [...block.classList].includes('index-fund')
-    const dataCF = dataCfObj.slice(0, 2);
+    const dataCF = dataCfObj.cfDataObjs.slice(0, 2);
     const divWrapper = document.createElement('div');
     divWrapper.classList.add('card-items');
     dataCF.forEach((el) => {

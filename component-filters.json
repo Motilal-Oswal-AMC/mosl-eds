@@ -46,6 +46,9 @@
       "pan-valid-block",
       "invest-now-homepage",
       "fm-portfolio",
+      "fdp-campaign",
+      "login-page",
+      "login-image-item",
       "step-up-block"
     ]
   },
@@ -142,6 +145,12 @@
       "our-fund-block-item",
       "our-fund-left-item",
       "our-fund-right-item"
+    ]
+  },
+  {
+    "id": "login-page",
+    "components": [
+      "login-rt-item"
     ]
   }
 ]

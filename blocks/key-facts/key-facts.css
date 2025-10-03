@@ -52,10 +52,19 @@
 }
 .key-facts-container .default-content-wrapper ol li {
   display: flex;
+  gap: 8px;
   flex-wrap: wrap;
-  justify-content: space-between;
   list-style: none;
   align-items: center;
+}
+.key-facts-container .default-content-wrapper ol li:first-child {
+  min-width: 511px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .key-facts-container .default-content-wrapper ol li:first-child {
+    min-width: unset;
+  }
 }
 .key-facts-container .default-content-wrapper ol li h4 {
   font-size: var(--body-xlarge-bold-size);
@@ -78,9 +87,9 @@
   }
 }
 .key-facts-container .default-content-wrapper ol li h4 span {
-  max-width: 72px;
+  max-width: 56px;
   width: 100%;
-  max-height: 72px;
+  max-height: 56px;
   height: 100%;
 }
 @media (width <= 768px) {
@@ -92,7 +101,7 @@
 .key-facts-container .default-content-wrapper ol li ol {
   width: calc(100% - 72px);
   display: flex;
-  justify-content: space-between;
+  gap: 8px;
   margin: 0;
   align-items: center;
 }
@@ -117,6 +126,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 169px;
+  width: 100%;
 }
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper ol li ol li:nth-child(2) {
@@ -131,12 +142,17 @@
 .key-facts-container .key-facts .key-facts-section {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .key-facts-container .key-facts .key-facts-section {
+    gap: 24px;
+  }
 }
 .key-facts-container .key-facts .key-facts-section .investment-objective {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .investment-objective {
@@ -158,12 +174,14 @@
   color: var(--text-body-2);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0;
 }
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .investment-objective p:nth-child(2) p {
     padding-right: 10px;
+    font-size: var(--paragraph-small-size);
+    line-height: var(--paragraph-small-line-height);
   }
 }
 .key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion {
@@ -171,13 +189,14 @@
   margin: 0;
 }
 .key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion .read-toggle-btn {
-  font-size: 16px;
-  line-height: 24px;
-  color: #4338f3;
-  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: var(--text-link-small-line-height);
+  color: var(--text-text-link);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: underline;
+  text-underline-offset: 20%;
   cursor: pointer;
 }
 .key-facts-container .key-facts .key-facts-section .investment-objective .investment-discripstion .read-toggle-btn:focus {
@@ -187,29 +206,36 @@
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts {
+    gap: 24px;
+  }
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
 }
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount {
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 24px;
     height: unset;
   }
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+}
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-title .block-subitem-finelsub2, .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-title .block-subitem-finelsub3 {
+  margin: unset;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-title:nth-child(1) {
   font-size: var(--body-medium-medium-size);
-  line-height: 24 px;
+  line-height: var(--body-medium-medium-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -218,7 +244,7 @@
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount div .key-facts-amounts-sub:nth-child(2) {
   font-size: var(--body-medium-regular-size);
-  line-height: var(--body-medium-regular-line-height);
+  line-height: 24px;
   color: var(--text-body-2);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -228,7 +254,7 @@
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 40px;
 }
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans {
@@ -238,13 +264,17 @@
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark {
+    gap: 24px;
+  }
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups,
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups {
   display: flex;
   justify-content: space-between;
-  height: 60px;
 }
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups,
@@ -260,19 +290,21 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 @media (width <= 768px) {
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div,
   .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div {
-    max-width: 164px;
+    width: 162px;
+    max-width: 100%;
+    gap: 4px;
   }
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .aum-groups div p:nth-child(1),
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .aum-benchmark .benchmark-groups div p:nth-child(1) {
   font-size: var(--body-medium-medium-size);
   line-height: var(--body-medium-medium-line-height);
-  color: #242177;
+  color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
@@ -313,7 +345,7 @@
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy p.load-policy-para {
   font-size: var(--body-medium-medium-size);
@@ -324,6 +356,9 @@
   font-weight: 500;
   margin: 0;
 }
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy p.load-policy-para .block-subitem-finelsub4 {
+  margin: unset;
+}
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list {
   display: flex;
   flex-direction: column;
@@ -331,11 +366,12 @@
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list .load-policy-list-ul {
   margin: unset;
-  margin-left: 10px;
+  margin-left: 12px;
+  padding-left: 10px;
 }
 .key-facts-container .key-facts .key-facts-section .key-facts-amounts .key-plans .load-policy .load-policy-list .load-policy-list-ul li {
   font-size: var(--body-medium-regular-size);
-  line-height: var(--body-medium-regular-line-height);
+  line-height: 24px;
   color: var(--text-body-2);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;

@@ -6,8 +6,8 @@
   .card-container {
     max-width: 296px;
     width: 100%;
-    padding: 20px 16px 16px;
-    border-radius: map.get($radius, r16);
+    padding: 16px;
+    border-radius: map.get($radius, r8);
     background:
       linear-gradient(var(--neutrals-white), var(--neutrals-white)) padding-box,
       linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
@@ -163,7 +163,7 @@
         .fundtagging-list {
           @include flex-center($align: center, $justify: flex-start);
 
-          gap: 8px;
+          gap: 6px;
           list-style: none;
           margin: 0;
           flex-wrap: wrap;
@@ -178,7 +178,7 @@
             );
             @include flex-center($align: center, $justify: flex-start);
 
-            gap: 8px;
+            gap: 6px;
 
             @include media(mobile) {
               font-size: var(--body-xsmall-regular-size);

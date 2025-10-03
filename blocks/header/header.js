@@ -219,115 +219,142 @@ export default async function decorate(block) {
       }
 
       // --- Desktop Hover Logic ---
-      navSection.addEventListener('click', () => { // mouseenter
+      navSection.addEventListener('mouseenter', () => { // mouseenter
         if (isDesktop.matches) {
-          // When entering a new item, cancel any pending timer to close a menu.
-          // This prevents flickering when moving between menu items
+        // 1. Cancel any pending timer to close a menu when moving the mouse to a new item.
           clearTimeout(leaveTimer);
-          // Close all other menus before opening the new one
-          if (navSection.getAttribute('aria-expanded') === 'true') {
-            navSection.setAttribute('aria-expanded', 'false');
-            toggleAllNavSections(navSections);
-          } else {
-            toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', 'true');
-          }
 
+          // 2. Standard open: Close all other menus first, then open the current one.
+          // Assuming toggleAllNavSections(navSections, false) closes all menus.
+          toggleAllNavSections(navSections, false);
+          navSection.setAttribute('aria-expanded', 'true');
+
+          // Prevent body scrolling while the menu is open.
           document.body.classList.add('no-scroll');
 
-          // navSection.querySelector('ul > li').addEventListener('mouseleave', () => {
-          //   if (isDesktop.matches) {
-          //     leaveTimer = setTimeout(() => {
-          //       toggleAllNavSections(navSections, false);
-          //       document.body.classList.remove('no-scroll');
-          //     }, 300); // A 300ms delay feels smooth and prevents accidental closing.
-          //   }
-          // });
+        // *** CRITICAL FIX: The nested mouseleave listener was removed here. ***
+        // It was causing multiple redundant timers to fire.
         }
-        //
+
+        // ---------------------------------------------------------------------
+        // Logic to close other, non-main-nav dropdowns (e.g., utility menus)
+        // ---------------------------------------------------------------------
         const headerTop = nav.querySelector('.section.header-top');
         const dropTrigger = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text1');
         const dropMenu = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text2');
         const dropdownTrigge = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
-        const dropdownMer = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
+        const dropdownMer = navBrand.querySelector('.navbrand-sec3 .navbrand-sec3-inner-net2'); // Corrected typo: dropdownMer was navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
 
-        if (dropMenu.classList.contains('open')) {
+        // Close the first utility dropdown
+        if (dropMenu && dropMenu.classList.contains('open')) {
           dropMenu.classList.remove('open');
           dropTrigger.classList.remove('active');
         }
+
+        // Close the login/account dropdown
         const logineventab = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
-        const nextel = logineventab.nextElementSibling;
-        if (nextel.style.display === 'block') {
+        const nextel = logineventab ? logineventab.nextElementSibling : null;
+        if (nextel && nextel.style.display === 'block') {
           nextel.style.display = 'none';
         }
-        if (dropdownMer.classList.contains('open')) {
+
+        // Close the second utility dropdown
+        if (dropdownMer && dropdownMer.classList.contains('open')) {
           dropdownMer.classList.remove('open');
           dropdownTrigge.classList.remove('active');
         }
+        // ---------------------------------------------------------------------
+
+        // ---------------------------------------------------------------------
+        // Logic for dynamic link generation/handling (specific to 'nav-sec-sub2')
+        // ---------------------------------------------------------------------
         if (Array.from(navSection.classList).includes('nav-sec-sub2')) {
           const navdirect = navSection.querySelector('.nav-sec-inner-text2 .sub-popup-sec1');
-          Array.from(navdirect.children).forEach((element) => {
-            const listel = element.querySelector('.sub-popup-inner-text2');
-            listel.querySelectorAll('a').forEach((ael) => {
-              ael.removeAttribute('href');
-              ael.addEventListener('click', (event) => {
-                let textcurr = event.currentTarget.textContent.trim();
-                dataMapMoObj.selectviewFunds = '';
-                if (Array.from(event.currentTarget.classList).length === 0) {
-                  dataCfObj.forEach((datael) => {
-                    if (datael.schDetail.schemeName === textcurr) {
-                      dataMapMoObj.selectviewFunds = datael.schcode;
+          if (navdirect) {
+            Array.from(navdirect.children).forEach((element) => {
+              const listel = element.querySelector('.sub-popup-inner-text2');
+              if (listel) {
+                listel.querySelectorAll('a').forEach((ael) => {
+                  // Remove href to prevent default navigation before click logic
+                  ael.removeAttribute('href');
+                  ael.addEventListener('click', (event) => {
+                    let textcurr = event.currentTarget.textContent.trim();
+                    dataMapMoObj.selectviewFunds = '';
+
+                    if (Array.from(event.currentTarget.classList).length === 0) {
+                      // Logic for specific fund links
+                      dataCfObj.cfDataObjs.forEach((datael) => {
+                        if (datael.schDetail.schemeName === textcurr) {
+                          dataMapMoObj.selectviewFunds = datael.schcode;
+                        }
+                      });
+                      if (dataMapMoObj.selectviewFunds !== '') {
+                        localStorage.setItem('planCode', `Direct:${dataMapMoObj.selectviewFunds}`);
+                        const pathname = '/motilalfigma/our-funds/funds-details-page';
+                        window.location.href = `${window.location.origin}${pathname}`;
+                      }
+                    } else {
+                      // Logic for fund category links
+                      if (textcurr === 'ETFs') {
+                        textcurr = 'ETF';
+                      }
+                      if (textcurr === 'Large & Mid Cap') {
+                        textcurr = 'large-and-mid-cap';
+                      }
+                      if (textcurr === 'Multi Cap') {
+                        textcurr = 'multi-cap-fund';
+                      }
+                      if (textcurr === 'View All Funds') {
+                        const pathname = '/motilalfigma/our-funds';
+                        window.location.href = `${window.location.origin}${pathname}`;
+                        return false;
+                      }
+                      dataMapMoObj.selectviewFunds = textcurr.toLocaleLowerCase().split(' ').join('-');
+                      localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
+                      const pathname = '/motilalfigma/our-funds';
+                      window.location.href = `${window.location.origin}${pathname}`;
                     }
+                    return textcurr;
                   });
-                  if (dataMapMoObj.selectviewFunds !== '') {
-                    localStorage.setItem('planCode', `Direct:${dataMapMoObj.selectviewFunds}`);
-                    const pathname = '/motilalfigma/our-funds/funds-details-page';
-                    window.location.href = `${window.location.origin}${pathname}`;
-                  }
-                } else {
-                  if (textcurr === 'ETFs') {
-                    textcurr = 'ETF';
-                  }
-                  if (textcurr === 'Large & Mid Cap') {
-                    textcurr = 'large-and-mid-cap';
-                  }
-                  if (textcurr === 'Multi Cap') {
-                    textcurr = 'multi-cap-fund';
-                  }
-                  if (textcurr === 'View All Funds') {
-                    const pathname = '/motilalfigma/our-funds';
-                    window.location.href = `${window.location.origin}${pathname}`;
-                    return false;
-                  }
-                  dataMapMoObj.selectviewFunds = textcurr.toLocaleLowerCase().split(' ').join('-');
-                  localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
-                  const pathname = '/motilalfigma/our-funds';
-                  window.location.href = `${window.location.origin}${pathname}`;
-                }
-              });
+                });
+              }
             });
-          });
+          }
         }
+        // ---------------------------------------------------------------------
       });
 
       // When the mouse leaves the entire nav item area (L1 button + L2 menu),
       // start a timer to close it.
-      // navSection.addEventListener('mouseleave', () => {
-      //   if (isDesktop.matches) {
-      //     leaveTimer = setTimeout(() => {
-      //       toggleAllNavSections(navSections, false);
-      //       document.body.classList.remove('no-scroll');
-      //     }, 300); // A 300ms delay feels smooth and prevents accidental closing.
-      //   }
-      // });
-
-      // --- Mobile Click Logic (Unaffected) ---
-      navSection.addEventListener('click', () => {
-        if (!isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      navSection.addEventListener('mouseleave', () => {
+        if (isDesktop.matches) {
+          leaveTimer = setTimeout(() => {
+            toggleAllNavSections(navSections, false);
+            // Fix: Set aria-expanded to 'false' when the menu is closing.
+            navSection.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('no-scroll');
+          }, 300); // A 300ms delay feels smooth and prevents accidental closing.
         }
       });
+
+      navSection.querySelector('ul > li').addEventListener('mouseleave', () => {
+        if (isDesktop.matches) {
+          leaveTimer = setTimeout(() => {
+            toggleAllNavSections(navSections, false);
+            // Fix: Set aria-expanded to 'false' when the menu is closing.
+            navSection.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('no-scroll');
+          }, 300); // A 300ms delay feels smooth and prevents accidental closing.
+        }
+      });
+
+      // --- Mobile Click Logic (Unaffected) ---
+      // navSection.addEventListener('click', () => {
+      //   if (!isDesktop.matches) {
+      //     const expanded = navSection.getAttribute('aria-expanded') === 'true';
+      //     navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      //   }
+      // });
 
       const subHeader = navSection.querySelectorAll('.section');
       dataMapMoObj.CLASS_PREFIXES = [

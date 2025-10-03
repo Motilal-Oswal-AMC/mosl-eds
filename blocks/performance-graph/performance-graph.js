@@ -46,7 +46,7 @@ export default function decorate(block) {
 
   const planCodeObj = localStorage.getItem('planCode') || 'Direct:LM';
   const schcode = planCodeObj.split(':')[1];
-  const selectedFund = dataCfObj.find((fund) => fund.schcode === schcode);
+  const selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
 
   // 2. Get the returns data for the current fund immediately.
   const targetPlan = selectedFund?.planList;
@@ -99,12 +99,16 @@ export default function decorate(block) {
       div({ class: 'fund-cagr-container' }, filterSelectedEl, cagrValueEl),
     ),
   );
-
   block.innerHTML = '';
-  block.prepend(topBar, middleBar);
+  block.prepend(topBar);
 
   const graphDiv = div({ id: 'chartdiv' });
-  block.append(graphDiv);
+  const middleContainer = div(
+    { class: 'wrapnote' },
+    middleBar,
+    graphDiv,
+  );
+  block.append(middleContainer);
 
   // --- STATE & API LOGIC ---
   const useLiveAPI = true;
@@ -188,10 +192,11 @@ export default function decorate(block) {
         xAxis.get('renderer').labels.template.setAll({
           // fill: window.am5.color(0x212121),
           // fontFamily: 'Inter',
-          fill: window.am5.color(0x888888), // <-- Change color here (e.g., grey) // test
+          fill: window.am5.color('#212121'), // <-- Change color here (e.g., grey) // test
           fontFamily: 'Inter', // 'Arial',             // <-- Change font family here
-          fontSize: 12,
-          fontWeight: 400,
+          fontSize: 14,
+          fontWeight: 500,
+          linHight: '16px',
           paddingTop: 8,
         });
 
@@ -208,12 +213,19 @@ export default function decorate(block) {
         // Show only bottom X axis baseline
         xAxis.get('renderer').setAll({
           strokeOpacity: 1,
-          stroke: window.am5.color(0xcccccc),
+          stroke: window.am5.color('#2E2A94'),
         });
-
         // Show only left Y axis baseline
+        if (window.innerWidth < 900) {
+          yAxis.setAll({
+            marginLeft: -25, // Add space to the left of the axis
+            marginRight: 0, // Add space to the right of the axis
+            paddingTop: 0, // Add space at the top of the axis scale
+            paddingBottom: 0, // Add space at the bottom of the axis scale
+          });
+        }
         yAxis.get('renderer').setAll({
-          strokeOpacity: 1,
+          strokeOpacity: 0,
           stroke: window.am5.color(0xcccccc),
         });
 
@@ -223,6 +235,7 @@ export default function decorate(block) {
           fill: window.am5.color(0x888888), // <-- Set your desired color
           fontFamily: 'Inter', // 'Arial',             // <-- Set your desired font family
           fontSize: 14,
+          // color: '#616161',
         });
 
         // Shared tooltip
@@ -421,20 +434,18 @@ export default function decorate(block) {
         });
 
         // Also update your legend labels template for better alignment:
-        legend.labels.template.setAll({
-          fill: window.am5.color(0x333333),
+        let lengendCss = {
+          fill: window.am5.color('#2E2A94'),
           fontFamily: 'Inter',
-          fontSize: 16,
-          fontWeight: '500',
+          fontSize: 14,
+          fontWeight: '400',
           marginLeft: 6,
+          lineHight: '16px',
           centerY: window.am5.p50, // Vertically center the text
           paddingTop: 0, // Remove any top padding
           paddingBottom: 0, // Remove any bottom padding
-        });
-        legend.data.setAll(chart.series.values);
-
-        // Center the legend group and keep items tight
-        legend.setAll({
+        };
+        let legendset = {
           layout: root.horizontalLayout,
           centerX: window.am5.p50,
           x: window.am5.p50,
@@ -442,8 +453,34 @@ export default function decorate(block) {
           y: window.am5.percent(110),
           paddingLeft: 0,
           paddingRight: 0,
-        });
+        };
+        if (window.innerWidth < 900) {
+          lengendCss = {
+            fill: window.am5.color('#2E2A94'),
+            fontFamily: 'Inter',
+            fontSize: 14,
+            fontWeight: '500',
+            marginLeft: 6,
+            lineHight: '16px',
+            centerY: window.am5.p50, // Vertically center the text
+            paddingTop: 0, // Remove any top padding
+            paddingBottom: 0, // Remove any bottom padding
+          };
+          legendset = {
+            layout: root.horizontalLayout,
+            centerX: window.am5.p50,
+            x: window.am5.p50,
+            centerY: window.am5.p100,
+            y: window.am5.percent(110),
+            paddingLeft: -25,
+            paddingRight: 0,
+          };
+        }
+        legend.labels.template.setAll(lengendCss);
+        legend.data.setAll(chart.series.values);
 
+        // Center the legend group and keep items tight
+        legend.setAll(legendset);
         // Make sure item containers size to content (no forced width)
         legend.itemContainers.template.set('width', null);
 
@@ -626,11 +663,12 @@ export default function decorate(block) {
     // planOptionsec = targetPlantri[0].optionName;
     // .find((pplan) => pplan.planName === planTypesec && pplan.optionName === planOptionsec);
     // Destructure properties from targetPlantri first
-    const { planCode, optionCode } = targetPlantri || {};
+    // const { planCode, optionCode } = targetPlantri || {};
 
     const targetReturnstri = targetPlantri
       ? selectedFund.returns.find(
-        (r) => r.plancode === planCode && r.optioncode === optionCode,
+        (r) => r.plancode === targetPlantri.planCode
+        && r.optioncode === targetPlantri.optionCode,
       )
       : null;
 

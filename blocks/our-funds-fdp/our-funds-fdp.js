@@ -15,7 +15,7 @@ export default async function decorate(block) {
   if (dataMapMoObj.fundManagerDetails.length !== 0) {
     fundManagers = dataMapMoObj.fundManagerDetails;
   } else {
-    fundManagers = objData[0].fundManager;
+    fundManagers = objData.cfDataObjs[0].fundManager;
   }
   // const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   // const planslabel = planCode.split(':')[1];

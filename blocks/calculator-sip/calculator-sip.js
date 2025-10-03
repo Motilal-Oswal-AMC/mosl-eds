@@ -12,12 +12,12 @@ export default function decorate(block) {
   const col3 = block.children[2].querySelectorAll('p');
   const col4 = block.children[3].querySelectorAll('p');
 
-  const schemeNames = dataCfObj.map((fund) => fund.schDetail.schemeName);
+  const schemeNames = dataCfObj.cfDataObjs.map((fund) => fund.schDetail.schemeName);
 
   // let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const schcode = planCode.split(':')[1];
-  let selectedFund = dataCfObj.find((fund) => fund.schcode === schcode);
+  let selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
   let returnCAGR = 0;
   let mode = 'sip';
   let planType = 'Direct';
@@ -496,7 +496,7 @@ export default function decorate(block) {
         searchInput.value = name;
         // searchInput.style.backgroundPosition = 'left center';
         // searchInput.style.paddingLeft = '24px';
-        selectedFund = dataCfObj.find((f) => f.schDetail.schemeName === name);
+        selectedFund = dataCfObj.cfDataObjs.find((f) => f.schDetail.schemeName === name);
         searchResults.innerHTML = '';
         updatePlanOptions(selectedFund);
         updateReturnRate();
@@ -562,7 +562,7 @@ export default function decorate(block) {
       ligrp.addEventListener('click', (event) => {
         const name = event.target.textContent;
         searchInput.value = name;
-        selectedFund = dataCfObj.find((f) => f.schDetail.schemeName === name);
+        selectedFund = dataCfObj.cfDataObjs.find((f) => f.schDetail.schemeName === name);
         searchResults.innerHTML = '';
         updatePlanOptions(selectedFund);
         updateReturnRate();
@@ -609,7 +609,7 @@ export default function decorate(block) {
       el.classList.add(`disc-child-${i + 1}`);
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 
   // -------------------------------
