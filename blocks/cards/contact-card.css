@@ -6,6 +6,77 @@
   margin: 0 auto;
   background-color: #fff;
 }
+.section.contact-card ul.cont-us-head1 {
+  margin: unset;
+}
+.section.contact-card ul.cont-us-head1 li.cont-us-head-li1 {
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 40px 0;
+}
+@media (max-width: 768px) {
+  .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 {
+    padding: 24px 0;
+  }
+}
+.section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .cont-us-head-ul1 {
+  margin: unset;
+}
+@media (max-width: 768px) {
+  .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .cont-us-head-ul1 {
+    height: 40px;
+  }
+}
+.section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .icon.icon-past-performance-cal {
+  height: 48px;
+  width: 48px;
+}
+@media (max-width: 768px) {
+  .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .icon.icon-past-performance-cal {
+    height: 40px;
+    width: 40px;
+  }
+}
+.section.contact-card ul.cont-us-head1 li.cont-us-head-li1 ul.cont-us-head-ul2 {
+  list-style: none;
+  margin: unset;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.section.contact-card ul.cont-us-head1 li.cont-us-head-li1 ul.cont-us-head-ul2 .cont-us-txt-li1 #contact-us {
+  margin: unset;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-size: var(--heading-h5-size);
+  line-height: var(--heading-h5-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--title);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 ul.cont-us-head-ul2 .cont-us-txt-li1 #contact-us {
+    font-size: var(--sub-header-large-size);
+    line-height: var(--sub-header-medium-line-height);
+  }
+}
+.section.contact-card ul.cont-us-head1 li.cont-us-head-li1 ul.cont-us-head-ul2 .cont-us-txt-li2 {
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-size: var(--body-small-regular-size);
+  line-height: var(--body-small-regular-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 ul.cont-us-head-ul2 .cont-us-txt-li2 {
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
+  }
+}
 .section.contact-card .default-content-wrapper {
   width: 100%;
 }
@@ -29,78 +100,102 @@
 .section.contact-card .cards-wrapper {
   width: 100%;
 }
+@media (max-width: 768px) {
+  .section.contact-card .cards-wrapper {
+    padding-bottom: 24px;
+  }
+}
 .section.contact-card .cards-wrapper .cards ul.contact-main1 {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
 }
 @media (width <= 768px) {
   .section.contact-card .cards-wrapper .cards ul.contact-main1 {
     flex-direction: column;
-    gap: 0;
+    gap: 48px;
   }
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 {
   border: none;
   display: flex;
-  gap: 16px;
-  padding: 16px 0;
-  max-width: 344px;
+  max-width: 400px;
+  width: 100%;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-image img {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-image img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-image img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-image img {
   max-width: 40px;
   width: 40px;
   height: 40px;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body {
   margin: 0;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(1) {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body p:nth-child(1),
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body p:nth-child(1),
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body p:nth-child(1) {
   margin: 0;
-  font-size: 18px;
-  line-height: 24px;
-  color: #2e2a94;
-  font-family: "Inter", sans-serif;
+  font-size: var(--body-medium-semibold-size);
+  line-height: var(--body-medium-semibold-line-height);
+  color: var(--neutrals-900);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(1) {
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 4px;
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body p:nth-child(1),
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body p:nth-child(1),
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body p:nth-child(1) {
+    font-size: var(--body-medium-semibold-size);
+    line-height: var(--body-medium-semibold-line-height);
   }
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(2) {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body p:nth-child(2),
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body p:nth-child(2),
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body p:nth-child(2) {
   margin: 0;
-  font-size: 14px;
-  line-height: 20px;
-  color: #424242;
-  font-family: "Inter", sans-serif;
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--text-body);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body p:nth-child(2) {
-    font-size: 12px;
-    line-height: 16px;
-    margin-bottom: 4px;
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body p:nth-child(2),
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body p:nth-child(2),
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body p:nth-child(2) {
+    line-height: var(--body-small-regular-line-height);
   }
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist {
   margin: 0;
-  padding-top: 8px;
+  padding-top: 16px;
   display: flex;
+  gap: 12px;
   flex-direction: column;
   justify-content: start;
   align-items: start;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li:nth-child(1) {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1),
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1),
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1) {
   margin: 0;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li:nth-child(1) img {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1) img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1) img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1) img {
   border-radius: 50%;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list {
   padding: 0;
   display: flex;
   justify-content: center;
@@ -110,34 +205,65 @@
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
-  text-underline-offset: auto;
+  text-underline-offset: 20%;
   text-underline-position: from-font;
-  font-size: 12px;
-  line-height: 18px;
-  color: #4338f3;
-  font-family: "Inter", sans-serif;
+  font-size: var(--text-link-small-size);
+  line-height: var(--text-link-small-line-height);
+  color: var(--text-text-link);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
+  font-weight: 400;
 }
-@media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list {
-    color: #2e2a94;
-  }
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list .icon,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list .icon {
+  height: 40px;
+  width: 40px;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list img {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-5, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-10,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-5,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-10 {
+  margin-right: 13px;
+  position: relative;
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-10::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-5::before, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-5.list-elem-10::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-5::before,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list.list-elem-10.list-elem-10::before {
+  content: "";
+  min-width: 4px;
+  height: 4px;
+  display: block;
+  background-color: var(--text-body-2);
+  border-radius: 50%;
+  position: absolute;
+  right: -13px;
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list img,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list img {
   border-radius: unset;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list ul {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list ul,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list ul {
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
+  margin: unset;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.common-list ul li.contact-li2 {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.common-list ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li.common-list ul li.contact-li2,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.common-list ul li.contact-li2 {
   margin: 0;
-}
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.list-elem-5, .section.contact-card .cards-wrapper .cards ul.contact-main1 li .cards-card-body ul li.list-elem-7 {
-  margin-left: 30px;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 ul li.list-elem-12 {
   margin: 0;
