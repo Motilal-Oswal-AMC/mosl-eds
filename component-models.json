@@ -317,6 +317,10 @@
           {
             "name": "Show Contact Error",
             "value": "show-contact-error"
+          },
+          {
+            "name": "Added Fund Cart",
+            "value": "added-fund-cart"
           }
         ]
       },
