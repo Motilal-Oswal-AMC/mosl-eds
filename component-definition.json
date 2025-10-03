@@ -826,7 +826,7 @@
         },
          {
           "title": "Our Service Item",
-          "id": "global-image-item",
+          "id": "our-service-item",
           "plugins": {
             "xwalk": {
               "page": {
