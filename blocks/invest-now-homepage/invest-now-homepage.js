@@ -81,11 +81,23 @@ function hideFormsClick(btn) {
     // v3 for otp
 
     const classAddv3 = card2.querySelector('.otp-fdp');
-    if (Array.from(classAdd.classList).includes('hide-mdodal')) {
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
       classAddv3.classList.remove('hide-modal');
     }
     classAddv3.classList.add('hide-modal');
     classAddv3.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    // Fund added to cart successfully
+
+    const classAddv4 = card2.querySelector('.added-fund-cart');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv4.classList.remove('hide-modal');
+    }
+    classAddv4.classList.add('hide-modal');
+    classAddv4.classList.remove('modal-show');
     // }
     document.body.classList.remove('noscroll');
     card2.classList.remove('modal-active-parent');
@@ -807,6 +819,8 @@ export default function decorate(block) {
   if (mainclass.querySelector('.added-fund-cart')) {
     dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
     dataMapMoObj.addIndexed(mainclass.querySelector('.added-fund-cart'));
+    const mod5 = mainclass.querySelector('.added-fund-cart .addcartsub5 .icon-modal-cross-btn');
+    hideFormsClick(mod5);
     // return false;
   }
   loadCSS('../../scripts/flatpickr.min.css');
