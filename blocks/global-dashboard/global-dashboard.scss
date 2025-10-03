@@ -43,6 +43,10 @@
           @include media(mobile) {
             display: none;
           }
+
+          img{
+            height: 100%;
+          }
         }
 
         .globalsub2 {

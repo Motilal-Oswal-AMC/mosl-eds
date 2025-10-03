@@ -43,6 +43,9 @@
     display: none;
   }
 }
+.section.global-dashboard-container .global-dashboard-wrapper .global-dashboard .global1 .globalsub1 img {
+  height: 100%;
+}
 .section.global-dashboard-container .global-dashboard-wrapper .global-dashboard .global1 .globalsub2 {
   display: none;
 }
