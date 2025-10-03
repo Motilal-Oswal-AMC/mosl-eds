@@ -142,8 +142,7 @@
         );
 
         @include media(mobile) {
-          //   font-size: var(--button-medium-size);
-          font-size: 30px;
+            font-size: var(--button-medium-size);
           line-height: var(--button-medium-line-height);
         }
       }
