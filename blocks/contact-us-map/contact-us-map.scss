@@ -253,6 +253,12 @@
             gap: 16px;
             align-items: center;
 
+            @include media(mobile) {
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+            }
+
             .featrure1,
             .featrure2 {
               display: flex;
@@ -286,7 +292,7 @@
 
             .featrure2 {
               @include media(mobile) {
-                display: none;
+                // display: none;
               }
 
               label {

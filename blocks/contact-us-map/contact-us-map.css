@@ -225,6 +225,13 @@
   gap: 16px;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .contact-feature .feature-wrap {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .contact-feature .feature-wrap .featrure1,
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .contact-feature .feature-wrap .featrure2 {
   display: flex;
@@ -254,11 +261,6 @@
   font-weight: 400;
   line-height: 20px;
   cursor: pointer;
-}
-@media (max-width: 768px) {
-  .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .contact-feature .feature-wrap .featrure2 {
-    display: none;
-  }
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .contact-feature .feature-wrap .featrure2 label {
   font-size: var(--body-medium-regular-size);

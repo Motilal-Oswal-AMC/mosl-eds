@@ -393,20 +393,6 @@ export default async function decorate(block) {
           }),
         ),
       ),
-      div(
-        {
-          class: 'mobfeatrure',
-        },
-        input({
-          type: 'radio',
-          name: 'radio',
-          id: `mob-${mobduplicate.split(' ').at(0)}`,
-          value: 'AMC Branch',
-        }),
-        label({
-          for: `mob-${mobduplicate.split(' ').at(0)}`,
-        }, mobduplicate),
-      ),
     ),
     div(
       {
