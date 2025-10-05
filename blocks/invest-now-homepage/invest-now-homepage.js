@@ -818,6 +818,15 @@ export default function decorate(block) {
     dataMapMoObj.addIndexed(mainclass.querySelector('.added-fund-cart'));
     const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
     hideFormsClick(mod5);
+    const addcardSec = mainclass.querySelector('.added-fund-cart');
+    addcardSec.querySelector('.addcartsub4 .addcartinner1').addEventListener('click', () => {
+      // console.log('okies');
+      mod5.click();
+    });
+    addcardSec.querySelector('.addcartsub4 .addcartinner2').addEventListener('click', () => {
+      localStorage.clear();
+      window.location.href = `${window.location.origin}/motilalfigma/our-funds`;
+    });
     // return false;
   }
   const twoStepAuthMain = mainclass.querySelector('.two-step-auth');
@@ -833,7 +842,6 @@ export default function decorate(block) {
     const twostpterms = twoStepAuthMain.querySelector('.twostepsub5').cloneNode(true);
     const twostpcrossbtn = twoStepAuthMain.querySelector('.twostepsub6').cloneNode(true);
     twoStepAuthMain.querySelector('.twostepmain1').style.display = 'none';
-
     const twoStepMainStr = div(
       { class: 'two-step-wrap' },
       div({ class: 'modal-cross-wrap' }, twostpcrossbtn),
@@ -866,7 +874,6 @@ export default function decorate(block) {
       button({ class: 'cont-btn' }, twostpcontbtn),
       div({ class: 'terms-cons' }, twostpterms),
     );
-
     if (!twoStepAuthMain.querySelector('.two-step-wrap')) {
       twoStepAuthMain.append(twoStepMainStr);
       const mod6 = twoStepAuthMain.querySelector('.two-step-wrap .icon-modal-cross-btn');
@@ -913,7 +920,6 @@ export default function decorate(block) {
       'Quarterly',
       'Weekly',
     ];
-
     checkboxcont.prepend(input({
       class: 'stepup-box',
       type: 'checkbox',
@@ -1173,22 +1179,27 @@ export default function decorate(block) {
       ),
       div(
         { class: 'modal-cta' },
-        button({ class: 'buy-now-btn modal-cta-btn',
-          onclick:() => {
+        button({
+          class: 'buy-now-btn modal-cta-btn',
+          onclick: () => {
             const mainmo = block.closest('main');
             const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
             const panMod = mainmo.querySelector('.added-fund-cart'); // .style.display = 'block';
             investMod.classList.add('hide-element');
             panMod.classList.add('show-element');
-
+            const cart3 = panMod.querySelector('.addcartsub3');
+            const strong3 = cart3.querySelector('strong');
+            panMod.querySelector('.addcartsub3').innerHTML = '';
+            panMod.querySelector('.addcartsub3').textContent = `${fundNameFromData}`;
+            panMod.querySelector('.addcartsub3').append(strong3);
             const classAddv2 = mainmo.querySelector('.added-fund-cart');
             if (Array.from(classAddv2.classList).includes('hide-modal')) {
               classAddv2.classList.remove('hide-modal');
             }
             classAddv2.classList.remove('hide-modal');
             classAddv2.classList.add('modal-show');
-          }
-         }, 'BUY NOW'),
+          },
+        }, 'BUY NOW'),
         button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
       ),
     ),
@@ -1209,7 +1220,10 @@ export default function decorate(block) {
   //     p({ class: 'tooltip-note' }, 'Note'),
   //     div(
   //       { class: 'tooltip-info' },
-  //       'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.',
+  //       'We’ll debit your first SIP
+  // installment today through your chosen payment mode,
+  //  and all future installments will be automatically collected
+  // via your registered Autopay or URN.',
   //     ),
   //   ),
   // );
