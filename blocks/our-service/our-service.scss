@@ -126,6 +126,8 @@ main > .section.our-service-container {
             padding: 0 12px;
           }
 
+          
+
           p {
             margin: 0;
             padding: 0;
@@ -241,6 +243,10 @@ main > .section.our-service-container {
           }
         }
 
+        .list-tabs6{
+            background: linear-gradient(180deg, #FAFAFA 0%, #FAFAFA 84.5%);
+          }
+
         .tabs-wrapper {
           display: flex;
           padding: 12px 0;
@@ -274,8 +280,16 @@ main > .section.our-service-container {
             gap: 20px;
 
             .embed-videos1 {
+                cursor: pointer;
+
               iframe {
                 border-radius: 10px;
+              }
+
+              .embedsubinner2{
+                button{
+                    display: none;
+                }
               }
             }
 

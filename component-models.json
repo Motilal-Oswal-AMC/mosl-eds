@@ -171,6 +171,14 @@
             "value": "highlight"
           },
           {
+            "name": "Popular Tab",
+            "value": "popular-tab"
+          },
+          {
+            "name": "Learn Tab",
+            "value": "learn-tab"
+          },
+          {
             "name": "Investor Faq Video",
             "value": "our-service"
           },
