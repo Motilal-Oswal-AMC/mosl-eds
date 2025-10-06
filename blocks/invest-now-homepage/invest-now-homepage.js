@@ -103,6 +103,17 @@ function hideFormsClick(btn) {
     document.body.classList.remove('noscroll');
     card2.classList.remove('modal-active-parent');
 
+    // Pass Code Two Auth
+    const classAddv5 = card2.querySelector('.two-step-auth');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv5.classList.remove('hide-modal');
+    }
+    classAddv5.classList.add('hide-modal');
+    classAddv5.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
     // overlay.classList.add('hide-overlay');
     removeClassAfterDelay();
   });
@@ -152,6 +163,49 @@ export async function existingUser(paramblock) {
   // }
   // removeCookie('')
 
+  async function apiPasscode(params) {
+    try {
+      const reqAuth = {
+        password: params.optNo,
+        userId: params.panNo,
+        loginModeId: 1,
+        credentialModeId: 3,
+        ipV4: '192.198.22.22',
+        otpThroughDIT: false,
+        ditotpType: '',
+        pmsGuest: false,
+        isAIF: false,
+        mfGuest: false,
+        product: 'MF',
+      };
+
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
+      };
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/loginapi/api/Login/AuthenticateUserCred',
+        reqAuth,
+        header,
+      );
+      if (rejsin.data && rejsin.data.userInfo) {
+        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        if (dataMapMoObj.panRes.data.guestClient !== '') {
+          // window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
+        } else if (dataMapMoObj.panRes.data.guestClient === '') {
+          // window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
+        }
+        window.location.href = 'https://mf.moamc.com/mutualfund/portfolio';
+      }
+    } catch (error) {
+      // console.log(error);
+    }
+  }
   async function apiAuth(params) {
     try {
       const reqAuth = {
@@ -180,14 +234,86 @@ export async function existingUser(paramblock) {
         header,
       );
       if (rejsin.data.userInfo) {
-        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
-        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
-        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
-        if (dataMapMoObj.panRes.data.guestClient !== '') {
-          window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
-        } else if (dataMapMoObj.panRes.data.guestClient === '') {
-          window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
-        }
+        const twoAuth = closestParam.querySelector('.two-step-auth');
+        twoAuth.style.display = 'block';
+        pansuccessForm.classList.add('hide-element');
+        pansuccessForm.classList.remove('show-element');
+        twoAuth.classList.add('show-element');
+        twoAuth.classList.add('modal-show');
+        twoAuth.classList.remove('hide-modal');
+        const passpoint = twoAuth.querySelectorAll('input');
+        passpoint.forEach((inputelfac, index) => {
+          inputelfac.setAttribute('maxLength', 1);
+          inputelfac.addEventListener('input', () => {
+            inputelfac.value = inputelfac.value.replace(/[^0-9]/g, '');
+            if (inputelfac.value.length === 1 && index < passpoint.length - 1) {
+              passpoint[index + 1].focus();
+            }
+          });
+          inputelfac.addEventListener('keydown', (event) => {
+            const totalInputs = passpoint.length;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+              event.preventDefault();
+            }
+            switch (event.key) {
+              case 'Tab':
+                if (!event.shiftKey && index === totalInputs - 1) {
+                  event.preventDefault();
+                  passpoint[0].focus();
+                } else if (event.shiftKey && index === 0) {
+                  event.preventDefault();
+                  passpoint[totalInputs - 1].focus();
+                }
+                break;
+
+              case 'ArrowRight': {
+                const nextIndex = (index + 1) % totalInputs;
+                passpoint[nextIndex].focus();
+                break;
+              }
+              case 'ArrowLeft': {
+              // Move to the previous input, or wrap to the last
+                const prevIndex = (index - 1 + totalInputs) % totalInputs;
+                passpoint[prevIndex].focus();
+                break;
+              }
+              case 'Backspace':
+                if (inputelfac.value.length === 0 && index > 0) {
+                  passpoint[index - 1].focus();
+                }
+                break;
+              default:
+                break;
+            }
+          });
+        });
+        const mod6 = twoAuth.querySelector('.twostepmain2 .icon-modal-cross-btn');
+        hideFormsClick(mod6);
+        const contbtn = twoAuth.querySelectorAll('.twostepmain2 button');
+        contbtn[1].addEventListener('click', () => {
+          let passValue = '';
+          passpoint.forEach((elfor) => {
+            passValue += elfor.value;
+          });
+          if (passValue.length < 4) {
+            // pansuccessForm.querySelector('.otpfield').classList.add('otp-failed');
+          } else {
+            const panNum = {
+              panNo: params.panNo,
+              optNo: passValue,
+              otpField: pansuccessForm,
+            };
+            apiPasscode(panNum);
+          }
+        });
+        // document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        // document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        // localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        // if (dataMapMoObj.panRes.data.guestClient !== '') {
+        //   window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
+        // } else if (dataMapMoObj.panRes.data.guestClient === '') {
+        //   window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
+        // }
       }
       // console.log(rejsin);
       params.otpField.classList.add('otp-succes');
@@ -876,8 +1002,8 @@ export default function decorate(block) {
     );
     if (!twoStepAuthMain.querySelector('.two-step-wrap')) {
       twoStepAuthMain.append(twoStepMainStr);
-      const mod6 = twoStepAuthMain.querySelector('.two-step-wrap .icon-modal-cross-btn');
-      hideFormsClick(mod6);
+      // const mod6 = twoStepAuthMain.querySelector('.two-step-wrap .icon-modal-cross-btn');
+      // hideFormsClick(mod6);
     }
     // return false;
   }
@@ -1163,7 +1289,7 @@ export default function decorate(block) {
               { class: 'modal-sip-dropdown' },
               div(
                 { class: 'date-drop-down' },
-                createCustomDropdown('startDate', 'Start Date', startDateOptions, 'anurag'),
+                createCustomDropdown('startDate', 'Start Date', startDateOptions, getTodaysDateFormatted()),
                 createCustomDropdown(
                   'frequency',
                   'Frequency',
@@ -1274,7 +1400,6 @@ export default function decorate(block) {
   const lumpsumBtn = block.querySelector('.modal-btn-lumpsum');
   const sipBtn = block.querySelector('.modal-btn-sip');
   const sipFields = block.querySelector('.modal-input-fields');
-
   lumpsumBtn.addEventListener('click', () => {
     lumpsumBtn.classList.add('active');
     sipBtn.classList.remove('active');
@@ -1368,8 +1493,8 @@ export default function decorate(block) {
   // });
 
   // 4. flat date picker
-  const calendarIcon = block.querySelector('.calendar-btn');
-  const sipDateDisplay = block.querySelector('.sip-starts-date');
+  // const calendarIcon = block.querySelector('.calendar-btn');
+  const sipDateDisplay = block.querySelector('#custom-select-startDate .select-selected');
   const calendarContainer = block.querySelector('.invest-now-container');
   const selDate = block.querySelector('#custom-select-endDate .select-options');
   const finsel = selDate.querySelector('[data-value="Select Date"]');
@@ -1397,8 +1522,11 @@ export default function decorate(block) {
         const year = selectedDate.getFullYear();
         const formattedDate = `${day} ${month} ${year}`;
 
-        displayDate.textContent = formattedDate;
-
+        sipDateDisplay.textContent = formattedDate;
+        console.log(displayDate);
+        // const optionval =
+        // block.querySelector('#custom-select-frequency .select-selected').textContent;
+        // flakterDateV2(finsel, dateSel, optionval);
         // Update the stored date whenever the user picks a new one
         originalSipDate = formattedDate;
       },
@@ -1579,15 +1707,27 @@ export default function decorate(block) {
         selected.textContent = option.textContent;
         hiddenInput.value = option.getAttribute('data-value');
         wrapper.classList.remove('open');
+        if (selected.closest('#custom-select-startDate')) {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          const sel = selected.closest('#custom-select-startDate');
+          const paraText = sel.querySelector('.select-selected');
+          const selDte = block.querySelector('#custom-select-endDate .select-options');
+          const fisel = selDte.querySelector('[data-value="Select Date"]');
+          flakterDate(fisel, paraText.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[0].classList.add('open');
+        }
         if (selected.closest('#custom-select-frequency')) {
           if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
             block.querySelectorAll('.flatpickr-calendar')[1].remove();
           }
           flakterDateV2(finsel, dateSel, option.textContent);
           const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
-          attr[1].classList.add('open');
+          attr[0].classList.add('open');
         }
-        if (selected.textContent === 'Select Date') {
+        if (selected.closest('#custom-select-endDate')) {
           if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
             block.querySelectorAll('.flatpickr-calendar')[1].remove();
           }
@@ -1595,7 +1735,7 @@ export default function decorate(block) {
           const paraText = parSel.querySelector('#custom-select-frequency .select-selected');
           flakterDateV2(finsel, dateSel, paraText.textContent);
           const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
-          attr[1].classList.add('open');
+          attr[0].classList.add('open');
         }
       });
     });
@@ -1603,16 +1743,30 @@ export default function decorate(block) {
 
   // Add a listener to close dropdowns when clicking anywhere else
   block.addEventListener('click', () => {
+    // const flpcand = block.querySelector('.flatpickr-calendar');
     block
       .querySelectorAll('.custom-select-wrapper.open')
       .forEach((openWrapper) => {
         openWrapper.classList.remove('open');
       });
+    // if (flpcand
+    //   && !event.target.contains(flpcand)
+    //   && Array.from(flpcand.classList).includes('open')) {
+    //   flpcand.classList.remove('open');
+    // }
   });
 
   if (blkcompo) {
     blkcompo.style.display = 'none';
   }
-
+  block.querySelector('#custom-select-stepup-dropdown .select-selected')
+    .addEventListener('click', (event) => {
+      const parentclass = event.target.parentElement;
+      if (Array.from(parentclass.classList).includes('select-active')) {
+        parentclass.classList.remove('select-active');
+      } else {
+        parentclass.classList.add('select-active');
+      }
+    });
   return block;
 }

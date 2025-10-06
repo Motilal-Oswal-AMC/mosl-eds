@@ -1000,6 +1000,7 @@
   background-color: red;
   width: 100%;
   display: none;
+  z-index: 2;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .form-container .input-wrapper .inputfield .stepupfieldrop .custom-select-wrapper.select-active .select-options {
   display: block;
