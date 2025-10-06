@@ -329,6 +329,10 @@
           {
             "name": "Behind The Content",
             "value": "behind-the-content"
+          },
+          {
+            "name": "Learn About",
+            "value": "learn-about"
           }
         ]
       },

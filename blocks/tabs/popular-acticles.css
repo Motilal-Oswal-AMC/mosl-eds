@@ -20,6 +20,11 @@
   padding: 0;
   line-height: 10px;
 }
+.popular-artical.tabs-container .default-content-wrapper h1,
+.popular-artical.tabs-container .default-content-wrapper h2,
+.popular-artical.tabs-container .default-content-wrapper h3,
+.popular-artical.tabs-container .default-content-wrapper h4,
+.popular-artical.tabs-container .default-content-wrapper h5,
 .popular-artical.tabs-container .default-content-wrapper h6 {
   text-align: left;
   margin: 0;

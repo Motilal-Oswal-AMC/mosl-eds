@@ -24,17 +24,24 @@
         line-height: 10px;
     }
 
-    .default-content-wrapper h6 {
-        text-align: left;
-        margin: 0;
-        margin-bottom: -30px;
-        color: #2E2A94;
-        font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
-        font-family: var(--title);
-        font-size: var(--heading-h6-size);
-        font-style: normal;
-        font-weight: 600;
-        line-height: var(--heading-h6-line-height);
+    .default-content-wrapper {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-align: left;
+            margin: 0;
+            margin-bottom: -30px;
+            color: #2E2A94;
+            font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+            font-family: var(--title);
+            font-size: var(--heading-h6-size);
+            font-style: normal;
+            font-weight: 600;
+            line-height: var(--heading-h6-line-height);
+        }
     }
 
     .tabs {

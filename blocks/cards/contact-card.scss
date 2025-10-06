@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .cards {
   >ul {
@@ -41,7 +41,7 @@
 
     @include media(mobile) {
       aspect-ratio: unset;
-      height: 359px;
+      height: 164px;
     }
   }
 }
@@ -79,7 +79,8 @@ $breakpoint-desktop: 900px;
     font-family: $poppins;
     font-weight: map.get($font-weights, regular);
     max-width: 600px;
-    margin: 0 auto 40px;
+
+    // margin: 0 auto 40px;
 
     @include media(mobile) {
       color: #2E2A94;
@@ -102,8 +103,9 @@ $breakpoint-desktop: 900px;
   }
 
   .cards ul {
-    display: flex;
-    gap: map.get($spacing, md); // 16px
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 16px;
     list-style: none;
     padding: 4px map.get($spacing, md) 20px map.get($spacing, md);
     margin: 0 (map.get($spacing, md) * -1);
@@ -114,13 +116,9 @@ $breakpoint-desktop: 900px;
 
     li {
       flex: 0 0 70%;
-
-      // background-color: $primary-white;
-      border-radius: map.get($radius, r12);
-
-      // box-shadow: $box-shadow-soft;
       text-align: left;
       overflow: hidden;
+      border: none;
     }
   }
 
@@ -131,29 +129,40 @@ $breakpoint-desktop: 900px;
     border-radius: 8px;
   }
 
-  .cards-card-body {
-    // padding: map.get($spacing, md); // 16px
-    padding: 8px 16px 16px 0;
+  .cards .cards-card-body {
+    padding: 0;
+    margin: 0;
+    margin-top: 8px;
+    border: none;
 
     @include media(mobile) {
-      padding: 8px 16px 0 0;
+      // padding: 8px 16px 0 0;
+      padding: 0;
+      margin: 0;
     }
 
     p:first-of-type {
-      font-weight: map.get($font-weights, semibold);
-      font-size: 18px;
-      
-      // color: $primary-black;
-      margin-bottom: map.get($spacing, xxs);
-      text-align: left;
-      color: #2E2A94;
+      color: var(--blue-1800-primary, #2E2A94);
+      font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+      font-family: var(--body, Inter);
+      font-size: var(--body-medium-medium-size);
+      font-style: normal;
+      font-weight: 500;
+      line-height: var(--body-medium-medium-line-height);
+      margin: 0;
+      padding: 0;
     }
 
     p:last-of-type {
-      font-size: 14px;
-      color: $color-text-body;
-      text-align: left;
-      margin-bottom: unset;
+      color: var(--text-body, #424242);
+      font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+      font-family: var(--body, Inter);
+      font-size: var(--label-medium-size, 14px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: var(--label-medium-line-height, 16px);
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -182,7 +191,7 @@ $breakpoint-desktop: 900px;
       margin: 16px 0;
       margin-bottom: unset;
 
-      @include media(mobile){
+      @include media(mobile) {
         margin: 16px 0;
       }
 
@@ -202,14 +211,10 @@ $breakpoint-desktop: 900px;
   .behind-the-content {
     padding: 40px 24px 0;
 
-    // max-width: 1200px;
-    // margin: 0 auto;
-
     h1 {
       color: #2E2A94;
-      text-align: center;
       font-variant-numeric: lining-nums proportional-nums;
-      font-feature-settings: 'liga' off;
+      font-feature-settings: 'liga'off;
       font-family: $butlerpro;
       font-size: rem(48px);
       font-style: normal;
@@ -219,7 +224,6 @@ $breakpoint-desktop: 900px;
 
     p {
       color: #2E2A94;
-      text-align: center;
       font-family: $poppins;
       font-size: rem(16px);
       font-style: normal;
@@ -235,13 +239,14 @@ $breakpoint-desktop: 900px;
     .cards ul {
       display: flex;
       grid-template-columns: repeat(4, 1fr); // Switch to 4 columns
-      gap: map.get($spacing, md); // 16px
+      gap: 40px 16px;
+      flex-wrap: wrap;
       padding: 0;
       margin: 0;
 
       li {
-        max-width: 24.1%;
-        flex: 0 0 24.1%;
+        max-width: 24%;
+        flex: 0 0 24%;
       }
     }
   }
