@@ -141,6 +141,8 @@
   font-weight: 500;
   line-height: var(--body-large-medium-line-height);
   background-color: transparent;
+  border: none;
+  border-radius: inherit;
 }
 .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text2 a:hover {
   color: var(--link-color);
@@ -189,5 +191,30 @@
   .learn-about.moedge-building > div {
     max-width: 100%;
     flex: 100%;
+  }
+}
+.learn-about.moedge-building-container {
+  margin-bottom: 80px;
+}
+.learn-about.moedge-building-container .moedge-building > div {
+  flex-direction: unset;
+}
+@media (width >= 900px) {
+  .learn-about.moedge-building-container .moedge-building > div {
+    max-width: 100%;
+    flex: 0 0 100%;
+    gap: 16px;
+  }
+  .learn-about.moedge-building-container .moedge-build-sec1 {
+    flex: 0 0 49.3%;
+  }
+  .learn-about.moedge-building-container .moedge-build-sec3 {
+    flex: 0 0 49.3%;
+  }
+  .learn-about.moedge-building-container .moedge-build-sec3 .moedge-build-sub1 {
+    padding-top: 24px;
+  }
+  .learn-about.moedge-building-container .moedge-build-sec3 .moedge-build-inner-text2 {
+    flex-grow: unset;
   }
 }/*# sourceMappingURL=moedge-building.css.map */

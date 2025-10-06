@@ -333,6 +333,10 @@
           {
             "name": "Learn About",
             "value": "learn-about"
+          },
+          {
+            "name": "In The News",
+            "value": "in-the-news"
           }
         ]
       },

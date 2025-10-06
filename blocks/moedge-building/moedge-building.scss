@@ -169,6 +169,8 @@
                     font-weight: 500;
                     line-height: var(--body-large-medium-line-height);
                     background-color: transparent;
+                    border: none;
+                    border-radius: inherit;
 
                     &:hover {
                         color: var(--link-color);
@@ -231,5 +233,46 @@
     .learn-about.moedge-building>div {
         max-width: 100%;
         flex: 100%;
+    }
+}
+
+// learn-about moedge-building-container cards css 
+
+.learn-about.moedge-building-container {
+    margin-bottom: 80px;
+
+    .moedge-building {
+        &>div {
+            flex-direction: unset;
+
+            .moedge-build-sec1 {}
+        }
+    }
+
+}
+
+@media (width >=900px) {
+    .learn-about.moedge-building-container {
+        .moedge-building>div {
+            max-width: 100%;
+            flex: 0 0 100%;
+            gap: 16px;
+        }
+
+        .moedge-build-sec1 {
+            flex: 0 0 49.3%;
+        }
+
+        .moedge-build-sec3 {
+            flex: 0 0 49.3%;
+
+            .moedge-build-sub1 {
+                padding-top: 24px;
+            }
+
+            .moedge-build-inner-text2 {
+                flex-grow: unset;
+            }
+        }
     }
 }

@@ -42,7 +42,7 @@
   justify-content: flex-end;
   gap: var(--spacing-unit);
   border: none;
-  margin-bottom: calc(var(--spacing-unit) * 4);
+  margin-bottom: 40px;
 }
 .popular-artical.tabs-container .tabs .tabs-list .tabs-tab {
   display: flex;
