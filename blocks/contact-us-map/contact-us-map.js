@@ -482,4 +482,8 @@ export default async function decorate(block) {
       }
     }
   });
+
+  block.querySelector('.featrure2 input').addEventListener('click', () => {
+    window.location.href = 'https://www.kfintech.com/contact-us/';
+  });
 }
