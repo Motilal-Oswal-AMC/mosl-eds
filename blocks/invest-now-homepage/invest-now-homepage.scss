@@ -1089,9 +1089,10 @@
                                 background-color: red;
                                 width: 100%;
                                 display: none;
+                                z-index: 2;
                               }
 
-                              &.select-active {
+                              &.open {
                                 .select-options {
                                   display: block;
                                 }
