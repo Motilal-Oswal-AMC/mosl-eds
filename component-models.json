@@ -337,6 +337,14 @@
           {
             "name": "Two Step Verification",
             "value": "two-step-auth"
+          },
+          {
+            "name": "Article Left",
+            "value": "article-left-wrapper"
+          },
+          {
+            "name": "Article Right",
+            "value": "article-right-wrapper"
           }
         ]
       },
