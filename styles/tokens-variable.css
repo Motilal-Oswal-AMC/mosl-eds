@@ -318,6 +318,7 @@
     --paragraph-medium-line-height: var(--spacing-24);
     --paragraph-small-font: var(--body);
     --paragraph-small-weight: var(--weight-regular);
+    --paragraph-small-size: var(--spacing-14);
     --paragraph-small-line-height: var(--spacing-20);
     --paragraph-xsmall-font: var(--body);
     --paragraph-xsmall-weight: var(--weight-regular);

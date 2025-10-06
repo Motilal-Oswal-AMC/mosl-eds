@@ -345,6 +345,14 @@
           {
             "name": "Article Right",
             "value": "article-right-wrapper"
+          },
+          {
+            "name": "Article Sub Left",
+            "value": "article-sub-left"
+          },
+          {
+            "name": "Article Sub Right",
+            "value": "article-sub-right"
           }
         ]
       },
