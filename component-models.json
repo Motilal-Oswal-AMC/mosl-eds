@@ -1749,5 +1749,17 @@
         "label": "Fragment URL"
       }
     ]
+  },
+  {
+    "id": "article-right-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   }
 ]
