@@ -22,7 +22,7 @@
   --card-grid-gap: 40px;
   --card-padding: 24px;
   --card-border-radius: 8px;
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 4px 12px rgb(0 0 0 / 8%);
   --font-size-meta: 0.875rem;
   --font-size-title: 1.25rem;
   --font-size-body: 1rem;
@@ -86,6 +86,13 @@
   gap: 4px;
   border-radius: var(--border-radius-circle);
   border: 1px solid var(--strokes-default);
+  color: var(--blue-1800-primary, #2E2A94);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-family: var(--body, Inter);
+  font-size: var(--label-small-size, 12px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--label-small-line-height, 16px);
 }
 .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text1 > .moedge-build-list1 span {
   width: 20px;
@@ -101,10 +108,25 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  color: var(--neutrals-700, #616161);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-family: var(--body, Inter);
+  font-size: var(--label-small-size, 12px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--label-small-line-height, 16px);
+}
+.moedge-building > div .moedge-build-sec3 .moedge-build-inner-text1 .moedge-build-list2 li span {
+  width: 12px;
+  height: 12px;
+  aspect-ratio: 1/1;
 }
 .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text1 .moedge-build-list2 li::before {
   content: "•";
-  margin-right: 8px;
+  color: #5659FA;
+}
+.moedge-building > div .moedge-build-sec3 .moedge-build-inner-text1 .moedge-build-list2 > li:first-child::before {
+  display: none;
 }
 .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text2 {
   flex-grow: 1;
@@ -133,14 +155,14 @@
   font-size: var(--body-medium-regular-size);
   font-style: normal;
   font-weight: 400;
-  line-height: var(--body-medium-regular-line-height);
+  line-height: var(--body-medium-regular-line-height, 24px);
 }
 .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text4 .moedge-build-list-content1 {
   background-color: transparent;
   color: #2E2A94;
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-family: var(--body);
-  font-size: var(--text-link-small-size);
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: var(--text-link-small-line-height);
@@ -150,10 +172,18 @@
           text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-position: from-font;
+  border: navajowhite;
+  border-radius: unset;
 }
 
-@media (min-width: 992px) {
-  .moedge-building.block {
-    grid-template-columns: repeat(3, 1fr);
+@media (width >= 900px) {
+  .moedge-building {
+    flex-direction: unset;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .moedge-building > div {
+    max-width: 32.45%;
+    flex: 0 0 32.45%;
   }
 }/*# sourceMappingURL=moedge-building.css.map */
