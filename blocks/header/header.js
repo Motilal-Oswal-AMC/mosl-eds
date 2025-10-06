@@ -337,16 +337,20 @@ export default async function decorate(block) {
         }
       });
 
-      navSection.querySelector('ul > li').addEventListener('mouseleave', () => {
-        if (isDesktop.matches) {
-          leaveTimer = setTimeout(() => {
-            toggleAllNavSections(navSections, false);
-            // Fix: Set aria-expanded to 'false' when the menu is closing.
-            navSection.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('no-scroll');
-          }, 300); // A 300ms delay feels smooth and prevents accidental closing.
-        }
-      });
+      try {
+        navSection.querySelector('ul > li').addEventListener('mouseleave', () => {
+          if (isDesktop.matches) {
+            leaveTimer = setTimeout(() => {
+              toggleAllNavSections(navSections, false);
+              // Fix: Set aria-expanded to 'false' when the menu is closing.
+              navSection.setAttribute('aria-expanded', 'false');
+              document.body.classList.remove('no-scroll');
+            }, 300); // A 300ms delay feels smooth and prevents accidental closing.
+          }
+        });
+      } catch (error) {
+        // console.log(console.error(.);
+      }
 
       // --- Mobile Click Logic (Unaffected) ---
       // navSection.addEventListener('click', () => {
