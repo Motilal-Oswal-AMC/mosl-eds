@@ -38,4 +38,12 @@ export default function decorate(block) {
     Array.from(listul).forEach((Element, index) => Element.classList.add(`list-elem-${index + 1}`));
     Array.from(listul).forEach((Element) => Element.classList.add('common-list'));
   }
+  if (window.location.href.includes('/investor-education/all-articles/')) {
+    const maincloser = block.closest('main');
+    const rightSub = maincloser.querySelectorAll('.article-sub-right');
+    const rightarticle = maincloser.querySelector('.article-right-wrapper');
+    Array.from(rightSub).forEach((rightel) => {
+      rightarticle.append(rightel);
+    });
+  }
 }
