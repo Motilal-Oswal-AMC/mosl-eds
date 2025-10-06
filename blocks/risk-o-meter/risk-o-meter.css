@@ -98,6 +98,12 @@
 .section.risk-o-meter-container .corner-2 {
   text-align: center;
 }
+@media (max-width: 768px) {
+  .section.risk-o-meter-container .corner-1,
+  .section.risk-o-meter-container .corner-2 {
+    padding: 0 45px;
+  }
+}
 .section.risk-o-meter-container .corner-1 p,
 .section.risk-o-meter-container .corner-2 p {
   margin: 0;
@@ -120,7 +126,8 @@
 @media (max-width: 768px) {
   .section.risk-o-meter-container .corner-1 .column-2,
   .section.risk-o-meter-container .corner-2 .column-2 {
-    height: 120px;
+    height: 160px;
+    width: 250px;
   }
 }
 .section.risk-o-meter-container .corner-1 .column-2 img,

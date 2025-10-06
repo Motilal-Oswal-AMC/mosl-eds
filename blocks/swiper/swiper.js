@@ -37,7 +37,7 @@ export default function decorate(block) {
       }
       if (blockClassList.indexOf('mobile-one-point-two-view') !== -1) {
         objConfig.slidesPerView = 1.2;
-        objConfig.spaceBetween = 10;
+        objConfig.spaceBetween = 16;
       }
       if (blockClassList.indexOf('mobile-one-point-three-view') !== -1) {
         objConfig.slidesPerView = 1.3;

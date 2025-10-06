@@ -351,7 +351,7 @@ main {
                   margin: 0;
 
                   @include font-style(var(--body-xsmall-medium-size),
-                    var(--body-xsmall-medium-line-height),
+                    var(--label-small-line-height),
                     var(--blue-1-800-primary),
                     500,
                     var(--body));
@@ -362,16 +362,16 @@ main {
 
                   &::after {
                     content: "";
-                    background: url("../../icons/direaction-down-blue.svg") center / cover no-repeat;
+                    background: url("../../icons/direction-right.svg") center / cover no-repeat;
                     min-width: 1px;
-                    width: 7.667px;
-                    height: 3.667px;
+                    min-width: 16px;
+                    height: 16px;
                     display: block;
 
-                    /* transform: rotate(90deg); */
+                    transform: rotate(90deg);
                     position: absolute;
-                    top: 13%;
-                    right: 22%;
+                    top: 0;
+                    right: 34%;
                     cursor: pointer;
                   }
                 }
@@ -486,7 +486,7 @@ main {
                     @include font-style(var(--body-xsmall-regular-size),
                       var(--body-xsmall-regular-line-height),
                       var(--text-success),
-                      500,
+                      400,
                       var(--body));
 
                     margin: 0;
@@ -1055,6 +1055,13 @@ main {
                   font-family: var(--body);
                 }
               }
+
+              @include media(mobile) {
+                li.whyfund-innertext-li3 {
+                  line-height: var(--body-xsmall-regular-line-height);
+                }
+              }
+
 
               // li {
               //   padding: 0;

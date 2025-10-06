@@ -362,7 +362,7 @@
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
-  text-underline-offset: 2.8px;
+  text-underline-offset: auto;
   text-underline-position: from-font;
   border: none;
   padding: 0;
@@ -497,7 +497,7 @@
   gap: 4px;
   border-radius: 8px;
   background: #2e2a94;
-  height: 44px;
+  height: 40px;
   width: 240px;
   font-size: 16px;
   line-height: 20px;

@@ -114,6 +114,10 @@
   .corner-2 {
     text-align: center;
 
+    @include media(mobile) {
+      padding: 0 45px;
+    }
+
     p {
       margin: 0;
       padding: 0;
@@ -134,7 +138,8 @@
       height: 160px;
 
       @include media(mobile) {
-        height: 120px;
+        height: 160px;
+        width: 250px;
       }
 
       img {

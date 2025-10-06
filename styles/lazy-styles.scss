@@ -380,7 +380,7 @@
                   text-decoration-style: solid;
                   text-decoration-skip-ink: auto;
                   text-decoration-thickness: auto;
-                  text-underline-offset: 2.8px;
+                  text-underline-offset: auto;
                   text-underline-position: from-font;
                   border: none;
                   padding: 0;
@@ -541,7 +541,7 @@
         gap: 4px;
         border-radius: map.get($radius, r8);
         background: map.get($button-primary, default);
-        height: 44px;
+        height: 40px;
         width: 240px;
 
         @include font-style(16px,

@@ -154,7 +154,7 @@
 
     @media (width <=768px) {
       background-color: var(--neutrals-white);
-      padding: 21px 16px;
+      padding: 21px 16px 25px;
     }
 
     .fund-main {
@@ -266,6 +266,11 @@
               var(--blue-1-800-primary),
               400,
               var(--body));
+
+              @include media(mobile) {
+                font-size: var(--body-small-regular-size);
+                line-height: var(--body-small-regular-line-height);
+              }
           }
 
           .cagr-value {
@@ -274,6 +279,11 @@
               var(--blue-1-800-primary),
               600,
               var(--body));
+
+              @include media(mobile) {
+                font-size: var(--body-small-semibold-size);
+                line-height: var(--body-small-semibold-line-height);
+              }
 
             .filter-selected {
               font-weight: 400;
@@ -296,6 +306,10 @@
         border-radius: 8px;
         background-color: $primary-white;
         box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+
+        @include media(mobile) {
+          box-shadow: unset;
+        }
       }
   }
 

@@ -246,6 +246,11 @@
         justify-content: center;
         align-items: flex-start;
         gap: 1rem;
+        height: 140px;
+
+        @include media(mobile) {
+          height: 196px;
+        }
 
         // Add role for screen readers
         &[role="region"] {
@@ -308,6 +313,7 @@
                 @media (width <= 768px) {
                   font-size: var(--body-medium-semibold-size);
                   line-height: var(--body-medium-semibold-line-height);
+                  font-weight: 600;
                 }
               }
 
@@ -398,9 +404,11 @@
         }
 
         .fund-links {
+          display: flex;
+
           a {
             @include font-style(
-              var(--text-link-small-size),
+              14px,
               var(--text-link-small-line-height),
               var(--text-text-link),
               400,
@@ -409,7 +417,7 @@
 
             text-decoration-line: underline;
             text-decoration-style: solid;
-            text-underline-offset: 0.2em;
+            text-underline-offset: 20%;
             text-decoration-thickness: 1px;
             text-decoration-skip-ink: auto;
             padding: 0 5rem;

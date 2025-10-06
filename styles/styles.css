@@ -463,6 +463,11 @@ footer .footer[data-block-status="loaded"] {
     animation: fadeinmodal 0.3s ease-in-out;
 }
 
+.table-wrapper .default-content-wrapper .icon.icon-excel {
+    height: 16px;
+    width: 16px;
+}
+
 @keyframes fadeinmodal {
     from {
         opacity: 0;
@@ -716,7 +721,7 @@ body.noscroll {
 .breadcrumbs-fdp>.default-content-wrapper>ul>li p {
     color: #424242;
     text-align: center;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -759,6 +764,10 @@ body.noscroll {
 
     /* border-right: 1px solid #616161; */
     position: relative;
+}
+
+.breadcrumbs-fdp>ul.breadul>li.breadli:last-child a {
+    color: var(--neutrals-800);
 }
 
 .breadcrumbs-fdp>ul.breadul>li.breadli::before {
@@ -835,8 +844,8 @@ body.noscroll {
 }
 
 .breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
     display: flex;
 }
 
@@ -863,6 +872,11 @@ position: relative;
     .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
         font-size: var(--paragraph-xsmall-size);
         line-height: var(--paragraph-xsmall-line-height);
+    }
+
+    .breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
+        height: 20px;
+        width: 20px;
     }
 }
 
