@@ -134,6 +134,11 @@
     --neutrals-50: #fafafa;
     --neutrals-white: #fff;
     --card-stroke: #B9BBFF;
+    --action-border-neutral-normal: #C0C0C4;
+    --surface-text-neutral-normal: #0F0F10;
+    --surface-text-positive-intense: #09743D;
+    --mo-body-copy-other: #48535F;
+    --strokes-on-surface-02: #595957;
 
     /* Colors end */
 
@@ -194,6 +199,7 @@
     --text-button-focus: var(--blue-1-700);
     --text-button-disabled: var(--neutrals-500);
     --surface-icon-primary-normal: var(--blue-1-800-primary);
+    --surface-background-neutral-subtle: var(--neutrals-white);
 
     /* semantic light end */
 
@@ -352,6 +358,8 @@
     --body-xsmall-regular-weight: var(--weight-regular);
     --body-xsmall-regular-size: var(--spacing-12);
     --body-xsmall-regular-line-height: 14px;
+    --input-field-medium-size: var(--spacing-16);
+    --input-field-medium-line-height: var(--spacing-20);
 
     /* typescale desktop end */
 }
@@ -513,6 +521,10 @@
         --body-xsmall-regular-weight: var(--weight-regular);
         --body-xsmall-regular-size: var(--spacing-12);
         --body-xsmall-regular-line-height: 14px;
+        --text-small-semibold-size: var(--spacing-14);
+        --text-small-semibold-line-height: var(--spacing-20);
+        --input-field-medium-size: var(--spacing-16);
+        --input-field-medium-line-height: var(--spacing-20);
 
         /* typescale mobile end */
     }

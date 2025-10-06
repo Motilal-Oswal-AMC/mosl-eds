@@ -1,13 +1,9 @@
 /*   alpha-value-notation */
 /* media-feature-range-notation */
 @import "../../../styles/fonts.css";
-main {
-  background-color: #fff;
-}
-
 .section.growth-now-container {
   margin: 0;
-  background-color: #fff;
+  background-color: var(--neutrals-100);
   padding: 40px 0 50px;
 }
 @media (max-width: 768px) {
@@ -25,6 +21,7 @@ main {
   border-radius: 16px;
   background: #2E2A94;
   height: 160px;
+  overflow: hidden;
 }
 @media (max-width: 1299px) {
   .section.growth-now-container .growth-now {
@@ -112,7 +109,6 @@ main {
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 {
     padding: 0;
-    padding-bottom: 16px;
     order: 1;
   }
 }
@@ -160,6 +156,7 @@ main {
     order: 2;
     width: 100%;
     padding-bottom: 32px;
+    padding-top: 24px;
     z-index: 2;
   }
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 .button-container {
@@ -360,6 +357,8 @@ main {
     overflow: hidden;
     height: -moz-max-content;
     height: max-content;
+    width: -moz-max-content;
+    width: max-content;
   }
 }
 .section.growth-now-container .growth-now .fund-us-container.growth-now-row-2 .fund-sec-1 img {

@@ -8,7 +8,7 @@
 }
 
 .section.our-funds-block-container {
-  background-color: #fff;
+  background-color: var(--neutrals-100);
   margin: 0;
 }
 .section .our-funds-block-wrapper {
@@ -124,10 +124,10 @@
   background-color: transparent;
   font-size: var(--body-medium-regular-size);
   line-height: var(--body-medium-regular-line-height);
-  color: var(--text-black);
+  color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
+  font-weight: 500;
 }
 @media (max-width: 768px) {
   .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search {
@@ -944,7 +944,7 @@
     color: var(--blue-1-800-primary);
     font-family: var(--body);
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-    font-weight: 400;
+    font-weight: 500;
     border-left: 1px solid var(--neutrals-300);
   }
 }
@@ -1452,7 +1452,8 @@
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container {
   background-color: var(--neutrals-white);
   border-radius: 8px;
-  transition: all 0.3s;
+  transition: border 0.3s;
+  border: 1px solid transparent;
 }
 .section .our-funds-block .filter-cards .right-container .list-view-header .list-container .list-view-container:hover {
   border: 1px solid var(--blue-1-50);
