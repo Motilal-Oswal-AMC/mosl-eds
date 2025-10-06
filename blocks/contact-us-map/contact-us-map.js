@@ -295,7 +295,7 @@ export default async function decorate(block) {
   const textOr = block.querySelector('.contactmain2 .contactinner2').textContent.trim();
   const plachld1 = block.querySelector('.contactmain2 .contactinner3').textContent.trim();
   const plachld2 = block.querySelector('.contactmain2 .contactinner4').textContent.trim();
-  let mobduplicate;
+  dataMapMoObj.mobduplicate = '';
   const divMapcontainer = div(
     {
       class: 'contact-us-parent',
@@ -313,7 +313,7 @@ export default async function decorate(block) {
         },
         ...Array.from(radiolist.children).map((el, index) => {
           if (index === 1) {
-            mobduplicate = el.textContent.trim();
+            dataMapMoObj.mobduplicate = el.textContent.trim();
           }
           return div(
             {
@@ -368,7 +368,7 @@ export default async function decorate(block) {
       ),
       p({
         class: 'simple-txt',
-      }, textOr),
+      }, dataMapMoObj.toTitleCase(textOr)),
       div(
         {
           class: 'pincode-wrap',
@@ -474,8 +474,8 @@ export default async function decorate(block) {
 
   document.querySelector('.contact-card').parentElement.classList.add('contact-us-parent-wrapper');
   document.addEventListener('click', (event) => {
-    const innerUl = event.target.querySelector('.location-options-value');
-    if (!innerUl.contain(event.target)) {
+    const innerUl = block.querySelector('.location-options-value');
+    if (!event.target.contains(innerUl)) {
       // toggle display
       if (innerUl.style.display === 'block' || innerUl.style.display === '') {
         innerUl.style.display = 'none';
