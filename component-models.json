@@ -505,6 +505,11 @@
         "component": "aem-content",
         "name": "link",
         "label": "Fragment URL"
+      },
+      {
+        "component": "aem-content",
+        "name": "Two link",
+        "label": "Fragment URL"
       }
     ]
   },
