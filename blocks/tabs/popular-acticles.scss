@@ -25,7 +25,6 @@
     }
 
     .default-content-wrapper {
-
         h1,
         h2,
         h3,
@@ -42,6 +41,10 @@
             font-style: normal;
             font-weight: 600;
             line-height: var(--heading-h6-line-height);
+
+            @include media(mobile) {
+                margin-bottom: 24px;
+            }
         }
     }
 
@@ -52,6 +55,11 @@
             gap: var(--spacing-unit);
             border: none;
             margin-bottom: 40px;
+
+            @include media(mobile) {
+                justify-content: flex-start;
+                margin-bottom: 24px;
+            }
 
             .tabs-tab {
                 display: flex;

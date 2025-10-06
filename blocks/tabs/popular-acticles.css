@@ -37,12 +37,28 @@
   font-weight: 600;
   line-height: var(--heading-h6-line-height);
 }
+@media (max-width: 768px) {
+  .popular-artical.tabs-container .default-content-wrapper h1,
+  .popular-artical.tabs-container .default-content-wrapper h2,
+  .popular-artical.tabs-container .default-content-wrapper h3,
+  .popular-artical.tabs-container .default-content-wrapper h4,
+  .popular-artical.tabs-container .default-content-wrapper h5,
+  .popular-artical.tabs-container .default-content-wrapper h6 {
+    margin-bottom: 24px;
+  }
+}
 .popular-artical.tabs-container .tabs .tabs-list {
   display: flex;
   justify-content: flex-end;
   gap: var(--spacing-unit);
   border: none;
   margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .popular-artical.tabs-container .tabs .tabs-list {
+    justify-content: flex-start;
+    margin-bottom: 24px;
+  }
 }
 .popular-artical.tabs-container .tabs .tabs-list .tabs-tab {
   display: flex;
