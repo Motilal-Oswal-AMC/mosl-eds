@@ -279,10 +279,7 @@
                   $typography-mobile,
                   body-medium-semibold-size
                 );
-                line-height: map.get(
-                  $typography-mobile,
-                  body-large-semibold-size
-                );
+                line-height: var(--body-medium-semibold-line-height);
               }
             }
           }
