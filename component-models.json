@@ -1751,7 +1751,7 @@
     ]
   },
   {
-    "id": "article-item",
+    "id": "article-block",
     "fields": [
       {
         "component": "multiselect",
@@ -1767,7 +1767,12 @@
             "value": "article-right"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "id": "article-item",
+    "fields": [
       {
         "component": "richtext",
         "name": "richtext",
