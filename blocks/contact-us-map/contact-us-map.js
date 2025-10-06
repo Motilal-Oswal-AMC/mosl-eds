@@ -467,10 +467,19 @@ export default async function decorate(block) {
   const err = errdefault.querySelector('.errormain1 .errorinner1');
   err.setAttribute('alt', 'ErrorImage');
 
-  const demo =document.querySelector('.contact-card .default-content-wrapper');
+  const demo = document.querySelector('.contact-card .default-content-wrapper');
 
   dataMapMoObj.CLASS_PREFIXES = ['cont-us-head', 'cont-us-head-li', 'cont-us-head-ul', 'cont-us-txt-li'];
-  dataMapMoObj.addIndexed(demo);  
+  dataMapMoObj.addIndexed(demo);
 
   document.querySelector('.contact-card').parentElement.classList.add('contact-us-parent-wrapper');
+  document.addEventListener('click', (event) => {
+    const innerUl = event.target.querySelector('.location-options-value');
+    if (!innerUl.contain(event.target)) {
+      // toggle display
+      if (innerUl.style.display === 'block' || innerUl.style.display === '') {
+        innerUl.style.display = 'none';
+      }
+    }
+  });
 }
