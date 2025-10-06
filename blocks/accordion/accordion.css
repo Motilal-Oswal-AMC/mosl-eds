@@ -203,7 +203,7 @@
   .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary p {
     padding-right: 45px;
     font-size: 16px;
-    line-height: 18px;
+    line-height: var(--body-medium-semibold-line-height);
   }
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body {
