@@ -1759,14 +1759,14 @@ export default function decorate(block) {
   if (blkcompo) {
     blkcompo.style.display = 'none';
   }
-  block.querySelector('#custom-select-stepup-dropdown .select-selected')
-    .addEventListener('click', (event) => {
-      const parentclass = event.target.parentElement;
-      if (Array.from(parentclass.classList).includes('select-active')) {
-        parentclass.classList.remove('select-active');
-      } else {
-        parentclass.classList.add('select-active');
-      }
-    });
+  // block.querySelector('#custom-select-stepup-dropdown .select-selected')
+  //   .addEventListener('click', (event) => {
+  //     const parentclass = event.target.parentElement;
+  //     if (Array.from(parentclass.classList).includes('select-active')) {
+  //       parentclass.classList.remove('select-active');
+  //     } else {
+  //       parentclass.classList.add('select-active');
+  //     }
+  //   });
   return block;
 }
