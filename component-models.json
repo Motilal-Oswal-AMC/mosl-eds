@@ -1754,6 +1754,21 @@
     "id": "article-item",
     "fields": [
       {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Article Left",
+            "value": "article-left"
+          },
+          {
+            "name": "Article Right",
+            "value": "article-right"
+          }
+        ]
+      },
+      {
         "component": "richtext",
         "name": "richtext",
         "value": "",
