@@ -178,9 +178,9 @@
     ]
   },
   {
-    "id": "article-right",
+    "id": "article-block",
     "components": [
-      "article-right-item"
+      "article-item"
     ]
   }
 ]

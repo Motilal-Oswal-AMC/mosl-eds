@@ -1751,7 +1751,7 @@
     ]
   },
   {
-    "id": "article-right-item",
+    "id": "article-item",
     "fields": [
       {
         "component": "richtext",
