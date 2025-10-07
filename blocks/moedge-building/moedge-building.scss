@@ -2,39 +2,6 @@
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
-/*
- * Refined SCSS for the Moedge Building Block (Article Cards)
- * -----------------------------------------------------------
- * - Mobile-first responsive design.
- * - Uses CSS variables for easy theming.
- * - Precisely matches Figma spacing, fonts, and layout.
- * - Works with the provided HTML structure without changes.
- */
-
-/* 1. VARIABLES
-   - Centralized values based on your design for easy updates.
-*/
-:root {
-    /* Colors */
-    --card-background: #fff;
-    --text-primary: #000;
-    --text-secondary: #555;
-    --text-meta: #666;
-    --link-color: #6a38ee;
-
-    /* Layout & Spacing */
-    --card-grid-gap: 40px;
-    --card-padding: 24px;
-    --card-border-radius: 8px;
-    --card-shadow: 0 4px 12px rgb(0 0 0 / 8%);
-    --font-size-meta: 0.875rem;
-    --font-size-title: 1.25rem;
-    --font-size-body: 1rem;
-    --line-height-title: 1.4;
-    --line-height-body: 1.6;
-}
-
-
 .moedge-building {
     display: flex;
     flex-direction: column;
@@ -94,7 +61,7 @@
                 align-items: center;
                 gap: 8px;
                 color: var(--text-meta);
-                font-size: var(--font-size-meta);
+                font-size: 0.875rem;
                 margin-bottom: 24px;
 
                 >.moedge-build-list1 {
@@ -262,7 +229,7 @@
         &>div {
             flex-direction: column;
 
-            .moedge-build-sec1 {}
+            // .moedge-build-sec1 {}
         }
     }
 
