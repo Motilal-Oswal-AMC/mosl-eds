@@ -1694,12 +1694,16 @@
   {
     "id": "our-authors",
     "fields": [
+       {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
       {
-        "component": "richtext",
-        "name": "one text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
       },
       {
         "component": "richtext",
