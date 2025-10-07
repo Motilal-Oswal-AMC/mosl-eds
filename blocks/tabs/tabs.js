@@ -662,6 +662,16 @@ export default async function decorate(block) {
     });
   }
 
+  if (block.closest('.popular-tab')) {
+    const popualrTab = block.closest('.popular-tab');
+    const defaultblk = popualrTab.querySelector('.default-content-wrapper');
+    const tabList = block.querySelector('.tabs-list');
+    const divtab = document.createElement('div');
+    divtab.classList.add('popular-tabwrapper');
+    divtab.append(defaultblk);
+    divtab.append(tabList);
+    block.prepend(divtab);
+  }
   document.addEventListener('click', (event) => {
     document.querySelectorAll('.cagr-container').forEach((el) => {
       if (!el.contains(event.target)) {
