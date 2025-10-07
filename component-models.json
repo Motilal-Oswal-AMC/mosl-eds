@@ -337,6 +337,10 @@
           {
             "name": "In The News",
             "value": "in-the-news"
+          },
+          {
+            "name": "Our Blogs",
+            "value": "our-blogs"
           }
         ]
       },
