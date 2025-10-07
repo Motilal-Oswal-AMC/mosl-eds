@@ -1043,7 +1043,7 @@
                 gap: 4px;
 
                 @include media(mobile) {
-                  gap: 24px;
+                  gap: 24px 4px;
                 }
 
                 .current-value-wrapper {
@@ -1051,8 +1051,8 @@
                   width: 100%;
 
                   @include media(mobile) {
-                    max-width: unset;
-                    width: unset;
+                    max-width: 204px;
+                    width: 100%;
                   }
 
                   .cal-desc-value {
@@ -1082,8 +1082,8 @@
                   width: 100%;
 
                   @include media(mobile) {
-                    max-width: unset;
-                    width: unset;
+                    max-width: 132px;
+                    width: 100%;
                   }
 
                   .return-cagr {

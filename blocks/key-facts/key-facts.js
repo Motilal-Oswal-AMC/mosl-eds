@@ -182,7 +182,7 @@ export default function decorate(block) {
 
   // Create toggle button
   const toggleBtn = document.createElement('span');
-  toggleBtn.textContent = 'read more';
+  toggleBtn.textContent = 'Read More';
   toggleBtn.className = 'read-toggle-btn';
   // toggleBtn.style.marginLeft = '10px';
   // toggleBtn.style.cursor = 'pointer';
