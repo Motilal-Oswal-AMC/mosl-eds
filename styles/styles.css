@@ -1108,6 +1108,12 @@ position: relative;
     height: 100%;
 }
 
+.modal-stepup-one,
+.modal-stepup-two{
+    display: none;
+    height: 100%;
+}
+
 /* Placeholder style for sip-calculator, growth-now, our-funds-block */
 
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
