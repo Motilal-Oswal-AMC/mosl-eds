@@ -185,6 +185,7 @@ export async function existingUser(paramblock) {
         'user-agent': 'WEB/MultipleCampaign',
         UserAgent: 'WEB/MultipleCampaign',
       };
+      const passclass = closestParam.querySelector('.two-step-auth .twostepinner2');
       const rejsin = await myAPI(
         'POST',
         'https://api.moamc.com/loginapi/api/Login/AuthenticateUserCred',
@@ -200,7 +201,10 @@ export async function existingUser(paramblock) {
         } else if (dataMapMoObj.panRes.data.guestClient === '') {
           // window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
         }
+        passclass.classList.add('passcode-success');
         window.location.href = 'https://mf.moamc.com/mutualfund/portfolio';
+      } else {
+        passclass.classList.add('passcode-fail');
       }
     } catch (error) {
       // console.log(error);
@@ -948,6 +952,8 @@ export default function decorate(block) {
     const modeltwo = mainclass.querySelector('.modal-stepup-two');
     dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo'];
     dataMapMoObj.addIndexed(modeltwo);
+    const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
+    hideFormsClick(mod5);
   }
   if (mainclass.querySelector('.added-fund-cart')) {
     dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
