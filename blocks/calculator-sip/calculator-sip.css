@@ -990,7 +990,7 @@
 }
 @media (max-width: 768px) {
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription {
-    gap: 24px;
+    gap: 24px 4px;
   }
 }
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper {
@@ -999,8 +999,8 @@
 }
 @media (max-width: 768px) {
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper {
-    max-width: unset;
-    width: unset;
+    max-width: 204px;
+    width: 100%;
   }
 }
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value {
@@ -1029,8 +1029,8 @@
 }
 @media (max-width: 768px) {
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper {
-    max-width: unset;
-    width: unset;
+    max-width: 132px;
+    width: 100%;
   }
 }
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .return-cagr {
