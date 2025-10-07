@@ -149,6 +149,8 @@
   }
 }
 .behind-the-content .button-container .button {
+  width: 164px;
+  height: 44px;
   display: inline-block;
   padding: 12px 32px;
   background-color: #2e2a94;

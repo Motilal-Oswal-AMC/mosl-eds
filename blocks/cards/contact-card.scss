@@ -175,6 +175,8 @@ $breakpoint-desktop: 900px;
     }
 
     .button {
+      width: 164px;
+      height: 44px;
       display: inline-block;
       padding: map.get($spacing, sm) map.get($spacing, xl);
       background-color: map.get($button-primary, default);

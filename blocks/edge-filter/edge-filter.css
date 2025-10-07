@@ -8,6 +8,11 @@
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .edge-filter {
+    display: none;
+  }
+}
 .edge-filter .edge-filter-sub1 {
   display: flex;
   align-items: center;
@@ -34,7 +39,14 @@
   font-weight: 500;
   line-height: var(--body-small-medium-line-height);
 }
-.edge-filter .edge-filter-sub1 > li > .filter-lists-wrap2 {
+.edge-filter .edge-filter-sub1 > li p span {
+  width: 16px;
+  height: 16px;
+}
+.edge-filter .edge-filter-sub1 > li p span img {
+  width: 100%;
+}
+.edge-filter .edge-filter-sub1 > li p > .filter-lists-wrap2 {
   visibility: hidden;
   opacity: 0;
   position: absolute;
@@ -46,27 +58,34 @@
   padding: 8px;
   margin: 0;
   list-style: none;
+  min-width: 110px;
   z-index: 10;
   transform: translateY(10px);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 }
-.edge-filter .edge-filter-sub1 > li > .filter-lists-wrap2 li a {
+.edge-filter .edge-filter-sub1 > li p > .filter-lists-wrap2 li a {
   display: block;
   padding: 8px 12px;
   text-decoration: none;
-  color: #333333;
+  color: var(--neutrals-black);
   border-radius: 4px;
   white-space: nowrap;
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-family: var(--body);
+  font-size: var(--body-small-medium-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--body-small-medium-line-height);
 }
-.edge-filter .edge-filter-sub1 > li > .filter-lists-wrap2 li a:hover {
+.edge-filter .edge-filter-sub1 > li p > .filter-lists-wrap2 li a:hover {
   background-color: #f5f5f5;
 }
-.edge-filter .edge-filter-sub1 > li.is-open > .filter-lists-wrap2 {
+.edge-filter .edge-filter-sub1 > li p.is-open > .filter-lists-wrap2 {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
-.edge-filter .filter-lists1 > .filter-lists-wrap1 {
+.edge-filter .edge-filter-sub1 .filter-lists1 > .filter-lists-wrap1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,6 +100,6 @@
   font-weight: 600;
   line-height: var(--body-small-semibold-line-height);
 }
-.edge-filter .filter-lists1 > .filter-lists-wrap1 + .filter-lists-wrap2 {
+.edge-filter .edge-filter-sub1 .filter-lists1 > .filter-lists-wrap1 + .filter-lists-wrap2 {
   display: none;
 }/*# sourceMappingURL=edge-filter.css.map */
