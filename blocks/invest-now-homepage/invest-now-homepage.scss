@@ -1834,6 +1834,125 @@
   }
 }
 
+.modal-stepup-two {
+  max-width: 74.942%;
+  width: 100%;
+
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: var(--border-radius-16);
+  overflow: hidden;
+  
+  @include media(mobile){
+    max-width: 100%;
+    border-radius: 32px 32px 0 0;
+  }
+  
+  .modeltwomain1 {
+    min-height: 416px;
+    height: max-content;
+    position: relative;
+    padding: var(--spacing-24);
+    background: #fff;
+
+    @include media(mobile){
+      min-height: unset;
+      height: 100%;
+      overflow: auto;
+      padding: 40px 16px 30px;
+    }
+
+    .modeltwosub1 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      width: max-content;
+
+      @include font-style(
+        var(--body-medium-semibold-size),
+        var(--body-medium-semibold-line-height),
+        var(--neutrals-900),
+        600,
+        var(--body)
+      );
+
+      .icon.modeltwoinner1 {
+        padding: 7.25px 5.25px;
+        display: flex;
+      }
+
+      @include media(mobile){
+        gap: var(--spacing-8);
+        font-size: var(--body-medium-semibold-size);
+        line-height: var(--body-medium-semibold-line-height);
+      }
+    }
+
+    .modeltwosub2 {
+      margin: var(--spacing-16) 0 0;
+
+      @include media(mobile){
+        margin: var(--spacing-24) 0 0;
+      }
+
+      li.comlist {
+        @include font-style(
+          var(--body-small-regular-size),
+          var(--label-large-line-height),
+          var(--neutrals-700),
+          400,
+          var(--body)
+        );
+
+        padding: 0 0 var(--spacing-24);
+        list-style: none;
+        display: flex;
+        gap: 12px;
+
+        @include media(mobile){
+          font-size: var(--paragraph-small-size);
+          line-height: var(--paragraph-small-line-height);
+          padding: 0 0 var(--spacing-16);
+          gap: var(--spacing-12);
+        }
+
+        &:last-of-type{
+          padding: 0;
+        }
+
+        &::before{
+          content: '';
+          min-width: 8px;
+          height: 8px;
+          background-color: var(--blue-1-800-primary);
+          border-radius: 50%;
+          margin: 8px 0 0;
+          display: block;
+        }
+      }
+    }
+
+    .modeltwosub3{
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      margin: 0;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+
+      @include media(mobile){
+        top: 12px;
+        right: 12px;
+      }
+    }
+  }
+}
+
 .modal.modal-journey.block {
   dialog {
     // max-width: 100%;
