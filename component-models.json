@@ -1757,37 +1757,5 @@
         "label": "Fragment URL"
       }
     ]
-  },
-  {
-    "id": "article-block",
-    "fields": [
-      {
-        "component": "multiselect",
-        "name": "classes",
-        "label": "Style",
-        "options": [
-          {
-            "name": "Article Left",
-            "value": "article-left"
-          },
-          {
-            "name": "Article Right",
-            "value": "article-right"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "article-item",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "richtext",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      }
-    ]
   }
 ]
