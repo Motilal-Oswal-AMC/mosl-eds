@@ -16,6 +16,7 @@
   height: 100%;
   background-color: white;
   box-shadow: -2px 0 10px rgb(0 0 0 / 30%);
+
   // transition: right 0.1s ease-in-out;
   z-index: 1000;
 
@@ -56,6 +57,7 @@
 
       .invest-now-container {
         position: relative;
+
         // padding: 64px 16px 37px;
         padding: 0 16px;
         max-width: 372px;
@@ -225,10 +227,41 @@
                     .dropdown-list {
                       position: absolute;
                       top: 100%;
+                      left: 0;
+                      background-color: var(--neutrals-white);
                       margin: 5px 0 0;
-                      background-color: red;
+                      z-index: 2;
+                      border-radius: var(--border-radius-8);
+                      border: 1px solid var(--neutrals-200);
+                      box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+                      list-style: none;
+                      max-height: 160px;
                       width: 100%;
+                      overflow: hidden auto;
+                      scrollbar-width: none;
                       display: none;
+
+                      &::-webkit-scrollbar {
+                        display: none;
+                      }
+
+                      .list-name {
+                        padding: 12px;
+                        cursor: pointer;
+
+                        @include font-style(
+                          var(--body-small-regular-size),
+                          var(--label-large-line-height),
+                          var(--neutrals-black),
+                          400,
+                          var(--body)
+                        );
+
+                        @include media(mobile) {
+                          font-size: var(--body-small-regular-size);
+                          line-height: var(--label-large-line-height);
+                        }
+                      }
                     }
                   }
                 }
@@ -340,7 +373,6 @@
                     align-items: flex-start;
                     align-self: stretch;
                     position: relative;
-                    // gap: var(--spacing-8);
                     min-width: 200px;
 
                     .invest-amnt-label {
@@ -508,6 +540,7 @@
                   display: flex;
                   flex-direction: column;
                   width: 100%;
+
                   // align-items: flex-start;
                   // align-self: stretch;
 
@@ -780,6 +813,8 @@
                             align-items: center;
                             gap: 4px;
                             margin: 0;
+                            width: max-content;
+                            cursor: pointer;
 
                             &::after {
                               content: "";
@@ -803,10 +838,40 @@
                             position: absolute;
                             top: 100%;
                             left: 0;
-                            background-color: red;
+                            background-color: var(--neutrals-white);
                             margin: 5px 0 0;
                             z-index: 2;
+                            border-radius: var(--border-radius-8);
+                            border: 1px solid var(--neutrals-200);
+                            box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+                            list-style: none;
+                            max-height: 160px;
+                            width: auto;
+                            overflow: hidden auto;
+                            scrollbar-width: none;
                             display: none;
+
+                            &::-webkit-scrollbar {
+                              display: none;
+                            }
+
+                            .select-list {
+                              padding: 12px;
+                              cursor: pointer;
+
+                              @include font-style(
+                                var(--body-small-regular-size),
+                                var(--label-large-line-height),
+                                var(--neutrals-black),
+                                400,
+                                var(--body)
+                              );
+
+                              @include media(mobile) {
+                                font-size: var(--body-small-regular-size);
+                                line-height: var(--label-large-line-height);
+                              }
+                            }
                           }
 
                           &.open {
@@ -1081,15 +1146,43 @@
                               }
 
                               .select-options {
-                                list-style: none;
                                 position: absolute;
                                 top: 100%;
                                 left: 0;
+                                background-color: var(--neutrals-white);
                                 margin: 5px 0 0;
-                                background-color: red;
-                                width: 100%;
-                                display: none;
                                 z-index: 2;
+                                border-radius: var(--border-radius-8);
+                                border: 1px solid var(--neutrals-200);
+                                box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+                                list-style: none;
+                                max-height: 160px;
+                                width: 100%;
+                                overflow: hidden auto;
+                                scrollbar-width: none;
+                                display: none;
+
+                                &::-webkit-scrollbar {
+                                  display: none;
+                                }
+
+                                .select-list {
+                                  padding: 12px;
+                                  cursor: pointer;
+
+                                  @include font-style(
+                                    var(--body-small-regular-size),
+                                    var(--label-large-line-height),
+                                    var(--neutrals-black),
+                                    400,
+                                    var(--body)
+                                  );
+
+                                  @include media(mobile) {
+                                    font-size: var(--body-small-regular-size);
+                                    line-height: var(--label-large-line-height);
+                                  }
+                                }
                               }
 
                               &.open {
@@ -1516,24 +1609,24 @@
   height: 100%;
   background-color: var(--neutrals-white);
   z-index: 1000;
-  
+
   @include media(mobile) {
     border-radius: 32px 32px 0 0;
     width: 100%;
   }
-  
+
   .two-step-wrap {
     padding: 48px 16px;
     height: 100%;
     position: relative;
 
-    .modal-cross-wrap{
+    .modal-cross-wrap {
       position: absolute;
       top: 12px;
       right: 12px;
       cursor: pointer;
 
-      .twostepinner1{
+      .twostepinner1 {
         margin: 0;
         width: 24px;
         height: 24px;
