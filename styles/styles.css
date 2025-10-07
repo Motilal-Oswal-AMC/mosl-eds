@@ -37,9 +37,9 @@
     --text-color: #131313;
     --link-color: #3b63fb;
     --link-hover-color: #1d3ecf;
-    --font-features-default: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on,
-        'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on,
-        'cv10' on, 'cv11' on;
+    --font-features-default: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on,
+        'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on,
+        'cv10'on, 'cv11'on;
 
     /* fonts */
     --body-font-family: butlerpro, butlerpro-fallback, sans-serif;
@@ -1108,8 +1108,12 @@ position: relative;
     height: 100%;
 }
 
-.modal-stepup-one,
-.modal-stepup-two{
+.modal-stepup-one {
+    display: none;
+    height: 100%;
+}
+
+.modal-stepup-two {
     display: none;
     height: 100%;
 }
