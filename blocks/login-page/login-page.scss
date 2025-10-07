@@ -182,6 +182,27 @@
               var(--body)
             );
           }
+
+          .para-succ {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: absolute;
+            top: 84%;
+
+            .succ-para {
+              margin: 0;
+              padding-top: 8px;
+
+              @include font-style(
+                var(--paragraph-small-size),
+                var(--paragraph-small-sine-height),
+                #231f20,
+                400,
+                var(--body)
+              );
+            }
+          }
         }
       }
 
@@ -201,6 +222,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+            position: relative;
 
             .enter-label {
               font-style: normal;
@@ -219,6 +241,12 @@
               align-items: center;
               gap: 16px;
 
+              @include media(mobile) {
+                flex-direction: column;
+                align-items: unset;
+                gap: 40px;
+              }
+
               .otp-inputs-block {
                 display: flex;
                 height: 40px;
@@ -235,6 +263,28 @@
                   border-radius: var(--border-radius-8);
                   border: var(--border-width-01, 1px) solid
                     var(--strokes-default, #9e9e9e);
+                  text-align: center;
+                  font-style: normal;
+
+                  @include font-style(
+                    var(--body-xlarge-semibold-size),
+                    var(--body-xlarge-semibold-line-height),
+                    #111,
+                    600,
+                    var(--body)
+                  );
+                }
+
+                .otp-input-error {
+                  border-radius: var(--border-radius-8, 8px);
+                  border: var(--border-width-01, 1px) solid
+                    var(--strokes-error, #ee212e);
+                }
+
+                .otp-input-succ {
+                  border-radius: var(--border-radius-8, 8px);
+                  border: var(--border-width-01, 1px) solid
+                    var(--strokes-success, #00a850);
                 }
               }
 
@@ -258,9 +308,33 @@
                 );
               }
             }
+
+            .incorrect-otp {
+              font-style: normal;
+              position: absolute;
+              top: 93% ;
+
+              @include font-style(
+                var(--paragraph-xsmall-size),
+                var(--paragraph-xsmall-line-height),
+                var(--text-error),
+                400,
+                var(--body)
+              );
+
+               @include media(mobile) {
+                 top: 58%
+              }
+            }
           }
 
           .otp-para-block {
+            padding-top: 36px;
+
+             @include media(mobile) {
+              padding-top: 12px;
+            }
+
             .otp-para {
               margin: 0;
               font-style: normal;

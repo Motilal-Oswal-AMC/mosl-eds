@@ -1,5 +1,5 @@
 import {
-  div, p, input, label, span,
+  div, p, input, label, span, img,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { myAPI } from '../../scripts/scripts.js';
@@ -75,15 +75,16 @@ export default function decorate(block) {
         { class: 'input-resend' },
         div(
           { class: 'otp-inputs-block' },
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
+          input({ class: 'otp-input otp-input-succ' }),
+          input({ class: 'otp-input otp-input-error' }),
+          input({ class: 'otp-input otp-input-error' }),
+          input({ class: 'otp-input otp-input-error' }),
+          input({ class: 'otp-input otp-input-error' }),
+          input({ class: 'otp-input otp-input-error' }),
         ),
         p({ class: 'resend' }, 'Resend OTP'),
       ),
+      p({ class: 'incorrect-otp' }, 'Incorrect OTP'),
     ),
 
     div(
@@ -550,7 +551,13 @@ export default function decorate(block) {
       if (isKyc !== '') {
         kycVerifiedAdd.append(kycVerified);
         pansuccessForm = kycVerifiedAdd.querySelector('.otp-para');
-
+        const paraSucc = div(
+          { class: 'para-succ' },
+          img({ class: 'succ-img' }),
+          p({ class: 'succ-para' }, 'Awesome. You are KYC verified!'),
+        );
+        const inpPara = document.querySelector('.user-input-error');
+        inpPara.appendChild(paraSucc);
         const blockTitle = parentDiv.querySelector('.user-pan-para');
         blockTitle.textContent = '';
         blockTitle.textContent = `Welcome ${dataMapMoObj.toTitleCase(kycName)}`;

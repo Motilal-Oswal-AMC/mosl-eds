@@ -305,6 +305,7 @@
     --label-small-weight: var(--weight-regular);
     --label-small-size: var(--spacing-12);
     --label-small-line-height: var(--spacing-16);
+    --paragraph-small-size: var(--spacing-14);
     --paragraph-xlarge-font: var(--body);
     --paragraph-xlarge-weight: var(--weight-regular);
     --paragraph-xlarge-size: var(--spacing-20);
