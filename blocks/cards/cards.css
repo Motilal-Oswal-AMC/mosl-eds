@@ -51,7 +51,7 @@
   margin: 0 0 16px;
 }
 
-.section.article-sub-right[data-id='stay-updated'] ul{
+.section.article-sub-right[data-id='stay-updated'] ul {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -59,15 +59,72 @@
   margin: 0;
 }
 
-.section.article-sub-right[data-id='stay-updated'] ul li{
+.section.article-sub-right[data-id='stay-updated'] ul li,
+.section.article-sub-right[data-id='stay-updated'] ul li .icon {
   width: 32px;
   height: 32px;
 }
 
-
 /* Investor Education - Stay Updated End */
 
+/* Investor Education - Subscribe Email Start */
 
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper {
+  margin: 40px 0;
+  border-radius: var(--border-radius-8);
+  background: var(--blue-1-800-primary);
+  padding: var(--spacing-24) 16px;
+}
+
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper p:first-of-type,
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper p:first-of-type .icon {
+  width: 64px;
+  height: 64px;
+  margin: 0;
+}
+
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h1,
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h2,
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h3,
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h4,
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h5,
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h6 {
+  margin: 8px 0 24px;
+  color: var(--neutrals-white, #FFF);
+  font-feature-settings: var(--font-features-default);
+  font-family: var(--body);
+  font-size: var(--body-medium-medium-size);
+  font-weight: 500;
+  line-height: var(--body-medium-medium-line-height);
+}
+
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper p.button-container {
+  margin: var(--spacing-8) 0 0;
+  border-radius: var(--border-radius-8);
+  background: var(--neutrals-white);
+  padding: 10px var(--spacing-12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper p.button-container .button {
+  margin: 0;
+  color: var(--text-button-default);
+  font-feature-settings: var(--font-features-default);
+  font-family: var(--body);
+  font-size: var(--button-medium-size);
+  font-weight: 500;
+  line-height: var(--button-medium-line-height);
+  width: 100%;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+}
+
+/* Investor Education - Subscribe Email End */
 
 /* Investor Education - Recommended Posts */
 
