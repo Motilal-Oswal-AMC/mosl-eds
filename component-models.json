@@ -329,6 +329,14 @@
           {
             "name": "Two Step Verification",
             "value": "two-step-auth"
+          },
+          {
+            "name": "Modal Stepup One",
+            "value": "modal-stepup-one"
+          },
+          {
+            "name": "Modal Stepup Two",
+            "value": "modal-stepup-two"
           }
         ]
       },
