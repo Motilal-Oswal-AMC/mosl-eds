@@ -175,11 +175,5 @@
     "components": [
       "our-service-item"
     ]
-  },
-  {
-    "id": "article-block",
-    "components": [
-      "article-item"
-    ]
   }
 ]
