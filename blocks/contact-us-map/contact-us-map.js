@@ -423,6 +423,9 @@ export default async function decorate(block) {
     const pranmk = mainblk.querySelector('.location-map');
     const pranmkv2 = mainblk.querySelector('.error-default');
     const inpval = event.target.value;
+    const originalValue = inpval;
+    const cleanedValue = originalValue.replace(/[^0-9]/g, '');
+    searchinpu.value = cleanedValue;
     if (inpval.length === 6) {
       const pinCity = datacfContact.data.data
         .filter((elementmap) => elementmap.contactAdd[0].pincode === inpval);
