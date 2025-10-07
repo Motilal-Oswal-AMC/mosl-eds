@@ -939,6 +939,16 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 export default function decorate(block) {
   const mainclass = block.closest('main');
   dataMapMoObj.panDlts = {};
+  if (mainclass.querySelector('.modal-stepup-one')) {
+    const modelone = mainclass.querySelector('.modal-stepup-one');
+    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone'];
+    dataMapMoObj.addIndexed(modelone);
+  }
+  if (mainclass.querySelector('.modal-stepup-two')) {
+    const modeltwo = mainclass.querySelector('.modal-stepup-two');
+    dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo'];
+    dataMapMoObj.addIndexed(modeltwo);
+  }
   if (mainclass.querySelector('.added-fund-cart')) {
     dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
     dataMapMoObj.addIndexed(mainclass.querySelector('.added-fund-cart'));
@@ -1759,14 +1769,5 @@ export default function decorate(block) {
   if (blkcompo) {
     blkcompo.style.display = 'none';
   }
-  // block.querySelector('#custom-select-stepup-dropdown .select-selected')
-  //   .addEventListener('click', (event) => {
-  //     const parentclass = event.target.parentElement;
-  //     if (Array.from(parentclass.classList).includes('select-active')) {
-  //       parentclass.classList.remove('select-active');
-  //     } else {
-  //       parentclass.classList.add('select-active');
-  //     }
-  //   });
   return block;
 }
