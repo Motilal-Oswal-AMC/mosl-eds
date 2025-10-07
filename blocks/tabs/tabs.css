@@ -767,41 +767,6 @@ table>tbody>tr>td:nth-child(7) {
 
 
 
-/* Tabs For learn-tab   Start  */
-
-
-.section.learn-tab {
-  padding: 40px 0;
-}
-
-.section.learn-tab>.default-content-wrapper>h4 {
-  margin: 0;
-  color: var(--blue-1800-primary, #2E2A94);
-  text-align: center;
-  font-family: var(--title);
-  font-size: var(--heading-h4-size, 32px);
-  font-style: normal;
-  font-weight: 600;
-  line-height: var(--heading-h4-line-height, 40px);
-
-}
-
-
-@media screen and (width<=768px) {
-  .section.learn-tab {
-    padding: 40px 16px;
-  }
-
-  .section.learn-tab>.default-content-wrapper>h4 {
-    font-size: var(--sub-header-large-size, 24px);
-    line-height: var(--sub-header-medium-line-height, 28px);
-    ;
-
-  }
-}
-
-
-/* Tabs For learn-tab  End  */
 
 /* popular-tab  Start */
 
@@ -811,6 +776,7 @@ table>tbody>tr>td:nth-child(7) {
   align-items: center;
 }
 
+
 .section.popular-tab>.tabs-wrapper>.tabs>.popular-tabwrapper>.default-content-wrapper>p {
   color: var(--blue-1800-primary, #2E2A94);
   font-family: var(--title, Inter);
@@ -818,6 +784,47 @@ table>tbody>tr>td:nth-child(7) {
   font-style: normal;
   font-weight: 600;
   line-height: var(--heading-h6-line-height, 28px);
+  margin: 0;
+}
+
+.section.popular-tab>.tabs-wrapper>.tabs>.popular-tabwrapper>.tabs-list{
+  max-width: 656px;
+  width: 100%;
+  gap: 8px;
+  scrollbar-width: none;
+}
+
+.section.popular-tab > .tabs-wrapper > .tabs > .popular-tabwrapper > .tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+
+.section.popular-tab>.tabs-wrapper>.tabs>.popular-tabwrapper>.tabs-list>.tabs-tab {
+  display: flex;
+  width: 104px;
+  height: 32px;
+  min-width: 40px;
+  padding: var(--spacing-8, 8px) var(--spacing-12, 12px);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-circle, 1000px);
+  border: var(--border-width-01, 1px) solid var(--strokes-disabled, #BDBDBD);
+  background: var(--surface-disabled, #FAFAFA);
+  color: var(--text-body, #424242);
+  font-family: var(--body);
+  font-size: var(--body-small-regular-size, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--label-large-line-height, 20px);
+}
+
+.section.popular-tab>.tabs-wrapper>.tabs>.popular-tabwrapper>.tabs-list>.tabs-tab[aria-selected="true"] {
+  border: var(--border-width-01, 1px) solid var(--strokes-selected, #382AD7);
+  background: var(--surface-selected, #EDF1FF);
+  color: var(--text-button-default, #2E2A94);
+  font-size: var(--body-small-regular-size, 14px);
+  font-weight: 500;
+  line-height: var(--body-small-regular-line-height, 16px);
 }
 
 .section.popular-tab>.tabs-wrapper>.tabs {
@@ -827,4 +834,109 @@ table>tbody>tr>td:nth-child(7) {
 }
 
 
+@media screen and (width<=768px) {
+  .section.popular-tab>.tabs-wrapper>.tabs>.popular-tabwrapper {
+    flex-direction: column;
+    gap: 16px;
+    justify-self: unset;
+    align-items: unset;
+  }
+}
+
 /* popular-tab  End */
+
+
+
+
+/* Leran Tabs  Start*/
+
+.section.learn-tab {
+  padding: 40px 0;
+   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.section.learn-tab>.tabs-wrapper>.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section.learn-tab>.default-content-wrapper>h4 {
+  margin: 0;
+  color: var(--blue-1-800-primary, #2E2A94);
+  text-align: center;
+  font-family: var(--title);
+  font-size: var(--heading-h4-size, 32px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--heading-h4-line-height, 40px);
+
+}
+
+.section.learn-tab>.tabs-wrapper>.tabs>.tabs-list {
+  justify-content: center;
+  display: flex;
+  gap: 8px;
+  scrollbar-width: none;
+}
+
+.section.learn-tab>.tabs-wrapper>.tabs>.tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+.section.learn-tab>.tabs-wrapper>.tabs>.tabs-list>.tabs-tab {
+  display: flex;
+  width: 104px;
+  height: 32px;
+  min-width: 40px;
+  padding: var(--spacing-8, 8px) var(--spacing-12, 12px);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-circle, 1000px);
+  border: var(--border-width-01, 1px) solid var(--strokes-disabled, #BDBDBD);
+  background: var(--surface-disabled, #FAFAFA);
+  color: var(--text-body, #424242);
+  font-family: var(--body);
+  font-size: var(--body-small-regular-size, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--label-large-line-height, 20px);
+}
+
+.section.learn-tab>.tabs-wrapper>.tabs>.tabs-list>.tabs-tab[aria-selected="true"] {
+  border: var(--border-width-01, 1px) solid var(--strokes-selected, #382AD7);
+  background: var(--surface-selected, #EDF1FF);
+  color: var(--text-button-default, #2E2A94);
+  font-size: var(--body-small-regular-size, 14px);
+  font-weight: 500;
+  line-height: var(--body-small-regular-line-height, 16px);
+}
+
+
+
+@media screen and (width<=768px) {
+  .section.learn-tab {
+    padding: 40px 0;
+  }
+
+  .section.learn-tab>.default-content-wrapper>h4 {
+    font-size: var(--sub-header-large-size, 24px);
+    line-height: 28px;
+    text-wrap: balance;
+  }
+
+   .section.learn-tab>.tabs-wrapper>.tabs {
+    gap: 16px;
+  }
+
+  .section.learn-tab>.tabs-wrapper>.tabs>.tabs-list {
+    max-width: 343px;
+    justify-content: start;
+  }
+}
+
+/* Leran Tabs  End*/
