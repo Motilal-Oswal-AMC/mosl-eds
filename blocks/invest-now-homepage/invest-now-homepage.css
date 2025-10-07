@@ -1600,12 +1600,194 @@
   text-underline-offset: 20%;
 }
 
+.modal-stepup-one {
+  max-width: 74.942%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one {
+    max-width: 100%;
+  }
+}
+.modal-stepup-one .modelonemain1 {
+  background: #fff;
+  border-radius: var(--border-radius-16);
+  padding: 24px;
+  position: relative;
+  min-height: 512px;
+  height: -moz-max-content;
+  height: max-content;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 {
+    min-height: unset;
+    padding: 40px 16px 29px;
+    border-radius: 32px 32px 0 0;
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub1 {
+  margin: 0 0 16px;
+  font-size: var(--body-medium-semibold-size);
+  line-height: var(--body-medium-semibold-line-height);
+  color: var(--neutrals-900);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub1 {
+    font-size: var(--text-large-semibold-size);
+    line-height: var(--text-large-semibold-line-height);
+    margin: 0 0 24px;
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 {
+  margin: 0;
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 {
+    gap: 24px;
+    flex-direction: column;
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner1 {
+  max-width: 42.624%;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner1 {
+    max-width: 100%;
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner1 .modelinnerone1 {
+  margin: 0;
+  list-style: none;
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner1 .modelinnerone1 .modelsubone1 {
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--surface-text-neutral-intense);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+  padding: 0 0 24px;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner1 .modelinnerone1 .modelsubone1 {
+    font-size: var(--paragraph-small-size);
+    line-height: var(--paragraph-small-line-height);
+    padding: 0 0 var(--spacing-16);
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner1 .modelinnerone1 .modelsubone2 {
+  max-width: 278px;
+  width: 100%;
+  font-size: var(--body-small-semibold-size);
+  line-height: var(--body-small-semibold-line-height);
+  color: var(--neutrals-900);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner1 .modelinnerone1 .modelsubone2 {
+    color: var(--surface-text-neutral-strong);
+    font-size: var(--text-xsmall-semibold-size);
+    line-height: var(--text-xsmall-semibold-line-height);
+    max-width: 100%;
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 {
+  max-width: 54%;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 {
+    max-width: 100%;
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 {
+  margin: 0;
+  list-style: none;
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .comlist {
+  font-size: var(--body-small-regular-size);
+  line-height: var(--body-small-regular-line-height);
+  color: var(--surface-text-neutral-intense);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .comlist {
+    font-size: var(--body-xsmall-regular-size);
+    line-height: var(--body-xsmall-regular-line-height);
+    color: var(--neutrals-800);
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .comlist.modelsubone1 {
+  padding: 0 0 8px;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .comlist.modelsubone1 {
+    padding: 0 0 4px;
+    font-feature-settings: unset;
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .comlist.modelsubone3 {
+  font-size: var(--disclaimer-xsmall-size);
+  line-height: var(--disclaimer-xsmall-line-height);
+  color: var(--text-disclaimer);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .comlist.modelsubone3 {
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .comlist.modelsubone3 a {
+  color: var(--text-text-link);
+  font-size: var(--text-link-xsmall-size);
+  line-height: var(--text-link-xsmall-line-height);
+  text-decoration: underline;
+  text-underline-offset: 20%;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .comlist.modelsubone3 a {
+    font-size: var(--text-link-xsmall-size);
+    line-height: var(--text-link-xsmall-line-height);
+  }
+}
+.modal-stepup-one .modelonemain1 .modelonesub3 {
+  margin: 0;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub3 {
+    top: 12px;
+    right: 12px;
+  }
+}
+
 .modal-stepup-two {
   max-width: 74.942%;
   width: 100%;
   justify-content: center;
   align-items: center;
-  display: flex;
+  display: none;
   border-radius: var(--border-radius-16);
   overflow: hidden;
 }
@@ -1744,8 +1926,8 @@
 }
 .modal.modal-journey.block dialog .modal-content {
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: center;
+  align-items: center;
   max-width: 100%;
   width: 100%;
   height: 100%;
