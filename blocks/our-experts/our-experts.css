@@ -45,6 +45,10 @@
     width: 284px;
   }
 }
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 {
+  max-width: 504px;
+  width: 100%;
+}
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 {
   display: flex;
   max-width: 504px;

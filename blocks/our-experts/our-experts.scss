@@ -52,6 +52,9 @@
       }
 
       &-cont2 {
+         max-width: 504px;
+        width: 100%;
+
         .our-expert-section1 {
           display: flex;
           max-width: 504px;
@@ -82,18 +85,14 @@
             input {
               border: none;
               font-style: normal;
-            
 
-
-               @include font-style(
+              @include font-style(
                 var(--body-medium-regular-size),
                 var(--body-medium-regular-line-height),
                 var(--text-body-2),
                 400,
                 var(--body)
               );
-
-             
             }
           }
 
