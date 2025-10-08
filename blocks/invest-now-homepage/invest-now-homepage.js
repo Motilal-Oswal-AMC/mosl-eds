@@ -136,13 +136,13 @@ export async function existingUser(paramblock) {
 
   const addInputDiv = div(
     { class: 'input-wrapper' },
-    p({ class: 'panlabel' }, 'Pan Number'),
     input({
       type: 'text',
-      placeholder: 'Enter PAN Number',
+      placeholder: '',
       name: 'pan',
       class: 'iptpanfld',
     }),
+    label({ class: 'panlabel' }, 'Enter PAN Number'),
   );
 
   dataMapMoObj.panDlts.isGuest = 'false';
@@ -276,7 +276,7 @@ export async function existingUser(paramblock) {
                 break;
               }
               case 'ArrowLeft': {
-              // Move to the previous input, or wrap to the last
+                // Move to the previous input, or wrap to the last
                 const prevIndex = (index - 1 + totalInputs) % totalInputs;
                 passpoint[prevIndex].focus();
                 break;
@@ -1452,7 +1452,7 @@ export default function decorate(block) {
     // eslint-disable-next-line no-unused-vars
     let hasActiveMatch = false;
     suggestionButtons.forEach((btn) => {
-    // Check if the button's text matches the input's value
+      // Check if the button's text matches the input's value
       if (currentValue === btn.textContent.split('₹')[1]) { // Added .trim() for robustness
         btn.classList.add('active');
         hasActiveMatch = true; // This reassignment is now valid
@@ -1565,10 +1565,10 @@ export default function decorate(block) {
 
     startTodayCheckbox.addEventListener('change', () => {
       if (startTodayCheckbox.checked) {
-      // If checked, display today's date
+        // If checked, display today's date
         sipDateDisplay.textContent = getTodaysDateFormatted();
       } else {
-      // If unchecked, revert to the user's selected date
+        // If unchecked, revert to the user's selected date
         sipDateDisplay.textContent = originalSipDate;
       }
     });
