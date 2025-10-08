@@ -770,7 +770,7 @@ table>tbody>tr>td:nth-child(7) {
 
 
 /* popular-tab  Start */
-
+/* 
 .section.popular-tab>.tabs-wrapper>.tabs>.popular-tabwrapper {
   display: flex;
   justify-content: space-between;
@@ -842,7 +842,7 @@ table>tbody>tr>td:nth-child(7) {
     justify-self: unset;
     align-items: unset;
   }
-}
+} */
 
 /* popular-tab  End */
 
@@ -850,7 +850,7 @@ table>tbody>tr>td:nth-child(7) {
 
 
 /* Leran Tabs  Start*/
-
+/* 
 .section.learn-tab {
   padding: 40px 0;
    display: flex;
@@ -938,6 +938,6 @@ table>tbody>tr>td:nth-child(7) {
     max-width: 343px;
     justify-content: start;
   }
-}
+} */
 
 /* Leran Tabs  End*/
