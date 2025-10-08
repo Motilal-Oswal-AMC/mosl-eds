@@ -1519,7 +1519,7 @@ export default function decorate(block) {
                       },
                       input({
                         type: 'radio',
-                        id: 'tenyear',
+                        id: 'tenyear1',
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
                       }),
@@ -1536,7 +1536,7 @@ export default function decorate(block) {
                       },
                       input({
                         type: 'radio',
-                        id: 'tenyear',
+                        id: 'tenyear2',
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                       }),

@@ -30,8 +30,8 @@
       flex-direction: column;
       gap: var(--spacing-12);
 
-      .login-image-item1 {
-        .comlist.login-image-inner-item1 {
+      .login-image-sub-item1 {
+        .comlist.login-image-inner-item1{
           max-width: 504px;
           width: 100%;
           margin: 0;
@@ -52,7 +52,7 @@
         }
       }
 
-      .login-image-item2 {
+      .login-image-sub-item2 {
         @include media(mobile) {
           display: none;
         }
@@ -182,6 +182,27 @@
               var(--body)
             );
           }
+
+          .para-succ {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: absolute;
+            top: 84%;
+
+            .succ-para {
+              margin: 0;
+              padding-top: 8px;
+
+              @include font-style(
+                var(--paragraph-small-size),
+                var(--paragraph-small-sine-height),
+                #231f20,
+                400,
+                var(--body)
+              );
+            }
+          }
         }
       }
 
@@ -201,6 +222,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+            position: relative;
 
             .enter-label {
               font-style: normal;
@@ -219,6 +241,12 @@
               align-items: center;
               gap: 16px;
 
+              @include media(mobile) {
+                flex-direction: column;
+                align-items: unset;
+                gap: 40px;
+              }
+
               .otp-inputs-block {
                 display: flex;
                 height: 40px;
@@ -235,6 +263,37 @@
                   border-radius: var(--border-radius-8);
                   border: var(--border-width-01, 1px) solid
                     var(--strokes-default, #9e9e9e);
+                  text-align: center;
+                  font-style: normal;
+
+                  @include font-style(
+                    var(--body-xlarge-semibold-size),
+                    var(--body-xlarge-semibold-line-height),
+                    #111,
+                    600,
+                    var(--body)
+                  );
+                }
+
+                .otp-input:focus {
+                  border-radius: var(--border-radius-8, 8px);
+                  border: var(--border-width-02, 2px) solid
+                    var(--strokes-typing, #1887d2);
+                  caret-color: var(--strokes-typing, #1887d2);
+                  text-align: center;
+                  font-weight: 600;
+                }
+
+                .otp-input-error {
+                  border-radius: var(--border-radius-8, 8px);
+                  border: var(--border-width-01, 1px) solid
+                    var(--strokes-error, #ee212e);
+                }
+
+                .otp-input-succ {
+                  border-radius: var(--border-radius-8, 8px);
+                  border: var(--border-width-01, 1px) solid
+                    var(--strokes-success, #00a850);
                 }
               }
 
@@ -258,9 +317,33 @@
                 );
               }
             }
+
+            .incorrect-otp {
+              font-style: normal;
+              position: absolute;
+              top: 93%;
+
+              @include font-style(
+                var(--paragraph-xsmall-size),
+                var(--paragraph-xsmall-line-height),
+                var(--text-error),
+                400,
+                var(--body)
+              );
+
+              @include media(mobile) {
+                top: 58%;
+              }
+            }
           }
 
           .otp-para-block {
+            padding-top: 36px;
+
+            @include media(mobile) {
+              padding-top: 12px;
+            }
+
             .otp-para {
               margin: 0;
               font-style: normal;
@@ -283,6 +366,9 @@
           padding-bottom: 20px;
 
           .label-pass {
+            padding-bottom: 40px;
+            position: relative;
+
             .passcode-label {
               font-style: normal;
 
@@ -310,6 +396,54 @@
                 border-radius: var(--border-radius-8);
                 border: var(--border-width-01, 1px) solid
                   var(--strokes-default, #9e9e9e);
+
+                @include font-style(
+                  var(--body-xlarge-semibold-size),
+                  var(--body-xlarge-semibold-line-height),
+                  #111,
+                  600,
+                  var(--body)
+                );
+
+                /* stylelint-disable-next-line custom-property-pattern */
+              }
+
+              .succ-pass {
+                stroke-width: 1px;
+                border: 1px solid var(--strokes-success);
+                color: var(--icon-success);
+              }
+
+              .error-pass {
+                stroke-width: 1px;
+                border: 1px solid var(--strokes-error);
+                color: var(--icon-error);
+              }
+
+              .pass-code-input:focus {
+                border-radius: var(--border-radius-8);
+                border: var(--border-width-02) solid var(--strokes-typing);
+                caret-color: var(--strokes-typing, #1887d2);
+                text-align: center;
+                font-weight: 600;
+              }
+            }
+
+            .error-para {
+              font-style: normal;
+              position: absolute;
+              top: 59%;
+
+              @include font-style(
+                var(--paragraph-xsmall-size),
+                var(--paragraph-xsmall-line-height),
+                var(--text-error),
+                400,
+                var(--body)
+              );
+
+              @include media(mobile) {
+                top: 58%;
               }
             }
           }
