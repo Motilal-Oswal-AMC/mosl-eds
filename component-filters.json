@@ -52,7 +52,11 @@
       "popular-article",
       "moedge-building",
       "our-authors",
-      "edge-filter"
+      "edge-filter",
+      "login-page",
+      "login-image-item",
+      "step-up-block",
+      "contact-us-map"
     ]
   },
   {
@@ -160,6 +164,12 @@
     "id": "moedge-building",
     "components": [
       "moedge-building-item"
+    ]
+  },
+  {
+    "id": "login-page",
+    "components": [
+      "login-rt-item"
     ]
   }
 ]

@@ -3,20 +3,20 @@
 /* media-feature-range-notation */
 
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
-main {
-    // background-color: $neutrals-100;
-    background-color: #fff;
-}
+// main {
+//     // background-color: $neutrals-100;
+//     background-color: #fff;
+// }
 
 .section.growth-now-container {
     margin: 0;
+    background-color: var(--neutrals-100);
 
-    // background-color: $neutrals-100;
-    background-color: #fff;
-    padding: 40px 0 ;
+    // background-color: #fff;
+    padding: 40px 0 50px;
 
     @include media(mobile) {
         padding: 40px 0;
@@ -60,6 +60,7 @@ main {
         border-radius: 16px;
         background: #2E2A94;
         height: 160px;
+        overflow: hidden;
 
         @include media (desktop-sm) {
             gap: 15px;
@@ -121,7 +122,9 @@ main {
             }
 
             .fund-sec-1 {
-                padding-right: 21px;
+                margin-right: 5px;
+                width: 109px;
+                height: 160px;
 
                 // @include media (desktop-sm) {
                 //     padding: 0;
@@ -131,7 +134,10 @@ main {
                     padding: 0;
                     order: 3;
                     position: absolute;
-                    bottom: -1px;
+                    bottom: 0;
+                    width: 142px;
+                    height: 185px;
+                    flex-shrink: 0;
                 }
 
 
@@ -143,8 +149,8 @@ main {
 
                     @include media(mobile) {
                         width: 142px;
-                        height: 173px;
-                        margin-bottom: -10px;
+                        height: 185px;
+                        flex-shrink: 0;
                         object-fit: cover;
                         object-position: bottom;
                     }
@@ -152,13 +158,14 @@ main {
 
             }
 
-            .fund-sec-2 {
-                // display: none;
-            }
+            // .fund-sec-2 {
+            //     display: none;
+            // }
 
             .fund-sec-3 {
-                padding-left: 8px;
+                // padding-left: 8px;
                 padding-right: 32px;
+                padding-left: 14px;
 
                 @include media (desktop-sm) {
                     padding: 0;
@@ -166,7 +173,8 @@ main {
 
                 @include media(mobile) {
                     padding: 0;
-                    padding-bottom: 16px;
+
+                    // padding-bottom: 16px;
                     order: 1;
                 }
 
@@ -206,6 +214,7 @@ main {
                     order: 2;
                     width: 100%;
                     padding-bottom: 32px;
+                    padding-top: 24px;
                     z-index: 2;
 
                     .button-container {
@@ -496,6 +505,7 @@ main {
                         right: 24px;
                         overflow: hidden;
                         height: max-content;
+                        width: max-content;
 
                         // img {
                         //     width: 45px;
@@ -679,7 +689,7 @@ main {
 
             .growth-now-row-2 {
                 .fund-sec-1 {
-                    margin-right: 25px;
+                    margin-right: 5px;
 
                     @include media(mobile) {
                         margin-right: unset;

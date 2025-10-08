@@ -9,6 +9,7 @@ import {
   span,
   ul,
   li,
+  h2,
 } from '../../scripts/dom-helpers.js';
 import '../../scripts/flatpickr.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -90,6 +91,29 @@ function hideFormsClick(btn) {
     document.body.classList.remove('noscroll');
     card2.classList.remove('modal-active-parent');
 
+    // Fund added to cart successfully
+
+    const classAddv4 = card2.querySelector('.added-fund-cart');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv4.classList.remove('hide-modal');
+    }
+    classAddv4.classList.add('hide-modal');
+    classAddv4.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
+    // Pass Code Two Auth
+    const classAddv5 = card2.querySelector('.two-step-auth');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv5.classList.remove('hide-modal');
+    }
+    classAddv5.classList.add('hide-modal');
+    classAddv5.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
     // overlay.classList.add('hide-overlay');
     removeClassAfterDelay();
   });
@@ -112,13 +136,13 @@ export async function existingUser(paramblock) {
 
   const addInputDiv = div(
     { class: 'input-wrapper' },
-    p({ class: 'panlabel' }, 'Pan Number'),
     input({
       type: 'text',
-      placeholder: 'Enter PAN Number',
+      placeholder: '',
       name: 'pan',
       class: 'iptpanfld',
     }),
+    label({ class: 'panlabel' }, 'Enter PAN Number'),
   );
 
   dataMapMoObj.panDlts.isGuest = 'false';
@@ -139,6 +163,53 @@ export async function existingUser(paramblock) {
   // }
   // removeCookie('')
 
+  async function apiPasscode(params) {
+    try {
+      const reqAuth = {
+        password: params.optNo,
+        userId: params.panNo,
+        loginModeId: 1,
+        credentialModeId: 3,
+        ipV4: '192.198.22.22',
+        otpThroughDIT: false,
+        ditotpType: '',
+        pmsGuest: false,
+        isAIF: false,
+        mfGuest: false,
+        product: 'MF',
+      };
+
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
+      };
+      const passclass = closestParam.querySelector('.two-step-auth .twostepinner2');
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/loginapi/api/Login/AuthenticateUserCred',
+        reqAuth,
+        header,
+      );
+      if (rejsin.data && rejsin.data.userInfo) {
+        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        if (dataMapMoObj.panRes.data.guestClient !== '') {
+          // window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
+        } else if (dataMapMoObj.panRes.data.guestClient === '') {
+          // window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
+        }
+        passclass.classList.add('passcode-success');
+        window.location.href = 'https://mf.moamc.com/mutualfund/portfolio';
+      } else {
+        passclass.classList.add('passcode-fail');
+      }
+    } catch (error) {
+      // console.log(error);
+    }
+  }
   async function apiAuth(params) {
     try {
       const reqAuth = {
@@ -167,14 +238,86 @@ export async function existingUser(paramblock) {
         header,
       );
       if (rejsin.data.userInfo) {
-        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
-        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
-        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
-        if (dataMapMoObj.panRes.data.guestClient !== '') {
-          window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
-        } else if (dataMapMoObj.panRes.data.guestClient === '') {
-          window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
-        }
+        const twoAuth = closestParam.querySelector('.two-step-auth');
+        twoAuth.style.display = 'block';
+        pansuccessForm.classList.add('hide-element');
+        pansuccessForm.classList.remove('show-element');
+        twoAuth.classList.add('show-element');
+        twoAuth.classList.add('modal-show');
+        twoAuth.classList.remove('hide-modal');
+        const passpoint = twoAuth.querySelectorAll('input');
+        passpoint.forEach((inputelfac, index) => {
+          inputelfac.setAttribute('maxLength', 1);
+          inputelfac.addEventListener('input', () => {
+            inputelfac.value = inputelfac.value.replace(/[^0-9]/g, '');
+            if (inputelfac.value.length === 1 && index < passpoint.length - 1) {
+              passpoint[index + 1].focus();
+            }
+          });
+          inputelfac.addEventListener('keydown', (event) => {
+            const totalInputs = passpoint.length;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+              event.preventDefault();
+            }
+            switch (event.key) {
+              case 'Tab':
+                if (!event.shiftKey && index === totalInputs - 1) {
+                  event.preventDefault();
+                  passpoint[0].focus();
+                } else if (event.shiftKey && index === 0) {
+                  event.preventDefault();
+                  passpoint[totalInputs - 1].focus();
+                }
+                break;
+
+              case 'ArrowRight': {
+                const nextIndex = (index + 1) % totalInputs;
+                passpoint[nextIndex].focus();
+                break;
+              }
+              case 'ArrowLeft': {
+                // Move to the previous input, or wrap to the last
+                const prevIndex = (index - 1 + totalInputs) % totalInputs;
+                passpoint[prevIndex].focus();
+                break;
+              }
+              case 'Backspace':
+                if (inputelfac.value.length === 0 && index > 0) {
+                  passpoint[index - 1].focus();
+                }
+                break;
+              default:
+                break;
+            }
+          });
+        });
+        const mod6 = twoAuth.querySelector('.twostepmain2 .icon-modal-cross-btn');
+        hideFormsClick(mod6);
+        const contbtn = twoAuth.querySelectorAll('.twostepmain2 button');
+        contbtn[1].addEventListener('click', () => {
+          let passValue = '';
+          passpoint.forEach((elfor) => {
+            passValue += elfor.value;
+          });
+          if (passValue.length < 4) {
+            // pansuccessForm.querySelector('.otpfield').classList.add('otp-failed');
+          } else {
+            const panNum = {
+              panNo: params.panNo,
+              optNo: passValue,
+              otpField: pansuccessForm,
+            };
+            apiPasscode(panNum);
+          }
+        });
+        // document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        // document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        // localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        // if (dataMapMoObj.panRes.data.guestClient !== '') {
+        //   window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
+        // } else if (dataMapMoObj.panRes.data.guestClient === '') {
+        //   window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
+        // }
       }
       // console.log(rejsin);
       params.otpField.classList.add('otp-succes');
@@ -196,7 +339,6 @@ export async function existingUser(paramblock) {
         'https://api.moamc.com/MFTransaction/api/InvestorDetails/panDetail',
         request,
       );
-      console.log(rejsin);
       const guestFlag = localStorage.getItem('isGuest');
       if (guestFlag === 'true') {
         setCookie('accessToken', rejsin.data.accessToken);
@@ -213,7 +355,7 @@ export async function existingUser(paramblock) {
         window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -262,7 +404,6 @@ export async function existingUser(paramblock) {
         'https://api.moamc.com/prelogin/api/KYC/GetKYCData',
         reqGetckyc,
       );
-      console.log(rejsin.data);
       if (rejsin.data !== null) {
         // username
         kycForm.querySelector('.user-pan-name').value = rejsin.data.investorName;
@@ -275,7 +416,7 @@ export async function existingUser(paramblock) {
         kycForm.querySelector('.user-email').setAttribute('readonly', '');
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -306,7 +447,6 @@ export async function existingUser(paramblock) {
         request,
         header,
       );
-      console.log(rejsin);
       if (rejsin.data !== null) {
         const subtext = pansuccessForm.querySelector('.sub-otp-con3');
         subtext.textContent = '';
@@ -644,7 +784,6 @@ export async function existingUser(paramblock) {
         'https://api.moamc.com/LoginAPI/api/Login/GetClientType',
         request,
       );
-      console.log(rejsin);
       dataMapMoObj.panRes = rejsin;
 
       // const isSuccess = rejsin.data.existingClient === '' ? false : true;
@@ -679,7 +818,7 @@ export async function existingUser(paramblock) {
         const parcloset = closestParam.querySelector('.fdp-card-container');
         const paranearby = parcloset.querySelector('.dropdownmidle .selecttext');
         const planCodenearby = paranearby.getAttribute('dataattr');
-        const dataplan = dataCfObj.filter((eldata) => eldata.schcode === schemeCode);
+        const dataplan = dataCfObj.cfDataObjs.filter((eldata) => eldata.schcode === schemeCode);
         const amcPlanCode = dataplan[0].moAmcCode;
         const optioncode = dataplan[0].planList
           .filter((elop) => elop.groupedCode === planCodenearby);
@@ -699,7 +838,7 @@ export async function existingUser(paramblock) {
 
       kycCall(userPanNumber);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -795,30 +934,212 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
   return div(
     { class: 'custom-select-wrapper', id: `custom-select-${id}` },
     label({ class: 'custom-select-label' }, labelText),
-    div({ class: 'select-selected' }, defaultValue),
-    div(
-      { class: 'select-options' },
-      ul(...options.map((opt) => li({ 'data-value': opt }, opt))),
-    ),
+    p({ class: 'select-selected' }, defaultValue),
+    ul({ class: 'select-options' }, ...options.map((opt) => li({ 'data-value': opt }, opt))),
     input({ type: 'hidden', id, value: defaultValue }),
   );
 }
 
 export default function decorate(block) {
+  const mainclass = block.closest('main');
   dataMapMoObj.panDlts = {};
+  if (mainclass.querySelector('.modal-stepup-one')) {
+    const modelone = mainclass.querySelector('.modal-stepup-one');
+    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone'];
+    dataMapMoObj.addIndexed(modelone);
+  }
+  if (mainclass.querySelector('.modal-stepup-two')) {
+    const modeltwo = mainclass.querySelector('.modal-stepup-two');
+    dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo'];
+    dataMapMoObj.addIndexed(modeltwo);
+    const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
+    hideFormsClick(mod5);
+  }
+  if (mainclass.querySelector('.added-fund-cart')) {
+    dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
+    dataMapMoObj.addIndexed(mainclass.querySelector('.added-fund-cart'));
+    const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
+    hideFormsClick(mod5);
+    const addcardSec = mainclass.querySelector('.added-fund-cart');
+    addcardSec.querySelector('.addcartsub4 .addcartinner1').addEventListener('click', () => {
+      // console.log('okies');
+      mod5.click();
+    });
+    addcardSec.querySelector('.addcartsub4 .addcartinner2').addEventListener('click', () => {
+      localStorage.clear();
+      window.location.href = `${window.location.origin}/motilalfigma/our-funds`;
+    });
+    // return false;
+  }
+  const twoStepAuthMain = mainclass.querySelector('.two-step-auth');
+
+  if (twoStepAuthMain) {
+    dataMapMoObj.CLASS_PREFIXES = ['twostepmain', 'twostepsub', 'twostepinner', 'twostepsubinner'];
+    dataMapMoObj.addIndexed(mainclass.querySelector('.two-step-auth'));
+
+    const twoStpTitle = twoStepAuthMain.querySelector('.twostepsub1').textContent;
+    const twostppasscodelabel = twoStepAuthMain.querySelector('.twostepsub2').textContent;
+    const twostpfrgtpass = twoStepAuthMain.querySelector('.twostepsub3').textContent;
+    const twostpcontbtn = twoStepAuthMain.querySelector('.twostepsub4').textContent;
+    const twostpterms = twoStepAuthMain.querySelector('.twostepsub5').cloneNode(true);
+    const twostpcrossbtn = twoStepAuthMain.querySelector('.twostepsub6').cloneNode(true);
+    twoStepAuthMain.querySelector('.twostepmain1').style.display = 'none';
+    const twoStepMainStr = div(
+      { class: 'two-step-wrap' },
+      div({ class: 'modal-cross-wrap' }, twostpcrossbtn),
+      h2({ class: 'two-step-heading' }, twoStpTitle),
+      div(
+        { class: 'passcode-wrap' },
+        p({ class: 'passcode-label' }, twostppasscodelabel),
+        div(
+          { class: 'passcode-inp-wrap' },
+          div(
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+          ),
+          div(
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+          ),
+          div(
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+          ),
+          div(
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+          ),
+        ),
+        span({ class: 'passcode-error' }, 'Incorrect Passcode'),
+      ),
+      button({ class: 'frgt-pass-btn' }, twostpfrgtpass),
+      button({ class: 'cont-btn' }, twostpcontbtn),
+      div({ class: 'terms-cons' }, twostpterms),
+    );
+    if (!twoStepAuthMain.querySelector('.two-step-wrap')) {
+      twoStepAuthMain.append(twoStepMainStr);
+      // const mod6 = twoStepAuthMain.querySelector('.two-step-wrap .icon-modal-cross-btn');
+      // hideFormsClick(mod6);
+    }
+    // return false;
+  }
   loadCSS('../../scripts/flatpickr.min.css');
   const schcodeFromStorage = localStorage.getItem('schcodeactive');
-  const fundData = dataCfObj.find(
+  const fundData = dataCfObj.cfDataObjs.find(
     (fund) => fund.schcode === schcodeFromStorage,
   );
   let fundNameFromData;
   if (fundData) {
     // console.log('Found Fund Data:', fundData);
-    fundNameFromData = fundData.schDetail.schemeName
-      .replaceAll('Motilal Oswal', '');
+    fundNameFromData = fundData.schDetail.schemeName;
   } else {
     // console.error('No fund data found for schcode:', schcodeFromStorage);
   }
+
+  // Step up UI
+  const stepblk = block.closest('.invest-now-homepage-container');
+  let divstepup;
+  const blkcompo = stepblk.querySelector('.step-up-block-wrapper');
+  console.log(blkcompo);
+
+  if (blkcompo) {
+    dataMapMoObj.CLASS_PREFIXES = ['mainstepup', 'substepup', 'innerstepup',
+      'stepupmain', 'stepupsub', 'stepupinner',
+    ];
+    dataMapMoObj.addIndexed(blkcompo);
+    const checkboxcont = blkcompo.querySelector('.substepup1 .stepupmain1').cloneNode(true);
+    const fieldlabel1 = blkcompo.querySelector('.substepup1 .stepupmain2').textContent.trim();
+    const fieldlabel2 = blkcompo.querySelector('.substepup1 .stepupmain3').textContent.trim();
+    const fieldlabel3 = blkcompo.querySelector('.substepup1 .stepupmain4').textContent.trim();
+    const fieldlabel4 = blkcompo.querySelector('.substepup2 .stepupmain1').textContent.trim();
+    const fieldlabel5 = blkcompo.querySelector('.substepup2 .stepupmain2').textContent.trim();
+    const fieldlabel6 = blkcompo.querySelector('.substepup1 .stepupmain5').textContent.trim();
+    const stepupOptions = [
+      'Yearly',
+      'Daily',
+      'Fortnightly',
+      'Monthly',
+      'Quarterly',
+      'Weekly',
+    ];
+    checkboxcont.prepend(input({
+      class: 'stepup-box',
+      type: 'checkbox',
+      onclick: (event) => {
+        const chkevent = event.target.closest('.steup-container');
+        if (Array.from(chkevent.classList).includes('stepup-active')) {
+          chkevent.classList.remove('stepup-active');
+        } else {
+          chkevent.classList.add('stepup-active');
+        }
+      },
+    }));
+    divstepup = div(
+      { class: 'steup-container' },
+      div(
+        { class: 'stepup-checkbox' },
+        checkboxcont,
+        div({ class: 'discripone' }, fieldlabel1),
+      ),
+      div(
+        { class: 'form-container' },
+        div(
+          { class: 'input-wrapper' },
+          div(
+            { class: 'inputfield' },
+            div(
+              { class: 'stepupfield' },
+              label(
+                { class: 'stepuplabel', for: 'stepamnt' },
+                fieldlabel2,
+              ),
+              input({
+                class: 'stepupamt', type: 'text', id: 'stepamnt', value: '1,000', placeholder: fieldlabel2,
+              }),
+            ),
+            div(
+              {
+                class: 'stepupfieldrop',
+              },
+              createCustomDropdown(
+                'stepup-dropdown',
+                fieldlabel3,
+                stepupOptions,
+                stepupOptions[0],
+              ),
+            ),
+          ),
+          p(
+            { class: 'stepdisp' },
+            fieldlabel6,
+          ),
+        ),
+      ),
+      div(
+        { class: 'input-contain' },
+        div(
+          { class: 'maxsipfield' },
+          div(
+            { class: 'maxstepupfield' },
+            label(
+              { class: 'maxstepuplabel', for: 'maxsipamnt' },
+              fieldlabel4,
+            ),
+            input({
+              class: 'maxstepupamt', type: 'text', id: 'maxsipamnt', value: '24,000', placeholder: fieldlabel4,
+            }),
+          ),
+        ),
+        div(
+          { class: 'discription2' },
+          fieldlabel5,
+        ),
+      ),
+    );
+  } else {
+    divstepup = '';
+  }
+
   const col1 = block.children[0].querySelectorAll('p');
   let col2 = '';
 
@@ -846,11 +1167,12 @@ export default function decorate(block) {
   // const ctaLabel = col3[2]?.textContent || '';
 
   // Frequency options (mirror your JSON)
-  const brandName = 'Motilal Oswal';
+  // const brandName = 'Motilal Oswal';
   // const logoSrc = '../../icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
   const logoSrc = `../../icons/iconfund/${mop}`;
-  const calendarIconSrc = '../../icons/calendar.svg'; // Replace with your real calendar icon path
+  // const calendarIconSrc = '../../icons/calendar.svg';
+  // // Replace with your real calendar icon path
   const infotoolsrc = '../../icons/infotooltip.svg';
   const closesrc = '../../icons/cross.svg';
   const frequencyOptions = [
@@ -862,6 +1184,7 @@ export default function decorate(block) {
     'Weekly',
   ];
   const endDateOptions = ['Until I cancel', 'Select Date'];
+  const startDateOptions = ['Until I cancel', 'Select Date'];
 
   block.innerHTML = '';
 
@@ -895,17 +1218,19 @@ export default function decorate(block) {
         ),
         div(
           { class: 'modal-header-subtitle' },
-          p({ class: 'brandname' }, brandName),
+          // p({ class: 'brandname' }, brandName),
           h3({ class: 'fund-name' }, fundNameFromData),
+          div(
+            { class: 'dropdown-wrap' },
+            p({ class: 'selected-txt' }, 'Growth'),
+            ul(
+              { class: 'dropdown-list' },
+              li({ class: 'list-name' }, '1Y'),
+              li({ class: 'list-name' }, '3Y'),
+              li({ class: 'list-name' }, '5Y'),
+            ),
+          ),
         ),
-      ),
-      div(
-        { class: 'modal-toggle' },
-        div(
-          { class: 'modal-btn-lumpsum active' },
-          button({ class: 'lumpsum-btn' }, lumpsumLabel),
-        ),
-        div({ class: 'modal-btn-sip' }, button({ class: 'sip-btn' }, sipLabel)),
       ),
     ),
     div(
@@ -915,8 +1240,16 @@ export default function decorate(block) {
         div(
           { class: 'modal-inputs' },
           div(
+            { class: 'modal-toggle' },
+            div(
+              { class: 'modal-btn-lumpsum lumsum-sip-btn active' },
+              button({ class: 'lumsip-btn' }, lumpsumLabel),
+            ),
+            div({ class: 'modal-btn-sip lumsum-sip-btn' }, button({ class: 'lumsip-btn' }, sipLabel)),
+          ),
+          div(
             { class: 'modal-input' },
-            label(inputLabel),
+            label({ class: 'invest-amnt-label' }, inputLabel),
             div(
               { class: 'modal-input-symbol' },
               // input({ type: 'number', value: defaultAmount, class: 'amount-input' })),
@@ -927,15 +1260,16 @@ export default function decorate(block) {
                 value: defaultAmount,
                 class: 'amount-input',
               }),
-              span(
-                { class: 'amount-error error-hide' },
-                'Amount must be between 500 and 1000000',
-              ),
+            ),
+            span({ class: 'amount-word-format' }, 'Rupees ten thousand only'),
+            span(
+              { class: 'amount-error error-hide' },
+              'Amount must be between 500 and 1000000',
             ),
           ),
           div(
             { class: 'modal-suggestions' },
-            ...suggestions.map((s) => button({ class: 'suggestion-btn' }, `₹ ${s}`)),
+            ...suggestions.map((s) => button({ class: 'suggestion-btn' }, `+₹${s}`)),
           ),
         ),
         div(
@@ -943,31 +1277,12 @@ export default function decorate(block) {
           div(
             { class: 'modal-sip' },
             div(
-              { class: 'modal-sip-starts' },
-              div(
-                { class: 'sip-starts-maintext' },
-                p({ class: 'sip-starts-text' }, 'SIP starts from '),
-              ),
-              div(
-                { class: 'sip-starts-maindate' },
-                p({ class: 'sip-starts-date' }, getTodaysDateFormatted()),
-                // button({ class: 'calendar-btn' },
-                //   img({ src: calendarIconSrc, alt: 'Calendar Icon' })
-                // ))
-                img({
-                  class: 'calendar-btn',
-                  src: calendarIconSrc,
-                  alt: 'Calendar Icon',
-                  'aria-label': 'Select start date',
-                }),
-              ),
-            ),
-            div(
               { class: 'modal-start-today' },
               label(
+                { class: 'start-today-label' },
                 input({ type: 'checkbox', class: 'start-today-checkbox' }),
-                span({ class: 'custom-box' }),
-                span(' Start Today'),
+                // span({ class: 'custom-box' }),
+                span({ class: 'label-txt' }, ' Start Today'),
               ),
               div(
                 { class: 'start-today-note' },
@@ -975,58 +1290,91 @@ export default function decorate(block) {
                   { class: 'sip-note' },
                   'Your 1st SIP Installment will be debited today ',
                 ),
-                span(
+                div(
                   { class: 'sip-note-highlight' },
                   img({ class: '', src: infotoolsrc, alt: 'information' }),
+                  div(
+                    { class: 'tooltip-wrap' },
+                    p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
+                    button({ class: 'tooltip-btn-mob' }, 'Ok'),
+                  ),
                 ),
               ),
             ),
-          ),
-          div(
-            { class: 'date-drop-down' },
-            createCustomDropdown(
-              'frequency',
-              'Frequency',
-              frequencyOptions,
-              frequency,
+            div(
+              { class: 'modal-sip-dropdown' },
+              div(
+                { class: 'date-drop-down' },
+                createCustomDropdown('startDate', 'Start Date', startDateOptions, getTodaysDateFormatted()),
+                createCustomDropdown(
+                  'frequency',
+                  'Frequency',
+                  frequencyOptions,
+                  frequency,
+                ),
+                createCustomDropdown('endDate', 'End Date', endDateOptions, endDate),
+              ),
             ),
-            createCustomDropdown('endDate', 'End Date', endDateOptions, endDate),
           ),
+          divstepup,
         ),
       ),
       div(
         { class: 'modal-cta' },
-        button({ class: 'buy-now-btn' }, 'BUY NOW'),
-        button({ class: 'start-now' }, 'Start Now'),
+        button({
+          class: 'buy-now-btn modal-cta-btn',
+          onclick: () => {
+            const mainmo = block.closest('main');
+            const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
+            const panMod = mainmo.querySelector('.added-fund-cart'); // .style.display = 'block';
+            investMod.classList.add('hide-element');
+            panMod.classList.add('show-element');
+            const cart3 = panMod.querySelector('.addcartsub3');
+            const strong3 = cart3.querySelector('strong');
+            panMod.querySelector('.addcartsub3').innerHTML = '';
+            panMod.querySelector('.addcartsub3').textContent = `${fundNameFromData}`;
+            panMod.querySelector('.addcartsub3').append(strong3);
+            const classAddv2 = mainmo.querySelector('.added-fund-cart');
+            if (Array.from(classAddv2.classList).includes('hide-modal')) {
+              classAddv2.classList.remove('hide-modal');
+            }
+            classAddv2.classList.remove('hide-modal');
+            classAddv2.classList.add('modal-show');
+          },
+        }, 'BUY NOW'),
+        button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
       ),
     ),
   );
 
   // Tooltip
-  const tooltip = div(
-    { class: 'sip-tooltip hide' },
-    div(
-      { class: 'modal-btn tooltip-btn' },
-      span(
-        { class: 'close-btn' },
-        img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' }),
-      ),
-    ),
-    div(
-      { class: 'tooltip-box' },
-      p({ class: 'tooltip-note' }, 'Note'),
-      div(
-        { class: 'tooltip-info' },
-        'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.',
-      ),
-    ),
-  );
+  // const tooltip = div(
+  //   { class: 'sip-tooltip hide' },
+  //   div(
+  //     { class: 'modal-btn tooltip-btn' },
+  //     span(
+  //       { class: 'close-btn' },
+  //       img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' }),
+  //     ),
+  //   ),
+  //   div(
+  //     { class: 'tooltip-box' },
+  //     p({ class: 'tooltip-note' }, 'Note'),
+  //     div(
+  //       { class: 'tooltip-info' },
+  //       'We’ll debit your first SIP
+  // installment today through your chosen payment mode,
+  //  and all future installments will be automatically collected
+  // via your registered Autopay or URN.',
+  //     ),
+  //   ),
+  // );
 
   const modalContainer = div(
     { class: 'invest-now-container', id: 'invest-now-wrapper-flat' },
     closebtn,
     modal,
-    tooltip,
+    // tooltip,
   );
   block.append(modalContainer);
 
@@ -1068,7 +1416,6 @@ export default function decorate(block) {
   const lumpsumBtn = block.querySelector('.modal-btn-lumpsum');
   const sipBtn = block.querySelector('.modal-btn-sip');
   const sipFields = block.querySelector('.modal-input-fields');
-
   lumpsumBtn.addEventListener('click', () => {
     lumpsumBtn.classList.add('active');
     sipBtn.classList.remove('active');
@@ -1093,7 +1440,7 @@ export default function decorate(block) {
       suggestionButtons.forEach((b) => b.classList.remove('active'));
       // Add .active to the clicked button
       btn.classList.add('active');
-      const value = btn.textContent.split(' ')[1];
+      const value = btn.textContent.split('₹')[1];
       amountInput.value = value;
       amountInput.dispatchEvent(new Event('input'));
     });
@@ -1105,8 +1452,8 @@ export default function decorate(block) {
     // eslint-disable-next-line no-unused-vars
     let hasActiveMatch = false;
     suggestionButtons.forEach((btn) => {
-    // Check if the button's text matches the input's value
-      if (`₹ ${currentValue}` === btn.textContent.trim()) { // Added .trim() for robustness
+      // Check if the button's text matches the input's value
+      if (currentValue === btn.textContent.split('₹')[1]) { // Added .trim() for robustness
         btn.classList.add('active');
         hasActiveMatch = true; // This reassignment is now valid
       } else {
@@ -1148,22 +1495,22 @@ export default function decorate(block) {
   syncSuggestionButtonsState();
 
   // 3. tooltip disaply
-  const sipNote = block.querySelector('.sip-note-highlight');
-  const sipText = block.querySelector('.sip-tooltip');
-  sipNote.addEventListener('click', () => {
-    sipText.classList.add('show');
-    sipText.classList.remove('hide');
-  });
+  // const sipNote = block.querySelector('.sip-note-highlight');
+  // const sipText = block.querySelector('.sip-tooltip');
+  // sipNote.addEventListener('click', () => {
+  //   sipText.classList.add('show');
+  //   sipText.classList.remove('hide');
+  // });
 
-  const closeTooltip = block.querySelector('.tooltip-btn');
-  closeTooltip.addEventListener('click', () => {
-    sipText.classList.add('hide');
-    sipText.classList.remove('show');
-  });
+  // const closeTooltip = block.querySelector('.tooltip-btn');
+  // closeTooltip.addEventListener('click', () => {
+  //   sipText.classList.add('hide');
+  //   sipText.classList.remove('show');
+  // });
 
   // 4. flat date picker
-  const calendarIcon = block.querySelector('.calendar-btn');
-  const sipDateDisplay = block.querySelector('.sip-starts-date');
+  // const calendarIcon = block.querySelector('.calendar-btn');
+  const sipDateDisplay = block.querySelector('#custom-select-startDate .select-selected');
   const calendarContainer = block.querySelector('.invest-now-container');
   const selDate = block.querySelector('#custom-select-endDate .select-options');
   const finsel = selDate.querySelector('[data-value="Select Date"]');
@@ -1191,8 +1538,11 @@ export default function decorate(block) {
         const year = selectedDate.getFullYear();
         const formattedDate = `${day} ${month} ${year}`;
 
-        displayDate.textContent = formattedDate;
-
+        sipDateDisplay.textContent = formattedDate;
+        console.log(displayDate);
+        // const optionval =
+        // block.querySelector('#custom-select-frequency .select-selected').textContent;
+        // flakterDateV2(finsel, dateSel, optionval);
         // Update the stored date whenever the user picks a new one
         originalSipDate = formattedDate;
       },
@@ -1215,10 +1565,10 @@ export default function decorate(block) {
 
     startTodayCheckbox.addEventListener('change', () => {
       if (startTodayCheckbox.checked) {
-      // If checked, display today's date
+        // If checked, display today's date
         sipDateDisplay.textContent = getTodaysDateFormatted();
       } else {
-      // If unchecked, revert to the user's selected date
+        // If unchecked, revert to the user's selected date
         sipDateDisplay.textContent = originalSipDate;
       }
     });
@@ -1245,7 +1595,7 @@ export default function decorate(block) {
         defaultDate.setDate(targetDay);
 
         disableRule = [
-          function (date) {
+          (date) => {
             const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
             const targetDayInMonth = Math.min(recurringDay, lastDayOfMonth);
             return date.getDate() !== targetDayInMonth;
@@ -1259,9 +1609,7 @@ export default function decorate(block) {
         defaultDate.setFullYear(today.getFullYear() + 1);
 
         disableRule = [
-          function (date) {
-            return date.getDate() !== recurringDay || date.getMonth() !== recurringMonth;
-          },
+          (date) => date.getDate() !== recurringDay || date.getMonth() !== recurringMonth,
         ];
         break;
       }
@@ -1270,9 +1618,7 @@ export default function decorate(block) {
         defaultDate.setDate(today.getDate() + 7);
 
         disableRule = [
-          function (date) {
-            return date.getDay() !== recurringDayOfWeek;
-          },
+          (date) => date.getDay() !== recurringDayOfWeek,
         ];
         break;
       }
@@ -1281,7 +1627,7 @@ export default function decorate(block) {
         defaultDate.setDate(today.getDate() + 14);
 
         disableRule = [
-          function (date) {
+          (date) => {
             // Calculate difference in whole days for reliability
             const diffDays = Math.round((date.getTime() - startTime) / (1000 * 60 * 60 * 24));
             return diffDays % 14 !== 0;
@@ -1295,7 +1641,7 @@ export default function decorate(block) {
         defaultDate.setMonth(today.getMonth() + 3);
 
         disableRule = [
-          function (date) {
+          (date) => {
             const yearDiffInMonths = (date.getFullYear() - today.getFullYear()) * 12;
             const monthDiffInMonths = date.getMonth() - startMonth;
             const monthDiff = yearDiffInMonths + monthDiffInMonths;
@@ -1351,7 +1697,7 @@ export default function decorate(block) {
       displayDate.textContent = `${day} ${month} ${year}`;
     }
   }
-  flakterDate(calendarIcon, sipDateDisplay);
+  // flakterDate(calendarIcon, sipDateDisplay); //temp
   // flakterDateV2(finsel, dateSel, 'Monthly');
   // --- CORRECTED CUSTOM DROPDOWN LOGIC ---
   block.querySelectorAll('.custom-select-wrapper').forEach((wrapper) => {
@@ -1377,15 +1723,27 @@ export default function decorate(block) {
         selected.textContent = option.textContent;
         hiddenInput.value = option.getAttribute('data-value');
         wrapper.classList.remove('open');
+        if (selected.closest('#custom-select-startDate')) {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          const sel = selected.closest('#custom-select-startDate');
+          const paraText = sel.querySelector('.select-selected');
+          const selDte = block.querySelector('#custom-select-endDate .select-options');
+          const fisel = selDte.querySelector('[data-value="Select Date"]');
+          flakterDate(fisel, paraText.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[0].classList.add('open');
+        }
         if (selected.closest('#custom-select-frequency')) {
           if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
             block.querySelectorAll('.flatpickr-calendar')[1].remove();
           }
           flakterDateV2(finsel, dateSel, option.textContent);
           const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
-          attr[1].classList.add('open');
+          attr[0].classList.add('open');
         }
-        if (selected.textContent === 'Select Date') {
+        if (selected.closest('#custom-select-endDate')) {
           if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
             block.querySelectorAll('.flatpickr-calendar')[1].remove();
           }
@@ -1393,7 +1751,7 @@ export default function decorate(block) {
           const paraText = parSel.querySelector('#custom-select-frequency .select-selected');
           flakterDateV2(finsel, dateSel, paraText.textContent);
           const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
-          attr[1].classList.add('open');
+          attr[0].classList.add('open');
         }
       });
     });
@@ -1401,11 +1759,21 @@ export default function decorate(block) {
 
   // Add a listener to close dropdowns when clicking anywhere else
   block.addEventListener('click', () => {
+    // const flpcand = block.querySelector('.flatpickr-calendar');
     block
       .querySelectorAll('.custom-select-wrapper.open')
       .forEach((openWrapper) => {
         openWrapper.classList.remove('open');
       });
+    // if (flpcand
+    //   && !event.target.contains(flpcand)
+    //   && Array.from(flpcand.classList).includes('open')) {
+    //   flpcand.classList.remove('open');
+    // }
   });
+
+  if (blkcompo) {
+    blkcompo.style.display = 'none';
+  }
   return block;
 }

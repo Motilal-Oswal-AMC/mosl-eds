@@ -1,7 +1,8 @@
 @import "../../../styles/fonts.css";
 @import "../fund-card/fund-card.css";
 .section.our-funds-fdp-container {
-  padding: 40px 0;
+  padding: 24px 0;
+  margin-bottom: unset !important;
 }
 @media (width <= 768px) {
   .section.our-funds-fdp-container {
@@ -16,6 +17,11 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
   margin: 0 0 2.5rem;
+}
+@media (width <= 768px) {
+  .section.our-funds-fdp-container .default-content-wrapper h4 {
+    margin: 0 0 16px 0;
+  }
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp {
   display: flex;
@@ -32,6 +38,12 @@
   justify-content: center;
   align-items: flex-start;
   gap: 1rem;
+  height: 140px;
+}
+@media (max-width: 768px) {
+  .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container {
+    height: 196px;
+  }
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper {
   display: flex;
@@ -85,6 +97,7 @@
   .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p:nth-child(1) {
     font-size: var(--body-medium-semibold-size);
     line-height: var(--body-medium-semibold-line-height);
+    font-weight: 600;
   }
 }
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-wrapper .fund-manager .fund-manager-detail p:nth-child(2) {
@@ -131,7 +144,7 @@
   margin: 0;
   padding: 0;
   font-size: var(--body-small-regular-size);
-  line-height: var(--Body-Small-regular-Line-Height);
+  line-height: var(--body-small-regular-line-height);
   color: var(--neutrals-800);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -159,16 +172,19 @@
     line-height: var(--body-xsmall-semibold-line-height);
   }
 }
+.section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-links {
+  display: flex;
+}
 .section.our-funds-fdp-container .our-funds-fdp-wrapper .our-funds-fdp .funds-container .fund-links a {
-  font-size: var(--text-link-small-size);
-  line-height: var(--Text-Link-Small-Line-Height);
+  font-size: 14px;
+  line-height: var(--text-link-small-line-height);
   color: var(--text-text-link);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 20%;
   text-decoration-thickness: 1px;
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;

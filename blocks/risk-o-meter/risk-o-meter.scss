@@ -30,7 +30,8 @@
   justify-content: center;
   gap: 10px;
   border-radius: 18px;
-  background: #2E2A94;
+  
+  // background: #2E2A94;
   z-index: 10;
   cursor: pointer;
 
@@ -43,6 +44,7 @@
   .icon.icon-close::after {
     width: 13px;
     height: 1.5px;
+    background-color: #2E2A94;
   }
 
 }
@@ -58,30 +60,52 @@
   background: #FFF;
   box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   height: auto;
+
+  @include media(mobile){
+    max-width: 91.4%;
+  }
 }
 
 .section.risk-o-meter-container {
   //   padding: 24px;
   width: 100%;
   border-radius: 8px;
-  background: #FFF;
-  // box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+  background: var(--neutrals-white);
+  
+  // box-shadow: 0 4px 12px 0 #0000000D;
   display: flex;
-  gap: 40px;
+  gap: 48px;
   flex-direction: column-reverse;
   margin-top: 40px !important;
+
+  @include media(mobile){
+    gap: 16px;
+  }
+
+  &.risk-container {
+    margin-top: unset !important;
+    padding: 16px;
+
+    @include media(mobile) {
+      padding: 40px 16px;
+      gap: 32px;
+    }
+  }
 
   .risk-o-meter {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 80px;
+    flex-direction: row-reverse;
+    padding: 0 33px;
+
+    // padding: 0 80px;
     // margin: 40px 0 0;
 
     @include media(mobile) {
-      flex-direction: column;
+      flex-direction: column-reverse;
       padding: 0;
-      gap: 24px;
+      gap: 40px;
       // margin: 32px 0 40px;
     }
   }
@@ -89,6 +113,10 @@
   .corner-1,
   .corner-2 {
     text-align: center;
+
+    @include media(mobile) {
+      padding: 0 45px;
+    }
 
     p {
       margin: 0;
@@ -110,7 +138,8 @@
       height: 160px;
 
       @include media(mobile) {
-        height: 120px;
+        height: 160px;
+        width: 250px;
       }
 
       img {
@@ -141,27 +170,27 @@
       margin: 0;
       padding: 0;
 
-      @include font-style(var(--body-medium-medium-size),
-        var(--body-medium-medium-line-height),
-        var(--blue-1-800-primary),
-        500,
+      @include font-style(var(--body-large-semibold-size),
+        var(--body-large-semibold-line-height),
+        var(--neutrals-800),
+        600,
         var(--body));
 
       @include media(mobile) {
-        font-size: var(--body-small-medium-size);
-        line-height: var(--body-small-medium-line-height);
+        font-size: var(--body-medium-semibold-size);
+        line-height: var(--body-medium-semibold-line-height);
       }
 
       a {
-        @include font-style(var(--body-medium-medium-size),
-          var(--body-medium-medium-line-height),
-          var(--blue-1-300),
-          500,
+        @include font-style(var(--body-large-semibold-size),
+          var(--body-large-semibold-line-height),
+          var(--blue-1-400),
+          600,
           var(--body));
 
         @include media(mobile) {
-          font-size: var(--body-small-medium-size);
-          line-height: var(--body-small-medium-line-height);
+          font-size: var(--body-medium-semibold-size);
+          line-height: var(--body-medium-semibold-line-height);
         }
 
         &:focus-visible {
@@ -188,7 +217,7 @@
 
         @include font-style(var(--body-small-regular-size),
           var(--label-large-line-height),
-          var(--neutrals-black),
+          var(--neutrals-800),
           400,
           var(--body));
 
@@ -200,11 +229,15 @@
     }
 
     p.defone3 {
-      @include font-style(var(--disclaimer-xsmall-size),
-        var(--disclaimer-xsmall-line-height),
-        var(--neutrals-black),
+      @include font-style(var(--body-small-regular-size),
+        var(--label-large-line-height),
+        var(--neutrals-800),
         400,
         var(--body));
+
+        .comlist.defthree1 {
+          color: var(--blue-1-400);
+        }
 
       @include media(mobile) {
         font-size: var(--paragraph-small-size);
@@ -216,17 +249,17 @@
       a.deftwo1 {
         @include font-style(var(--body-small-regular-size),
           var(--label-large-line-height),
-          var(--icon-error),
+          var(--blue-1-400),
           400,
           var(--body));
 
         text-decoration: none;
-        padding-right: 3px;
+
+        // padding-right: 3px;
 
         @include media(mobile) {
           font-size: var(--paragraph-small-size);
           line-height: var(--paragraph-small-line-height);
-          padding-right: unset;
         }
 
 
@@ -265,9 +298,10 @@
 
   @include media(mobile) {
     padding: 40px 16px;
-    background: #FFF;
-    box-shadow: 0 4px 12px 0 #0000000D;
-    gap: 8px;
+    margin: unset !important;
+    // background: #FFF;
+    // box-shadow: 0 4px 12px 0 #0000000D;
+    // gap: 8px;
   }
 
   >div:first-child {

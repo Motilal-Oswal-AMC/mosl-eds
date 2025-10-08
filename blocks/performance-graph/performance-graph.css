@@ -1,9 +1,12 @@
 @import "../../../styles/fonts.css";
 .performance-graph {
-  padding-top: 22px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  /* -----------------------------------
+     Accessibility Media Queries
+  ----------------------------------- */
 }
 @media (width <= 768px) {
   .performance-graph {
@@ -35,7 +38,7 @@
 @media (width <= 768px) {
   .performance-graph .wrapnote {
     background-color: var(--neutrals-white);
-    padding: 21px 16px;
+    padding: 21px 16px 25px;
   }
 }
 .performance-graph .wrapnote .fund-main {
@@ -73,18 +76,15 @@
 }
 @media (width <= 768px) {
   .performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .filter-btn {
+    width: 100%;
+    min-width: 43px;
+    height: 32px;
     font-size: var(--paragraph-small-size);
     line-height: var(--paragraph-small-line-height);
   }
 }
 .performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .filter-btn:hover {
   border-color: #2e2a94;
-}
-@media (width <= 768px) {
-  .performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .filter-btn {
-    min-width: 32px;
-    height: 40px;
-  }
 }
 .performance-graph .wrapnote .fund-main .fund-filters .chart-filter-bar .active {
   border: var(--border-width-01) solid var(--strokes-selected);
@@ -127,12 +127,30 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
+@media (max-width: 768px) {
+  .performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .filter-selected {
+    font-size: var(--body-small-regular-size);
+    line-height: var(--body-small-regular-line-height);
+  }
+}
 .performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .cagr-value {
   font-size: var(--body-medium-semibold-size);
   line-height: var(--body-medium-semibold-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .cagr-value {
+    font-size: var(--body-small-semibold-size);
+    line-height: var(--body-small-semibold-line-height);
+  }
+}
+.performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .cagr-value .filter-selected {
+  font-weight: 400;
+}
+.performance-graph .wrapnote .fund-main .fund-cagr .fund-cagr-container .cagr-value .cagr-value {
   font-weight: 600;
 }
 .performance-graph .wrapnote #chartdiv {
@@ -143,18 +161,19 @@
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 }
-
-/* -----------------------------------
-   Accessibility Media Queries
------------------------------------ */
+@media (max-width: 768px) {
+  .performance-graph .wrapnote #chartdiv {
+    box-shadow: unset;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
-  * {
+  .performance-graph * {
     animation: none !important;
     transition: none !important;
   }
 }
 @media (prefers-contrast: more) {
-  .filter-btn {
+  .performance-graph .filter-btn {
     border-color: black !important;
     background-color: white !important;
     color: black !important;

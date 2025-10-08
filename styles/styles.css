@@ -384,6 +384,7 @@ main.nfo-nav .section:first-of-type {
 @media (width <=900px) {
     main>.section>div {
         padding: 0 16px;
+        gap: 16px;
     }
 }
 
@@ -460,6 +461,11 @@ footer .footer[data-block-status="loaded"] {
     flex-direction: row;
     justify-content: end;
     animation: fadeinmodal 0.3s ease-in-out;
+}
+
+.table-wrapper .default-content-wrapper .icon.icon-excel {
+    height: 16px;
+    width: 16px;
 }
 
 @keyframes fadeinmodal {
@@ -555,8 +561,32 @@ footer .footer[data-block-status="loaded"] {
     background: unset;
 }
 
+.fdp-card-container .comlist .tabs-container {
+    margin: 24px 0 0;
+}
 
+.fdp-card-container .fund-philosophy-video.section {
+    margin: unset;
+}
 
+.fdp-card-container .key-facts-container.section {
+    margin-top: unset;
+}
+
+@media (width <=768px) {
+    .fdp-card-container .fund-philosophy-video.section {
+        padding: 40px 16px;
+    }
+
+    .fdp-card-container .comlist .tabs-container {
+        margin: 40px 0;
+    }
+
+    .tabs-container .icon.icon-excel {
+        width: 16px;
+        height: 16px;
+    }
+}
 
 @media (width <=768px) {
 
@@ -631,7 +661,7 @@ body.noscroll {
     justify-content: space-between;
     padding: 24px;
     position: sticky;
-    
+
     /* top: 89px; */
     top: 132px;
     background-color: #f5f5f5;
@@ -647,7 +677,7 @@ body.noscroll {
     overflow-x: auto;
     word-break: unset;
     align-items: center;
-    gap: 16px;
+    /* gap: 16px; */
 }
 
 .breadcrumbs-fdp>.default-content-wrapper::-webkit-scrollbar {
@@ -691,7 +721,7 @@ body.noscroll {
 .breadcrumbs-fdp>.default-content-wrapper>ul>li p {
     color: #424242;
     text-align: center;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -723,24 +753,28 @@ body.noscroll {
     align-items: center;
     list-style: none;
     margin: 0;
-    height: 24px;
+    /* height: 24px; */
 }
 
 .breadcrumbs-fdp>ul.breadul>li.breadli {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 12px;
+    /* padding-right: 12px; */
 
     /* border-right: 1px solid #616161; */
     position: relative;
 }
 
+.breadcrumbs-fdp>ul.breadul>li.breadli:last-child a {
+    color: var(--neutrals-800);
+}
+
 .breadcrumbs-fdp>ul.breadul>li.breadli::before {
     position: absolute;
     content: "/";
-    margin-right: 4px;
-    right: -12px;
+    /* margin-right: 4px; */
+    right: -16px;
     top: 0;
     color: #616161;
     font-family: Poppins, sans-serif;
@@ -771,7 +805,7 @@ body.noscroll {
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
     max-width: 170px;
     width: 100%;
-    background-color:var(--neutrals-white) ;
+    background-color: var(--neutrals-white);
     flex-direction: column;
     align-items: center;
     gap: 8px;
@@ -802,11 +836,17 @@ body.noscroll {
     font-style: normal;
     padding: 12px;
     align-items: center;
-    font-size:var(--body-xsmall-regular-size);
+    font-size: var(--body-xsmall-regular-size);
     line-height: var(--body-xsmall-regular-line-height);
     font-weight: 400;
-    font-family:var(--body) ;
-    color: var(--text-body) ;
+    font-family: var(--body);
+    color: var(--text-body);
+}
+
+.breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
+    height: 24px;
+    width: 24px;
+    display: flex;
 }
 
 /* 
@@ -825,13 +865,18 @@ position: relative;
     }
 
     .section.breadcrumbs-fdp {
-        top: 116px;
-        padding: 16px;
+        top: 114px;
+        padding: 16px 0;
     }
 
     .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
-         font-size:var(--paragraph-xsmall-size);
-    line-height: var(--paragraph-xsmall-line-height);
+        font-size: var(--paragraph-xsmall-size);
+        line-height: var(--paragraph-xsmall-line-height);
+    }
+
+    .breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
+        height: 20px;
+        width: 20px;
     }
 }
 
@@ -985,12 +1030,13 @@ position: relative;
     position: relative;
 } */
 
-.pan-details-modal .default-content-wrapper p:nth-child(2)>.input-wrapper>.panlabel {
+.pan-details-modal .default-content-wrapper p:nth-child(2)>.input-wrapper>label {
     position: absolute;
-    top: -7px;
+    top: 7px;
     background: white;
     padding: 0 4px;
     transition: top 0.8s ease;
+    pointer-events: none;
 }
 
 .pan-details-modal .default-content-wrapper p:nth-child(2)>.show-error {
@@ -1017,6 +1063,13 @@ position: relative;
     font-weight: 500;
     line-height: 20px;
     text-transform: uppercase;
+}
+
+.pan-details-modal p:nth-child(2)>.input-wrapper>input:focus+label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: #1976d2;
 }
 
 .otp-fdp {
@@ -1051,6 +1104,26 @@ position: relative;
         border-radius: 32px 32px 0 0;
         max-width: 100%;
     }
+}
+
+.added-fund-cart {
+    display: none;
+    height: 100%;
+}
+
+.two-step-auth {
+    display: none;
+    height: 100%;
+}
+
+.modal-stepup-one {
+    display: none;
+    height: 100%;
+}
+
+.modal-stepup-two {
+    display: none;
+    height: 100%;
 }
 
 /* Placeholder style for sip-calculator, growth-now, our-funds-block */
@@ -1113,7 +1186,7 @@ position: relative;
     padding: 0;
 }
 
-main.nfo-nav .section:first-of-type.performance-graph-container{
+main.nfo-nav .section:first-of-type.performance-graph-container {
     margin-top: 20px;
 }
 
@@ -1163,7 +1236,7 @@ z-index: -1;
     main.nfo-nav .section:first-of-type.performance-graph-container {
         margin-top: 40px;
     }
-    
+
     @keyframes slide-out {
         from {
             transform: translateY(0);

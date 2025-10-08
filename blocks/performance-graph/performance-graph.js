@@ -46,7 +46,7 @@ export default function decorate(block) {
 
   const planCodeObj = localStorage.getItem('planCode') || 'Direct:LM';
   const schcode = planCodeObj.split(':')[1];
-  const selectedFund = dataCfObj.find((fund) => fund.schcode === schcode);
+  const selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
 
   // 2. Get the returns data for the current fund immediately.
   const targetPlan = selectedFund?.planList;
@@ -663,11 +663,12 @@ export default function decorate(block) {
     // planOptionsec = targetPlantri[0].optionName;
     // .find((pplan) => pplan.planName === planTypesec && pplan.optionName === planOptionsec);
     // Destructure properties from targetPlantri first
-    const { planCode, optionCode } = targetPlantri || {};
+    // const { planCode, optionCode } = targetPlantri || {};
 
     const targetReturnstri = targetPlantri
       ? selectedFund.returns.find(
-        (r) => r.plancode === planCode && r.optioncode === optionCode,
+        (r) => r.plancode === targetPlantri.planCode
+        && r.optioncode === targetPlantri.optionCode,
       )
       : null;
 

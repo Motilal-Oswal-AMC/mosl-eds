@@ -23,7 +23,7 @@
   }
 }
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain1 {
-  max-width: 220px;
+  max-width: 288px;
 }
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain1 div p {
   font-size: var(--body-xlarge-bold-size);
@@ -38,9 +38,11 @@
   position: relative;
   display: flex;
   gap: 24px;
+  min-height: 90px;
 }
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain1 {
   margin: 0;
+  height: 90px;
 }
 .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundsubinner .fundvedinnermain1 img {
   border-radius: 3.333px;
@@ -79,7 +81,7 @@
   max-width: 255px;
   margin: 10px 0;
   font-size: var(--body-medium-regular-size);
-  line-height: var(--body-medium-regular-line-height);
+  line-height: 24px;
   color: var(--blue-1-50);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -98,7 +100,7 @@
 @media (width <= 768px) {
   .section.fund-video-container .fund-video-wrapper .fund-video .fundvedmain2 .fundvedsubmain1 p {
     font-size: var(--paragraph-xsmall-size);
-    line-height: var(--body-medium-regular-line-height);
+    line-height: var(--paragraph-xsmall-line-height);
     width: 125px;
     margin: 0;
   }

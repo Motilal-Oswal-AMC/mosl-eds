@@ -6,6 +6,7 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section {
+
   &.compounding,
   &.fdp-calculator {
     background-color: var(--neutrals-white);
@@ -46,13 +47,14 @@
         flex-shrink: 0;
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: 16px;
         padding: 0;
         width: 100%;
 
         @include media(mobile) {
           align-items: flex-start;
-          padding-top: 40px;
+          // padding-top: 40px;
         }
 
         .hero-image {
@@ -85,13 +87,11 @@
           h6 {
             margin: 0 0 4px;
 
-            @include font-style(
-              var(--heading-h4-size),
+            @include font-style(var(--heading-h4-size),
               var(--heading-h4-line-height),
               var(--blue-1-800-primary),
               map.get($font-weights, semibold),
-              var(--title)
-            );
+              var(--title));
 
             @include media(mobile) {
               margin-bottom: 0;
@@ -151,13 +151,11 @@
                 text-align: left;
                 margin-bottom: 6px;
 
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--text-body),
                   map.get($font-weights, regular),
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   font-size: var(--label-small-size);
@@ -166,20 +164,18 @@
               }
 
               .search-bar-inp {
-                @include font-style(
-                  var(--body-medium-medium-size),
+                @include font-style(var(--body-medium-medium-size),
                   var(--body-medium-medium-line-height),
                   var(--blue-1-800-primary),
                   map.get($font-weights, medium),
-                  var(--body)
-                );
+                  var(--body));
 
                 width: 100%;
                 color: $blue-1-800-primary;
                 font-family: $body;
-                font-size:  map.get($typography-desktop, body-medium-medium-size);
+                font-size: map.get($typography-desktop, body-medium-medium-size);
                 font-weight: 500;
-                line-height:  map.get($typography-desktop, body-medium-medium-line-height);
+                line-height: map.get($typography-desktop, body-medium-medium-line-height);
                 border: none;
                 border-bottom: 1px solid var(--neutrals-400);
                 padding-bottom: 8px;
@@ -198,7 +194,7 @@
                 }
               }
 
-              .cancel-search-wrap{
+              .cancel-search-wrap {
                 position: absolute;
                 right: 13px;
                 bottom: 8px;
@@ -212,16 +208,16 @@
                   cursor: pointer;
                 }
 
-                .search-btn{
+                .search-btn {
                   display: none;
                 }
 
-                &.searchbar-active{
-                  .search-btn{
+                &.searchbar-active {
+                  .search-btn {
                     display: block;
                   }
 
-                  .cancel-btn{
+                  .cancel-btn {
                     display: none;
                   }
                 }
@@ -340,13 +336,11 @@
                   cursor: pointer;
                   transition: all 0.2s ease;
 
-                  @include font-style(
-                    var(--body-small-regular-size),
+                  @include font-style(var(--body-small-regular-size),
                     var(--body-small-regular-line-height),
                     var(--text-body),
                     map.get($font-weights, regular),
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--body-small-regular-size);
@@ -390,19 +384,17 @@
                     cursor: pointer;
                     font-family: var(--body);
 
-                    @include font-style(
-                      var(--body-xsmall-medium-size),
+                    @include font-style(var(--body-xsmall-medium-size),
                       var(--body-xsmall-medium-line-height),
                       var(--blue-1-800-primary),
                       500,
-                      var(--body)
-                    );
+                      var(--body));
 
                     // &.active {
                     //   color: var(--blue-1-800-primary);
                     // }
 
-                    &:last-of-type{
+                    &:last-of-type {
                       color: var(--neutrals-black);
                     }
                   }
@@ -445,7 +437,7 @@
                     }
                   }
 
-                  input:checked + .slider::before {
+                  input:checked+.slider::before {
                     transform: translateX(16.5px);
                   }
                 }
@@ -460,13 +452,11 @@
                     position: relative;
                     user-select: none;
 
-                    @include font-style(
-                      var(--body-xsmall-medium-size),
+                    @include font-style(var(--body-xsmall-medium-size),
                       var(--body-xsmall-medium-line-height),
                       var(--blue-1-800-primary),
                       500,
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
                       text-align: start;
@@ -510,13 +500,11 @@
                       cursor: pointer;
                       transition: background-color 0.2s ease;
 
-                      @include font-style(
-                        14px,
+                      @include font-style(14px,
                         20px,
                         var(--color-text-body),
                         map.get($font-weights, regular),
-                        var(--body)
-                      );
+                        var(--body));
 
                       &:hover {
                         background-color: #f0f0f0;
@@ -545,12 +533,10 @@
                 .labelforsip,
                 .labelforlumsum,
                 .tenure-label {
-                  @include font-style(
-                    var(--label-small-size),
+                  @include font-style(var(--label-small-size),
                     var(--label-small-line-height),
                     var(--text-body-2),
-                    map.get($font-weights, regular)
-                  );
+                    map.get($font-weights, regular));
 
                   // color: #616161;
                   font-family: var(--body);
@@ -569,7 +555,7 @@
                     align-items: center;
                     gap: 18px;
 
-                    @include media(mobile){
+                    @include media(mobile) {
                       gap: 15px;
                     }
 
@@ -581,13 +567,11 @@
                       transform: translateY(-50%);
                       pointer-events: none;
 
-                      @include font-style(
-                        var(--body-medium-medium-size),
+                      @include font-style(var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
                         var(--blue-1-800-primary),
                         map.get($font-weights, medium),
-                        var(--body)
-                      );
+                        var(--body));
 
                       @include media(mobile) {
                         // top: 4px;
@@ -598,16 +582,14 @@
                     }
 
                     .investment-inp {
-                      @include font-style(
-                        var(--body-medium-medium-size),
+                      @include font-style(var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
                         var(--blue-1-800-primary),
                         map.get($font-weights, medium),
-                        var(--body)
-                      );
+                        var(--body));
 
                       height: 100%;
-                      padding-left: 18px;
+                      padding-left: 14px;
                       appearance: none;
                       outline: none;
                       background-color: transparent;
@@ -642,13 +624,11 @@
                     position: relative;
 
                     .select-selected {
-                      @include font-style(
-                        var(--body-medium-medium-size),
+                      @include font-style(var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
                         var(--blue-1-800-primary),
                         map.get($font-weights, medium),
-                        var(--body)
-                      );
+                        var(--body));
 
                       cursor: pointer;
                       position: relative;
@@ -700,13 +680,11 @@
                         cursor: pointer;
                         transition: background-color 0.2s ease;
 
-                        @include font-style(
-                          14px,
+                        @include font-style(14px,
                           20px,
                           var(--color-text-body),
                           map.get($font-weights, regular),
-                          var(--body)
-                        );
+                          var(--body));
 
                         &:hover {
                           background-color: #f0f0f0;
@@ -724,7 +702,7 @@
               gap: 24px;
               margin-top: -4px;
 
-              @include media(mobile){
+              @include media(mobile) {
                 margin: 0;
               }
 
@@ -735,13 +713,11 @@
                 align-self: stretch;
 
                 .invested-label {
-                  @include font-style(
-                    var(--disclaimer-xsmall-size),
+                  @include font-style(var(--disclaimer-xsmall-size),
                     var(--disclaimer-xsmall-line-height),
                     var(--text-body-2),
                     map.get($font-weights, regular),
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--label-small-size);
@@ -753,13 +729,11 @@
                   position: relative;
                   padding-left: 10px;
 
-                  @include font-style(
-                    var(--body-small-medium-size),
+                  @include font-style(var(--body-small-medium-size),
                     var(--body-small-medium-line-height),
                     var(--blue-1-800-primary),
                     map.get($font-weights, medium),
-                    var(--body)
-                  );
+                    var(--body));
 
                   &::before {
                     content: "₹";
@@ -768,13 +742,11 @@
                     top: 1px;
                     pointer-events: none;
 
-                    @include font-style(
-                      var(--body-small-medium-size),
+                    @include font-style(var(--body-small-medium-size),
                       var(--body-small-medium-line-height),
                       var(--blue-1-800-primary),
                       map.get($font-weights, medium),
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
                       font-size: var(--body-small-medium-size);
@@ -811,13 +783,11 @@
                   gap: map.get($spacing, xxs);
 
                   .cal-desc-label {
-                    @include font-style(
-                      var(--label-small-size),
+                    @include font-style(var(--label-small-size),
                       var(--label-small-line-height),
                       var(--text-body-2),
                       map.get($font-weights, regular),
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
                       white-space: nowrap;
@@ -827,13 +797,11 @@
                   }
 
                   .cal-desc-value {
-                    @include font-style(
-                      var(--body-xlarge-bold-size),
+                    @include font-style(var(--body-xlarge-bold-size),
                       var(--body-xlarge-bold-line-height),
                       var(--blue-1-800-primary),
                       600,
-                      var(--body)
-                    );
+                      var(--body));
 
                     text-align: left;
                     position: relative;
@@ -850,13 +818,11 @@
                       left: 3px;
                       pointer-events: none;
 
-                      @include font-style(
-                        var(--body-xlarge-bold-size),
+                      @include font-style(var(--body-xlarge-bold-size),
                         var(--body-xlarge-bold-line-height),
                         var(--blue-1-800-primary),
                         600,
-                        var(--body)
-                      );
+                        var(--body));
 
                       @include media(mobile) {
                         font-size: var(--body-medium-semibold-size);
@@ -865,12 +831,12 @@
                     }
                   }
 
-                  .return-cagr{
+                  .return-cagr {
                     padding-left: 0;
 
-                     &::before {
-                    content: '';
-                  }
+                    &::before {
+                      content: '';
+                    }
                   }
                 }
 
@@ -897,14 +863,14 @@
                     cursor: pointer;
                     transition: background-color 0.2s ease;
                     width: 164px;
+                    height: 40px;
+                    margin: unset;
 
-                    @include font-style(
-                      var(--button-medium-size),
+                    @include font-style(var(--button-medium-size),
                       var(--button-medium-line-height),
                       var(--text-white),
                       500,
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
                       width: 100%;
@@ -928,13 +894,11 @@
               background-color: rgb(251 238 221);
               padding: map.get($spacing, xxs);
 
-              @include font-style(
-                var(--body-small-medium-size),
+              @include font-style(var(--body-small-medium-size),
                 var(--text-link-small-line-height),
                 var(--text-text-link),
                 400,
-                var(--body)
-              );
+                var(--body));
             }
           }
 
@@ -945,20 +909,17 @@
 
             @include media(mobile) {
               text-align: center;
-              padding-bottom: 24px;
-              padding-top: 0;
+              padding: 16px 0;
             }
 
             .view-othercal-btn {
               text-decoration: underline;
 
-              @include font-style(
-                var(--body-small-medium-size),
+              @include font-style(var(--body-small-medium-size),
                 var(--text-link-small-line-height),
                 var(--text-button-default),
                 map.get($font-weights, regular),
-                var(--body)
-              );
+                var(--body));
             }
           }
         }
@@ -969,13 +930,11 @@
       padding: 0;
 
       p.disc-child-1 {
-        @include font-style(
-          var(--disclaimer-xsmall-size),
+        @include font-style(var(--disclaimer-xsmall-size),
           var(--disclaimer-xsmall-line-height),
           var(--blue-1-800-primary),
           400,
-          var(--body)
-        );
+          var(--body));
 
         margin: 0;
 
@@ -988,13 +947,11 @@
       ul.disc-child-2 {
         padding-left: 24px;
 
-        @include font-style(
-          var(--disclaimer-xsmall-size),
+        @include font-style(var(--disclaimer-xsmall-size),
           var(--disclaimer-xsmall-line-height),
           var(--text-disclaimer),
           400,
-          var(--body)
-        );
+          var(--body));
 
         @include media(mobile) {
           font-size: var(--paragraph-xsmall-size);
@@ -1009,6 +966,7 @@
     align-self: stretch;
     box-shadow: $box-shadow-soft;
     padding: 40px 24px;
+    margin-bottom: unset !important;
 
     @include media(mobile) {
       padding: 40px 16px;
@@ -1047,13 +1005,11 @@
           h6 {
             margin: 0 0 4px;
 
-            @include font-style(
-              var(--body-xlarge-bold-size),
+            @include font-style(var(--body-xlarge-bold-size),
               var(--body-xlarge-bold-line-height),
               var(--blue-1-800-primary),
-             600,
-              var(--body)
-            );
+              600,
+              var(--body));
 
           }
 
@@ -1074,17 +1030,84 @@
                 gap: 8px;
               }
 
-              .custom-select{
-                .select-selected.fdp-select-selected{
-                  width:90px;                
+              .custom-select {
+                .select-selected.fdp-select-selected {
+                  width: 100%;
                 }
               }
-              
+
+            }
+
+            .incal-wrapper {
+              .cal-discription {
+                gap: 4px;
+
+                @include media(mobile) {
+                  gap: 24px 4px;
+                }
+
+                .current-value-wrapper {
+                  max-width: 292px;
+                  width: 100%;
+
+                  @include media(mobile) {
+                    max-width: 204px;
+                    width: 100%;
+                  }
+
+                  .cal-desc-value {
+                    font-size: var(--body-medium-medium-size);
+                    line-height: var(--body-medium-medium-line-height);
+                    font-weight: 500;
+
+                    @include media(mobile) {
+                      font-size: var(--body-small-medium-size);
+                      line-height: var(--body-small-medium-line-height);
+                      font-weight: 500;
+                    }
+
+                    &::before {
+                      top: -3px;
+                      left: 5px;
+                      padding-top: 3px;
+                      font-size: var(--body-medium-medium-size);
+                      line-height: var(--body-medium-medium-line-height);
+                      font-weight: 500;
+                    }
+                  }
+                }
+
+                .return-cagr-wrapper {
+                  max-width: 292px;
+                  width: 100%;
+
+                  @include media(mobile) {
+                    max-width: 132px;
+                    width: 100%;
+                  }
+
+                  .return-cagr {
+                    font-size: var(--body-medium-medium-size);
+                    font-weight: 500;
+                    line-height: var(--body-medium-medium-line-height);
+
+                    @include media(mobile) {
+                      font-size: var(--body-small-medium-size);
+                      line-height: var(--body-small-medium-line-height);
+
+                    }
+                  }
+                }
+              }
             }
           }
 
           .view-btn-cal {
             display: none;
+
+            @include media(mobile) {
+              display: block;
+            }
           }
         }
       }

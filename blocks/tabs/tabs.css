@@ -129,6 +129,8 @@ td {
 
   .tabdiv>.default-content-wrapper>p {
     line-height: var(--body-xsmall-medium-line-height);
+    gap: 4px;
+    font-weight: 500;
   }
 }
 
@@ -162,12 +164,14 @@ td {
   .tabdiv.tabs-container .default-content-wrapper {
     flex-direction: column;
     gap: 8px;
+    padding-bottom: 40px;
   }
 
   .tabdiv.tabs-container .default-content-wrapper:nth-child(3) {
     text-align: center;
     align-items: center;
     justify-content: center;
+    padding-bottom: unset;
   }
 
   /* .tabdiv.tabs-container .default-content-wrapper h4 {
@@ -436,7 +440,7 @@ table>tbody>tr>td:nth-child(7) {
   color: var(--text-text-link);
   font-family: var(--body);
   font-weight: 400;
-  font-size: var(--text-link-small-size);
+  font-size: 14px;
   line-height: var(--text-link-small-line-height);
 }
 
@@ -444,7 +448,7 @@ table>tbody>tr>td:nth-child(7) {
   .chart-wrapper .bar-row {
     display: grid;
     justify-content: space-between;
-    gap: 6px;
+    gap: 2px;
     margin-bottom: 4px;
     grid-template-areas: "bar-center bar-center" "bar-left bar-right";
   }
@@ -479,7 +483,7 @@ table>tbody>tr>td:nth-child(7) {
 
 /* New Periodic Returns CSS Start */
 .section .section.periodicreturn {
-  margin: 80px 0;
+  margin: 64px 0;
 }
 
 .section.periodicreturn .tabs-list {
@@ -652,7 +656,7 @@ table>tbody>tr>td:nth-child(7) {
   line-height: var(--disclaimer-xsmall-line-height);
   font-family: var(--body);
   font-feature-settings: var(--font-features-default);
-  margin: 0 16px 0 0;
+  /* margin: 0 16px 0 0; */
 }
 
 .section.periodicreturn .default-content-wrapper:last-of-type .headgrp2 .headlist2 {

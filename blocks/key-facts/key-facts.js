@@ -21,7 +21,7 @@ export default function decorate(block) {
 
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const [planFlow, planslabel] = planCode.split(':');
-  const planObj = dataCfObj.filter((el) => planslabel === el.schcode);
+  const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
   const data = planObj;
   const DirectPlanlistArr = planObj[0].planList.filter(
     (el) => el.planName === planFlow,
@@ -182,7 +182,7 @@ export default function decorate(block) {
 
   // Create toggle button
   const toggleBtn = document.createElement('span');
-  toggleBtn.textContent = 'read more';
+  toggleBtn.textContent = 'Read More';
   toggleBtn.className = 'read-toggle-btn';
   // toggleBtn.style.marginLeft = '10px';
   // toggleBtn.style.cursor = 'pointer';

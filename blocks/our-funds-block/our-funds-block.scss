@@ -15,7 +15,8 @@ body {
 .section {
   &.our-funds-block-container {
     background-color: var(--neutrals-100);
-
+    
+    // background-color: #fff;
     // padding: 0 0 50px;
     margin: 0;
 
@@ -155,8 +156,8 @@ body {
             @include font-style(
               var(--body-medium-regular-size),
               var(--body-medium-regular-line-height),
-              var(--text-black),
-              400,
+              var(--blue-1-800-primary),
+              500,
               var(--body)
             );
 
@@ -230,7 +231,7 @@ body {
                 var(--body)
               );
 
-              padding: 12px 40px;
+              padding: 12px 20px 12px 40px;
               cursor: pointer;
 
               @include media(mobile) {
@@ -506,7 +507,7 @@ body {
                   var(--body-small-semibold-size),
                   var(--body-small-semibold-line-height),
                   var(--blue-1-800-primary),
-                  600,
+                  500,
                   var(--body)
                 );
 
@@ -677,7 +678,7 @@ body {
                       var(--body-small-regular-size),
                       var(--body-small-regular-line-height),
                       var(--blue-1-800-primary),
-                      400,
+                      500,
                       var(--body)
                     );
                   }
@@ -989,7 +990,7 @@ body {
                       var(--body-medium-regular-size),
                       var(--body-medium-regular-line-height),
                       var(--blue-1-800-primary),
-                      400,
+                      600,
                       var(--body)
                     );
                   }
@@ -1112,7 +1113,7 @@ body {
                       var(--body-small-regular-size),
                       var(--body-small-regular-line-height),
                       var(--blue-1-800-primary),
-                      400,
+                      500,
                       var(--body)
                     );
 
@@ -1607,7 +1608,7 @@ body {
               align-items: center;
               gap: 25px;
               border-radius: 8px;
-              padding: 14px 20px;
+              padding: 8px 20px;
 
               @include media(desktop-sm) {
                 gap: 22px;
@@ -1615,6 +1616,7 @@ body {
 
               .list-header-text {
                 margin: 0;
+                padding: 6px 0;
 
                 @include font-style(
                   var(--body-small-medium-size),
@@ -1655,8 +1657,8 @@ body {
                   background-position: center;
                   background-repeat: no-repeat;
                   background-size: cover;
-                  min-width: 20px;
-                  height: 20px;
+                  min-width: 15px;
+                  height: 10px;
                   display: block;
                 }
               }
@@ -1697,7 +1699,8 @@ body {
             .list-view-container {
               background-color: var(--neutrals-white);
               border-radius: 8px;
-              transition: all 0.3s;
+              transition: border 0.3s;
+              border: 1px solid transparent;
 
               &:hover {
                 border: 1px solid var(--blue-1-50);

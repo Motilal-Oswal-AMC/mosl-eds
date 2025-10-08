@@ -185,7 +185,7 @@ export default function decorate(block) {
   }
 
   // 2. Create the card elements in memory
-  const makeArr = dataCfObj.filter((el) => el.fundsTaggingSection.includes('motilal-oswal:index-funds'));
+  const makeArr = dataCfObj.cfDataObjs.filter((el) => el.fundsTaggingSection.includes('motilal-oswal:index-funds'));
   const cardData = makeArr.slice(0, 5);
   const cardElements = cardData.map((data) => createCardElement(data, brandName, iconsTemplate));
 
