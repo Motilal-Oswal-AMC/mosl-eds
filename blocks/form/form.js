@@ -128,6 +128,7 @@ export default async function decorate(block) {
       selectEl.setAttribute('name', 'addNumber');
       labelEl.id = newLabelId;
     }
+    labelEl.remove();
   }
   updateSelectIds('countrySelect', 'countryLabel');
 }
