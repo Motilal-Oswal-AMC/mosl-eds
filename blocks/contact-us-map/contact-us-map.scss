@@ -1,8 +1,10 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.contact-us-map-container {
+  padding-bottom: 40px;
+
   .contact-us-map-wrapper {
     .contact-us-map {
       .contact-us-parent {
@@ -131,8 +133,9 @@
           .simple-txt {
             font-family: $inter;
             font-weight: 500;
-            font-size: 16px;
-            color: #2e2a94;
+            font-size: 14px;
+            line-height: 16px;
+            color: #212121;
             margin: unset;
           }
 
@@ -268,6 +271,8 @@
               .featrure-input[type="radio"] {
                 accent-color: #2e2a94;
                 border: none;
+                width: 22px;
+                height: 22px;
 
                 &:checked+label.featrure-label {
                   @include font-style(var(--body-medium-medium-size),
@@ -574,11 +579,11 @@
       color: #616161;
       text-align: center;
 
-      @include font-style(var(--body-small-regular-size), 
-      var(--body-small-regular-line-height), 
-      var(--text-body), 
-      400, 
-      var(--body));
+      @include font-style(var(--body-small-regular-size),
+        var(--body-small-regular-line-height),
+        var(--text-body),
+        400,
+        var(--body));
     }
   }
 
