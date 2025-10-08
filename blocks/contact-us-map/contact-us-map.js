@@ -389,7 +389,7 @@ export default async function decorate(block) {
             type: 'text',
             name: '',
             id: '',
-            placeholder: plachld2,
+            placeholder: '',
           }),
         ),
       ),
@@ -489,4 +489,21 @@ export default async function decorate(block) {
   block.querySelector('.featrure2 input').addEventListener('click', () => {
     window.location.href = 'https://www.kfintech.com/contact-us/';
   });
+  const pinCode = block.querySelector('.search-loaction-input');
+  const wrapper = block.querySelector('.pincode-wrap');
+
+  function toggleLabel() {
+    if (pinCode.value.trim() !== '' || document.activeElement === pinCode) {
+      wrapper.classList.add('active');
+    } else {
+      wrapper.classList.remove('active');
+    }
+  }
+
+  pinCode.addEventListener('focus', toggleLabel);
+  pinCode.addEventListener('blur', toggleLabel);
+  pinCode.addEventListener('input', toggleLabel);
+
+  // Initialize state on page load
+  toggleLabel();
 }
