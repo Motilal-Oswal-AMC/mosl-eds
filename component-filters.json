@@ -47,9 +47,16 @@
       "invest-now-homepage",
       "fm-portfolio",
       "fdp-campaign",
+      "start-building",
+      "our-experts",
+      "popular-article",
+      "moedge-building",
+      "our-authors",
+      "edge-filter",
       "investing-terms",
       "global-dashboard",
       "our-service"
+
     ]
   },
   {
@@ -148,23 +155,15 @@
     ]
   },
   {
-    "id": "investing-terms",
+    "id": "popular-article",
     "components": [
-      "investing-image-item",
-      "investing-text-item"
+      "popular-article-item"
     ]
   },
   {
-    "id": "global-dashboard",
+    "id": "moedge-building",
     "components": [
-      "global-image-item",
-      "global-text-item"
-    ]
-  },
-  {
-    "id": "our-service",
-    "components": [
-      "our-service-item"
+      "moedge-building-item"
     ]
   }
 ]

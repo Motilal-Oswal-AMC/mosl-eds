@@ -5,6 +5,7 @@ import {
   button, a, div, input, ul, li, img, table, thead, tbody, tr, th, td,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
+// import moEdge from './popular-acticles.js';
 
 export default async function decorate(block) {
   const tablist = document.createElement('div');

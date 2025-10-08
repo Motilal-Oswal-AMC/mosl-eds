@@ -1,0 +1,199 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
+
+.start-building-container {
+    padding: map.get($spacing, sm);
+
+    @include media(mobile) {
+        padding: unset;
+    }
+
+    .start-building-wrapper {
+        width: 100%;
+
+        .start-building {
+            display: flex;
+            flex-direction: column; // mobile first: stacked
+            align-items: flex-start;
+            gap: map.get($spacing, sm);
+            padding: 16px;
+            border-radius: 8px;
+            background: #2E2A94;
+
+            @include media(mobile) {
+                padding: 20px;
+            }
+
+            .start-container1 {
+                .start-section1 {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: map.get($spacing, sm);
+                    width: 100%;
+
+                    h4 {
+                        @include font-style(24px,
+                            32px,
+                            $primary-white,
+                            map.get($font-weights, bold),
+                            $butlerpro);
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 12px;
+                        margin: 0;
+
+                        .icon {
+                            width: 64px;
+                            height: 64px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+
+                    &>:nth-child(2) {
+                        margin: 0;
+                        padding: 0;
+                        color: #FFF;
+                        font-family: $poppins;
+                        font-size: rem(14px);
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: rem(20px);
+                    }
+
+                    .button-container {
+                        margin: 0;
+                        margin-top: 28px;
+                        padding: 0;
+                        line-height: 0.1px;
+
+                        @include media(mobile) {
+                            width: 100%;
+                        }
+
+                        .button {
+                            @include font-style(16px,
+                                20px,
+                                map.get($button-secondary, text),
+                                map.get($font-weights, medium),
+                                $poppins);
+
+                            width: 100%; // full-width button on mobile
+                            padding: 12px;
+                            border-radius: map.get($radius, r4);
+                            border: none;
+                            background-color: map.get($button-secondary, default);
+                            cursor: pointer;
+                            transition: background-color 0.3s ease;
+                            margin: 0;
+                            text-align: center;
+
+                            &:hover {
+                                background-color: map.get($button-secondary, hover);
+                            }
+
+                            &:active {
+                                background-color: map.get($button-secondary, active);
+                            }
+
+                            &:disabled {
+                                background-color: map.get($button-secondary, disabled);
+                                color: $neutrals-400;
+                                cursor: not-allowed;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Tablet and up
+@media (width >=900px) {
+    .start-building-container {
+        padding: map.get($spacing, md);
+
+        .start-building-wrapper {
+            .start-building {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: map.get($spacing, lg);
+
+                .start-container1 {
+                    width: -webkit-fill-available;
+
+                    .start-section1 {
+                        flex-direction: unset;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        &>:nth-child(2) {
+                            display: none;
+                        }
+                    }
+                }
+
+                .button-container {
+                    margin: 0;
+
+                    .button {
+                        width: auto; // reset back to fit-content
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Desktop overrides
+@media (width >=1025px) {
+    .start-building-container {
+        .start-building-wrapper {
+            .start-building {
+                padding: 24px 32px;
+
+                .start-container1 {
+                    width: -webkit-fill-available;
+
+                    .start-section1 {
+                        h4 {
+                            flex-direction: row;
+                            align-items: center;
+
+                            @include font-style(32px,
+                                40px,
+                                $primary-white,
+                                map.get($font-weights, bold),
+                                $butlerpro);
+
+                            .icon {
+                                width: 64px;
+                                height: 64px;
+                            }
+                        }
+
+                        &>:nth-child(2) {
+                            display: none;
+                        }
+
+                        .button-container {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
