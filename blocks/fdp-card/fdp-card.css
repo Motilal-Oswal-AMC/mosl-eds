@@ -419,6 +419,11 @@ main {
   font-weight: 400;
   margin: 0;
 }
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp .nav-value-grp .perecent-value .nav-percent {
+    font-weight: 500;
+  }
+}
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv {
   margin: 24px 0 0;
 }
