@@ -255,7 +255,6 @@
   margin: 37px 0 0;
 }
 .modal.block dialog .modal-content .live-streaming {
-  max-width: 816px;
   width: 100%;
   border-radius: 8px;
   align-self: flex-end;
