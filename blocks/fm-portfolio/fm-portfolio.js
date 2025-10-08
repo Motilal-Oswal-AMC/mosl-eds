@@ -105,7 +105,10 @@ export default async function decorate(block) {
       ),
     ),
     div({ class: 'fm-param' }),
-    div(
+  );
+
+  try {
+    const tablediv = div(
       { class: 'fm-scheme-table' },
       table(
         thead(
@@ -141,11 +144,20 @@ export default async function decorate(block) {
           )),
         ),
       ),
-    ),
-  );
+    );
+    if (sortedPeriods.length === 0
+      && uniqueSchemes.length === 0
+      && managerSchemes.length === 0) {
+      portfolioBlock.append('');
+    } else {
+      portfolioBlock.append(tablediv);
+    }
+  } catch (error) {
+    portfolioBlock.append('');
+  }
 
   block.innerHTML = '';
-  portfolioBlock.querySelector('.fm-param').innerHTML = agentData.description;
+  portfolioBlock.querySelector('.fm-param').innerHTML = agentData.description.replaceAll('br&gt;', '').replaceAll('&lt;', '');
   block.append(portfolioBlock);
 
   // const closeButton = block.parentElement.parentElement.querySelector('.icon-modal-btn');
