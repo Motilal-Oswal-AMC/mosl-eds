@@ -275,6 +275,16 @@
                   );
                 }
 
+                .otp-input:focus {
+                  border-radius: var(--border-radius-8, 8px);
+                  border: var(--border-width-02, 2px) solid
+                    var(--strokes-typing, #1887d2);
+                  caret-color:var(--strokes-typing, #1887d2);
+                  text-align: center;
+                  font-weight: 600;
+               
+                }
+
                 .otp-input-error {
                   border-radius: var(--border-radius-8, 8px);
                   border: var(--border-width-01, 1px) solid
@@ -312,7 +322,7 @@
             .incorrect-otp {
               font-style: normal;
               position: absolute;
-              top: 93% ;
+              top: 93%;
 
               @include font-style(
                 var(--paragraph-xsmall-size),
@@ -322,8 +332,8 @@
                 var(--body)
               );
 
-               @include media(mobile) {
-                 top: 58%
+              @include media(mobile) {
+                top: 58%;
               }
             }
           }
@@ -331,7 +341,7 @@
           .otp-para-block {
             padding-top: 36px;
 
-             @include media(mobile) {
+            @include media(mobile) {
               padding-top: 12px;
             }
 

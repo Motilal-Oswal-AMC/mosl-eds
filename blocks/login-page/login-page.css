@@ -241,6 +241,13 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
+.section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .enter-input-block .input-resend .otp-inputs-block .otp-input:focus {
+  border-radius: var(--border-radius-8, 8px);
+  border: var(--border-width-02, 2px) solid var(--strokes-typing, #1887d2);
+  caret-color: var(--strokes-typing, #1887d2);
+  text-align: center;
+  font-weight: 600;
+}
 .section.login-page-container .login-page-wrapper .main-login-page .response-block .kycblock .enter-input-block .input-resend .otp-inputs-block .otp-input-error {
   border-radius: var(--border-radius-8, 8px);
   border: var(--border-width-01, 1px) solid var(--strokes-error, #ee212e);
