@@ -490,6 +490,10 @@ main {
                       var(--body));
 
                     margin: 0;
+
+                    @include media(mobile) {
+                      font-weight: 500;
+                    }
                   }
                 }
               }
