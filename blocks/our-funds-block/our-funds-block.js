@@ -2122,6 +2122,11 @@ export default function decorate(block) {
         const sortcont = block.querySelector('.return-select-container .dropdown-list');
         sortcont.classList.remove('dropdown-active');
       }
+      Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+        if (!elinner.contains(event.target)) {
+          elinner.nextElementSibling.style.display = 'none';
+        }
+      });
     } catch (error) {
       // console.log(error);
     }
