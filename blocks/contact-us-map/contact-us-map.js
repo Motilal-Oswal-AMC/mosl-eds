@@ -257,11 +257,15 @@ async function onLoadContactusCities() {
       // const data = response;
       const cityDropdownList = document.querySelector('.location-dropdown .location-options-value');
       let html = '';
-      const cityArray = datacfContact.data.data;
-      cityArray.forEach((ele) => {
-        if (ele.contactAdd[0].city !== null) {
-          html += `<li class="city-value">${ele.contactAdd[0].city}</li>`;
+      const citydroparr = [];
+      datacfContact.data.data.forEach((el) => {
+        if (el.contactAdd[0].city !== null) {
+          citydroparr.push(el.contactAdd[0].city);
         }
+      });
+      const cityArray = citydroparr.sort();
+      cityArray.forEach((ele) => {
+        html += `<li class="city-value">${ele}</li>`;
       });
       cityDropdownList.innerHTML = html;
 
@@ -270,12 +274,15 @@ async function onLoadContactusCities() {
         item.addEventListener('click', (event) => {
           const parent = event.target;
           const locationValue = parent.closest('.location-dropdown').querySelector('.location-value');
+          const searchinput = parent.closest('.contact-us-parent');
+          const searchelem = searchinput.querySelector('.search-loaction-input');
           locationValue.textContent = parent.textContent;
           const namecity = parent.textContent;
           const detailsCol = document.querySelector('.location-map .location-info');
           const mapCol = document.querySelector('.location-map .loc-geo');
           updateContentForCity(namecity, detailsCol, mapCol);
           parent.closest('.location-options-value').style.display = 'none';
+          searchelem.value = '';
         });
       });
     } catch (error) {
@@ -438,8 +445,9 @@ export default async function decorate(block) {
         pranmkv2.classList.add('show-contact-error');
       }
     } else if (inpval.length === 0) {
-      const dropVal = block.querySelector('.location-value').textContent.trim();
-      updateContentForCity(dropVal, detailsCol, mapCol);
+      const dropVal = block.querySelector('.location-value');
+      dropVal.textContent = 'Mumbai';
+      updateContentForCity('Mumbai', detailsCol, mapCol);
       pranmk.classList.remove('contact-data-not-found');
       pranmkv2.classList.remove('show-contact-error');
     }
@@ -478,7 +486,8 @@ export default async function decorate(block) {
   document.querySelector('.contact-card').parentElement.classList.add('contact-us-parent-wrapper');
   document.addEventListener('click', (event) => {
     const innerUl = block.querySelector('.location-options-value');
-    if (!event.target.contains(innerUl)) {
+    const parentui = block.querySelector('.location-dropdown');
+    if (!parentui.contains(event.target)) {
       // toggle display
       if (innerUl.style.display === 'block' || innerUl.style.display === '') {
         innerUl.style.display = 'none';
