@@ -12,7 +12,7 @@
   outline-offset: 4px;
 }
 
-.modal.block dialog .close-button {
+.modal.block dialog .risk-meter .close-button {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -24,21 +24,22 @@
   justify-content: center;
   gap: 10px;
   border-radius: 18px;
+  background: #2e2a94;
   z-index: 10;
   cursor: pointer;
 }
-.modal.block dialog .close-button:focus-visible {
+.modal.block dialog .risk-meter .close-button:focus-visible {
   outline: 3px dashed #FFF;
   outline-offset: 4px;
 }
-.modal.block dialog .close-button .icon.icon-close::before,
-.modal.block dialog .close-button .icon.icon-close::after {
+.modal.block dialog .risk-meter .close-button .icon.icon-close::before,
+.modal.block dialog .risk-meter .close-button .icon.icon-close::after {
   width: 13px;
   height: 1.5px;
-  background-color: #2E2A94;
+  background-color: #fff;
 }
 
-.modal.block dialog > .modal-content {
+.modal.block dialog > .modal-content.risk-meter {
   position: relative;
   max-width: 816px;
   padding: 24px;
@@ -51,7 +52,7 @@
   height: auto;
 }
 @media (max-width: 768px) {
-  .modal.block dialog > .modal-content {
+  .modal.block dialog > .modal-content.risk-meter {
     max-width: 91.4%;
   }
 }
