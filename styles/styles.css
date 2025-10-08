@@ -108,6 +108,10 @@ body.appear {
     display: block;
 }
 
+body.scroll-lock{
+    overflow: hidden;
+}
+
 body.loading {
     overflow: hidden;
     pointer-events: none;

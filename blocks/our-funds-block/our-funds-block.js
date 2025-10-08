@@ -2129,11 +2129,10 @@ export default function decorate(block) {
 
   Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
     eltoo.addEventListener('click', (event) => {
-      if (event.target.nextElementSibling.style.display === 'block') {
-        event.target.nextElementSibling.style.display = 'none';
-      } else {
-        event.target.nextElementSibling.style.display = 'block';
-      }
+      Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+        elinner.nextElementSibling.style.display = 'none';
+      });
+      event.target.nextElementSibling.style.display = 'block';
     });
   });
 }
