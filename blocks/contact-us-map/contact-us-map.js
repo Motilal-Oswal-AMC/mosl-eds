@@ -87,6 +87,7 @@ function renderDetails(container, data) {
   let html;
   contactAdd.forEach((addr) => {
     const mobst = (addr.mobileNo === null || addr.landlineNo === null) ? 'none' : 'block';
+    const pincode = addr.pincode === null ? '' : `- ${addr.pincode}`;
     // const emailst = addr.emailid === null ? 'none' : 'block';
     let regOff;
     let regOffst;
@@ -135,7 +136,7 @@ function renderDetails(container, data) {
           br(),
           addr.streetName === null ? '' : addr.streetName,
           br(),
-          `${addr.city} - ${addr.pincode}`,
+          `${addr.city}${pincode}`,
         ),
       ),
       ul(
