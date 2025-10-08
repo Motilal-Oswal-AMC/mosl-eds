@@ -6,6 +6,7 @@ import { myAPI } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const loginImagev2 = block.closest('.login-page-container');
+  const logImgeV1 = loginImagev2.querySelector('.login-image-item-wrapper');
   const loginImage = loginImagev2.querySelector('.login-page-wrapper');
   dataMapMoObj.CLASS_PREFIXES = [
     'login-item',
@@ -19,7 +20,7 @@ export default function decorate(block) {
     'login-image-sub-item',
     'login-image-inner-item',
   ];
-  dataMapMoObj.addIndexed(loginImage);
+  dataMapMoObj.addIndexed(logImgeV1);
 
   const loginPagePan = div(
     { class: 'main-login-page' },
@@ -108,11 +109,12 @@ export default function decorate(block) {
       label({ class: 'passcode-label' }, 'Enter Passcode'),
       div(
         { class: 'pass-input' },
-        input({ class: 'pass-code-input' }),
-        input({ class: 'pass-code-input' }),
-        input({ class: 'pass-code-input' }),
-        input({ class: 'pass-code-input' }),
+        input({ class: 'pass-code-input error-pass', type: 'password' }),
+        input({ class: 'pass-code-input error-pass', type: 'password' }),
+        input({ class: 'pass-code-input error-pass', type: 'password' }),
+        input({ class: 'pass-code-input succ-pass', type: 'password' }),
       ),
+      p({ class: 'error-para' }, 'Incorrect Passcode'),
     ),
     p({ class: 'forget-pass' }, p({ class: 'pass-para' }, 'Forget Passcode?')),
   );
