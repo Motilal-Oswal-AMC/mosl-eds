@@ -18,7 +18,7 @@
 }
 @media (max-width: 768px) {
   .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 {
-    padding: 24px 0;
+    padding: 24px 16px;
   }
 }
 .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 .cont-us-head-ul1 {
@@ -59,7 +59,7 @@
 @media (max-width: 768px) {
   .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 ul.cont-us-head-ul2 .cont-us-txt-li1 #contact-us {
     font-size: var(--sub-header-large-size);
-    line-height: var(--sub-header-medium-line-height);
+    line-height: 28px;
   }
 }
 .section.contact-card ul.cont-us-head1 li.cont-us-head-li1 ul.cont-us-head-ul2 .cont-us-txt-li2 {
@@ -79,6 +79,7 @@
 }
 .section.contact-card .default-content-wrapper {
   width: 100%;
+  padding: 0;
 }
 .section.contact-card .default-content-wrapper h3 {
   width: 100%;
@@ -236,12 +237,18 @@
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1),
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1),
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1) {
+  color: #2E2A94;
   margin: 0;
   gap: 8px;
   display: flex;
   align-items: center;
   position: relative;
   padding-right: 12px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration-line: underline;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-2, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-15, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-18,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1).list-elem-2,
@@ -297,8 +304,9 @@
   text-decoration-thickness: auto;
   text-underline-offset: 20%;
   text-underline-position: from-font;
-  font-size: var(--text-link-small-size);
-  line-height: var(--text-link-small-line-height);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
   color: var(--text-text-link);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -321,6 +329,7 @@
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12 .icon {
   height: 40px;
   width: 40px;
+  cursor: text;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1.list-elem-5, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1.list-elem-10,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4.list-elem-5,
@@ -476,12 +485,18 @@
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9 ul li.contact-li2,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12 ul li.contact-li2 {
   margin: 0;
+  cursor: pointer;
+  line-height: 20px;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 ul li.list-elem-12 {
   margin: 0;
+  cursor: pointer;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 {
   gap: 0;
+}
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul .contact-li2.list-elem-16 {
+  cursor: pointer;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li {
   text-decoration: none;
@@ -503,6 +518,7 @@
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li span {
   width: 40px;
   height: 40px;
+  cursor: text;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li span img {
   border-radius: 0%;

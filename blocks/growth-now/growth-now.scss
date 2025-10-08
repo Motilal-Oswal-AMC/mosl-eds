@@ -3,8 +3,8 @@
 /* media-feature-range-notation */
 
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 // main {
 //     // background-color: $neutrals-100;
@@ -134,7 +134,10 @@
                     padding: 0;
                     order: 3;
                     position: absolute;
-                    bottom: -1px;
+                    bottom: 0;
+                    width: 142px;
+                    height: 185px;
+                    flex-shrink: 0;
                 }
 
 
@@ -146,8 +149,8 @@
 
                     @include media(mobile) {
                         width: 142px;
-                        height: 173px;
-                        margin-bottom: -10px;
+                        height: 185px;
+                        flex-shrink: 0;
                         object-fit: cover;
                         object-position: bottom;
                     }
@@ -162,6 +165,7 @@
             .fund-sec-3 {
                 // padding-left: 8px;
                 padding-right: 32px;
+                padding-left: 14px;
 
                 @include media (desktop-sm) {
                     padding: 0;

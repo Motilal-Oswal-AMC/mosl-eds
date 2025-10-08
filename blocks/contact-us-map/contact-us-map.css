@@ -1,4 +1,7 @@
 @import "../../../styles/fonts.css";
+.section.contact-us-map-container {
+  padding-bottom: 40px;
+}
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent {
   display: flex;
   flex-direction: column;
@@ -30,7 +33,7 @@
   font-weight: 400;
   font-size: 12px;
   position: absolute;
-  top: 2px;
+  top: 0;
   left: 10px;
   transform: translateY(-50%);
   padding: 0 8px;
@@ -114,8 +117,9 @@
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location .simple-txt {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 16px;
-  color: #2e2a94;
+  font-size: 14px;
+  line-height: 16px;
+  color: #212121;
   margin: unset;
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location .pincode-wrap {
@@ -131,7 +135,7 @@
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location .pincode-wrap .location-pincd {
   position: absolute;
-  top: 2px;
+  top: 0;
   left: 10px;
   transform: translateY(-50%);
   padding: 0 6px;
@@ -172,6 +176,13 @@
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location .pincode-wrap .search-loaction .search-loaction-input {
   border: none;
   width: 100%;
+  color: var(--text-typed-input);
+  font-feature-settings: --font-features-default;
+  font-family: var(--body, Inter);
+  font-size: var(--body-medium-regular-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--body-medium-regular-line-height);
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location .mobfeatrure {
   display: none;
@@ -242,6 +253,8 @@
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .contact-feature .feature-wrap .featrure2 .featrure-input[type=radio] {
   accent-color: #2e2a94;
   border: none;
+  width: 22px;
+  height: 22px;
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .contact-feature .feature-wrap .featrure1 .featrure-input[type=radio]:checked + label.featrure-label,
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .contact-feature .feature-wrap .featrure2 .featrure-input[type=radio]:checked + label.featrure-label {
@@ -395,6 +408,7 @@
           text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-offset: 20%;
+  cursor: pointer;
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map .location-info .mum-location .contact-number .none {
   display: none;

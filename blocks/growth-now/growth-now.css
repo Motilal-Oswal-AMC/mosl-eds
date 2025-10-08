@@ -78,7 +78,10 @@
     padding: 0;
     order: 3;
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
+    width: 142px;
+    height: 185px;
+    flex-shrink: 0;
   }
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-1 img {
@@ -90,8 +93,8 @@
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-1 img {
     width: 142px;
-    height: 173px;
-    margin-bottom: -10px;
+    height: 185px;
+    flex-shrink: 0;
     -o-object-fit: cover;
        object-fit: cover;
     -o-object-position: bottom;
@@ -100,6 +103,7 @@
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 {
   padding-right: 32px;
+  padding-left: 14px;
 }
 @media (max-width: 1299px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-3 {
