@@ -59,7 +59,9 @@
             padding: 0 16px;
             display: flex;
             flex-direction: column;
-            row-gap: 36px;
+            
+            // row-gap: 36px;
+            row-gap: 24px;
         }
 
         .footer-section1 .footer-sub1 {
@@ -437,7 +439,7 @@
             background: var(--blue-1-900);
             position: relative;
             z-index: 1;
-            padding: 24px 0;
+            padding: 24px 0 70px;
 
             .footer-sub1 {
                 display: flex;

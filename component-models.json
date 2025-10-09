@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "FLP Faq",
+            "value": "flp-faq"
+          },
+          {
             "name": "login Registered",
             "value": "login-registered"
           },
@@ -1350,6 +1354,11 @@
       {
         "component": "text",
         "name": "col_return",
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "name": "col_returnmobile",
         "label": "Title"
       },
       {

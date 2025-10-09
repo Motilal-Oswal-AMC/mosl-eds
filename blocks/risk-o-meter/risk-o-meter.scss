@@ -18,7 +18,7 @@
   }
 }
 
-.modal.block dialog .close-button {
+.modal.block dialog .risk-meter .close-button {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -30,6 +30,7 @@
   justify-content: center;
   gap: 10px;
   border-radius: 18px;
+  background: #2e2a94;
   
   // background: #2E2A94;
   z-index: 10;
@@ -44,12 +45,12 @@
   .icon.icon-close::after {
     width: 13px;
     height: 1.5px;
-    background-color: #2E2A94;
+    background-color: #fff;
   }
 
 }
 
-.modal.block dialog>.modal-content {
+.modal.block dialog>.modal-content.risk-meter {
   position: relative;
   max-width: 816px;
   padding: 24px;
@@ -83,7 +84,8 @@
   }
 
   &.risk-container {
-    margin-top: unset !important;
+    // margin-top: unset !important;
+    margin: 0;
     padding: 16px;
 
     @include media(mobile) {
@@ -106,6 +108,7 @@
       flex-direction: column-reverse;
       padding: 0;
       gap: 40px;
+
       // margin: 32px 0 40px;
     }
   }
@@ -299,6 +302,7 @@
   @include media(mobile) {
     padding: 40px 16px;
     margin: unset !important;
+
     // background: #FFF;
     // box-shadow: 0 4px 12px 0 #0000000D;
     // gap: 8px;
@@ -373,6 +377,6 @@
   }
 }
 
-.section.risk-o-meter-container.risk-container {
-  margin: 0;
-}
+// .section.risk-o-meter-container.risk-container {
+//   margin: 0;
+// }

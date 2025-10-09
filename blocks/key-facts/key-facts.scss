@@ -405,6 +405,7 @@
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
+
         // justify-content: space-between;
         list-style: none;
         align-items: center;
@@ -449,6 +450,7 @@
         ol {
           width: calc(100% - 72px);
           display: flex;
+
           // justify-content: space-between;
           gap: 8px;
           margin: 0;
@@ -471,7 +473,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
             max-width: 169px;
             width: 100%;
 
@@ -572,6 +573,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
+
           // height: 60px;
 
           @media (width <=768px) {
@@ -586,7 +588,6 @@
             gap: 8px;
 
             .key-facts-amounts-title {
-
               & .block-subitem-finelsub2,
               & .block-subitem-finelsub3 {
                 margin: unset;
@@ -633,6 +634,7 @@
             .benchmark-groups {
               display: flex;
               justify-content: space-between;
+
               // height: 60px;
 
               @media (width <=768px) {
