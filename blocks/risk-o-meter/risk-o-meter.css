@@ -365,3 +365,7 @@
   color: #242177;
   font-family: Inter, sans-serif;
 }
+
+.section.risk-o-meter-container.risk-container {
+  margin: 0;
+}

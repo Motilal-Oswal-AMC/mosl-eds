@@ -1937,7 +1937,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         gap: 20px;
         list-style: none;
         margin: 0;
-        
+
         /* pointer-events: none; */
     }
 
@@ -2686,6 +2686,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
     header nav .header-top .header-top-cont1 {
         width: 100%;
+        margin: 0;
+        background-color: transparent;
     }
 
     header nav .header-top .header-top-cont1 .header-top-sec1 {
