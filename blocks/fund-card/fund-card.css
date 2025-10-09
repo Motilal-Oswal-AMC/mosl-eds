@@ -198,7 +198,8 @@
   }
 }
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper {
-  max-width: 130px;
+  max-width: -moz-max-content;
+  max-width: max-content;
   width: 100%;
   position: relative;
   margin: 4px 0 0;
@@ -215,6 +216,16 @@
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .selectedtext .cagr-date {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--blue-1-800-primary);
+  font-family: var(--inter);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
 }
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .selectedtext::after {
   content: "";
@@ -279,16 +290,6 @@
 }
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list li:last-of-type {
   border: none;
-}
-.section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-date {
-  font-size: 12px;
-  line-height: 14px;
-  color: var(--blue-1-800-primary);
-  font-family: var(--inter);
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
 }
 .section .card-container .card-wrapper .cagr-container .cagr-value {
   max-width: -moz-max-content;

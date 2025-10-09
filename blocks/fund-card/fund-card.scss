@@ -294,7 +294,8 @@
             // width: 80px;
             // width: 117px;
             // width: max-content;
-            max-width: 130px;
+            // max-width: 130px;
+            max-width: max-content;
             width: 100%;
             position: relative;
             margin: 4px 0 0;
@@ -330,6 +331,17 @@
               display: flex;
               align-items: center;
               gap: 4px;
+
+              .cagr-date {
+                @include font-style(12px,
+                  14px,
+                  var(--blue-1-800-primary),
+                  500,
+                  var(--inter));
+
+                margin: 0;
+                padding: 0;
+              }
 
               &::after {
                 content: "";
@@ -408,17 +420,6 @@
                 }
               }
             }
-          }
-
-          .cagr-date {
-            @include font-style(12px,
-              14px,
-              var(--blue-1-800-primary),
-              500,
-              var(--inter));
-
-            margin: 0;
-            padding: 0;
           }
         }
 

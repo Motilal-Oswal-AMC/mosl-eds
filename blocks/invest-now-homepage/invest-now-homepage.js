@@ -1206,6 +1206,7 @@ export default function decorate(block) {
   );
 
   // Build modal
+  const textdrop = dataMapMoObj.planText === undefined ? '' : dataMapMoObj.planText;
   const modal = div(
     { class: 'invest-now-modal fdp-sip-modal' },
     div(
@@ -1222,12 +1223,13 @@ export default function decorate(block) {
           h3({ class: 'fund-name' }, fundNameFromData),
           div(
             { class: 'dropdown-wrap' },
-            p({ class: 'selected-txt' }, 'Growth'),
+            p({ class: 'selected-txt' }, textdrop),
             ul(
               { class: 'dropdown-list' },
-              li({ class: 'list-name' }, '1Y'),
-              li({ class: 'list-name' }, '3Y'),
-              li({ class: 'list-name' }, '5Y'),
+              ...dataMapMoObj.planlistArr.map((eloption) => li({
+              class: 'list-name',
+              datacode: eloption.groupedCode,
+            }, `${eloption.planName} | ${eloption.optionName}`)),
             ),
           ),
         ),
@@ -1341,8 +1343,8 @@ export default function decorate(block) {
             classAddv2.classList.remove('hide-modal');
             classAddv2.classList.add('modal-show');
           },
-        }, 'BUY NOW'),
-        button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
+        }, 'Add to Cart'),
+        button({ class: 'start-now modal-cta-btn' }, 'Invest Now'),
       ),
     ),
   );
