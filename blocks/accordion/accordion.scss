@@ -397,6 +397,10 @@
 
       @include media(mobile) {
         display: flex;
+        position: fixed;
+        right: 16px;
+        bottom: 284px;
+        z-index: 20;
       }
 
       li {

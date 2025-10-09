@@ -360,7 +360,7 @@
 .section .our-funds-block .filter-cards .left-container {
   max-width: 296px;
   width: 100%;
-  margin: 56px 0 0;
+  margin: 53.2px 0 0;
 }
 @media (max-width: 1299px) {
   .section .our-funds-block .filter-cards .left-container {
@@ -1209,6 +1209,34 @@
   .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .toggle-text:last-of-type {
     font-size: var(--paragraph-small-size);
     line-height: var(--paragraph-small-line-height);
+  }
+}
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn.toggle-checked .toggle-text:first-of-type {
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--neutrals-black);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn.toggle-checked .toggle-text:first-of-type {
+    font-size: var(--paragraph-small-size);
+    line-height: var(--paragraph-small-line-height);
+  }
+}
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn.toggle-checked .toggle-text:last-of-type {
+  font-size: var(--body-small-semibold-size);
+  line-height: var(--body-small-semibold-line-height);
+  color: var(--blue-1-700);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn.toggle-checked .toggle-text:last-of-type {
+    font-size: var(--body-small-semibold-size);
+    line-height: var(--body-small-semibold-line-height);
   }
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap input {

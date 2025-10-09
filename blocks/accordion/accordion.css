@@ -292,6 +292,10 @@
 @media (max-width: 768px) {
   .section.freq-ask-ques > .default-content-wrapper:nth-child(3) ul {
     display: flex;
+    position: fixed;
+    right: 16px;
+    bottom: 284px;
+    z-index: 20;
   }
 }
 .section.freq-ask-ques > .default-content-wrapper:nth-child(3) ul li {

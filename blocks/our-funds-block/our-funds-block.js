@@ -305,12 +305,12 @@ function searchFunctionality(block) {
 
   const flpboolean = document.querySelector('.fund-toggle-wrap input').checked;
   const planflow = flpboolean ? 'Regular' : 'Direct';
-  // const mop = document.querySelector('.fund-toggle-wrap input');
-  // if (flpboolean) {
-  //   mop.closest('.togglebtn').classList.add('toggle-checked');
-  // } else {
-  //   mop.closest('.togglebtn').classList.remove('toggle-checked');
-  // }
+  const mop = document.querySelector('.fund-toggle-wrap input');
+  if (flpboolean) {
+    mop.closest('.togglebtn').classList.add('toggle-checked');
+  } else {
+    mop.closest('.togglebtn').classList.remove('toggle-checked');
+  }
   let datacd = [];
   const dataouter = [];
   dataCfObj.cfDataObjs.forEach((elde, indexde) => {
@@ -764,11 +764,11 @@ export default function decorate(block) {
   Array.from(block.closest('.section').querySelector('.item2').children).forEach((el) => {
     el.classList.add('list-header-text');
   });
-  Array.from(block.querySelector('.block-item3 .block-subitem-finelsub3').children).forEach((el) => {
+  Array.from(block.querySelector('.block-item3 .block-subitem-finelsub4').children).forEach((el) => {
     el.classList.add('viewlist-btn');
   });
   Array.from(
-    block.querySelector('.block-item3 .block-subitem-finelsub4').children,
+    block.querySelector('.block-item3 .block-subitem-finelsub5').children,
   ).forEach((el) => {
     el.classList.add('viewlist-btn');
   });
@@ -1337,7 +1337,7 @@ export default function decorate(block) {
                 // ))
                 span(
                   block
-                    .querySelector('.block-item3 .block-subitem-finelsub1')
+                    .querySelector('.block-item3 .block-subitem-finelsub3')
                     .textContent.trim(),
                 ),
               ),
@@ -1567,7 +1567,7 @@ export default function decorate(block) {
                         .classList.remove('active');
                     },
                   },
-                  'close',
+                  'Close',
                 ),
                 button(
                   {
@@ -1873,7 +1873,7 @@ export default function decorate(block) {
                     viewFunction(block);
                   },
                 },
-                block.querySelector('.block-item3 .block-subitem-finelsub3'),
+                block.querySelector('.block-item3 .block-subitem-finelsub4'),
               ),
               div(
                 {
@@ -1895,7 +1895,7 @@ export default function decorate(block) {
                     viewFunction(block);
                   },
                 },
-                block.querySelector('.block-item3 .block-subitem-finelsub4'),
+                block.querySelector('.block-item3 .block-subitem-finelsub5'),
               ),
             ),
             div(
@@ -1982,6 +1982,7 @@ export default function decorate(block) {
             class: 'cards-container',
           },
           ...dataMapMoObj.funddata.map((el) => fundcardblock(el)),
+          span('addee to watchlist')
         ),
         div(
           {

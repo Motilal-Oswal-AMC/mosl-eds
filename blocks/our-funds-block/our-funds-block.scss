@@ -444,7 +444,7 @@ body {
       .left-container {
         max-width: 296px;
         width: 100%;
-        margin: 56px 0 0;
+        margin: 53.2px 0 0;
 
         @include media(desktop-sm) {
           max-width: 25%;
@@ -1398,37 +1398,37 @@ body {
                 }
               }
 
-              // &.toggle-checked {
-              //   .toggle-text:first-of-type {
-              //     @include font-style(
-              //       var(--body-small-regular-size),
-              //       var(--label-large-line-height),
-              //       var(--neutrals-black),
-              //       400,
-              //       var(--body)
-              //     );
+              &.toggle-checked {
+                .toggle-text:first-of-type {
+                  @include font-style(
+                    var(--body-small-regular-size),
+                    var(--label-large-line-height),
+                    var(--neutrals-black),
+                    400,
+                    var(--body)
+                  );
 
-              //     @include media(mobile) {
-              //       font-size: var(--paragraph-small-size);
-              //       line-height: var(--paragraph-small-line-height);
-              //     }
-              //   }
+                  @include media(mobile) {
+                    font-size: var(--paragraph-small-size);
+                    line-height: var(--paragraph-small-line-height);
+                  }
+                }
 
-              //   .toggle-text:last-of-type {
-              //     @include font-style(
-              //       var(--body-small-semibold-size),
-              //       var(--body-small-semibold-line-height),
-              //       var(--blue-1-700),
-              //       600,
-              //       var(--body)
-              //     );
+                .toggle-text:last-of-type {
+                  @include font-style(
+                    var(--body-small-semibold-size),
+                    var(--body-small-semibold-line-height),
+                    var(--blue-1-700),
+                    600,
+                    var(--body)
+                  );
 
-              //     @include media(mobile) {
-              //       font-size: var(--body-small-semibold-size);
-              //       line-height: var(--body-small-semibold-line-height);
-              //     }
-              //   }
-              // }
+                  @include media(mobile) {
+                    font-size: var(--body-small-semibold-size);
+                    line-height: var(--body-small-semibold-line-height);
+                  }
+                }
+              }
 
               .fund-toggle-wrap {
                 input {
