@@ -149,7 +149,7 @@
   border-radius: 8px;
   border: 0.5px solid #B9BBFF;
   background: #fff;
-  box-shadow: 0 0 8 0 rgba(0, 0, 0, 0.0588235294);
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.06);
 }
 .broaden-your-research-container .broaden-your-research .card-wrap .img-wrapper {
   display: flex;
