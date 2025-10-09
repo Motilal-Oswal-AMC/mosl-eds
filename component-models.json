@@ -340,7 +340,7 @@
           },
           {
             "name": "Growth Now BG Color",
-            "value": "bgcolor"
+            "value": "bgcolorgrowth"
           }
         ]
       },
