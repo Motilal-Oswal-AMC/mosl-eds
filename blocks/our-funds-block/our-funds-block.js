@@ -2133,11 +2133,20 @@ export default function decorate(block) {
   });
 
   Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
-    eltoo.addEventListener('click', (event) => {
-      Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
-        elinner.nextElementSibling.style.display = 'none';
+    if (window.innerWidth < 786) {
+      eltoo.addEventListener('click', (event) => {
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          elinner.nextElementSibling.style.display = 'none';
+        });
+        event.target.nextElementSibling.style.display = 'block';
       });
-      event.target.nextElementSibling.style.display = 'block';
-    });
+    } else {
+      eltoo.addEventListener('mouseover', (event) => {
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          elinner.nextElementSibling.style.display = 'none';
+        });
+        event.target.nextElementSibling.style.display = 'block';
+      });
+    }
   });
 }
