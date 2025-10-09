@@ -1353,11 +1353,6 @@
         "label": "Title"
       },
       {
-        "component": "text",
-        "name": "col_returnmobile",
-        "label": "Title"
-      },
-      {
         "component": "richtext",
         "name": "col_richtext",
         "value": "",
