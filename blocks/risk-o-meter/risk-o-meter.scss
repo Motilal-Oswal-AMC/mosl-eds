@@ -84,7 +84,8 @@
   }
 
   &.risk-container {
-    margin-top: unset !important;
+    // margin-top: unset !important;
+    margin: 0;
     padding: 16px;
 
     @include media(mobile) {
@@ -107,6 +108,7 @@
       flex-direction: column-reverse;
       padding: 0;
       gap: 40px;
+
       // margin: 32px 0 40px;
     }
   }
@@ -300,6 +302,7 @@
   @include media(mobile) {
     padding: 40px 16px;
     margin: unset !important;
+
     // background: #FFF;
     // box-shadow: 0 4px 12px 0 #0000000D;
     // gap: 8px;
@@ -374,6 +377,6 @@
   }
 }
 
-.section.risk-o-meter-container.risk-container {
-  margin: 0;
-}
+// .section.risk-o-meter-container.risk-container {
+//   margin: 0;
+// }

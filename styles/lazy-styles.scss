@@ -9,8 +9,8 @@
   position: relative;
 
   &.learning-fdp {
-    padding: 0 0 24px 0 !important;
-    margin: 0 0 40px 0;
+    padding: 0 0 24px !important;
+    margin: 0 0 40px;
 
     @include media(mobile) {
       margin: 40px 16px;
@@ -214,6 +214,7 @@
             &>li.cards-list-1-cards1 {
               display: flex;
               align-items: center;
+
               // justify-content: space-between;
               gap: 8px;
               margin-bottom: 24px;
@@ -250,6 +251,7 @@
                     $blue-1-800-primary,
                     400,
                     $body);
+
                     gap: 4px;
                     padding: 0 8px;
                 }
@@ -601,6 +603,7 @@
           }
         }
       }
+
       .btn-wrapper {
         top: 2%;
       }
@@ -1224,6 +1227,7 @@
     position: relative;
     flex-direction: column;
     gap: 40px;
+
     // padding-bottom: 80px;
 
 
