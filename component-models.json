@@ -337,7 +337,12 @@
           {
             "name": "Modal Stepup Two",
             "value": "modal-stepup-two"
+          },
+          {
+            "name": "Growth-Now-BG-Color",
+            "value": "growth-now-bg-color"
           }
+          
         ]
       },
       {
