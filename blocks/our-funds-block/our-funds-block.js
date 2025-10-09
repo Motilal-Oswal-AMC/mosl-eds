@@ -379,7 +379,8 @@ function searchFunctionality(block) {
       const match = originalText.match(searchRegex);
       if (match) {
         matchesFound = true;
-        const highlightedText = originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
+        // const highlightedText = originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
+        const highlightedText = originalText;
         item.innerHTML = highlightedText;
         item.style.display = 'list-item';
       } else {

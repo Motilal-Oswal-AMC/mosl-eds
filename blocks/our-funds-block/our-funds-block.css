@@ -124,7 +124,7 @@
   background-color: transparent;
   font-size: var(--body-medium-regular-size);
   line-height: var(--body-medium-regular-line-height);
-  color: var(--blue-1-800-primary);
+  color: var(--text-black);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
@@ -1113,7 +1113,7 @@
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container .return-select-container .dropdown-list,
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container .return-select-container .dropdown-list {
-  left: 108px;
+  left: 99px;
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container::after {
   content: "";

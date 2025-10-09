@@ -133,8 +133,8 @@
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details p {
   margin: 0;
-  font-size: var(--body-medium-medium-size);
-  line-height: var(--body-medium-medium-line-height);
+  font-size: var(--body-large-semibold-size);
+  line-height: var(--body-large-semibold-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -143,8 +143,8 @@
 @media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details p {
     padding-right: 45px;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: var(--body-medium-medium-size);
+    line-height: var(--body-medium-medium-line-height);
   }
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details summary {
@@ -187,13 +187,13 @@
   background-color: transparent;
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary::after {
-  right: 12px;
+  right: 16px;
   background: url("../../icons/mins-blue.svg");
   transform: translateY(-50%);
 }
 .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary p {
-  font-size: var(--body-medium-semibold-size);
-  line-height: var(--body-medium-semibold-line-height);
+  font-size: var(--body-large-semibold-size);
+  line-height: var(--body-large-semibold-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -202,7 +202,7 @@
 @media (max-width: 768px) {
   .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary p {
     padding-right: 45px;
-    font-size: 16px;
+    font-size: var(--body-medium-semibold-size);
     line-height: var(--body-medium-semibold-line-height);
   }
 }
