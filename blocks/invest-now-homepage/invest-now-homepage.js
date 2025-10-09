@@ -1343,8 +1343,8 @@ export default function decorate(block) {
             classAddv2.classList.remove('hide-modal');
             classAddv2.classList.add('modal-show');
           },
-        }, 'BUY NOW'),
-        button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
+        }, 'Add to Cart'),
+        button({ class: 'start-now modal-cta-btn' }, 'Invest Now'),
       ),
     ),
   );
