@@ -16,6 +16,7 @@
   height: 100%;
   background-color: white;
   box-shadow: -2px 0 10px rgb(0 0 0 / 30%);
+
   // transition: right 0.1s ease-in-out;
   z-index: 1000;
 
@@ -56,6 +57,7 @@
 
       .invest-now-container {
         position: relative;
+
         // padding: 64px 16px 37px;
         padding: 0 16px;
         max-width: 372px;
@@ -340,6 +342,7 @@
                     align-items: flex-start;
                     align-self: stretch;
                     position: relative;
+
                     // gap: var(--spacing-8);
                     min-width: 200px;
 
@@ -508,6 +511,7 @@
                   display: flex;
                   flex-direction: column;
                   width: 100%;
+
                   // align-items: flex-start;
                   // align-self: stretch;
 
