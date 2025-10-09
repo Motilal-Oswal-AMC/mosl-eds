@@ -379,7 +379,9 @@ function searchFunctionality(block) {
       const match = originalText.match(searchRegex);
       if (match) {
         matchesFound = true;
-        const highlightedText = originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
+        // const highlightedText =
+        // originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
+        const highlightedText = originalText;
         item.innerHTML = highlightedText;
         item.style.display = 'list-item';
       } else {
@@ -2133,12 +2135,34 @@ export default function decorate(block) {
     }
   });
 
-  Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
-    eltoo.addEventListener('click', (event) => {
-      Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
-        elinner.nextElementSibling.style.display = 'none';
-      });
-      event.target.nextElementSibling.style.display = 'block';
+  if (window.innerWidth >= 1024) {
+    document.addEventListener('mouseover', (event) => {
+      try {
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          if (!elinner.contains(event.target)) {
+            elinner.nextElementSibling.style.display = 'none';
+          }
+        });
+      } catch (error) {
+      // console.log(error);
+      }
     });
+  }
+  Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
+    if (window.innerWidth < 786) {
+      eltoo.addEventListener('click', (event) => {
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          elinner.nextElementSibling.style.display = 'none';
+        });
+        event.target.nextElementSibling.style.display = 'block';
+      });
+    } else {
+      eltoo.addEventListener('mouseover', (event) => {
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          elinner.nextElementSibling.style.display = 'none';
+        });
+        event.target.nextElementSibling.style.display = 'block';
+      });
+    }
   });
 }

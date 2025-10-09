@@ -56,6 +56,12 @@
 }
 
 .section.freq-ask-ques {
+  width: 100%;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 40px 0;
+}
+.section.freq-ask-ques .faq-our-fund {
   display: grid;
   justify-content: space-between;
   max-width: 1232px;
@@ -64,33 +70,33 @@
   grid-template-columns: 24.05% 66.3%;
 }
 @media (width <= 1279px) {
-  .section.freq-ask-ques {
+  .section.freq-ask-ques .faq-our-fund {
     padding: 40px 24px 132px;
   }
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques {
+  .section.freq-ask-ques .faq-our-fund {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 24px 16px 16px;
   }
 }
-.section.freq-ask-ques > .default-content-wrapper,
-.section.freq-ask-ques .accordion-wrapper {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper,
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper {
   max-width: unset;
   margin: unset;
   padding: 0;
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(1) {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(1) {
   width: 100%;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques > .default-content-wrapper:nth-child(1) {
+  .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(1) {
     width: 100%;
   }
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(1) p {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(1) p {
   font-size: 32px;
   line-height: 40px;
   color: #2e2a94;
@@ -101,7 +107,7 @@
   margin: 0;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques > .default-content-wrapper:nth-child(1) p {
+  .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(1) p {
     font-size: 24px;
     line-height: 28px;
     color: #2e2a94;
@@ -110,57 +116,57 @@
     font-weight: 600;
   }
 }
-.section.freq-ask-ques .accordion-wrapper {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper {
   width: 100%;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques .accordion-wrapper {
+  .section.freq-ask-ques .faq-our-fund .accordion-wrapper {
     width: 100%;
   }
 }
-.section.freq-ask-ques .accordion-wrapper .accordion {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   flex: 1 0 0;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details {
   width: 100%;
   border: none;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details + .section.freq-ask-ques .accordion-wrapper .accordion details {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details + .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details {
   margin-top: 24px;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details p {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details p {
   margin: 0;
-  font-size: var(--body-medium-medium-size);
-  line-height: var(--body-medium-medium-line-height);
+  font-size: var(--body-large-semibold-size);
+  line-height: var(--body-large-semibold-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques .accordion-wrapper .accordion details p {
+  .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details p {
     padding-right: 45px;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: var(--body-medium-medium-size);
+    line-height: var(--body-medium-medium-line-height);
   }
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details summary {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary {
   position: relative;
   padding: 16px 0px;
   cursor: pointer;
   list-style: none;
   overflow: hidden;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details summary:focus, .section.freq-ask-ques .accordion-wrapper .accordion details summary:hover {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary:focus, .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary:hover {
   background-color: var(--light-color);
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details summary::-webkit-details-marker {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary::-webkit-details-marker {
   display: none;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details summary::after {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary::after {
   content: "";
   position: absolute;
   right: 16px;
@@ -171,42 +177,42 @@
   transform: translateY(-50%);
   background: url("../../icons/plus-blue.svg");
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details .accordion-item-body {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details .accordion-item-body {
   padding: 0 16px;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] {
   background: none;
   -webkit-tap-highlight-color: transparent;
   border-radius: 8px;
   transition: transform 0.2s;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] summary {
   color: #2e2a94;
   border-radius: 8px 8px 0 0;
   padding: 16px 0px 8px 0px;
   background-color: transparent;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary::after {
-  right: 12px;
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] summary::after {
+  right: 16px;
   background: url("../../icons/mins-blue.svg");
   transform: translateY(-50%);
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary p {
-  font-size: var(--body-medium-semibold-size);
-  line-height: var(--body-medium-semibold-line-height);
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] summary p {
+  font-size: var(--body-large-semibold-size);
+  line-height: var(--body-large-semibold-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] summary p {
+  .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] summary p {
     padding-right: 45px;
-    font-size: 16px;
+    font-size: var(--body-medium-semibold-size);
     line-height: var(--body-medium-semibold-line-height);
   }
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body {
   color: #fff;
   border: none;
   outline: none;
@@ -218,11 +224,11 @@
   background-color: transparent;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body {
+  .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body {
     padding-top: 0;
   }
 }
-.section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body p {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body p {
   padding-right: 40px;
   font-size: var(--body-small-regular-size);
   line-height: var(--label-large-line-height);
@@ -232,45 +238,44 @@
   font-weight: 400;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body p {
+  .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] .accordion-item-body p {
     padding: 0;
     font-size: 12px;
     line-height: 16px;
   }
 }
-.section.freq-ask-ques .accordion-wrapper .accordion .accordion-item {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion .accordion-item {
   overflow: hidden;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion .accordion-item.hidden {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion .accordion-item.hidden {
   display: none;
 }
-.section.freq-ask-ques .accordion-wrapper .accordion .accordion-item.collapsed {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion .accordion-item.collapsed {
   max-height: 0;
   opacity: 0;
   margin-bottom: 0;
   pointer-events: none;
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(3) {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) {
   grid-column: 2/2;
   grid-row: 2;
   margin-top: 16px;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques > .default-content-wrapper:nth-child(3) {
+  .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) {
     margin-top: 16px;
   }
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(3) .button-container {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) .button-container {
   margin: 0;
   padding: 0;
   line-height: 0;
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(3) .button-container a.button {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) .button-container a.button {
   margin: 0;
   width: 124px;
   padding: 8px 12px;
   justify-content: center;
-  align-items: center;
   border-radius: 8px;
   background: #2e2a94;
   height: 32px;
@@ -282,7 +287,7 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(3) ul {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) ul {
   margin: 0;
   display: none;
   justify-content: end;
@@ -290,7 +295,7 @@
   list-style: none;
 }
 @media (max-width: 768px) {
-  .section.freq-ask-ques > .default-content-wrapper:nth-child(3) ul {
+  .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) ul {
     display: flex;
     position: fixed;
     right: 16px;
@@ -298,7 +303,7 @@
     z-index: 20;
   }
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(3) ul li {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) ul li {
   width: 48px;
   height: 48px;
   border-radius: 28px;
@@ -308,7 +313,7 @@
   align-items: center;
   justify-content: center;
 }
-.section.freq-ask-ques > .default-content-wrapper:nth-child(3) ul li:first-of-type {
+.section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) ul li:first-of-type {
   background: #242177;
 }
 
@@ -316,7 +321,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 24px 0 64px 0;
+  padding: 24px 0 64px;
   margin: unset !important;
 }
 @media (width <= 768px) {

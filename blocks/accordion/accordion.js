@@ -115,4 +115,16 @@ export default function decorate(block) {
       loadMoreButton.textContent = 'Show Less';
     }
   });
+
+  if (window.location.href.includes('/motilalfigma/our-funds')) {
+    const mainwrapper = block.closest('.freq-ask-ques');
+    if (!mainwrapper.querySelector('faq-our-fund')) {
+      const divwrapper = document.createElement('div');
+      divwrapper.classList.add('faq-our-fund');
+      Array.from(mainwrapper.children).forEach((elchild) => {
+        divwrapper.append(elchild);
+      });
+      mainwrapper.append(divwrapper);
+    }
+  }
 }

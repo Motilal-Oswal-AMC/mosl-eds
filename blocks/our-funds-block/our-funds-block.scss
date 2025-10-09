@@ -156,7 +156,7 @@ body {
             @include font-style(
               var(--body-medium-regular-size),
               var(--body-medium-regular-line-height),
-              var(--blue-1-800-primary),
+              var(--text-black),
               500,
               var(--body)
             );
@@ -1277,7 +1277,7 @@ body {
 
               .return-select-container {
                 .dropdown-list {
-                  left: 108px;
+                  left: 99px;
                 }
               }
             }
