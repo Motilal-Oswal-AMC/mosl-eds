@@ -95,7 +95,7 @@ export default function decorate(block) {
             p({ class: 'returns-text' }, 'Annualised'),
             div(
               { class: 'returns' },
-              p({ class: 'returns-percent' }, data[0].returns[0].oneYear_Ret),
+              p({ class: 'returns-percent' }, data[0].returns[0].oneYear_Ret ? data[0].returns[0].oneYear_Ret : '10'),
               span({ class: 'returns-percentage' }, '%'),
             ),
           ),

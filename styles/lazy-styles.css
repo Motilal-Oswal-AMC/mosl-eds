@@ -7,8 +7,8 @@
   position: relative;
 }
 .section.future-building-container.learning-fdp {
-  padding: 0 0 24px 0 !important;
-  margin: 0 0 40px 0;
+  padding: 0 0 24px !important;
+  margin: 0 0 40px;
 }
 @media (max-width: 768px) {
   .section.future-building-container.learning-fdp {
@@ -1067,6 +1067,7 @@
 }
 .section.watchlist-block-container .watchlist-block.block .card-wrapper .card-coner .card-right .lower-right .fund-returns .returns {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: row;
 }
@@ -1091,6 +1092,7 @@
     font-weight: 600;
   }
 }
+
 .section.welcome-component {
   width: 100%;
   background-color: #fff;
@@ -1100,6 +1102,12 @@
   position: relative;
   flex-direction: column;
   gap: 40px;
+  padding-bottom: 90px;
+}
+@media (max-width: 768px) {
+  .section.welcome-component .welcomemain1 {
+    padding-bottom: 90px;
+  }
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 {
   list-style: none;
@@ -1136,7 +1144,7 @@
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp4 {
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
 }
 .section.welcome-component .welcomemain1 .welcomemain-sub1 .welcomemain-sub-wrp4 .welcomeactmain1 {
   display: flex;
