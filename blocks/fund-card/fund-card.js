@@ -322,6 +322,13 @@ export default function decorate(block) {
                   },
                 },
                 returnYear,
+                p(
+                  {
+                    class: 'cagr-date',
+                    style: `display:${dspdate}`,
+                  },
+                  '10 Jul 24',
+                ),
               ),
               ul(
                 { class: 'dropdown-list' },
@@ -352,26 +359,25 @@ export default function decorate(block) {
                         .closest('.cagr-container')
                         .querySelector('.cagr-value .cagr-val-label')
                         .append(span('%'));
-                      const datedrp = event.currentTarget.closest('.cagr-dropdown');
                       if (
                         event.target.textContent.trim() === 'Since Inception'
                       ) {
-                        datedrp.querySelector('.cagr-date').style.display = 'block';
-                      } else {
-                        datedrp.querySelector('.cagr-date').style.display = 'none';
+                        event.currentTarget
+                          .closest('.cagr-select-wrapper')
+                          .querySelector('p').append(
+                            p(
+                              {
+                                class: 'cagr-date',
+                              },
+                              '24 Jul ‘24',
+                            ),
+                          );
                       }
                     },
                   },
                   eloption,
                 )),
               ),
-            ),
-            p(
-              {
-                class: 'cagr-date',
-                style: `display:${dspdate}`,
-              },
-              '24 Jul ‘24',
             ),
           ),
           div(

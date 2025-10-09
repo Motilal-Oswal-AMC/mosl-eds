@@ -167,6 +167,7 @@
   border-radius: 8px;
   border: 0.5px solid #B9BBFF;
   background: #fff;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.06);
   box-shadow: 0 0 8 0 rgb(0 0 0 / 5.88%);
 }
 
@@ -312,4 +313,6 @@
 .broaden-your-research-container .broaden-your-research .swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
   background-color: #2E2A94;
   border-radius: 2px;
+  opacity: unset;
+}/*# sourceMappingURL=broaden-your-research.css.map */
 }

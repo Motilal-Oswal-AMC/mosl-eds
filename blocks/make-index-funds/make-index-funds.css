@@ -296,10 +296,12 @@
     margin: 0;
     background-color: #9DADFE;
     border-radius: unset;
+    opacity: unset;
   }
 
   .swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
     background-color: #2E2A94;
     border-radius: 2px;
+    opacity: unset;
   }
 }
