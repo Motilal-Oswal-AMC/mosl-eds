@@ -2132,6 +2132,19 @@ export default function decorate(block) {
     }
   });
 
+  if (window.innerWidth >= 1024) {
+    document.addEventListener('mouseover', (event) => {
+      try {
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          if (!elinner.contains(event.target)) {
+            elinner.nextElementSibling.style.display = 'none';
+          }
+        });
+      } catch (error) {
+      // console.log(error);
+      }
+    });
+  }
   Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
     if (window.innerWidth < 786) {
       eltoo.addEventListener('click', (event) => {
