@@ -171,6 +171,10 @@
             "value": "highlight"
           },
           {
+            "name": "FAQ FLP",
+            "value": "faq-flp"
+          },
+          {
             "name": "login Registered",
             "value": "login-registered"
           },
