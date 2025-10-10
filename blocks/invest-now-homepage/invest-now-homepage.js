@@ -935,7 +935,7 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
     { class: 'custom-select-wrapper', id: `custom-select-${id}` },
     label({ class: 'custom-select-label' }, labelText),
     p({ class: 'select-selected' }, defaultValue),
-    ul({ class: 'select-options' }, ...options.map((opt) => li({ 'data-value': opt }, opt))),
+    ul({ class: 'select-options' }, ...options.map((opt) => li({ class:'select-list', 'data-value': opt }, opt))),
     input({ type: 'hidden', id, value: defaultValue }),
   );
 }
@@ -1173,7 +1173,7 @@ export default function decorate(block) {
   const logoSrc = `../../icons/schemeicons/${mop}`;
   // const calendarIconSrc = '../../icons/calendar.svg';
   // // Replace with your real calendar icon path
-  const infotoolsrc = '../../icons/infotooltip.svg';
+  const infotoolsrc = '../../icons/information.svg';
   const closesrc = '../../icons/cross.svg';
   const frequencyOptions = [
     'Annual',
@@ -1290,7 +1290,7 @@ export default function decorate(block) {
                 { class: 'start-today-note' },
                 p(
                   { class: 'sip-note' },
-                  'Your 1st SIP Installment will be debited today ',
+                  'Your first SIP instalment will be deducted today.',
                 ),
                 div(
                   { class: 'sip-note-highlight' },
