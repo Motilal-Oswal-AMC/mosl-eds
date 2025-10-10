@@ -769,6 +769,8 @@ export default function decorate(block) {
   Array.from(block.closest('.section').querySelector('.item2').children).forEach((el) => {
     el.classList.add('list-header-text');
   });
+  block.closest('.section')
+    .querySelector('.item2 ul').remove();
   Array.from(block.querySelector('.block-item3 .block-subitem-finelsub4').children).forEach((el) => {
     el.classList.add('viewlist-btn');
   });
