@@ -114,7 +114,7 @@ export default function decorate(block) {
             col2[1].textContent.trim(),
           ),
           div(
-            { class: 'input-with-symbol' },
+            { class: 'input-with-symbol input-symbol' },
             // input({
             //   type: 'number',
             //   value: col2[2].textContent.trim(),
@@ -432,6 +432,7 @@ export default function decorate(block) {
   // ✅ ADD THIS NEW HANDLER AND LISTENER
   function handleAmountInput(e) {
     const inputVal = e.target;
+    const inputWrap = block.querySelector('.input-with-symbol');
     // 1. Get the raw number by removing non-digits
     const rawValue = inputVal.value.replace(/[^0-9]/g, '');
 
@@ -439,8 +440,10 @@ export default function decorate(block) {
     if (rawValue) {
       const formattedValue = parseInt(rawValue, 10).toLocaleString('en-IN');
       inputVal.value = formattedValue;
+      inputWrap.classList.add('input-symbol');
     } else {
       inputVal.value = ''; // Handle empty input
+      inputWrap.classList.remove('input-symbol');
     }
 
     // 3. Trigger the calculation
