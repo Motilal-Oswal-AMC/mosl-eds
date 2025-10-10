@@ -339,9 +339,9 @@
             "value": "modal-stepup-two"
           },
           {
-            "name": "Growth-Now-BG-Color",
-            "value": "growth-now-bg-color"
-          } 
+            "name": "Growth Now BG Color",
+            "value": "bgcolorgrowth"
+          }
         ]
       },
       {
