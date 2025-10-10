@@ -937,7 +937,7 @@ export default function decorate(block) {
                   block
                     .querySelector('.filter-overlay')
                     .classList.add('active');
-                  block.closest('body').classList.add('scroll-lock');
+                  // block.closest('body').classList.add('scroll-lock');
                   if (
                     Array.from(
                       block.querySelector('.sort-overlay').classList,
