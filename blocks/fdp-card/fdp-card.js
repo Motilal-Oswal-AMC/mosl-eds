@@ -65,7 +65,7 @@ export default function decorate(block) {
     (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
   );
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
-  const mop = `../../icons/iconfund/MO_${cfObj[0].schcode}.svg`;
+  const mop = `../../icons/schemeicons/MO_${cfObj[0].schcode}.svg`;
   const [firstReturnYear] = tempReturns;
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
