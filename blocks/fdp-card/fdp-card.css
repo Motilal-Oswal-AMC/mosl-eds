@@ -365,6 +365,7 @@ main {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
     width: -moz-max-content;
     width: max-content;
+    padding-right: 33px;
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp .nav-label {
