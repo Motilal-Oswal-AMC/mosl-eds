@@ -216,6 +216,7 @@
                         min-width: 20px;
                         height: 20px;
                         display: block;
+                        transition: all 0.3s;
                       }
 
                       @include media(mobile) {
@@ -265,6 +266,12 @@
                     }
 
                     &.dropdown-active{
+                      .selected-txt{
+                        &::after{
+                          transform: rotate(180deg);
+                        }
+                      }
+
                       .dropdown-list{
                         display: block;
                       }

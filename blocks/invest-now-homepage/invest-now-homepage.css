@@ -263,6 +263,7 @@
   min-width: 20px;
   height: 20px;
   display: block;
+  transition: all 0.3s;
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-header-container .modal-header .modal-header-subtitle .dropdown-wrap .selected-txt {
@@ -305,6 +306,9 @@
     font-size: var(--body-small-regular-size);
     line-height: var(--label-large-line-height);
   }
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-header-container .modal-header .modal-header-subtitle .dropdown-wrap.dropdown-active .selected-txt::after {
+  transform: rotate(180deg);
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-header-container .modal-header .modal-header-subtitle .dropdown-wrap.dropdown-active .dropdown-list {
   display: block;
