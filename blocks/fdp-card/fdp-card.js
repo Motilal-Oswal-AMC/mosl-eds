@@ -332,7 +332,17 @@ export default function decorate(block) {
             {
               class: 'dropdownlist',
               onclick: (event) => {
-                const valueText = event.target.textContent.trim();
+                const targetVal = event.target;
+                if (!targetVal.classList.contains('listval')) {
+                  return;
+                }
+                const dropdownList = targetVal.parentElement;
+                const allListItems = dropdownList.querySelectorAll('.listval');
+                allListItems.forEach((item) => {
+                  item.classList.remove('active');
+                });
+                targetVal.classList.add('active');
+                const valueText = targetVal.textContent.trim();
                 const parentClosest = event.target.closest('.dropdownmidle');
                 const ptext = parentClosest.querySelector('.selecttext');
                 ptext.innerText = '';
@@ -549,11 +559,13 @@ export default function decorate(block) {
   const item2 = block.closest('.section').querySelector('.item2');
   item2Ul.classList.add('item2-ul');
   item2.prepend(ptag);
+  item2.querySelector('.item2-ul').classList.add('fdp-tab');
   // block.innerHTML = '';
   Array.from(block.children).forEach((elchild) => {
     elchild.style.display = 'none';
   });
   block.append(cardContainer);
+  block.parentElement.parentElement.parentElement.querySelector('.breadcrumbs-fdp').classList.add('wrapper-fdp');
 
   dataMapMoObj.CLASS_PREFIXES = ['tab-li-item'];
   dataMapMoObj.addIndexed(item2Ul);
@@ -563,7 +575,7 @@ export default function decorate(block) {
 
   const ptagtest = document.querySelector('.selectedtext-fdp');
 
-  let currentSelectedText = '';
+  let currentSelectedText = '';  
 
   item2Ul.addEventListener('click', (e) => {
     if (window.innerWidth < 786) {
@@ -596,8 +608,10 @@ export default function decorate(block) {
   ptag.addEventListener('click', () => {
     if (window.innerWidth < 786) {
       if (item2Ul.style.display === 'block') {
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
         item2Ul.style.display = 'none';
       } else {
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
         item2Ul.style.display = 'block';
       }
     }
