@@ -694,7 +694,7 @@ const datacfContact = {
         ],
       },
       {
-        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5791615631947!2d74.84224812695315!3d12.8704358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b16dc53b8e7%3A0xd36b85ebae22bd61!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1759928325222!5m2!1sen!2sin',
+        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.525981196602!2d74.84887122483963!3d12.873863887432575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b16dc53b8e7%3A0xd36b85ebae22bd61!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760106594375!5m2!1sen!2sin',
         contactDet: [
           {
             officeName: 'Motilal Oswal Asset Management Company Ltd.',
@@ -719,7 +719,7 @@ const datacfContact = {
             pincode: '575001',
             iscorporateOffice: 0,
             notes: null,
-            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5791615631947!2d74.84224812695315!3d12.8704358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b16dc53b8e7%3A0xd36b85ebae22bd61!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1759928325222!5m2!1sen!2sin',
+            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.525981196602!2d74.84887122483963!3d12.873863887432575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b16dc53b8e7%3A0xd36b85ebae22bd61!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760106594375!5m2!1sen!2sin',
           },
         ],
       },
