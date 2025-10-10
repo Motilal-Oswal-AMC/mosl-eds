@@ -1170,7 +1170,7 @@ export default function decorate(block) {
   // const brandName = 'Motilal Oswal';
   // const logoSrc = '../../icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
-  const logoSrc = `../../icons/iconfund/${mop}`;
+  const logoSrc = `../../icons/schemeicons/${mop}`;
   // const calendarIconSrc = '../../icons/calendar.svg';
   // // Replace with your real calendar icon path
   const infotoolsrc = '../../icons/infotooltip.svg';
