@@ -1,12 +1,6 @@
 @import "../../../styles/fonts.css";
 .section.contact-us-map-container {
-  padding-bottom: 40px;
-}
-@media (max-width: 768px) {
-  .section.contact-us-map-container {
-    padding: 0;
-    margin: 0;
-  }
+  margin: 0;
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent {
   display: flex;
