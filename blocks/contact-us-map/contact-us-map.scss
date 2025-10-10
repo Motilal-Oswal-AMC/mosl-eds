@@ -361,10 +361,12 @@
           display: grid;
           grid-template-columns: 296px 816px;
           gap: 120px;
+          padding-bottom: 80px;
 
           @include media(mobile) {
             grid-template-columns: 100%;
             gap: 40px;
+            padding-bottom: 40px;
           }
 
           .location-info {
@@ -463,7 +465,8 @@
                 margin: unset;
 
                 @include media(mobile) {
-                  display: flex;
+                  // display: flex;
+                  display: none;
                 }
 
                 .contact-number-link {

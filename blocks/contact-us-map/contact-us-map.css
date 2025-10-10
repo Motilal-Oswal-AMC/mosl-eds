@@ -308,11 +308,13 @@
   display: grid;
   grid-template-columns: 296px 816px;
   gap: 120px;
+  padding-bottom: 80px;
 }
 @media (max-width: 768px) {
   .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map {
     grid-template-columns: 100%;
     gap: 40px;
+    padding-bottom: 40px;
   }
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map .location-info {
@@ -408,7 +410,7 @@
 }
 @media (max-width: 768px) {
   .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map .location-info .mum-location .contact-number {
-    display: flex;
+    display: none;
   }
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map .location-info .mum-location .contact-number .contact-number-link:nth-child(2) {
