@@ -3,12 +3,13 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.contact-us-map-container {
-  padding-bottom: 40px;
+  // padding-bottom: 40px;
+  margin: 0;
 
-  @include media(mobile) {
-    padding: 0;
-    margin: 0;
-  }
+  // @include media(mobile) {
+  //   padding: 0;
+  //   margin: 0;
+  // }
 
   .contact-us-map-wrapper {
     .contact-us-map {
