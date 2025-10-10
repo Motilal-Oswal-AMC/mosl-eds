@@ -315,7 +315,6 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .selectedtext::after {
   content: "";
   background: url("../../icons/direction-right.svg") center/cover no-repeat;
-  min-width: 1px;
   min-width: 16px;
   height: 16px;
   display: block;
@@ -418,6 +417,11 @@ main {
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   margin: 0;
+}
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp .nav-value-grp .perecent-value .nav-percent {
+    font-weight: 500;
+  }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv {
   margin: 24px 0 0;

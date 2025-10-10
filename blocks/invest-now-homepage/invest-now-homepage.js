@@ -136,13 +136,13 @@ export async function existingUser(paramblock) {
 
   const addInputDiv = div(
     { class: 'input-wrapper' },
-    p({ class: 'panlabel' }, 'Pan Number'),
     input({
       type: 'text',
-      placeholder: 'Enter PAN Number',
+      placeholder: '',
       name: 'pan',
       class: 'iptpanfld',
     }),
+    label({ class: 'panlabel' }, 'Enter PAN Number'),
   );
 
   dataMapMoObj.panDlts.isGuest = 'false';
@@ -276,7 +276,7 @@ export async function existingUser(paramblock) {
                 break;
               }
               case 'ArrowLeft': {
-              // Move to the previous input, or wrap to the last
+                // Move to the previous input, or wrap to the last
                 const prevIndex = (index - 1 + totalInputs) % totalInputs;
                 passpoint[prevIndex].focus();
                 break;
@@ -1170,7 +1170,7 @@ export default function decorate(block) {
   // const brandName = 'Motilal Oswal';
   // const logoSrc = '../../icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
-  const logoSrc = `../../icons/iconfund/${mop}`;
+  const logoSrc = `../../icons/schemeicons/${mop}`;
   // const calendarIconSrc = '../../icons/calendar.svg';
   // // Replace with your real calendar icon path
   const infotoolsrc = '../../icons/information.svg';
@@ -1206,6 +1206,7 @@ export default function decorate(block) {
   );
 
   // Build modal
+  const textdrop = dataMapMoObj.planText === undefined ? '' : dataMapMoObj.planText;
   const modal = div(
     { class: 'invest-now-modal fdp-sip-modal' },
     div(
@@ -1222,12 +1223,13 @@ export default function decorate(block) {
           h3({ class: 'fund-name' }, fundNameFromData),
           div(
             { class: 'dropdown-wrap' },
-            p({ class: 'selected-txt' }, 'Growth'),
+            p({ class: 'selected-txt' }, textdrop),
             ul(
               { class: 'dropdown-list' },
-              li({ class: 'list-name' }, '1Y'),
-              li({ class: 'list-name' }, '3Y'),
-              li({ class: 'list-name' }, '5Y'),
+              ...dataMapMoObj.planlistArr.map((eloption) => li({
+              class: 'list-name',
+              datacode: eloption.groupedCode,
+            }, `${eloption.planName} | ${eloption.optionName}`)),
             ),
           ),
         ),
@@ -1341,8 +1343,8 @@ export default function decorate(block) {
             classAddv2.classList.remove('hide-modal');
             classAddv2.classList.add('modal-show');
           },
-        }, 'BUY NOW'),
-        button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
+        }, 'Add to Cart'),
+        button({ class: 'start-now modal-cta-btn' }, 'Invest Now'),
       ),
     ),
   );
@@ -1452,7 +1454,7 @@ export default function decorate(block) {
     // eslint-disable-next-line no-unused-vars
     let hasActiveMatch = false;
     suggestionButtons.forEach((btn) => {
-    // Check if the button's text matches the input's value
+      // Check if the button's text matches the input's value
       if (currentValue === btn.textContent.split('₹')[1]) { // Added .trim() for robustness
         btn.classList.add('active');
         hasActiveMatch = true; // This reassignment is now valid
@@ -1565,10 +1567,10 @@ export default function decorate(block) {
 
     startTodayCheckbox.addEventListener('change', () => {
       if (startTodayCheckbox.checked) {
-      // If checked, display today's date
+        // If checked, display today's date
         sipDateDisplay.textContent = getTodaysDateFormatted();
       } else {
-      // If unchecked, revert to the user's selected date
+        // If unchecked, revert to the user's selected date
         sipDateDisplay.textContent = originalSipDate;
       }
     });

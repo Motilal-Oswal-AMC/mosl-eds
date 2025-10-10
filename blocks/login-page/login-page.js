@@ -1,14 +1,13 @@
 import {
-  div, p, input, label, span,
+  div, p, input, label, span, img,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { myAPI } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const pagecontain = block.closest('.login-page-container');
-  pagecontain.classList.add('login-register');
-
-  const loginImage = document.querySelector('.login-image-item');
+  const loginImagev2 = block.closest('.login-page-container');
+  const logImgeV1 = loginImagev2.querySelector('.login-image-item-wrapper');
+  const loginImage = loginImagev2.querySelector('.login-page-wrapper');
   dataMapMoObj.CLASS_PREFIXES = [
     'login-item',
     'login-sub-item',
@@ -21,7 +20,7 @@ export default function decorate(block) {
     'login-image-sub-item',
     'login-image-inner-item',
   ];
-  dataMapMoObj.addIndexed(loginImage);
+  dataMapMoObj.addIndexed(logImgeV1);
 
   const loginPagePan = div(
     { class: 'main-login-page' },
@@ -58,7 +57,8 @@ export default function decorate(block) {
     ),
   );
 
-  const userLoginPage = document.querySelector('.login-page-wrapper');
+  const userLoginPage = loginImage;
+  // document.querySelector('.login-page-wrapper');
 
   userLoginPage.innerHTML = '';
 
@@ -76,15 +76,16 @@ export default function decorate(block) {
         { class: 'input-resend' },
         div(
           { class: 'otp-inputs-block' },
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
-          input({ class: 'otp-input' }),
+          input({ class: 'otp-input otp-input-succ' }),
+          input({ class: 'otp-input otp-input-error' }),
+          input({ class: 'otp-input otp-input-error' }),
+          input({ class: 'otp-input otp-input-error' }),
+          input({ class: 'otp-input otp-input-error' }),
+          input({ class: 'otp-input otp-input-error' }),
         ),
         p({ class: 'resend' }, 'Resend OTP'),
       ),
+      p({ class: 'incorrect-otp' }, 'Incorrect OTP'),
     ),
 
     div(
@@ -96,7 +97,7 @@ export default function decorate(block) {
     ),
   );
 
-  const kycVerifiedAdd = document.querySelector('.response-block');
+  const kycVerifiedAdd = loginImage.querySelector('.response-block');
 
   // block when need to response kyc succssess
   // kycVerifiedAdd.append(kycVerified);
@@ -108,16 +109,14 @@ export default function decorate(block) {
       label({ class: 'passcode-label' }, 'Enter Passcode'),
       div(
         { class: 'pass-input' },
-        input({ class: 'pass-code-input' }),
-        input({ class: 'pass-code-input' }),
-        input({ class: 'pass-code-input' }),
-        input({ class: 'pass-code-input' }),
+        input({ class: 'pass-code-input error-pass', type: 'password' }),
+        input({ class: 'pass-code-input error-pass', type: 'password' }),
+        input({ class: 'pass-code-input error-pass', type: 'password' }),
+        input({ class: 'pass-code-input succ-pass', type: 'password' }),
       ),
+      p({ class: 'error-para' }, 'Incorrect Passcode'),
     ),
-    p(
-      { class: 'forget-pass' },
-      p({ class: 'pass-para' }, 'Forget Passcode?'),
-    ),
+    p({ class: 'forget-pass' }, p({ class: 'pass-para' }, 'Forget Passcode?')),
   );
 
   // block when need to use Two Factor Authentication
@@ -150,7 +149,10 @@ export default function decorate(block) {
       div(
         { class: 'disc-text' },
         p({ class: 'text-registered' }, 'Your KYC is registered'),
-        p({ class: 'disc-text-all' }, 'According to regulatory updates, KYC-registered investors must now submit Aadhaar-based KYC documents for investment transactions.'),
+        p(
+          { class: 'disc-text-all' },
+          'According to regulatory updates, KYC-registered investors must now submit Aadhaar-based KYC documents for investment transactions.',
+        ),
       ),
     ),
 
@@ -176,7 +178,6 @@ export default function decorate(block) {
             label({ class: 'phone-number-label label-reg' }, 'Mobile Number'),
             input({ class: 'phone-number-input input-reg' }),
           ),
-
         ),
       ),
 
@@ -211,7 +212,7 @@ export default function decorate(block) {
   let parentDiv;
   function setCookie(cname, cvalue, exdays) {
     const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
     const expires = `expires=${d.toUTCString()}`;
     document.cookie = `${cname}=${cvalue};${expires};path=/`;
   }
@@ -228,10 +229,14 @@ export default function decorate(block) {
       if (rejsin.data !== null) {
         // username
         parentDiv.querySelector('.register-user-input').value = rejsin.data.investorName;
-        parentDiv.querySelector('.register-user-input').setAttribute('readonly', '');
+        parentDiv
+          .querySelector('.register-user-input')
+          .setAttribute('readonly', '');
         // phonenumber
         parentDiv.querySelector('.phone-number-input').value = rejsin.data.mobileNo;
-        parentDiv.querySelector('.phone-number-input').setAttribute('readonly', '');
+        parentDiv
+          .querySelector('.phone-number-input')
+          .setAttribute('readonly', '');
         // email
         parentDiv.querySelector('.email-input').value = rejsin.data.email;
         parentDiv.querySelector('.email-input').setAttribute('readonly', '');
@@ -279,7 +284,11 @@ export default function decorate(block) {
       const request = {
         frmdata: `LMS~${paramData.userLogPan}|${paramData.userLogPanNm}|+91${paramData.userLogMoNm}|${paramData.userLogEm}||Mumbai||${paramData.kycflag}|MF New investor|||||||||${paramData.isnri}|`,
       };
-      const setRep = await myAPI('POST', 'https://api.moamc.com/initapi/api/Init/Lmsentry', request);
+      const setRep = await myAPI(
+        'POST',
+        'https://api.moamc.com/initapi/api/Init/Lmsentry',
+        request,
+      );
       console.log(setRep);
       panDetails(paramData);
     } catch (error) {
@@ -510,8 +519,26 @@ export default function decorate(block) {
       localStorage.setItem('kycstatus', boolkyc);
 
       const KRA_VERIFIED = ['002', '102', '202', '302', '402', '502'];
-      const KRA_VALIDATED = ['007', '107', '207', '307', '407', '507', '011', '111', '211', '311',
-        '411', '511', '012', '112', '212', '312', '412', '512'];
+      const KRA_VALIDATED = [
+        '007',
+        '107',
+        '207',
+        '307',
+        '407',
+        '507',
+        '011',
+        '111',
+        '211',
+        '311',
+        '411',
+        '511',
+        '012',
+        '112',
+        '212',
+        '312',
+        '412',
+        '512',
+      ];
       if (KRA_VERIFIED.includes(rejsin.data.cvlAppStatus)) {
         localStorage.setItem('kraVerified', 'Y');
       }
@@ -526,7 +553,13 @@ export default function decorate(block) {
       if (isKyc !== '') {
         kycVerifiedAdd.append(kycVerified);
         pansuccessForm = kycVerifiedAdd.querySelector('.otp-para');
-
+        const paraSucc = div(
+          { class: 'para-succ' },
+          img({ class: 'succ-img' }),
+          p({ class: 'succ-para' }, 'Awesome. You are KYC verified!'),
+        );
+        const inpPara = document.querySelector('.user-input-error');
+        inpPara.appendChild(paraSucc);
         const blockTitle = parentDiv.querySelector('.user-pan-para');
         blockTitle.textContent = '';
         blockTitle.textContent = `Welcome ${dataMapMoObj.toTitleCase(kycName)}`;
@@ -576,17 +609,23 @@ export default function decorate(block) {
             }
           });
         });
-        kycVerifiedAdd.querySelector('.resend').addEventListener('click', () => {
-          dataMapMoObj.otpLimit += 1;
-          if (dataMapMoObj.otpLimit <= 5) {
-            otpCall(param);
-          }
-        });
+        kycVerifiedAdd
+          .querySelector('.resend')
+          .addEventListener('click', () => {
+            dataMapMoObj.otpLimit += 1;
+            if (dataMapMoObj.otpLimit <= 5) {
+              otpCall(param);
+            }
+          });
 
         otpCall(param);
         dataMapMoObj.otpLimit = 1;
       } else {
         kycVerifiedAdd.append(kycRegistered);
+
+        const pagecontain = parentDiv.closest('.login-page-container');
+        pagecontain.classList.add('login-register');
+
         const blockTitle = parentDiv.querySelector('.user-pan-para');
         blockTitle.textContent = '';
         blockTitle.textContent = 'Welcome Aboard!';
@@ -612,10 +651,12 @@ export default function decorate(block) {
             // errorPanEl.classList.add('hide-error');
             // errorPanEl.classList.remove('show-error');
             userLoginPanNumber.setAttribute('readonly', true);
-            if (panRegex.test(userLoginPanNumber.value)
+            if (
+              panRegex.test(userLoginPanNumber.value)
               && phoneRegex.test(userNo.value)
               && emailRegex.test(userem.value)
-              && usernameRegex.test(userNm.value)) {
+              && usernameRegex.test(userNm.value)
+            ) {
               btnAuthenticate.style.pointerEvents = '';
             }
           } else {
@@ -633,10 +674,12 @@ export default function decorate(block) {
             // errorPanEl.classList.remove('show-error');
             // errorPanEl.classList.add('hide-error');
             userLoginPanNumber.setAttribute('readonly', true);
-            if (panRegex.test(userLoginPanNumber.value)
+            if (
+              panRegex.test(userLoginPanNumber.value)
               && phoneRegex.test(userNo.value)
               && emailRegex.test(userem.value)
-              && usernameRegex.test(userNm.value)) {
+              && usernameRegex.test(userNm.value)
+            ) {
               btnAuthenticate.style.pointerEvents = '';
             }
           } else {
@@ -653,10 +696,12 @@ export default function decorate(block) {
             // errorPanEl.classList.remove('show-error');
             // errorPanEl.classList.add('hide-error');
             userLoginPanNumber.setAttribute('readonly', true);
-            if (panRegex.test(userLoginPanNumber.value)
+            if (
+              panRegex.test(userLoginPanNumber.value)
               && phoneRegex.test(userNo.value)
               && emailRegex.test(userem.value)
-              && usernameRegex.test(userNm.value)) {
+              && usernameRegex.test(userNm.value)
+            ) {
               btnAuthenticate.style.pointerEvents = '';
             }
           } else {
@@ -762,7 +807,11 @@ export default function decorate(block) {
     const twofactor = parentDiv.querySelector('.passcode-main');
     const registerScreen = parentDiv.querySelector('.main-register');
     const panval = paninput.value;
-    if (otpscreen && otpscreen.style.display !== '' && otpscreen.style.display !== 'none') {
+    if (
+      otpscreen
+      && otpscreen.style.display !== ''
+      && otpscreen.style.display !== 'none'
+    ) {
       const inotp = inputs;
       let optValue = '';
       inotp.forEach((elfor) => {
@@ -778,7 +827,11 @@ export default function decorate(block) {
         };
         apiAuth(panNum);
       }
-    } else if (twofactor && twofactor.style.display !== '' && twofactor.style.display !== 'none') {
+    } else if (
+      twofactor
+      && twofactor.style.display !== ''
+      && twofactor.style.display !== 'none'
+    ) {
       const passpoint = twofactor.querySelectorAll('input');
       let passValue = '';
       passpoint.forEach((elfor) => {
@@ -794,12 +847,20 @@ export default function decorate(block) {
         };
         apiPasscode(panNum);
       }
-    } else if (registerScreen && registerScreen.style.display !== '' && registerScreen.style.display !== 'none') {
+    } else if (
+      registerScreen
+      && registerScreen.style.display !== ''
+      && registerScreen.style.display !== 'none'
+    ) {
       // console.log('Register Form');
       const userLoginPanNumber = parentDiv.querySelector('.user-input').value; // input
       const isNri = parentDiv.querySelectorAll('.radio-input')[1].checked;
-      const userLoginPanName = parentDiv.querySelector('.register-user-input').value;
-      const userLoginMobileNumber = parentDiv.querySelector('.phone-number-input').value;
+      const userLoginPanName = parentDiv.querySelector(
+        '.register-user-input',
+      ).value;
+      const userLoginMobileNumber = parentDiv.querySelector(
+        '.phone-number-input',
+      ).value;
       const userLoginEmail = parentDiv.querySelector('.email-input').value;
       const userCity = parentDiv.querySelector('.city-input').value;
       const formdata = {
