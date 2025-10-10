@@ -209,7 +209,7 @@ export default async function decorate(block) {
     // A single timer is shared across all nav sections to prevent flickering.
     let leaveTimer;
 
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection) => {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection, index) => {
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
         const hrefnaf = navSection.querySelector('ul li');
@@ -350,6 +350,23 @@ export default async function decorate(block) {
 
       // --- Mobile Click Logic (Unaffected) ---
       if (window.innerWidth < 786) {
+        Array.from(navSections.querySelector('ul').children).forEach((elinit, indxel) => {
+          Array.from(elinit.querySelectorAll('ul')).forEach((elfor) => {
+              elfor.style.display = 'none';
+            });
+        });
+        // navSections.querySelectorAll('ul > li').forEach((elfor) => {
+        //   if (elfor.querySelector('ul') !== null) {
+        //     elfor.querySelector('ul').style.display = 'none';
+        //   }
+        // });
+        // if (index === 1) {
+        //   navSection.querySelectorAll('ul').forEach((elfor) => {
+        //     if (elfor.querySelector('ul') !== null) {
+        //       elfor.querySelector('ul').style.display = 'block';
+        //     }
+        //   });
+        // }
         navSection.addEventListener('click', () => {
           navSections.querySelectorAll('ul > li').forEach((elfor) => {
             if (elfor.querySelector('ul') !== null) {
@@ -359,7 +376,7 @@ export default async function decorate(block) {
           toggleAllNavSections(navSections, false);
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          Array.from(navSection.querySelectorAll('ul')).forEach((elul) =>{
+          Array.from(navSection.querySelectorAll('ul')).forEach((elul) => {
             elul.style.display = 'block';
           });
         });
