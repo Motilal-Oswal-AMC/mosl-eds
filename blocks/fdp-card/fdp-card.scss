@@ -453,6 +453,7 @@ main {
               @include media(tab) {
                 // max-width: 140px;
                 width: max-content;
+                padding-right: 33px;
               }
 
               // @include media(mobile) {
