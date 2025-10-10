@@ -333,13 +333,15 @@ export default function decorate(block) {
             {
               class: 'dropdownlist',
               onclick: (event) => {
-                const valueText = event.target.textContent.trim();
-                const parentClosest = event.target.closest('.dropdownmidle');
+                const evtarget = event.target;
+                const valueText = evtarget.textContent.trim();
+                const parentClosest = evtarget.closest('.dropdownmidle');
                 const ptext = parentClosest.querySelector('.selecttext');
                 ptext.innerText = '';
                 ptext.innerText = valueText;
                 dataMapMoObj.planText = valueText;
-                const parentElem = event.target.parentElement.classList;
+                const parentElem = evtarget.parentElement.classList;
+                evtarget.classList.add('listval-active');
                 parentElem.remove('dropdown-active');
                 planGrpEvent(event);
               },
