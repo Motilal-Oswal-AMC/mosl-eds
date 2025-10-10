@@ -483,7 +483,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds>.card-modal-overlay,
     .known-our-funds>.card-modal-overlay {
         position: fixed;
@@ -593,7 +592,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds.modal-active-parent,
     .known-our-funds.modal-active-parent {
         max-height: unset;
@@ -685,6 +683,7 @@ body.noscroll {
     overflow-x: auto;
     word-break: unset;
     align-items: center;
+
     /* gap: 16px; */
 }
 
@@ -761,6 +760,7 @@ body.noscroll {
     align-items: center;
     list-style: none;
     margin: 0;
+
     /* height: 24px; */
 }
 
@@ -768,6 +768,7 @@ body.noscroll {
     display: flex;
     justify-content: center;
     align-items: center;
+
     /* padding-right: 12px; */
 
     /* border-right: 1px solid #616161; */
@@ -781,6 +782,7 @@ body.noscroll {
 .breadcrumbs-fdp>ul.breadul>li.breadli::before {
     position: absolute;
     content: "/";
+
     /* margin-right: 4px; */
     right: -16px;
     top: 0;

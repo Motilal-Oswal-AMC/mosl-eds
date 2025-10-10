@@ -53,6 +53,7 @@
 
         @include media(mobile) {
           align-items: flex-start;
+          
           // padding-top: 40px;
         }
 
@@ -622,6 +623,7 @@
 
                     &.error-show {
                       display: block;
+                      text-align: left;
                     }
                   }
                 }
@@ -917,6 +919,7 @@
             @include media(mobile) {
               text-align: center;
               padding: 16px 0;
+              padding-top: 0;
             }
 
             .view-othercal-btn {

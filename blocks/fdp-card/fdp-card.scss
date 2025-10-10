@@ -58,7 +58,6 @@ main {
       }
 
       .card-wrapper {
-
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -255,6 +254,7 @@ main {
                 @include media(mobile) {
                   height: 24px;
                   padding: 5px 10px;
+
                   @include font-style(var(--body-xsmall-regular-size),
                     var(--body-xsmall-regular-line-height),
                     var(--blue-1-800-primary),
@@ -376,11 +376,9 @@ main {
                   &::after {
                     content: "";
                     background: url("../../icons/direction-right.svg") center / cover no-repeat;
-                    min-width: 1px;
                     min-width: 16px;
                     height: 16px;
                     display: block;
-
                     transform: rotate(90deg);
                     position: absolute;
                     top: 0;

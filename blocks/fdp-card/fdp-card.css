@@ -329,7 +329,6 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .selectedtext::after {
   content: "";
   background: url("../../icons/direction-right.svg") center/cover no-repeat;
-  min-width: 1px;
   min-width: 16px;
   height: 16px;
   display: block;

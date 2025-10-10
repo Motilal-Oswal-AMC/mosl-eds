@@ -91,7 +91,7 @@ export default function decorate(block) {
                 { class: 'logo-container' },
                 img({
                   class: 'fund-logo',
-                  src: `../../icons/iconfund/${mop}`,
+                  src: `../../icons/schemeicons/${mop}`,
                   alt: 'Img',
                 }),
               ),
@@ -180,7 +180,7 @@ export default function decorate(block) {
           { class: 'fund-name-wrapper', schcode: block.schcode },
           div(
             { class: 'logo-container' },
-            img({ class: 'fund-logo', src: `../../icons/iconfund/${mopsec}`, alt: 'Img' }),
+            img({ class: 'fund-logo', src: `../../icons/schemeicons/${mopsec}`, alt: 'Img' }),
           ),
           div(
             { class: 'fund-name-container' },

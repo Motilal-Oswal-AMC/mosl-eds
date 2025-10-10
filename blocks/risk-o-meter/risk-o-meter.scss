@@ -107,6 +107,7 @@
       flex-direction: column-reverse;
       padding: 0;
       gap: 40px;
+
       // margin: 32px 0 40px;
     }
   }
@@ -300,6 +301,7 @@
   @include media(mobile) {
     padding: 40px 16px;
     margin: unset !important;
+
     // background: #FFF;
     // box-shadow: 0 4px 12px 0 #0000000D;
     // gap: 8px;
