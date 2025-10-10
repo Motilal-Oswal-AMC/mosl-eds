@@ -857,7 +857,7 @@
         "component": "reference",
         "name": "fstimage",
         "label": "Image",
-        "multi": false
+        "multi": true
       },
       {
         "component": "text",
