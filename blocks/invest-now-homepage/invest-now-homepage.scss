@@ -263,6 +263,12 @@
                         }
                       }
                     }
+
+                    &.dropdown-active{
+                      .dropdown-list{
+                        display: block;
+                      }
+                    }
                   }
                 }
               }
@@ -1838,7 +1844,8 @@
   // display: block;
   max-width: 74.942%;
   width: 100%;
-  display: flex;
+
+  // display: flex;
   justify-content: center;
   align-items: center;
 
@@ -2192,8 +2199,8 @@
 
     .modal-content {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: end;
+      align-items: end;
       max-width: 100%;
       width: 100%;
       height: 100%;

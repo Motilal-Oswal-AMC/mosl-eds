@@ -306,6 +306,9 @@
     line-height: var(--label-large-line-height);
   }
 }
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-header-container .modal-header .modal-header-subtitle .dropdown-wrap.dropdown-active .dropdown-list {
+  display: block;
+}
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container {
   display: flex;
   flex-direction: column;
@@ -1603,7 +1606,6 @@
 .modal-stepup-one {
   max-width: 74.942%;
   width: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -1926,8 +1928,8 @@
 }
 .modal.modal-journey.block dialog .modal-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
+  align-items: end;
   max-width: 100%;
   width: 100%;
   height: 100%;
