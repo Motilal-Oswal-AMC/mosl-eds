@@ -54,7 +54,7 @@ export default function decorate(block) {
         }),
         img({
           class: 'search-btn',
-          src: '../../icons/search-icon.svg',
+          src: '../../icons/search-blue.svg',
           alt: 'cancel button',
         }),
       ),
