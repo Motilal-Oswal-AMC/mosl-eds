@@ -13,7 +13,7 @@
 
 .section.growth-now-container {
     margin: 0;
-    background-color: var(--neutrals-100);
+   
 
     // background-color: #fff;
     padding: 40px 0 50px;
@@ -729,4 +729,8 @@
             }
         }
     }
+}
+
+.section.growth-now-bg-color{
+     background-color: var(--neutrals-100);
 }
