@@ -2022,7 +2022,6 @@ export default function decorate(block) {
             class: 'cards-container',
           },
           ...dataMapMoObj.funddata.map((el) => fundcardblock(el)),
-          span('addee to watchlist')
         ),
         div(
           {

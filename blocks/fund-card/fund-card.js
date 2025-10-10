@@ -64,7 +64,7 @@ export default function decorate(block) {
   const starClass = dataMapMoObj.schstar.includes(block.schcode)
     ? 'star-filled'
     : '';
-  const mop = `../../icons/iconfund/MO_${block.schcode}.svg`;
+  const mop = `../../icons/schemeicons/MO_${block.schcode}.svg`;
   const dspdate = returnYear === 'Since Inception' ? 'block' : 'none';
   // const cagrValue = finPlangrp
   if (finPlangrp.length !== 0) {
