@@ -71,7 +71,7 @@ main {
   display: block;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
   background-color: #464343;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist::-webkit-scrollbar-track {

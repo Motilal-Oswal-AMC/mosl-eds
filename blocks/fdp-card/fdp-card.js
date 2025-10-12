@@ -576,7 +576,7 @@ export default function decorate(block) {
 
   const ptagtest = document.querySelector('.selectedtext-fdp');
 
-  let currentSelectedText = '';  
+  let currentSelectedText = '';
 
   item2Ul.addEventListener('click', (e) => {
     if (window.innerWidth < 786) {

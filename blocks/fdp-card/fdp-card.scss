@@ -58,7 +58,6 @@ main {
       }
 
       .card-wrapper {
-
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -84,7 +83,7 @@ main {
           }
 
           &::-webkit-scrollbar {
-            width: 0px;
+            width: 0;
             background-color: #464343;
           }
 
@@ -813,6 +812,7 @@ main {
         padding: 16px;
         position: relative;
         cursor: pointer;
+
         // flex-direction: row-reverse;
 
         @include font-style(var(--body-medium-medium-size),
