@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 main {
   background-color: #f5f5f5;
@@ -58,6 +58,7 @@ main {
       }
 
       .card-wrapper {
+
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -111,17 +112,17 @@ main {
               400,
               var(--body));
 
-              &.active {
-                @include font-style(var(--body-xsmall-medium-size),
-              var(--body-xsmall-medium-line-height),
-              var(--blue-1-800-primary),
-              500,
-              var(--body));
-              }
+            &.active {
+              @include font-style(var(--body-xsmall-medium-size),
+                var(--body-xsmall-medium-line-height),
+                var(--blue-1-800-primary),
+                500,
+                var(--body));
+            }
 
-              @include media(mobile) {
-                padding: 12px;
-              }
+            @include media(mobile) {
+              padding: 12px;
+            }
           }
         }
 
@@ -180,7 +181,7 @@ main {
                 16px,
                 map.get($blue-1, b400),
                 500,
-                $poppins );
+                $poppins);
 
               @include media(mobile) {
                 font-weight: 400;
@@ -292,11 +293,13 @@ main {
 
                 &::after {
                   content: "";
-                  background: url("../../icons/direction-right.svg") center / cover no-repeat;
-                  min-width: 16px;
+                  background: url("../../icons/arrow-down-blue.svg") center / cover no-repeat;
+                  background-position: center;
+                  background-size: cover;
+                  width: 16px;
                   height: 16px;
-                  display: block;
-                  transform: rotate(90deg);
+
+                  // transform: rotate(90deg);
                 }
               }
             }
@@ -311,7 +314,8 @@ main {
 
             @include media(mobile) {
               // padding-right: 35px;
-              justify-content: space-between;
+              // justify-content: space-between;
+              gap: 16px;
             }
 
             .return-grp {
@@ -412,8 +416,12 @@ main {
                 }
 
                 .percent {
-                  font-size: 20px;
-                  font-weight: 400;
+                  font-size: var(--body-large-semibold-size);
+                  line-height: var(--body-large-semibold-line-height);
+                  color: var(--blue-1-800-primary);
+                  font-family: var(--body);
+                  font-feature-settings: var(--font-features-default);
+                  font-weight: 600;
 
                   @include media(mobile) {
                     line-height: 32px;
@@ -568,7 +576,7 @@ main {
                   12px,
                   map.get($danger, 300),
                   400,
-                  $poppins );
+                  $poppins);
 
                 &.show-error {
                   display: block;

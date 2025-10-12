@@ -548,7 +548,7 @@ export default function decorate(block) {
             {
               class: 'notify-dis',
             },
-            '88.87K have invested in this fund as on 1 Jul 2025',
+            '88.87K have invested in this fund as on 1 Jul’25',
           ),
         ),
       ),
