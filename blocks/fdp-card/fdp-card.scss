@@ -58,6 +58,7 @@ main {
       }
 
       .card-wrapper {
+
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -77,6 +78,10 @@ main {
           border-radius: 6px;
           border: 1px solid $neutrals-200;
           box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+
+          @include media(mobile) {
+            min-width: 143px;
+          }
 
           &.dropdown-active {
             display: block;
@@ -111,17 +116,17 @@ main {
               400,
               var(--body));
 
-              &.active {
-                @include font-style(var(--body-xsmall-medium-size),
-              var(--body-xsmall-medium-line-height),
-              var(--blue-1-800-primary),
-              500,
-              var(--body));
-              }
+            &.active {
+              @include font-style(var(--body-xsmall-medium-size),
+                var(--body-xsmall-medium-line-height),
+                var(--blue-1-800-primary),
+                500,
+                var(--body));
+            }
 
-              @include media(mobile) {
-                padding: 12px;
-              }
+            @include media(mobile) {
+              padding: 12px;
+            }
           }
         }
 
@@ -394,6 +399,12 @@ main {
 
                   // top: 22px;
                   top: 100%;
+
+                  @include media(mobile) {
+                    top: 21%;
+                    width: 143px;
+                    max-height: 198px;
+                  }
                 }
               }
 
@@ -679,7 +690,7 @@ main {
 
       // position: fixed;
       position: sticky;
-      top: 204px;
+      top: 200px;
       display: flex;
       list-style: none;
       padding: 0;

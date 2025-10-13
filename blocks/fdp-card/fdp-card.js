@@ -395,7 +395,17 @@ export default function decorate(block) {
                 {
                   class: 'dropdownlist',
                   onclick: (event) => {
-                    const valueText = event.target.textContent.trim();
+                    const targetVal = event.target;
+                    if (!targetVal.classList.contains('listval')) {
+                      return;
+                    }
+                    const dropdownList = targetVal.parentElement;
+                    const allListItems = dropdownList.querySelectorAll('.listval');
+                    allListItems.forEach((item) => {
+                      item.classList.remove('active');
+                    });
+                    targetVal.classList.add('active');
+                    const valueText = targetVal.textContent.trim();
                     const parentClosest = event.target.closest('.dropdown');
                     const ptext = parentClosest.querySelector('.selectedtext');
                     let textval = valueText;
@@ -576,7 +586,7 @@ export default function decorate(block) {
 
   const ptagtest = document.querySelector('.selectedtext-fdp');
 
-  let currentSelectedText = '';  
+  let currentSelectedText = '';
 
   item2Ul.addEventListener('click', (e) => {
     if (window.innerWidth < 786) {

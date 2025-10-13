@@ -67,6 +67,11 @@ main {
   border: 1px solid #eee;
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist {
+    min-width: 143px;
+  }
+}
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist.dropdown-active {
   display: block;
 }
@@ -343,6 +348,13 @@ main {
   height: auto;
   top: 100%;
 }
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
+    top: 21%;
+    width: 143px;
+    max-height: 198px;
+  }
+}
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr {
   width: 100%;
 }
@@ -592,7 +604,7 @@ main {
   height: 40px;
   justify-content: space-between;
   position: sticky;
-  top: 204px;
+  top: 200px;
   display: flex;
   list-style: none;
   padding: 0;

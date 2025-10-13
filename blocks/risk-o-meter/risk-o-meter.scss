@@ -247,6 +247,7 @@
       }
 
       margin: 0;
+      display: flex;
 
       a.deftwo1 {
         @include font-style(var(--body-small-regular-size),
