@@ -408,7 +408,7 @@ export default async function decorate(block) {
     const tempnone = block.closest('body').querySelector('footer');
     tempnone.style.display = 'none';
     dataMapMoObj.CLASS_PREFIXES = [];
-    dataMapMoObj.CLASS_PREFIXES = ['itemfaq', 'subitemfaq'];
+    dataMapMoObj.CLASS_PREFIXES = ['itemfaq', 'subitemfaq', 'subinnerfaq', 'innersubfaq', 'inneritemfaq'];
     dataMapMoObj.addIndexed(block.closest('.page-faq-section'));
 
     const divtablist = block.querySelector('.tabs-list');
