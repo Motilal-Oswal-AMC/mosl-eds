@@ -8,8 +8,10 @@
     width: 100%;
     padding: 16px;
     border-radius: 16px;
-    border: 1px solid #B9BBFF;
-    background: var(--surface-background, #FFF);
+    background:
+      linear-gradient(var(--neutrals-white), var(--neutrals-white)) padding-box,
+      linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
+    border: 1px solid transparent;
     box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
 
     // border-radius: map.get($radius, r8);
@@ -109,7 +111,8 @@
 
         .brand-fund-wrap {
           width: 100%;
-          height: 100%;
+
+          // height: 100%;
 
           // .brand-name-text {
           //   margin: 0;
@@ -294,7 +297,8 @@
             // width: 80px;
             // width: 117px;
             // width: max-content;
-            max-width: 130px;
+            // max-width: 130px;
+            max-width: max-content;
             width: 100%;
             position: relative;
             margin: 4px 0 0;
@@ -330,6 +334,18 @@
               display: flex;
               align-items: center;
               gap: 4px;
+
+              .cagr-date {
+                @include font-style(12px,
+                  14px,
+                  var(--blue-1-800-primary),
+                  500,
+                  var(--body));
+
+                margin: 0;
+                padding: 0;
+                pointer-events: none;
+              }
 
               &::after {
                 content: "";
@@ -408,17 +424,6 @@
                 }
               }
             }
-          }
-
-          .cagr-date {
-            @include font-style(12px,
-              14px,
-              var(--blue-1-800-primary),
-              500,
-              var(--inter));
-
-            margin: 0;
-            padding: 0;
           }
         }
 

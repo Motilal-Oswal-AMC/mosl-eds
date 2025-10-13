@@ -935,7 +935,7 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
     { class: 'custom-select-wrapper', id: `custom-select-${id}` },
     label({ class: 'custom-select-label' }, labelText),
     p({ class: 'select-selected' }, defaultValue),
-    ul({ class: 'select-options' }, ...options.map((opt) => li({ 'data-value': opt }, opt))),
+    ul({ class: 'select-options' }, ...options.map((opt) => li({ class:'select-list', 'data-value': opt }, opt))),
     input({ type: 'hidden', id, value: defaultValue }),
   );
 }
@@ -1170,10 +1170,10 @@ export default function decorate(block) {
   // const brandName = 'Motilal Oswal';
   // const logoSrc = '../../icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
-  const logoSrc = `../../icons/iconfund/${mop}`;
+  const logoSrc = `../../icons/schemeicons/${mop}`;
   // const calendarIconSrc = '../../icons/calendar.svg';
   // // Replace with your real calendar icon path
-  const infotoolsrc = '../../icons/infotooltip.svg';
+  const infotoolsrc = '../../icons/information.svg';
   const closesrc = '../../icons/cross.svg';
   const frequencyOptions = [
     'Annual',
@@ -1206,6 +1206,7 @@ export default function decorate(block) {
   );
 
   // Build modal
+  const textdrop = dataMapMoObj.planText === undefined ? '' : dataMapMoObj.planText;
   const modal = div(
     { class: 'invest-now-modal fdp-sip-modal' },
     div(
@@ -1222,12 +1223,13 @@ export default function decorate(block) {
           h3({ class: 'fund-name' }, fundNameFromData),
           div(
             { class: 'dropdown-wrap' },
-            p({ class: 'selected-txt' }, 'Growth'),
+            p({ class: 'selected-txt' }, textdrop),
             ul(
               { class: 'dropdown-list' },
-              li({ class: 'list-name' }, '1Y'),
-              li({ class: 'list-name' }, '3Y'),
-              li({ class: 'list-name' }, '5Y'),
+              ...dataMapMoObj.planlistArr.map((eloption) => li({
+              class: 'list-name',
+              datacode: eloption.groupedCode,
+            }, `${eloption.planName} | ${eloption.optionName}`)),
             ),
           ),
         ),
@@ -1288,7 +1290,7 @@ export default function decorate(block) {
                 { class: 'start-today-note' },
                 p(
                   { class: 'sip-note' },
-                  'Your 1st SIP Installment will be debited today ',
+                  'Your first SIP instalment will be deducted today.',
                 ),
                 div(
                   { class: 'sip-note-highlight' },
@@ -1341,8 +1343,8 @@ export default function decorate(block) {
             classAddv2.classList.remove('hide-modal');
             classAddv2.classList.add('modal-show');
           },
-        }, 'BUY NOW'),
-        button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
+        }, 'Add to Cart'),
+        button({ class: 'start-now modal-cta-btn' }, 'Invest Now'),
       ),
     ),
   );

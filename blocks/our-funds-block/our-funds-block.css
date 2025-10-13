@@ -124,7 +124,7 @@
   background-color: transparent;
   font-size: var(--body-medium-regular-size);
   line-height: var(--body-medium-regular-line-height);
-  color: var(--blue-1-800-primary);
+  color: var(--text-black);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
@@ -360,7 +360,7 @@
 .section .our-funds-block .filter-cards .left-container {
   max-width: 296px;
   width: 100%;
-  margin: 56px 0 0;
+  margin: 53.2px 0 0;
 }
 @media (max-width: 1299px) {
   .section .our-funds-block .filter-cards .left-container {
@@ -996,7 +996,6 @@
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container,
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container {
-  position: relative;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1009,6 +1008,12 @@
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
+}
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container .sort-select-container,
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container .return-select-container,
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container .sort-select-container,
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container .return-select-container {
+  position: relative;
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container .sort-select-container .selectedtext,
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container .return-select-container .selectedtext,
@@ -1048,11 +1053,11 @@
   list-style: none;
   position: absolute;
   top: 100%;
-  left: 36px;
+  left: 0;
   z-index: 2;
   width: 143px;
-  margin: 6px 0 0;
-  background-color: #fff;
+  margin: 14px 0 0;
+  background-color: var(--neutrals-white);
   border-radius: 8px;
   border: 1px solid var(--neutrals-200);
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
@@ -1113,7 +1118,7 @@
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container .return-select-container .dropdown-list,
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .popular-container .return-select-container .dropdown-list {
-  left: 108px;
+  left: 4px;
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .sort-popular .sort-container::after {
   content: "";
@@ -1209,6 +1214,34 @@
   .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .toggle-text:last-of-type {
     font-size: var(--paragraph-small-size);
     line-height: var(--paragraph-small-line-height);
+  }
+}
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn.toggle-checked .toggle-text:first-of-type {
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--neutrals-black);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn.toggle-checked .toggle-text:first-of-type {
+    font-size: var(--paragraph-small-size);
+    line-height: var(--paragraph-small-line-height);
+  }
+}
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn.toggle-checked .toggle-text:last-of-type {
+  font-size: var(--body-small-semibold-size);
+  line-height: var(--body-small-semibold-line-height);
+  color: var(--blue-1-700);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn.toggle-checked .toggle-text:last-of-type {
+    font-size: var(--body-small-semibold-size);
+    line-height: var(--body-small-semibold-line-height);
   }
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap input {

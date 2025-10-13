@@ -233,6 +233,7 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  margin: 0;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1),
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1),
@@ -248,7 +249,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  text-decoration-line: underline;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-2, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-15, .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1).list-elem-18,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1).list-elem-2,
@@ -293,6 +293,7 @@
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-7,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-9,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li.list-elem-12 {
+  margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -547,5 +548,5 @@
 
 .contact-us-parent-wrapper .section.growth-now-container {
   background-color: unset;
-  padding: 40px 0;
+  padding: 40px 0 80px;
 }/*# sourceMappingURL=contact-card.css.map */

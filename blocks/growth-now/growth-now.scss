@@ -13,7 +13,7 @@
 
 .section.growth-now-container {
     margin: 0;
-    background-color: var(--neutrals-100);
+   
 
     // background-color: #fff;
     padding: 40px 0 50px;
@@ -325,7 +325,8 @@
 
                             @include media(mobile) {
                                 width: 100%;
-                                max-width: 176px;
+                                
+                                // max-width: 176px;
                             }
                         }
 
@@ -729,4 +730,8 @@
             }
         }
     }
+}
+
+.section.flp-growth{
+     background-color: var(--neutrals-100);
 }

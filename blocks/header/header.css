@@ -406,7 +406,7 @@ header nav .nav-sections .nav-sec-sec1 .nav-drop {
     font-style: normal;
     font-weight: 600;
     line-height: var(--body-medium-semibold-line-height);
-    gap: 12px;
+    gap: 14px;
     cursor: pointer;
     padding: 2px 0;
 }
@@ -461,6 +461,12 @@ header nav .nav-sections .nav-sec-sec1 .nav-drop::after {
     background: url('../../icons/Accordian-icons-mins.svg');
     width: 24px;
     height: 24px;
+} */
+
+/* .header .sub-popup-header .sub-popup-sec1{
+    display: flex !important;
+    flex-direction: column;
+    gap: 16px;
 } */
 
 header nav .nav-sections .nav-sec-sec1 .nav-drop[aria-expanded="true"]::after {
@@ -697,10 +703,8 @@ header nav .nav-sections ul>li>ul {
 }
 
 .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li.comlist {
-    padding: 8px 0;
+    padding: 14px 0;
 }
-
-
 
 .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist {
     width: 100%;
@@ -738,6 +742,15 @@ header nav .nav-sections ul>li>ul {
     padding-left: 3px;
     margin-left: -20px;
     background: var(--neutrals-white);
+}
+
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5.comlist {
+    padding-top: 20px;
+    padding-bottom: 14px;
+}
+
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list6.comlist {
+    padding-top: 14px;
 }
 
 /* .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-list5.comlist .sub-popup-list-row1.comlist,
@@ -824,6 +837,10 @@ header nav .nav-sections ul>li>ul {
 
 .investor-edu-header.sub-popup-header .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 .sub-popup-list-content2 .sub-popup-list-row1 .button-container .button {
     color: var(--neutrals-800);
+
+    /* word-break: auto-phrase;
+    max-inline-size: 34ch;
+    text-wrap: balance; */
 }
 
 .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 {
@@ -1024,7 +1041,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     /* gap: 8px;
   padding: 16px 12px;
   border-radius: 8px;
-  border: 1px solid #F5F5F5;
+  border: 1px solid var(--neutrals-200);
   background: var(--neutrals-white);
   box-shadow: 0 0 34px 0 #0000000F;
   margin-bottom: 16px; */
@@ -1463,11 +1480,13 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
 .live-indicator {
     width: 9px;
-    height: 8px;
-    background-color: #FF4136;
+    height: 9px;
+    background-color: #EE212E;
     border-radius: 50%;
-    animation: pulse 1.5s infinite;
-    margin-bottom: 1px;
+
+
+    /* animation: pulse 1.5s infinite;
+    margin-bottom: 1px; */
 }
 
 @keyframes pulse {
@@ -1928,6 +1947,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         max-width: 1232px;
         width: 100%;
         margin: 0 auto;
+        overflow: unset;
     }
 
     header nav .nav-tools .nav-tools-cont1>ul {
@@ -2052,6 +2072,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         align-items: flex-start;
     }
 
+    .section.sub-popup-header.our-popular-funds .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list1.comlist {
+        align-items: center;
+    }
+
     .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .comlist.sub-popup-inner-text2 {
         display: flex;
         flex-direction: column;
@@ -2094,12 +2118,13 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
     .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1 .sub-popup-inner-text2 li a.comlist {
         color: var(--neutrals-800);
+        word-break: auto-phrase;
     }
 
     .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
         color: var(--neutrals-800);
         font-size: var(--body-small-regular-size);
-        line-height: var(--label-large-line-height);
+        line-height: 20px;
     }
 
     .investor-edu-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2>li.comlist {
@@ -2333,11 +2358,8 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     .section.sub-popup-header .default-content-wrapper .sub-popup-sec2 {
         position: relative;
         width: 16.5%;
-
-        /* height: -webkit-fill-available; */
         margin: 0;
-        border-radius: 8px;
-        background: #F5F5F5;
+        background: var(--neutrals-200);
         display: flex;
         padding: 16px;
         justify-content: space-between;
@@ -2357,7 +2379,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         left: 2px;
         width: 100vw;
         height: 100%;
-        background-color: #F5F5F5;
+        background-color: var(--neutrals-200);
         z-index: -1;
     }
 
@@ -2389,7 +2411,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         align-items: center;
         align-self: stretch;
         border-radius: 4px;
-        background: #F5F5F5;
+        background: var(--neutrals-200);
         height: max-content;
         margin-top: auto;
         margin-bottom: 16px;
@@ -2411,7 +2433,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     }
 
     header nav .nav-sections .section.sub-popup-header .default-content-wrapper .sub-popup-sec1>li:last-child .sub-popup-inner-text2 li a {
-        color: var(--blue-1-500);
+        color: var(--text-text-link);
         font-feature-settings: var(--font-features-default);
         font-family: var(--body);
         font-size: 14px;
@@ -2517,6 +2539,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
     .sub-popup-header.mosl-edge-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub1 .sub-popup-inner-text2 ul.comlist.sub-popup-list-content2 {
         display: block;
+        padding-left: 28px;
     }
 
     /* .sub-popup-header.mosl-edge-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub1 .sub-popup-inner-text2 ul.comlist.sub-popup-list-content2 li {

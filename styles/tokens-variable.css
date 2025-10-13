@@ -9,6 +9,9 @@
     --weight-semibold: "Semibold";
     --weight-medium: "Medium";
     --weight-bold: "Bold";
+    --font-features-default: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on,
+        'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on,
+        'cv10' on, 'cv11' on;
 
     /* typeface baseline end */
 
@@ -200,6 +203,8 @@
     --text-button-disabled: var(--neutrals-500);
     --surface-icon-primary-normal: var(--blue-1-800-primary);
     --surface-background-neutral-subtle: var(--neutrals-white);
+    --surface-text-neutral-intense: var(--neutrals-800);
+    --surface-text-neutral-strong: var(--neutrals-900);
 
     /* semantic light end */
 
@@ -506,6 +511,10 @@
         --text-link-xsmall-weight: var(--weight-regular);
         --text-link-xsmall-size: var(--spacing-12);
         --text-link-xsmall-line-height: var(--spacing-16);
+        --text-large-semibold-size: var(--spacing-18);
+        --text-large-semibold-line-height: var(--spacing-24);
+        --text-xsmall-semibold-size: var(--spacing-12);
+        --text-xsmall-semibold-line-height: var(--spacing-16);
         --disclaimer-xsmall-font: var(--body);
         --disclaimer-xsmall-weight: var(--weight-regular);
         --disclaimer-xsmall-size: var(--spacing-12);

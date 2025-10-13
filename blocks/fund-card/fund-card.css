@@ -4,8 +4,8 @@
   width: 100%;
   padding: 16px;
   border-radius: 16px;
-  border: 1px solid #B9BBFF;
-  background: var(--surface-background, #FFF);
+  background: linear-gradient(var(--neutrals-white), var(--neutrals-white)) padding-box, linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
+  border: 1px solid transparent;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
@@ -81,7 +81,6 @@
 }
 .section .card-container .card-wrapper .card-upper-title .brand-fund-wrap {
   width: 100%;
-  height: 100%;
 }
 .section .card-container .card-wrapper .card-upper-title .brand-fund-wrap .fund-name-title {
   font-size: var(--body-medium-semibold-size);
@@ -198,7 +197,8 @@
   }
 }
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper {
-  max-width: 130px;
+  max-width: -moz-max-content;
+  max-width: max-content;
   width: 100%;
   position: relative;
   margin: 4px 0 0;
@@ -215,6 +215,17 @@
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .selectedtext .cagr-date {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
 }
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .selectedtext::after {
   content: "";
@@ -279,16 +290,6 @@
 }
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .dropdown-list li:last-of-type {
   border: none;
-}
-.section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-date {
-  font-size: 12px;
-  line-height: 14px;
-  color: var(--blue-1-800-primary);
-  font-family: var(--inter);
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
 }
 .section .card-container .card-wrapper .cagr-container .cagr-value {
   max-width: -moz-max-content;

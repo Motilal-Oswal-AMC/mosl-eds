@@ -64,7 +64,7 @@ export default function decorate(block) {
   const starClass = dataMapMoObj.schstar.includes(block.schcode)
     ? 'star-filled'
     : '';
-  const mop = `../../icons/iconfund/MO_${block.schcode}.svg`;
+  const mop = `../../icons/schemeicons/MO_${block.schcode}.svg`;
   const dspdate = returnYear === 'Since Inception' ? 'block' : 'none';
   // const cagrValue = finPlangrp
   if (finPlangrp.length !== 0) {
@@ -101,10 +101,12 @@ export default function decorate(block) {
                         ).includes('star-filled')
                       ) {
                         event.target.parentElement.classList.add('star-filled');
+                        event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Added to Watchlist';
                       } else {
                         event.target.parentElement.classList.remove(
                           'star-filled',
                         );
+                        event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Watchlist';
                       }
                       wishlist();
                     },
@@ -234,10 +236,12 @@ export default function decorate(block) {
                       ).includes('star-filled')
                     ) {
                       event.target.parentElement.classList.add('star-filled');
+                      event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Added to Watchlist';
                     } else {
                       event.target.parentElement.classList.remove(
                         'star-filled',
                       );
+                      event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Watchlist';
                     }
                     wishlist();
                   },
@@ -322,6 +326,13 @@ export default function decorate(block) {
                   },
                 },
                 returnYear,
+                p(
+                  {
+                    class: 'cagr-date',
+                    style: `display:${dspdate}`,
+                  },
+                  dataMapMoObj.formatDate(block.dateOfAllotment),
+                ),
               ),
               ul(
                 { class: 'dropdown-list' },
@@ -352,26 +363,25 @@ export default function decorate(block) {
                         .closest('.cagr-container')
                         .querySelector('.cagr-value .cagr-val-label')
                         .append(span('%'));
-                      const datedrp = event.currentTarget.closest('.cagr-dropdown');
                       if (
                         event.target.textContent.trim() === 'Since Inception'
                       ) {
-                        datedrp.querySelector('.cagr-date').style.display = 'block';
-                      } else {
-                        datedrp.querySelector('.cagr-date').style.display = 'none';
+                        event.currentTarget
+                          .closest('.cagr-select-wrapper')
+                          .querySelector('p').append(
+                            p(
+                              {
+                                class: 'cagr-date',
+                              },
+                              dataMapMoObj.formatDate(block.dateOfAllotment),
+                            ),
+                          );
                       }
                     },
                   },
                   eloption,
                 )),
               ),
-            ),
-            p(
-              {
-                class: 'cagr-date',
-                style: `display:${dspdate}`,
-              },
-              '24 Jul ‘24',
             ),
           ),
           div(

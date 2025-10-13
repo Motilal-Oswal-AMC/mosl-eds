@@ -209,7 +209,7 @@ export default async function decorate(block) {
     // A single timer is shared across all nav sections to prevent flickering.
     let leaveTimer;
 
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection) => {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection, index) => {
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
         const hrefnaf = navSection.querySelector('ul li');
@@ -349,12 +349,38 @@ export default async function decorate(block) {
       });
 
       // --- Mobile Click Logic (Unaffected) ---
-      // navSection.addEventListener('click', () => {
-      //   if (!isDesktop.matches) {
-      //     const expanded = navSection.getAttribute('aria-expanded') === 'true';
-      //     navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      //   }
-      // });
+      if (window.innerWidth < 786) {
+        Array.from(navSections.querySelector('ul').children).forEach((elinit) => {
+          Array.from(elinit.querySelectorAll('ul')).forEach((elfor) => {
+            elfor.style.display = 'none';
+          });
+        });
+        // navSections.querySelectorAll('ul > li').forEach((elfor) => {
+        //   if (elfor.querySelector('ul') !== null) {
+        //     elfor.querySelector('ul').style.display = 'none';
+        //   }
+        // });
+        // if (index === 1) {
+        //   navSection.querySelectorAll('ul').forEach((elfor) => {
+        //     if (elfor.querySelector('ul') !== null) {
+        //       elfor.querySelector('ul').style.display = 'block';
+        //     }
+        //   });
+        // }
+        navSection.addEventListener('click', () => {
+          navSections.querySelectorAll('ul > li').forEach((elfor) => {
+            if (elfor.querySelector('ul') !== null) {
+              elfor.querySelector('ul').style.display = 'none';
+            }
+          });
+          toggleAllNavSections(navSections, false);
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          Array.from(navSection.querySelectorAll('ul')).forEach((elul) => {
+            elul.style.display = 'block';
+          });
+        });
+      }
 
       const subHeader = navSection.querySelectorAll('.section');
       dataMapMoObj.CLASS_PREFIXES = [
@@ -541,10 +567,10 @@ export default async function decorate(block) {
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
     await delay(800);
-    navSections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-      section.querySelectorAll('ul').forEach((elul) => {
-        elul.style.display = 'none';
-      });
+    navSections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach(() => {
+      // section.querySelectorAll('ul').forEach((elul) => {
+      //   elul.style.display = 'none';
+      // });
       // const navshort = navSections.querySelector('ul').children[1];
       // const navsort = navshort.querySelector('.default-content-wrapper').firstElementChild;
       // navsort.querySelector('.li:nth-child(2)').style.display = 'flex';
@@ -562,38 +588,38 @@ export default async function decorate(block) {
   }
   if (window.innerWidth < 900) {
     removeClassAfterDelay();
-    const navContainer = document.querySelector('.nav-sec-sec1');
-    navContainer.addEventListener('click', (event) => {
-      const clickedListItem = event.target.closest('li.comlist');
-      if (!clickedListItem) {
-        return;
-      }
-      const submenu = clickedListItem.querySelector(':scope > ul');
-      if (!submenu) {
-        return;
-      }
-      event.stopPropagation();
-      if (submenu.style.display === 'block') {
-        submenu.style.display = 'none';
-        submenu.closest('li').setAttribute('aria-expanded', 'false');
-      } else {
-        submenu.style.display = 'block';
-        if (submenu.querySelector('.default-content-wrapper') !== null) {
-          const subfilt = Array.from(submenu.querySelector('.default-content-wrapper').children);
-          subfilt.forEach((elulsub) => {
-            elulsub.style.display = 'block';
-          });
-        }
-        submenu.closest('li').setAttribute('aria-expanded', 'true');
-        if (submenu.closest('.nav-sec-sub2')) {
-          const mosub = submenu.querySelector('.sub-popup-sec1 .sub-popup-sub3');
-          if (mosub) {
-            mosub.querySelector('.sub-popup-list5 ul').style.display = 'block';
-            mosub.querySelector('.sub-popup-list6 ul').style.display = 'block';
-          }
-        }
-      }
-    });
+    // const navContainer = document.querySelector('.nav-sec-sec1');
+    // navContainer.addEventListener('click', (event) => {
+    //   event.stopPropagation();
+    //   const clickedListItem = event.target.closest('li.comlist');
+    //   if (!clickedListItem) {
+    //     return;
+    //   }
+    //   const submenu = clickedListItem.querySelector(':scope > ul');
+    //   if (!submenu) {
+    //     return;
+    //   }
+    //   if (submenu.style.display === 'block') {
+    //     submenu.style.display = 'none';
+    //     submenu.closest('li').setAttribute('aria-expanded', 'false');
+    //   } else {
+    //     submenu.style.display = 'block';
+    //     if (submenu.querySelector('.default-content-wrapper') !== null) {
+    //       const subfilt = Array.from(submenu.querySelector('.default-content-wrapper').children);
+    //       subfilt.forEach((elulsub) => {
+    //         elulsub.style.display = 'block';
+    //       });
+    //     }
+    //     submenu.closest('li').setAttribute('aria-expanded', 'true');
+    //     if (submenu.closest('.nav-sec-sub2')) {
+    //       const mosub = submenu.querySelector('.sub-popup-sec1 .sub-popup-sub3');
+    //       if (mosub) {
+    //         mosub.querySelector('.sub-popup-list5 ul').style.display = 'block';
+    //         mosub.querySelector('.sub-popup-list6 ul').style.display = 'block';
+    //       }
+    //     }
+    //   }
+    // });
   }
 
   const searchtemp = block.querySelector('.nav-tools .nav-tools-sec1 .nav-tools-inner-net1');

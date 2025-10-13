@@ -54,6 +54,9 @@ export async function createModal(contentNodes) {
 
   dialog.addEventListener('close', () => {
     document.body.classList.remove('modal-open');
+    if (Array.from(document.body.classList).includes('scroll-lock')) {
+      document.body.classList.remove('scroll-lock');
+    }
     block.remove();
   });
 
@@ -252,6 +255,9 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
   // 4. Add event listeners for cleanup
   dialog.addEventListener('close', () => {
     document.body.classList.remove('modal-open', 'noscroll');
+    if (Array.from(document.body.classList).includes('scroll-lock')) {
+      document.body.classList.remove('scroll-lock');
+    }
     block.remove(); // Clean up the modal block from the DOM
   });
 

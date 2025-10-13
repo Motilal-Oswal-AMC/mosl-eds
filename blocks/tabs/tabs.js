@@ -5,6 +5,7 @@ import {
   button, a, div, input, ul, li, img, table, thead, tbody, tr, th, td,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
+// import moEdge from './popular-acticles.js';
 
 export default async function decorate(block) {
   const tablist = document.createElement('div');
@@ -368,15 +369,22 @@ export default async function decorate(block) {
     tabpaneltwo.appendChild(wrapper);
     return wrapper;
   }
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const planslabel = planCode.split(':')[1];
+  const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
   if (block.parentElement.parentElement.classList.contains('tabdiv')) {
-    const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-    const planslabel = planCode.split(':')[1];
-    const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
     dataMapMoObj.scheme = planObj;
     generateBarChart(planObj[0].sector);
   }
   const tabButtons = document.querySelectorAll('.tabs-tab');
   tabButtons.forEach((tabBtn) => {
+    const tabIddata = tabBtn.id.replace('tab-', '');
+    if (tabIddata === 'sector-holdings' && planObj[0].sector === undefined) {
+      tabBtn.style.display = 'none';
+    }
+    if (tabIddata === 'stock-holdings' && planObj[0].holdings === undefined) {
+      tabBtn.style.display = 'none';
+    }
     tabBtn.addEventListener('click', () => {
       const tabId = tabBtn.id.replace('tab-', '');
       const panel = document.getElementById(`tabpanel-${tabId}`);
