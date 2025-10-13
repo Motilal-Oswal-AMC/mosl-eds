@@ -1,0 +1,19 @@
+@import "../../../styles/fonts.css";
+.section.pms-rooted #rooted-in-legacydriven-by-excellence {
+  color: #2E2A94;
+  font-family: Inter;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+}
+.section.pms-rooted p {
+  color: #424242;
+  /* Desktop/Body/Large-regular */
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 133.333% */
+}/*# sourceMappingURL=pms-rooted.css.map */
