@@ -140,7 +140,7 @@ export default function decorate(block) {
           label({ class: 'tenure-label' }, col2[3].textContent.trim()),
           div(
             { class: 'select-selected fdp-select-selected' },
-            `${col3[0].textContent.trim()} Years`,
+            `${col3[0].textContent.trim()} years`,
           ),
           div({ class: 'select-options', role: 'listbox' }),
           input({
@@ -205,6 +205,7 @@ export default function decorate(block) {
     document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none';
   }
 
+  block.querySelector('.fdp-calculator .cal-desc-label').textContent = 'Total Accumulated Wealth';
   // const inputEl = document.getElementById("investmentAmount");
   // inputEl.addEventListener("input", (e) => {
   //   let val = +e.target.value;
@@ -395,11 +396,11 @@ export default function decorate(block) {
 
     const availableTenures = [];
     if (returnsData?.inception_Ret) availableTenures.push({ value: 'inception', text: 'Since Inception' });
-    if (returnsData?.oneYear_Ret) availableTenures.push({ value: 1, text: '1 Year' });
-    if (returnsData?.threeYear_Ret) availableTenures.push({ value: 3, text: '3 Years' });
-    if (returnsData?.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 Years' });
-    if (returnsData?.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 Years' });
-    if (returnsData?.tenYear_Ret) availableTenures.push({ value: 10, text: '10 Years' });
+    if (returnsData?.oneYear_Ret) availableTenures.push({ value: 1, text: '1 year' });
+    if (returnsData?.threeYear_Ret) availableTenures.push({ value: 3, text: '3 years' });
+    if (returnsData?.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 years' });
+    if (returnsData?.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 years' });
+    if (returnsData?.tenYear_Ret) availableTenures.push({ value: 10, text: '10 years' });
 
     availableTenures.forEach((tenure) => {
       const optionEl = div({ class: 'select-option', 'data-value': tenure.value }, tenure.text);

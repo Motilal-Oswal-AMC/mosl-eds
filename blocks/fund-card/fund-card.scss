@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section {
   .card-container {
@@ -441,6 +441,8 @@
               var(--body));
 
             margin: 0;
+            display: flex;
+            gap: 4px;
 
             @include media(mobile) {
               @include font-style(24px,
