@@ -79,7 +79,7 @@
 }
 
 .section.risk-o-meter-container.risk-container {
-  margin-top: unset !important;
+  margin: 0;
   padding: 16px;
 }
 

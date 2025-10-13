@@ -3,7 +3,6 @@
 @import "../../../styles/fonts.css";
 .section.growth-now-container {
   margin: 0;
-  background-color: var(--neutrals-100);
   padding: 40px 0 50px;
 }
 @media (max-width: 768px) {
@@ -542,4 +541,8 @@
   .section.growth-now-container.homepage-growth .growth-now .growth-now-row-2 .fund-sec-1 {
     margin-right: unset;
   }
+}
+
+.section.flp-growth {
+  background-color: var(--neutrals-100);
 }/*# sourceMappingURL=growth-now.css.map */

@@ -225,6 +225,7 @@
   font-weight: 500;
   margin: 0;
   padding: 0;
+  pointer-events: none;
 }
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .selectedtext::after {
   content: "";
