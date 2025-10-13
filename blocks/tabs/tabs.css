@@ -424,6 +424,7 @@ table>tbody>tr>td:nth-child(7) {
 }
 
 @media(width <=768px) {
+
   .schemename,
   .schemenum {
     height: 70px;
@@ -662,12 +663,22 @@ table>tbody>tr>td:nth-child(7) {
 }
 
 .section.periodicreturn .default-content-wrapper:last-of-type .headgrp2 .headlist2 {
+  font-family: var(--body);
+  font-size: var(--text-link-xsmall-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--text-link-xsmall-line-height);
   color: var(--text-text-link);
   text-decoration: underline;
-  text-underline-offset: 20%;
   cursor: pointer;
   display: inline-block;
   padding-top: 20px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: 4.9%;
+  text-underline-position: from-font;
 }
 
 /* @media screen and (width<=1025px) {
