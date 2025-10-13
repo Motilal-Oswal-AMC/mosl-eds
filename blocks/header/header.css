@@ -406,7 +406,7 @@ header nav .nav-sections .nav-sec-sec1 .nav-drop {
     font-style: normal;
     font-weight: 600;
     line-height: var(--body-medium-semibold-line-height);
-    gap: 12px;
+    gap: 14px;
     cursor: pointer;
     padding: 2px 0;
 }
@@ -703,10 +703,8 @@ header nav .nav-sections ul>li>ul {
 }
 
 .section.sub-popup-header .default-content-wrapper .sub-popup-sec1 li.comlist {
-    padding: 8px 0;
+    padding: 14px 0;
 }
-
-
 
 .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist {
     width: 100%;
@@ -744,6 +742,15 @@ header nav .nav-sections ul>li>ul {
     padding-left: 3px;
     margin-left: -20px;
     background: var(--neutrals-white);
+}
+
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5.comlist {
+    padding-top: 20px;
+    padding-bottom: 14px;
+}
+
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list6.comlist {
+    padding-top: 14px;
 }
 
 /* .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-list5.comlist .sub-popup-list-row1.comlist,

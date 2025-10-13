@@ -2,6 +2,7 @@ import {
   div, a, label, input, span, button, ul, li, img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
+import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
   // -------------------------------
@@ -19,7 +20,7 @@ export default function decorate(block) {
   const schcode = planCode.split(':')[1];
   let selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
   let returnCAGR = 0;
-  let mode = 'sip';
+  dataMapMoObj.mode = 'sip';
   let planType = 'Direct';
   let planOption = 'Growth';
   const selectedFundName = selectedFund.schDetail.schemeName;
@@ -140,7 +141,7 @@ export default function decorate(block) {
           label({ class: 'tenure-label' }, col2[3].textContent.trim()),
           div(
             { class: 'select-selected fdp-select-selected' },
-            `${col3[0].textContent.trim()} Years`,
+            `${col3[0].textContent.trim()} years`,
           ),
           div({ class: 'select-options', role: 'listbox' }),
           input({
@@ -205,6 +206,7 @@ export default function decorate(block) {
     document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none';
   }
 
+  block.querySelector('.fdp-calculator .cal-desc-label').textContent = 'Total Accumulated Wealth';
   // const inputEl = document.getElementById("investmentAmount");
   // inputEl.addEventListener("input", (e) => {
   //   let val = +e.target.value;
@@ -395,11 +397,11 @@ export default function decorate(block) {
 
     const availableTenures = [];
     if (returnsData?.inception_Ret) availableTenures.push({ value: 'inception', text: 'Since Inception' });
-    if (returnsData?.oneYear_Ret) availableTenures.push({ value: 1, text: '1 Year' });
-    if (returnsData?.threeYear_Ret) availableTenures.push({ value: 3, text: '3 Years' });
-    if (returnsData?.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 Years' });
-    if (returnsData?.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 Years' });
-    if (returnsData?.tenYear_Ret) availableTenures.push({ value: 10, text: '10 Years' });
+    if (returnsData?.oneYear_Ret) availableTenures.push({ value: 1, text: '1 year' });
+    if (returnsData?.threeYear_Ret) availableTenures.push({ value: 3, text: '3 years' });
+    if (returnsData?.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 years' });
+    if (returnsData?.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 years' });
+    if (returnsData?.tenYear_Ret) availableTenures.push({ value: 10, text: '10 years' });
 
     availableTenures.forEach((tenure) => {
       const optionEl = div({ class: 'select-option', 'data-value': tenure.value }, tenure.text);
@@ -470,8 +472,8 @@ export default function decorate(block) {
   // -------------------------------
   // ✅ 6. EVENTS & LOGIC
   // -------------------------------
-  sipBtn.addEventListener('click', () => { mode = 'sip'; sipBtn.classList.add('active'); lumpsumBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = ''; block.querySelector('.labelforlumsum').style.display = 'none'; updateValues(); });
-  lumpsumBtn.addEventListener('click', () => { mode = 'lumpsum'; lumpsumBtn.classList.add('active'); sipBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = 'none'; block.querySelector('.labelforlumsum').style.display = ''; updateValues(); });
+  sipBtn.addEventListener('click', () => { dataMapMoObj.mode = 'sip'; sipBtn.classList.add('active'); lumpsumBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = ''; block.querySelector('.labelforlumsum').style.display = 'none'; updateValues(); });
+  lumpsumBtn.addEventListener('click', () => { dataMapMoObj.mode = 'lumpsum'; lumpsumBtn.classList.add('active'); sipBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = 'none'; block.querySelector('.labelforlumsum').style.display = ''; updateValues(); });
 
   block.querySelector('#planToggle').addEventListener('change', () => {
     planType = block.querySelector('#planToggle').checked ? 'Regular' : 'Direct';
