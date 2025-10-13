@@ -12,9 +12,9 @@
         flex-direction: column;
         gap: 24px;
 
-        .button-container p {
-            margin: 0;
-        }
+        // .button-container >p {
+        //     margin: 0;
+        // }
 
         // &>div[class^="moedge-build-cont"] {
         //     background-color: var(--card-background);
@@ -127,12 +127,12 @@
                 flex-grow: 1;
                 margin-bottom: 4px;
 
-                p {
+                .button-container {
                     margin: 0;
                     padding: 0;
                     line-height: 0;
 
-                    a {
+                    .button {
                         color: #2E2A94;
                         font-feature-settings: var(--font-feature-setting);
                         font-family: var(--body);
@@ -290,7 +290,7 @@
             line-height: var(--heading-h4-line-height, 40px);
         }
 
-        p {
+        p.button-container {
             display: flex;
             width: 164px;
             height: 40px;
@@ -302,7 +302,7 @@
             background: var(--button-primary-default, #2E2A94);
             margin: 0;
 
-            a {
+            a.button {
                 color: var(--text-white, #FFF);
                 text-align: center;
                 font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
@@ -323,7 +323,7 @@
 .popular-artical.moedge-building-container {
     max-width: 100%;
 
-    p,
+    p.comlist,
     a {
         margin: 0;
         padding: 0;
@@ -341,7 +341,7 @@
             align-items: center;
             gap: 10px;
 
-            li {
+            li.comlist {
                 display: flex;
                 width: 164px;
                 height: 40px;
