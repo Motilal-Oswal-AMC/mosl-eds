@@ -2,6 +2,7 @@ import {
   div, a, label, input, span, button, ul, li, img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
+import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
   // -------------------------------
@@ -18,8 +19,7 @@ export default function decorate(block) {
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const schcode = planCode.split(':')[1];
   let selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
-  let returnCAGR = 0;
-  let mode = 'sip';
+  let returnCAGR = 0;dataMapMoObj.mode = 'sip';
   let planType = 'Direct';
   let planOption = 'Growth';
   const selectedFundName = selectedFund.schDetail.schemeName;
@@ -471,8 +471,8 @@ export default function decorate(block) {
   // -------------------------------
   // ✅ 6. EVENTS & LOGIC
   // -------------------------------
-  sipBtn.addEventListener('click', () => { mode = 'sip'; sipBtn.classList.add('active'); lumpsumBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = ''; block.querySelector('.labelforlumsum').style.display = 'none'; updateValues(); });
-  lumpsumBtn.addEventListener('click', () => { mode = 'lumpsum'; lumpsumBtn.classList.add('active'); sipBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = 'none'; block.querySelector('.labelforlumsum').style.display = ''; updateValues(); });
+  sipBtn.addEventListener('click', () => { dataMapMoObj.mode = 'sip'; sipBtn.classList.add('active'); lumpsumBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = ''; block.querySelector('.labelforlumsum').style.display = 'none'; updateValues(); });
+  lumpsumBtn.addEventListener('click', () => { dataMapMoObj.mode = 'lumpsum'; lumpsumBtn.classList.add('active'); sipBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = 'none'; block.querySelector('.labelforlumsum').style.display = ''; updateValues(); });
 
   block.querySelector('#planToggle').addEventListener('change', () => {
     planType = block.querySelector('#planToggle').checked ? 'Regular' : 'Direct';
