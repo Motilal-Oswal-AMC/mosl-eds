@@ -1170,7 +1170,7 @@ body {
 
             .sort-container,
             .popular-container {
-              position: relative;
+              // position: relative;
               display: flex;
               align-items: center;
               gap: 4px;
@@ -1187,6 +1187,8 @@ body {
 
               .sort-select-container,
               .return-select-container {
+                position: relative;
+
                 .selectedtext {
                   @include font-style(
                     var(--body-small-regular-size),
@@ -1222,7 +1224,7 @@ body {
 
                   // top: 24px;
                   top: 100%;
-                  left: 32px;
+                  left: 0;
                   z-index: 2;
                   width: 143px;
                   margin: 6px 0 0;
@@ -1277,7 +1279,7 @@ body {
 
               .return-select-container {
                 .dropdown-list {
-                  left: 98px;
+                  left: 4px;
                 }
               }
             }
