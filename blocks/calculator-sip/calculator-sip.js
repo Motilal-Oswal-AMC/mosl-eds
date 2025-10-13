@@ -19,7 +19,7 @@ export default function decorate(block) {
   const schcode = planCode.split(':')[1];
   let selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
   let returnCAGR = 0;
-  // let mode = 'sip';
+  let mode = 'sip';
   let planType = 'Direct';
   let planOption = 'Growth';
   const selectedFundName = selectedFund.schDetail.schemeName;
