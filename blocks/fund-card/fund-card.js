@@ -101,10 +101,12 @@ export default function decorate(block) {
                         ).includes('star-filled')
                       ) {
                         event.target.parentElement.classList.add('star-filled');
+                        event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Added to Watchlist';
                       } else {
                         event.target.parentElement.classList.remove(
                           'star-filled',
                         );
+                        event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Watchlist';
                       }
                       wishlist();
                     },
@@ -234,10 +236,12 @@ export default function decorate(block) {
                       ).includes('star-filled')
                     ) {
                       event.target.parentElement.classList.add('star-filled');
+                      event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Added to Watchlist';
                     } else {
                       event.target.parentElement.classList.remove(
                         'star-filled',
                       );
+                      event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Watchlist';
                     }
                     wishlist();
                   },
@@ -327,7 +331,7 @@ export default function decorate(block) {
                     class: 'cagr-date',
                     style: `display:${dspdate}`,
                   },
-                  '10 Jul 24',
+                  dataMapMoObj.formatDate(block.dateOfAllotment),
                 ),
               ),
               ul(
@@ -369,7 +373,7 @@ export default function decorate(block) {
                               {
                                 class: 'cagr-date',
                               },
-                              '24 Jul ‘24',
+                              dataMapMoObj.formatDate(block.dateOfAllotment),
                             ),
                           );
                       }
