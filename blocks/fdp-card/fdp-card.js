@@ -634,8 +634,10 @@ export default function decorate(block) {
 
   (function () {
     // Function to calculate the correct header offset based on screen size
-    function getHeaderOffset() {
-      return window.innerWidth <= 768 ? 635 : 'auto';
+    function getHeaderOffset(targetID) { //targetId
+      const dataidStorage = 
+        dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
+      return window.innerWidth <= 768 ? dataidStorage : 'auto';
     }
 
     // Smooth scroll setup with dynamic header offset
@@ -665,7 +667,7 @@ export default function decorate(block) {
           const target = document.querySelector(`.section[data-id="${targetId}"]`);
 
           if (target) {
-            const headerOffset = getHeaderOffset();
+            const headerOffset = getHeaderOffset(target);
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
