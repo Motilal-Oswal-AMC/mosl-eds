@@ -205,6 +205,7 @@ export default function decorate(block) {
     document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none';
   }
 
+  block.querySelector('.fdp-calculator .cal-desc-label').textContent = 'Total Accumulated Wealth';
   // const inputEl = document.getElementById("investmentAmount");
   // inputEl.addEventListener("input", (e) => {
   //   let val = +e.target.value;
