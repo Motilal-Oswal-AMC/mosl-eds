@@ -218,7 +218,7 @@ export default async function decorate(block) {
 
       // Use Number.isNaN() and check BEFORE calling .toFixed()
       if (Number.isNaN(numericValue)) {
-        return 'N/A';
+        return 'NA';
       }
       if (dataMapMoObj.attr === '_Ret') {
         return `${numericValue.toFixed(2)}%`;

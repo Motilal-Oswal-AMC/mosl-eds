@@ -558,7 +558,7 @@ export default function decorate(block) {
             {
               class: 'notify-dis',
             },
-            '88.87K have invested in this fund as on 1 Jul 2025',
+            '88.87K have invested in this fund as on 1 Jul’25',
           ),
         ),
       ),
@@ -635,7 +635,7 @@ export default function decorate(block) {
   (function () {
     // Function to calculate the correct header offset based on screen size
     function getHeaderOffset() {
-      return window.innerWidth <= 768 ? 1010 : 240;
+      return window.innerWidth <= 768 ? 635 : 'auto';
     }
 
     // Smooth scroll setup with dynamic header offset

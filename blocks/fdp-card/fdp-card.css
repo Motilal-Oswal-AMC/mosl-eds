@@ -76,7 +76,7 @@ main {
   display: block;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
   background-color: #464343;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist::-webkit-scrollbar-track {
@@ -265,11 +265,11 @@ main {
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle .label-text .selecttext::after {
   content: "";
-  background: url("../../icons/direction-right.svg") center/cover no-repeat;
-  min-width: 16px;
+  background: url("../../icons/arrow-down-blue.svg") center/cover no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 16px;
   height: 16px;
-  display: block;
-  transform: rotate(90deg);
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp {
   display: flex;
@@ -278,7 +278,7 @@ main {
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp {
-    justify-content: space-between;
+    gap: 16px;
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
@@ -369,8 +369,12 @@ main {
   margin: 0;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr .percent {
-  font-size: 20px;
-  font-weight: 400;
+  font-size: var(--body-large-semibold-size);
+  line-height: var(--body-large-semibold-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: var(--font-features-default);
+  font-weight: 600;
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr .percent {
@@ -616,6 +620,11 @@ main {
 }
 .section.fdp-card-container .item2 .item2-ul.fdp-tab {
   height: 36px;
+}
+@media (max-width: 768px) {
+  .section.fdp-card-container .item2 .item2-ul.fdp-tab {
+    height: auto;
+  }
 }
 .section.fdp-card-container .item2 .item2-ul::-webkit-scrollbar {
   display: none;
