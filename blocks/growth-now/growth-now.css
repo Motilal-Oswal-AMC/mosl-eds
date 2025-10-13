@@ -256,7 +256,6 @@
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata.field-wrapper {
     width: 100%;
-    max-width: 176px;
   }
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
