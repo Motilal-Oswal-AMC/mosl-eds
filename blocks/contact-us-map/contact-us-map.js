@@ -274,6 +274,11 @@ async function onLoadContactusCities() {
       document.querySelectorAll('.location-options-value .city-value').forEach((item) => {
         item.addEventListener('click', (event) => {
           const parent = event.target;
+          const mainblk = parent.closest('.contact-us-map-container');
+          const pranmk = mainblk.querySelector('.location-map');
+          const pranmkv2 = mainblk.querySelector('.error-default');
+          pranmk.classList.remove('contact-data-not-found');
+          pranmkv2.classList.remove('show-contact-error');
           const locationValue = parent.closest('.location-dropdown').querySelector('.location-value');
           const searchinput = parent.closest('.contact-us-parent');
           const searchelem = searchinput.querySelector('.search-loaction-input');

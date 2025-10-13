@@ -6,7 +6,6 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section {
-
   &.compounding,
   &.fdp-calculator {
     background-color: var(--neutrals-white);
@@ -54,6 +53,7 @@
 
         @include media(mobile) {
           align-items: flex-start;
+
           // padding-top: 40px;
         }
 
@@ -87,11 +87,13 @@
           h6 {
             margin: 0 0 4px;
 
-            @include font-style(var(--heading-h4-size),
+            @include font-style(
+              var(--heading-h4-size),
               var(--heading-h4-line-height),
               var(--blue-1-800-primary),
               map.get($font-weights, semibold),
-              var(--title));
+              var(--title)
+            );
 
             @include media(mobile) {
               margin-bottom: 0;
@@ -151,11 +153,13 @@
                 text-align: left;
                 margin-bottom: 6px;
 
-                @include font-style(var(--disclaimer-xsmall-size),
+                @include font-style(
+                  var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--text-body),
                   map.get($font-weights, regular),
-                  var(--body));
+                  var(--body)
+                );
 
                 @include media(mobile) {
                   font-size: var(--label-small-size);
@@ -164,11 +168,13 @@
               }
 
               .search-bar-inp {
-                @include font-style(var(--body-medium-medium-size),
+                @include font-style(
+                  var(--body-medium-medium-size),
                   var(--body-medium-medium-line-height),
                   var(--blue-1-800-primary),
                   map.get($font-weights, medium),
-                  var(--body));
+                  var(--body)
+                );
 
                 width: 100%;
                 color: $blue-1-800-primary;
@@ -196,10 +202,10 @@
 
               .cancel-search-wrap {
                 position: absolute;
-                right: 13px;
+                right: 0;
                 bottom: 8px;
-                height: 20px;
-                width: 20px;
+                height: 24px;
+                width: 24px;
 
                 .cancel-btn,
                 .search-btn {
@@ -336,11 +342,13 @@
                   cursor: pointer;
                   transition: all 0.2s ease;
 
-                  @include font-style(var(--body-small-regular-size),
+                  @include font-style(
+                    var(--body-small-regular-size),
                     var(--body-small-regular-line-height),
                     var(--text-body),
                     map.get($font-weights, regular),
-                    var(--body));
+                    var(--body)
+                  );
 
                   @include media(mobile) {
                     font-size: var(--body-small-regular-size);
@@ -384,11 +392,13 @@
                     cursor: pointer;
                     font-family: var(--body);
 
-                    @include font-style(var(--body-xsmall-medium-size),
+                    @include font-style(
+                      var(--body-xsmall-medium-size),
                       var(--body-xsmall-medium-line-height),
                       var(--blue-1-800-primary),
                       500,
-                      var(--body));
+                      var(--body)
+                    );
 
                     // &.active {
                     //   color: var(--blue-1-800-primary);
@@ -437,7 +447,7 @@
                     }
                   }
 
-                  input:checked+.slider::before {
+                  input:checked + .slider::before {
                     transform: translateX(16.5px);
                   }
                 }
@@ -452,11 +462,13 @@
                     position: relative;
                     user-select: none;
 
-                    @include font-style(var(--body-xsmall-medium-size),
+                    @include font-style(
+                      var(--body-xsmall-medium-size),
                       var(--body-xsmall-medium-line-height),
                       var(--blue-1-800-primary),
                       500,
-                      var(--body));
+                      var(--body)
+                    );
 
                     @include media(mobile) {
                       text-align: start;
@@ -500,11 +512,13 @@
                       cursor: pointer;
                       transition: background-color 0.2s ease;
 
-                      @include font-style(14px,
+                      @include font-style(
+                        14px,
                         20px,
                         var(--color-text-body),
                         map.get($font-weights, regular),
-                        var(--body));
+                        var(--body)
+                      );
 
                       &:hover {
                         background-color: #f0f0f0;
@@ -533,10 +547,12 @@
                 .labelforsip,
                 .labelforlumsum,
                 .tenure-label {
-                  @include font-style(var(--label-small-size),
+                  @include font-style(
+                    var(--label-small-size),
                     var(--label-small-line-height),
                     var(--text-body-2),
-                    map.get($font-weights, regular));
+                    map.get($font-weights, regular)
+                  );
 
                   // color: #616161;
                   font-family: var(--body);
@@ -553,52 +569,72 @@
                     position: relative;
                     display: flex;
                     align-items: center;
-                    gap: 18px;
 
-                    @include media(mobile) {
-                      gap: 15px;
-                    }
+                    // gap: 18px;
+                    gap: 4px;
 
-                    &::before {
-                      content: "₹";
-                      position: absolute;
-                      top: 50%;
-                      left: 3px;
-                      transform: translateY(-50%);
-                      pointer-events: none;
+                    // @include media(mobile) {
+                    //   gap: 15px;
+                    // }
 
-                      @include font-style(var(--body-medium-medium-size),
-                        var(--body-medium-medium-line-height),
-                        var(--blue-1-800-primary),
-                        map.get($font-weights, medium),
-                        var(--body));
+                    &.input-symbol {
+                      &::before {
+                        content: "₹";
+                        
+                        // position: absolute;
+                        // top: 50%;
+                        // left: 3px;
+                        // transform: translateY(-50%);
+                        pointer-events: none;
 
-                      @include media(mobile) {
-                        // top: 4px;
-                        // height: 100%;
-                        font-size: var(--body-small-medium-size);
-                        line-height: var(--body-small-medium-line-height);
+                        @include font-style(
+                          var(--body-medium-medium-size),
+                          var(--body-medium-medium-line-height),
+                          var(--blue-1-800-primary),
+                          map.get($font-weights, medium),
+                          var(--body)
+                        );
+
+                        @include media(mobile) {
+                          // top: 4px;
+                          // height: 100%;
+                          font-size: var(--body-small-medium-size);
+                          line-height: var(--body-small-medium-line-height);
+                        }
                       }
                     }
 
                     .investment-inp {
-                      @include font-style(var(--body-medium-medium-size),
+                      @include font-style(
+                        var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
                         var(--blue-1-800-primary),
                         map.get($font-weights, medium),
-                        var(--body));
+                        var(--body)
+                      );
 
                       height: 100%;
-                      padding-left: 14px;
+
+                      // padding-left: 14px;
                       appearance: none;
                       outline: none;
                       background-color: transparent;
                       border: none;
 
                       @include media(mobile) {
-                        padding-left: 15px;
+                        // padding-left: 15px;
                         font-size: var(--body-small-medium-size);
                         line-height: var(--body-small-medium-line-height);
+                      }
+
+                      &::placeholder {
+                        @include font-style(
+                          14px,
+                          var(--body-medium-medium-line-height),
+                          var(--blue-1-800-primary),
+                          map.get($font-weights, medium),
+                          var(--body)
+                        );
                       }
                     }
                   }
@@ -615,6 +651,7 @@
 
                     &.error-show {
                       display: block;
+                      text-align: left;
                     }
                   }
                 }
@@ -624,11 +661,13 @@
                     position: relative;
 
                     .select-selected {
-                      @include font-style(var(--body-medium-medium-size),
+                      @include font-style(
+                        var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
                         var(--blue-1-800-primary),
                         map.get($font-weights, medium),
-                        var(--body));
+                        var(--body)
+                      );
 
                       cursor: pointer;
                       position: relative;
@@ -680,11 +719,13 @@
                         cursor: pointer;
                         transition: background-color 0.2s ease;
 
-                        @include font-style(14px,
+                        @include font-style(
+                          14px,
                           20px,
                           var(--color-text-body),
                           map.get($font-weights, regular),
-                          var(--body));
+                          var(--body)
+                        );
 
                         &:hover {
                           background-color: #f0f0f0;
@@ -713,11 +754,13 @@
                 align-self: stretch;
 
                 .invested-label {
-                  @include font-style(var(--disclaimer-xsmall-size),
+                  @include font-style(
+                    var(--disclaimer-xsmall-size),
                     var(--disclaimer-xsmall-line-height),
                     var(--text-body-2),
                     map.get($font-weights, regular),
-                    var(--body));
+                    var(--body)
+                  );
 
                   @include media(mobile) {
                     font-size: var(--label-small-size);
@@ -729,11 +772,13 @@
                   position: relative;
                   padding-left: 10px;
 
-                  @include font-style(var(--body-small-medium-size),
+                  @include font-style(
+                    var(--body-small-medium-size),
                     var(--body-small-medium-line-height),
                     var(--blue-1-800-primary),
                     map.get($font-weights, medium),
-                    var(--body));
+                    var(--body)
+                  );
 
                   &::before {
                     content: "₹";
@@ -742,11 +787,13 @@
                     top: 1px;
                     pointer-events: none;
 
-                    @include font-style(var(--body-small-medium-size),
+                    @include font-style(
+                      var(--body-small-medium-size),
                       var(--body-small-medium-line-height),
                       var(--blue-1-800-primary),
                       map.get($font-weights, medium),
-                      var(--body));
+                      var(--body)
+                    );
 
                     @include media(mobile) {
                       font-size: var(--body-small-medium-size);
@@ -783,11 +830,13 @@
                   gap: map.get($spacing, xxs);
 
                   .cal-desc-label {
-                    @include font-style(var(--label-small-size),
+                    @include font-style(
+                      var(--label-small-size),
                       var(--label-small-line-height),
                       var(--text-body-2),
                       map.get($font-weights, regular),
-                      var(--body));
+                      var(--body)
+                    );
 
                     @include media(mobile) {
                       white-space: nowrap;
@@ -797,11 +846,13 @@
                   }
 
                   .cal-desc-value {
-                    @include font-style(var(--body-xlarge-bold-size),
+                    @include font-style(
+                      var(--body-xlarge-bold-size),
                       var(--body-xlarge-bold-line-height),
                       var(--blue-1-800-primary),
                       600,
-                      var(--body));
+                      var(--body)
+                    );
 
                     text-align: left;
                     position: relative;
@@ -818,11 +869,13 @@
                       left: 3px;
                       pointer-events: none;
 
-                      @include font-style(var(--body-xlarge-bold-size),
+                      @include font-style(
+                        var(--body-xlarge-bold-size),
                         var(--body-xlarge-bold-line-height),
                         var(--blue-1-800-primary),
                         600,
-                        var(--body));
+                        var(--body)
+                      );
 
                       @include media(mobile) {
                         font-size: var(--body-medium-semibold-size);
@@ -835,7 +888,7 @@
                     padding-left: 0;
 
                     &::before {
-                      content: '';
+                      content: "";
                     }
                   }
                 }
@@ -866,11 +919,13 @@
                     height: 40px;
                     margin: unset;
 
-                    @include font-style(var(--button-medium-size),
+                    @include font-style(
+                      var(--button-medium-size),
                       var(--button-medium-line-height),
                       var(--text-white),
                       500,
-                      var(--body));
+                      var(--body)
+                    );
 
                     @include media(mobile) {
                       width: 100%;
@@ -894,32 +949,37 @@
               background-color: rgb(251 238 221);
               padding: map.get($spacing, xxs);
 
-              @include font-style(var(--body-small-medium-size),
+              @include font-style(
+                var(--body-small-medium-size),
                 var(--text-link-small-line-height),
                 var(--text-text-link),
                 400,
-                var(--body));
+                var(--body)
+              );
             }
           }
 
           .view-btn-cal {
             padding-top: 10px;
             text-align: left;
-            line-height: normal;
+            line-height: 0;
 
             @include media(mobile) {
               text-align: center;
               padding: 16px 0;
+              padding-top: 0;
             }
 
             .view-othercal-btn {
               text-decoration: underline;
 
-              @include font-style(var(--body-small-medium-size),
+              @include font-style(
+                var(--body-small-medium-size),
                 var(--text-link-small-line-height),
                 var(--text-button-default),
                 map.get($font-weights, regular),
-                var(--body));
+                var(--body)
+              );
             }
           }
         }
@@ -930,11 +990,13 @@
       padding: 0;
 
       p.disc-child-1 {
-        @include font-style(var(--disclaimer-xsmall-size),
+        @include font-style(
+          var(--disclaimer-xsmall-size),
           var(--disclaimer-xsmall-line-height),
           var(--blue-1-800-primary),
           400,
-          var(--body));
+          var(--body)
+        );
 
         margin: 0;
 
@@ -947,11 +1009,13 @@
       ul.disc-child-2 {
         padding-left: 24px;
 
-        @include font-style(var(--disclaimer-xsmall-size),
+        @include font-style(
+          var(--disclaimer-xsmall-size),
           var(--disclaimer-xsmall-line-height),
           var(--text-disclaimer),
           400,
-          var(--body));
+          var(--body)
+        );
 
         @include media(mobile) {
           font-size: var(--paragraph-xsmall-size);
@@ -1005,14 +1069,14 @@
           h6 {
             margin: 0 0 4px;
 
-            @include font-style(var(--body-xlarge-bold-size),
+            @include font-style(
+              var(--body-xlarge-bold-size),
               var(--body-xlarge-bold-line-height),
               var(--blue-1-800-primary),
               600,
-              var(--body));
-
+              var(--body)
+            );
           }
-
         }
       }
 
@@ -1035,7 +1099,6 @@
                   width: 100%;
                 }
               }
-
             }
 
             .incal-wrapper {
@@ -1094,7 +1157,6 @@
                     @include media(mobile) {
                       font-size: var(--body-small-medium-size);
                       line-height: var(--body-small-medium-line-height);
-
                     }
                   }
                 }

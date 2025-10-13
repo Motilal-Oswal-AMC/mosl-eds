@@ -800,7 +800,7 @@ button.swiper-pagination-bullet {
   position: absolute;
   padding: 0;
   right: 67px;
-  bottom: -17px;
+  bottom: -31px;
   z-index: 15;
 }
 @media (max-width: 1025px) {
@@ -1033,4 +1033,4 @@ button.swiper-pagination-bullet {
 }
 .block.home-banner .swiper-button-next::after {
   transform: rotate(180deg);
-}/*# sourceMappingURL=home-banner.css.map */
+}

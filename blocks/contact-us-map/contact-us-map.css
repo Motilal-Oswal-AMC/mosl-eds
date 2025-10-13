@@ -1,6 +1,6 @@
 @import "../../../styles/fonts.css";
 .section.contact-us-map-container {
-  padding-bottom: 40px;
+  margin: 0;
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent {
   display: flex;
@@ -36,7 +36,7 @@
   top: 0;
   left: 10px;
   transform: translateY(-50%);
-  padding: 0 8px;
+  padding: 0 4px;
   background: #fff;
   z-index: 2;
   pointer-events: none;
@@ -308,11 +308,13 @@
   display: grid;
   grid-template-columns: 296px 816px;
   gap: 120px;
+  padding-bottom: 80px;
 }
 @media (max-width: 768px) {
   .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map {
     grid-template-columns: 100%;
     gap: 40px;
+    padding-bottom: 40px;
   }
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map .location-info {
@@ -408,7 +410,7 @@
 }
 @media (max-width: 768px) {
   .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map .location-info .mum-location .contact-number {
-    display: flex;
+    display: none;
   }
 }
 .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map .location-info .mum-location .contact-number .contact-number-link:nth-child(2) {

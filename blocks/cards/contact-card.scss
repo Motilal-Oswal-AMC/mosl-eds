@@ -216,6 +216,7 @@
                   display: flex;
                   gap: 8px;
                   align-items: center;
+                  margin: 0;
                 }
               }
 
@@ -231,7 +232,8 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: 20px;
-                text-decoration-line: underline;
+                
+                // text-decoration-line: underline;
 
                 &.list-elem-2,
                 &.list-elem-15,
@@ -410,7 +412,7 @@
 .contact-us-parent-wrapper {
   .section.growth-now-container {
     background-color: unset;
-    padding: 40px 0;
+    padding: 40px 0 80px;
   }
 }
 

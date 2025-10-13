@@ -58,11 +58,11 @@ main {
   left: 0;
   z-index: 5;
   width: 100%;
-  height: 191px;
+  height: 192px;
   overflow: auto;
-  margin: 6px 0 0;
+  margin: 3px 0 0;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid #eee;
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
 }
@@ -89,6 +89,14 @@ main {
   font-size: var(--paragraph-xsmall-size);
   line-height: var(--paragraph-xsmall-line-height);
   color: var(--text-body);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist .listval.listval-active {
+  font-size: var(--body-xsmall-medium-size);
+  line-height: var(--body-xsmall-medium-line-height);
+  color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
@@ -231,8 +239,7 @@ main {
   margin: 0 0 8px;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle .label-text .selecttext {
-  margin: 0;
-  padding: 8px 0;
+  margin: 8px 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -297,11 +304,12 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .selectedtext {
   color: #2e2a94;
   font-weight: 500;
-  gap: 3px;
   max-width: inherit;
   margin: 0;
+  display: flex;
+  gap: 4px;
   font-size: var(--body-xsmall-medium-size);
-  line-height: var(--label-small-line-height);
+  line-height: var(--body-xsmall-medium-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -315,20 +323,17 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .selectedtext::after {
   content: "";
   background: url("../../icons/direction-right.svg") center/cover no-repeat;
-  min-width: 1px;
   min-width: 16px;
   height: 16px;
   display: block;
   transform: rotate(90deg);
-  position: absolute;
-  top: 0;
-  right: 34%;
   cursor: pointer;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
   width: 92%;
   height: auto;
-  top: 100%;
+  top: 18px;
+  margin: 0;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr {
   width: 100%;
@@ -344,7 +349,8 @@ main {
   margin: 0;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr .percent {
-  font-size: 20px;
+  font-size: var(--body-large-regular-size);
+  line-height: var(--body-large-regular-line-height);
   font-weight: 400;
 }
 @media (max-width: 768px) {
@@ -359,6 +365,7 @@ main {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
     width: -moz-max-content;
     width: max-content;
+    padding-right: 33px;
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp .nav-label {
@@ -514,7 +521,7 @@ main {
   justify-content: center;
   margin: 0;
   border: none;
-  padding: var(--spacing-12);
+  padding: 10px var(--spacing-12);
   border-radius: var(--border-radius-8);
   background-color: var(--blue-1-800-primary);
   height: 100%;
@@ -544,7 +551,7 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .lowerdiv .notify-discription .notify-dis {
   margin: 0;
   font-size: var(--paragraph-xsmall-size);
-  line-height: var(--body-xsmall-regular-line-height);
+  line-height: var(--paragraph-xsmall-line-height);
   color: var(--neutrals-800);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;

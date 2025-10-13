@@ -49,6 +49,7 @@ export default function decorate(block) {
   const DirectPlanlistArr = cfObj[0].planList.filter(
     (el) => el.planName,
   );
+  dataMapMoObj.planlistArr = DirectPlanlistArr;
   cfObj[0].returns.forEach((ret) => {
     if (DirectPlanlistArr[0].groupedCode === (ret.plancode + ret.optioncode)) {
       [...Object.keys(ret)].forEach((key) => {
@@ -64,7 +65,7 @@ export default function decorate(block) {
     (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
   );
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
-  const mop = `../../icons/iconfund/MO_${cfObj[0].schcode}.svg`;
+  const mop = `../../icons/schemeicons/MO_${cfObj[0].schcode}.svg`;
   const [firstReturnYear] = tempReturns;
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
@@ -332,13 +333,15 @@ export default function decorate(block) {
             {
               class: 'dropdownlist',
               onclick: (event) => {
-                const valueText = event.target.textContent.trim();
-                const parentClosest = event.target.closest('.dropdownmidle');
+                const evtarget = event.target;
+                const valueText = evtarget.textContent.trim();
+                const parentClosest = evtarget.closest('.dropdownmidle');
                 const ptext = parentClosest.querySelector('.selecttext');
                 ptext.innerText = '';
                 ptext.innerText = valueText;
-
-                const parentElem = event.target.parentElement.classList;
+                dataMapMoObj.planText = valueText;
+                const parentElem = evtarget.parentElement.classList;
+                evtarget.classList.add('listval-active');
                 parentElem.remove('dropdown-active');
                 planGrpEvent(event);
               },
@@ -741,5 +744,11 @@ export default function decorate(block) {
       // console.error('Failed to copy URL: ', err);
       alert('Could not copy URL. Please make sure the window is focused.');
     }
+  });
+
+  // plantext
+  block.querySelector('.btn-wrapper').addEventListener('click', () => {
+    const plantext = block.querySelector('.middlediv .selecttext');
+    dataMapMoObj.planText = plantext.textContent.trim();
   });
 }
