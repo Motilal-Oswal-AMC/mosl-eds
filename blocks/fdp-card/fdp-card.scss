@@ -759,6 +759,8 @@ main {
 
         @media (width <=768px) {
           justify-content: start;
+          height: unset;
+          display: block;
 
           &.tab-li-item2 {
             padding-top: 0;
