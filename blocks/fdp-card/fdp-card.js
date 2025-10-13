@@ -349,7 +349,8 @@ export default function decorate(block) {
                 ptext.innerText = '';
                 ptext.innerText = valueText;
                 dataMapMoObj.planText = valueText;
-                const parentElem = event.target.parentElement.classList;
+                const parentElem = evtarget.parentElement.classList;
+                evtarget.classList.add('listval-active');
                 parentElem.remove('dropdown-active');
                 planGrpEvent(event);
               },

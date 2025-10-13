@@ -340,10 +340,11 @@
                   14px,
                   var(--blue-1-800-primary),
                   500,
-                  var(--inter));
+                  var(--body));
 
                 margin: 0;
                 padding: 0;
+                pointer-events: none;
               }
 
               &::after {

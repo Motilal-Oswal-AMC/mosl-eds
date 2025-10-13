@@ -350,10 +350,10 @@ export default async function decorate(block) {
 
       // --- Mobile Click Logic (Unaffected) ---
       if (window.innerWidth < 786) {
-        Array.from(navSections.querySelector('ul').children).forEach((elinit, indxel) => {
+        Array.from(navSections.querySelector('ul').children).forEach((elinit) => {
           Array.from(elinit.querySelectorAll('ul')).forEach((elfor) => {
-              elfor.style.display = 'none';
-            });
+            elfor.style.display = 'none';
+          });
         });
         // navSections.querySelectorAll('ul > li').forEach((elfor) => {
         //   if (elfor.querySelector('ul') !== null) {

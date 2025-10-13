@@ -394,7 +394,7 @@ const datacfContact = {
         ],
       },
       {
-        MapURL: 'https://maps.google.com/maps?q=Motilal Oswal Tower,, #26 Cresent Road,, Opp. To Karnataka Film Chambers,, Kumarapark East, Seshadripuram,, Bangalore, 560001&output=embed',
+        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.7701714157247!2d77.5806376!3d12.986546499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae161435458edf%3A0x5f0d7408a99ffe4c!2sMotilal%20Oswal%20Tower%20-%20Regional%20Headquarters!5e0!3m2!1sen!2sin!4v1759927507450!5m2!1sen!2sin',
         contactDet: [
           {
             officeName: 'Motilal Oswal Asset Management Company Ltd.',
@@ -419,7 +419,7 @@ const datacfContact = {
             pincode: '560001',
             iscorporateOffice: 0,
             notes: null,
-            mapIframe: 'https://maps.google.com/maps?q=Motilal Oswal Tower,, #26 Cresent Road,, Opp. To Karnataka Film Chambers,, Kumarapark East, Seshadripuram,, Bangalore, 560001&output=embed',
+            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.7701714157247!2d77.5806376!3d12.986546499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae161435458edf%3A0x5f0d7408a99ffe4c!2sMotilal%20Oswal%20Tower%20-%20Regional%20Headquarters!5e0!3m2!1sen!2sin!4v1759927507450!5m2!1sen!2sin',
           },
         ],
       },
@@ -694,7 +694,7 @@ const datacfContact = {
         ],
       },
       {
-        MapURL: 'https://maps.google.com/maps?q=Unit 13,14 &\n15, 3rd floor, Milestone-25,, nan, Land Trades Builders & Developers,, Balmatta,, Mangalore, 575001&output=embed',
+        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.525981196602!2d74.84887122483963!3d12.873863887432575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b16dc53b8e7%3A0xd36b85ebae22bd61!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760106594375!5m2!1sen!2sin',
         contactDet: [
           {
             officeName: 'Motilal Oswal Asset Management Company Ltd.',
@@ -719,7 +719,7 @@ const datacfContact = {
             pincode: '575001',
             iscorporateOffice: 0,
             notes: null,
-            mapIframe: 'https://maps.google.com/maps?q=Unit 13,14 &\n15, 3rd floor, Milestone-25,, nan, Land Trades Builders & Developers,, Balmatta,, Mangalore, 575001&output=embed',
+            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.525981196602!2d74.84887122483963!3d12.873863887432575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b16dc53b8e7%3A0xd36b85ebae22bd61!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760106594375!5m2!1sen!2sin',
           },
         ],
       },
@@ -1024,7 +1024,7 @@ const datacfContact = {
         ],
       },
       {
-        MapURL: 'https://maps.google.com/maps?q=#2nd Floor, 59-13-2-1,\nGayatri Nagar,, Ghantasalavari Street,, Polytechnic Post,, nan, Vijayawada, 520008&output=embed',
+        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7651.076321504731!2d80.6465516943706!3d16.49890697408485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fac7d0ee5ee5%3A0xbc0d825a2ab94a0f!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1759926636005!5m2!1sen!2sin',
         contactDet: [
           {
             officeName: 'Motilal Oswal AMC - RM',
@@ -1049,7 +1049,7 @@ const datacfContact = {
             pincode: '520008',
             iscorporateOffice: 0,
             notes: null,
-            mapIframe: 'https://maps.google.com/maps?q=#2nd Floor, 59-13-2-1,\nGayatri Nagar,, Ghantasalavari Street,, Polytechnic Post,, nan, Vijayawada, 520008&output=embed',
+            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7651.076321504731!2d80.6465516943706!3d16.49890697408485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fac7d0ee5ee5%3A0xbc0d825a2ab94a0f!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1759926636005!5m2!1sen!2sin',
           },
         ],
       },

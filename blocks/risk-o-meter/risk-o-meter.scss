@@ -84,7 +84,8 @@
   }
 
   &.risk-container {
-    margin-top: unset !important;
+    // margin-top: unset !important;
+    margin: 0;
     padding: 16px;
 
     @include media(mobile) {
@@ -377,6 +378,6 @@
   }
 }
 
-.section.risk-o-meter-container.risk-container {
-  margin: 0;
-}
+// .section.risk-o-meter-container.risk-container {
+//   margin: 0;
+// }

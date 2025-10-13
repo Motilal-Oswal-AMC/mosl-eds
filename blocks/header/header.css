@@ -1940,6 +1940,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         max-width: 1232px;
         width: 100%;
         margin: 0 auto;
+        overflow: unset;
     }
 
     header nav .nav-tools .nav-tools-cont1>ul {

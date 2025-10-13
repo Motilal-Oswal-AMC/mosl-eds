@@ -751,6 +751,9 @@ dataMapMoObj.parseFunction = (param, attrparam) => {
   }
 };
 export default function decorate(block) {
+  const ultooltip = block.closest('.section');
+  const ullisttoop = ultooltip.querySelector('.default-content-wrapper ul');
+  console.log(ullisttoop);
   Array.from(block.closest('.section').children).forEach((el, index) => {
     el.classList.add(`item${index + 1}`);
   });
@@ -766,6 +769,8 @@ export default function decorate(block) {
   Array.from(block.closest('.section').querySelector('.item2').children).forEach((el) => {
     el.classList.add('list-header-text');
   });
+  block.closest('.section')
+    .querySelector('.item2 ul').remove();
   Array.from(block.querySelector('.block-item3 .block-subitem-finelsub4').children).forEach((el) => {
     el.classList.add('viewlist-btn');
   });
@@ -777,6 +782,41 @@ export default function decorate(block) {
 
   dataMapMoObj.selectreturns = '';
   dataMapMoObj.data = dataFilterfun(dataCfObj.cfDataObjs);
+  dataMapMoObj.datatooltip = {};
+  Array.from(ullisttoop.children).forEach((tooltip) => {
+    const datakey = tooltip.textContent.trim().split(':-');
+    const datkey = datakey[0];
+    const datval = datakey[1];
+    if (datkey === 'Active') {
+      dataMapMoObj.datatooltip.active = datval;
+    } else if (datkey === 'Commodity') {
+      dataMapMoObj.datatooltip.commodity = datval;
+    } else if (datkey === 'Debt & Liquid') {
+      dataMapMoObj.datatooltip['debt-&-liquid'] = datval;
+    } else if (datkey === 'ETFs') {
+      dataMapMoObj.datatooltip.etf = datval;
+    } else if (datkey === 'Factor') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'Hybrid & Balanced') {
+      dataMapMoObj.datatooltip['hybrid-&-balanced'] = datval;
+    } else if (datkey === 'Index Funds') {
+      dataMapMoObj.datatooltip['index-funds'] = datval;
+    } else if (datkey === 'Indian Equity') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'International Equity') {
+      dataMapMoObj.datatooltip['international-equity'] = datval;
+    } else if (datkey === 'Mid Cap') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'Multi Asset') {
+      dataMapMoObj.datatooltip['multi-asset'] = datval;
+    } else if (datkey === 'Multi Cap Fund') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'Sector') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'Small Cap') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    }
+  });
   let checkboxSel = '';
   let funddata;
   if (localStorage.getItem('viewmark')) {
@@ -937,7 +977,9 @@ export default function decorate(block) {
                   block
                     .querySelector('.filter-overlay')
                     .classList.add('active');
-                  block.closest('body').classList.add('scroll-lock');
+                  if (window.innerWidth < 768) {
+                    block.closest('body').classList.add('scroll-lock');
+                  }
                   if (
                     Array.from(
                       block.querySelector('.sort-overlay').classList,
@@ -966,6 +1008,7 @@ export default function decorate(block) {
                 {
                   class: 'clearall-btn',
                   onclick: () => {
+                    block.closest('body').classList.remove('scroll-lock');
                     Array.from(
                       block.querySelector('.filter-list-wrapper').children,
                     ).forEach((el) => {
@@ -1202,7 +1245,7 @@ export default function decorate(block) {
                             {
                               class: 'tooltip-text',
                             },
-                            'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
+                            dataMapMoObj.datatooltip[Object.keys(element)[0]],
                           ),
                         ),
                       ),
@@ -1285,7 +1328,7 @@ export default function decorate(block) {
                         {
                           class: 'tooltip-text',
                         },
-                        'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
+                        dataMapMoObj.datatooltip[Object.keys(element)[0]],
                       ),
                     ),
                   ),
@@ -2150,6 +2193,10 @@ export default function decorate(block) {
   Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
     if (window.innerWidth < 786) {
       eltoo.addEventListener('click', (event) => {
+        if (event.target.nextElementSibling.style.display === 'block') {
+          event.target.nextElementSibling.style.display = 'none';
+          return false;
+        }
         Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
           elinner.nextElementSibling.style.display = 'none';
         });
