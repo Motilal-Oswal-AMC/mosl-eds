@@ -1057,7 +1057,7 @@
   z-index: 2;
   width: 143px;
   margin: 14px 0 0;
-  background-color: #fff;
+  background-color: var(--neutrals-white);
   border-radius: 8px;
   border: 1px solid var(--neutrals-200);
   box-shadow: 0 0 14px 0 rgba(40, 40, 40, 0.06);
