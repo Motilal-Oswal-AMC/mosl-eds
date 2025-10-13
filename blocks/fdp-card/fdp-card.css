@@ -609,6 +609,11 @@ main {
 .section.fdp-card-container .item2 .item2-ul.fdp-tab {
   height: 36px;
 }
+@media (max-width: 768px) {
+  .section.fdp-card-container .item2 .item2-ul.fdp-tab {
+    height: auto;
+  }
+}
 .section.fdp-card-container .item2 .item2-ul::-webkit-scrollbar {
   display: none;
 }

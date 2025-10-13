@@ -698,6 +698,10 @@ main {
 
       &.fdp-tab {
         height: 36px;
+        
+        @include media (mobile){
+          height: auto;
+        }
       }
 
       &::-webkit-scrollbar {

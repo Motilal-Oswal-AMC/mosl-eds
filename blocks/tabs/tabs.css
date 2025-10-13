@@ -500,6 +500,7 @@ table>tbody>tr>td:nth-child(7) {
 }
 
 .section.periodicreturn .default-content-wrapper:first-of-type p {
+  word-spacing: 1.4px;
   font-size: var(--body-xlarge-bold-size);
   line-height: var(--body-xlarge-bold-line-height);
   color: var(--blue-1-800-primary);
@@ -514,6 +515,7 @@ table>tbody>tr>td:nth-child(7) {
   font-size: var(--body-small-regular-size);
   line-height: var(--body-small-regular-line-height);
   font-weight: 400;
+  word-spacing: 1.1px;
 }
 
 .section.periodicreturn .tab-btn {
