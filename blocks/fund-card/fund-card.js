@@ -302,7 +302,7 @@ export default function decorate(block) {
               {
                 class: 'cagr-select-wrapper',
               },
-              div(
+              p(
                 {
                   class: 'selectedtext',
                   onclick: (event) => {
