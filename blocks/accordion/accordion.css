@@ -170,7 +170,7 @@
 .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary::after {
   content: "";
   position: absolute;
-  right: 16px;
+  right: 0;
   width: 24px;
   height: 24px;
   border: none;
@@ -194,7 +194,7 @@
   background-color: transparent;
 }
 .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] summary::after {
-  right: 16px;
+  right: 0;
   background: url("../../icons/mins-blue.svg");
   transform: translateY(-50%);
 }

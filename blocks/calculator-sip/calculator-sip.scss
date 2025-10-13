@@ -6,6 +6,7 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section {
+
   &.compounding,
   &.fdp-calculator {
     background-color: var(--neutrals-white);
@@ -77,6 +78,8 @@
 
           @include media(mobile) {
             gap: 4px;
+            max-inline-size: 22ch;
+            text-wrap: balance;
           }
 
           h1,
@@ -87,13 +90,11 @@
           h6 {
             margin: 0 0 4px;
 
-            @include font-style(
-              var(--heading-h4-size),
+            @include font-style(var(--heading-h4-size),
               var(--heading-h4-line-height),
               var(--blue-1-800-primary),
               map.get($font-weights, semibold),
-              var(--title)
-            );
+              var(--title));
 
             @include media(mobile) {
               margin-bottom: 0;
@@ -153,13 +154,11 @@
                 text-align: left;
                 margin-bottom: 6px;
 
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--text-body),
                   map.get($font-weights, regular),
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   font-size: var(--label-small-size);
@@ -168,13 +167,11 @@
               }
 
               .search-bar-inp {
-                @include font-style(
-                  var(--body-medium-medium-size),
+                @include font-style(var(--body-medium-medium-size),
                   var(--body-medium-medium-line-height),
                   var(--blue-1-800-primary),
                   map.get($font-weights, medium),
-                  var(--body)
-                );
+                  var(--body));
 
                 width: 100%;
                 color: $blue-1-800-primary;
@@ -342,13 +339,11 @@
                   cursor: pointer;
                   transition: all 0.2s ease;
 
-                  @include font-style(
-                    var(--body-small-regular-size),
+                  @include font-style(var(--body-small-regular-size),
                     var(--body-small-regular-line-height),
                     var(--text-body),
                     map.get($font-weights, regular),
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--body-small-regular-size);
@@ -392,13 +387,11 @@
                     cursor: pointer;
                     font-family: var(--body);
 
-                    @include font-style(
-                      var(--body-xsmall-medium-size),
+                    @include font-style(var(--body-xsmall-medium-size),
                       var(--body-xsmall-medium-line-height),
                       var(--blue-1-800-primary),
                       500,
-                      var(--body)
-                    );
+                      var(--body));
 
                     // &.active {
                     //   color: var(--blue-1-800-primary);
@@ -447,7 +440,7 @@
                     }
                   }
 
-                  input:checked + .slider::before {
+                  input:checked+.slider::before {
                     transform: translateX(16.5px);
                   }
                 }
@@ -462,13 +455,11 @@
                     position: relative;
                     user-select: none;
 
-                    @include font-style(
-                      var(--body-xsmall-medium-size),
+                    @include font-style(var(--body-xsmall-medium-size),
                       var(--body-xsmall-medium-line-height),
                       var(--blue-1-800-primary),
                       500,
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
                       text-align: start;
@@ -512,13 +503,11 @@
                       cursor: pointer;
                       transition: background-color 0.2s ease;
 
-                      @include font-style(
-                        14px,
+                      @include font-style(14px,
                         20px,
                         var(--color-text-body),
                         map.get($font-weights, regular),
-                        var(--body)
-                      );
+                        var(--body));
 
                       &:hover {
                         background-color: #f0f0f0;
@@ -547,12 +536,10 @@
                 .labelforsip,
                 .labelforlumsum,
                 .tenure-label {
-                  @include font-style(
-                    var(--label-small-size),
+                  @include font-style(var(--label-small-size),
                     var(--label-small-line-height),
                     var(--text-body-2),
-                    map.get($font-weights, regular)
-                  );
+                    map.get($font-weights, regular));
 
                   // color: #616161;
                   font-family: var(--body);
@@ -573,620 +560,597 @@
                     // gap: 18px;
                     gap: 4px;
 
-                    // @include media(mobile) {
-                    //   gap: 15px;
-                    // }
+                    &::before {
+                      content: "₹";
+                      position: absolute;
+                      top: 52%;
+                      left: 0;
+                      transform: translateY(-50%);
+                      pointer-events: none;
 
-                    &.input-symbol {
-                      &::before {
-                        content: "₹";
-                        
-                        // position: absolute;
-                        // top: 50%;
-                        // left: 3px;
-                        // transform: translateY(-50%);
-                        pointer-events: none;
+                      &.input-symbol {
+                        &::before {
+                          content: "₹";
 
-                        @include font-style(
-                          var(--body-medium-medium-size),
+                          // position: absolute;
+                          // top: 50%;
+                          // left: 3px;
+                          // transform: translateY(-50%);
+                          pointer-events: none;
+
+                          @include font-style(var(--body-medium-medium-size),
+                            var(--body-medium-medium-line-height),
+                            var(--blue-1-800-primary),
+                            map.get($font-weights, medium),
+                            var(--body));
+
+                          @include media(mobile) {
+                            // top: 4px;
+                            // height: 100%;
+                            font-size: var(--body-small-medium-size);
+                            line-height: var(--body-small-medium-line-height);
+                          }
+                        }
+                      }
+
+                      .investment-inp {
+                        @include font-style(var(--body-medium-medium-size),
                           var(--body-medium-medium-line-height),
                           var(--blue-1-800-primary),
                           map.get($font-weights, medium),
-                          var(--body)
-                        );
+                          var(--body));
+
+                        height: 100%;
+                        padding-left: 12px;
+                        appearance: none;
+                        outline: none;
+                        background-color: transparent;
+                        border: none;
 
                         @include media(mobile) {
-                          // top: 4px;
-                          // height: 100%;
+                          // padding-left: 15px;
                           font-size: var(--body-small-medium-size);
                           line-height: var(--body-small-medium-line-height);
                         }
+
+                        &::placeholder {
+                          @include font-style(14px,
+                            var(--body-medium-medium-line-height),
+                            var(--blue-1-800-primary),
+                            map.get($font-weights, medium),
+                            var(--body));
+                        }
                       }
                     }
 
-                    .investment-inp {
-                      @include font-style(
-                        var(--body-medium-medium-size),
-                        var(--body-medium-medium-line-height),
-                        var(--blue-1-800-primary),
-                        map.get($font-weights, medium),
-                        var(--body)
-                      );
+                    .amount-error {
+                      font-size: 10px;
+                      line-height: 16px;
+                      font-family: var(--body);
+                      color: #f05353;
 
-                      height: 100%;
-
-                      // padding-left: 14px;
-                      appearance: none;
-                      outline: none;
-                      background-color: transparent;
-                      border: none;
-
-                      @include media(mobile) {
-                        // padding-left: 15px;
-                        font-size: var(--body-small-medium-size);
-                        line-height: var(--body-small-medium-line-height);
+                      &.error-hide {
+                        display: none;
                       }
 
-                      &::placeholder {
-                        @include font-style(
-                          14px,
+                      &.error-show {
+                        display: block;
+                        text-align: left;
+                      }
+                    }
+                  }
+
+                  .tenure-wrapper {
+                    &.custom-select {
+                      position: relative;
+
+                      .select-selected {
+                        @include font-style(var(--body-medium-medium-size),
                           var(--body-medium-medium-line-height),
                           var(--blue-1-800-primary),
                           map.get($font-weights, medium),
-                          var(--body)
-                        );
-                      }
-                    }
-                  }
+                          var(--body));
 
-                  .amount-error {
-                    font-size: 10px;
-                    line-height: 16px;
-                    font-family: var(--body);
-                    color: #f05353;
-
-                    &.error-hide {
-                      display: none;
-                    }
-
-                    &.error-show {
-                      display: block;
-                      text-align: left;
-                    }
-                  }
-                }
-
-                .tenure-wrapper {
-                  &.custom-select {
-                    position: relative;
-
-                    .select-selected {
-                      @include font-style(
-                        var(--body-medium-medium-size),
-                        var(--body-medium-medium-line-height),
-                        var(--blue-1-800-primary),
-                        map.get($font-weights, medium),
-                        var(--body)
-                      );
-
-                      cursor: pointer;
-                      position: relative;
-                      user-select: none;
-
-                      // padding-bottom: 4px;
-                      display: flex;
-                      align-items: center;
-                      height: 20px;
-
-                      @include media(mobile) {
-                        text-align: start;
-                        font-size: var(--body-small-medium-size);
-                        line-height: var(--body-small-medium-line-height);
-                      }
-
-                      &::after {
-                        content: "";
-                        position: absolute;
-                        right: 0;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        width: 8px;
-                        height: 4px;
-                        background: url("../../icons/Frame2.svg") no-repeat center;
-                        background-size: contain;
-                        transition: transform 0.2s ease;
-                      }
-                    }
-
-                    .select-options {
-                      display: none;
-                      position: absolute;
-                      top: 110%;
-                      left: 0;
-                      right: 0;
-                      background: var(--neutrals-white);
-                      border-radius: map.get($radius, r8);
-                      box-shadow: $box-shadow-soft;
-                      z-index: 10;
-                      overflow: hidden;
-
-                      &.open {
-                        display: block;
-                      }
-
-                      .select-option {
-                        padding: 12px 16px;
                         cursor: pointer;
-                        transition: background-color 0.2s ease;
+                        position: relative;
+                        user-select: none;
 
-                        @include font-style(
-                          14px,
-                          20px,
-                          var(--color-text-body),
-                          map.get($font-weights, regular),
-                          var(--body)
-                        );
+                        // padding-bottom: 4px;
+                        display: flex;
+                        align-items: center;
+                        height: 20px;
 
-                        &:hover {
-                          background-color: #f0f0f0;
+                        @include media(mobile) {
+                          text-align: start;
+                          font-size: var(--body-small-medium-size);
+                          line-height: var(--body-small-medium-line-height);
+                        }
+
+                        &::after {
+                          content: "";
+                          position: absolute;
+                          right: 0;
+                          top: 50%;
+                          transform: translateY(-50%);
+                          width: 8px;
+                          height: 4px;
+                          background: url("../../icons/Frame2.svg") no-repeat center;
+                          background-size: contain;
+                          transition: transform 0.2s ease;
+                        }
+                      }
+
+                      .select-options {
+                        display: none;
+                        position: absolute;
+                        top: 110%;
+                        left: 0;
+                        right: 0;
+                        background: var(--neutrals-white);
+                        border-radius: map.get($radius, r8);
+                        box-shadow: $box-shadow-soft;
+                        z-index: 10;
+                        overflow: hidden;
+
+                        &.open {
+                          display: block;
+                        }
+
+                        .select-option {
+                          padding: 12px 16px;
+                          cursor: pointer;
+                          transition: background-color 0.2s ease;
+
+                          @include font-style(14px,
+                            20px,
+                            var(--color-text-body),
+                            map.get($font-weights, regular),
+                            var(--body));
+
+                          &:hover {
+                            background-color: #f0f0f0;
+                          }
                         }
                       }
                     }
                   }
                 }
               }
-            }
 
-            .incal-wrapper {
-              display: flex;
-              flex-direction: column;
-              gap: 24px;
-              margin-top: -4px;
-
-              @include media(mobile) {
-                margin: 0;
-              }
-
-              .invested-amount {
+              .incal-wrapper {
                 display: flex;
-                align-items: flex-start;
-                gap: map.get($spacing, xxs);
-                align-self: stretch;
-
-                .invested-label {
-                  @include font-style(
-                    var(--disclaimer-xsmall-size),
-                    var(--disclaimer-xsmall-line-height),
-                    var(--text-body-2),
-                    map.get($font-weights, regular),
-                    var(--body)
-                  );
-
-                  @include media(mobile) {
-                    font-size: var(--label-small-size);
-                    line-height: var(--label-small-line-height);
-                  }
-                }
-
-                .invested-amount-value {
-                  position: relative;
-                  padding-left: 10px;
-
-                  @include font-style(
-                    var(--body-small-medium-size),
-                    var(--body-small-medium-line-height),
-                    var(--blue-1-800-primary),
-                    map.get($font-weights, medium),
-                    var(--body)
-                  );
-
-                  &::before {
-                    content: "₹";
-                    position: absolute;
-                    left: 0;
-                    top: 1px;
-                    pointer-events: none;
-
-                    @include font-style(
-                      var(--body-small-medium-size),
-                      var(--body-small-medium-line-height),
-                      var(--blue-1-800-primary),
-                      map.get($font-weights, medium),
-                      var(--body)
-                    );
-
-                    @include media(mobile) {
-                      font-size: var(--body-small-medium-size);
-                      line-height: var(--body-small-medium-line-height);
-                    }
-                  }
-
-                  @include media(mobile) {
-                    font-size: var(--body-small-medium-size);
-                    line-height: var(--body-small-medium-line-height);
-                  }
-                }
-              }
-
-              .cal-discription {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 32px;
-                position: relative;
+                flex-direction: column;
+                gap: 24px;
+                margin-top: -4px;
 
                 @include media(mobile) {
-                  display: flex;
-                  flex-wrap: wrap;
-                  justify-content: space-between;
-                  align-items: flex-start;
-                  gap: 24px;
-                  text-align: left;
+                  margin: 0;
                 }
 
-                .current-value-wrapper,
-                .return-cagr-wrapper {
+                .invested-amount {
                   display: flex;
-                  flex-direction: column;
+                  align-items: flex-start;
                   gap: map.get($spacing, xxs);
+                  align-self: stretch;
 
-                  .cal-desc-label {
-                    @include font-style(
-                      var(--label-small-size),
-                      var(--label-small-line-height),
+                  .invested-label {
+                    @include font-style(var(--disclaimer-xsmall-size),
+                      var(--disclaimer-xsmall-line-height),
                       var(--text-body-2),
                       map.get($font-weights, regular),
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
-                      white-space: nowrap;
                       font-size: var(--label-small-size);
                       line-height: var(--label-small-line-height);
                     }
                   }
 
-                  .cal-desc-value {
-                    @include font-style(
-                      var(--body-xlarge-bold-size),
-                      var(--body-xlarge-bold-line-height),
-                      var(--blue-1-800-primary),
-                      600,
-                      var(--body)
-                    );
-
-                    text-align: left;
+                  .invested-amount-value {
                     position: relative;
-                    padding-left: 18px;
+                    padding-left: 10px;
 
-                    @include media(mobile) {
-                      font-size: var(--body-medium-semibold-size);
-                      line-height: var(--body-medium-semibold-line-height);
-                    }
+                    @include font-style(var(--body-small-medium-size),
+                      var(--body-small-medium-line-height),
+                      var(--blue-1-800-primary),
+                      map.get($font-weights, medium),
+                      var(--body));
 
                     &::before {
                       content: "₹";
                       position: absolute;
-                      left: 3px;
+                      left: 0;
+                      top: 0;
                       pointer-events: none;
 
-                      @include font-style(
-                        var(--body-xlarge-bold-size),
+                      @include font-style(var(--body-small-medium-size),
+                        var(--body-small-medium-line-height),
+                        var(--blue-1-800-primary),
+                        map.get($font-weights, medium),
+                        var(--body));
+
+                      @include media(mobile) {
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
+                      }
+                    }
+
+                    @include media(mobile) {
+                      font-size: var(--body-small-medium-size);
+                      line-height: var(--body-small-medium-line-height);
+                    }
+                  }
+                }
+
+                .cal-discription {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 32px;
+                  position: relative;
+
+                  @include media(mobile) {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    gap: 24px;
+                    text-align: left;
+                  }
+
+                  .current-value-wrapper,
+                  .return-cagr-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: map.get($spacing, xxs);
+
+                    .cal-desc-label {
+                      @include font-style(var(--label-small-size),
+                        var(--label-small-line-height),
+                        var(--text-body-2),
+                        map.get($font-weights, regular),
+                        var(--body));
+
+                      @include media(mobile) {
+                        white-space: nowrap;
+                        font-size: var(--label-small-size);
+                        line-height: var(--label-small-line-height);
+                      }
+                    }
+
+                    .cal-desc-value {
+                      @include font-style(var(--body-xlarge-bold-size),
                         var(--body-xlarge-bold-line-height),
                         var(--blue-1-800-primary),
                         600,
-                        var(--body)
-                      );
+                        var(--body));
+
+                      text-align: left;
+                      position: relative;
+                      padding-left: 14px;
 
                       @include media(mobile) {
                         font-size: var(--body-medium-semibold-size);
                         line-height: var(--body-medium-semibold-line-height);
                       }
+
+                      &::before {
+                        content: "₹";
+                        position: absolute;
+                        left: 3px;
+                        pointer-events: none;
+
+                        @include font-style(var(--body-xlarge-bold-size),
+                          var(--body-xlarge-bold-line-height),
+                          var(--blue-1-800-primary),
+                          600,
+                          var(--body));
+
+                        @include media(mobile) {
+                          font-size: var(--body-medium-semibold-size);
+                          line-height: var(--body-medium-semibold-line-height);
+                        }
+                      }
+                    }
+
+                    .return-cagr {
+                      padding-left: 0;
+
+                      &::before {
+                        content: "";
+                      }
                     }
                   }
 
-                  .return-cagr {
-                    padding-left: 0;
-
-                    &::before {
-                      content: "";
-                    }
-                  }
-                }
-
-                .start-sip-btn {
-                  position: absolute;
-                  right: 0;
-
-                  @include media(mobile) {
-                    position: static;
-                    width: 100%;
-
-                    // padding-top: 8px;
-                  }
-
-                  .sip-btn {
-                    display: flex;
-                    padding: var(--spacing-12);
-                    justify-content: center;
-                    align-items: center;
-                    gap: map.get($spacing, xs);
-                    border-radius: var(--border-radius-8);
-                    background: var(--button-primary-default);
-                    border: none;
-                    cursor: pointer;
-                    transition: background-color 0.2s ease;
-                    width: 164px;
-                    height: 40px;
-                    margin: unset;
-
-                    @include font-style(
-                      var(--button-medium-size),
-                      var(--button-medium-line-height),
-                      var(--text-white),
-                      500,
-                      var(--body)
-                    );
+                  .start-sip-btn {
+                    position: absolute;
+                    right: 0;
 
                     @include media(mobile) {
+                      position: static;
                       width: 100%;
-                      height: 40px;
-                      margin: 0;
-                      font-size: var(--button-medium-size);
-                      line-height: var(--button-medium-line-height);
+
+                      // padding-top: 8px;
                     }
 
-                    &:hover {
-                      // background: var(--primary-blue-dark);
-                      background-color: #181643;
+                    .sip-btn {
+                      display: flex;
+                      padding: var(--spacing-12);
+                      justify-content: center;
+                      align-items: center;
+                      gap: map.get($spacing, xs);
+                      border-radius: var(--border-radius-8);
+                      background: var(--button-primary-default);
+                      border: none;
+                      cursor: pointer;
+                      transition: background-color 0.2s ease;
+                      width: 164px;
+                      height: 40px;
+                      margin: unset;
+
+                      @include font-style(var(--button-medium-size),
+                        var(--button-medium-line-height),
+                        var(--text-white),
+                        500,
+                        var(--body));
+
+                      @include media(mobile) {
+                        width: 100%;
+                        height: 40px;
+                        margin: 0;
+                        font-size: var(--button-medium-size);
+                        line-height: var(--button-medium-line-height);
+                      }
+
+                      &:hover {
+                        // background: var(--primary-blue-dark);
+                        background-color: #181643;
+                      }
                     }
                   }
                 }
               }
+
+              .no-returns-msg {
+                margin-top: map.get($spacing, xs);
+                background-color: rgb(251 238 221);
+                padding: map.get($spacing, xxs);
+
+                @include font-style(var(--body-small-medium-size),
+                  var(--text-link-small-line-height),
+                  var(--text-text-link),
+                  400,
+                  var(--body));
+              }
             }
 
-            .no-returns-msg {
-              margin-top: map.get($spacing, xs);
-              background-color: rgb(251 238 221);
-              padding: map.get($spacing, xxs);
+            .view-btn-cal {
+              padding-top: 10px;
+              text-align: left;
+              line-height: 0;
 
-              @include font-style(
-                var(--body-small-medium-size),
-                var(--text-link-small-line-height),
-                var(--text-text-link),
-                400,
-                var(--body)
-              );
+              @include media(mobile) {
+                text-align: center;
+                padding: 16px 0;
+                padding-top: 16px;
+              }
+
+              .view-othercal-btn {
+                text-decoration: underline;
+
+                @include font-style(var(--body-small-medium-size),
+                  var(--text-link-small-line-height),
+                  var(--text-button-default),
+                  map.get($font-weights, regular),
+                  var(--body));
+              }
             }
           }
+        }
+      }
 
-          .view-btn-cal {
-            padding-top: 10px;
-            text-align: left;
-            line-height: 0;
+      .default-content-wrapper:last-of-type {
+        padding: 0;
+
+        p.disc-child-1 {
+          @include font-style(var(--disclaimer-xsmall-size),
+            var(--disclaimer-xsmall-line-height),
+            var(--blue-1-800-primary),
+            400,
+            var(--body));
+
+          margin: 0;
+
+          @include media(mobile) {
+            font-size: var(--paragraph-xsmall-size);
+            line-height: var(--paragraph-xsmall-line-height);
+          }
+        }
+
+        ul.disc-child-2 {
+          padding-left: 24px;
+
+          li {
+            @include font-style(var(--disclaimer-xsmall-size),
+              var(--disclaimer-xsmall-line-height),
+              var(--text-disclaimer),
+              400,
+              var(--body));
+
+            word-break: " break-word";
+            padding-right: 44px;
 
             @include media(mobile) {
-              text-align: center;
-              padding: 16px 0;
-              padding-top: 0;
-            }
-
-            .view-othercal-btn {
-              text-decoration: underline;
-
-              @include font-style(
-                var(--body-small-medium-size),
-                var(--text-link-small-line-height),
-                var(--text-button-default),
-                map.get($font-weights, regular),
-                var(--body)
-              );
+              font-size: var(--paragraph-xsmall-size);
+              line-height: var(--paragraph-xsmall-line-height);
+              padding-right: 16px;
             }
           }
+
         }
       }
     }
 
-    .default-content-wrapper:last-of-type {
-      padding: 0;
-
-      p.disc-child-1 {
-        @include font-style(
-          var(--disclaimer-xsmall-size),
-          var(--disclaimer-xsmall-line-height),
-          var(--blue-1-800-primary),
-          400,
-          var(--body)
-        );
-
-        margin: 0;
-
-        @include media(mobile) {
-          font-size: var(--paragraph-xsmall-size);
-          line-height: var(--paragraph-xsmall-line-height);
-        }
-      }
-
-      ul.disc-child-2 {
-        padding-left: 24px;
-
-        @include font-style(
-          var(--disclaimer-xsmall-size),
-          var(--disclaimer-xsmall-line-height),
-          var(--text-disclaimer),
-          400,
-          var(--body)
-        );
-
-        @include media(mobile) {
-          font-size: var(--paragraph-xsmall-size);
-          line-height: var(--paragraph-xsmall-line-height);
-        }
-      }
-    }
-  }
-
-  &.fdp-calculator {
-    gap: 24px;
-    align-self: stretch;
-    box-shadow: $box-shadow-soft;
-    padding: 40px 24px;
-    margin-bottom: unset !important;
-
-    @include media(mobile) {
-      padding: 40px 16px;
-      background-color: var(--neutrals-white);
-      gap: 0;
-    }
-
-    .compounding-two-inner {
-      max-width: 100%;
-      flex-direction: column;
+    &.fdp-calculator {
       gap: 24px;
+      align-self: stretch;
+      box-shadow: $box-shadow-soft;
+      padding: 40px 24px;
+      margin-bottom: unset !important;
 
-      .default-content-wrapper {
-        .hero-image {
-          width: 48px;
-          height: 48px;
+      @include media(mobile) {
+        padding: 40px 16px;
+        background-color: var(--neutrals-white);
+        gap: 0;
+      }
 
-          p,
-          .icon-analytics {
+      .compounding-two-inner {
+        max-width: 100%;
+        flex-direction: column;
+        gap: 24px;
+
+        .default-content-wrapper {
+          .hero-image {
             width: 48px;
             height: 48px;
-            margin: 0;
+
+            p,
+            .icon-analytics {
+              width: 48px;
+              height: 48px;
+              margin: 0;
+            }
           }
-        }
 
-        .hero-text {
-          p {
-            display: none;
-          }
-
-          h1,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6 {
-            margin: 0 0 4px;
-
-            @include font-style(
-              var(--body-xlarge-bold-size),
-              var(--body-xlarge-bold-line-height),
-              var(--blue-1-800-primary),
-              600,
-              var(--body)
-            );
-          }
-        }
-      }
-
-      .calculator-sip-wrapper {
-        max-width: 100%;
-
-        .calculator-sip {
-          .cal-container {
-            max-width: 100%;
-            width: 100%;
-            padding: 0;
-
-            .spi-wrapper {
-              .scheme-btns-wrapper {
-                gap: 8px;
-              }
-
-              .custom-select {
-                .select-selected.fdp-select-selected {
-                  width: 100%;
-                }
-              }
+          .hero-text {
+            p {
+              display: none;
             }
 
-            .incal-wrapper {
-              .cal-discription {
-                gap: 4px;
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+              // margin: 0 0 4px;
 
-                @include media(mobile) {
-                  gap: 24px 4px;
+              @include font-style(var(--body-xlarge-bold-size),
+                var(--body-xlarge-bold-line-height),
+                var(--blue-1-800-primary),
+                600,
+                var(--body));
+            }
+          }
+        }
+
+        .calculator-sip-wrapper {
+          max-width: 100%;
+
+          .calculator-sip {
+            .cal-container {
+              max-width: 100%;
+              width: 100%;
+              padding: 0;
+
+              .spi-wrapper {
+                .scheme-btns-wrapper {
+                  gap: 8px;
                 }
 
-                .current-value-wrapper {
-                  max-width: 292px;
-                  width: 100%;
-
-                  @include media(mobile) {
-                    max-width: 204px;
+                .custom-select {
+                  .select-selected.fdp-select-selected {
                     width: 100%;
                   }
+                }
+              }
 
-                  .cal-desc-value {
-                    font-size: var(--body-medium-medium-size);
-                    line-height: var(--body-medium-medium-line-height);
-                    font-weight: 500;
+              .incal-wrapper {
+                .cal-discription {
+                  gap: 4px;
+
+                  @include media(mobile) {
+                    gap: 24px 4px;
+                  }
+
+                  .current-value-wrapper {
+                    max-width: 292px;
+                    width: 100%;
 
                     @include media(mobile) {
-                      font-size: var(--body-small-medium-size);
-                      line-height: var(--body-small-medium-line-height);
-                      font-weight: 500;
+                      max-width: 204px;
+                      width: 100%;
                     }
 
-                    &::before {
-                      top: -3px;
-                      left: 5px;
-                      padding-top: 3px;
+                    .cal-desc-value {
                       font-size: var(--body-medium-medium-size);
                       line-height: var(--body-medium-medium-line-height);
                       font-weight: 500;
+
+                      @include media(mobile) {
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
+                        font-weight: 500;
+                      }
+
+                      &::before {
+                        top: -3px;
+                        left: 1px;
+                        padding-top: 3px;
+                        font-size: var(--body-medium-medium-size);
+                        line-height: var(--body-medium-medium-line-height);
+                        font-weight: 500;
+                      }
                     }
                   }
-                }
 
-                .return-cagr-wrapper {
-                  max-width: 292px;
-                  width: 100%;
-
-                  @include media(mobile) {
-                    max-width: 132px;
+                  .return-cagr-wrapper {
+                    max-width: 292px;
                     width: 100%;
-                  }
-
-                  .return-cagr {
-                    font-size: var(--body-medium-medium-size);
-                    font-weight: 500;
-                    line-height: var(--body-medium-medium-line-height);
 
                     @include media(mobile) {
-                      font-size: var(--body-small-medium-size);
-                      line-height: var(--body-small-medium-line-height);
+                      max-width: 132px;
+                      width: 100%;
+                    }
+
+                    .return-cagr {
+                      font-size: var(--body-medium-medium-size);
+                      font-weight: 500;
+                      line-height: var(--body-medium-medium-line-height);
+
+                      @include media(mobile) {
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
+                      }
                     }
                   }
                 }
               }
             }
-          }
 
-          .view-btn-cal {
-            display: none;
+            .view-btn-cal {
+              display: none;
 
-            @include media(mobile) {
-              display: block;
+              @include media(mobile) {
+                display: block;
+              }
             }
           }
         }
       }
+
+      .default-content-wrapper:last-of-type {
+        p.disc-child-1 {
+          margin-bottom: 20px;
+        }
+
+        ul.disc-child-2 {
+          padding-left: 20px;
+        }
+      }
     }
 
-    .default-content-wrapper:last-of-type {
-      p.disc-child-1 {
-        margin-bottom: 20px;
-      }
-
-      ul.disc-child-2 {
-        padding-left: 16px;
-      }
+    &.compounding.calculator-sip-container:not(.fdp-calculator) {
+      background-color: var(--blue-1-25);
     }
-  }
-
-  &.compounding.calculator-sip-container:not(.fdp-calculator) {
-    background-color: var(--blue-1-25);
   }
 }
