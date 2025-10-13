@@ -9,6 +9,9 @@
     --weight-semibold: "Semibold";
     --weight-medium: "Medium";
     --weight-bold: "Bold";
+    --font-features-default: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on,
+        'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on,
+        'cv10' on, 'cv11' on;
 
     /* typeface baseline end */
 
