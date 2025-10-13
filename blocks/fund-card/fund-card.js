@@ -101,12 +101,12 @@ export default function decorate(block) {
                         ).includes('star-filled')
                       ) {
                         event.target.parentElement.classList.add('star-filled');
-                        event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Added to Watchlist';
+                        event.target.closest('.watchlistlabel').textContent = 'Added to Watchlist';
                       } else {
                         event.target.parentElement.classList.remove(
                           'star-filled',
                         );
-                        event.target.parentElement.parentElement.querySelector('.watchlistlabel').textContent = 'Watchlist';
+                        event.target.closest('.watchlistlabel').textContent = 'Watchlist';
                       }
                       wishlist();
                     },
