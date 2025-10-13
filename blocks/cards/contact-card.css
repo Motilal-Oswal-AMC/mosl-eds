@@ -226,6 +226,14 @@
   text-underline-offset: 20%;
   text-underline-position: from-font;
 }
+@media (width <= 768px) {
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list.list-elem-19 strong,
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list.list-elem-19 strong,
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list.list-elem-19 strong {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list ul,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list ul,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list ul {
@@ -272,11 +280,6 @@
   border-radius: 50%;
   position: absolute;
   right: 0;
-}
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li:nth-child(1) img,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist li:nth-child(1) img,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist li:nth-child(1) img {
-  border-radius: 0%;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-1,
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist li.list-elem-4,
@@ -489,17 +492,13 @@
   cursor: pointer;
   line-height: 20px;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 ul li.list-elem-12 {
-  margin: 0;
-  cursor: pointer;
-}
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 {
   gap: 0;
 }
 .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul .contact-li2.list-elem-16 {
   cursor: pointer;
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li.common-list {
   text-decoration: none;
   gap: 1px;
   margin: 0;
@@ -511,39 +510,15 @@
   font-weight: 400;
 }
 @media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li {
+  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li.common-list {
     font-size: 12px;
     line-height: 16px;
   }
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li span {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li.common-list span {
   width: 40px;
   height: 40px;
   cursor: text;
-}
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li span img {
-  border-radius: 0%;
-}
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li strong {
-  font-size: 14px;
-  line-height: 20px;
-  color: #4338f3;
-  font-family: "Inter", sans-serif;
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: 20%;
-  cursor: pointer;
-}
-@media (width <= 768px) {
-  .section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul li strong {
-    font-size: 12px;
-    line-height: 20px;
-  }
 }
 
 .contact-us-parent-wrapper .section.growth-now-container {

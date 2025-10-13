@@ -156,6 +156,7 @@
                             position: relative;
 
                             label {
+                                display: none;
                                 color: var(--text-white);
                                 font-feature-settings: var(--font-features-default);
                                 font-family: var(--body);

@@ -325,7 +325,8 @@
 
                             @include media(mobile) {
                                 width: 100%;
-                                max-width: 176px;
+                                
+                                // max-width: 176px;
                             }
                         }
 
