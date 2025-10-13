@@ -634,6 +634,8 @@ main {
 @media (width <= 768px) {
   .section.fdp-card-container .item2 .item2-ul li {
     justify-content: start;
+    height: unset;
+    display: block;
   }
   .section.fdp-card-container .item2 .item2-ul li.tab-li-item2 {
     padding-top: 0;
