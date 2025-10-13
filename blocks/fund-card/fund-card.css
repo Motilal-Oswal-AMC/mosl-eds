@@ -230,8 +230,8 @@
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .selectedtext::after {
   content: "";
   background: url("../../icons/down-arrow.svg") center/cover no-repeat;
-  min-width: 20px;
-  height: 20px;
+  min-width: 16px;
+  height: 16px;
   display: block;
 }
 @media (max-width: 768px) {
