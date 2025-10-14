@@ -389,6 +389,22 @@
           {
             "name": "Article Sub Right",
             "value": "article-sub-right"
+          },
+          {
+            "name": "Stay Updated",
+            "value": "stay-updated"
+          },
+          {
+            "name": "Subscribe Email",
+            "value": "subscribe-email"
+          },
+          {
+            "name": "Recommended Posts",
+            "value": "recommended-posts"
+          },
+          {
+            "name": "Our Podcast",
+            "value": "our-podcast"
           }
         ]
       },
