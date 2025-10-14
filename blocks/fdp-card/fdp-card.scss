@@ -325,7 +325,7 @@ main {
               // max-width: 52.18%;
               // max-width: 192px;
               // width: 100%;
-              position: relative;
+              // position: relative;
               width: auto;
               display: flex;
               flex-wrap: wrap;
@@ -359,7 +359,7 @@ main {
               }
 
               .dropdown {
-                // position: relative;
+                position: relative;
                 max-width: max-content;
                 width: 100%;
 
@@ -398,11 +398,14 @@ main {
 
                 .dropdownlist {
                   // width: 70px;
-                  width: 92%;
+                  width: max-content;
+                  min-width: unset;
                   height: auto;
 
                   // top: 22px;
                   top: 100%;
+                  left: -100%;
+                  margin: 2px 0 0 16px;
                 }
               }
 
