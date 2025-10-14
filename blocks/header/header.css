@@ -744,8 +744,12 @@ header nav .nav-sections ul>li>ul {
     background: var(--neutrals-white);
 }
 
+.services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list4 {
+    padding-bottom: 0;
+}
+
 .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5.comlist {
-    padding-top: 20px;
+    padding-top: 26px;
     padding-bottom: 14px;
 }
 
@@ -2329,8 +2333,9 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         padding-top: 24px;
     }
 
-    .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5 {
-        padding-bottom: 4px;
+    .services-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub3 .sub-popup-inner-text2 .sub-popup-list5.comlist {
+        padding-top: 32px;
+        padding-bottom: 18px;
     }
 
     /* .sub-popup-header.investor-edu-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist a {
@@ -2595,7 +2600,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         line-height: 16px;
         gap: 4px;
     }
-    
+
     .section.sub-popup-header.our-popular-funds .default-content-wrapper .sub-popup-sec1 .comlist.sub-popup-inner-text2 .sub-popup-list-content2 li>a {
         line-height: 16px;
     }
