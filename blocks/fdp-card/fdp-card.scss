@@ -71,7 +71,7 @@ main {
           z-index: 5;
           min-width: 340px;
           width: 100%;
-          min-height: 192px;
+          min-height: fit-content;
           overflow: auto;
           margin: 3px 0 0;
           background-color: $primary-white;
@@ -81,7 +81,7 @@ main {
 
           @include media(mobile) {
             min-width: 143px;
-            min-height: 238px;
+            // min-height: 238px;
           }
 
           &.dropdown-active {
