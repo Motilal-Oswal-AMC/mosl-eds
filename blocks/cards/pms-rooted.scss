@@ -3,8 +3,14 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 
+
 .section.pms-rooted {
-    margin-top: 120px;
+    margin: 120px 0;
+    position: relative;
+
+    @include media(mobile) {
+        margin: 93px 0 40px;
+    }
 
     #rooted-in-legacy-driven-by-excellence {
         font-style: normal;
@@ -16,6 +22,12 @@
         // line-height: var(--heading-h3-line-height);
         @include font-style(var(--heading-h3-size), var(--heading-h3-line-height), var(--blue-1-800-primary), 500, var(--title));
         margin: 0 0 24px 0;
+
+        @include media(mobile) {
+            font-size: var(--heading-h5-size);
+            line-height: var(--heading-h5-line-height);
+            /* 114.286% */
+        }
     }
 
     p {
@@ -29,6 +41,12 @@
         @include font-style(var(--body-large-regular-size), var(--body-large-regular-line-height), var(--neutrals-800), 400, var(--body));
         margin: 0 0 68px 0;
         /* 133.333% */
+
+        @include media(mobile) {
+            font-size: var(--paragraph-medium-size);
+            line-height: var(--paragraph-medium-line-height);
+            margin: 0 0 16px 0;
+        }
     }
 
     .cards-wrapper {
@@ -39,99 +57,71 @@
             display: flex;
             gap: 16px;
 
+            @include media(mobile) {
+                flex-direction: column;
+            }
+
             li {
                 width: 33.33%;
                 border: 0;
-                .cards-card-body{
+
+                @include media(mobile) {
+                    width: 100%;
+                }
+
+                .cards-card-body {
                     margin: 0;
-                p{
-                    margin: 0;
-                    span{
-                        display: block;
-                        margin-bottom: 20px;
-                        width: 64px;
-                        height: 64px;
-                        img{
-                            // width: 64px;
-                            // height: 64px;
+
+                    p {
+                        margin: 0;
+
+                        @include media(mobile) {
+                            border-bottom: 1px solid #D0D0D0;
+                            padding: 24px 0;
+                        }
+
+                        span {
+                            display: block;
+                            margin-bottom: 20px;
+                            width: 64px;
+                            height: 64px;
+
+                            img {
+                                // width: 64px;
+                                // height: 64px;
+                            }
+                        }
+
+                        color: var(--neutrals-900);
+                        /* Desktop/Body/Large-regular */
+                        font-family: var(--body);
+                        font-size: var(--body-large-regular-size);
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: var(--body-large-regular-line-height);
+                        /* 133.333% */
+
+                        @include media(mobile) {
+                            font-size: var(--paragraph-large-size);
+                            line-height: var(--paragraph-large-line-height);
                         }
                     }
-                    color: var(--neutrals-900);
-                    /* Desktop/Body/Large-regular */
-                    font-family: var(--body);
-                    font-size: var(--body-large-regular-size);
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: var(--body-large-regular-line-height); /* 133.333% */
                 }
-            }
             }
         }
     }
-}
-.section.pms-rooted {
-    margin-top: 120px;
 
-    #rooted-in-legacy-driven-by-excellence {
-        font-style: normal;
-        font-weight: 500;
-        max-width: 400px;
-        // color: #2E2A94;
-        // font-family: var(--heading-h1-font);
-        // font-size: var(--heading-h3-size);
-        // line-height: var(--heading-h3-line-height);
-        @include font-style(var(--heading-h3-size), var(--heading-h3-line-height), var(--blue-1-800-primary), 500, var(--title));
-        margin: 0 0 24px 0;
-    }
+    .icon-rooted-frame {
+        position: absolute;
+        top: -120px;
+        right: 0;
+        width: 376px;
+        height: 277px;
 
-    p {
-        font-style: normal;
-        max-width: 882px;
-        font-weight: 400;
-        // color: var(--neutrals-800);
-        // font-family: var(--boby);
-        // font-size: var(--body-large-regular-size);
-        // line-height: var(--body-large-regular-line-height);
-        @include font-style(var(--body-large-regular-size), var(--body-large-regular-line-height), var(--neutrals-800), 400, var(--body));
-        margin: 0 0 68px 0;
-        /* 133.333% */
-    }
-
-    .cards-wrapper {
-        width: 100%;
-
-        ul {
-            width: 100%;
-            display: flex;
-            gap: 16px;
-
-            li {
-                width: 33.33%;
-                border: 0;
-                .cards-card-body{
-                    margin: 0;
-                p{
-                    margin: 0;
-                    span{
-                        display: block;
-                        margin-bottom: 20px;
-                        width: 64px;
-                        height: 64px;
-                        img{
-                            // width: 64px;
-                            // height: 64px;
-                        }
-                    }
-                    color: var(--neutrals-900);
-                    /* Desktop/Body/Large-regular */
-                    font-family: var(--body);
-                    font-size: var(--body-large-regular-size);
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: var(--body-large-regular-line-height); /* 133.333% */
-                }
-            }
-            }
+        @include media(mobile) {
+            top: -93px;
+            width: 142.001px;
+            height: 104.612px;
         }
     }
 }
