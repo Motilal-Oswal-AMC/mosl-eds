@@ -57,13 +57,17 @@ export default async function createBreadcrumbs() {
 }
 
 async function decorateBreadcrumbs() {
-  if (getMetadata('breadcrumbs') === 'true') {
-    const breadcrumb = await createBreadcrumbs();
-    breadcrumb.classList.add('breadul');
-    Array.from(breadcrumb.children).forEach((brelesub) => {
-      brelesub.classList.add('breadli');
-    });
-    document.querySelector('.breadcrumbs-fdp').appendChild(breadcrumb);
+  try {
+    if (getMetadata('breadcrumbs') === 'true') {
+      const breadcrumb = await createBreadcrumbs();
+      breadcrumb.classList.add('breadul');
+      Array.from(breadcrumb.children).forEach((brelesub) => {
+        brelesub.classList.add('breadli');
+      });
+      document.querySelector('.breadcrumbs-fdp').appendChild(breadcrumb);
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 

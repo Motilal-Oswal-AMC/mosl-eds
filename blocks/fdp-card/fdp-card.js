@@ -32,15 +32,19 @@ export default function decorate(block) {
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const planslabel = planCode.split(':')[1];
   const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
-  dataMapMoObj.CLASS_PREFIXES = ['compound-item', 'compound-sub-item', 'compound-inner-item'];
-  dataMapMoObj.addIndexed(block);
+  try {
+    dataMapMoObj.CLASS_PREFIXES = ['compound-item', 'compound-sub-item', 'compound-inner-item'];
+    dataMapMoObj.addIndexed(block);
 
-  const stky = mainBlock.querySelector('.fdp-sticky-nav');
-  dataMapMoObj.CLASS_PREFIXES = ['sticky-item', 'sticky-sub-item', 'sticky-inner-item'];
-  dataMapMoObj.addIndexed(stky);
+    const stky = mainBlock.querySelector('.fdp-sticky-nav');
+    dataMapMoObj.CLASS_PREFIXES = ['sticky-item', 'sticky-sub-item', 'sticky-inner-item'];
+    dataMapMoObj.addIndexed(stky);
 
-  dataMapMoObj.CLASS_PREFIXES = ['item'];
-  dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
+    dataMapMoObj.CLASS_PREFIXES = ['item'];
+    dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
+  } catch (error) {
+    console.log(error);
+  }
 
   const cfObj = planObj;
   const fundsTaggingSection = cfObj[0].fundsTaggingSection.slice(0, 2);
@@ -635,9 +639,8 @@ export default function decorate(block) {
 
   (function () {
     // Function to calculate the correct header offset based on screen size
-    function getHeaderOffset(targetID) { //targetId
-      const dataidStorage = 
-        dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
+    function getHeaderOffset(targetID) { // targetId
+      const dataidStorage = dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
       return window.innerWidth <= 768 ? dataidStorage : 'auto';
     }
 
