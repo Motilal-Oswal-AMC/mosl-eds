@@ -32,7 +32,6 @@ export default function decorate(block) {
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const planslabel = planCode.split(':')[1];
   const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
-
   try {
     dataMapMoObj.CLASS_PREFIXES = ['compound-item', 'compound-sub-item', 'compound-inner-item'];
     dataMapMoObj.addIndexed(block);
@@ -354,8 +353,8 @@ export default function decorate(block) {
                 ptext.innerText = '';
                 ptext.innerText = valueText;
                 dataMapMoObj.planText = valueText;
-                const parentElem = evtarget.parentElement.classList;
-                evtarget.classList.add('listval-active');
+                const parentElem = event.target.parentElement.classList;
+                event.target.classList.add('listval-active');
                 parentElem.remove('dropdown-active');
                 planGrpEvent(event);
               },
