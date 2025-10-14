@@ -282,7 +282,7 @@ main {
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp {
-    gap: 16px;
+    gap: 16px 9px;
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {

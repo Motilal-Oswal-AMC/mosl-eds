@@ -350,7 +350,7 @@ main {
             @include media(mobile) {
               // padding-right: 35px;
               // justify-content: space-between;
-              gap: 16px;
+              gap: 16px 9px;
             }
 
             .return-grp {
