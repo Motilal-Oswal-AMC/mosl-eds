@@ -8,6 +8,18 @@
   gap: 30px;
   justify-content: space-between;
 }
+@media (max-width: 1299px) {
+  .main-wrapper {
+    padding: 68px 16px 40px;
+  }
+}
+@media (max-width: 768px) {
+  .main-wrapper {
+    max-width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-40);
+  }
+}
 .main-wrapper .article-block-container.article-left-wrapper {
   max-width: 66.234%;
   width: 100%;

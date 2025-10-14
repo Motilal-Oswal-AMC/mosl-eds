@@ -36,7 +36,7 @@
 /* Investor Education - Stay Updated Start */
 
 .section.article-sub-right[data-id='stay-updated']:first-of-type {
-  margin: 0;
+  margin: 40px 0 0;
 }
 
 .section.article-sub-right[data-id='stay-updated'] .default-content-wrapper h1,
@@ -57,15 +57,41 @@
 .section.article-sub-right[data-id='stay-updated'] ul {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 20px;
   list-style: none;
   margin: 0;
 }
 
 .section.article-sub-right[data-id='stay-updated'] ul li,
 .section.article-sub-right[data-id='stay-updated'] ul li .icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (width>768px) {
+  .section.article-sub-right[data-id='stay-updated']:first-of-type {
+    margin: 0;
+  }
+
+  .section.article-sub-right[data-id='stay-updated'] .default-content-wrapper h1,
+  .section.article-sub-right[data-id='stay-updated'] .default-content-wrapper h2,
+  .section.article-sub-right[data-id='stay-updated'] .default-content-wrapper h3,
+  .section.article-sub-right[data-id='stay-updated'] .default-content-wrapper h4,
+  .section.article-sub-right[data-id='stay-updated'] .default-content-wrapper h5,
+  .section.article-sub-right[data-id='stay-updated'] .default-content-wrapper h6 {
+    font-size: var(--body-large-medium-size);
+    line-height: var(--body-large-medium-line-height);
+  }
+
+  .section.article-sub-right[data-id='stay-updated'] ul {
+    gap: 8px;
+  }
+
+  .section.article-sub-right[data-id='stay-updated'] ul li,
+  .section.article-sub-right[data-id='stay-updated'] ul li .icon {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 /* Investor Education - Stay Updated End */
@@ -105,7 +131,7 @@
   margin: var(--spacing-8) 0 0;
   border-radius: var(--border-radius-8);
   background: var(--neutrals-white);
-  padding: 10px var(--spacing-12);
+  padding: var(--spacing-12);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,6 +151,28 @@
   border-radius: 0;
   border: none;
   background-color: transparent;
+}
+
+@media screen and (width>768px) {
+
+  .section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h1,
+  .section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h2,
+  .section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h3,
+  .section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h4,
+  .section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h5,
+  .section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper h6 {
+    font-size: var(--body-medium-medium-size);
+    line-height: var(--body-medium-medium-line-height);
+  }
+
+  .section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper p.button-container {
+    padding: 10px var(--spacing-12);
+  }
+
+  .section.article-sub-right[data-id='subscribe-email'] .default-content-wrapper p.button-container .button {
+    font-size: var(--button-medium-size);
+    line-height: var(--button-medium-line-height);
+  }
 }
 
 /* Investor Education - Subscribe Email End */
@@ -231,15 +279,14 @@
   height: 12px;
 }
 
-@media screen and (width<=768px) {
+@media screen and (width>768px) {
 
   .section.article-sub-right[data-id='recommended-posts'] .default-content-wrapper h1,
   .section.article-sub-right[data-id='recommended-posts'] .default-content-wrapper h2,
   .section.article-sub-right[data-id='recommended-posts'] .default-content-wrapper h3,
   .section.article-sub-right[data-id='recommended-posts'] .default-content-wrapper h4,
   .section.article-sub-right[data-id='recommended-posts'] .default-content-wrapper h5,
-  .section.article-sub-right[data-id='recommended-posts'] .default-content-wrapper h6,
-  .section.article-sub-right[data-id='recommended-posts'] .default-content-wrapper p {
+  .section.article-sub-right[data-id='recommended-posts'] .default-content-wrapper h6 {
     font-size: var(--body-large-medium-size);
     line-height: var(--body-large-medium-line-height);
   }

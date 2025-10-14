@@ -11,6 +11,16 @@
   gap: 30px;
   justify-content: space-between;
 
+  @include media(desktop-sm){
+    padding: 68px 16px 40px;
+  }
+  
+  @include media(mobile){
+    max-width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-40);
+  }
+
   .article-block-container {
     &.article-left-wrapper {
       max-width: 66.234%;
