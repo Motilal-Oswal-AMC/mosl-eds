@@ -2,10 +2,11 @@
 
 /* Reset */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section {
+
   &.compounding,
   &.fdp-calculator {
     background-color: var(--neutrals-white);
@@ -316,7 +317,7 @@
                 padding: 0;
                 background-color: transparent;
                 box-shadow: none;
-                margin-bottom: 8px;
+                // margin-bottom: 8px;
               }
 
               .scheme-btns-wrapper {
@@ -648,12 +649,21 @@
                       // padding-bottom: 4px;
                       display: flex;
                       align-items: center;
+                      gap: 16px;
+                      width: fit-content;
                       height: 20px;
+                      padding-right: 25px;
 
                       @include media(mobile) {
                         text-align: start;
                         font-size: var(--body-small-medium-size);
                         line-height: var(--body-small-medium-line-height);
+                        width: 100%;
+                        padding-right: 0px;
+
+                        &::after {
+                          right: 5px;
+                        }
                       }
 
                       &::after {
@@ -966,8 +976,8 @@
             400,
             var(--body));
 
-            word-break:" break-word";
-            padding-right: 44px;
+          word-break: " break-word";
+          padding-right: 44px;
 
           @include media(mobile) {
             font-size: var(--paragraph-xsmall-size);

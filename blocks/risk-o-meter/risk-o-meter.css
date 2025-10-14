@@ -69,7 +69,6 @@
   display: flex;
   gap: 48px;
   flex-direction: column-reverse;
-  margin-top: 40px !important;
 }
 
 @media (width <= 768px) {
