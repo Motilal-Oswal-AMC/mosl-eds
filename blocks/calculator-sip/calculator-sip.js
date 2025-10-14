@@ -672,15 +672,19 @@ export default function decorate(block) {
     // console.log(error);
   }
 
-  Array.from(document.querySelector('.disc-child-2').children)
-    .forEach((elild) => {
-      elild.classList.add('diskli');
-    });
+  try {
+    Array.from(document.querySelector('.disc-child-2').children)
+      .forEach((elild) => {
+        elild.classList.add('diskli');
+      });
 
-  Array.from(document.querySelector('search-result-ul').children)
-    .forEach((elild) => {
-      elild.classList.add('searchli');
-    });
+    Array.from(document.querySelector('search-result-ul').children)
+      .forEach((elild) => {
+        elild.classList.add('searchli');
+      });
+  } catch (error) {
+    console.log(error);
+  }
 
   // -------------------------------
   // ✅ 8. INIT
