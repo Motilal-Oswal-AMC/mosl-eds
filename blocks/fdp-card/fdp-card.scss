@@ -68,7 +68,7 @@ main {
           top: 100%;
           left: 0;
           z-index: 5;
-          min-width: 340px;
+          max-width: 340px;
           width: 100%;
           min-height: fit-content;
           overflow: auto;
@@ -78,11 +78,11 @@ main {
           border: 1px solid $neutrals-200;
           box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
 
-          @include media(mobile) {
-            min-width: 143px;
+          // @include media(mobile) {
+          //   min-width: 143px;
 
-            // min-height: 238px;
-          }
+          //   // min-height: 238px;
+          // }
 
           &.dropdown-active {
             display: block;
@@ -114,8 +114,14 @@ main {
             @include font-style(var(--paragraph-xsmall-size),
               var(--paragraph-xsmall-line-height),
               var(--text-body),
-              500,
+              400,
               var(--body));
+
+              @include media(mobile){
+                padding: 12px;
+                font-size: var(--paragraph-xsmall-size);
+                line-height: var(--paragraph-xsmall-line-height);
+              }
 
             &.active {
               font-size: var(--body-xsmall-medium-size);
@@ -124,6 +130,13 @@ main {
               font-family: var(--body);
               font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
               font-weight: 500;
+              padding: 9px 12px;
+              
+              @include media(mobile){
+                font-size: var(--body-xsmall-medium-size);
+                line-height: var(--body-xsmall-medium-line-height);
+                padding: 12px;
+              }
             }
           }
         }
@@ -274,7 +287,8 @@ main {
 
           .dropdownmidle {
             position: relative;
-            max-width: 333px;
+
+            // max-width: 333px;
             width: 100%;
             margin: 0 0 8px;
 
@@ -328,6 +342,7 @@ main {
               // position: relative;
               width: auto;
               display: flex;
+              align-items: center;
               flex-wrap: wrap;
               gap: 4px 8px;
 
@@ -399,13 +414,17 @@ main {
                 .dropdownlist {
                   // width: 70px;
                   width: max-content;
-                  min-width: unset;
+                  max-width: unset;
                   height: auto;
 
                   // top: 22px;
                   top: 100%;
                   left: -100%;
-                  margin: 2px 0 0 16px;
+                  margin: 4px 0 0 16px;
+                  
+                  @include media(mobile){
+                    margin: 2px 0 0 16px;
+                  }
                 }
               }
 

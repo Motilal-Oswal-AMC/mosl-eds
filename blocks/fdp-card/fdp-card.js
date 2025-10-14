@@ -359,8 +359,8 @@ export default function decorate(block) {
                 planGrpEvent(event);
               },
             },
-            ...DirectPlanlistArr.map((eloption) => li({
-              class: 'listval',
+            ...DirectPlanlistArr.map((eloption, ind) => li({
+              class: ind === 0 ? 'listval active' : 'listval',
               datacode: eloption.groupedCode,
             }, `${eloption.planName} | ${eloption.optionName}`)),
           ),
