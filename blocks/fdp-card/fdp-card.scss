@@ -114,7 +114,7 @@ main {
             @include font-style(var(--paragraph-xsmall-size),
               var(--paragraph-xsmall-line-height),
               var(--text-body),
-              500,
+              400,
               var(--body));
 
               @include media(mobile){
@@ -131,6 +131,12 @@ main {
               font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
               font-weight: 500;
               padding: 9px 12px;
+              
+              @include media(mobile){
+                font-size: var(--body-xsmall-medium-size);
+                line-height: var(--body-xsmall-medium-line-height);
+                padding: 12px;
+              }
             }
           }
         }
@@ -336,6 +342,7 @@ main {
               // position: relative;
               width: auto;
               display: flex;
+              align-items: center;
               flex-wrap: wrap;
               gap: 4px 8px;
 
@@ -413,7 +420,11 @@ main {
                   // top: 22px;
                   top: 100%;
                   left: -100%;
-                  margin: 2px 0 0 16px;
+                  margin: 4px 0 0 16px;
+                  
+                  @include media(mobile){
+                    margin: 2px 0 0 16px;
+                  }
                 }
               }
 

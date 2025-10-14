@@ -93,7 +93,7 @@ main {
   color: var(--text-body);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
+  font-weight: 400;
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist .listval {
@@ -110,6 +110,13 @@ main {
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   padding: 9px 12px;
+}
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist .listval.active {
+    font-size: var(--body-xsmall-medium-size);
+    line-height: var(--body-xsmall-medium-line-height);
+    padding: 12px;
+  }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .upperdiv .brandlogo-callicons {
   display: flex;
@@ -281,6 +288,7 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
   width: auto;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 4px 8px;
 }
@@ -345,7 +353,12 @@ main {
   height: auto;
   top: 100%;
   left: -100%;
-  margin: 2px 0 0 16px;
+  margin: 4px 0 0 16px;
+}
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
+    margin: 2px 0 0 16px;
+  }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr {
   width: 100%;
