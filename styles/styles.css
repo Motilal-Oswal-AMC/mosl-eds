@@ -108,7 +108,7 @@ body.appear {
     display: block;
 }
 
-body.scroll-lock{
+body.scroll-lock {
     overflow: hidden;
 }
 
@@ -434,6 +434,23 @@ footer .footer {
 header .header[data-block-status="loaded"],
 footer .footer[data-block-status="loaded"] {
     visibility: visible;
+}
+
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
+    color: var(--neutrals-200);
+    font-feature-settings: var(--font-features-default);
+    font-family: var(--body);
+    font-size: var(--body-medium-regular-size);
+    font-weight: 400;
+    line-height: var(--body-medium-regular-line-height);
+}
+
+.footer-wrapper .footer .footer-section2 .footer-sub1 {
+    border-bottom: 2px solid #FFF3;
+}
+
+.footer-wrapper .scroll-to-top {
+    box-shadow: 0 0 13.2px 0 #0014;
 }
 
 .margin-top-banner {
@@ -775,6 +792,30 @@ body.noscroll {
     position: relative;
 }
 
+.breadcrumbs-fdp>ul.breadul>li.breadli>a {
+    color: var(--blue-1-800-primary);
+    cursor: pointer;
+    font-family: var(--body);
+    font-size: var(--paragraph-xsmall-size);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--paragraph-xsmall-line-height);
+}
+
+.breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    font-style: normal;
+    padding: 12px;
+    align-items: center;
+    font-size: var(--body-xsmall-regular-size);
+    line-height: var(--body-xsmall-regular-line-height);
+    font-weight: 400;
+    font-family: var(--body);
+    color: var(--text-body);
+}
+
 .breadcrumbs-fdp>ul.breadul>li.breadli:last-child a {
     color: var(--neutrals-800);
 }
@@ -802,7 +843,7 @@ body.noscroll {
     display: none;
 }
 
-.breadcrumbs-fdp>ul.breadul>li.breadli>a {
+/* .breadcrumbs-fdp>ul.breadul>li.breadli>a {
     color: var(--blue-1-800-primary);
     cursor: pointer;
     font-family: var(--body);
@@ -810,7 +851,7 @@ body.noscroll {
     font-style: normal;
     font-weight: 400;
     line-height: var(--paragraph-xsmall-line-height);
-}
+} */
 
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
     max-width: 170px;
@@ -847,7 +888,7 @@ body.noscroll {
     width: 100%;
 }
 
-.breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
+/* .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
     width: 100%;
     display: flex;
     gap: 8px;
@@ -859,6 +900,10 @@ body.noscroll {
     font-weight: 400;
     font-family: var(--body);
     color: var(--text-body);
+} */
+.otp-fdp>.main-otp-con1>.sub-otp-con5>.icon {
+    width: 36px;
+    height: 36px;
 }
 
 .breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
@@ -1114,10 +1159,10 @@ position: relative;
     cursor: pointer;
 }
 
-.otp-fdp>.main-otp-con1>.sub-otp-con5>.icon {
+/* .otp-fdp>.main-otp-con1>.sub-otp-con5>.icon {
     width: 36px;
     height: 36px;
-}
+} */
 
 
 @media (width <=786px) {
@@ -1150,21 +1195,32 @@ position: relative;
 
 /* Placeholder style for sip-calculator, growth-now, our-funds-block */
 
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
+/* .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input::placeholder {
     color: #fff;
-}
+} */
+
+/* .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder,
+.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
+    font-size: 14px;
+    line-height: var(--body-medium-medium-line-height);
+    color: var(--blue-1-800-primary);
+    font-family: var(--body);
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+    font-weight: 500;
+} */
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp::placeholder {
-    color: #2e2a94;
-    font-family: Poppins, sans-serif;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: var(--body-medium-medium-line-height);
+    color: var(--blue-1-800-primary);
+    font-family: var(--body);
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
-    line-height: 24px;
 }
 
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
-    color: #fff;
+    color: var(--neutrals-white);
     font-family: Poppins, sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -1173,6 +1229,7 @@ position: relative;
     appearance: auto;
     padding-right: 4px;
 }
+
 
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
     color: #616161;
@@ -1221,6 +1278,8 @@ z-index: -1;
 /* .modal.block.modal-journey-fund>dialog[open]>.modal-content{
     max-width: 649px;
 } */
+
+
 
 @keyframes slide-in {
     from {
