@@ -641,7 +641,7 @@ export default function decorate(block) {
     // Function to calculate the correct header offset based on screen size
     function getHeaderOffset(targetID) { // targetId
       const dataidStorage = dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
-      return window.innerWidth <= 768 ? dataidStorage : 'auto';
+      return window.innerWidth <= 768 ? dataidStorage : 240;
     }
 
     // Smooth scroll setup with dynamic header offset

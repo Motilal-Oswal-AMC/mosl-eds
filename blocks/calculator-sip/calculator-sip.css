@@ -390,7 +390,6 @@
     padding: 0;
     background-color: transparent;
     box-shadow: none;
-    margin-bottom: 8px;
   }
 }
 
@@ -770,7 +769,11 @@
   user-select: none;
   display: flex;
   align-items: center;
+  gap: 16px;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 20px;
+  padding-right: 25px;
 }
 
 @media (width <= 768px) {
@@ -779,6 +782,11 @@
     text-align: start;
     font-size: var(--body-small-medium-size);
     line-height: var(--body-small-medium-line-height);
+    width: 100%;
+    padding-right: 0px;
+  }
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected::after, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected::after {
+    right: 5px;
   }
 }
 
