@@ -27,10 +27,6 @@
 .main-wrapper .article-block-container.article-left-wrapper:first-of-type {
   margin-top: 0;
 }
-.main-wrapper .article-block-container.article-right-wrapper {
-  max-width: 24.026%;
-  width: 100%;
-}
 .main-wrapper .article-block-container .article-left-inner1 {
   padding: var(--spacing-24) 0 24px;
   margin: 0;
