@@ -45,5 +45,10 @@ export default function decorate(block) {
     Array.from(rightSub).forEach((rightel) => {
       rightarticle.append(rightel);
     });
+    const leftSub = maincloser.querySelectorAll('.article-sub-left');
+    const leftarticle = maincloser.querySelector('.article-left-wrapper');
+    Array.from(leftSub).forEach((rightel) => {
+      leftarticle.append(rightel);
+    });
   }
 }
