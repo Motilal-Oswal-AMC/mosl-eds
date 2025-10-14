@@ -157,14 +157,14 @@
     grid-template-columns: 24.05% 66.3%;
 
     @media (width <=1279px) {
-      padding: 40px 24px 132px;
+      // padding: 40px 24px 132px;
     }
 
     @include media(mobile) {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      padding: 24px 16px 16px;
+      // padding: 24px 16px 16px;
 
       // padding-top: 24px;
     }

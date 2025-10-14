@@ -111,17 +111,11 @@
   margin: 0 auto;
   grid-template-columns: 24.05% 66.3%;
 }
-@media (width <= 1279px) {
-  .section.freq-ask-ques .faq-our-fund {
-    padding: 40px 24px 132px;
-  }
-}
 @media (max-width: 768px) {
   .section.freq-ask-ques .faq-our-fund {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 24px 16px 16px;
   }
 }
 .section.freq-ask-ques .faq-our-fund > .default-content-wrapper,
