@@ -47,8 +47,8 @@ export default function decorate(block) {
     });
     const leftSub = maincloser.querySelectorAll('.article-sub-left');
     const leftarticle = maincloser.querySelector('.article-left-wrapper');
-    Array.from(leftSub).forEach((rightel) => {
-      leftarticle.append(rightel);
+    Array.from(leftSub).forEach((leftel) => {
+      leftarticle.append(leftel);
     });
   }
 }
