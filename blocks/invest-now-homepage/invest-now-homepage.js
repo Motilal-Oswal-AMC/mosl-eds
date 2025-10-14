@@ -103,6 +103,17 @@ function hideFormsClick(btn) {
     document.body.classList.remove('noscroll');
     card2.classList.remove('modal-active-parent');
 
+    // Pass Code Two Auth
+    const classAddv5 = card2.querySelector('.two-step-auth');
+    if (Array.from(classAdd.classList).includes('hide-modal')) {
+      classAddv5.classList.remove('hide-modal');
+    }
+    classAddv5.classList.add('hide-modal');
+    classAddv5.classList.remove('modal-show');
+    // }
+    document.body.classList.remove('noscroll');
+    card2.classList.remove('modal-active-parent');
+
     // overlay.classList.add('hide-overlay');
     removeClassAfterDelay();
   });
@@ -125,13 +136,13 @@ export async function existingUser(paramblock) {
 
   const addInputDiv = div(
     { class: 'input-wrapper' },
-    p({ class: 'panlabel' }, 'Pan Number'),
     input({
       type: 'text',
-      placeholder: 'Enter PAN Number',
+      placeholder: '',
       name: 'pan',
       class: 'iptpanfld',
     }),
+    label({ class: 'panlabel' }, 'Enter PAN Number'),
   );
 
   dataMapMoObj.panDlts.isGuest = 'false';
@@ -152,6 +163,53 @@ export async function existingUser(paramblock) {
   // }
   // removeCookie('')
 
+  async function apiPasscode(params) {
+    try {
+      const reqAuth = {
+        password: params.optNo,
+        userId: params.panNo,
+        loginModeId: 1,
+        credentialModeId: 3,
+        ipV4: '192.198.22.22',
+        otpThroughDIT: false,
+        ditotpType: '',
+        pmsGuest: false,
+        isAIF: false,
+        mfGuest: false,
+        product: 'MF',
+      };
+
+      const header = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'WEB/MultipleCampaign',
+        'user-agent': 'WEB/MultipleCampaign',
+        UserAgent: 'WEB/MultipleCampaign',
+      };
+      const passclass = closestParam.querySelector('.two-step-auth .twostepinner2');
+      const rejsin = await myAPI(
+        'POST',
+        'https://api.moamc.com/loginapi/api/Login/AuthenticateUserCred',
+        reqAuth,
+        header,
+      );
+      if (rejsin.data && rejsin.data.userInfo) {
+        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        if (dataMapMoObj.panRes.data.guestClient !== '') {
+          // window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
+        } else if (dataMapMoObj.panRes.data.guestClient === '') {
+          // window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
+        }
+        passclass.classList.add('passcode-success');
+        window.location.href = 'https://mf.moamc.com/mutualfund/portfolio';
+      } else {
+        passclass.classList.add('passcode-fail');
+      }
+    } catch (error) {
+      // console.log(error);
+    }
+  }
   async function apiAuth(params) {
     try {
       const reqAuth = {
@@ -180,14 +238,86 @@ export async function existingUser(paramblock) {
         header,
       );
       if (rejsin.data.userInfo) {
-        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
-        document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
-        localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
-        if (dataMapMoObj.panRes.data.guestClient !== '') {
-          window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
-        } else if (dataMapMoObj.panRes.data.guestClient === '') {
-          window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
-        }
+        const twoAuth = closestParam.querySelector('.two-step-auth');
+        twoAuth.style.display = 'block';
+        pansuccessForm.classList.add('hide-element');
+        pansuccessForm.classList.remove('show-element');
+        twoAuth.classList.add('show-element');
+        twoAuth.classList.add('modal-show');
+        twoAuth.classList.remove('hide-modal');
+        const passpoint = twoAuth.querySelectorAll('input');
+        passpoint.forEach((inputelfac, index) => {
+          inputelfac.setAttribute('maxLength', 1);
+          inputelfac.addEventListener('input', () => {
+            inputelfac.value = inputelfac.value.replace(/[^0-9]/g, '');
+            if (inputelfac.value.length === 1 && index < passpoint.length - 1) {
+              passpoint[index + 1].focus();
+            }
+          });
+          inputelfac.addEventListener('keydown', (event) => {
+            const totalInputs = passpoint.length;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+              event.preventDefault();
+            }
+            switch (event.key) {
+              case 'Tab':
+                if (!event.shiftKey && index === totalInputs - 1) {
+                  event.preventDefault();
+                  passpoint[0].focus();
+                } else if (event.shiftKey && index === 0) {
+                  event.preventDefault();
+                  passpoint[totalInputs - 1].focus();
+                }
+                break;
+
+              case 'ArrowRight': {
+                const nextIndex = (index + 1) % totalInputs;
+                passpoint[nextIndex].focus();
+                break;
+              }
+              case 'ArrowLeft': {
+                // Move to the previous input, or wrap to the last
+                const prevIndex = (index - 1 + totalInputs) % totalInputs;
+                passpoint[prevIndex].focus();
+                break;
+              }
+              case 'Backspace':
+                if (inputelfac.value.length === 0 && index > 0) {
+                  passpoint[index - 1].focus();
+                }
+                break;
+              default:
+                break;
+            }
+          });
+        });
+        const mod6 = twoAuth.querySelector('.twostepmain2 .icon-modal-cross-btn');
+        hideFormsClick(mod6);
+        const contbtn = twoAuth.querySelectorAll('.twostepmain2 button');
+        contbtn[1].addEventListener('click', () => {
+          let passValue = '';
+          passpoint.forEach((elfor) => {
+            passValue += elfor.value;
+          });
+          if (passValue.length < 4) {
+            // pansuccessForm.querySelector('.otpfield').classList.add('otp-failed');
+          } else {
+            const panNum = {
+              panNo: params.panNo,
+              optNo: passValue,
+              otpField: pansuccessForm,
+            };
+            apiPasscode(panNum);
+          }
+        });
+        // document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        // document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
+        // localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
+        // if (dataMapMoObj.panRes.data.guestClient !== '') {
+        //   window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
+        // } else if (dataMapMoObj.panRes.data.guestClient === '') {
+        //   window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
+        // }
       }
       // console.log(rejsin);
       params.otpField.classList.add('otp-succes');
@@ -805,7 +935,7 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
     { class: 'custom-select-wrapper', id: `custom-select-${id}` },
     label({ class: 'custom-select-label' }, labelText),
     p({ class: 'select-selected' }, defaultValue),
-    ul({ class: 'select-options' }, ...options.map((opt) => li({ 'data-value': opt }, opt))),
+    ul({ class: 'select-options' }, ...options.map((opt) => li({ class:'select-list', 'data-value': opt }, opt))),
     input({ type: 'hidden', id, value: defaultValue }),
   );
 }
@@ -813,11 +943,32 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 export default function decorate(block) {
   const mainclass = block.closest('main');
   dataMapMoObj.panDlts = {};
+  if (mainclass.querySelector('.modal-stepup-one')) {
+    const modelone = mainclass.querySelector('.modal-stepup-one');
+    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone'];
+    dataMapMoObj.addIndexed(modelone);
+  }
+  if (mainclass.querySelector('.modal-stepup-two')) {
+    const modeltwo = mainclass.querySelector('.modal-stepup-two');
+    dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo'];
+    dataMapMoObj.addIndexed(modeltwo);
+    const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
+    hideFormsClick(mod5);
+  }
   if (mainclass.querySelector('.added-fund-cart')) {
     dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
     dataMapMoObj.addIndexed(mainclass.querySelector('.added-fund-cart'));
     const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
     hideFormsClick(mod5);
+    const addcardSec = mainclass.querySelector('.added-fund-cart');
+    addcardSec.querySelector('.addcartsub4 .addcartinner1').addEventListener('click', () => {
+      // console.log('okies');
+      mod5.click();
+    });
+    addcardSec.querySelector('.addcartsub4 .addcartinner2').addEventListener('click', () => {
+      localStorage.clear();
+      window.location.href = `${window.location.origin}/motilalfigma/our-funds`;
+    });
     // return false;
   }
   const twoStepAuthMain = mainclass.querySelector('.two-step-auth');
@@ -833,7 +984,6 @@ export default function decorate(block) {
     const twostpterms = twoStepAuthMain.querySelector('.twostepsub5').cloneNode(true);
     const twostpcrossbtn = twoStepAuthMain.querySelector('.twostepsub6').cloneNode(true);
     twoStepAuthMain.querySelector('.twostepmain1').style.display = 'none';
-
     const twoStepMainStr = div(
       { class: 'two-step-wrap' },
       div({ class: 'modal-cross-wrap' }, twostpcrossbtn),
@@ -866,11 +1016,10 @@ export default function decorate(block) {
       button({ class: 'cont-btn' }, twostpcontbtn),
       div({ class: 'terms-cons' }, twostpterms),
     );
-
     if (!twoStepAuthMain.querySelector('.two-step-wrap')) {
       twoStepAuthMain.append(twoStepMainStr);
-      const mod6 = twoStepAuthMain.querySelector('.two-step-wrap .icon-modal-cross-btn');
-      hideFormsClick(mod6);
+      // const mod6 = twoStepAuthMain.querySelector('.two-step-wrap .icon-modal-cross-btn');
+      // hideFormsClick(mod6);
     }
     // return false;
   }
@@ -913,7 +1062,6 @@ export default function decorate(block) {
       'Quarterly',
       'Weekly',
     ];
-
     checkboxcont.prepend(input({
       class: 'stepup-box',
       type: 'checkbox',
@@ -1022,10 +1170,10 @@ export default function decorate(block) {
   // const brandName = 'Motilal Oswal';
   // const logoSrc = '../../icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
-  const logoSrc = `../../icons/iconfund/${mop}`;
+  const logoSrc = `../../icons/schemeicons/${mop}`;
   // const calendarIconSrc = '../../icons/calendar.svg';
   // // Replace with your real calendar icon path
-  const infotoolsrc = '../../icons/infotooltip.svg';
+  const infotoolsrc = '../../icons/information.svg';
   const closesrc = '../../icons/cross.svg';
   const frequencyOptions = [
     'Annual',
@@ -1058,6 +1206,7 @@ export default function decorate(block) {
   );
 
   // Build modal
+  const textdrop = dataMapMoObj.planText === undefined ? '' : dataMapMoObj.planText;
   const modal = div(
     { class: 'invest-now-modal fdp-sip-modal' },
     div(
@@ -1074,12 +1223,13 @@ export default function decorate(block) {
           h3({ class: 'fund-name' }, fundNameFromData),
           div(
             { class: 'dropdown-wrap' },
-            p({ class: 'selected-txt' }, 'Growth'),
+            p({ class: 'selected-txt' }, textdrop),
             ul(
               { class: 'dropdown-list' },
-              li({ class: 'list-name' }, '1Y'),
-              li({ class: 'list-name' }, '3Y'),
-              li({ class: 'list-name' }, '5Y'),
+              ...dataMapMoObj.planlistArr.map((eloption) => li({
+              class: 'list-name',
+              datacode: eloption.groupedCode,
+            }, `${eloption.planName} | ${eloption.optionName}`)),
             ),
           ),
         ),
@@ -1140,7 +1290,7 @@ export default function decorate(block) {
                 { class: 'start-today-note' },
                 p(
                   { class: 'sip-note' },
-                  'Your 1st SIP Installment will be debited today ',
+                  'Your first SIP instalment will be deducted today.',
                 ),
                 div(
                   { class: 'sip-note-highlight' },
@@ -1157,7 +1307,7 @@ export default function decorate(block) {
               { class: 'modal-sip-dropdown' },
               div(
                 { class: 'date-drop-down' },
-                createCustomDropdown('startDate', 'Start Date', startDateOptions, 'anurag'),
+                createCustomDropdown('startDate', 'Start Date', startDateOptions, getTodaysDateFormatted()),
                 createCustomDropdown(
                   'frequency',
                   'Frequency',
@@ -1173,23 +1323,28 @@ export default function decorate(block) {
       ),
       div(
         { class: 'modal-cta' },
-        button({ class: 'buy-now-btn modal-cta-btn',
-          onclick:() => {
+        button({
+          class: 'buy-now-btn modal-cta-btn',
+          onclick: () => {
             const mainmo = block.closest('main');
             const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
             const panMod = mainmo.querySelector('.added-fund-cart'); // .style.display = 'block';
             investMod.classList.add('hide-element');
             panMod.classList.add('show-element');
-
+            const cart3 = panMod.querySelector('.addcartsub3');
+            const strong3 = cart3.querySelector('strong');
+            panMod.querySelector('.addcartsub3').innerHTML = '';
+            panMod.querySelector('.addcartsub3').textContent = `${fundNameFromData}`;
+            panMod.querySelector('.addcartsub3').append(strong3);
             const classAddv2 = mainmo.querySelector('.added-fund-cart');
             if (Array.from(classAddv2.classList).includes('hide-modal')) {
               classAddv2.classList.remove('hide-modal');
             }
             classAddv2.classList.remove('hide-modal');
             classAddv2.classList.add('modal-show');
-          }
-         }, 'BUY NOW'),
-        button({ class: 'start-now modal-cta-btn' }, 'Start Now'),
+          },
+        }, 'Add to Cart'),
+        button({ class: 'start-now modal-cta-btn' }, 'Invest Now'),
       ),
     ),
   );
@@ -1209,7 +1364,10 @@ export default function decorate(block) {
   //     p({ class: 'tooltip-note' }, 'Note'),
   //     div(
   //       { class: 'tooltip-info' },
-  //       'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.',
+  //       'We’ll debit your first SIP
+  // installment today through your chosen payment mode,
+  //  and all future installments will be automatically collected
+  // via your registered Autopay or URN.',
   //     ),
   //   ),
   // );
@@ -1260,7 +1418,6 @@ export default function decorate(block) {
   const lumpsumBtn = block.querySelector('.modal-btn-lumpsum');
   const sipBtn = block.querySelector('.modal-btn-sip');
   const sipFields = block.querySelector('.modal-input-fields');
-
   lumpsumBtn.addEventListener('click', () => {
     lumpsumBtn.classList.add('active');
     sipBtn.classList.remove('active');
@@ -1297,7 +1454,7 @@ export default function decorate(block) {
     // eslint-disable-next-line no-unused-vars
     let hasActiveMatch = false;
     suggestionButtons.forEach((btn) => {
-    // Check if the button's text matches the input's value
+      // Check if the button's text matches the input's value
       if (currentValue === btn.textContent.split('₹')[1]) { // Added .trim() for robustness
         btn.classList.add('active');
         hasActiveMatch = true; // This reassignment is now valid
@@ -1354,8 +1511,8 @@ export default function decorate(block) {
   // });
 
   // 4. flat date picker
-  const calendarIcon = block.querySelector('.calendar-btn');
-  const sipDateDisplay = block.querySelector('.sip-starts-date');
+  // const calendarIcon = block.querySelector('.calendar-btn');
+  const sipDateDisplay = block.querySelector('#custom-select-startDate .select-selected');
   const calendarContainer = block.querySelector('.invest-now-container');
   const selDate = block.querySelector('#custom-select-endDate .select-options');
   const finsel = selDate.querySelector('[data-value="Select Date"]');
@@ -1383,8 +1540,11 @@ export default function decorate(block) {
         const year = selectedDate.getFullYear();
         const formattedDate = `${day} ${month} ${year}`;
 
-        displayDate.textContent = formattedDate;
-
+        sipDateDisplay.textContent = formattedDate;
+        console.log(displayDate);
+        // const optionval =
+        // block.querySelector('#custom-select-frequency .select-selected').textContent;
+        // flakterDateV2(finsel, dateSel, optionval);
         // Update the stored date whenever the user picks a new one
         originalSipDate = formattedDate;
       },
@@ -1407,10 +1567,10 @@ export default function decorate(block) {
 
     startTodayCheckbox.addEventListener('change', () => {
       if (startTodayCheckbox.checked) {
-      // If checked, display today's date
+        // If checked, display today's date
         sipDateDisplay.textContent = getTodaysDateFormatted();
       } else {
-      // If unchecked, revert to the user's selected date
+        // If unchecked, revert to the user's selected date
         sipDateDisplay.textContent = originalSipDate;
       }
     });
@@ -1565,15 +1725,27 @@ export default function decorate(block) {
         selected.textContent = option.textContent;
         hiddenInput.value = option.getAttribute('data-value');
         wrapper.classList.remove('open');
+        if (selected.closest('#custom-select-startDate')) {
+          if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
+            block.querySelectorAll('.flatpickr-calendar')[1].remove();
+          }
+          const sel = selected.closest('#custom-select-startDate');
+          const paraText = sel.querySelector('.select-selected');
+          const selDte = block.querySelector('#custom-select-endDate .select-options');
+          const fisel = selDte.querySelector('[data-value="Select Date"]');
+          flakterDate(fisel, paraText.textContent);
+          const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
+          attr[0].classList.add('open');
+        }
         if (selected.closest('#custom-select-frequency')) {
           if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
             block.querySelectorAll('.flatpickr-calendar')[1].remove();
           }
           flakterDateV2(finsel, dateSel, option.textContent);
           const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
-          attr[1].classList.add('open');
+          attr[0].classList.add('open');
         }
-        if (selected.textContent === 'Select Date') {
+        if (selected.closest('#custom-select-endDate')) {
           if (block.querySelectorAll('.flatpickr-calendar').length === 2) {
             block.querySelectorAll('.flatpickr-calendar')[1].remove();
           }
@@ -1581,7 +1753,7 @@ export default function decorate(block) {
           const paraText = parSel.querySelector('#custom-select-frequency .select-selected');
           flakterDateV2(finsel, dateSel, paraText.textContent);
           const attr = Array.from(block.querySelectorAll('.flatpickr-calendar'));
-          attr[1].classList.add('open');
+          attr[0].classList.add('open');
         }
       });
     });
@@ -1589,16 +1761,21 @@ export default function decorate(block) {
 
   // Add a listener to close dropdowns when clicking anywhere else
   block.addEventListener('click', () => {
+    // const flpcand = block.querySelector('.flatpickr-calendar');
     block
       .querySelectorAll('.custom-select-wrapper.open')
       .forEach((openWrapper) => {
         openWrapper.classList.remove('open');
       });
+    // if (flpcand
+    //   && !event.target.contains(flpcand)
+    //   && Array.from(flpcand.classList).includes('open')) {
+    //   flpcand.classList.remove('open');
+    // }
   });
 
   if (blkcompo) {
     blkcompo.style.display = 'none';
   }
-
   return block;
 }

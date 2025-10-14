@@ -44,7 +44,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
         { class: 'imgelogo' },
         img({
           class: 'logoscheme',
-          src: `../../icons/iconfund/${mop}`,
+          src: `../../icons/schemeicons/${mop}`,
           alt: 'Img',
           loading: 'lazy',
         }),

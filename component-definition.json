@@ -702,15 +702,120 @@
           }
         },
         {
-          "title": "Fdp Campaign",
-          "id": "fdp-campaign",
+          "title": "Start building",
+          "id": "start-building",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
-                  "name": "Fdp Campaign",
-                  "model": "fdp-campaign"
+                  "name": "Start building",
+                  "model": "start-building"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Our Experts",
+          "id": "our-experts",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Our Experts",
+                  "model": "our-experts"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Popular Article",
+          "id": "popular-article",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Popular Article",
+                  "filter": "popular-article"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Popular Article Item",
+          "id": "popular-article-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Popular Article Item",
+                  "model": "popular-article-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Moedge Building",
+          "id": "moedge-building",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Moedge Building",
+                  "filter": "moedge-building"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Moedge Building Item",
+          "id": "moedge-building-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Moedge Building Item",
+                  "model": "moedge-building-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Our Authors",
+          "id": "our-authors",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Our Authors",
+                  "model": "our-authors"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Edge Filter",
+          "id": "edge-filter",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Edge Filter",
+                  "model": "edge-filter"
                 }
               }
             }
@@ -772,6 +877,21 @@
                 "template": {
                   "name": "Step Up Block",
                   "model": "step-up-block"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Contact Us Map",
+          "id": "contact-us-map",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Contact Us Map",
+                  "model": "contact-us-map"
                 }
               }
             }

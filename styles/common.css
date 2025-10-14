@@ -261,10 +261,6 @@
   position: absolute;
   left: 32px;
 }
-.investnow .default-content-wrapper p:nth-child(1) span {
-  width: 171px;
-  height: 156px;
-}
 .investnow .default-content-wrapper p:nth-child(2) {
   position: relative;
   left: 88px;

@@ -1,4 +1,7 @@
 @import "../cards/contact-card.css";
+@import "../cards/behind-the-content.css";
+
+/* @import "../cards/behind-the-content.css"; */
 
 .cards>ul {
   list-style: none;

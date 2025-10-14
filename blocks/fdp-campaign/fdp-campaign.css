@@ -21,6 +21,9 @@
     display: none;
   }
 }
+.section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign1 .compaignsub1 {
+  height: 193px;
+}
 .section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign2 {
   display: none;
 }

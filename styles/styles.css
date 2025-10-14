@@ -108,6 +108,10 @@ body.appear {
     display: block;
 }
 
+body.scroll-lock{
+    overflow: hidden;
+}
+
 body.loading {
     overflow: hidden;
     pointer-events: none;
@@ -463,6 +467,11 @@ footer .footer[data-block-status="loaded"] {
     animation: fadeinmodal 0.3s ease-in-out;
 }
 
+.table-wrapper .default-content-wrapper .icon.icon-excel {
+    height: 16px;
+    width: 16px;
+}
+
 @keyframes fadeinmodal {
     from {
         opacity: 0;
@@ -474,7 +483,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds>.card-modal-overlay,
     .known-our-funds>.card-modal-overlay {
         position: fixed;
@@ -584,7 +592,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds.modal-active-parent,
     .known-our-funds.modal-active-parent {
         max-height: unset;
@@ -663,6 +670,10 @@ body.noscroll {
     z-index: 11;
 }
 
+.section.breadcrumbs-fdp.wrapper-fdp {
+    padding: 24px 0 21px;
+}
+
 .breadcrumbs-fdp>.default-content-wrapper {
     max-width: 466px;
     width: 100%;
@@ -672,6 +683,7 @@ body.noscroll {
     overflow-x: auto;
     word-break: unset;
     align-items: center;
+
     /* gap: 16px; */
 }
 
@@ -716,7 +728,7 @@ body.noscroll {
 .breadcrumbs-fdp>.default-content-wrapper>ul>li p {
     color: #424242;
     text-align: center;
-    font-family: Poppins, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -748,6 +760,7 @@ body.noscroll {
     align-items: center;
     list-style: none;
     margin: 0;
+
     /* height: 24px; */
 }
 
@@ -755,15 +768,21 @@ body.noscroll {
     display: flex;
     justify-content: center;
     align-items: center;
+
     /* padding-right: 12px; */
 
     /* border-right: 1px solid #616161; */
     position: relative;
 }
 
+.breadcrumbs-fdp>ul.breadul>li.breadli:last-child a {
+    color: var(--neutrals-800);
+}
+
 .breadcrumbs-fdp>ul.breadul>li.breadli::before {
     position: absolute;
     content: "/";
+
     /* margin-right: 4px; */
     right: -16px;
     top: 0;
@@ -804,12 +823,20 @@ body.noscroll {
     list-style: none;
     position: absolute;
     top: 52%;
-    right: 17%;
+    right: 14.8%;
     z-index: 10;
     display: none;
     border-radius: 6px;
     border: 1px solid var(--neutrals-200);
     box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
+}
+
+/* .breadcrumbs-fdp.wrapper-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
+    right: 14.8px;
+} */
+
+.breadcrumbs-fdp.wrapper-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
+    min-width: 170px;
 }
 
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) .ul-active {
@@ -835,8 +862,8 @@ body.noscroll {
 }
 
 .breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
     display: flex;
 }
 
@@ -855,6 +882,10 @@ position: relative;
         right: 24%;
     }
 
+    .breadcrumbs-fdp.wrapper-fdp>.default-content-wrapper>ul:nth-child(2) .breadcrbmain2 {
+        top: 53%;
+    }
+
     .section.breadcrumbs-fdp {
         top: 114px;
         padding: 16px 0;
@@ -863,6 +894,11 @@ position: relative;
     .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
         font-size: var(--paragraph-xsmall-size);
         line-height: var(--paragraph-xsmall-line-height);
+    }
+
+    .breadcrumbs-fdp .mainbreadcrb1 .comlist .innerbreadcrb1 .icon {
+        height: 20px;
+        width: 20px;
     }
 }
 
@@ -1016,12 +1052,13 @@ position: relative;
     position: relative;
 } */
 
-.pan-details-modal .default-content-wrapper p:nth-child(2)>.input-wrapper>.panlabel {
+.pan-details-modal .default-content-wrapper p:nth-child(2)>.input-wrapper>label {
     position: absolute;
-    top: -7px;
+    top: 7px;
     background: white;
     padding: 0 4px;
     transition: top 0.8s ease;
+    pointer-events: none;
 }
 
 .pan-details-modal .default-content-wrapper p:nth-child(2)>.show-error {
@@ -1048,6 +1085,13 @@ position: relative;
     font-weight: 500;
     line-height: 20px;
     text-transform: uppercase;
+}
+
+.pan-details-modal p:nth-child(2)>.input-wrapper>input:focus+label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: #1976d2;
 }
 
 .otp-fdp {
@@ -1090,6 +1134,16 @@ position: relative;
 }
 
 .two-step-auth {
+    display: none;
+    height: 100%;
+}
+
+.modal-stepup-one {
+    display: none;
+    height: 100%;
+}
+
+.modal-stepup-two {
     display: none;
     height: 100%;
 }

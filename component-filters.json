@@ -47,9 +47,16 @@
       "invest-now-homepage",
       "fm-portfolio",
       "fdp-campaign",
+      "start-building",
+      "our-experts",
+      "popular-article",
+      "moedge-building",
+      "our-authors",
+      "edge-filter",
       "login-page",
       "login-image-item",
       "step-up-block",
+      "contact-us-map",
       "investing-terms",
       "global-dashboard",
       "our-service"
@@ -148,6 +155,18 @@
       "our-fund-block-item",
       "our-fund-left-item",
       "our-fund-right-item"
+    ]
+  },
+  {
+    "id": "popular-article",
+    "components": [
+      "popular-article-item"
+    ]
+  },
+  {
+    "id": "moedge-building",
+    "components": [
+      "moedge-building-item"
     ]
   },
   {

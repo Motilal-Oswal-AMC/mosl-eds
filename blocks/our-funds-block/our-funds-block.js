@@ -305,12 +305,12 @@ function searchFunctionality(block) {
 
   const flpboolean = document.querySelector('.fund-toggle-wrap input').checked;
   const planflow = flpboolean ? 'Regular' : 'Direct';
-  // const mop = document.querySelector('.fund-toggle-wrap input');
-  // if (flpboolean) {
-  //   mop.closest('.togglebtn').classList.add('toggle-checked');
-  // } else {
-  //   mop.closest('.togglebtn').classList.remove('toggle-checked');
-  // }
+  const mop = document.querySelector('.fund-toggle-wrap input');
+  if (flpboolean) {
+    mop.closest('.togglebtn').classList.add('toggle-checked');
+  } else {
+    mop.closest('.togglebtn').classList.remove('toggle-checked');
+  }
   let datacd = [];
   const dataouter = [];
   dataCfObj.cfDataObjs.forEach((elde, indexde) => {
@@ -379,7 +379,9 @@ function searchFunctionality(block) {
       const match = originalText.match(searchRegex);
       if (match) {
         matchesFound = true;
-        const highlightedText = originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
+        // const highlightedText =
+        // originalText.replace(searchRegex, (mat) => `<strong>${mat}</strong>`);
+        const highlightedText = originalText;
         item.innerHTML = highlightedText;
         item.style.display = 'list-item';
       } else {
@@ -749,6 +751,9 @@ dataMapMoObj.parseFunction = (param, attrparam) => {
   }
 };
 export default function decorate(block) {
+  const ultooltip = block.closest('.section');
+  const ullisttoop = ultooltip.querySelector('.default-content-wrapper ul');
+  console.log(ullisttoop);
   Array.from(block.closest('.section').children).forEach((el, index) => {
     el.classList.add(`item${index + 1}`);
   });
@@ -764,17 +769,54 @@ export default function decorate(block) {
   Array.from(block.closest('.section').querySelector('.item2').children).forEach((el) => {
     el.classList.add('list-header-text');
   });
-  Array.from(block.querySelector('.block-item3 .block-subitem-finelsub3').children).forEach((el) => {
+  block.closest('.section')
+    .querySelector('.item2 ul').remove();
+  Array.from(block.querySelector('.block-item3 .block-subitem-finelsub4').children).forEach((el) => {
     el.classList.add('viewlist-btn');
   });
   Array.from(
-    block.querySelector('.block-item3 .block-subitem-finelsub4').children,
+    block.querySelector('.block-item3 .block-subitem-finelsub5').children,
   ).forEach((el) => {
     el.classList.add('viewlist-btn');
   });
 
   dataMapMoObj.selectreturns = '';
   dataMapMoObj.data = dataFilterfun(dataCfObj.cfDataObjs);
+  dataMapMoObj.datatooltip = {};
+  Array.from(ullisttoop.children).forEach((tooltip) => {
+    const datakey = tooltip.textContent.trim().split(':-');
+    const datkey = datakey[0];
+    const datval = datakey[1];
+    if (datkey === 'Active') {
+      dataMapMoObj.datatooltip.active = datval;
+    } else if (datkey === 'Commodity') {
+      dataMapMoObj.datatooltip.commodity = datval;
+    } else if (datkey === 'Debt & Liquid') {
+      dataMapMoObj.datatooltip['debt-&-liquid'] = datval;
+    } else if (datkey === 'ETFs') {
+      dataMapMoObj.datatooltip.etf = datval;
+    } else if (datkey === 'Factor') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'Hybrid & Balanced') {
+      dataMapMoObj.datatooltip['hybrid-&-balanced'] = datval;
+    } else if (datkey === 'Index Funds') {
+      dataMapMoObj.datatooltip['index-funds'] = datval;
+    } else if (datkey === 'Indian Equity') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'International Equity') {
+      dataMapMoObj.datatooltip['international-equity'] = datval;
+    } else if (datkey === 'Mid Cap') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'Multi Asset') {
+      dataMapMoObj.datatooltip['multi-asset'] = datval;
+    } else if (datkey === 'Multi Cap Fund') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'Sector') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    } else if (datkey === 'Small Cap') {
+      dataMapMoObj.datatooltip['indian-equity'] = datval;
+    }
+  });
   let checkboxSel = '';
   let funddata;
   if (localStorage.getItem('viewmark')) {
@@ -935,7 +977,9 @@ export default function decorate(block) {
                   block
                     .querySelector('.filter-overlay')
                     .classList.add('active');
-                  block.closest('body').classList.add('scroll-lock');
+                  if (window.innerWidth < 768) {
+                    block.closest('body').classList.add('scroll-lock');
+                  }
                   if (
                     Array.from(
                       block.querySelector('.sort-overlay').classList,
@@ -964,6 +1008,7 @@ export default function decorate(block) {
                 {
                   class: 'clearall-btn',
                   onclick: () => {
+                    block.closest('body').classList.remove('scroll-lock');
                     Array.from(
                       block.querySelector('.filter-list-wrapper').children,
                     ).forEach((el) => {
@@ -1200,7 +1245,7 @@ export default function decorate(block) {
                             {
                               class: 'tooltip-text',
                             },
-                            'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
+                            dataMapMoObj.datatooltip[Object.keys(element)[0]],
                           ),
                         ),
                       ),
@@ -1283,7 +1328,7 @@ export default function decorate(block) {
                         {
                           class: 'tooltip-text',
                         },
-                        'Shares of companies listed on Indian stock exchanges, representing ownership in businesses operating in India.',
+                        dataMapMoObj.datatooltip[Object.keys(element)[0]],
                       ),
                     ),
                   ),
@@ -1337,7 +1382,7 @@ export default function decorate(block) {
                 // ))
                 span(
                   block
-                    .querySelector('.block-item3 .block-subitem-finelsub1')
+                    .querySelector('.block-item3 .block-subitem-finelsub3')
                     .textContent.trim(),
                 ),
               ),
@@ -1519,7 +1564,7 @@ export default function decorate(block) {
                       },
                       input({
                         type: 'radio',
-                        id: 'tenyear',
+                        id: 'tenyear1',
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
                       }),
@@ -1536,7 +1581,7 @@ export default function decorate(block) {
                       },
                       input({
                         type: 'radio',
-                        id: 'tenyear',
+                        id: 'tenyear2',
                         name: 'returns',
                         dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                       }),
@@ -1567,7 +1612,7 @@ export default function decorate(block) {
                         .classList.remove('active');
                     },
                   },
-                  'close',
+                  'Close',
                 ),
                 button(
                   {
@@ -1873,7 +1918,7 @@ export default function decorate(block) {
                     viewFunction(block);
                   },
                 },
-                block.querySelector('.block-item3 .block-subitem-finelsub3'),
+                block.querySelector('.block-item3 .block-subitem-finelsub4'),
               ),
               div(
                 {
@@ -1895,7 +1940,7 @@ export default function decorate(block) {
                     viewFunction(block);
                   },
                 },
-                block.querySelector('.block-item3 .block-subitem-finelsub4'),
+                block.querySelector('.block-item3 .block-subitem-finelsub5'),
               ),
             ),
             div(
@@ -2122,18 +2167,48 @@ export default function decorate(block) {
         const sortcont = block.querySelector('.return-select-container .dropdown-list');
         sortcont.classList.remove('dropdown-active');
       }
+      Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+        if (!elinner.contains(event.target)) {
+          elinner.nextElementSibling.style.display = 'none';
+        }
+      });
     } catch (error) {
       // console.log(error);
     }
   });
 
-  Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
-    eltoo.addEventListener('click', (event) => {
-      if (event.target.nextElementSibling.style.display === 'block') {
-        event.target.nextElementSibling.style.display = 'none';
-      } else {
-        event.target.nextElementSibling.style.display = 'block';
+  if (window.innerWidth >= 1024) {
+    document.addEventListener('mouseover', (event) => {
+      try {
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          if (!elinner.contains(event.target)) {
+            elinner.nextElementSibling.style.display = 'none';
+          }
+        });
+      } catch (error) {
+      // console.log(error);
       }
     });
+  }
+  Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
+    if (window.innerWidth < 786) {
+      eltoo.addEventListener('click', (event) => {
+        if (event.target.nextElementSibling.style.display === 'block') {
+          event.target.nextElementSibling.style.display = 'none';
+          return false;
+        }
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          elinner.nextElementSibling.style.display = 'none';
+        });
+        event.target.nextElementSibling.style.display = 'block';
+      });
+    } else {
+      eltoo.addEventListener('mouseover', (event) => {
+        Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
+          elinner.nextElementSibling.style.display = 'none';
+        });
+        event.target.nextElementSibling.style.display = 'block';
+      });
+    }
   });
 }

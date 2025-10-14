@@ -2,6 +2,7 @@ import {
   div, a, label, input, span, button, ul, li, img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
+import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
   // -------------------------------
@@ -18,8 +19,7 @@ export default function decorate(block) {
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const schcode = planCode.split(':')[1];
   let selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
-  let returnCAGR = 0;
-  let mode = 'sip';
+  let returnCAGR = 0;dataMapMoObj.mode = 'sip';
   let planType = 'Direct';
   let planOption = 'Growth';
   const selectedFundName = selectedFund.schDetail.schemeName;
@@ -54,7 +54,7 @@ export default function decorate(block) {
         }),
         img({
           class: 'search-btn',
-          src: '../../icons/search-icon.svg',
+          src: '../../icons/search-blue.svg',
           alt: 'cancel button',
         }),
       ),
@@ -114,7 +114,7 @@ export default function decorate(block) {
             col2[1].textContent.trim(),
           ),
           div(
-            { class: 'input-with-symbol' },
+            { class: 'input-with-symbol input-symbol' },
             // input({
             //   type: 'number',
             //   value: col2[2].textContent.trim(),
@@ -140,7 +140,7 @@ export default function decorate(block) {
           label({ class: 'tenure-label' }, col2[3].textContent.trim()),
           div(
             { class: 'select-selected fdp-select-selected' },
-            `${col3[0].textContent.trim()} Years`,
+            `${col3[0].textContent.trim()} years`,
           ),
           div({ class: 'select-options', role: 'listbox' }),
           input({
@@ -205,6 +205,7 @@ export default function decorate(block) {
     document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none';
   }
 
+  block.querySelector('.fdp-calculator .cal-desc-label').textContent = 'Total Accumulated Wealth';
   // const inputEl = document.getElementById("investmentAmount");
   // inputEl.addEventListener("input", (e) => {
   //   let val = +e.target.value;
@@ -224,6 +225,44 @@ export default function decorate(block) {
   // -------------------------------
   // ✅ 4. UPDATE VALUES (FINAL)
   // -------------------------------
+
+  function calculateSipMaturity(sipAmount, interestRate, months) {
+    const monthlyRate = interestRate / 12 / 100;
+    const futureValue = sipAmount
+     * (((1 + monthlyRate) ** months - 1) / monthlyRate)
+     * (1 + monthlyRate);
+    return Math.round(futureValue);
+  }
+
+  function differenceInMonths(dateLeft, dateRight) {
+    const yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
+    const monthDiff = dateLeft.getMonth() - dateRight.getMonth();
+    const totalMonths = yearDiff * 12 + monthDiff;
+
+    // Adjust if the "day" of dateLeft is before the "day" of dateRight
+    if (dateLeft.getDate() < dateRight.getDate()) {
+      return totalMonths - 1;
+    }
+
+    return totalMonths;
+  }
+
+  function parseDate(str, format = 'YYYY-MM-DD') {
+    const parts = str.split('-'); // handles "13-10-2025" or "13/10/2025"
+
+    let day; let month; let
+      year;
+    if (format === 'DD-MM-YYYY') {
+      [day, month, year] = parts.map(Number);
+    } else if (format === 'MM-DD-YYYY') {
+      [month, day, year] = parts.map(Number);
+    } else if (format === 'YYYY-MM-DD') {
+      [year, month, day] = parts.map(Number);
+    }
+
+    return new Date(year, month - 1, day);
+  }
+
   function updateValues() {
     const investedAmountSpan = block.querySelector('.invested-amount-value');
     const currentValueSpan = block.querySelector('.current-value');
@@ -256,14 +295,23 @@ export default function decorate(block) {
     // ✅ Determine tenure in years
     if (tenureValue === 'inception') {
       if (selectedFund?.dateOfAllotment) {
-        const inceptionDate = new Date(selectedFund.dateOfAllotment);
-        const today = new Date();
-        tenure = (today - inceptionDate) / (1000 * 60 * 60 * 24 * 365.25);
+        tenure = Math.floor(
+          differenceInMonths(
+            new Date(),
+            parseDate(selectedFund?.dateOfAllotment),
+          ),
+        );
+        // const inceptionDate = new Date(selectedFund.dateOfAllotment);
+        // const today = new Date();
+        // tenure = (today - inceptionDate) / (1000 * 60 * 60 * 24 * 365.25);
       }
     } else {
-      tenure = parseFloat(tenureValue) || 0;
+      // tenure = parseFloat(tenureValue) || 0;
+      tenure = parseInt(tenureValue.replace('yr', ''), 10); // extract year from year string
     }
 
+    const months = tenureValue === 'inception' ? tenure : Math.floor(tenure * 12);
+    console.log(months);
     // ✅ Get the correct returnCAGR for selected tenure
     let tenureField = '';
     if (tenureValue === 'inception') {
@@ -308,25 +356,30 @@ export default function decorate(block) {
     mainSections.forEach((sel) => { block.querySelector(sel).style.display = ''; });
 
     // ✅ Calculate values
-    const r = returnCAGR / 100 / 12;
-    const n = tenure * 12;
-    const investedAmount = mode === 'sip' ? amount * n : amount;
-    let futureValue;
+    // const r = returnCAGR / 100 / 12;
+    // const n = tenure * 12;
+    // const investedAmount = mode === 'sip' ? amount * n : amount;
+    // let futureValue;
 
-    if (mode === 'sip') {
-      // Logic for SIP calculation
-      const isInvalidRate = Number.isNaN(r) || r === 0;
-      if (isInvalidRate) {
-        futureValue = investedAmount;
-      } else {
-        futureValue = amount * (((1 + r) ** n - 1) / r);
-      }
-    } else {
-      // Logic for lumpsum or other modes
-      futureValue = amount * ((1 + returnCAGR / 100) ** tenure);
-    }
+    // if (mode === 'sip') {
+    //   // Logic for SIP calculation
+    //   const isInvalidRate = Number.isNaN(r) || r === 0;
+    //   if (isInvalidRate) {
+    //     futureValue = investedAmount;
+    //   } else {
+    //     futureValue = amount * (((1 + r) ** n - 1) / r);
+    //   }
+    // } else {
+    //   // Logic for lumpsum or other modes
+    //   futureValue = amount * ((1 + returnCAGR / 100) ** tenure);
+    // }
 
-    investedAmountSpan.textContent = `${(investedAmount / 100000).toFixed(2)} Lac`;
+    const futureValue = calculateSipMaturity(amount, returnCAGR, months);
+    const investedValue = amount * months;
+    const returnValue = futureValue - investedValue;
+    console.log(returnValue);
+
+    investedAmountSpan.textContent = `${(investedValue / 100000).toFixed(2)} Lac`; // investedAmount
     currentValueSpan.textContent = `${(futureValue / 100000).toFixed(2)} Lac`;
     returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)} %`;
   }
@@ -343,11 +396,11 @@ export default function decorate(block) {
 
     const availableTenures = [];
     if (returnsData?.inception_Ret) availableTenures.push({ value: 'inception', text: 'Since Inception' });
-    if (returnsData?.oneYear_Ret) availableTenures.push({ value: 1, text: '1 Year' });
-    if (returnsData?.threeYear_Ret) availableTenures.push({ value: 3, text: '3 Years' });
-    if (returnsData?.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 Years' });
-    if (returnsData?.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 Years' });
-    if (returnsData?.tenYear_Ret) availableTenures.push({ value: 10, text: '10 Years' });
+    if (returnsData?.oneYear_Ret) availableTenures.push({ value: 1, text: '1 year' });
+    if (returnsData?.threeYear_Ret) availableTenures.push({ value: 3, text: '3 years' });
+    if (returnsData?.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 years' });
+    if (returnsData?.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 years' });
+    if (returnsData?.tenYear_Ret) availableTenures.push({ value: 10, text: '10 years' });
 
     availableTenures.forEach((tenure) => {
       const optionEl = div({ class: 'select-option', 'data-value': tenure.value }, tenure.text);
@@ -418,8 +471,8 @@ export default function decorate(block) {
   // -------------------------------
   // ✅ 6. EVENTS & LOGIC
   // -------------------------------
-  sipBtn.addEventListener('click', () => { mode = 'sip'; sipBtn.classList.add('active'); lumpsumBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = ''; block.querySelector('.labelforlumsum').style.display = 'none'; updateValues(); });
-  lumpsumBtn.addEventListener('click', () => { mode = 'lumpsum'; lumpsumBtn.classList.add('active'); sipBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = 'none'; block.querySelector('.labelforlumsum').style.display = ''; updateValues(); });
+  sipBtn.addEventListener('click', () => { dataMapMoObj.mode = 'sip'; sipBtn.classList.add('active'); lumpsumBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = ''; block.querySelector('.labelforlumsum').style.display = 'none'; updateValues(); });
+  lumpsumBtn.addEventListener('click', () => { dataMapMoObj.mode = 'lumpsum'; lumpsumBtn.classList.add('active'); sipBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = 'none'; block.querySelector('.labelforlumsum').style.display = ''; updateValues(); });
 
   block.querySelector('#planToggle').addEventListener('change', () => {
     planType = block.querySelector('#planToggle').checked ? 'Regular' : 'Direct';
@@ -432,6 +485,7 @@ export default function decorate(block) {
   // ✅ ADD THIS NEW HANDLER AND LISTENER
   function handleAmountInput(e) {
     const inputVal = e.target;
+    const inputWrap = block.querySelector('.input-with-symbol');
     // 1. Get the raw number by removing non-digits
     const rawValue = inputVal.value.replace(/[^0-9]/g, '');
 
@@ -439,8 +493,10 @@ export default function decorate(block) {
     if (rawValue) {
       const formattedValue = parseInt(rawValue, 10).toLocaleString('en-IN');
       inputVal.value = formattedValue;
+      inputWrap.classList.add('input-symbol');
     } else {
       inputVal.value = ''; // Handle empty input
+      inputWrap.classList.remove('input-symbol');
     }
 
     // 3. Trigger the calculation

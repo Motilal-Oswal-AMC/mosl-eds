@@ -75,7 +75,7 @@ function renderMap(container, mapUrl) {
   //   return;
   // }
   container.innerHTML = `
-    <iframe src="${finalMapUrl}" width="100%" height="100%" style="border:0;border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+    <iframe title="Motilal Oswal Tower Location Map" src="${finalMapUrl}" width="100%" height="100%" style="border:0;border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
 }
 
 function renderDetails(container, data) {
@@ -87,6 +87,7 @@ function renderDetails(container, data) {
   let html;
   contactAdd.forEach((addr) => {
     const mobst = (addr.mobileNo === null || addr.landlineNo === null) ? 'none' : 'block';
+    const pincode = addr.pincode === null ? '' : `- ${addr.pincode}`;
     // const emailst = addr.emailid === null ? 'none' : 'block';
     let regOff;
     let regOffst;
@@ -135,7 +136,7 @@ function renderDetails(container, data) {
           br(),
           addr.streetName === null ? '' : addr.streetName,
           br(),
-          `${addr.city} - ${addr.pincode}`,
+          `${addr.city}${pincode}`,
         ),
       ),
       ul(
@@ -257,11 +258,15 @@ async function onLoadContactusCities() {
       // const data = response;
       const cityDropdownList = document.querySelector('.location-dropdown .location-options-value');
       let html = '';
-      const cityArray = datacfContact.data.data;
-      cityArray.forEach((ele) => {
-        if (ele.contactAdd[0].city !== null) {
-          html += `<li class="city-value">${ele.contactAdd[0].city}</li>`;
+      const citydroparr = [];
+      datacfContact.data.data.forEach((el) => {
+        if (el.contactAdd[0].city !== null) {
+          citydroparr.push(el.contactAdd[0].city);
         }
+      });
+      const cityArray = citydroparr.sort();
+      cityArray.forEach((ele) => {
+        html += `<li class="city-value">${ele}</li>`;
       });
       cityDropdownList.innerHTML = html;
 
@@ -269,13 +274,21 @@ async function onLoadContactusCities() {
       document.querySelectorAll('.location-options-value .city-value').forEach((item) => {
         item.addEventListener('click', (event) => {
           const parent = event.target;
+          const mainblk = parent.closest('.contact-us-map-container');
+          const pranmk = mainblk.querySelector('.location-map');
+          const pranmkv2 = mainblk.querySelector('.error-default');
+          pranmk.classList.remove('contact-data-not-found');
+          pranmkv2.classList.remove('show-contact-error');
           const locationValue = parent.closest('.location-dropdown').querySelector('.location-value');
+          const searchinput = parent.closest('.contact-us-parent');
+          const searchelem = searchinput.querySelector('.search-loaction-input');
           locationValue.textContent = parent.textContent;
           const namecity = parent.textContent;
           const detailsCol = document.querySelector('.location-map .location-info');
           const mapCol = document.querySelector('.location-map .loc-geo');
           updateContentForCity(namecity, detailsCol, mapCol);
           parent.closest('.location-options-value').style.display = 'none';
+          searchelem.value = '';
         });
       });
     } catch (error) {
@@ -295,7 +308,7 @@ export default async function decorate(block) {
   const textOr = block.querySelector('.contactmain2 .contactinner2').textContent.trim();
   const plachld1 = block.querySelector('.contactmain2 .contactinner3').textContent.trim();
   const plachld2 = block.querySelector('.contactmain2 .contactinner4').textContent.trim();
-  let mobduplicate;
+  dataMapMoObj.mobduplicate = '';
   const divMapcontainer = div(
     {
       class: 'contact-us-parent',
@@ -313,7 +326,7 @@ export default async function decorate(block) {
         },
         ...Array.from(radiolist.children).map((el, index) => {
           if (index === 1) {
-            mobduplicate = el.textContent.trim();
+            dataMapMoObj.mobduplicate = el.textContent.trim();
           }
           return div(
             {
@@ -368,7 +381,7 @@ export default async function decorate(block) {
       ),
       p({
         class: 'simple-txt',
-      }, textOr),
+      }, dataMapMoObj.toTitleCase(textOr)),
       div(
         {
           class: 'pincode-wrap',
@@ -389,7 +402,8 @@ export default async function decorate(block) {
             type: 'text',
             name: '',
             id: '',
-            placeholder: plachld2,
+            'aria-label':'Enter Pincode or City for Location',
+            placeholder: '',
           }),
         ),
       ),
@@ -423,6 +437,9 @@ export default async function decorate(block) {
     const pranmk = mainblk.querySelector('.location-map');
     const pranmkv2 = mainblk.querySelector('.error-default');
     const inpval = event.target.value;
+    const originalValue = inpval;
+    const cleanedValue = originalValue.replace(/[^0-9]/g, '');
+    searchinpu.value = cleanedValue;
     if (inpval.length === 6) {
       const pinCity = datacfContact.data.data
         .filter((elementmap) => elementmap.contactAdd[0].pincode === inpval);
@@ -435,8 +452,9 @@ export default async function decorate(block) {
         pranmkv2.classList.add('show-contact-error');
       }
     } else if (inpval.length === 0) {
-      const dropVal = block.querySelector('.location-value').textContent.trim();
-      updateContentForCity(dropVal, detailsCol, mapCol);
+      const dropVal = block.querySelector('.location-value');
+      dropVal.textContent = 'Mumbai';
+      updateContentForCity('Mumbai', detailsCol, mapCol);
       pranmk.classList.remove('contact-data-not-found');
       pranmkv2.classList.remove('show-contact-error');
     }
@@ -467,10 +485,41 @@ export default async function decorate(block) {
   const err = errdefault.querySelector('.errormain1 .errorinner1');
   err.setAttribute('alt', 'ErrorImage');
 
-  const demo =document.querySelector('.contact-card .default-content-wrapper');
+  const demo = document.querySelector('.contact-card .default-content-wrapper');
 
   dataMapMoObj.CLASS_PREFIXES = ['cont-us-head', 'cont-us-head-li', 'cont-us-head-ul', 'cont-us-txt-li'];
-  dataMapMoObj.addIndexed(demo);  
+  dataMapMoObj.addIndexed(demo);
 
   document.querySelector('.contact-card').parentElement.classList.add('contact-us-parent-wrapper');
+  document.addEventListener('click', (event) => {
+    const innerUl = block.querySelector('.location-options-value');
+    const parentui = block.querySelector('.location-dropdown');
+    if (!parentui.contains(event.target)) {
+      // toggle display
+      if (innerUl.style.display === 'block' || innerUl.style.display === '') {
+        innerUl.style.display = 'none';
+      }
+    }
+  });
+
+  block.querySelector('.featrure2 input').addEventListener('click', () => {
+    window.location.href = 'https://www.kfintech.com/contact-us/';
+  });
+  const pinCode = block.querySelector('.search-loaction-input');
+  const wrapper = block.querySelector('.pincode-wrap');
+
+  function toggleLabel() {
+    if (pinCode.value.trim() !== '' || document.activeElement === pinCode) {
+      wrapper.classList.add('active');
+    } else {
+      wrapper.classList.remove('active');
+    }
+  }
+
+  pinCode.addEventListener('focus', toggleLabel);
+  pinCode.addEventListener('blur', toggleLabel);
+  pinCode.addEventListener('input', toggleLabel);
+
+  // Initialize state on page load
+  toggleLabel();
 }

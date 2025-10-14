@@ -1,8 +1,16 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.contact-us-map-container {
+  // padding-bottom: 40px;
+  margin: 0;
+
+  // @include media(mobile) {
+  //   padding: 0;
+  //   margin: 0;
+  // }
+
   .contact-us-map-wrapper {
     .contact-us-map {
       .contact-us-parent {
@@ -38,10 +46,10 @@
               font-weight: 400;
               font-size: 12px;
               position: absolute;
-              top: 2px;
+              top: 0;
               left: 10px;
               transform: translateY(-50%);
-              padding: 0 8px;
+              padding: 0 4px;
               background: #fff;
               z-index: 2;
               pointer-events: none;
@@ -131,8 +139,9 @@
           .simple-txt {
             font-family: $inter;
             font-weight: 500;
-            font-size: 16px;
-            color: #2e2a94;
+            font-size: 14px;
+            line-height: 16px;
+            color: #212121;
             margin: unset;
           }
 
@@ -148,21 +157,22 @@
 
             .location-pincd {
               position: absolute;
-              top: 2px;
-              left: 10px;
-              transform: translateY(-50%);
-              padding: 0 6px;
-              background: white;
-              z-index: 1;
+              top: 50%;
+              left: 42px;
+              background: transparent;
               outline: none;
               pointer-events: none;
-              color: #424242;
-              font-family: $inter;
-              font-size: 12px;
+              color: var(--text-body-2);
+              font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+              font-family: var(--body);
+              font-size: var(--body-medium-regular-size);
               font-style: normal;
               font-weight: 400;
-              line-height: 16px;
+              line-height: var(--body-medium-regular-line-height);
               margin: unset;
+              transform: translateY(-50%);
+              transition: all 0.5s ease;
+              z-index: 1;
             }
 
             .search-loaction {
@@ -173,14 +183,17 @@
               border-radius: 6px;
               border: 1px solid #9e9e9e;
               outline: none;
-
-              // background: url(../../icons/search-icon.svg) no-repeat left 12px center;
+              transition: border-color 0.2s ease;
               font-size: 16px;
-
-              // background: white;
               display: flex;
               align-items: center;
               gap: 10px;
+
+              // background: url(../../icons/search-icon.svg) no-repeat left 12px center;
+              // background: white;
+              &:focus-within {
+                border-color: #0078d4;
+              }
 
               @include media(mobile) {
                 width: 100%;
@@ -192,10 +205,44 @@
               }
 
               .search-loaction-input {
-                border: none;
                 width: 100%;
+                flex: 1;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                color: #000;
+                background: transparent;
+
+                // color: var(--text-typed-input);
+                // font-feature-settings: (--font-features-default);
+                // font-family: var(--body, Inter);
+                // font-size: var(--body-medium-regular-size);
+                // font-style: normal;
+                // font-weight: 400;
+                // line-height: var(--body-medium-regular-line-height);
+                // &::-webkit-input-placeholder {
+                //   display: none;
+                // }
               }
             }
+          }
+
+          .pincode-wrap.active .location-pincd {
+            top: 0;
+            left: 10px;
+            padding: 0 6px;
+            overflow: hidden;
+            color: #2E2A94;
+            background: var(--neutrals-white);
+            font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+            text-overflow: ellipsis;
+            font-family: var(--body);
+            font-size: var(--label-small-size);
+            font-style: normal;
+            font-weight: 400;
+            line-height: var(--label-small-line-height);
+            transition: all 0.5s ease;
+            z-index: 1;
           }
 
           .mobfeatrure {
@@ -268,6 +315,8 @@
               .featrure-input[type="radio"] {
                 accent-color: #2e2a94;
                 border: none;
+                width: 22px;
+                height: 22px;
 
                 &:checked+label.featrure-label {
                   @include font-style(var(--body-medium-medium-size),
@@ -312,10 +361,12 @@
           display: grid;
           grid-template-columns: 296px 816px;
           gap: 120px;
+          padding-bottom: 80px;
 
           @include media(mobile) {
             grid-template-columns: 100%;
             gap: 40px;
+            padding-bottom: 40px;
           }
 
           .location-info {
@@ -414,7 +465,8 @@
                 margin: unset;
 
                 @include media(mobile) {
-                  display: flex;
+                  // display: flex;
+                  display: none;
                 }
 
                 .contact-number-link {
@@ -435,6 +487,7 @@
                     text-decoration-skip-ink: auto;
                     text-decoration-thickness: auto;
                     text-underline-offset: 20%;
+                    cursor: pointer;
                   }
                 }
 
@@ -574,11 +627,11 @@
       color: #616161;
       text-align: center;
 
-      @include font-style(var(--body-small-regular-size), 
-      var(--body-small-regular-line-height), 
-      var(--text-body), 
-      400, 
-      var(--body));
+      @include font-style(var(--body-small-regular-size),
+        var(--body-small-regular-line-height),
+        var(--text-body),
+        400,
+        var(--body));
     }
   }
 

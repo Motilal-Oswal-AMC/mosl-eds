@@ -128,6 +128,8 @@ export default async function decorate(block) {
       selectEl.setAttribute('name', 'addNumber');
       labelEl.id = newLabelId;
     }
+    labelEl.remove();
+    selectEl.setAttribute('aria-label', 'Select country code');
   }
   updateSelectIds('countrySelect', 'countryLabel');
 }

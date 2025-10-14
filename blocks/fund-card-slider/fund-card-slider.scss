@@ -11,7 +11,7 @@
   padding: 0 0 40px;
 
   &.table-wrapper {
-    padding: 0 0 24px 0;
+    padding: 0 0 24px;
 
     @include media(mobile) {
       padding: 0 0 0 16px;
@@ -58,7 +58,7 @@
         height: 50px;
         position: absolute;
         z-index: 1;
-        top: -6px;
+        top: -10px;
         right: 0;
         display: flex;
         gap: 8px;

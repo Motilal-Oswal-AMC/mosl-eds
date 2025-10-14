@@ -49,6 +49,7 @@ export default function decorate(block) {
   const DirectPlanlistArr = cfObj[0].planList.filter(
     (el) => el.planName,
   );
+  dataMapMoObj.planlistArr = DirectPlanlistArr;
   cfObj[0].returns.forEach((ret) => {
     if (DirectPlanlistArr[0].groupedCode === (ret.plancode + ret.optioncode)) {
       [...Object.keys(ret)].forEach((key) => {
@@ -64,7 +65,7 @@ export default function decorate(block) {
     (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
   );
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
-  const mop = `../../icons/iconfund/MO_${cfObj[0].schcode}.svg`;
+  const mop = `../../icons/schemeicons/MO_${cfObj[0].schcode}.svg`;
   const [firstReturnYear] = tempReturns;
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
@@ -332,13 +333,24 @@ export default function decorate(block) {
             {
               class: 'dropdownlist',
               onclick: (event) => {
-                const valueText = event.target.textContent.trim();
+                const targetVal = event.target;
+                if (!targetVal.classList.contains('listval')) {
+                  return;
+                }
+                const dropdownList = targetVal.parentElement;
+                const allListItems = dropdownList.querySelectorAll('.listval');
+                allListItems.forEach((item) => {
+                  item.classList.remove('active');
+                });
+                targetVal.classList.add('active');
+                const valueText = targetVal.textContent.trim();
                 const parentClosest = event.target.closest('.dropdownmidle');
                 const ptext = parentClosest.querySelector('.selecttext');
                 ptext.innerText = '';
                 ptext.innerText = valueText;
-
-                const parentElem = event.target.parentElement.classList;
+                dataMapMoObj.planText = valueText;
+                const parentElem = evtarget.parentElement.classList;
+                evtarget.classList.add('listval-active');
                 parentElem.remove('dropdown-active');
                 planGrpEvent(event);
               },
@@ -384,7 +396,17 @@ export default function decorate(block) {
                 {
                   class: 'dropdownlist',
                   onclick: (event) => {
-                    const valueText = event.target.textContent.trim();
+                    const targetVal = event.target;
+                    if (!targetVal.classList.contains('listval')) {
+                      return;
+                    }
+                    const dropdownList = targetVal.parentElement;
+                    const allListItems = dropdownList.querySelectorAll('.listval');
+                    allListItems.forEach((item) => {
+                      item.classList.remove('active');
+                    });
+                    targetVal.classList.add('active');
+                    const valueText = targetVal.textContent.trim();
                     const parentClosest = event.target.closest('.dropdown');
                     const ptext = parentClosest.querySelector('.selectedtext');
                     let textval = valueText;
@@ -537,7 +559,7 @@ export default function decorate(block) {
             {
               class: 'notify-dis',
             },
-            '88.87K have invested in this fund as on 1 Jul 2025',
+            '88.87K have invested in this fund as on 1 Jul’25',
           ),
         ),
       ),
@@ -549,11 +571,13 @@ export default function decorate(block) {
   const item2 = block.closest('.section').querySelector('.item2');
   item2Ul.classList.add('item2-ul');
   item2.prepend(ptag);
+  item2.querySelector('.item2-ul').classList.add('fdp-tab');
   // block.innerHTML = '';
   Array.from(block.children).forEach((elchild) => {
     elchild.style.display = 'none';
   });
   block.append(cardContainer);
+  block.parentElement.parentElement.parentElement.querySelector('.breadcrumbs-fdp').classList.add('wrapper-fdp');
 
   dataMapMoObj.CLASS_PREFIXES = ['tab-li-item'];
   dataMapMoObj.addIndexed(item2Ul);
@@ -596,8 +620,10 @@ export default function decorate(block) {
   ptag.addEventListener('click', () => {
     if (window.innerWidth < 786) {
       if (item2Ul.style.display === 'block') {
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
         item2Ul.style.display = 'none';
       } else {
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
         item2Ul.style.display = 'block';
       }
     }
@@ -609,8 +635,10 @@ export default function decorate(block) {
 
   (function () {
     // Function to calculate the correct header offset based on screen size
-    function getHeaderOffset() {
-      return window.innerWidth <= 768 ? 1010 : 240;
+    function getHeaderOffset(targetID) { //targetId
+      const dataidStorage = 
+        dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
+      return window.innerWidth <= 768 ? dataidStorage : 'auto';
     }
 
     // Smooth scroll setup with dynamic header offset
@@ -640,7 +668,7 @@ export default function decorate(block) {
           const target = document.querySelector(`.section[data-id="${targetId}"]`);
 
           if (target) {
-            const headerOffset = getHeaderOffset();
+            const headerOffset = getHeaderOffset(target);
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -741,5 +769,11 @@ export default function decorate(block) {
       // console.error('Failed to copy URL: ', err);
       alert('Could not copy URL. Please make sure the window is focused.');
     }
+  });
+
+  // plantext
+  block.querySelector('.btn-wrapper').addEventListener('click', () => {
+    const plantext = block.querySelector('.middlediv .selecttext');
+    dataMapMoObj.planText = plantext.textContent.trim();
   });
 }

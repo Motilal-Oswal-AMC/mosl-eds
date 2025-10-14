@@ -331,12 +331,48 @@
             "value": "show-contact-error"
           },
           {
+            "name": "Out Expert Listing",
+            "value": "out-expert-listing"
+          },
+          {
+            "name": "Popular Artical",
+            "value": "popular-artical"
+          },
+          {
+            "name": "Behind The Content",
+            "value": "behind-the-content"
+          },
+          {
+            "name": "Learn About",
+            "value": "learn-about"
+          },
+          {
+            "name": "In The News",
+            "value": "in-the-news"
+          },
+          {
+            "name": "Our Blogs",
+            "value": "our-blogs"
+          },
+          {
             "name": "Added Fund Cart",
             "value": "added-fund-cart"
           },
           {
             "name": "Two Step Verification",
             "value": "two-step-auth"
+          },
+          {
+            "name": "Modal Stepup One",
+            "value": "modal-stepup-one"
+          },
+          {
+            "name": "Modal Stepup Two",
+            "value": "modal-stepup-two"
+          },
+          {
+            "name": "FLP Growth",
+            "value": "flp-growth"
           },
           {
             "name": "Article Left",
@@ -524,6 +560,11 @@
       {
         "component": "aem-content",
         "name": "link",
+        "label": "Fragment URL"
+      },
+      {
+        "component": "aem-content",
+        "name": "Two link",
         "label": "Fragment URL"
       }
     ]
@@ -1369,6 +1410,11 @@
         "label": "Title"
       },
       {
+        "component": "text",
+        "name": "col_returnmobile",
+        "label": "Title"
+      },
+      {
         "component": "richtext",
         "name": "col_richtext",
         "value": "",
@@ -1429,109 +1475,111 @@
     ]
   },
   {
-  "id": "invest-now-homepage",
-  "fields": [{
-      "component": "text",
-      "name": "col1_fund_name",
-      "label": "Fund Name",
-      "value": "Nifty 500 Momentum 50 Index Fund"
-    },
-    {
-      "component": "text",
-      "name": "col1_lumpsum_label",
-      "label": "Lumpsum Button Label",
-      "value": "Lumpsum"
-    },
-    {
-      "component": "text",
-      "name": "col1_sip_label",
-      "label": "SIP Button Label",
-      "value": "SIP"
-    },
-    {
-      "component": "text",
-      "name": "col1_investment_input_label",
-      "label": "Investment Input Label",
-      "value": "Enter your investment amount"
-    },
-    {
-      "component": "number",
-      "name": "col2_default_amount",
-      "label": "Default Investment Amount",
-      "value": 10000
-    },
-    {
-      "component": "number",
-      "name": "col2_suggestion_1",
-      "label": "Suggestion Amount 1",
-      "value": 5000
-    },
-    {
-      "component": "number",
-      "name": "col2_suggestion_2",
-      "label": "Suggestion Amount 2",
-      "value": 10000
-    },
-    {
-      "component": "number",
-      "name": "col2_suggestion_3",
-      "label": "Suggestion Amount 3",
-      "value": 15000
-    },
-    {
-      "component": "select",
-      "name": "col3_frequency_default",
-      "label": "Default Frequency",
-      "value": "Monthly",
-      "options": [{
-          "name": "Annual",
-          "value": "Annual"
-        },
-        {
-          "name": "Daily",
-          "value": "Daily"
-        },
-        {
-          "name": "Fortnightly",
-          "value": "Fortnightly"
-        },
-        {
-          "name": "Monthly",
-          "value": "Monthly"
-        },
-        {
-          "name": "Quarterly",
-          "value": "Quarterly"
-        },
-        {
-          "name": "Weekly",
-          "value": "Weekly"
-        }
-      ]
-    },
-    {
-      "component": "select",
-      "name": "col3_end_date_default",
-      "label": "Default End Date",
-      "value": "Until I cancel",
-      "options": [
-        {
-          "name": "Until I cancel",
-          "value": "Until I cancel"
-        },
-        {
-          "name": "Select Date",
-          "value": "Select Date"
-        }
-      ]
-    },
-    {
-      "component": "text",
-      "name": "col3_cta_button_label",
-      "label": "CTA Button Label",
-      "value": "Invest Now"
-    }
-  ]
+    "id": "invest-now-homepage",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col1_fund_name",
+        "label": "Fund Name",
+        "value": "Nifty 500 Momentum 50 Index Fund"
+      },
+      {
+        "component": "text",
+        "name": "col1_lumpsum_label",
+        "label": "Lumpsum Button Label",
+        "value": "Lumpsum"
+      },
+      {
+        "component": "text",
+        "name": "col1_sip_label",
+        "label": "SIP Button Label",
+        "value": "SIP"
+      },
+      {
+        "component": "text",
+        "name": "col1_investment_input_label",
+        "label": "Investment Input Label",
+        "value": "Enter your investment amount"
+      },
+      {
+        "component": "number",
+        "name": "col2_default_amount",
+        "label": "Default Investment Amount",
+        "value": 10000
+      },
+      {
+        "component": "number",
+        "name": "col2_suggestion_1",
+        "label": "Suggestion Amount 1",
+        "value": 5000
+      },
+      {
+        "component": "number",
+        "name": "col2_suggestion_2",
+        "label": "Suggestion Amount 2",
+        "value": 10000
+      },
+      {
+        "component": "number",
+        "name": "col2_suggestion_3",
+        "label": "Suggestion Amount 3",
+        "value": 15000
+      },
+      {
+        "component": "select",
+        "name": "col3_frequency_default",
+        "label": "Default Frequency",
+        "value": "Monthly",
+        "options": [
+          {
+            "name": "Annual",
+            "value": "Annual"
+          },
+          {
+            "name": "Daily",
+            "value": "Daily"
+          },
+          {
+            "name": "Fortnightly",
+            "value": "Fortnightly"
+          },
+          {
+            "name": "Monthly",
+            "value": "Monthly"
+          },
+          {
+            "name": "Quarterly",
+            "value": "Quarterly"
+          },
+          {
+            "name": "Weekly",
+            "value": "Weekly"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "col3_end_date_default",
+        "label": "Default End Date",
+        "value": "Until I cancel",
+        "options": [
+          {
+            "name": "Until I cancel",
+            "value": "Until I cancel"
+          },
+          {
+            "name": "Select Date",
+            "value": "Select Date"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "col3_cta_button_label",
+        "label": "CTA Button Label",
+        "value": "Invest Now"
+      }
+    ]
   },
   {
     "id": "fm-portfolio",
@@ -1550,6 +1598,93 @@
         "component": "text",
         "name": "col_benchmark",
         "label": "Enter Label Benchmark"
+      }
+    ]
+  },
+  {
+    "id": "popular-article-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Future Building Item Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "start-building",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-experts",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   },
@@ -1625,8 +1760,8 @@
     ]
   },
   {
-    "id":"step-up-block",
-    "fields":[
+    "id": "step-up-block",
+    "fields": [
       {
         "component": "richtext",
         "name": "col1_richtext",
@@ -1661,6 +1796,133 @@
         "name": "col2_rich",
         "value": "",
         "label": "Enter Discription after SIP Calculation",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "contact-us-map",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "col_radiolist",
+        "value": "",
+        "label": "Enter Radio list Context",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col_city",
+        "label": "Enter Placeholder for City Field"
+      },
+      {
+        "component": "text",
+        "name": "col_pincode",
+        "label": "Enter Placeholder for Pincode Field"
+      }
+    ]
+  },
+  {
+    "id": "moedge-building-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "motilal edge Building Item Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "our-authors",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "two text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "edge-filter",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "one text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "two text",
+        "value": "",
+        "label": "Text",
         "valueType": "string"
       }
     ]
