@@ -2595,6 +2595,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         line-height: 16px;
         gap: 4px;
     }
+    
+    .section.sub-popup-header.our-popular-funds .default-content-wrapper .sub-popup-sec1 .comlist.sub-popup-inner-text2 .sub-popup-list-content2 li>a {
+        line-height: 16px;
+    }
 
     .mosl-edge-header.sub-popup-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 .sub-popup-inner-text2 li.comlist ul.comlist .sub-popup-list-row1 a {
         display: flex;
