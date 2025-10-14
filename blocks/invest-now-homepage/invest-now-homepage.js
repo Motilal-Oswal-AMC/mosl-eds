@@ -935,7 +935,7 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
     { class: 'custom-select-wrapper', id: `custom-select-${id}` },
     label({ class: 'custom-select-label' }, labelText),
     p({ class: 'select-selected' }, defaultValue),
-    ul({ class: 'select-options' }, ...options.map((opt) => li({ class:'select-list', 'data-value': opt }, opt))),
+    ul({ class: 'select-options' }, ...options.map((opt) => li({ class: 'select-list', 'data-value': opt }, opt))),
     input({ type: 'hidden', id, value: defaultValue }),
   );
 }
@@ -1227,9 +1227,9 @@ export default function decorate(block) {
             ul(
               { class: 'dropdown-list' },
               ...dataMapMoObj.planlistArr.map((eloption) => li({
-              class: 'list-name',
-              datacode: eloption.groupedCode,
-            }, `${eloption.planName} | ${eloption.optionName}`)),
+                class: 'list-name',
+                datacode: eloption.groupedCode,
+              }, `${eloption.planName} | ${eloption.optionName}`)),
             ),
           ),
         ),

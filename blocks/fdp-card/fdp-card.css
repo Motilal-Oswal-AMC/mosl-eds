@@ -59,7 +59,8 @@ main {
   z-index: 5;
   min-width: 340px;
   width: 100%;
-  min-height: 192px;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   overflow: auto;
   margin: 3px 0 0;
   background-color: #fff;
@@ -70,7 +71,6 @@ main {
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist {
     min-width: 143px;
-    min-height: 238px;
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist.dropdown-active {
@@ -96,6 +96,14 @@ main {
   font-size: var(--paragraph-xsmall-size);
   line-height: var(--paragraph-xsmall-line-height);
   color: var(--text-body);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 500;
+}
+.section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist .listval.active {
+  font-size: var(--body-xsmall-medium-size);
+  line-height: var(--body-xsmall-medium-line-height);
+  color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;

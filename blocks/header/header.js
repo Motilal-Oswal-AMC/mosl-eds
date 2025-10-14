@@ -209,7 +209,7 @@ export default async function decorate(block) {
     // A single timer is shared across all nav sections to prevent flickering.
     let leaveTimer;
 
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection, index) => {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach(async (navSection) => {
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
         const hrefnaf = navSection.querySelector('ul li');

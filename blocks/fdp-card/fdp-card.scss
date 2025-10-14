@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 main {
   background-color: #f5f5f5;
@@ -71,7 +71,7 @@ main {
           z-index: 5;
           min-width: 340px;
           width: 100%;
-          min-height: 192px;
+          min-height: fit-content;
           overflow: auto;
           margin: 3px 0 0;
           background-color: $primary-white;
@@ -81,7 +81,7 @@ main {
 
           @include media(mobile) {
             min-width: 143px;
-            min-height: 238px;
+            // min-height: 238px;
           }
 
           &.dropdown-active {
@@ -111,12 +111,20 @@ main {
             // border-bottom: 1px solid #eee;
             cursor: pointer;
 
-            @include font-style(
-              var(--paragraph-xsmall-size),
+            @include font-style(var(--paragraph-xsmall-size),
               var(--paragraph-xsmall-line-height),
               var(--text-body),
               500,
               var(--body));
+
+            &.active {
+              font-size: var(--body-xsmall-medium-size);
+              line-height: var(--body-xsmall-medium-line-height);
+              color: var(--blue-1-800-primary);
+              font-family: var(--body);
+              font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+              font-weight: 500;
+            }
           }
         }
 
@@ -186,13 +194,11 @@ main {
               .fund-name-title {
                 margin: 0;
 
-                @include font-style(
-                  var(--heading-h6-size),
+                @include font-style(var(--heading-h6-size),
                   var(--heading-h6-line-height),
                   var(--blue-1-800-primary),
                   600,
-                  var(--title)
-                );
+                  var(--title));
 
                 @include media(mobile) {
                   font-size: 20px;
@@ -207,13 +213,11 @@ main {
               margin: 4px 0 0;
               display: block;
 
-              @include font-style(
-                var(--body-small-regular-size),
+              @include font-style(var(--body-small-regular-size),
                 var(--label-large-line-height),
                 var(--blue-1-800-primary),
                 400,
-                var(--body)
-              );
+                var(--body));
 
               // @include font-style(12px, 16px, $primary-blue, 400, $poppins);
 
@@ -244,25 +248,21 @@ main {
                 background-color: var(--neutrals-200);
                 padding: var(--spacing-2) var(--spacing-8);
 
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--blue-1-800-primary),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   height: 24px;
                   padding: 5px 10px;
 
-                  @include font-style(
-                    var(--body-xsmall-regular-size),
+                  @include font-style(var(--body-xsmall-regular-size),
                     var(--body-xsmall-regular-line-height),
                     var(--blue-1-800-primary),
                     400,
-                    var(--body)
-                  );
+                    var(--body));
                 }
               }
             }
@@ -288,13 +288,11 @@ main {
                 gap: 8px;
                 cursor: pointer;
 
-                @include font-style(
-                  var(--body-small-medium-size),
+                @include font-style(var(--body-small-medium-size),
                   var(--body-small-medium-line-height),
                   var(--blue-1-800-primary),
                   500,
-                  var(--body)
-                );
+                  var(--body));
 
                 &::after {
                   content: "";
@@ -348,13 +346,11 @@ main {
               // }
 
               .return-text {
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--text-body),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   font-size: var(--body-xsmall-regular-size);
@@ -375,13 +371,11 @@ main {
                   display: flex;
                   gap: 4px;
 
-                  @include font-style(
-                    var(--body-xsmall-medium-size),
+                  @include font-style(var(--body-xsmall-medium-size),
                     var(--body-xsmall-medium-line-height),
                     var(--blue-1-800-primary),
                     500,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     gap: 4px;
@@ -417,13 +411,11 @@ main {
 
                 .value-cagr,
                 .percent {
-                  @include font-style(
-                    var(--body-large-semibold-size),
+                  @include font-style(var(--body-large-semibold-size),
                     var(--body-large-semibold-line-height),
                     var(--blue-1-800-primary),
                     600,
-                    var(--body)
-                  );
+                    var(--body));
 
                   margin: 0;
                 }
@@ -465,13 +457,11 @@ main {
               // }
 
               .nav-label {
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--text-body),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 margin: 0 0 4px;
 
@@ -488,13 +478,11 @@ main {
 
                 .value-nav,
                 .percent {
-                  @include font-style(
-                    var(--body-large-semibold-size),
+                  @include font-style(var(--body-large-semibold-size),
                     var(--body-large-semibold-line-height),
                     var(--blue-1-800-primary),
                     600,
-                    var(--body)
-                  );
+                    var(--body));
 
                   margin: 0;
                 }
@@ -520,13 +508,11 @@ main {
                   }
 
                   .nav-percent {
-                    @include font-style(
-                      var(--body-xsmall-regular-size),
+                    @include font-style(var(--body-xsmall-regular-size),
                       var(--body-xsmall-regular-line-height),
                       var(--text-success),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
 
                     margin: 0;
 
@@ -636,13 +622,11 @@ main {
                 height: 100%;
                 cursor: pointer;
 
-                @include font-style(
-                  var(--button-medium-size),
+                @include font-style(var(--button-medium-size),
                   var(--button-medium-line-height),
                   var(--text-white),
                   500,
-                  var(--body)
-                );
+                  var(--body));
               }
             }
           }
@@ -665,22 +649,18 @@ main {
             .notify-dis {
               margin: 0;
 
-              @include font-style(
-                var(--paragraph-xsmall-size),
+              @include font-style(var(--paragraph-xsmall-size),
                 var(--paragraph-xsmall-line-height),
                 var(--neutrals-800),
                 400,
-                var(--body)
-              );
+                var(--body));
 
               @include media(mobile) {
-                @include font-style(
-                  var(--body-xsmall-regular-size),
+                @include font-style(var(--body-xsmall-regular-size),
                   var(--body-xsmall-regular-line-height),
                   var(--neutrals-800),
                   400,
-                  var(--body)
-                );
+                  var(--body));
               }
             }
           }
@@ -725,8 +705,8 @@ main {
 
       &.fdp-tab {
         height: 36px;
-        
-        @include media (mobile){
+
+        @include media (mobile) {
           height: auto;
         }
       }
@@ -796,25 +776,21 @@ main {
         }
 
         a {
-          @include font-style(
-            var(--body-small-regular-size),
+          @include font-style(var(--body-small-regular-size),
             var(--body-small-regular-line-height),
             var(--neutrals-700),
             400,
-            var(--body)
-          );
+            var(--body));
 
           padding: var(--spacing-10) var(--spacing-none);
           cursor: pointer;
 
           @media (width <=768px) {
-            @include font-style(
-              var(--paragraph-medium-size),
+            @include font-style(var(--paragraph-medium-size),
               var(--paragraph-medium-line-height),
               var(--text-body),
               400,
-              var(--body)
-            );
+              var(--body));
           }
         }
 
@@ -826,13 +802,11 @@ main {
           align-items: start;
           border-bottom: 2px solid var(--blue-1-800-primary);
 
-          @include font-style(
-            var(--body-small-semibold-size),
+          @include font-style(var(--body-small-semibold-size),
             var(--body-small-semibold-line-height),
             var(--blue-1-800-primary),
             600,
-            var(--body)
-          );
+            var(--body));
         }
       }
     }
@@ -853,13 +827,11 @@ main {
 
         // flex-direction: row-reverse;
 
-        @include font-style(
-          var(--body-medium-medium-size),
+        @include font-style(var(--body-medium-medium-size),
           var(--body-medium-medium-line-height),
           var(--blue-1-800-primary),
           500,
-          var(--body)
-        );
+          var(--body));
 
         &::after {
           content: "";
@@ -1029,13 +1001,11 @@ main {
         }
 
         h2 {
-          @include font-style(
-            var(--body-xlarge-bold-size),
+          @include font-style(var(--body-xlarge-bold-size),
             var(--body-xlarge-bold-line-height),
             var(--blue-1-800-primary),
             600,
-            var(--body)
-          );
+            var(--body));
 
           margin: 0;
 
@@ -1083,13 +1053,11 @@ main {
 
               li.whyfund-innertext-li1:nth-child(1) {
                 // @include font-style(18px, 24px, $primary-blue, 500, $poppins);
-                @include font-style(
-                  var(--body-medium-medium-size),
+                @include font-style(var(--body-medium-medium-size),
                   var(--body-medium-medium-line-height),
                   var(--blue-1-800-primary),
                   500,
-                  var(--body)
-                );
+                  var(--body));
 
                 // @media (width <=768px) {
                 //   font-size: 14px;
@@ -1109,13 +1077,11 @@ main {
 
               li:nth-child(3) {
                 // @include font-style(12px, 16px, $neutrals-black, 400, $poppins);
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--neutrals-black),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 display: flex;
                 gap: 1px;
@@ -1145,13 +1111,11 @@ main {
 
         p {
           // @include font-style(12px, 16px, $text-body-2, 400, $poppins);
-          @include font-style(
-            var(--disclaimer-xsmall-size),
+          @include font-style(var(--disclaimer-xsmall-size),
             var(--disclaimer-xsmall-line-height),
             var(--text-disclaimer),
             400,
-            var(--body)
-          );
+            var(--body));
 
           margin: 0;
           display: flex;
@@ -1165,13 +1129,11 @@ main {
 
           .whyfund-inner-ol1 {
             // @include font-style(12px, 16px, $primary-blue, 400, $poppins);
-            @include font-style(
-              var(--disclaimer-xsmall-size),
+            @include font-style(var(--disclaimer-xsmall-size),
               var(--disclaimer-xsmall-line-height),
               var(--blue-1-800-primary),
               400,
-              var(--body)
-            );
+              var(--body));
           }
         }
       }
@@ -1218,13 +1180,11 @@ main {
       .sticky-inner-item1 {
         width: 176px;
 
-        @include font-style(
-          var(--body-small-medium-size),
+        @include font-style(var(--body-small-medium-size),
           var(--body-small-medium-line-height),
           var(--blue-1-800-primary),
           500,
-          var(--body)
-        );
+          var(--body));
       }
 
       .sticky-inner-item2 {

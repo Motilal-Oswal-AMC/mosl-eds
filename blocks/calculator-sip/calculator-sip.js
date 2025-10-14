@@ -19,7 +19,8 @@ export default function decorate(block) {
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const schcode = planCode.split(':')[1];
   let selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
-  let returnCAGR = 0;dataMapMoObj.mode = 'sip';
+  let returnCAGR = 0;
+  dataMapMoObj.mode = 'sip';
   let planType = 'Direct';
   let planOption = 'Growth';
   const selectedFundName = selectedFund.schDetail.schemeName;
@@ -311,7 +312,7 @@ export default function decorate(block) {
     }
 
     const months = tenureValue === 'inception' ? tenure : Math.floor(tenure * 12);
-    console.log(months);
+    // console.log(months);
     // ✅ Get the correct returnCAGR for selected tenure
     let tenureField = '';
     if (tenureValue === 'inception') {
@@ -376,8 +377,8 @@ export default function decorate(block) {
 
     const futureValue = calculateSipMaturity(amount, returnCAGR, months);
     const investedValue = amount * months;
-    const returnValue = futureValue - investedValue;
-    console.log(returnValue);
+    // const returnValue = futureValue - investedValue;
+    // console.log(returnValue);
 
     investedAmountSpan.textContent = `${(investedValue / 100000).toFixed(2)} Lac`; // investedAmount
     currentValueSpan.textContent = `${(futureValue / 100000).toFixed(2)} Lac`;
