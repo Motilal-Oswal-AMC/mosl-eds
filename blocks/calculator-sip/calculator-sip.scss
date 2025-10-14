@@ -265,7 +265,7 @@
                     border: 1px solid map.get($strokes, default);
                   }
 
-                  li {
+                  .searchli {
                     padding: 12px 16px;
                     cursor: pointer;
                     font-weight: 400;
@@ -603,13 +603,13 @@
                         line-height: var(--body-small-medium-line-height);
                       }
 
-                      &::placeholder {
-                        @include font-style(14px,
-                          var(--body-medium-medium-line-height),
-                          var(--blue-1-800-primary),
-                          map.get($font-weights, medium),
-                          var(--body));
-                      }
+                      // &::placeholder {
+                      //   @include font-style(14px,
+                      //     var(--body-medium-medium-line-height),
+                      //     var(--blue-1-800-primary),
+                      //     map.get($font-weights, medium),
+                      //     var(--body));
+                      // }
                     }
                   }
 

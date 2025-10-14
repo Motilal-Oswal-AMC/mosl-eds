@@ -381,9 +381,9 @@
 
                                 // padding-left: 10px;
 
-                                &::placeholder {
-                                    color: var(--neutrals-white);
-                                }
+                                // &::placeholder {
+                                //     color: var(--neutrals-white);
+                                // }
 
                                 @include media(mobile) {
                                     @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), var(--neutrals-white), 400, var(--body));

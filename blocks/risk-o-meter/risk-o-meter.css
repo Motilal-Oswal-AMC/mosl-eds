@@ -222,7 +222,6 @@
 }
 
 .section.risk-o-meter-container > .default-content-wrapper ul.defone2 li.defli {
-  line-height: 20px;
   font-size: var(--body-small-regular-size);
   line-height: var(--label-large-line-height);
   color: var(--neutrals-800);

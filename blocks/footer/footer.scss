@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .sr-only {
     position: absolute;
@@ -59,7 +59,7 @@
             padding: 0 16px;
             display: flex;
             flex-direction: column;
-            
+
             // row-gap: 36px;
             row-gap: 24px;
         }
@@ -192,14 +192,14 @@
                                 border: var(--border-width-01) solid var(--neutrals-white);
                                 background: transparent;
 
-                                &::placeholder {
-                                    color: var(--neutrals-200);
-                                    font-feature-settings: var(--font-features-default);
-                                    font-family: var(--body);
-                                    font-size: var(--body-medium-regular-size);
-                                    font-weight: 400;
-                                    line-height: var(--body-medium-regular-line-height);
-                                }
+                                // &::placeholder {
+                                //     color: var(--neutrals-200);
+                                //     font-feature-settings: var(--font-features-default);
+                                //     font-family: var(--body);
+                                //     font-size: var(--body-medium-regular-size);
+                                //     font-weight: 400;
+                                //     line-height: var(--body-medium-regular-line-height);
+                                // }
                             }
 
                             .errormsg {
@@ -245,7 +245,7 @@
                                 //     background-image: url("../../icons/success-cross.svg");
                                 // }
 
-                                & + .errormsg {
+                                &+.errormsg {
                                     color: #00c35d;
                                 }
                             }
@@ -660,7 +660,8 @@
                     justify-content: space-between;
                     margin: 0;
                     padding-bottom: 32px;
-                    border-bottom: 2px solid #fff3;
+
+                    // border-bottom: 2px solid #FFF3;
 
                     .footer-sub-cont1 {
                         width: 37.3%;
@@ -738,7 +739,7 @@
                                         border: var(--border-width-01) solid #00c35d;
                                         background: url("../../icons/success-cross.svg") no-repeat right 12px center;
 
-                                        & + .errormsg {
+                                        &+.errormsg {
                                             color: #00c35d;
                                         }
                                     }
@@ -927,7 +928,8 @@
         height: 56px;
         border-radius: 28px;
         background-color: var(--blue-1-200);
-        box-shadow: 0 0 13.2px 0 #00000014;
+        
+        // box-shadow: 0 0 13.2px 0 #0014;
         display: flex;
         align-items: center;
         justify-content: center;

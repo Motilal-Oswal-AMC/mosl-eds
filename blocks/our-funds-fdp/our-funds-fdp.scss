@@ -251,9 +251,9 @@
         }
 
         // Add role for screen readers
-        &[role="region"] {
-          // aria-label: "Fund details";
-        }
+        // &[role="region"] {
+        //   aria-label: "Fund details";
+        // }
 
         .fund-wrapper {
           display: flex;

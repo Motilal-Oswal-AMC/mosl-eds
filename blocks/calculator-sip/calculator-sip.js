@@ -63,7 +63,7 @@ export default function decorate(block) {
         { class: 'search-results-wrapper' },
         ul(
           { id: 'searchResults', role: 'listbox', class: 'search-result-ul' },
-          li({}, 'motilal oswal'),
+          li({ class: 'search-result-li' }, 'motilal oswal'),
         ),
       ),
       span({ class: 'search-error error-hide' }, 'Fund not found'),
@@ -205,8 +205,9 @@ export default function decorate(block) {
     document.querySelector('.fdp-calculator .search-bar-wrapper').style.display = 'none';
     document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none';
   }
-
-  block.querySelector('.fdp-calculator .cal-desc-label').textContent = 'Total Accumulated Wealth';
+  if (block.querySelector('.fdp-calculator')) {
+    block.querySelector('.fdp-calculator .cal-desc-label').textContent = 'Total Accumulated Wealth';
+  }
   // const inputEl = document.getElementById("investmentAmount");
   // inputEl.addEventListener("input", (e) => {
   //   let val = +e.target.value;
@@ -548,6 +549,7 @@ export default function decorate(block) {
 
     filtered.forEach((name) => {
       const lione = document.createElement('li');
+      lione.classList.add('searchli');
       lione.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
       lione.addEventListener('click', () => {
         searchInput.value = name;
@@ -615,6 +617,7 @@ export default function decorate(block) {
     // searchInput.style.paddingLeft = '0px';
     schemeNames.forEach((el) => {
       const ligrp = document.createElement('li');
+      ligrp.classList.add('searchli');
       ligrp.innerHTML = el.replace(new RegExp(`(${''})`, 'gi'), '<strong>$1</strong>');
       ligrp.addEventListener('click', (event) => {
         const name = event.target.textContent;
@@ -668,6 +671,16 @@ export default function decorate(block) {
   } catch (error) {
     // console.log(error);
   }
+
+  Array.from(document.querySelector('.disc-child-2').children)
+    .forEach((elild) => {
+      elild.classList.add('diskli');
+    });
+
+  Array.from(document.querySelector('search-result-ul').children)
+    .forEach((elild) => {
+      elild.classList.add('searchli');
+    });
 
   // -------------------------------
   // ✅ 8. INIT
