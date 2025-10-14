@@ -111,8 +111,8 @@ main {
             // border-bottom: 1px solid #eee;
             cursor: pointer;
 
-            @include font-style(var(--paragraph-xsmall-size),
-              var(--paragraph-xsmall-line-height),
+            @include font-style(var(--body-xsmall-regular-size),
+              var(--body-xsmall-regular-line-height),
               var(--text-body),
               400,
               var(--body));
@@ -394,6 +394,8 @@ main {
 
                   @include media(mobile) {
                     gap: 4px;
+                    font-size: 12px;
+                    line-height: 14px;
                   }
 
                   &::after {
