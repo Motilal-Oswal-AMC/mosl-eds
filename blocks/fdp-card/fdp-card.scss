@@ -58,7 +58,6 @@ main {
       }
 
       .card-wrapper {
-
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -81,6 +80,7 @@ main {
 
           @include media(mobile) {
             min-width: 143px;
+
             // min-height: 238px;
           }
 

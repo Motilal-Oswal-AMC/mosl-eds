@@ -233,11 +233,11 @@
     height: unset;
   }
 }
-.key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount .Redemption-Amount {
+.key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount .redemption-amount {
   width: 50%;
 }
 @media (max-width: 768px) {
-  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount .Redemption-Amount {
+  .key-facts-container .key-facts .key-facts-section .key-facts-amounts .minimum-amount .redemption-amount {
     width: 100%;
   }
 }

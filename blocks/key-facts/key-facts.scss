@@ -588,7 +588,7 @@
             height: unset;
           }
 
-          .Redemption-Amount {
+          .redemption-amount {
             width: 50%;
 
             @include media(mobile) {
@@ -602,7 +602,6 @@
             gap: 8px;
 
             .key-facts-amounts-title {
-
               & .block-subitem-finelsub2,
               & .block-subitem-finelsub3 {
                 margin: unset;

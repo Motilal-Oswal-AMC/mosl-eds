@@ -402,7 +402,7 @@ export default async function decorate(block) {
             type: 'text',
             name: '',
             id: '',
-            'aria-label':'Enter Pincode or City for Location',
+            'aria-label': 'Enter Pincode or City for Location',
             placeholder: '',
           }),
         ),
