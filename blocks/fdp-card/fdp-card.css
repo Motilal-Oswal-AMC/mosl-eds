@@ -277,7 +277,6 @@ main {
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp {
-  position: relative;
   width: auto;
   display: flex;
   flex-wrap: wrap;
@@ -304,6 +303,7 @@ main {
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown {
+  position: relative;
   max-width: -moz-max-content;
   max-width: max-content;
   width: 100%;
@@ -337,9 +337,13 @@ main {
   cursor: pointer;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
-  width: 92%;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: unset;
   height: auto;
   top: 100%;
+  left: -100%;
+  margin: 2px 0 0 16px;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr {
   width: 100%;
