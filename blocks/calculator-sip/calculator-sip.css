@@ -3,8 +3,7 @@
 /* Reset */
 @import "../../../styles/fonts.css";
 
-.section.compounding,
-.section.fdp-calculator {
+.section.compounding, .section.fdp-calculator {
   background-color: var(--neutrals-white);
   display: flex;
   flex-direction: column;
@@ -16,16 +15,14 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding,
-  .section.fdp-calculator {
+  .section.compounding, .section.fdp-calculator {
     padding: 40px 16px;
     background-color: var(--blue-1-25);
     gap: 40px;
   }
 }
 
-.section.compounding .compounding-two-inner,
-.section.fdp-calculator .compounding-two-inner {
+.section.compounding .compounding-two-inner, .section.fdp-calculator .compounding-two-inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -37,8 +34,7 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner,
-  .section.fdp-calculator .compounding-two-inner {
+  .section.compounding .compounding-two-inner, .section.fdp-calculator .compounding-two-inner {
     flex-direction: column;
     text-align: center;
     gap: 40px;
@@ -46,8 +42,7 @@
   }
 }
 
-.section.compounding .compounding-two-inner .default-content-wrapper,
-.section.fdp-calculator .compounding-two-inner .default-content-wrapper {
+.section.compounding .compounding-two-inner .default-content-wrapper, .section.fdp-calculator .compounding-two-inner .default-content-wrapper {
   flex: 1 1 37%;
   text-align: left;
   flex-shrink: 0;
@@ -60,35 +55,30 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .default-content-wrapper,
-  .section.fdp-calculator .compounding-two-inner .default-content-wrapper {
+  .section.compounding .compounding-two-inner .default-content-wrapper, .section.fdp-calculator .compounding-two-inner .default-content-wrapper {
     align-items: flex-start;
   }
 }
 
-.section.compounding .compounding-two-inner .default-content-wrapper .hero-image p,
-.section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-image p {
+.section.compounding .compounding-two-inner .default-content-wrapper .hero-image p, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-image p {
   margin: unset;
 }
 
-.section.compounding .compounding-two-inner .default-content-wrapper .hero-image .icon-analytics,
-.section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-image .icon-analytics {
+.section.compounding .compounding-two-inner .default-content-wrapper .hero-image .icon-analytics, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-image .icon-analytics {
   flex: 0 0 auto;
   width: 56px;
   height: 56px;
   flex-shrink: 0;
 }
 
-.section.compounding .compounding-two-inner .default-content-wrapper .hero-text,
-.section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text {
+.section.compounding .compounding-two-inner .default-content-wrapper .hero-text, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .default-content-wrapper .hero-text,
-  .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text {
+  .section.compounding .compounding-two-inner .default-content-wrapper .hero-text, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text {
     gap: 4px;
     max-inline-size: 22ch;
     text-wrap: balance;
@@ -100,8 +90,7 @@
 .section.compounding .compounding-two-inner .default-content-wrapper .hero-text h3,
 .section.compounding .compounding-two-inner .default-content-wrapper .hero-text h4,
 .section.compounding .compounding-two-inner .default-content-wrapper .hero-text h5,
-.section.compounding .compounding-two-inner .default-content-wrapper .hero-text h6,
-.section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h1,
+.section.compounding .compounding-two-inner .default-content-wrapper .hero-text h6, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h1,
 .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h2,
 .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h3,
 .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h4,
@@ -122,8 +111,7 @@
   .section.compounding .compounding-two-inner .default-content-wrapper .hero-text h3,
   .section.compounding .compounding-two-inner .default-content-wrapper .hero-text h4,
   .section.compounding .compounding-two-inner .default-content-wrapper .hero-text h5,
-  .section.compounding .compounding-two-inner .default-content-wrapper .hero-text h6,
-  .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h1,
+  .section.compounding .compounding-two-inner .default-content-wrapper .hero-text h6, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h1,
   .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h2,
   .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h3,
   .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text h4,
@@ -135,8 +123,7 @@
   }
 }
 
-.section.compounding .compounding-two-inner .default-content-wrapper .hero-text p,
-.section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text p {
+.section.compounding .compounding-two-inner .default-content-wrapper .hero-text p, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text p {
   margin: 0;
   max-width: 450px;
   font-size: var(--body-medium-regular-size);
@@ -148,31 +135,27 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .default-content-wrapper .hero-text p,
-  .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text p {
+  .section.compounding .compounding-two-inner .default-content-wrapper .hero-text p, .section.fdp-calculator .compounding-two-inner .default-content-wrapper .hero-text p {
     font-size: var(--paragraph-small-size);
     line-height: var(--paragraph-small-line-height);
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper {
   flex: 1 1 53%;
   max-width: 608px;
   width: 100%;
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip {
     align-self: stretch;
     background-color: var(--neutrals-white);
     border-radius: 8px;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container {
   background: var(--neutrals-white);
   border-radius: 8px;
   align-self: stretch;
@@ -183,22 +166,19 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container {
     gap: 24px;
     padding: 24px 16px 16px;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-label,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-label {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-label {
   text-align: left;
   margin-bottom: 6px;
   font-size: var(--disclaimer-xsmall-size);
@@ -210,15 +190,13 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-label,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-label {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-label {
     font-size: var(--label-small-size);
     line-height: var(--label-small-line-height);
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp {
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   width: 100%;
   color: #2e2a94;
@@ -234,8 +212,7 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp {
     padding-right: 40px;
     padding-bottom: 10px;
     font-size: var(--body-medium-medium-size);
@@ -243,13 +220,11 @@
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp:active,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp:active {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp:active, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-bar-inp:active {
   border: none;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap {
   position: absolute;
   right: 0;
   bottom: 8px;
@@ -258,37 +233,31 @@
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .cancel-btn,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .search-btn,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .cancel-btn,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .search-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .cancel-btn,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .search-btn {
   height: 100%;
   width: 100%;
   cursor: pointer;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .search-btn,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .search-btn {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .search-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap .search-btn {
   display: none;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap.searchbar-active .search-btn,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap.searchbar-active .search-btn {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap.searchbar-active .search-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap.searchbar-active .search-btn {
   display: block;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap.searchbar-active .cancel-btn,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap.searchbar-active .cancel-btn {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap.searchbar-active .cancel-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .cancel-search-wrap.searchbar-active .cancel-btn {
   display: none;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper {
   position: relative;
   display: none;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul {
   font-family: var(--body);
   list-style: none;
   margin: 0;
@@ -306,33 +275,28 @@
   border-radius: 6px;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar {
   width: 3px;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar-track,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar-track {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar-track, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar-track {
   width: 3px;
   background-color: var(--neutrals-white);
   border-radius: 0 6px 6px 0;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar-thumb,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar-thumb {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar-thumb, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul::-webkit-scrollbar-thumb {
   width: 3px;
   background-color: #464343;
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul {
     border: 1px solid #9E9E9E;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli {
   padding: 12px 16px;
   cursor: pointer;
   font-weight: 400;
@@ -340,23 +304,19 @@
   font-size: 14px;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli:hover,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli:hover {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli:hover, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli:hover {
   background: #f3f3f3;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli.active,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli.active {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli.active, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli.active {
   background: #eee;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli strong,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli strong {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli strong, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-results-wrapper .search-result-ul .searchli strong {
   font-weight: 500;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error {
   text-align: left;
   font-size: 12px;
   line-height: 16px;
@@ -367,40 +327,34 @@
   bottom: -17px;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error.error-hide,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error.error-hide {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error.error-hide, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error.error-hide {
   display: none;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error.error-show,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error.error-show {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error.error-show, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .search-bar-wrapper .search-error.error-show {
   display: block;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper {
     padding: 0;
     background-color: transparent;
     box-shadow: none;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper {
   display: flex;
   gap: 8px;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn {
   display: flex;
   width: 104px;
   height: 32px;
@@ -423,21 +377,18 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn {
     font-size: var(--body-small-regular-size);
     line-height: var(--body-small-regular-line-height);
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn:hover,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn:hover {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn:hover, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn:hover {
   background: var(--blue-1-800-primary);
   color: var(--neutrals-white);
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn.active,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn.active {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn.active, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn.active {
   background: var(--surface-selected);
   color: var(--text-button-default);
   border: var(--border-width-01) solid var(--strokes-selected);
@@ -447,14 +398,12 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .scheme-btns-wrapper .scheme-btn {
     line-height: 16px;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -462,16 +411,14 @@
   margin: 8px 0;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle {
   display: flex;
   flex: 1 1 45%;
   align-items: center;
   gap: 8px;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-label,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-label {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-label {
   cursor: pointer;
   font-size: var(--body-xsmall-medium-size);
   line-height: var(--body-xsmall-medium-line-height);
@@ -481,28 +428,24 @@
   font-weight: 500;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-label:last-of-type,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-label:last-of-type {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-label:last-of-type, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-label:last-of-type {
   color: var(--neutrals-black);
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch {
   position: relative;
   display: inline-block;
   width: 37px;
   height: 20px;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .toggle-inp,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .toggle-inp {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .toggle-inp, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .toggle-inp {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider {
   position: absolute;
   inset: 0;
   transition: 0.4s;
@@ -511,8 +454,7 @@
   cursor: pointer;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before {
   position: absolute;
   content: "";
   height: 16.5px;
@@ -525,31 +467,27 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle .toggle-switch .slider::before {
     bottom: 1.5px;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle input:checked+.slider::before,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle input:checked+.slider::before {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle input:checked + .slider::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-type-toggle input:checked + .slider::before {
   transform: translateX(16.5px);
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select {
   position: relative;
   flex: 1 1 45%;
   min-width: 200px;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan {
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-size: var(--body-xsmall-medium-size);
   line-height: var(--body-xsmall-medium-line-height);
   color: var(--blue-1-800-primary);
@@ -559,16 +497,14 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan {
     text-align: start;
     font-size: var(--body-xsmall-medium-size);
     line-height: var(--body-xsmall-medium-line-height);
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan::after,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan::after {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan::after, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-selected-plan::after {
   content: "";
   position: absolute;
   right: 0;
@@ -581,8 +517,7 @@
   transition: transform 0.2s ease;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan {
   display: none;
   position: absolute;
   top: 110%;
@@ -595,13 +530,11 @@
   overflow: hidden;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan.open,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan.open {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan.open, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan.open {
   display: block;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan .select-option-plan,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan .select-option-plan {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan .select-option-plan, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan .select-option-plan {
   padding: 12px 16px;
   text-align: left;
   cursor: pointer;
@@ -614,21 +547,18 @@
   font-weight: 400;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan .select-option-plan:hover,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan .select-option-plan:hover {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan .select-option-plan:hover, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .plan-options-wrapper .plan-option-select .select-options-plan .select-option-plan:hover {
   background-color: #f0f0f0;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper {
   flex: 1 1 45%;
   display: flex;
@@ -639,8 +569,7 @@
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforsip,
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforlumsum,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-label,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforsip,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforsip,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforlumsum,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-label {
   font-size: var(--label-small-size);
@@ -654,8 +583,7 @@
 @media (width <= 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforsip,
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforlumsum,
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-label,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforsip,
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforsip,
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .labelforlumsum,
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-label {
     text-align: start;
@@ -664,8 +592,7 @@
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol {
   position: relative;
   display: flex;
   align-items: center;
@@ -673,14 +600,12 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol {
     gap: 15px;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before {
   content: "₹";
   position: absolute;
   top: 50%;
@@ -696,15 +621,13 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before {
     font-size: var(--body-small-medium-size);
     line-height: var(--body-small-medium-line-height);
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp {
   font-size: var(--body-medium-medium-size);
   line-height: var(--body-medium-medium-line-height);
   color: var(--blue-1-800-primary);
@@ -714,48 +637,42 @@
   height: 100%;
   padding-left: 12px;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   outline: none;
   background-color: transparent;
   border: none;
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol .investment-inp {
     padding-left: 15px;
     font-size: var(--body-small-medium-size);
     line-height: var(--body-small-medium-line-height);
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error {
   font-size: 10px;
   line-height: 16px;
   font-family: var(--body);
   color: #f05353;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error.error-hide,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error.error-hide {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error.error-hide, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error.error-hide {
   display: none;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error.error-show,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error.error-show {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error.error-show, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .amount-error.error-show {
   display: block;
   text-align: left;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select {
   position: relative;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected {
   font-size: var(--body-medium-medium-size);
   line-height: var(--body-medium-medium-line-height);
   color: var(--blue-1-800-primary);
@@ -765,8 +682,8 @@
   cursor: pointer;
   position: relative;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -777,21 +694,20 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected {
     text-align: start;
     font-size: var(--body-small-medium-size);
     line-height: var(--body-small-medium-line-height);
     width: 100%;
-    padding-right: 0px;
+    padding-right: 0;
   }
+
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected::after, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected::after {
     right: 5px;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected::after,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected::after {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected::after, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-selected::after {
   content: "";
   position: absolute;
   right: 0;
@@ -804,8 +720,7 @@
   transition: transform 0.2s ease;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options {
   display: none;
   position: absolute;
   top: 110%;
@@ -818,13 +733,11 @@
   overflow: hidden;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options.open,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options.open {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options.open, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options.open {
   display: block;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options .select-option,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options .select-option {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options .select-option, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options .select-option {
   padding: 12px 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -836,13 +749,11 @@
   font-weight: 400;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options .select-option:hover,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options .select-option:hover {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options .select-option:hover, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .tenure-wrapper.custom-select .select-options .select-option:hover {
   background-color: #f0f0f0;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -850,22 +761,19 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper {
     margin: 0;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount {
   display: flex;
   align-items: flex-start;
   gap: 4px;
   align-self: stretch;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-label,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-label {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-label {
   font-size: var(--disclaimer-xsmall-size);
   line-height: var(--disclaimer-xsmall-line-height);
   color: var(--text-body-2);
@@ -875,15 +783,13 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-label,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-label {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-label {
     font-size: var(--label-small-size);
     line-height: var(--label-small-line-height);
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value {
   position: relative;
   padding-left: 10px;
   font-size: var(--body-small-medium-size);
@@ -894,8 +800,7 @@
   font-weight: 500;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value::before,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value::before {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value::before {
   content: "₹";
   position: absolute;
   left: 0;
@@ -910,23 +815,20 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value::before,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value::before {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value::before {
     font-size: var(--body-small-medium-size);
     line-height: var(--body-small-medium-line-height);
   }
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .invested-amount .invested-amount-value {
     font-size: var(--body-small-medium-size);
     line-height: var(--body-small-medium-line-height);
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
@@ -934,8 +836,7 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -946,8 +847,7 @@
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper {
   display: flex;
   flex-direction: column;
@@ -955,8 +855,7 @@
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-label,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-label,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-label,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-label,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-label {
   font-size: var(--label-small-size);
   line-height: var(--label-small-line-height);
@@ -968,8 +867,7 @@
 
 @media (width <= 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-label,
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-label,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-label,
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-label, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-label,
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-label {
     white-space: nowrap;
     font-size: var(--label-small-size);
@@ -978,8 +876,7 @@
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value {
   font-size: var(--body-xlarge-bold-size);
   line-height: var(--body-xlarge-bold-line-height);
@@ -994,8 +891,7 @@
 
 @media (width <= 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value,
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value,
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value,
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value {
     font-size: var(--body-medium-semibold-size);
     line-height: var(--body-medium-semibold-line-height);
@@ -1003,8 +899,7 @@
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value::before,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value::before,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value::before,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value::before,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value::before {
   content: "₹";
   position: absolute;
@@ -1020,8 +915,7 @@
 
 @media (width <= 768px) {
   .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value::before,
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value::before,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value::before,
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .cal-desc-value::before,
   .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .cal-desc-value::before {
     font-size: var(--body-medium-semibold-size);
     line-height: var(--body-medium-semibold-line-height);
@@ -1029,35 +923,30 @@
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .return-cagr,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .return-cagr,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .return-cagr,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .return-cagr, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .return-cagr,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .return-cagr {
   padding-left: 0;
 }
 
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .return-cagr::before,
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .return-cagr::before,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .return-cagr::before,
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .return-cagr::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .current-value-wrapper .return-cagr::before,
 .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .return-cagr-wrapper .return-cagr::before {
   content: "";
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn {
   position: absolute;
   right: 0;
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn {
     position: static;
     width: 100%;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn {
   display: flex;
   padding: var(--spacing-12);
   justify-content: center;
@@ -1080,8 +969,7 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn {
     width: 100%;
     height: 40px;
     margin: 0;
@@ -1090,13 +978,11 @@
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn:hover,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn:hover {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn:hover, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .incal-wrapper .cal-discription .start-sip-btn .sip-btn:hover {
   background-color: #181643;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .no-returns-msg,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .no-returns-msg {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .no-returns-msg, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .no-returns-msg {
   margin-top: 8px;
   background-color: rgb(251 238 221);
   padding: 4px;
@@ -1108,24 +994,21 @@
   font-weight: 400;
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal {
   padding-top: 10px;
   text-align: left;
   line-height: 0;
 }
 
 @media (width <= 768px) {
-  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal,
-  .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal {
+  .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal {
     text-align: center;
     padding: 16px 0;
     padding-top: 16px;
   }
 }
 
-.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal .view-othercal-btn,
-.section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal .view-othercal-btn {
+.section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal .view-othercal-btn, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .view-btn-cal .view-othercal-btn {
   text-decoration: underline;
   font-size: var(--body-small-medium-size);
   line-height: var(--text-link-small-line-height);
@@ -1135,13 +1018,11 @@
   font-weight: 400;
 }
 
-.section.compounding .default-content-wrapper:last-of-type,
-.section.fdp-calculator .default-content-wrapper:last-of-type {
+.section.compounding .default-content-wrapper:last-of-type, .section.fdp-calculator .default-content-wrapper:last-of-type {
   padding: 0;
 }
 
-.section.compounding .default-content-wrapper:last-of-type p.disc-child-1,
-.section.fdp-calculator .default-content-wrapper:last-of-type p.disc-child-1 {
+.section.compounding .default-content-wrapper:last-of-type p.disc-child-1, .section.fdp-calculator .default-content-wrapper:last-of-type p.disc-child-1 {
   font-size: var(--disclaimer-xsmall-size);
   line-height: var(--disclaimer-xsmall-line-height);
   color: var(--blue-1-800-primary);
@@ -1152,20 +1033,17 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .default-content-wrapper:last-of-type p.disc-child-1,
-  .section.fdp-calculator .default-content-wrapper:last-of-type p.disc-child-1 {
+  .section.compounding .default-content-wrapper:last-of-type p.disc-child-1, .section.fdp-calculator .default-content-wrapper:last-of-type p.disc-child-1 {
     font-size: var(--paragraph-xsmall-size);
     line-height: var(--paragraph-xsmall-line-height);
   }
 }
 
-.section.compounding .default-content-wrapper:last-of-type ul.disc-child-2,
-.section.fdp-calculator .default-content-wrapper:last-of-type ul.disc-child-2 {
+.section.compounding .default-content-wrapper:last-of-type ul.disc-child-2, .section.fdp-calculator .default-content-wrapper:last-of-type ul.disc-child-2 {
   padding-left: 24px;
 }
 
-.section.compounding .default-content-wrapper:last-of-type ul.disc-child-2 li,
-.section.fdp-calculator .default-content-wrapper:last-of-type ul.disc-child-2 li {
+.section.compounding .default-content-wrapper:last-of-type ul.disc-child-2 li, .section.fdp-calculator .default-content-wrapper:last-of-type ul.disc-child-2 li {
   font-size: var(--disclaimer-xsmall-size);
   line-height: var(--disclaimer-xsmall-line-height);
   color: var(--text-disclaimer);
@@ -1177,8 +1055,7 @@
 }
 
 @media (width <= 768px) {
-  .section.compounding .default-content-wrapper:last-of-type ul.disc-child-2 li,
-  .section.fdp-calculator .default-content-wrapper:last-of-type ul.disc-child-2 li {
+  .section.compounding .default-content-wrapper:last-of-type ul.disc-child-2 li, .section.fdp-calculator .default-content-wrapper:last-of-type ul.disc-child-2 li {
     font-size: var(--paragraph-xsmall-size);
     line-height: var(--paragraph-xsmall-line-height);
     padding-right: 16px;

@@ -1,5 +1,7 @@
 /*   alpha-value-notation */
+
 /*   media-feature-range-notation */
+/* stylelint-disable */
 @import "../../../styles/fonts.css";
 @import "./faq-page.css";
 .accordion-container {
@@ -378,4 +380,4 @@
 }
 .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) ul li:first-of-type {
   background: #242177;
-}/*# sourceMappingURL=accordion.css.map */
+}

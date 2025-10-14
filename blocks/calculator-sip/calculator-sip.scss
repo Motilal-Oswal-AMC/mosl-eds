@@ -6,7 +6,6 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section {
-
   &.compounding,
   &.fdp-calculator {
     background-color: var(--neutrals-white);
@@ -317,6 +316,7 @@
                 padding: 0;
                 background-color: transparent;
                 box-shadow: none;
+
                 // margin-bottom: 8px;
               }
 
@@ -659,7 +659,7 @@
                         font-size: var(--body-small-medium-size);
                         line-height: var(--body-small-medium-line-height);
                         width: 100%;
-                        padding-right: 0px;
+                        padding-right: 0;
 
                         &::after {
                           right: 5px;
