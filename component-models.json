@@ -373,6 +373,10 @@
           {
             "name": "High Skin",
             "value": "high-skin"
+          },
+          {
+            "name": "PMS Choose",
+            "value": "pms-choose"
           }
         ]
       },

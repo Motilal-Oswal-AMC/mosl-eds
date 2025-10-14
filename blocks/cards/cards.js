@@ -38,4 +38,10 @@ export default function decorate(block) {
     Array.from(listul).forEach((Element, index) => Element.classList.add(`list-elem-${index + 1}`));
     Array.from(listul).forEach((Element) => Element.classList.add('common-list'));
   }
+
+    const pmsHighSkin = block.closest('.high-skin');
+  if (pmsHighSkin !== null) {
+    dataMapMoObj.CLASS_PREFIXES = ['pms-high-skin',"pms-high-skin-card","pms-high-skin-card-cont","pms-high-skin-card-subcont"];
+    dataMapMoObj.addIndexed(pmsHighSkin);
+  }
 }
