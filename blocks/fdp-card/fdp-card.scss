@@ -342,23 +342,27 @@ main {
 
           .nav-return-grp {
             display: flex;
-            flex-wrap: wrap;
-
+            
             // align-items: center;
             gap: 16px;
-
-            @include media(mobile) {
-              // padding-right: 35px;
-              // justify-content: space-between;
-              gap: 16px 9px;
+            
+            @include media(tab){
+              flex-wrap: wrap;
             }
+
+            // @include media(mobile) {
+            //   // padding-right: 35px;
+            //   // justify-content: space-between;
+            //   gap: 16px;
+            // }
 
             .return-grp {
               // max-width: 52.18%;
               // max-width: 192px;
               // width: 100%;
-              // position: relative;
-              width: auto;
+              position: relative;
+              max-width: 192px;
+              width: 100%;
               display: flex;
               align-items: center;
               flex-wrap: wrap;
@@ -394,7 +398,7 @@ main {
               }
 
               .dropdown {
-                position: relative;
+                // position: relative;
                 max-width: max-content;
                 width: 100%;
 
@@ -437,17 +441,17 @@ main {
 
                 .dropdownlist {
                   // width: 70px;
-                  width: max-content;
-                  max-width: unset;
+                  max-width:143px;
                   height: auto;
 
                   // top: 22px;
-                  top: 100%;
-                  left: -100%;
-                  margin: 4px 0 0 16px;
+                  top: 16px;
+                  // left: -100%;
+
+                  margin: 4px 0 0 ;
 
                   @include media(mobile) {
-                    margin: 2px 0 0 16px;
+                    margin: 2px 0 0 ;
                   }
 
                   .listval {
@@ -497,9 +501,9 @@ main {
 
             .nav-grp {
               // max-width: 43.48%;
-              // max-width: 160px;
-              // width: 100%;
-              width: auto;
+              // width: auto;
+              max-width: 160px;
+              width: 100%;
 
               // @include media(desktop-sm) {
               //   max-width: 47%;
