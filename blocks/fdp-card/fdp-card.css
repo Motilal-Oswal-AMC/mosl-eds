@@ -88,8 +88,8 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .dropdownlist .listval {
   padding: 8px 12px;
   cursor: pointer;
-  font-size: var(--body-xsmall-regular-size);
-  line-height: var(--body-xsmall-regular-line-height);
+  font-size: var(--paragraph-xsmall-size);
+  line-height: var(--paragraph-xsmall-line-height);
   color: var(--text-body);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -360,6 +360,17 @@ main {
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
     margin: 2px 0 0 16px;
+  }
+}
+.section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist .listval {
+  padding: 12px;
+  font-size: var(--body-xsmall-regular-size);
+  line-height: var(--body-xsmall-regular-line-height);
+}
+@media (max-width: 768px) {
+  .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist .listval {
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr {
