@@ -61,7 +61,7 @@ export default function decorate(block) {
           ),
         ),
         div(
-          { class: 'Redemption-Amount' },
+          { class: 'redemption-amount' },
           p(
             { class: 'key-facts-amounts-title' },
             block.querySelector('.block-subitem-finelsub3'),

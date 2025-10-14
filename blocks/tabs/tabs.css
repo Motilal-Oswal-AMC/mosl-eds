@@ -425,7 +425,6 @@ table>tbody>tr>td:nth-child(7) {
 }
 
 @media(width <=768px) {
-
   .schemename,
   .schemenum {
     height: 70px;
