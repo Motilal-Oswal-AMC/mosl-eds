@@ -480,15 +480,16 @@ main {
                 }
 
                 .percent {
-                  font-size: var(--body-large-semibold-size);
-                  line-height: var(--body-large-semibold-line-height);
+                  font-size: var(--body-large-regular-size);
+                  line-height: var(--body-large-regular-line-height);
                   color: var(--blue-1-800-primary);
                   font-family: var(--body);
                   font-feature-settings: var(--font-features-default);
-                  font-weight: 600;
+                  font-weight: 400;
 
                   @include media(mobile) {
-                    line-height: 32px;
+                    font-size: var(--body-large-regular-size);
+                    line-height: var(--body-large-regular-line-height);
                   }
                 }
               }

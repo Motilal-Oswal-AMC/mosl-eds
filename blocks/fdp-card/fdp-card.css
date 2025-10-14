@@ -387,16 +387,17 @@ main {
   margin: 0;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr .percent {
-  font-size: var(--body-large-semibold-size);
-  line-height: var(--body-large-semibold-line-height);
+  font-size: var(--body-large-regular-size);
+  line-height: var(--body-large-regular-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: var(--font-features-default);
-  font-weight: 600;
+  font-weight: 400;
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .return-cagr .percent {
-    line-height: 32px;
+    font-size: var(--body-large-regular-size);
+    line-height: var(--body-large-regular-line-height);
   }
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .nav-grp {
