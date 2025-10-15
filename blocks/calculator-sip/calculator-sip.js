@@ -7,7 +7,8 @@ import dataMapMoObj from '../../scripts/constant.js';
 export default function decorate(block) {
   // -------------------------------
   // ✅ 1. INITIAL SETUP & STATE
-  // -------------------------------
+  // -----------------------------
+  // --
   const col1 = block.children[0].querySelectorAll('p');
   const col2 = block.children[1].querySelectorAll('p');
   const col3 = block.children[2].querySelectorAll('p');
@@ -88,9 +89,12 @@ export default function decorate(block) {
           { class: 'plan-type-toggle' },
           span({ class: 'toggle-label active' }, 'Direct'),
           label(
-            { class: 'toggle-switch', for: 'planToggle' },
+            { class: 'toggle-switch', htmlFor: 'planToggle', 'aria-label': 'Switch between Direct and Regular Plan' },
             input({
-              type: 'checkbox', id: 'planToggle', class: 'toggle-inp', 'aria-label': 'Switch between Direct and Regular Plan',
+              type: 'checkbox',
+              id: 'planToggle',
+              class: 'toggle-inp',
+              'aria-label': 'Switch between Direct and Regular Plan',
             }),
             span({ class: 'slider' }),
           ),
@@ -122,12 +126,16 @@ export default function decorate(block) {
             //   id: 'investmentAmount',
             //   placeholder: 'Enter amount',
             // }),
+            label(
+              { for: 'investmentAmount', class: 'invest-lebal' },
+              'Enter Amount',
+            ),
             input({
               type: 'text', // Changed from 'number'
               inputmode: 'numeric', // Keeps numeric keyboard on mobile
-              value: Number(col2[2].textContent.trim()).toLocaleString('en-IN'), // Format the initial value
+              value: '10,000', // Format the initial value
               id: 'investmentAmount',
-              placeholder: 'Enter amount',
+              placeholder: '',
               class: 'investment-inp',
             }),
           ),
@@ -175,7 +183,7 @@ export default function decorate(block) {
             `${returnCAGR.toFixed(2)}  %`,
           ),
         ),
-        div({ class: 'start-sip-btn' }, button({ class: 'sip-btn' }, col4[3].textContent.trim())),
+        div({ class: 'start-sip-btn' }, a({ class: 'sip-btn' }, col4[3].textContent.trim())),
       ),
     ),
   );
@@ -194,7 +202,17 @@ export default function decorate(block) {
   // ✅ 3. DOM REFS
   // -------------------------------
   const sipBtn = calContainer.querySelector('.sip-btn');
+  const btncont = calContainer.querySelector('.start-sip-btn a');
+  btncont.setAttribute('href', '/motilalfigma/modals/invest-now-homepage');
+  sipBtn.addEventListener('click', () => {
+    btncont.textContent = '';
+    btncont.textContent = 'Start SIP';
+  });
   const lumpsumBtn = calContainer.querySelector('.lumpsum-btn');
+  lumpsumBtn.addEventListener('click', () => {
+    btncont.textContent = '';
+    btncont.textContent = 'Invest Now';
+  });
   const amountInput = calContainer.querySelector('#investmentAmount');
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
