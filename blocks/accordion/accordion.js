@@ -116,9 +116,11 @@ export default function decorate(block) {
     }
   });
 
-  if (window.location.href.includes('/motilalfigma/our-funds')) {
+  if (
+    window.location.href.includes('/motilalfigma/our-funds') || window.location.href.includes('/motilalfigma/motilal-oswal-edge')
+  ) {
     const mainwrapper = block.closest('.freq-ask-ques');
-    if (!mainwrapper.querySelector('faq-our-fund')) {
+    if (mainwrapper && !mainwrapper.querySelector('.faq-our-fund')) {
       const divwrapper = document.createElement('div');
       divwrapper.classList.add('faq-our-fund');
       Array.from(mainwrapper.children).forEach((elchild) => {
