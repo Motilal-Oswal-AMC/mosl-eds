@@ -156,7 +156,7 @@
   background-color: var(--blue-1-800-primary);
   padding: 0 4px;
 }
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input {
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform .email-imput {
   width: 100%;
   min-width: 200px;
   display: flex;
@@ -177,6 +177,13 @@
   border-radius: var(--border-radius-8);
   border: var(--border-width-01) solid var(--neutrals-white);
   background: transparent;
+}
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform .crossimg {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  display: none;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .errormsg {
   position: absolute;
