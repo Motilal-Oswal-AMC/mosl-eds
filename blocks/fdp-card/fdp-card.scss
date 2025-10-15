@@ -328,9 +328,10 @@ main {
 
                 &::after {
                   content: "";
-                  background: url("../../icons/arrow-down-blue.svg") center / cover no-repeat;
+                  background: url("../../icons/direction-right.svg") center / cover no-repeat;
                   background-position: center;
                   background-size: cover;
+                  transform: rotate(90deg);
                   width: 16px;
                   height: 16px;
 
@@ -445,7 +446,8 @@ main {
                   height: auto;
 
                   // top: 22px;
-                  top: 16px;
+                  top: 14px;
+
                   // left: -100%;
 
                   margin: 4px 0 0 ;

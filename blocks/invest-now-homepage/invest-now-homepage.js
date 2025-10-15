@@ -688,6 +688,7 @@ export async function existingUser(paramblock) {
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
+          e.target.value = inputValue.replace(/[^0-9]/g, '');
           if (phoneRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
@@ -1094,7 +1095,7 @@ export default function decorate(block) {
                 fieldlabel2,
               ),
               input({
-                class: 'stepupamt', type: 'text', id: 'stepamnt', value: '1,000', placeholder: fieldlabel2,
+                class: 'stepupamt', type: 'text', id: 'stepamnt', value: '1,000',
               }),
             ),
             div(
@@ -1126,7 +1127,7 @@ export default function decorate(block) {
               fieldlabel4,
             ),
             input({
-              class: 'maxstepupamt', type: 'text', id: 'maxsipamnt', value: '24,000', placeholder: fieldlabel4,
+              class: 'maxstepupamt', type: 'text', id: 'maxsipamnt', value: '24,000',
             }),
           ),
         ),

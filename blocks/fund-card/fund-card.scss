@@ -950,7 +950,23 @@
           }
 
           .dropdown-list {
-            max-height: 200px;
+            max-height: 155px;
+
+            &::-webkit-scrollbar {
+              width: 3px;
+              background-color: #464343;
+            }
+
+            &::-webkit-scrollbar-track {
+              width: 3px;
+              background-color: $primary-white;
+              border-radius: 0 1px 1px 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              width: 3px;
+              background-color: #464343;
+            }
           }
         }
       }
