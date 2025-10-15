@@ -123,6 +123,15 @@ export default function decorate(block) {
     if (mainwrapper && !mainwrapper.querySelector('.faq-our-fund')) {
       const divwrapper = document.createElement('div');
       divwrapper.classList.add('faq-our-fund');
+      if (block.closest('.table-wrapper')) {
+        divwrapper.classList.add('fdp-faq-inner');
+        block.closest('.table-wrapper').children[0]
+          .classList.add('accordian-parent');
+        block.closest('.table-wrapper').children[0]
+          .querySelector('p').classList.add('faq-title');
+        block.closest('.table-wrapper').children[2]
+          .classList.add('accor-parent');
+      }
       Array.from(mainwrapper.children).forEach((elchild) => {
         divwrapper.append(elchild);
       });

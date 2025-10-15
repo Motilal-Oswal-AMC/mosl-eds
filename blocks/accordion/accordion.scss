@@ -1,7 +1,7 @@
 /*   alpha-value-notation */
 
 /*   media-feature-range-notation */
-/* stylelint-disable */
+
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
@@ -134,12 +134,12 @@
 }
 
 .section.freq-ask-ques.fdp-faq {
-  .faq-our-fund {
+  .faq-our-fund.fdp-faq-inner {
     display: flex;
     flex-direction: column;
 
-    &>.default-content-wrapper:nth-child(1) {
-      p {
+    &>.default-content-wrapper:nth-child(1).accordian-parent {
+      p.faq-title {
         margin-bottom: 16px;
 
         @include media(mobile) {
@@ -154,7 +154,7 @@
       }
     }
 
-    &>.default-content-wrapper:nth-child(3) {
+    &>.default-content-wrapper:nth-child(3).accor-parent {
       margin-top: 32px;
 
       @include media(mobile) {
@@ -169,6 +169,7 @@
 .section.freq-ask-ques {
   width: 100%;
   background-color: #f5f5f5;
+
   // margin: 0;
 
   // padding: 40px 0;
