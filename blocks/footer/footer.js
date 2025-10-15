@@ -173,6 +173,25 @@ export default async function decorate(block) {
   ).forEach((efthre) => {
     efthre.classList.add('footerthr');
   });
+  const footerContainer = document.querySelector('.footer-sub3 .icon img');
+
+  if (footerContainer) {
+    footerContainer.setAttribute('alt', 'QR code');
+    // const altTextMap = {
+    //   'footer-bar-code': 'QR code',
+    // };
+    // const imagesToFix = footerContainer.querySelectorAll('img[alt=""]');
+
+    // imagesToFix.forEach((image) => {
+    //   const { iconName } = image.dataset;
+
+    //   const altText = altTextMap[iconName];
+
+  //   if (altText) {
+  //     image.setAttribute('alt', altText);
+  //   }
+  // });
+  }
 
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
@@ -200,4 +219,25 @@ export default async function decorate(block) {
     }
   }
   removeClassAfterDelay();
+}
+
+const container = document.querySelector('.footer-sub-cont3');
+
+if (container) {
+  const altTextMap = {
+    'footer-bar-code': 'QR code for app download',
+    'Playstore-footer': 'Google Play Store icon',
+    'Apple-footer': 'Apple App Store icon',
+  };
+
+  const images = container.querySelectorAll('img');
+
+  images.forEach((image) => {
+    const { iconName } = image.dataset;
+
+    const altText = altTextMap[iconName];
+    if (altText) {
+      image.setAttribute('alt', altText);
+    }
+  });
 }

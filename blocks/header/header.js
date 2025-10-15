@@ -221,7 +221,7 @@ export default async function decorate(block) {
       // --- Desktop Hover Logic ---
       navSection.addEventListener('mouseenter', () => { // mouseenter
         if (isDesktop.matches) {
-        // 1. Cancel any pending timer to close a menu when moving the mouse to a new item.
+          // 1. Cancel any pending timer to close a menu when moving the mouse to a new item.
           clearTimeout(leaveTimer);
 
           // 2. Standard open: Close all other menus first, then open the current one.
@@ -232,8 +232,8 @@ export default async function decorate(block) {
           // Prevent body scrolling while the menu is open.
           document.body.classList.add('no-scroll');
 
-        // *** CRITICAL FIX: The nested mouseleave listener was removed here. ***
-        // It was causing multiple redundant timers to fire.
+          // *** CRITICAL FIX: The nested mouseleave listener was removed here. ***
+          // It was causing multiple redundant timers to fire.
         }
 
         // ---------------------------------------------------------------------
@@ -393,6 +393,33 @@ export default async function decorate(block) {
         'sub-popup-list-row',
       ];
       subHeader.forEach((sublist) => dataMapMoObj.addIndexed(sublist));
+
+      // Find the main container of your component
+      const container = navSection.querySelector('.sub-popup-sec1');
+      if (container) {
+        const altTextMap = {
+          // FIX 1: Removed unnecessary quotes from valid identifier keys
+          Article: 'Article',
+          'youtube-1': 'Video',
+          'Press-Releases': 'Press Releases',
+          Interview: 'Interview',
+          'Article-image-hd': 'Featured article thumbnail',
+          'play-btnhd': 'Play video',
+          'currency-video': 'Featured video thumbnail',
+          'calendar-01': '',
+        };
+
+        const images = container.querySelectorAll('img');
+        images.forEach((img) => {
+          // FIX 2: Used object destructuring to get iconName from img.dataset
+          const { iconName } = img.dataset;
+          const altText = altTextMap[iconName];
+
+          if (altText !== undefined) {
+            img.setAttribute('alt', altText);
+          }
+        });
+      }
     });
 
     dataMapMoObj.CLASS_PREFIXES = [
