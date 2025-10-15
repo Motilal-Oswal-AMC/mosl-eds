@@ -231,3 +231,30 @@ export default function decorate(block) {
   // Run the check once on initial page load
   handleResize(mediaQuery);
 }
+// 1. Select the main component container.
+const container = document.querySelector('.make-index-funds.block');
+
+// 2. Proceed only if the component is found on the page.
+if (container) {
+  // 3. Define the correct alt text for the 'external-link' icon.
+  const altTextMap = {
+    'external-link': 'External Link',
+  };
+
+  // 4. Find all images within the container that have an empty alt attribute.
+  const imagesToFix = container.querySelectorAll('img[alt=""]');
+
+  // 5. Loop through each image and apply the fix.
+  imagesToFix.forEach((image) => {
+    // Get the icon's unique name from the 'data-icon-name' attribute.
+    const { iconName } = image.dataset;
+
+    // Look up the correct alt text in our map.
+    const altText = altTextMap[iconName];
+
+    // Set the alt attribute if a match was found.
+    if (altText) {
+      image.setAttribute('alt', altText);
+    }
+  });
+}

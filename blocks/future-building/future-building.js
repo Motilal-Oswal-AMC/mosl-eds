@@ -38,11 +38,6 @@ export default function decorate(block) {
     card2.classList.add('swiper-slide-cards-2');
     card2.innerHTML = textContent.innerHTML;
 
-    // Cards u li class added
-    // Array.from(card2.children[0].children).forEach((ele, ind) => {
-    //   ele.classList.add(`cards-list-${ind + 1}`);
-    // });
-
     dataMapMoObj.CLASS_PREFIXES = [
       'cards-list',
       'cards-list-1-',
@@ -55,6 +50,31 @@ export default function decorate(block) {
 
     swiperWrapper.appendChild(slide);
   });
+
+  // =================================================================
+  // START: Accessibility Fix for Missing Alt Text
+  // This new section adds alternative text to all icons in the swiper.
+  // =================================================================
+  const altTextMap = {
+    Article: 'Article icon',
+    'youtube-1': 'Video icon',
+    'mic-1': 'Podcast icon',
+    Subtract: 'Save for later', // Icon inside an empty link, describes its function
+    'calendar-01': '', // Decorative icon, alt text should be empty
+  };
+
+  const imagesToFix = swiperWrapper.querySelectorAll('img[alt=""]');
+  imagesToFix.forEach((img) => {
+    const { iconName } = img.dataset;
+    const altText = altTextMap[iconName];
+
+    if (altText !== undefined) {
+      img.setAttribute('alt', altText);
+    }
+  });
+  // =================================================================
+  // END: Accessibility Fix
+  // =================================================================
 
   // 4. Final assembly of the Swiper block
   block.appendChild(swiperWrapper);
@@ -83,7 +103,6 @@ export default function decorate(block) {
     swiperBtn.appendChild(nextButton);
 
     block.appendChild(swiperBtn);
-    // block.appendChild(nextButton);
     navigation = {
       nextEl: nextButton,
       prevEl: prevButton,
