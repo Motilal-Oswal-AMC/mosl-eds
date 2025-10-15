@@ -886,6 +886,7 @@ body.noscroll {
 
 .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li {
     width: 100%;
+    min-width: 170px;
 }
 
 /* .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
