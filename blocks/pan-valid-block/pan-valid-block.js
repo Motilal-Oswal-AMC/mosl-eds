@@ -1,6 +1,7 @@
 import dataMapMoObj from '../../scripts/constant.js';
 import {
-  div, input, label, p, img,
+  div, input, label, p, img, h2, span,
+  button,
 } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {
@@ -328,15 +329,131 @@ export default function decorate(block) {
       }
     }
   }
-  if (mofdp.querySelector('.section[data-id=reset-passcode-section]')) {
-    const resetPasscode = mofdp.querySelector('.section[data-id=reset-passcode-section]');
+  if (mofdp.querySelector('.reset-passcode')) {
+    const resetPasscode = mofdp.querySelector('.reset-passcode');
     dataMapMoObj.CLASS_PREFIXES = ['resetpasscode', 'innerpasscode'];
     dataMapMoObj.addIndexed(resetPasscode);
-    const resetpasstitle = mofdp.querySelector('.innerpasscode1').textContent;
-    const resetpassotp = mofdp.querySelector('.innerpasscode2').textContent;
-    const resetpassreotp = mofdp.querySelector('.innerpasscode3').textContent;
-    const resetnewpass = mofdp.querySelector('.innerpasscode4').textContent;
-    const resetconfpass = mofdp.querySelector('.innerpasscode5').textContent;
+    const resetmodalcross = mofdp.querySelector('.innerpasscode1').cloneNode(true);
+    const resetpasstitle = mofdp.querySelector('.innerpasscode2').textContent;
+    const resetpassotp = mofdp.querySelector('.innerpasscode3').textContent;
+    const resetpassreotp = mofdp.querySelector('.innerpasscode4').textContent;
+    const resetnewpass = mofdp.querySelector('.innerpasscode5').textContent;
+    const resetconfpass = mofdp.querySelector('.innerpasscode6').textContent;
+    const resetsubmit = mofdp.querySelector('.innerpasscode7').textContent;
 
+    const resetpasscont = div(
+      { class: 'reset-passcode-container' },
+      div({ class: 'modal-cross-wrap' }, resetmodalcross),
+      h2({ class: 'reset-title' }, resetpasstitle),
+      p({ class: 'reset-desc' }, 'OTP has been sent to arjXXXXX@gmail.com & Mobile 7498XXXX58. Receiving on SMS may have delay, check your Email.'),
+      div(
+        { class: 'reset-otp-wrap' },
+        p({ class: 'reset-otp-title' }, resetpassotp),
+        div(
+          { class: 'input-resend-wrap' },
+          div(
+            { class: 'otp-field-wrap' },
+            div(
+              { class: 'otp-wrap' },
+              input({ type: 'text', class: 'otp-inp', 'aria-label': 'OTP digit 1 of 6' }),
+            ),
+            div(
+              { class: 'otp-wrap' },
+              input({ type: 'text', class: 'otp-inp', 'aria-label': 'OTP digit 2 of 6' }),
+            ),
+            div(
+              { class: 'otp-wrap' },
+              input({ type: 'text', class: 'otp-inp', 'aria-label': 'OTP digit 3 of 6' }),
+            ),
+            div(
+              { class: 'otp-wrap' },
+              input({ type: 'text', class: 'otp-inp', 'aria-label': 'OTP digit 4 of 6' }),
+            ),
+            div(
+              { class: 'otp-wrap' },
+              input({ type: 'text', class: 'otp-inp', 'aria-label': 'OTP digit 5 of 6' }),
+            ),
+            div(
+              { class: 'otp-wrap' },
+              input({ type: 'text', class: 'otp-inp', 'aria-label': 'OTP digit 6 of 6' }),
+            ),
+          ),
+          span({ class: 'otp-msg' }, 'Incorrect OTP'),
+          button({ class: 'resend-btn' }, resetpassreotp),
+        ),
+      ),
+      div(
+        { class: 'new-passcode passcode' },
+        p({ class: 'new-pass-title passcode-title' }, resetnewpass),
+        div(
+          { class: 'new-pass-wrap passcode-field-wrap' },
+          div(
+            { class: 'pass-wrap' },
+            input({
+              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 1 of 4',
+            }),
+          ),
+          div(
+            { class: 'pass-wrap' },
+            input({
+              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 2 of 4',
+            }),
+          ),
+          div(
+            { class: 'pass-wrap' },
+            input({
+              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 4 of 4',
+            }),
+          ),
+          div(
+            { class: 'pass-wrap' },
+            input({
+              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 3 of 4',
+            }),
+          ),
+        ),
+        span({ class: 'passcode-msg' }, 'Incorrect Passcode'),
+      ),
+      div(
+        { class: 'conf-passcode passcode' },
+        p({ class: 'conf-pass-title passcode-title' }, resetconfpass),
+        div(
+          { class: 'conf-pass-wrap passcode-field-wrap' },
+          div(
+            { class: 'pass-wrap' },
+            input({
+              type: 'password', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 1 of 4',
+            }),
+          ),
+          div(
+            { class: 'pass-wrap' },
+            input({
+              type: 'password', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 2 of 4',
+            }),
+          ),
+          div(
+            { class: 'pass-wrap' },
+            input({
+              type: 'password', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 4 of 4',
+            }),
+          ),
+          div(
+            { class: 'pass-wrap' },
+            input({
+              type: 'password', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 3 of 4',
+            }),
+          ),
+        ),
+        span({ class: 'passcode-msg' }, 'Incorrect Passcode'),
+      ),
+      div(
+        { class: 'submt-btn' },
+        button({ class: 'submt-btn-txt' }, resetsubmit),
+      ),
+    );
+    if (!resetPasscode.querySelector('.reset-passcode-container')) {
+      resetPasscode.append(resetpasscont);
+      resetPasscode.querySelector('.resetpasscode1').style.display = 'none';
+    }
   }
 }

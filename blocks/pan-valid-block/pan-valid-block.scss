@@ -6,7 +6,7 @@
   max-width: 100%;
   width: 100%;
   height: 100%;
-  
+
   // background-color: #0009;
   display: flex;
   justify-content: end;
@@ -128,8 +128,8 @@
             cursor: pointer;
           }
 
-          &.active{
-            label{
+          &.active {
+            label {
               top: -8px;
               transform: unset;
               padding: 0 4px;
@@ -338,8 +338,8 @@
             /* Optional spacing */
           }
 
-          &.active{
-            .pan-fields-label{
+          &.active {
+            .pan-fields-label {
               top: -8px;
               transform: unset;
               padding: 0 4px;
@@ -500,7 +500,7 @@
       display: flex;
       max-width: 400px;
       width: 100%;
-      
+
       // height: 100vh;
       height: 100%;
       padding: 64px 16px;
@@ -655,17 +655,17 @@
         }
       }
 
-      .sub-otp-con5{
+      .sub-otp-con5 {
         position: absolute;
         top: 10px;
         right: 10px;
 
-        .icon-modal-btn{
+        .icon-modal-btn {
           width: 36px;
           height: 36px;
           cursor: pointer;
 
-          .otp-main-con1{
+          .otp-main-con1 {
             width: 100%;
             height: 100%;
           }
@@ -674,3 +674,322 @@
     }
   }
 }
+
+// Reset Passcode Start
+
+.section.reset-passcode {
+  width: 372px;
+  height: 100%;
+  background-color: var(--neutrals-white);
+  z-index: 1000;
+
+  .reset-passcode-container {
+    padding: 48px 16px;
+    height: 100%;
+    position: relative;
+
+    .modal-cross-wrap {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      cursor: pointer;
+
+      .innerpasscode1,
+      .innerpasscode1 .icon {
+        margin: 0;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .reset-title {
+      @include font-style(
+        var(--sub-header-medium-size),
+        var(--sub-header-medium-line-height),
+        var(--text-body),
+        500,
+        var(--body)
+      );
+
+      margin: 0 0 var(--spacing-20);
+
+      @include media(mobile) {
+        font-size: var(--paragraph-large-size);
+        line-height: var(--paragraph-medium-line-height);
+      }
+    }
+
+    .reset-desc {
+      @include font-style(
+        var(--body-medium-regular-size),
+        var(--body-medium-regular-line-height),
+        var(--text-body),
+        400,
+        var(--body)
+      );
+
+      margin: 0 0 var(--spacing-20);
+
+      @include media(mobile) {
+        font-size: var(--paragraph-small-size);
+        line-height: var(--paragraph-small-line-height);
+      }
+    }
+
+    .reset-otp-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-8);
+
+      .reset-otp-title {
+        margin: 0;
+
+        @include font-style(
+          var(--label-small-size),
+          var(--label-small-line-height),
+          var(--mo-body-copy-other),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--label-small-size);
+          line-height: var(--label-small-line-height);
+        }
+      }
+
+      .input-resend-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-16);
+
+        .otp-msg {
+          @include font-style(
+            var(--paragraph-xsmall-size),
+            var(--paragraph-xsmall-line-height),
+            var(--essentials-red),
+            400,
+            var(--body)
+          );
+
+          margin: -8px 0 0;
+          display: none;
+
+          @include media(mobile){
+            font-size: var(--paragraph-xsmall-size);
+            line-height: var(--paragraph-xsmall-line-height);
+          }
+        }
+
+        .otp-field-wrap {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-8);
+
+          .otp-wrap {
+            padding: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-8);
+            border: var(--border-width-01) solid var(--strokes-default);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .otp-inp {
+              width: 100%;
+              height: 100%;
+              border: none;
+              outline: none;
+              text-align: center;
+
+              @include font-style(
+                var(--body-xlarge-semibold-size),
+                var(--body-xlarge-semibold-line-height),
+                var(--text-typed-input),
+                600,
+                var(--body)
+              );
+            }
+
+            &:focus-within {
+              border: var(--border-width-02) solid var(--strokes-typing);
+
+              .otp-input {
+                caret-color: var(--strokes-typing);
+              }
+            }
+          }
+
+          &.otp-fail {
+            .otp-wrap {
+              border: var(--border-width-01) solid var(--strokes-error);
+            }
+
+            &~.otp-msg{
+              display: block;
+            }
+          }
+
+          &.otp-success {
+            .otp-wrap {
+              border: var(--border-width-01) solid var(--strokes-success);
+            }
+
+            &~.otp-msg{
+              display: none;
+            }
+          }
+        }
+
+        .resend-btn {
+          text-decoration: underline;
+          text-underline-offset: 20%;
+          margin: 0;
+          background-color: transparent;
+          border-radius: 0;
+          width: max-content;
+          padding: 0;
+          cursor: pointer;
+
+          @include font-style(
+            var(--text-link-small-size),
+            var(--text-link-small-line-height),
+            var(--text-text-link),
+            400,
+            var(--body)
+          );
+        }
+      }
+    }
+
+    .passcode {
+      margin: var(--spacing-20) 0 0;
+
+      &-title {
+        @include font-style(
+          var(--label-small-size),
+          var(--label-small-line-height),
+          var(--mo-body-copy-other),
+          400,
+          var(--body)
+        );
+
+        margin: 0 0 var(--spacing-8);
+      }
+
+      &-msg {
+        @include font-style(
+          var(--paragraph-xsmall-size),
+          var(--paragraph-xsmall-line-height),
+          var(--text-error),
+          400,
+          var(--body)
+        );
+
+        margin: 8px 0 0;
+        display: none;
+
+        @include media(mobile) {
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
+      }
+
+      &-field-wrap {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-8);
+
+        .pass-wrap {
+          border-radius: var(--border-radius-8);
+          border: var(--border-width-01) solid var(--strokes-default);
+          width: 40px;
+          height: 40px;
+          padding: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .pass-inp {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            text-align: center;
+
+            @include font-style(
+              var(--body-xlarge-semibold-size),
+              var(--body-xlarge-semibold-line-height),
+              var(--strokes-on-surface-02),
+              600,
+              var(--body)
+            );
+          }
+
+          &:focus-within {
+            border: var(--border-width-02, 2px) solid var(--strokes-typing);
+
+            .pass-inp {
+              caret-color: var(--strokes-typing);
+            }
+          }
+        }
+
+        &.passcode-fail {
+          .pass-wrap {
+            border: var(--border-width-01) solid var(--strokes-error);
+
+            .pass-inp {
+              color: var(--strokes-error);
+            }
+          }
+
+          & ~ .passcode-msg {
+            display: block;
+          }
+        }
+
+        &.passcode-success {
+          .pass-wrap {
+            border: var(--border-width-01) solid var(--strokes-success);
+
+            .pass-inp {
+              color: var(--strokes-success);
+            }
+          }
+
+          & ~ .passcode-msg {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .submt-btn {
+      &-txt {
+        margin: var(--spacing-40) 0 0;
+        border-radius: var(--border-radius-8);
+        background: var(--button-primary-default);
+        width: 100%;
+        cursor: pointer;
+
+        @include font-style(
+          var(--button-medium-size),
+          var(--button-medium-line-height),
+          var(--text-white),
+          500,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--button-medium-size);
+          line-height: var(--button-medium-line-height);
+        }
+      }
+    }
+  }
+}
+
+// Reset Passcode End
