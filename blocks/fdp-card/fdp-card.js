@@ -433,7 +433,7 @@ export default function decorate(block) {
                   },
                 },
                 ...tempReturns.map((eloption) => li({
-                  class: 'listval',
+                  class: `listval ${textvalret === eloption.replace('Since', '') ? 'active' : ''}`,
                   value: dataMapMoObj.ObjTempfdp[eloption],
                 }, eloption)),
               ),

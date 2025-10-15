@@ -565,7 +565,7 @@
                     &::before {
                       content: "₹";
                       position: absolute;
-                      top: 50%;
+                      top: 52%;
                       left: 0;
                       transform: translateY(-50%);
                       pointer-events: none;
@@ -592,7 +592,7 @@
                         var(--body));
 
                       height: 100%;
-                      padding-left: 12px;
+                      padding-left: 14px;
                       appearance: none;
                       outline: none;
                       background-color: transparent;

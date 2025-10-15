@@ -267,7 +267,7 @@
                   font-weight: 400;
                   line-height: map.get($typography-desktop, disclaimer-xsmall-line-height);
                   display: flex;
-                  align-items: flex-start;
+                  align-items: center;
 
                   @include media(mobile) {
                     @include font-style(

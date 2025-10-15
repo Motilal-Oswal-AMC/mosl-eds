@@ -539,7 +539,7 @@
 .section.compounding .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before, .section.fdp-calculator .compounding-two-inner .calculator-sip-wrapper .calculator-sip .cal-container .spi-wrapper .investment-wrapper .sip-wrapper .input-with-symbol::before {
   content: "₹";
   position: absolute;
-  top: 50%;
+  top: 52%;
   left: 0;
   transform: translateY(-50%);
   pointer-events: none;
@@ -564,7 +564,7 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   height: 100%;
-  padding-left: 12px;
+  padding-left: 14px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
