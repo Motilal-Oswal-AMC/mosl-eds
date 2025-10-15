@@ -135,6 +135,12 @@
     line-height: var(--body-medium-regular-line-height);
   }
 }
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::-moz-placeholder {
+  visibility: hidden;
+}
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search::placeholder {
+  visibility: hidden;
+}
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .cancel-search {
   max-width: 24px;
   width: 100%;
@@ -210,6 +216,47 @@
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .search-input.search-active .list-search {
   display: block;
+}
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input .search-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 40px;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  color: var(--text-body-2);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-family: var(--body);
+  font-size: var(--body-medium-regular-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--body-medium-regular-line-height);
+}
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input:has(.search:not(:-moz-placeholder)) .search-label {
+  top: -10px;
+  left: 35px;
+  transform: translateY(0);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--strokes-typing, #1887D2);
+  background-color: var(--neutrals-100);
+  padding: 0 5px;
+}
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input:has(.search:focus) .search-label,
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input:has(.search:not(:placeholder-shown)) .search-label {
+  top: -10px;
+  left: 35px;
+  transform: translateY(0);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--strokes-typing, #1887D2);
+  background-color: var(--neutrals-100);
+  padding: 0 5px;
+}
+.section .our-funds-block .fundcontainer .search-trending-wrapper .search-input:has(.search:focus) .search {
+  border-color: var(--strokes-typing, #1887D2);
 }
 .section .our-funds-block .fundcontainer .search-trending-wrapper .watchlist {
   display: flex;
@@ -1275,6 +1322,9 @@
   top: 2px;
   transform: translateX(2px);
   transition: all 0.3s;
+}
+.section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap .fund-toggle .label-text {
+  display: none;
 }
 .section .our-funds-block .filter-cards .right-container .sort-pop-container .group-view-container .togglebtn .fund-toggle-wrap input:checked + .fund-toggle::before {
   transform: translateX(22px);
