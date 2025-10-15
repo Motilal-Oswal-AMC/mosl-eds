@@ -513,6 +513,8 @@
 @media (max-width: 768px) {
   .section.contact-us-map-container .contact-us-map-wrapper .contact-us-map .contact-us-parent .location-map .loc-geo {
     height: 199px;
+    max-width: 334px;
+    width: 100%;
     grid-row: 1;
   }
 }
