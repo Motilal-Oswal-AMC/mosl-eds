@@ -717,8 +717,34 @@ export default function decorate(block) {
   dataMapMoObj.CLASS_PREFIXES = ['mainbreadcrb', 'subbreadcrb', 'innerbreadcrb', 'breadcrbmain'];
   dataMapMoObj.addIndexed(ulElement);
 
-  mainBlock.querySelector('.subbreadcrb2').addEventListener('click', () => {
+  mainBlock.querySelector('.subbreadcrb2').addEventListener('click', async (event) => {
     const breadcrumb = document.querySelector('.breadcrbmain2');
+    if (event.target.textContent === 'Copy') {
+      const urlCopied = block.closest('main').querySelector('.breadcrumbs-fdp .listindex5');
+    try {
+      const currentUrl = window.location.href;
+      await navigator.clipboard.writeText(currentUrl);
+
+      // Provide feedback to the user!
+      // alert('URL copied to clipboard!');
+      urlCopied.style.display = 'block';
+      setTimeout(()=>{
+        urlCopied.style.display = 'none';
+        breadcrumb.style.display = 'none';
+      },1000);
+    } catch (err) {
+      // Catch potential errors and inform the user
+      // console.error('Failed to copy URL: ', err);
+      //alert('Could not copy URL. Please make sure the window is focused.');
+      urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
+      urlCopied.style.display = 'block';
+      setTimeout(()=>{
+        urlCopied.style.display = 'none';
+      },1000);
+
+    }
+      return false
+    }
     if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
       breadcrumb.style.display = 'block';
     } else {
@@ -736,8 +762,9 @@ export default function decorate(block) {
   const shareContainer = imgAltmain.querySelector('.subbreadcrb2 .breadcrbmain2');
 
   // Loop through children just to prepare them (e.g., remove href)
-  Array.from(shareContainer.children).forEach((listItem) => {
+  Array.from(shareContainer.children).forEach((listItem, index) => {
     // Find the list item that contains the text 'Copy'
+    listItem.classList.add(`listindex${index+1}`)
     if (listItem.textContent.trim().includes('Copy')) {
       const link = listItem.querySelector('a');
       if (link) {
@@ -759,24 +786,19 @@ export default function decorate(block) {
     }
 
     // Prevent default behavior, like navigating if the href wasn't removed
-    event.preventDefault();
-
-    try {
-      const currentUrl = window.location.href;
-      await navigator.clipboard.writeText(currentUrl);
-
-      // Provide feedback to the user!
-      alert('URL copied to clipboard!');
-    } catch (err) {
-      // Catch potential errors and inform the user
-      // console.error('Failed to copy URL: ', err);
-      alert('Could not copy URL. Please make sure the window is focused.');
-    }
+    // event.preventDefault();
   });
 
   // plantext
   block.querySelector('.btn-wrapper').addEventListener('click', () => {
     const plantext = block.querySelector('.middlediv .selecttext');
     dataMapMoObj.planText = plantext.textContent.trim();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
+      const breadcrumb = document.querySelector('.breadcrbmain2');
+      breadcrumb.style.display = 'none';
+    }
   });
 }

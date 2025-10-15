@@ -890,6 +890,24 @@ body.noscroll {
     width: 100%;
 }
 
+.breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li:last-of-type {
+    position: fixed;
+    right: 39%;
+    margin: 0 auto;
+    width: max-content;
+    bottom: 20px;
+    background-color: var(--neutrals-white);
+    color: var(--blue-1-800-primary);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+    padding: 4px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    font-family: var(--body);
+    display: none;
+}
+
 /* .breadcrumbs-fdp>.default-content-wrapper>ul:nth-child(2) ul>li>a {
     width: 100%;
     display: flex;
@@ -986,8 +1004,8 @@ position: relative;
     font-feature-settings: var(--font-features-default);
     font-family: var(--title);
     font-weight: 600;
-    font-size: var(--sub-header-large-size);
-    line-height: var(--sub-header-medium-line-height);
+    font-size: var(--heading-h5-size);
+    line-height: var(--heading-h5-line-height);
 }
 
 .pan-details-modal .default-content-wrapper ul.subpandts3 {
@@ -1036,8 +1054,8 @@ position: relative;
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
     font-weight: 400;
-    font-size: var(--paragraph-xsmall-size, 12px);
-    line-height: var(--paragraph-xsmall-line-height, 16px);
+    font-size: var(--paragraph-xsmall-size);
+    line-height: var(--paragraph-xsmall-line-height);
 }
 
 .pan-details-modal .default-content-wrapper p.subpandts4>span.icon-modal-btn {
@@ -1057,11 +1075,9 @@ position: relative;
 
 
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper {
-    padding: 10px 12px;
     border-radius: var(--border-radius-8);
     border: var(--border-width-01) solid var(--strokes-default);
     position: relative;
-
 }
 
 .pan-details-modal p.subpandts2>.input-wrapper>p {
@@ -1123,7 +1139,31 @@ position: relative;
     padding: 0 4px;
 }
 
-.pan-details-modal .default-content-wrapper p.subpandts2>.show-error {
+.pan-details-modal .default-content-wrapper p.subpandts2 .error-pan {
+    color: var(--text-error);
+    font-feature-settings: var(--font-features-default);
+    font-family: var(--body);
+    font-size: var(--paragraph-xsmall-size);
+    font-weight: 400;
+    line-height: var(--paragraph-xsmall-line-height);
+    margin: 4px 0 0;
+    display: none;
+}
+
+.pan-details-modal .default-content-wrapper p.subpandts2 .input-wrapper.show-error {
+    border: var(--border-width-01) solid var(--strokes-error);
+}
+
+.pan-details-modal .default-content-wrapper p.subpandts2 .input-wrapper.show-error .iptpanfld {
+    background: url('../icons/icon-error.svg') center right 12px / 24px 24px no-repeat;
+    padding: 10px 40px 10px 12px;
+}
+
+.pan-details-modal .default-content-wrapper p.subpandts2 .input-wrapper.show-error~.error-pan {
+    display: block;
+}
+
+/* .pan-details-modal .default-content-wrapper p.subpandts2>.show-error {
     display: block;
     color: red;
     font-size: 12px;
@@ -1133,14 +1173,15 @@ position: relative;
 
 .pan-details-modal .default-content-wrapper p.subpandts2>.hide-error {
     display: none;
-}
+} */
 
 
 .pan-details-modal p.subpandts2>.input-wrapper>.iptpanfld {
+    padding: 10px 12px;
     border: none;
     width: 100%;
+    border-radius: var(--border-radius-8);
     text-transform: uppercase;
-    color: var(--text-default-input);
     color: var(--text-typed-input);
     font-feature-settings: var(--font-features-default);
     font-family: var(--body);
@@ -1182,11 +1223,37 @@ position: relative;
 } */
 
 
-@media (width <=786px) {
+@media (width <=768px) {
     .pan-details-modal .mainpandts1 {
         padding: 64px 16px;
         border-radius: 32px 32px 0 0;
         max-width: 100%;
+    }
+
+    .pan-details-modal .default-content-wrapper h5 {
+        font-size: var(--sub-header-large-size);
+        line-height: 28px;
+    }
+
+    .pan-details-modal p.subpandts2>.input-wrapper>.iptpanfld,
+    .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper>label {
+        font-size: var(--body-medium-regular-size);
+        line-height: var(--body-medium-regular-line-height);
+    }
+
+    .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper.active .panlabel {
+        font-size: var(--label-small-size);
+        line-height: var(--label-small-line-height);
+    }
+
+    .pan-details-modal .default-content-wrapper ul.subpandts3 li.innerpandts1 {
+        font-size: var(--button-medium-size);
+        line-height: var(--button-medium-line-height);
+    }
+
+    .pan-details-modal .default-content-wrapper ul.subpandts3 li.innerpandts2 {
+        font-size: var(--paragraph-xsmall-size);
+        line-height: var(--paragraph-xsmall-line-height);
     }
 }
 

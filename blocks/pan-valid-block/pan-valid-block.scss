@@ -106,12 +106,12 @@
             font-style: normal;
             font-weight: 400;
             line-height: 16px;
-            padding-left: 6px;
             cursor: pointer;
             position: absolute;
-            top: -7px;
+            top: 50%;
+            transform: translateY(-50%);
             background: white;
-            transition: top 0.8s ease;
+            transition: top 0.3s ease;
 
             // &:hover {
             //   position: absolute;
@@ -126,6 +126,14 @@
             position: absolute;
             right: 11px;
             cursor: pointer;
+          }
+
+          &.active{
+            label{
+              top: -8px;
+              transform: unset;
+              padding: 0 4px;
+            }
           }
         }
 
@@ -283,12 +291,12 @@
             font-style: normal;
             font-weight: 400;
             line-height: 16px;
-            padding-left: 6px;
             position: absolute;
             cursor: pointer;
-            top: -7px;
+            top: 50%;
+            transform: translateY(-50%);
             background: white;
-            transition: top 0.8s ease;
+            transition: top 0.3s ease;
           }
 
           .fdp-valid-form {
@@ -328,6 +336,14 @@
             margin-right: 4px;
 
             /* Optional spacing */
+          }
+
+          &.active{
+            .pan-fields-label{
+              top: -8px;
+              transform: unset;
+              padding: 0 4px;
+            }
           }
         }
 

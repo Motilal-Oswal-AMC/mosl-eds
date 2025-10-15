@@ -688,6 +688,7 @@ export async function existingUser(paramblock) {
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
+          e.target.value = inputValue.replace(/[^0-9]/g, '');
           if (phoneRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
