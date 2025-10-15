@@ -416,6 +416,8 @@ $breakpoint-desktop: 1100px;
             bottom: 0;
             margin: 0;
             aspect-ratio: 1/1;
+            line-height: 0;
+            font-size: 0;
 
             
             @include media(desktop-md) {

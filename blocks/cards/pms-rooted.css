@@ -380,6 +380,8 @@
   bottom: 0;
   margin: 0;
   aspect-ratio: 1/1;
+  line-height: 0;
+  font-size: 0;
 }
 @media (max-width: 1367px) {
   .section.pms-choose .pms-choose2 .pms-choose-detail12 {
