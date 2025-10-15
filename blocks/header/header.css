@@ -706,6 +706,10 @@ header nav .nav-sections ul>li>ul {
     padding: 14px 0;
 }
 
+.section.sub-popup-header.mosl-edge-header .default-content-wrapper .sub-popup-sec1 .sub-popup-sub2 {
+    padding-bottom: 0;
+}
+
 .sub-popup-header .default-content-wrapper .sub-popup-sec1 li .sub-popup-inner-text2 li.comlist {
     width: 100%;
     color: var(--neutrals-black);
@@ -1673,6 +1677,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
 
     @media (width <=1279px) {
+        header nav .nav-brand {
+            padding-right: 25px;
+        }
+
         header nav[aria-expanded='true'] {
             padding: 0 24px;
         }
@@ -1683,6 +1691,11 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
         header nav .nav-sections .section.sub-popup-header {
             padding: 0 24px;
+        }
+        
+        header nav .section.header-top,
+        header nav[aria-expanded="true"] .section.header-top {
+            width: 100%;
         }
 
         header nav .nav-sections .nav-drop .nav-sec-inner-text1 .nav-sec-list1 {
@@ -1889,10 +1902,11 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     header nav .nav-sections .nav-sec-sec1 {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
         flex-direction: unset;
         gap: 20px;
         margin: 0;
+
+        /* justify-content: flex-end; */
     }
 
     header nav .nav-sections .nav-sec-cont1 .nav-sec-sec1>li {
@@ -2024,7 +2038,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     }
 
     .section.sub-popup-header.our-popular-funds .default-content-wrapper .sub-popup-sec1 {
-        gap: 66px 102px;
+        gap: 66px 112px;
         justify-content: flex-start;
     }
 
