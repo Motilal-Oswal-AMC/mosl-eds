@@ -260,7 +260,7 @@
   font-weight: 400;
   line-height: 16px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 @media (max-width: 768px) {
   .section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 > ul.cards-listcards1 > li.cards-list-1-cards1 ul.list-child-12 li {

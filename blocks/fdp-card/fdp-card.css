@@ -352,7 +352,7 @@ main {
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .dropdownlist {
   max-width: 143px;
   height: auto;
-  top: 16px;
+  top: 14px;
   margin: 4px 0 0;
 }
 @media (max-width: 768px) {
