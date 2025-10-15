@@ -1029,6 +1029,7 @@
                               top: 50%;
                               left: 12px;
                               transform: translateY(-50%);
+                              display: none;
 
                               @include font-style(
                                 var(--body-medium-regular-size),
@@ -1056,9 +1057,11 @@
 
                               padding: 0 4px;
                               position: absolute;
-                              top: -8px;
+                              top: 50%;
                               left: 8px;
+                              transform: translateY(-50%);
                               background-color: #fff;
+                              transition: all 0.3s;
 
                               @include media(mobile) {
                                 font-size: var(--label-small-size);
@@ -1084,6 +1087,17 @@
                                 font-size: var(--input-field-medium-size);
                                 line-height: var(--input-field-medium-line-height);
                                 color: var(--surface-text-neutral-normal);
+                              }
+                            }
+
+                            &.active{
+                              &::before{
+                                display: block;
+                              }
+
+                              .stepuplabel{
+                                top: -8px;
+                                transform: unset;
                               }
                             }
                           }
@@ -1234,12 +1248,13 @@
                         .maxstepupfield {
                           position: relative;
 
-                          &::after {
+                          &::before {
                             content: "₹";
                             position: absolute;
                             top: 50%;
                             left: 12px;
                             transform: translateY(-50%);
+                            display: none;
 
                             @include font-style(
                               var(--body-medium-regular-size),
@@ -1266,10 +1281,12 @@
                             );
 
                             position: absolute;
-                            top: -8px;
+                            top: 50%;
                             left: 12px;
+                            transform: translateY(-50%);
                             background-color: #fff;
                             padding: 0 4px;
+                            transition: all 0.3s;
                           }
 
                           .maxstepupamt {
@@ -1290,6 +1307,17 @@
                               color: var(--surface-text-neutral-normal);
                               font-size: var(--input-field-medium-size);
                               line-height: var(--input-field-medium-line-height);
+                            }
+                          }
+
+                          &.active{
+                            &::before{
+                              display: block;
+                            }
+
+                            .maxstepuplabel{
+                              top: -8px;
+                              transform: unset
                             }
                           }
                         }
@@ -2192,6 +2220,7 @@
 
       @media (width <= 768px) {
         align-items: end;
+        flex-direction: column;
 
         // transform: translateY(0);
       }

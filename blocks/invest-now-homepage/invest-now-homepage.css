@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /* Reset */
 @import "../../../styles/fonts.css";
 /* stylelint-disable */
@@ -941,6 +940,7 @@
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
+  display: none;
   font-size: var(--body-medium-regular-size);
   line-height: var(--body-medium-regular-line-height);
   color: var(--neutrals-900);
@@ -964,9 +964,11 @@
   font-weight: 400;
   padding: 0 4px;
   position: absolute;
-  top: -8px;
+  top: 50%;
   left: 8px;
+  transform: translateY(-50%);
   background-color: #fff;
+  transition: all 0.3s;
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .form-container .input-wrapper .inputfield .stepupfield .stepuplabel {
@@ -992,6 +994,13 @@
     line-height: var(--input-field-medium-line-height);
     color: var(--surface-text-neutral-normal);
   }
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .form-container .input-wrapper .inputfield .stepupfield.active::before {
+  display: block;
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .form-container .input-wrapper .inputfield .stepupfield.active .stepuplabel {
+  top: -8px;
+  transform: unset;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .form-container .input-wrapper .inputfield .stepupfieldrop {
   max-width: 48.237%;
@@ -1118,12 +1127,13 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .maxsipfield .maxstepupfield {
   position: relative;
 }
-.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .maxsipfield .maxstepupfield::after {
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .maxsipfield .maxstepupfield::before {
   content: "₹";
   position: absolute;
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
+  display: none;
   font-size: var(--body-medium-regular-size);
   line-height: var(--body-medium-regular-line-height);
   color: var(--neutrals-900);
@@ -1132,7 +1142,7 @@
   font-weight: 400;
 }
 @media (max-width: 768px) {
-  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .maxsipfield .maxstepupfield::after {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .maxsipfield .maxstepupfield::before {
     color: var(--surface-text-neutral-normal);
     font-size: var(--input-field-medium-size);
     line-height: var(--input-field-medium-line-height);
@@ -1146,10 +1156,12 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   position: absolute;
-  top: -8px;
+  top: 50%;
   left: 12px;
+  transform: translateY(-50%);
   background-color: #fff;
   padding: 0 4px;
+  transition: all 0.3s;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .maxsipfield .maxstepupfield .maxstepupamt {
   border: var(--border-width-02) solid var(--action-border-neutral-normal);
@@ -1169,6 +1181,13 @@
     font-size: var(--input-field-medium-size);
     line-height: var(--input-field-medium-line-height);
   }
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .maxsipfield .maxstepupfield.active::before {
+  display: block;
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .maxsipfield .maxstepupfield.active .maxstepuplabel {
+  top: -8px;
+  transform: unset;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .input-contain .discription2 {
   font-size: var(--paragraph-xsmall-size);
@@ -1923,6 +1942,7 @@
 @media (width <= 768px) {
   .modal.modal-journey.block dialog[open] {
     align-items: end;
+    flex-direction: column;
   }
 }
 .modal.modal-journey.block dialog .close-button {
@@ -1963,4 +1983,4 @@
     border-radius: 24px 24px 0 0;
     max-width: 100%;
   }
-}
+}/*# sourceMappingURL=invest-now-homepage.css.map */
