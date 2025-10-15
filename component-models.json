@@ -365,6 +365,10 @@
           {
             "name": "FLP Growth",
             "value": "flp-growth"
+          },
+          {
+            "name": "Reset Passcode",
+            "value": "reset-passcode"
           }
         ]
       },

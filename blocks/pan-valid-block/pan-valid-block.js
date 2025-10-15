@@ -328,4 +328,15 @@ export default function decorate(block) {
       }
     }
   }
+  if (mofdp.querySelector('.section[data-id=reset-passcode-section]')) {
+    const resetPasscode = mofdp.querySelector('.section[data-id=reset-passcode-section]');
+    dataMapMoObj.CLASS_PREFIXES = ['resetpasscode', 'innerpasscode'];
+    dataMapMoObj.addIndexed(resetPasscode);
+    const resetpasstitle = mofdp.querySelector('.innerpasscode1').textContent;
+    const resetpassotp = mofdp.querySelector('.innerpasscode2').textContent;
+    const resetpassreotp = mofdp.querySelector('.innerpasscode3').textContent;
+    const resetnewpass = mofdp.querySelector('.innerpasscode4').textContent;
+    const resetconfpass = mofdp.querySelector('.innerpasscode5').textContent;
+
+  }
 }
