@@ -88,9 +88,12 @@ export default function decorate(block) {
           { class: 'plan-type-toggle' },
           span({ class: 'toggle-label active' }, 'Direct'),
           label(
-            { class: 'toggle-switch', for: 'planToggle' },
+            { class: 'toggle-switch', htmlFor: 'planToggle', 'aria-label': 'Switch between Direct and Regular Plan' },
             input({
-              type: 'checkbox', id: 'planToggle', class: 'toggle-inp', 'aria-label': 'Switch between Direct and Regular Plan',
+              type: 'checkbox',
+              id: 'planToggle',
+              class: 'toggle-inp',
+              'aria-label': 'Switch between Direct and Regular Plan',
             }),
             span({ class: 'slider' }),
           ),
@@ -122,12 +125,16 @@ export default function decorate(block) {
             //   id: 'investmentAmount',
             //   placeholder: 'Enter amount',
             // }),
+            label(
+              { for: 'investmentAmount', class: 'invest-lebal' },
+              'Enter Amount',
+            ),
             input({
               type: 'text', // Changed from 'number'
               inputmode: 'numeric', // Keeps numeric keyboard on mobile
-              value: Number(col2[2].textContent.trim()).toLocaleString('en-IN'), // Format the initial value
+              value: '10,000', // Format the initial value
               id: 'investmentAmount',
-              placeholder: 'Enter amount',
+              placeholder: '',
               class: 'investment-inp',
             }),
           ),

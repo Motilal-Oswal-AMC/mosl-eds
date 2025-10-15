@@ -428,7 +428,7 @@
                         height: 16.5px;
                         width: 16.5px;
                         left: 2px;
-                        bottom: 2px;
+                        bottom: 1.5px;
                         background-color: var(--neutrals-white);
                         transition: 0.4s;
                         border-radius: 16.667px;
@@ -556,11 +556,6 @@
                     position: relative;
                     display: flex;
                     align-items: center;
-                    gap: 18px;
-
-                    @include media(mobile) {
-                      gap: 15px;
-                    }
 
                     &::before {
                       content: "₹";
@@ -582,6 +577,37 @@
                         font-size: var(--body-small-medium-size);
                         line-height: var(--body-small-medium-line-height);
                       }
+                    }
+
+                    .invest-lebal {
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      left: 16px;
+                      pointer-events: none;
+                      transition: all 0.2s ease-out;
+                      height: 100%;
+                      appearance: none;
+                      outline: none;
+                      background-color: transparent;
+                      border: none;
+
+                      @include font-style(var(--body-medium-medium-size),
+                        var(--body-medium-medium-line-height),
+                        var(--blue-1-800-primary),
+                        map.get($font-weights, medium),
+                        var(--body));
+
+
+                      @include media(mobile) {
+                        padding-left: 15px;
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
+                      }
+
+                      // &:focus{
+                      //   display: none
+                      // }
                     }
 
                     .investment-inp {
@@ -611,6 +637,11 @@
                       //     map.get($font-weights, medium),
                       //     var(--body));
                       // }
+                    }
+
+                    &:has(.investment-inp:focus) .invest-lebal,
+                    &:has(.investment-inp:not(:placeholder-shown)) .invest-lebal {
+                      display: none;
                     }
                   }
 

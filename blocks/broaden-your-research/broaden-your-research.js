@@ -224,3 +224,28 @@ export default function decorate(block) {
   // Run the check once on initial page load
   handleResize(mediaQuery);
 }
+
+// 1. Select the main container for the component.
+const container = document.querySelector('.broaden-your-research.block');
+
+// 2. Run the script only if the container exists.
+if (container) {
+  // 3. Create a simple map for icon names to their alt text.
+  const altTextMap = {
+    'external-link': 'External Link',
+  };
+
+  // 4. Find all images within the container that have an empty alt attribute.
+  const imagesToFix = container.querySelectorAll('img[alt=""]');
+
+  // 5. Loop through each image and set its alt text from the map.
+  imagesToFix.forEach((image) => {
+    const { iconName } = image.dataset; // Get the data-icon-name
+    const altText = altTextMap[iconName]; // Look up the alt text
+
+    // Set the alt attribute if a match is found.
+    if (altText) {
+      image.setAttribute('alt', altText);
+    }
+  });
+}
