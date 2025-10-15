@@ -170,36 +170,47 @@
                                 padding: 0 4px;
                             }
 
-                            input {
-                                width: 100%;
-                                min-width: 200px;
-                                display: flex;
-                                padding: var(--spacing-8) var(--spacing-12);
-                                flex-direction: column;
-                                justify-content: flex-end;
-                                align-items: flex-start;
-                                gap: 4px;
-                                align-self: stretch;
-                                height: 40px;
-                                color: var(--neutrals-200);
-                                font-feature-settings: var(--font-features-default);
-                                font-family: var(--body);
-                                font-size: var(--body-medium-regular-size);
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: var(--body-medium-regular-line-height);
-                                border-radius: var(--border-radius-8);
-                                border: var(--border-width-01) solid var(--neutrals-white);
-                                background: transparent;
+                            .wrapimgform {
+                                .email-imput {
+                                    width: 100%;
+                                    min-width: 200px;
+                                    display: flex;
+                                    padding: var(--spacing-8) var(--spacing-12);
+                                    flex-direction: column;
+                                    justify-content: flex-end;
+                                    align-items: flex-start;
+                                    gap: 4px;
+                                    align-self: stretch;
+                                    height: 40px;
+                                    color: var(--neutrals-200);
+                                    font-feature-settings: var(--font-features-default);
+                                    font-family: var(--body);
+                                    font-size: var(--body-medium-regular-size);
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: var(--body-medium-regular-line-height);
+                                    border-radius: var(--border-radius-8);
+                                    border: var(--border-width-01) solid var(--neutrals-white);
+                                    background: transparent;
 
-                                // &::placeholder {
-                                //     color: var(--neutrals-200);
-                                //     font-feature-settings: var(--font-features-default);
-                                //     font-family: var(--body);
-                                //     font-size: var(--body-medium-regular-size);
-                                //     font-weight: 400;
-                                //     line-height: var(--body-medium-regular-line-height);
-                                // }
+                                    // &::placeholder {
+                                    //     color: var(--neutrals-200);
+                                    //     font-feature-settings: var(--font-features-default);
+                                    //     font-family: var(--body);
+                                    //     font-size: var(--body-medium-regular-size);
+                                    //     font-weight: 400;
+                                    //     line-height: var(--body-medium-regular-line-height);
+                                    // }
+                                }
+
+                                .crossimg {
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 12px;
+                                    transform: translateY(-50%);
+                                    display: none;
+                                }
+
                             }
 
                             .errormsg {
@@ -928,7 +939,7 @@
         height: 56px;
         border-radius: 28px;
         background-color: var(--blue-1-200);
-        
+
         // box-shadow: 0 0 13.2px 0 #0014;
         display: flex;
         align-items: center;

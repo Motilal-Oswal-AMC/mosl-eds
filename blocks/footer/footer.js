@@ -3,7 +3,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { loadAutoBlock } from '../../scripts/scripts.js';
-import { span } from '../../scripts/dom-helpers.js';
+import { img, span } from '../../scripts/dom-helpers.js';
 
 /**
  * Initializes the scroll-to-top button.
@@ -199,6 +199,7 @@ export default async function decorate(block) {
     if (block.querySelector('#form-email') !== null) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const formem = block.querySelector('#form-email');
+      formem.classList.add('email-imput');
       formem.addEventListener('input', (event) => {
         const closblock = event.target.closest('.footer');
         if (closblock.querySelector('.errormsg') === null) {
@@ -216,6 +217,11 @@ export default async function decorate(block) {
           inpelm.remove('email-success');
         }
       });
+      const wrapperimg = document.createElement('div');
+      wrapperimg.classList.add('wrapimgform');
+      wrapperimg.append(formem);
+      wrapperimg.append(img({ src: '/icons/error-cross.svg', alt: 'Img', class: 'crossimg' }));
+      block.querySelector('.email-wrapper').append(wrapperimg);
     }
   }
   removeClassAfterDelay();

@@ -60,6 +60,9 @@ function dataFilterfun(param) {
       {
         'multi-cap-fund': [],
       },
+      {
+        'flexi-cap': [],
+      }
       ],
     },
     ],
@@ -150,6 +153,7 @@ function dataFilterfun(param) {
     'motilal-oswal:factor',
     'motilal-oswal:tax-saver-(elss)',
     'motilal-oswal:multi-cap-fund',
+    'motilal-oswal:flexi-cap'
   ];
   const subcategoryValues = [
     'large-and-mid-cap',
@@ -160,6 +164,7 @@ function dataFilterfun(param) {
     'factor',
     'tax-saver-(elss)',
     'multi-cap-fund',
+    'flexi-cap'
   ];
 
   for (let i = 0; i < param.length; i += 1) {

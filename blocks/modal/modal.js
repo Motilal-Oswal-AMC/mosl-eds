@@ -3,6 +3,8 @@ import { loadFragment } from '../fragment/fragment.js';
 import {
   buildBlock, decorateBlock, loadBlock, loadCSS,
 } from '../../scripts/aem.js';
+import dataMapMoObj from '../../scripts/constant.js';
+import dataCfObj from '../../scripts/dataCfObj.js';
 
 export async function createModal(contentNodes) {
   await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
@@ -193,6 +195,37 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     } else if (titleEl && titleEl.getAttribute('schcode')) {
       schcodeactive = titleEl.getAttribute('schcode');
     }
+  } else if (window.location.href.includes('/our-funds/')
+    && localStorage.getItem('planCode')
+    && !cardWrapper) {
+    const mainblk = clickedElement.closest('main');
+    dataMapMoObj.planText = mainblk.querySelector('.fdp-card .middlediv .selecttext')
+      .textContent.trim();
+    const planData = localStorage.getItem('planCode');
+    const data = planData.split(':');
+    const datafirst = data[1];
+    schcodeactive = datafirst;
+  } else if (window.location.href.includes('/home-page')) {
+    const homecal = clickedElement.closest('.section');
+    dataMapMoObj.plantext = homecal
+      .querySelector('#searchFundInput').value;
+    const flow = homecal
+      .querySelector('#planToggle').checked ? 'Regular' : 'Direct';
+    // let plan;
+    dataMapMoObj.planText = `${flow} | ${homecal
+      .querySelector('.plan-option-select .select-selected-plan').textContent.trim()}`;
+    dataCfObj.cfDataObjs.forEach((funddata) => {
+      if (funddata.schDetail.schemeName === dataMapMoObj.plantext) {
+        schcodeactive = funddata.schcode;
+        dataMapMoObj.planlistArr = funddata.planList;
+      }
+    });
+    // plan.forEach((elplan) => {
+    //   if (elplan.planName === flow && elplan.planName typeplan) {
+    //     console.log('easdf');
+    //   }
+    // });
+    // dataMapMoObj.planlistArr = '';
   }
   localStorage.setItem('schcodeactive', schcodeactive);
 
@@ -292,7 +325,7 @@ export function initializeModalHandlers() {
       }
 
       // If it's our special card button, use the on-card logic
-      if (link.classList.contains('invest-now') || link.classList.contains('card-btn') || link.classList.contains('submit')) {
+      if (link.classList.contains('invest-now') || link.classList.contains('card-btn') || link.classList.contains('submit') || link.classList.contains('sip-btn')) {
         e.stopPropagation(); // Stop other listeners!
         await openModalOnElement(link.href, link);
         // await openModal(link.href);
