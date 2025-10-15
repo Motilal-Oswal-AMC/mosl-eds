@@ -895,6 +895,7 @@ body.noscroll {
     position: fixed;
     right: 39%;
     margin: 0 auto;
+    min-width: unset;
     width: max-content;
     bottom: 20px;
     background-color: var(--neutrals-white);
