@@ -7,7 +7,8 @@ import dataMapMoObj from '../../scripts/constant.js';
 export default function decorate(block) {
   // -------------------------------
   // ✅ 1. INITIAL SETUP & STATE
-  // -------------------------------
+  // -----------------------------
+  // --
   const col1 = block.children[0].querySelectorAll('p');
   const col2 = block.children[1].querySelectorAll('p');
   const col3 = block.children[2].querySelectorAll('p');
@@ -175,7 +176,7 @@ export default function decorate(block) {
             `${returnCAGR.toFixed(2)}  %`,
           ),
         ),
-        div({ class: 'start-sip-btn' }, button({ class: 'sip-btn' }, col4[3].textContent.trim())),
+        div({ class: 'start-sip-btn' }, a({ class: 'sip-btn' }, col4[3].textContent.trim())),
       ),
     ),
   );
@@ -194,7 +195,17 @@ export default function decorate(block) {
   // ✅ 3. DOM REFS
   // -------------------------------
   const sipBtn = calContainer.querySelector('.sip-btn');
+  const btncont = calContainer.querySelector('.start-sip-btn a');
+  btncont.setAttribute('href', '/motilalfigma/modals/invest-now-homepage');
+  sipBtn.addEventListener('click', () => {
+    btncont.textContent = '';
+    btncont.textContent = 'Start SIP';
+  });
   const lumpsumBtn = calContainer.querySelector('.lumpsum-btn');
+  lumpsumBtn.addEventListener('click', () => {
+    btncont.textContent = '';
+    btncont.textContent = 'Invest Now';
+  });
   const amountInput = calContainer.querySelector('#investmentAmount');
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
