@@ -269,9 +269,10 @@ main {
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle .label-text .selecttext::after {
   content: "";
-  background: url("../../icons/arrow-down-blue.svg") center/cover no-repeat;
+  background: url("../../icons/direction-right.svg") center/cover no-repeat;
   background-position: center;
   background-size: cover;
+  transform: rotate(90deg);
   width: 16px;
   height: 16px;
 }

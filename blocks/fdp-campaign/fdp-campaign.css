@@ -1,42 +1,34 @@
 @import "../../../styles/fonts.css";
-
 .section.table-wrapper.fdp-campaign-container {
   margin-top: 64px;
 }
-
 @media (width <= 768px) {
   .section.table-wrapper.fdp-campaign-container {
     margin: 40px 16px;
   }
 }
-
 .section.table-wrapper.fdp-campaign-container .fdp-campaign {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-
 .section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign1 {
   display: block;
 }
-
 @media (width <= 768px) {
   .section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign1 {
     display: none;
   }
 }
-
 .section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign1 .compaignsub1 {
   height: 193px;
 }
-
 .section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign2 {
   display: none;
 }
-
 @media (width <= 768px) {
   .section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign2 {
     display: block;
   }
-}
+}/*# sourceMappingURL=fdp-campaign.css.map */
