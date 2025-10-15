@@ -39,9 +39,21 @@ export default function decorate(block) {
     Array.from(listul).forEach((Element) => Element.classList.add('common-list'));
   }
 
+    const pmsRooted = block.closest('.pms-rooted');
+  if (pmsRooted !== null) {
+    dataMapMoObj.CLASS_PREFIXES = ['pms-rooted-ex',"pms-rooted-card","pms-rooted-card-cont","pms-rooted-card-subcont"];
+    dataMapMoObj.addIndexed(pmsRooted);
+  }
+
     const pmsHighSkin = block.closest('.high-skin');
   if (pmsHighSkin !== null) {
     dataMapMoObj.CLASS_PREFIXES = ['pms-high-skin',"pms-high-skin-card","pms-high-skin-card-cont","pms-high-skin-card-subcont"];
     dataMapMoObj.addIndexed(pmsHighSkin);
+  }
+
+    const pmsChoose = block.closest('.pms-choose');
+  if (pmsChoose !== null) {
+    dataMapMoObj.CLASS_PREFIXES = ["pms-choose","pms-choose-detail"];
+    dataMapMoObj.addIndexed(pmsChoose);
   }
 }

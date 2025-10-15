@@ -2,7 +2,9 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
+$breakpoint-desktop: 1100px;
 
+// pms-rooted component
 
 .section.pms-rooted {
     margin: 120px 0;
@@ -12,7 +14,7 @@
         margin: 93px 0 40px;
     }
 
-    #rooted-in-legacy-driven-by-excellence {
+    .pms-rooted-ex1 .pms-rooted-card1 {
         font-style: normal;
         font-weight: 500;
         max-width: 400px;
@@ -111,7 +113,7 @@
         }
     }
 
-    .icon-rooted-frame {
+    .pms-rooted-ex3 .pms-rooted-card-cont1 img {
         position: absolute;
         top: -120px;
         right: 0;
@@ -133,12 +135,14 @@
     background: var(--neutrals-100);
     padding: 40px 67px 0;
     margin: 0;
+
     @include media(mobile) {
         padding: 40px 16px 0px;
-    }    
+    }
 
-    .pms-high-skin1{
+    .pms-high-skin1 {
         padding: 0;
+
         .pms-high-skin-card-cont1 {
             display: flex;
             width: 100%;
@@ -159,7 +163,7 @@
                     max-width: 294px;
                     width: 100%;
                     height: 100%;
-                    
+
                     @include media(mobile) {
                         margin-left: 6px;
                     }
@@ -172,6 +176,7 @@
 
                 .cards-card-body {
                     margin: 0;
+
                     h2 {
                         color: var(--blue-1-800-primary);
                         text-align: center;
@@ -184,7 +189,7 @@
 
                         @include media(mobile) {
                             font-size: var(--heading-h5-size);
-                            line-height: var(--heading-h5-line-height); 
+                            line-height: var(--heading-h5-line-height);
                         }
                     }
 
@@ -219,7 +224,8 @@
 
                         @include media(mobile) {
                             font-size: var(--paragraph-small-size);
-                            line-height: var(--paragraph-small-line-height); /* 142.857% */
+                            line-height: var(--paragraph-small-line-height);
+                            /* 142.857% */
                             margin: 0 0 111px;
                         }
 
@@ -253,4 +259,192 @@
 
         }
     }
+}
+
+// PMS Choose component
+
+.section.pms-choose {
+    padding: 108px 67px 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    position: relative;
+
+    @include media(mobile) {
+        padding: 80px 16px 0px;
+        flex-direction: column;
+    }
+
+    .pms-choose1 {
+        margin: 0;
+        padding: 0;
+
+        .pms-choose-detail1 {
+            ul {
+                li {
+                    border: none;
+                    max-width: 400px;
+                    width: 100%;
+
+                    .cards-card-body {
+                        margin: 0;
+
+                        h2 {
+                            color: var(--blue-1-800-primary);
+                            font-family: var(--title);
+                            font-size: var(--heading-h3-size);
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: var(--heading-h3-line-height);
+                            margin: 0 0 24px 0;
+
+
+
+                            @include media(mobile) {
+                                font-size: var(--heading-h5-size);
+                                line-height: var(--heading-h5-line-height);
+                                margin: 0 0 10px 0;
+
+                            }
+
+                        }
+
+                        p {
+                            color: var(--text-body-2);
+                            font-family: var(--body);
+                            font-size: var(--body-medium-regular-size);
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: var(--body-medium-regular-line-height);
+                            margin: 0;
+
+                            @include media(mobile) {
+                                font-size: var(--paragraph-medium-size);
+                                line-height: var(--paragraph-medium-line-height);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pms-choose2 {
+        max-width: 504px;
+        width: 100%;
+        margin: 0 0 61px 0;
+        padding: var(--spacing-16) var(--spacing-none);
+        padding-bottom: 68px;
+
+        @media (width <=$breakpoint-desktop) {
+            margin-left: 16px;
+        }
+
+        @include media(mobile) {
+            margin: 0;
+            padding-bottom: 0px;
+            margin-left: unset;
+        }
+
+
+        h3 {
+            margin: 0 0 8px 0;
+            font-size: 0;
+
+            a {
+                text-decoration: none;
+                color: var(--blue-1-800-primary);
+                font-family: var(--body);
+                font-size: var(--body-medium-medium-size);
+                font-style: normal;
+                font-weight: 500;
+                line-height: var(--body-medium-medium-line-height);
+            }
+        }
+
+        p {
+            margin: 0 0 24px 0;
+            color: var(--text-body-2);
+            font-family: var(--body);
+            font-size: var(--body-small-regular-size);
+            font-style: normal;
+            font-weight: 400;
+            line-height: var(--label-large-line-height);
+
+            @include media(mobile) {
+                margin: 0 0 32px 0;
+            }
+        }
+
+        .pms-choose-detail11 {
+            position: absolute;
+            top: 316px;
+            left: 67px;
+
+            display: flex;
+            width: 164px;
+            height: 40px;
+            padding: var(--spacing-12);
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-8);
+
+            border-radius: var(--border-radius-8);
+            background: var(--button-primary-default);
+
+            @include media(mobile) {
+                position: static;
+                margin-bottom: 418px;
+            }
+
+            a {
+                color: var(--text-white);
+                text-align: center;
+                font-family: var(--body);
+                font-size: var(--button-medium-size);
+                font-style: normal;
+                font-weight: 500;
+                line-height: var(--button-medium-line-height);
+                margin: 0;
+                background-color: transparent;
+            }
+        }
+
+        .pms-choose-detail12 {
+            position: absolute;
+            left: 350px;
+            bottom: 0;
+            margin: 0;
+            aspect-ratio: 1/1;
+
+            
+            @include media(desktop-md) {
+                left: 286px;
+                max-width: 300px;
+            }
+            @include media(desktop-sm) {
+                left: 220px;
+                max-width: 300px;
+            }
+
+            @media (width <=$breakpoint-desktop) {
+                left: 120px;
+                max-width: 200px;
+            }
+
+            @include media(mobile) {
+                // position: static;
+                max-width: 386px;
+                width: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            img{
+                aspect-ratio: 1/1;
+            }
+        }
+    }
+
+
 }
