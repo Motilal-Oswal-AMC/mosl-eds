@@ -88,6 +88,9 @@ export default function decorate(block) {
   const navdatecss = navlistArr[0].nav_date === undefined ? 'none' : 'block';
   const navnotpresent = navlistArr[0].nav_date === undefined ? 'block' : 'none';
   const navlistArrDate = navlistArr[0]?.nav_date?.replaceAll('-', ' ') ?? '';
+  const navarrdate = navlistArrDate.split(' ');
+  const navyear = navarrdate[2].slice(-2);
+  const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`
 
   function planGrpEvent(param) {
     const tempReturnsec = [];
@@ -169,10 +172,14 @@ export default function decorate(block) {
     );
 
     if (navlistarray[0].nav_date !== undefined) {
+      const navdateper = navlistarray[0].nav_date.replaceAll('-', ' ');
+      const navarrdate = navdateper.split(' ');
+      const navyear = navarrdate[2].slice(-2);
+      const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`
       const navdiv = middlediv.querySelector('.nav-return-grp .nav-label');
       navdiv.innerHTML = '';
       navdiv.append('NAV as on ');
-      navdiv.append(span({ class: 'nav-date' }, navlistarray[0].nav_date.replaceAll('-', ' ')));
+      navdiv.append(span({ class: 'nav-date' }, navdaterper));
 
       const navValue = middlediv.querySelector('.value-nav');
       navValue.innerHTML = '';
@@ -468,7 +475,7 @@ export default function decorate(block) {
                 {
                   class: 'nav-date',
                 },
-                navlistArrDate,
+                navdaterper,
               ),
             ),
             p(

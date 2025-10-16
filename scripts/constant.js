@@ -127,7 +127,7 @@ const dataMapMoObj = {
       }
     }
 
-    const dayWithSuffix = day + getOrdinalSuffix(day);
+    const dayWithSuffix = day  //+ getOrdinalSuffix(day);
 
     // Combine parts into the final format
     return `${dayWithSuffix} ${month} ${year}`;
