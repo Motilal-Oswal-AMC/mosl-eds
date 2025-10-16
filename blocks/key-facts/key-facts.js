@@ -175,9 +175,9 @@ export default function decorate(block) {
 
   // Create preview paragraph
   // const previewPara = document.createElement('p');
-  // if (!preview) {
-  //   document.querySelector('.investment-objective').style.display = 'none';
-  // }
+  if (!preview) {
+    document.querySelector('.investment-objective').style.display = 'none';
+  }
   // previewPara.innerHTML = preview;
 
   // Create toggle button
