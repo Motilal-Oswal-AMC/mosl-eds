@@ -75,7 +75,7 @@ function renderMap(container, mapUrl) {
   //   return;
   // }
   container.innerHTML = `
-    <iframe src="${finalMapUrl}" width="100%" height="100%" style="border:0;border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+    <iframe title="Motilal Oswal Tower Location Map" src="${finalMapUrl}" width="100%" height="100%" style="border:0;border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
 }
 
 function renderDetails(container, data) {
@@ -402,6 +402,7 @@ export default async function decorate(block) {
             type: 'text',
             name: '',
             id: '',
+            'aria-label': 'Enter Pincode or City for Location',
             placeholder: '',
           }),
         ),

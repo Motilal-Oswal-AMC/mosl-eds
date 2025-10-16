@@ -220,7 +220,7 @@
   font-size: 12px;
   line-height: 14px;
   color: var(--blue-1-800-primary);
-  font-family: var(--inter);
+  font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
@@ -230,8 +230,8 @@
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .selectedtext::after {
   content: "";
   background: url("../../icons/down-arrow.svg") center/cover no-repeat;
-  min-width: 20px;
-  height: 20px;
+  min-width: 16px;
+  height: 16px;
   display: block;
 }
 @media (max-width: 768px) {
@@ -305,6 +305,8 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   margin: 0;
+  display: flex;
+  gap: 4px;
 }
 @media (max-width: 768px) {
   .section .card-container .card-wrapper .cagr-container .cagr-value .cagr-val-label {
@@ -738,7 +740,20 @@
   }
 }
 .section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container .dropdown-list {
-  max-height: 200px;
+  max-height: 155px;
+}
+.section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container .dropdown-list::-webkit-scrollbar {
+  width: 3px;
+  background-color: #464343;
+}
+.section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container .dropdown-list::-webkit-scrollbar-track {
+  width: 3px;
+  background-color: #fff;
+  border-radius: 0 1px 1px 0;
+}
+.section.fund-tab.tabs-container .tabs-wrapper .tabs-panel .card-container .dropdown-list::-webkit-scrollbar-thumb {
+  width: 3px;
+  background-color: #464343;
 }
 .section.fund-tab.tabs-container .btndesk,
 .section.fund-tab.tabs-container .btnmob {

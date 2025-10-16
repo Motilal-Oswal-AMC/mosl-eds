@@ -219,7 +219,7 @@ export default async function decorate(block) {
 
       // Use Number.isNaN() and check BEFORE calling .toFixed()
       if (Number.isNaN(numericValue)) {
-        return 'N/A';
+        return 'NA';
       }
       if (dataMapMoObj.attr === '_Ret') {
         return `${numericValue.toFixed(2)}%`;
@@ -408,7 +408,7 @@ export default async function decorate(block) {
     const tempnone = block.closest('body').querySelector('footer');
     tempnone.style.display = 'none';
     dataMapMoObj.CLASS_PREFIXES = [];
-    dataMapMoObj.CLASS_PREFIXES = ['itemfaq', 'subitemfaq'];
+    dataMapMoObj.CLASS_PREFIXES = ['itemfaq', 'subitemfaq', 'subinnerfaq', 'innersubfaq', 'inneritemfaq'];
     dataMapMoObj.addIndexed(block.closest('.page-faq-section'));
 
     const divtablist = block.querySelector('.tabs-list');

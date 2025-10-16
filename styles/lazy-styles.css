@@ -260,7 +260,7 @@
   font-weight: 400;
   line-height: 16px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 @media (max-width: 768px) {
   .section.future-building-container .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 > ul.cards-listcards1 > li.cards-list-1-cards1 ul.list-child-12 li {
@@ -1159,7 +1159,7 @@
   font-family: "Inter", sans-serif;
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: 8px;
   background: #2e2a94;
   text-align: center;
 }

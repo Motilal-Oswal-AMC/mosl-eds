@@ -2,11 +2,13 @@ import {
   div, a, label, input, span, button, ul, li, img,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
+import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
   // -------------------------------
   // ✅ 1. INITIAL SETUP & STATE
-  // -------------------------------
+  // -----------------------------
+  // --
   const col1 = block.children[0].querySelectorAll('p');
   const col2 = block.children[1].querySelectorAll('p');
   const col3 = block.children[2].querySelectorAll('p');
@@ -19,7 +21,7 @@ export default function decorate(block) {
   const schcode = planCode.split(':')[1];
   let selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
   let returnCAGR = 0;
-  let mode = 'sip';
+  dataMapMoObj.mode = 'sip';
   let planType = 'Direct';
   let planOption = 'Growth';
   const selectedFundName = selectedFund.schDetail.schemeName;
@@ -62,7 +64,7 @@ export default function decorate(block) {
         { class: 'search-results-wrapper' },
         ul(
           { id: 'searchResults', role: 'listbox', class: 'search-result-ul' },
-          li({}, 'motilal oswal'),
+          li({ class: 'search-result-li' }, 'motilal oswal'),
         ),
       ),
       span({ class: 'search-error error-hide' }, 'Fund not found'),
@@ -87,9 +89,12 @@ export default function decorate(block) {
           { class: 'plan-type-toggle' },
           span({ class: 'toggle-label active' }, 'Direct'),
           label(
-            { class: 'toggle-switch', for: 'planToggle' },
+            { class: 'toggle-switch', htmlFor: 'planToggle', 'aria-label': 'Switch between Direct and Regular Plan' },
             input({
-              type: 'checkbox', id: 'planToggle', class: 'toggle-inp', 'aria-label': 'Switch between Direct and Regular Plan',
+              type: 'checkbox',
+              id: 'planToggle',
+              class: 'toggle-inp',
+              'aria-label': 'Switch between Direct and Regular Plan',
             }),
             span({ class: 'slider' }),
           ),
@@ -121,12 +126,16 @@ export default function decorate(block) {
             //   id: 'investmentAmount',
             //   placeholder: 'Enter amount',
             // }),
+            label(
+              { for: 'investmentAmount', class: 'invest-lebal' },
+              'Enter Amount',
+            ),
             input({
               type: 'text', // Changed from 'number'
               inputmode: 'numeric', // Keeps numeric keyboard on mobile
-              value: Number(col2[2].textContent.trim()).toLocaleString('en-IN'), // Format the initial value
+              value: '10,000', // Format the initial value
               id: 'investmentAmount',
-              placeholder: 'Enter amount',
+              placeholder: '',
               class: 'investment-inp',
             }),
           ),
@@ -140,7 +149,7 @@ export default function decorate(block) {
           label({ class: 'tenure-label' }, col2[3].textContent.trim()),
           div(
             { class: 'select-selected fdp-select-selected' },
-            `${col3[0].textContent.trim()} Years`,
+            `${col3[0].textContent.trim()} years`,
           ),
           div({ class: 'select-options', role: 'listbox' }),
           input({
@@ -174,7 +183,7 @@ export default function decorate(block) {
             `${returnCAGR.toFixed(2)}  %`,
           ),
         ),
-        div({ class: 'start-sip-btn' }, button({ class: 'sip-btn' }, col4[3].textContent.trim())),
+        div({ class: 'start-sip-btn' }, a({ class: 'sip-btn' }, col4[3].textContent.trim())),
       ),
     ),
   );
@@ -193,7 +202,17 @@ export default function decorate(block) {
   // ✅ 3. DOM REFS
   // -------------------------------
   const sipBtn = calContainer.querySelector('.sip-btn');
+  const btncont = calContainer.querySelector('.start-sip-btn a');
+  btncont.setAttribute('href', '/motilalfigma/modals/invest-now-homepage');
+  sipBtn.addEventListener('click', () => {
+    btncont.textContent = '';
+    btncont.textContent = 'Start SIP';
+  });
   const lumpsumBtn = calContainer.querySelector('.lumpsum-btn');
+  lumpsumBtn.addEventListener('click', () => {
+    btncont.textContent = '';
+    btncont.textContent = 'Invest Now';
+  });
   const amountInput = calContainer.querySelector('#investmentAmount');
   const searchInput = document.getElementById('searchFundInput');
   const searchResults = document.getElementById('searchResults');
@@ -204,7 +223,9 @@ export default function decorate(block) {
     document.querySelector('.fdp-calculator .search-bar-wrapper').style.display = 'none';
     document.querySelector('.fdp-calculator .plan-options-wrapper').style.display = 'none';
   }
-
+  if (block.querySelector('.fdp-calculator')) {
+    block.querySelector('.fdp-calculator .cal-desc-label').textContent = 'Total Accumulated Wealth';
+  }
   // const inputEl = document.getElementById("investmentAmount");
   // inputEl.addEventListener("input", (e) => {
   //   let val = +e.target.value;
@@ -224,6 +245,44 @@ export default function decorate(block) {
   // -------------------------------
   // ✅ 4. UPDATE VALUES (FINAL)
   // -------------------------------
+
+  function calculateSipMaturity(sipAmount, interestRate, months) {
+    const monthlyRate = interestRate / 12 / 100;
+    const futureValue = sipAmount
+     * (((1 + monthlyRate) ** months - 1) / monthlyRate)
+     * (1 + monthlyRate);
+    return Math.round(futureValue);
+  }
+
+  function differenceInMonths(dateLeft, dateRight) {
+    const yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
+    const monthDiff = dateLeft.getMonth() - dateRight.getMonth();
+    const totalMonths = yearDiff * 12 + monthDiff;
+
+    // Adjust if the "day" of dateLeft is before the "day" of dateRight
+    if (dateLeft.getDate() < dateRight.getDate()) {
+      return totalMonths - 1;
+    }
+
+    return totalMonths;
+  }
+
+  function parseDate(str, format = 'YYYY-MM-DD') {
+    const parts = str.split('-'); // handles "13-10-2025" or "13/10/2025"
+
+    let day; let month; let
+      year;
+    if (format === 'DD-MM-YYYY') {
+      [day, month, year] = parts.map(Number);
+    } else if (format === 'MM-DD-YYYY') {
+      [month, day, year] = parts.map(Number);
+    } else if (format === 'YYYY-MM-DD') {
+      [year, month, day] = parts.map(Number);
+    }
+
+    return new Date(year, month - 1, day);
+  }
+
   function updateValues() {
     const investedAmountSpan = block.querySelector('.invested-amount-value');
     const currentValueSpan = block.querySelector('.current-value');
@@ -256,14 +315,23 @@ export default function decorate(block) {
     // ✅ Determine tenure in years
     if (tenureValue === 'inception') {
       if (selectedFund?.dateOfAllotment) {
-        const inceptionDate = new Date(selectedFund.dateOfAllotment);
-        const today = new Date();
-        tenure = (today - inceptionDate) / (1000 * 60 * 60 * 24 * 365.25);
+        tenure = Math.floor(
+          differenceInMonths(
+            new Date(),
+            parseDate(selectedFund?.dateOfAllotment),
+          ),
+        );
+        // const inceptionDate = new Date(selectedFund.dateOfAllotment);
+        // const today = new Date();
+        // tenure = (today - inceptionDate) / (1000 * 60 * 60 * 24 * 365.25);
       }
     } else {
-      tenure = parseFloat(tenureValue) || 0;
+      // tenure = parseFloat(tenureValue) || 0;
+      tenure = parseInt(tenureValue.replace('yr', ''), 10); // extract year from year string
     }
 
+    const months = tenureValue === 'inception' ? tenure : Math.floor(tenure * 12);
+    // console.log(months);
     // ✅ Get the correct returnCAGR for selected tenure
     let tenureField = '';
     if (tenureValue === 'inception') {
@@ -308,25 +376,30 @@ export default function decorate(block) {
     mainSections.forEach((sel) => { block.querySelector(sel).style.display = ''; });
 
     // ✅ Calculate values
-    const r = returnCAGR / 100 / 12;
-    const n = tenure * 12;
-    const investedAmount = mode === 'sip' ? amount * n : amount;
-    let futureValue;
+    // const r = returnCAGR / 100 / 12;
+    // const n = tenure * 12;
+    // const investedAmount = mode === 'sip' ? amount * n : amount;
+    // let futureValue;
 
-    if (mode === 'sip') {
-      // Logic for SIP calculation
-      const isInvalidRate = Number.isNaN(r) || r === 0;
-      if (isInvalidRate) {
-        futureValue = investedAmount;
-      } else {
-        futureValue = amount * (((1 + r) ** n - 1) / r);
-      }
-    } else {
-      // Logic for lumpsum or other modes
-      futureValue = amount * ((1 + returnCAGR / 100) ** tenure);
-    }
+    // if (mode === 'sip') {
+    //   // Logic for SIP calculation
+    //   const isInvalidRate = Number.isNaN(r) || r === 0;
+    //   if (isInvalidRate) {
+    //     futureValue = investedAmount;
+    //   } else {
+    //     futureValue = amount * (((1 + r) ** n - 1) / r);
+    //   }
+    // } else {
+    //   // Logic for lumpsum or other modes
+    //   futureValue = amount * ((1 + returnCAGR / 100) ** tenure);
+    // }
 
-    investedAmountSpan.textContent = `${(investedAmount / 100000).toFixed(2)} Lac`;
+    const futureValue = calculateSipMaturity(amount, returnCAGR, months);
+    const investedValue = amount * months;
+    // const returnValue = futureValue - investedValue;
+    // console.log(returnValue);
+
+    investedAmountSpan.textContent = `${(investedValue / 100000).toFixed(2)} Lac`; // investedAmount
     currentValueSpan.textContent = `${(futureValue / 100000).toFixed(2)} Lac`;
     returnCAGRSpan.textContent = `${parseFloat(returnCAGR).toFixed(2)} %`;
   }
@@ -343,11 +416,11 @@ export default function decorate(block) {
 
     const availableTenures = [];
     if (returnsData?.inception_Ret) availableTenures.push({ value: 'inception', text: 'Since Inception' });
-    if (returnsData?.oneYear_Ret) availableTenures.push({ value: 1, text: '1 Year' });
-    if (returnsData?.threeYear_Ret) availableTenures.push({ value: 3, text: '3 Years' });
-    if (returnsData?.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 Years' });
-    if (returnsData?.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 Years' });
-    if (returnsData?.tenYear_Ret) availableTenures.push({ value: 10, text: '10 Years' });
+    if (returnsData?.oneYear_Ret) availableTenures.push({ value: 1, text: '1 year' });
+    if (returnsData?.threeYear_Ret) availableTenures.push({ value: 3, text: '3 years' });
+    if (returnsData?.fiveYear_Ret) availableTenures.push({ value: 5, text: '5 years' });
+    if (returnsData?.sevenYear_Ret) availableTenures.push({ value: 7, text: '7 years' });
+    if (returnsData?.tenYear_Ret) availableTenures.push({ value: 10, text: '10 years' });
 
     availableTenures.forEach((tenure) => {
       const optionEl = div({ class: 'select-option', 'data-value': tenure.value }, tenure.text);
@@ -418,8 +491,8 @@ export default function decorate(block) {
   // -------------------------------
   // ✅ 6. EVENTS & LOGIC
   // -------------------------------
-  sipBtn.addEventListener('click', () => { mode = 'sip'; sipBtn.classList.add('active'); lumpsumBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = ''; block.querySelector('.labelforlumsum').style.display = 'none'; updateValues(); });
-  lumpsumBtn.addEventListener('click', () => { mode = 'lumpsum'; lumpsumBtn.classList.add('active'); sipBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = 'none'; block.querySelector('.labelforlumsum').style.display = ''; updateValues(); });
+  sipBtn.addEventListener('click', () => { dataMapMoObj.mode = 'sip'; sipBtn.classList.add('active'); lumpsumBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = ''; block.querySelector('.labelforlumsum').style.display = 'none'; updateValues(); });
+  lumpsumBtn.addEventListener('click', () => { dataMapMoObj.mode = 'lumpsum'; lumpsumBtn.classList.add('active'); sipBtn.classList.remove('active'); block.querySelector('.labelforsip').style.display = 'none'; block.querySelector('.labelforlumsum').style.display = ''; updateValues(); });
 
   block.querySelector('#planToggle').addEventListener('change', () => {
     planType = block.querySelector('#planToggle').checked ? 'Regular' : 'Direct';
@@ -494,6 +567,7 @@ export default function decorate(block) {
 
     filtered.forEach((name) => {
       const lione = document.createElement('li');
+      lione.classList.add('searchli');
       lione.innerHTML = name.replace(new RegExp(`(${query})`, 'gi'), '<strong>$1</strong>');
       lione.addEventListener('click', () => {
         searchInput.value = name;
@@ -561,6 +635,7 @@ export default function decorate(block) {
     // searchInput.style.paddingLeft = '0px';
     schemeNames.forEach((el) => {
       const ligrp = document.createElement('li');
+      ligrp.classList.add('searchli');
       ligrp.innerHTML = el.replace(new RegExp(`(${''})`, 'gi'), '<strong>$1</strong>');
       ligrp.addEventListener('click', (event) => {
         const name = event.target.textContent;
@@ -613,6 +688,20 @@ export default function decorate(block) {
     });
   } catch (error) {
     // console.log(error);
+  }
+
+  try {
+    Array.from(document.querySelector('.disc-child-2').children)
+      .forEach((elild) => {
+        elild.classList.add('diskli');
+      });
+
+    Array.from(document.querySelector('search-result-ul').children)
+      .forEach((elild) => {
+        elild.classList.add('searchli');
+      });
+  } catch (error) {
+    console.log(error);
   }
 
   // -------------------------------

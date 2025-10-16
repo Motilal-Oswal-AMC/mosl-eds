@@ -61,7 +61,7 @@ export default function decorate(block) {
           ),
         ),
         div(
-          { class: 'Redemption-Amount' },
+          { class: 'redemption-amount' },
           p(
             { class: 'key-facts-amounts-title' },
             block.querySelector('.block-subitem-finelsub3'),
@@ -167,18 +167,18 @@ export default function decorate(block) {
   block.appendChild(keyFactsSection);
   // Add Read More / Read Less functionality
   const fullText = data[0].investmentObjective || '';
-  const textContent = fullText?.replace(/<[^>]+>/g, '') || ''; // Strip HTML tags for counting
+  const textContent = fullText?.replaceAll(/<\/?[^>]+(>|$)/g, '') || ''; // Strip HTML tags for counting
   const words = textContent?.split(/\s+/) || '';
   const preview = words.slice(0, 20).join(' ') + (words.length > 20 ? '...' : '');
 
   const container = block.querySelector('.investment-discripstion');
 
   // Create preview paragraph
-  const previewPara = document.createElement('p');
+  // const previewPara = document.createElement('p');
   if (!preview) {
     document.querySelector('.investment-objective').style.display = 'none';
   }
-  previewPara.innerHTML = preview;
+  // previewPara.innerHTML = preview;
 
   // Create toggle button
   const toggleBtn = document.createElement('span');
@@ -190,23 +190,23 @@ export default function decorate(block) {
 
   // Append preview and button initially
   container.innerHTML = '';
-  container.appendChild(previewPara);
-  previewPara.appendChild(toggleBtn);
+  container.textContent = preview;
+  container.appendChild(toggleBtn);
 
   if (words.length > 20) {
     toggleBtn.addEventListener('click', () => {
       container.innerHTML = '';
 
-      if (toggleBtn.textContent === 'read more') {
-        const fullPara = document.createElement('p');
-        fullPara.innerHTML = fullText;
-        container.appendChild(fullPara);
-        toggleBtn.textContent = 'read less';
+      if (toggleBtn.textContent === 'Read More') {
+        // const fullPara = document.createElement('p');
+        container.textContent = textContent;
+        // container.appendChild(fullPara);
+        toggleBtn.textContent = 'Read Less';
       } else {
-        const previewParaAgain = document.createElement('p');
-        previewParaAgain.innerHTML = preview;
-        container.appendChild(previewParaAgain);
-        toggleBtn.textContent = 'read more';
+        //const previewParaAgain = document.createElement('p');
+        container.textContent = preview;
+        //container.appendChild(previewParaAgain);
+        toggleBtn.textContent = 'Read More';
       }
 
       container.appendChild(toggleBtn);

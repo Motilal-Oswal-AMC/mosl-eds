@@ -60,6 +60,9 @@ function dataFilterfun(param) {
       {
         'multi-cap-fund': [],
       },
+      {
+        'flexi-cap': [],
+      }
       ],
     },
     ],
@@ -150,6 +153,7 @@ function dataFilterfun(param) {
     'motilal-oswal:factor',
     'motilal-oswal:tax-saver-(elss)',
     'motilal-oswal:multi-cap-fund',
+    'motilal-oswal:flexi-cap'
   ];
   const subcategoryValues = [
     'large-and-mid-cap',
@@ -160,6 +164,7 @@ function dataFilterfun(param) {
     'factor',
     'tax-saver-(elss)',
     'multi-cap-fund',
+    'flexi-cap'
   ];
 
   for (let i = 0; i < param.length; i += 1) {
@@ -1538,7 +1543,7 @@ export default function decorate(block) {
                         {
                           for: 'threeyear',
                         },
-                        '3 Years',
+                        '3 years',
                       ),
                     ),
                     div(
@@ -1772,7 +1777,7 @@ export default function decorate(block) {
                       }
                     },
                   },
-                  '3 Years',
+                  '3 years',
                 ),
                 ul(
                   {
@@ -1814,7 +1819,7 @@ export default function decorate(block) {
                         dataMapMoObj.funddata = tempa;
                       }
                       dataMapMoObj.deskrightdrp = name;
-                      dataMapMoObj.selectreturns = name;
+                      dataMapMoObj.selectreturns = dataMapMoObj.toTitleCase(name);
                       const searInp = block.querySelector('.search-input input');
                       searInp.value = '';
                       const cancelBtn = block.querySelector('.cancel-search');
@@ -1859,31 +1864,31 @@ export default function decorate(block) {
                     {
                       dataattr: dataMapMoObj.data.sort[0].oneYear_Ret.join('-'),
                     },
-                    '1 Year',
+                    '1 year',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].threeYear_Ret.join('-'),
                     },
-                    '3 Years',
+                    '3 years',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].fiveYear_Ret.join('-'),
                     },
-                    '5 Years',
+                    '5 years',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].sevenYear_Ret.join('-'),
                     },
-                    '7 Years',
+                    '7 years',
                   ),
                   li(
                     {
                       dataattr: dataMapMoObj.data.sort[0].tenYear_Ret.join('-'),
                     },
-                    '10 Years',
+                    '10 years',
                   ),
                 ),
               ),
@@ -2193,10 +2198,15 @@ export default function decorate(block) {
   Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((eltoo) => {
     if (window.innerWidth < 786) {
       eltoo.addEventListener('click', (event) => {
+        if (event.target.nextElementSibling.style.display === 'block') {
+          event.target.nextElementSibling.style.display = 'none';
+          return false;
+        }
         Array.from(block.querySelectorAll('.tooltip-wrap img')).forEach((elinner) => {
           elinner.nextElementSibling.style.display = 'none';
         });
         event.target.nextElementSibling.style.display = 'block';
+        return true;
       });
     } else {
       eltoo.addEventListener('mouseover', (event) => {

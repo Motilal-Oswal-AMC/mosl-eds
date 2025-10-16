@@ -2,8 +2,8 @@
 
 /*   media-feature-range-notation */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 // body::-webkit-scrollbar{
 //   display: none;
@@ -24,115 +24,192 @@
   }
 
   .itemfaq1 {
-    padding: 0 32px 0 0;
+    padding: var(--spacing-40) 0 0;
 
     @include media(mobile) {
-      padding: 0 16px;
+      padding: 40px 16px 0;
     }
 
     .subitemfaq1 {
       margin: 0;
-      display: flex;
-      align-items: center;
 
-      @include font-style(36px,
-        44px,
-        $primary-blue,
-        map.get($font-weights, bold),
-        $inter);
+      // @include font-style(36px,
+      //   44px,
+      //   $primary-blue,
+      //   map.get($font-weights, bold),
+      //   $inter);
 
-      @include media(mobile) {
-        gap: 8px;
-        font-size: 24px;
-        line-height: 28px;
-        text-wrap: balance;
-      }
+      // @include media(mobile) {
+      //   gap: 8px;
+      //   font-size: 24px;
+      //   line-height: 28px;
+      //   text-wrap: balance;
+      // }
 
-      .icon {
-        max-width: 64px;
-        width: 100%;
-        height: 64px;
+      .subinnerfaq1 {
+        display: flex;
+        gap: 16px;
+
+        @include media(mobile) {
+          align-items: center;
+        }
+
+        .innersubfaq1,
+        .innersubfaq1 .inneritemfaq1 {
+          margin: 0;
+          width: 48px;
+          height: 48px;
+
+          @include media(mobile) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        .innersubfaq2 {
+          margin: 0;
+          list-style: none;
+
+          .inneritemfaq1 {
+            margin: 0 0 4px;
+
+            @include font-style(
+              var(--heading-h5-size),
+              var(--heading-h5-line-height),
+              var(--blue-1-800-primary),
+              600,
+              var(--title)
+            );
+
+            @include media(mobile) {
+              font-size: var(--sub-header-large-size);
+              line-height: var(--sub-header-medium-line-height);
+            }
+          }
+
+          .inneritemfaq2 {
+            @include font-style(
+              var(--body-small-regular-size),
+              var(--body-small-regular-line-height),
+              var(--blue-1-800-primary),
+              400,
+              var(--body)
+            );
+
+            @include media(mobile) {
+              font-size: var(--paragraph-xsmall-size);
+              line-height: var(--paragraph-xsmall-line-height);
+            }
+          }
+        }
       }
     }
 
-    .subitemfaq2 {
-      margin: 8px 0 0;
+    // .subitemfaq2 {
+    //   margin: 8px 0 0;
 
-      @include font-style(16px,
-        24px,
-        $text-body-2,
-        map.get($font-weights, regular),
-        $inter);
+    //   @include font-style(16px, 24px, $text-body-2, map.get($font-weights, regular), $inter);
 
-      @include media(mobile) {
-        margin: 24px 0 0;
-        font-size: 14px;
-        line-height: 20px;
-      }
-    }
+    //   @include media(mobile) {
+    //     margin: 24px 0 0;
+    //     font-size: 14px;
+    //     line-height: 20px;
+    //   }
+    // }
   }
 
   .itemfaq2 {
     padding: 24px 0 0;
     margin: 0;
 
+    @include media(mobile) {
+      padding: 16px 0 0;
+    }
+
     .subitemfaq1 {
       .tablist-search {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 16px;
+        padding: 0 0 var(--spacing-24);
 
         @include media(mobile) {
           flex-direction: column-reverse;
+          padding: 0 0 16px 16px;
+          gap: 24px;
         }
 
         .tabs-list {
-          margin: 2px 0;
-          max-width: calc(100% - 32.468%);
+          max-width: 66.234%;
           width: 100%;
-          border-bottom: 1px solid map.get($old-silver, 100);
+          border-bottom: 1px solid var(--neutrals-400);
+          scrollbar-width: none;
+          display: flex;
+          justify-content: space-between;
+          gap: 24px;
 
           &::-webkit-scrollbar {
             display: none;
           }
 
           &::-webkit-scrollbar-track {
-            background: #FFF;
+            background: #fff;
           }
-
 
           @include media(mobile) {
             max-width: 100%;
-            margin: 0;
-            margin-left: 32px;
-            border-bottom: 1px solid #b6bcc7;
+
+            // margin-left: 32px;
+            // border-bottom: 1px solid #b6bcc7;
           }
 
           .tabs-tab {
-            padding: 10px 33px;
+            padding: var(--spacing-10) 0;
             border: none;
             background-color: unset;
 
-            @include font-style(14px,
-              20px,
-              $text-body-2,
-              map.get($font-weights, regular),
-              $inter);
-
             @include media(mobile) {
-              padding: 10px 12px;
+              padding: 2px 0 10px;
+            }
+
+            .comlist {
+              @include font-style(
+                var(--body-small-regular-size),
+                var(--body-small-regular-line-height),
+                var(--neutrals-700),
+                400,
+                var(--body)
+              );
+
+              @include media(mobile) {
+                padding: 0 0 2px;
+                font-size: var(--body-small-regular-size);
+                line-height: var(--body-small-regular-line-height);
+              }
             }
 
             &[aria-selected="true"] {
-              padding: 12px 35px;
-              color: $primary-blue;
-              font-weight: 500;
-              line-height: 16px;
-              border-bottom: 2px solid $primary-blue;
+              padding: var(--spacing-10) 14px;
+              border-bottom: 2px solid var(--blue-1-800-primary);
 
               @include media(mobile) {
-                padding: 12px;
-                border-bottom: 2px solid $text-header;
+                padding: 2px 14px 10px;
+              }
+
+              .comlist {
+                @include font-style(
+                  var(--body-small-semibold-size),
+                  var(--body-small-semibold-line-height),
+                  var(--blue-1-800-primary),
+                  600,
+                  var(--body)
+                );
+
+                @include media(mobile){
+                  font-size: var(--body-small-semibold-size);
+                  line-height: var(--body-small-semibold-line-height);
+                }
               }
             }
           }
@@ -140,19 +217,18 @@
 
         .search-container {
           position: relative;
-          max-width: 32.468%;
+          max-width: 27.598%;
           width: 100%;
 
           @include media(mobile) {
             max-width: 100%;
-            padding: 0 16px;
+            padding: 0 16px 0 0;
           }
 
           .search-wrapper {
-            border-radius: 6px;
-            border: 1px solid #9e9e9e;
-            padding: 12px 8px;
-            line-height: 0;
+            border-radius: var(--border-radius-6);
+            border: var(--border-width-01) solid var(--strokes-default);
+            padding: var(--spacing-10) var(--spacing-8);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -163,10 +239,9 @@
               background-position: center;
               background-repeat: no-repeat;
               background-size: cover;
-              width: 20px;
-              height: 20px;
+              min-width: 24px;
+              height: 24px;
               display: block;
-              padding-left: 8px;
             }
 
             .search-field {
@@ -175,11 +250,18 @@
               outline: none;
               background-color: transparent;
 
-              @include font-style(16px,
-                20px,
-                #2e2a94,//$text-body-2,
-                map.get($font-weights, medium),
-                $inter);
+              @include font-style(
+                var(--body-medium-regular-size),
+                var(--body-medium-regular-line-height),
+                var(--text-body-2),
+                400,
+                var(--body)
+              );
+
+              @include media(mobile) {
+                font-size: var(--body-medium-regular-size);
+                line-height: var(--body-medium-regular-line-height);
+              }
             }
 
             .cancel-btn {
@@ -190,13 +272,6 @@
             }
 
             &.search-active {
-              border: 1px solid #9E9E9E; //map.get($strokes, typing);
-              padding: 10px 8px;
-
-              .search-field {
-                caret-color: map.get($strokes, typing);
-              }
-
               .cancel-btn {
                 display: block;
               }
@@ -246,11 +321,7 @@
             }
 
             .singleval {
-              @include font-style(12px,
-                16px,
-                $neutrals-black,
-                map.get($font-weights, regular),
-                $inter);
+              @include font-style(12px, 16px, $neutrals-black, map.get($font-weights, regular), $inter);
 
               padding: 12px;
               border-bottom: 1px solid $neutrals-200;
@@ -274,16 +345,20 @@
       }
 
       .tabs-panel {
-        padding: 44px 0 0;
+        padding: 12px 0 0;
         border: none;
         overflow: unset;
 
         @include media(mobile) {
-          padding: 32px 16px 0;
+          padding: 0 var(--spacing-16);
         }
 
         .button-container {
           margin: 0;
+
+          .inneritemfaq1 {
+            margin: 0;
+          }
 
           .accordion-container {
             .accordion-wrapper {
@@ -295,15 +370,10 @@
 
                 .accordion-item {
                   border: none;
-                  padding: 24px 20px;
+                  padding: var(--spacing-16) 0;
                   -webkit-tap-highlight-color: transparent;
 
-                  @include media(mobile) {
-                    padding: 16px 12px;
-                  }
-
                   .accordion-item-label {
-                    background-color: transparent;
                     padding: 0;
                     overflow: unset;
                     display: flex;
@@ -311,8 +381,12 @@
                     gap: 16px;
 
                     @include media(mobile) {
-                      align-items: start;
-                      gap: 37px;
+                      gap: 12px;
+                    }
+
+                    &:focus,
+                    &:hover {
+                      background-color: transparent;
                     }
 
                     &::after {
@@ -327,26 +401,23 @@
                       border: none;
                       position: unset;
                       transform: unset;
-
-                      @include media(mobile) {
-                        min-width: 16px;
-                        height: 16px;
-                      }
                     }
 
                     p {
                       margin: 0;
                       width: 100%;
 
-                      @include font-style(20px,
-                        24px,
-                        $primary-blue,
-                        map.get($font-weights, medium),
-                        $inter);
+                      @include font-style(
+                        var(--body-large-medium-size),
+                        var(--body-large-medium-line-height),
+                        var(--blue-1-800-primary),
+                        500,
+                        var(--body)
+                      );
 
                       @include media(mobile) {
-                        font-size: 16px;
-                        line-height: 20px;
+                        font-size: var(--body-medium-medium-size);
+                        line-height: var(--body-medium-medium-line-height);
                       }
                     }
                   }
@@ -354,48 +425,54 @@
                   .accordion-item-body {
                     background-color: transparent;
                     display: none;
-                    padding: 16px 0 0;
+                    padding: 8px 40px 0 0;
+                    margin: 0;
 
-                    @include media(mobile) {
+                    @include media(mobile){
                       padding: 8px 0 0;
                     }
 
                     p {
-                      @include font-style(16px,
-                        24px,
-                        $primary-white,
-                        map.get($font-weights, regular),
-                        $inter);
-
                       margin: 0;
 
+                      @include font-style(
+                        var(--body-small-regular-size),
+                        var(--label-large-line-height),
+                        var(--neutrals-900),
+                        400,
+                        var(--body)
+                      );
+
                       @include media(mobile) {
-                        font-size: 12px;
-                        line-height: 16px;
+                        font-size: var(--paragraph-xsmall-size);
+                        line-height: var(--paragraph-xsmall-line-height);
                       }
                     }
                   }
 
                   &[open] {
-                    border-radius: map.get($radius, r8);
-                    background-color: map.get($blue-1, b900);
-                    padding: 20px;
-
-                    @include media(mobile) {
-                      padding: 16px 12px;
-                    }
+                    padding: var(--spacing-16) 0;
 
                     .accordion-item-label {
-                      @include media(mobile) {
-                        gap: 16px;
-                      }
+                      background-color: transparent;
 
                       &::after {
-                        background-image: url("../../icons/mins-white.svg");
+                        background-image: url("../../icons/mins-blue.svg");
                       }
 
                       p {
-                        color: $primary-white;
+                        @include font-style(
+                          var(--body-large-semibold-size),
+                          var(--body-large-semibold-line-height),
+                          var(--blue-1-800-primary),
+                          600,
+                          var(--body)
+                        );
+
+                        @include media(mobile){
+                          font-size: var(--body-medium-semibold-size);
+                          line-height: var(--body-medium-semibold-line-height);
+                        }
                       }
                     }
 

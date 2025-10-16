@@ -3,7 +3,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { loadAutoBlock } from '../../scripts/scripts.js';
-import { span } from '../../scripts/dom-helpers.js';
+import { img, span } from '../../scripts/dom-helpers.js';
 
 /**
  * Initializes the scroll-to-top button.
@@ -173,6 +173,25 @@ export default async function decorate(block) {
   ).forEach((efthre) => {
     efthre.classList.add('footerthr');
   });
+  const footerContainer = document.querySelector('.footer-sub3 .icon img');
+
+  if (footerContainer) {
+    footerContainer.setAttribute('alt', 'QR code');
+    // const altTextMap = {
+    //   'footer-bar-code': 'QR code',
+    // };
+    // const imagesToFix = footerContainer.querySelectorAll('img[alt=""]');
+
+    // imagesToFix.forEach((image) => {
+    //   const { iconName } = image.dataset;
+
+    //   const altText = altTextMap[iconName];
+
+  //   if (altText) {
+  //     image.setAttribute('alt', altText);
+  //   }
+  // });
+  }
 
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
@@ -180,6 +199,7 @@ export default async function decorate(block) {
     if (block.querySelector('#form-email') !== null) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const formem = block.querySelector('#form-email');
+      formem.classList.add('email-imput');
       formem.addEventListener('input', (event) => {
         const closblock = event.target.closest('.footer');
         if (closblock.querySelector('.errormsg') === null) {
@@ -197,7 +217,33 @@ export default async function decorate(block) {
           inpelm.remove('email-success');
         }
       });
+      const wrapperimg = document.createElement('div');
+      wrapperimg.classList.add('wrapimgform');
+      wrapperimg.append(formem);
+      wrapperimg.append(img({ src: '/icons/error-cross.svg', alt: 'Img', class: 'crossimg' }));
+      block.querySelector('.email-wrapper').append(wrapperimg);
     }
   }
   removeClassAfterDelay();
+}
+
+const container = document.querySelector('.footer-sub-cont3');
+
+if (container) {
+  const altTextMap = {
+    'footer-bar-code': 'QR code for app download',
+    'Playstore-footer': 'Google Play Store icon',
+    'Apple-footer': 'Apple App Store icon',
+  };
+
+  const images = container.querySelectorAll('img');
+
+  images.forEach((image) => {
+    const { iconName } = image.dataset;
+
+    const altText = altTextMap[iconName];
+    if (altText) {
+      image.setAttribute('alt', altText);
+    }
+  });
 }

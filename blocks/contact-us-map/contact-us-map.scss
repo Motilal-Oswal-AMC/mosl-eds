@@ -478,7 +478,7 @@
 
                   .contact-txt {
                     @include font-style(var(--text-link-small-size),
-                      var(--text-Link-small-line-height),
+                      var(--text-link-small-line-height),
                       var(--text-text-link),
                       400,
                       var(--body));
@@ -583,6 +583,8 @@
 
             @include media(mobile) {
               height: 199px;
+              max-width: 334px;
+              width: 100%;
               grid-row: 1;
             }
           }

@@ -367,6 +367,10 @@
             "value": "flp-growth"
           },
           {
+            "name": "Reset Passcode",
+            "value": "reset-passcode"
+          },
+          {
             "name": "PMS Rooted",
             "value": "pms-rooted"
           },

@@ -688,6 +688,7 @@ export async function existingUser(paramblock) {
           const inputValue = e.target.value.toUpperCase();
           const errorpan = e.target.parentElement;
           const errorPanEl = errorpan.nextElementSibling;
+          e.target.value = inputValue.replace(/[^0-9]/g, '');
           if (phoneRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('hide-error');
@@ -745,7 +746,8 @@ export async function existingUser(paramblock) {
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
   const ModifyKycForm = closestParam.querySelector('.tnc-container .panvalidsubinner4');
-  ModifyKycForm.addEventListener('click', () => {
+  if (ModifyKycForm !== null) {
+    ModifyKycForm.addEventListener('click', () => {
     const userLoginPanNumber = closestParam.querySelector('.user-pan-number').value; // input
     const isNri = closestParam.querySelector('#opt1').checked;
     const userLoginPanName = closestParam.querySelector('.user-pan-name').value;
@@ -765,6 +767,7 @@ export async function existingUser(paramblock) {
       modiFyKycApicall(formdata);
     }
   });
+  }
   // ModifyKyc API  ends
 
   inputLable.appendChild(addInputDiv);
@@ -856,7 +859,9 @@ export async function existingUser(paramblock) {
       '.sub-otp-con4 .inner-otp-con2 .otp-main-con1',
     );
     // added userPanNumber
-    userPanNumberShow.textContent = userPanNumber.toUpperCase();
+    if (userPanNumberShow !== null) {
+      userPanNumberShow.textContent = userPanNumber.toUpperCase(); 
+    }
 
     const panDet = closestParam.querySelector('.pan-details-modal'); // .style.display = 'block';
     panDet.classList.add('show-modal');
@@ -935,7 +940,7 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
     { class: 'custom-select-wrapper', id: `custom-select-${id}` },
     label({ class: 'custom-select-label' }, labelText),
     p({ class: 'select-selected' }, defaultValue),
-    ul({ class: 'select-options' }, ...options.map((opt) => li({ class:'select-list', 'data-value': opt }, opt))),
+    ul({ class: 'select-options' }, ...options.map((opt) => li({ class: 'select-list', 'data-value': opt }, opt))),
     input({ type: 'hidden', id, value: defaultValue }),
   );
 }
@@ -1094,7 +1099,7 @@ export default function decorate(block) {
                 fieldlabel2,
               ),
               input({
-                class: 'stepupamt', type: 'text', id: 'stepamnt', value: '1,000', placeholder: fieldlabel2,
+                class: 'stepupamt', type: 'text', id: 'stepamnt', value: '1,000',
               }),
             ),
             div(
@@ -1126,7 +1131,7 @@ export default function decorate(block) {
               fieldlabel4,
             ),
             input({
-              class: 'maxstepupamt', type: 'text', id: 'maxsipamnt', value: '24,000', placeholder: fieldlabel4,
+              class: 'maxstepupamt', type: 'text', id: 'maxsipamnt', value: '24,000',
             }),
           ),
         ),
@@ -1227,9 +1232,9 @@ export default function decorate(block) {
             ul(
               { class: 'dropdown-list' },
               ...dataMapMoObj.planlistArr.map((eloption) => li({
-              class: 'list-name',
-              datacode: eloption.groupedCode,
-            }, `${eloption.planName} | ${eloption.optionName}`)),
+                class: 'list-name',
+                datacode: eloption.groupedCode,
+              }, `${eloption.planName} | ${eloption.optionName}`)),
             ),
           ),
         ),
@@ -1397,8 +1402,11 @@ export default function decorate(block) {
     const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
     investMod.classList.add('hide-element');
     panMod.classList.add('show-element');
-
-    existingUser(block);
+    try {
+      existingUser(block); 
+    } catch (error) {
+      console.log(error);
+    }
     const classAddv2 = mainmo.querySelector('.pan-details-modal');
     if (Array.from(classAddv2.classList).includes('hide-modal')) {
       classAddv2.classList.remove('hide-modal');

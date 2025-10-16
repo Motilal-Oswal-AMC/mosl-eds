@@ -256,8 +256,53 @@
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata.field-wrapper {
     width: 100%;
-    max-width: 176px;
   }
+}
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata {
+  position: relative;
+}
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  color: var(--neutrals-white);
+  font-feature-settings: var(--font-features-default);
+  font-family: var(--body);
+  font-size: var(--body-medium-regular-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--body-medium-regular-line-height);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+}
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata input {
+  padding: 20px 12px 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+}
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata:has(input:not(:-moz-placeholder)) label {
+  top: -8px;
+  transform: translateY(0);
+  padding: 0 5px;
+  font-size: 12PX;
+  line-height: 14px;
+  color: #fff;
+  background: #2E2A94;
+}
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata:has(input:focus) label,
+.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata:has(input:not(:placeholder-shown)) label {
+  top: -8px;
+  transform: translateY(0);
+  padding: 0 5px;
+  font-size: 12PX;
+  line-height: 14px;
+  color: #fff;
+  background: #2E2A94;
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
   background: transparent;
@@ -270,9 +315,10 @@
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height);
   font-feature-settings: var(--font-features-default);
-  -webkit-appearance: auto;
-     -moz-appearance: auto;
-          appearance: auto;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  pointer-events: none;
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset select {
@@ -309,12 +355,6 @@
   padding-block: unset;
   border: none;
   text-align: left;
-}
-.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::-moz-placeholder {
-  color: var(--neutrals-white);
-}
-.section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input::placeholder {
-  color: var(--neutrals-white);
 }
 @media (max-width: 768px) {
   .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .text-wrapper input {

@@ -469,7 +469,7 @@
             padding: 4px;
             margin: 0;
             border-radius: 2px;
-            background-color: #bdcbff;
+            background: var(--blue-1-50);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -514,23 +514,31 @@
           margin: 0;
         }
 
-        p:nth-child(2) {
-          p {
-            @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+        // p:nth-child(2) {
+        //   p {
+        //     @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
 
-            margin: 0;
+        //     margin: 0;
 
-            @media (width <=768px) {
-              padding-right: 10px;
-              font-size: var(--paragraph-small-size);
-              line-height: var(--paragraph-small-line-height);
-            }
-          }
-        }
+        //     @media (width <=768px) {
+        //       padding-right: 10px;
+        //       font-size: var(--paragraph-small-size);
+        //       line-height: var(--paragraph-small-line-height);
+        //     }
+        //   }
+        // }
 
         .investment-discripstion {
           position: relative;
           margin: 0;
+
+          @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+
+          @media (width <=768px) {
+            padding-right: 10px;
+            font-size: var(--paragraph-small-size);
+            line-height: var(--paragraph-small-line-height);
+          }
 
           .read-toggle-btn {
             @include font-style(14px,
@@ -541,16 +549,22 @@
 
             text-decoration: underline;
             text-underline-offset: 20%;
+            cursor: pointer;
+            position: relative;
+            bottom: 4px;
+            left: 5px;
 
             // position: absolute;
             // bottom: 1%;
             // right: 15%;
-            cursor: pointer;
-
             // @media (width <= 768px) {
             //   bottom: 0%;
             //   right: 38%;
             // }
+
+            @include media(mobile) {
+              bottom: 2px;
+            }
 
             &:focus {
               outline: 2px dashed $primary-blue;
@@ -582,12 +596,21 @@
             height: unset;
           }
 
+          .redemption-amount {
+            width: 50%;
+
+            @include media(mobile) {
+              width: 100%;
+            }
+          }
+
           div {
             display: flex;
             flex-direction: column;
             gap: 8px;
 
             .key-facts-amounts-title {
+
               & .block-subitem-finelsub2,
               & .block-subitem-finelsub3 {
                 margin: unset;

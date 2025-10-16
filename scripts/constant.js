@@ -30,7 +30,7 @@ const dataMapMoObj = {
   objtempdrop: {
     'Since Inception': 'Since Inception',
     '1 year': '1 Year',
-    '3 Years': '3 Years',
+    '3 years': '3 Years',
     '5 years': '5 Years',
     '7 years': '7 Years',
     '10 years': '10 Years',
@@ -147,6 +147,21 @@ const dataMapMoObj = {
         return word.charAt(0).toUpperCase() + word.slice(1);
       })
       .join(' ');
+  },
+
+  ObjDataidFdp: {
+    // 'performance-graph' : '2000',
+    'periodic-returns': '600',
+    'past-performance-calculator': '550',
+    'why-this-fund-section': '600',
+    'fund-philosophy-video': '600',
+    'custom-tab': '590',
+    'key-facts-section': '550',
+    'fund-manager-section': '580',
+    downloadsec: '560',
+    'content-library': '580',
+    'people-also-like': '580',
+    'product-label': '550',
   },
 };
 export default dataMapMoObj;
