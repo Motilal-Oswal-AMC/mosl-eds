@@ -226,15 +226,16 @@ a.button:focus,
 button:hover,
 button:focus {
     background-color: var(--link-hover-color);
+    outline: 1px solid #FFF;
 }
 
 :focus {
-  outline: none;
+    outline: 1px solid #FFF;
 }
 
 :focus-visible {
-  outline: 2px solid #2E2A94;
-  outline-offset: 2px;
+    outline: 2px solid #2E2A94;
+    outline-offset: 2px;
 }
 
 button:disabled,
