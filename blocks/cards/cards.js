@@ -45,15 +45,59 @@ export default function decorate(block) {
     dataMapMoObj.addIndexed(pmsRooted);
   }
 
+  const rootedIcon = document.querySelectorAll('.pms-rooted-card-cont1 .comlist .icon img');
+  if (rootedIcon) {
+    rootedIcon.forEach((img) => {
+      img.setAttribute('alt', 'icon');
+    });
+  }
+  const rootedImg = document.querySelectorAll('.pms-rooted-card1 .icon img');
+  if (rootedImg) {
+    rootedImg.forEach((img) => {
+      img.setAttribute('alt', 'background-image');
+    });
+  }
+
   const pmsHighSkin = block.closest('.high-skin');
   if (pmsHighSkin !== null) {
     dataMapMoObj.CLASS_PREFIXES = ['pms-high-skin', 'pms-high-skin-card', 'pms-high-skin-card-cont', 'pms-high-skin-card-subcont'];
     dataMapMoObj.addIndexed(pmsHighSkin);
   }
-
+  // high skin component
+  const pmsHighSkinBtn = document.querySelectorAll('.pms-high-skin-card-subcont1 .cards-card-body p a');
+  if (pmsHighSkinBtn) {
+    pmsHighSkinBtn.forEach((btn) => {
+      btn.setAttribute('alt-label', 'hidden');
+    });
+  }
+  const pmsHighSkinImg = document.querySelectorAll('.pms-high-skin-card-subcont1 .cards-card-image img');
+  if (pmsHighSkinImg) {
+    pmsHighSkinImg.forEach((img) => {
+      img.setAttribute('alt', 'coin-img');
+    });
+  }
   const pmsChoose = block.closest('.pms-choose');
   if (pmsChoose !== null) {
     dataMapMoObj.CLASS_PREFIXES = ['pms-choose', 'pms-choose-detail', 'pms-choose-detail-cont', 'pms-choose-detail-subcont', 'pms-choose-detail-list', 'pms-choose-detail-sublist', 'pms-choose-detail-cls'];
     dataMapMoObj.addIndexed(pmsChoose);
+  }
+
+  const pmsChooseLink = document.querySelectorAll('.pms-choose2 h3');
+  if (pmsChooseLink) {
+    pmsChooseLink.forEach((img) => {
+      img.setAttribute('alt-label', 'hidden');
+    });
+  }
+  const pmsChooseImg = document.querySelectorAll('.pms-choose2 pms-choose-detail12 img');
+  if (pmsChooseImg) {
+    pmsChooseImg.forEach((img) => {
+      img.setAttribute('alt', 'tree-img');
+    });
+  }
+  const pmsChooseBtn = document.querySelectorAll('.pms-choose2 .pms-choose-detail11 .button');
+  if (pmsChooseBtn) {
+    pmsChooseBtn.forEach((btn) => {
+      btn.setAttribute('alt-label', 'hidden');
+    });
   }
 }
