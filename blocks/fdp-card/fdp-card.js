@@ -743,15 +743,14 @@ export default function decorate(block) {
       } catch (err) {
         // Catch potential errors and inform the user
         // console.error('Failed to copy URL: ', err);
-        //alert('Could not copy URL. Please make sure the window is focused.');
+        // //alert('Could not copy URL. Please make sure the window is focused.');
         urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
         urlCopied.style.display = 'block';
         setTimeout(() => {
           urlCopied.style.display = 'none';
         }, 1000);
-
       }
-      return false
+      return false;
     }
     if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
       breadcrumb.style.display = 'block';
@@ -772,7 +771,7 @@ export default function decorate(block) {
   // Loop through children just to prepare them (e.g., remove href)
   Array.from(shareContainer.children).forEach((listItem, index) => {
     // Find the list item that contains the text 'Copy'
-    listItem.classList.add(`listindex${index + 1}`)
+    listItem.classList.add(`listindex${index + 1}`);
     if (listItem.textContent.trim().includes('Copy')) {
       const link = listItem.querySelector('a');
       if (link) {
