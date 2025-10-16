@@ -128,6 +128,7 @@
             cursor: pointer;
           }
 
+          &:focus-within,
           &.active {
             label {
               top: -8px;
@@ -296,7 +297,8 @@
             top: 50%;
             transform: translateY(-50%);
             background: white;
-            transition: top 0.3s ease;
+            // transition: top 0.3s ease;
+            transition: all 0.3s ease;
           }
 
           .fdp-valid-form {
@@ -338,6 +340,7 @@
             /* Optional spacing */
           }
 
+          &:focus-within,
           &.active {
             .pan-fields-label {
               top: -8px;
@@ -451,7 +454,7 @@
         text-decoration-style: solid;
         text-decoration-skip-ink: auto;
         text-decoration-thickness: auto;
-        text-underline-offset: 20%;
+        text-underline-offset: 2.8px;
         text-underline-position: from-font;
       }
     }
@@ -486,194 +489,549 @@
   }
 }
 
-.section.otp-fdp {
-  .main-contaienr {
-    max-width: 100%;
-    width: 100%;
+// .section.otp-fdp {
+//   .main-contaienr {
+//     max-width: 100%;
+//     width: 100%;
 
-    // background-color: rgb(0 0 0 / 60%);
-    display: flex;
-    justify-content: end;
+//     // background-color: rgb(0 0 0 / 60%);
+//     display: flex;
+//     justify-content: end;
+//     height: 100%;
+
+//     .wrapper-block {
+//       display: flex;
+//       max-width: 400px;
+//       width: 100%;
+
+//       // height: 100vh;
+//       height: 100%;
+//       padding: 64px 16px;
+//       flex-direction: column;
+//       gap: 24px;
+//       flex-shrink: 0;
+//       background: #fff;
+//       position: relative;
+
+//       @include media(mobile) {
+//         padding: 64px 16px;
+//         border-radius: 32px 32px 0 0;
+//       }
+
+//       .sub-otp-con1 {
+//         @include font-style(28px, 32px, $primary-blue, map.get($font-weights, bold), $butlerpro);
+
+//         margin: 0;
+
+//         @include media(mobile) {
+//           font-size: 24px;
+//           line-height: 28px;
+//         }
+//       }
+
+//       .otpfield {
+//         display: flex;
+//         align-items: center;
+//         gap: 8px;
+
+//         .otp-wrap {
+//           position: relative;
+
+//           // display: inline-block;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           width: 40px;
+//           height: 40px;
+//           padding: 8px;
+//           border: 1px solid map.get($strokes, default);
+//           border-radius: 6px;
+
+//           .otp-input {
+//             width: 100%;
+//             height: 100%;
+//             text-align: center;
+//             border: none;
+//             outline: none;
+//             caret-color: map.get($strokes, typing);
+
+//             @include font-style(20px, 24px, $color-text-body, map.get($font-weights, semibold), $poppins);
+
+//             // &:focus {
+//             //   border: 2px solid map.get($strokes, typing);
+//             // }
+//           }
+
+//           &:focus-within {
+//             border: 2px solid map.get($strokes, typing);
+//           }
+
+//           &.otp-success {
+//             .otp-input {
+//               border: 1px solid #00a850;
+//             }
+//           }
+
+//           &.otp-failed {
+//             .otp-input {
+//               border: 2px solid #ee212e;
+//             }
+//           }
+//         }
+//       }
+
+//       .sub-otp-con4 {
+//         display: flex;
+//         align-items: center;
+//         gap: 20px;
+//         justify-content: space-between;
+//         margin: 0;
+//         list-style: none;
+
+//         .inner-otp-con1 {
+//           @include font-style(14px, 16px, map.get($blue-1, b500), map.get($font-weights, medium), $poppins);
+
+//           .otp-main-con1 {
+//             text-decoration-line: underline;
+//             text-wrap: nowrap;
+//             color: inherit;
+//             cursor: pointer;
+//           }
+//         }
+
+//         .inner-otp-con2 {
+//           @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $poppins);
+
+//           .otp-main-con1 {
+//             font-weight: 400;
+//           }
+
+//           .otp-main-con2 {
+//             text-decoration: underline;
+//             margin-left: 8px;
+//             cursor: pointer;
+
+//             @include font-style(14px, 16px, map.get($blue-1, b500), map.get($font-weights, medium), $poppins);
+//           }
+//         }
+//       }
+
+//       .sub-otp-con2 {
+//         margin: 20px 0 0;
+//         line-height: 0;
+
+//         @include media(mobile) {
+//           margin: 36px 0 0;
+//         }
+
+//         .inner-otp-con1 {
+//           margin: 0;
+//           border-radius: 4px;
+//           background-color: $neutrals-300;
+//           padding: 12px;
+//           width: 100%;
+//           cursor: auto;
+//           pointer-events: none;
+//           display: block;
+//           text-align: center;
+
+//           @include font-style(16px, 20px, $text-body-2, map.get($font-weights, medium), $poppins);
+//         }
+
+//         &.sbmt-active {
+//           .inner-otp-con1 {
+//             background-color: $primary-blue;
+//             color: $primary-white;
+//             cursor: pointer;
+//             pointer-events: unset;
+//           }
+//         }
+//       }
+
+//       .sub-otp-con3 {
+//         margin: 0;
+
+//         @include font-style(12px, 16px, $text-body-2, map.get($font-weights, regular), $poppins);
+
+//         strong {
+//           font-weight: 400;
+//         }
+//       }
+
+//       .sub-otp-con5 {
+//         position: absolute;
+//         top: 10px;
+//         right: 10px;
+
+//         .icon-modal-btn {
+//           width: 36px;
+//           height: 36px;
+//           cursor: pointer;
+
+//           .otp-main-con1 {
+//             width: 100%;
+//             height: 100%;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// OTP FDP Start
+.section.otp-fdp {
+  width: 372px;
+  height: 100%;
+  background-color: var(--neutrals-white);
+  z-index: 1000;
+  overflow: hidden;
+
+  @include media(mobile) {
+    width: 100%;
+    border-radius: 32px 32px 0 0;
+  }
+
+  .default-content-wrapper {
+    display: none;
+  }
+
+  .otp-container {
+    position: relative;
+    padding: 36px 16px 21px;
+    overflow: auto;
     height: 100%;
 
-    .wrapper-block {
-      display: flex;
-      max-width: 400px;
-      width: 100%;
+    @include media(mobile) {
+      padding: 64px 16px 74px;
+    }
 
-      // height: 100vh;
-      height: 100%;
-      padding: 64px 16px;
-      flex-direction: column;
-      gap: 24px;
-      flex-shrink: 0;
-      background: #fff;
-      position: relative;
+    .modal-cross-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 24px;
+      height: 24px;
 
-      @include media(mobile) {
-        padding: 64px 16px;
-        border-radius: 32px 32px 0 0;
-      }
-
-      .sub-otp-con1 {
-        @include font-style(28px, 32px, $primary-blue, map.get($font-weights, bold), $butlerpro);
-
+      .sub-otp-con1,
+      .sub-otp-con1 .icon {
         margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .otp-heading {
+      .sub-otp-con2,
+      .sub-otp-con2 .inner-otp-con1 {
+        @include font-style(
+          var(--sub-header-medium-size),
+          var(--sub-header-medium-line-height),
+          var(--text-black),
+          500,
+          var(--body)
+        );
+
+        margin: 0 0 40px;
+        display: block;
 
         @include media(mobile) {
-          font-size: 24px;
-          line-height: 28px;
+          font-size: var(--paragraph-large-size);
+          line-height: var(--paragraph-medium-line-height);
+          margin: 0 0 var(--spacing-24);
         }
       }
+    }
 
-      .otpfield {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+    .pan-wrap {
+      .pan-field {
+        position: relative;
+        padding: 10px 12px;
+        border-radius: var(--border-radius-8, 8px);
+        border: var(--border-width-01) solid var(--strokes-default);
+        line-height: 0;
+        margin: 0 0 var(--spacing-8);
 
-        .otp-wrap {
+        .pan-label {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          padding: 0 4px;
+          background-color: var(--neutrals-white);
+          transform: translateY(-50%);
+          transition: all 0.3s;
+
+          @include font-style(
+            var(--label-small-size),
+            var(--label-small-line-height),
+            var(--text-body),
+            400,
+            var(--body)
+          );
+
+          @include media(mobile) {
+            font-size: var(--label-small-size);
+            line-height: var(--label-small-line-height);
+          }
+        }
+
+        .pan-inp {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 100%;
           position: relative;
 
-          // display: inline-block;
+          @include font-style(
+            var(--body-medium-regular-size),
+            var(--body-medium-regular-line-height),
+            var(--text-typed-input),
+            400,
+            var(--body)
+          );
+
+          @include media(mobile) {
+            font-size: var(--body-medium-regular-size);
+            line-height: var(--body-medium-regular-line-height);
+          }
+        }
+
+        &:focus-within,
+        &.active {
+          .pan-label {
+            top: -8px;
+            transform: unset;
+            z-index: 2;
+          }
+        }
+      }
+
+      .kyc-verify {
+        .sub-otp-con4 {
+          margin: 0;
           display: flex;
-          justify-content: center;
           align-items: center;
-          width: 40px;
-          height: 40px;
-          padding: 8px;
-          border: 1px solid map.get($strokes, default);
-          border-radius: 6px;
+          gap: var(--spacing-8);
 
-          .otp-input {
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            border: none;
-            outline: none;
-            caret-color: map.get($strokes, typing);
+          //           color: var(--MOSL-Black, #231F20);
+          // font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
 
-            @include font-style(20px, 24px, $color-text-body, map.get($font-weights, semibold), $poppins);
+          // /* Mobile/Paragraph/Small-regular */
+          // font-family: var(--Body, Inter);
+          // font-size: var(--Paragraph-Small-regular-Size, 14px);
+          // font-style: normal;
+          // font-weight: 400;
+          // line-height: var(--Paragraph-Small-regular-Line-Height, 20px); /* 142.857% */
 
-            // &:focus {
-            //   border: 2px solid map.get($strokes, typing);
-            // }
-          }
+          @include font-style(
+            var(--body-small-regular-size),
+            var(--label-large-line-height),
+            var(--mosl-black),
+            400,
+            var(--body)
+          );
 
-          &:focus-within {
-            border: 2px solid map.get($strokes, typing);
-          }
-
-          &.otp-success {
-            .otp-input {
-              border: 1px solid #00a850;
-            }
-          }
-
-          &.otp-failed {
-            .otp-input {
-              border: 2px solid #ee212e;
-            }
+          @include media(mobile) {
+            font-size: var(--paragraph-small-regular-size);
+            line-height: var(--paragraph-small-regular-line-height);
           }
         }
       }
+    }
 
-      .sub-otp-con4 {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        justify-content: space-between;
-        margin: 0;
-        list-style: none;
+    .otp-wrap {
+      .otp-label {
+        margin: var(--spacing-16) 0 var(--spacing-8);
 
-        .inner-otp-con1 {
-          @include font-style(14px, 16px, map.get($blue-1, b500), map.get($font-weights, medium), $poppins);
-
-          .otp-main-con1 {
-            text-decoration-line: underline;
-            text-wrap: nowrap;
-            color: inherit;
-            cursor: pointer;
-          }
-        }
-
-        .inner-otp-con2 {
-          @include font-style(14px, 20px, $color-text-body, map.get($font-weights, regular), $poppins);
-
-          .otp-main-con1 {
-            font-weight: 400;
-          }
-
-          .otp-main-con2 {
-            text-decoration: underline;
-            margin-left: 8px;
-            cursor: pointer;
-
-            @include font-style(14px, 16px, map.get($blue-1, b500), map.get($font-weights, medium), $poppins);
-          }
-        }
-      }
-
-      .sub-otp-con2 {
-        margin: 20px 0 0;
-        line-height: 0;
+        @include font-style(
+          var(--label-small-size),
+          var(--label-small-line-height),
+          var(--mo-body-copy-other),
+          400,
+          var(--body)
+        );
 
         @include media(mobile) {
-          margin: 36px 0 0;
+          font-size: var(--label-small-size);
+          line-height: var(--label-small-line-height);
+        }
+      }
+
+      .otp-field {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-8);
+        margin: 0 0 var(--spacing-8);
+
+        @include media(mobile) {
+          margin: 0 0 var(--spacing-40);
         }
 
-        .inner-otp-con1 {
-          margin: 0;
-          border-radius: 4px;
-          background-color: $neutrals-300;
-          padding: 12px;
-          width: 100%;
-          cursor: auto;
-          pointer-events: none;
-          display: block;
-          text-align: center;
+        .otp-wrap {
+          width: 40px;
+          height: 40px;
+          border-radius: var(--border-radius-8);
+          border: var(--border-width-01) solid var(--strokes-default);
+          padding: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-          @include font-style(16px, 20px, $text-body-2, map.get($font-weights, medium), $poppins);
-        }
+          .otp-inp {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            text-align: center;
 
-        &.sbmt-active {
-          .inner-otp-con1 {
-            background-color: $primary-blue;
-            color: $primary-white;
-            cursor: pointer;
-            pointer-events: unset;
+            @include font-style(
+              var(--body-xlarge-semibold-size),
+              var(--body-xlarge-semibold-line-height),
+              var(--text-typed-input),
+              600,
+              var(--body)
+            );
+
+            @include media(mobile) {
+              font-size: var(--body-xlarge-semibold-size);
+              line-height: var(--body-xlarge-semibold-line-height);
+            }
           }
         }
       }
 
-      .sub-otp-con3 {
+      .resend-btn {
         margin: 0;
+        padding: var(--spacing-8) 0;
+        border-radius: 0;
+        border: none;
+        background-color: transparent;
+        text-decoration: underline;
+        text-underline-offset: 2.8px; /* 2.8px */
 
-        @include font-style(12px, 16px, $text-body-2, map.get($font-weights, regular), $poppins);
+        @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
 
-        strong {
-          font-weight: 400;
+        @include media(mobile) {
+          padding: 0;
+          font-size: 14px;
+          line-height: (--text-link-small-line-height);
         }
       }
+    }
 
-      .sub-otp-con5 {
-        position: absolute;
-        top: 10px;
-        right: 10px;
+    .otp-sent-text {
+      margin: var(--spacing-36) 0 0;
 
-        .icon-modal-btn {
-          width: 36px;
-          height: 36px;
+      @include font-style(
+        var(--body-small-regular-size),
+        var(--label-large-line-height),
+        var(--text-body-2),
+        400,
+        var(--body)
+      );
+
+      @include media(mobile) {
+        margin: 12px 0 0;
+        font-size: var(--body-small-regular-size);
+        line-height: var(--label-large-line-height);
+      }
+    }
+
+    .sbmt-btn {
+      margin: var(--spacing-20) 0;
+      padding: var(--spacing-12);
+      border-radius: var(--border-radius-8);
+      background: var(--button-primary-default);
+      width: 100%;
+      cursor: pointer;
+
+      @include font-style(
+        var(--button-medium-size),
+        var(--button-medium-line-height),
+        var(--text-white),
+        500,
+        var(--body)
+      );
+
+      @include media(mobile) {
+        margin: 24px 0 var(--spacing-20);
+        font-size: var(--button-medium-size);
+        line-height: var(--button-medium-line-height);
+      }
+    }
+
+    .terms-policy {
+      .sub-otp-con9 {
+        margin: 0;
+
+        @include font-style(
+          var(--disclaimer-xsmall-size),
+          var(--disclaimer-xsmall-line-height),
+          var(--text-disclaimer),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
+
+        .inner-otp-con1 {
+          text-decoration: underline;
+          text-underline-offset: 2.8px;
+
+          @include font-style(
+            var(--text-link-xsmall-size),
+            var(--text-link-xsmall-line-height),
+            var(--text-text-link),
+            400,
+            var(--body)
+          );
+
+          @include media(mobile) {
+            font-size: var(--text-link-xsmall-size);
+            line-height: var(--text-link-xsmall-line-height);
+          }
+        }
+      }
+    }
+
+    .new-investor {
+      .sub-otp-con10 {
+        margin: var(--spacing-12) 0 0;
+
+        @include font-style(
+          var(--body-small-regular-size),
+          var(--label-large-line-height),
+          var(--text-black),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--paragraph-small-regular-size);
+          line-height: var(--paragraph-small-regular-line-height);
+        }
+
+        .inner-otp-con1 {
+          text-decoration: underline;
+          text-underline-offset: 2.8px;
+          padding: 0 0 0 4px;
           cursor: pointer;
 
-          .otp-main-con1 {
-            width: 100%;
-            height: 100%;
+          @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
+
+          @include media(mobile) {
+            font-size: var(--text-link-small-size);
+            line-height: var(--text-link-small-line-height);
           }
         }
       }
     }
   }
 }
+
+// OTP FDP End
 
 // Reset Passcode Start
 
@@ -684,7 +1042,7 @@
   z-index: 1000;
   overflow: hidden;
 
-  @include media(mobile){
+  @include media(mobile) {
     width: 100%;
     border-radius: 32px 32px 0 0;
   }
@@ -695,7 +1053,7 @@
     position: relative;
     overflow: auto;
 
-    @include media(mobile){
+    @include media(mobile) {
       padding: 64px 16px 28px;
     }
 
@@ -731,13 +1089,7 @@
     }
 
     .reset-desc {
-      @include font-style(
-        var(--body-medium-regular-size),
-        24px,
-        var(--text-body),
-        400,
-        var(--body)
-      );
+      @include font-style(var(--body-medium-regular-size), 24px, var(--text-body), 400, var(--body));
 
       margin: 0 0 var(--spacing-20);
 
@@ -774,7 +1126,7 @@
         flex-direction: column;
         gap: var(--spacing-16);
 
-        @include media(mobile){
+        @include media(mobile) {
           gap: 0;
         }
 
@@ -790,7 +1142,7 @@
           margin: -8px 0 0;
           display: none;
 
-          @include media(mobile){
+          @include media(mobile) {
             font-size: var(--paragraph-xsmall-size);
             line-height: var(--paragraph-xsmall-line-height);
           }
@@ -826,7 +1178,7 @@
                 var(--body)
               );
 
-              @include media(mobile){
+              @include media(mobile) {
                 font-size: var(--body-xlarge-semibold-size);
                 line-height: var(--body-xlarge-semibold-line-height);
               }
@@ -846,7 +1198,7 @@
               border: var(--border-width-01) solid var(--strokes-error);
             }
 
-            &~.otp-msg{
+            & ~ .otp-msg {
               display: block;
             }
           }
@@ -856,7 +1208,7 @@
               border: var(--border-width-01) solid var(--strokes-success);
             }
 
-            &~.otp-msg{
+            & ~ .otp-msg {
               display: none;
             }
           }
@@ -864,7 +1216,7 @@
 
         .resend-btn {
           text-decoration: underline;
-          text-underline-offset: 20%;
+          text-underline-offset: 2.8px;
           background-color: transparent;
           border-radius: 0;
           width: max-content;
@@ -881,7 +1233,7 @@
             var(--body)
           );
 
-          @include media(mobile){
+          @include media(mobile) {
             font-size: var(--text-link-small-size);
             line-height: var(--text-link-small-line-height);
           }
@@ -903,7 +1255,7 @@
 
         margin: 0 0 var(--spacing-8);
 
-        @include media(mobile){
+        @include media(mobile) {
           font-size: var(--label-small-size);
           line-height: var(--label-small-line-height);
         }
@@ -958,7 +1310,7 @@
               var(--body)
             );
 
-            @include media(mobile){
+            @include media(mobile) {
               font-size: var(--body-xlarge-semibold-size);
               line-height: var(--body-xlarge-semibold-line-height);
             }

@@ -143,6 +143,7 @@
     --surface-text-positive-intense: #09743D;
     --mo-body-copy-other: #48535F;
     --strokes-on-surface-02: #595957;
+    --mosl-black: #231F20;
 
     /* Colors end */
 
@@ -489,6 +490,8 @@
         --paragraph-small-weight: var(--weight-regular);
         --paragraph-small-size: var(--spacing-14);
         --paragraph-small-line-height: var(--spacing-20);
+        --paragraph-small-regular-size: var(--spacing-14);
+        --paragraph-small-regular-line-height: var(--spacing-20);
         --paragraph-xsmall-font: var(--body);
         --paragraph-xsmall-weight: var(--weight-regular);
         --paragraph-xsmall-size: var(--spacing-12);

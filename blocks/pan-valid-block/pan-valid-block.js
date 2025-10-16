@@ -234,101 +234,157 @@ export default function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
     dataMapMoObj.addIndexed(mofdp.querySelector('.otp-fdp'));
     const optVar = mofdp.querySelector('.otp-fdp');
-    const mokyc = mofdp.querySelector('.fdp-kyc-form');
-    const headtitle = optVar.querySelector('.sub-otp-con1').cloneNode(true);
-    const dis1 = optVar.querySelector('.sub-otp-con2').cloneNode(true);
-    const dis2 = optVar.querySelector('.sub-otp-con3').cloneNode(true);
-    const dis3 = optVar.querySelector('.sub-otp-con4').cloneNode(true);
-    const close = optVar.querySelector('.sub-otp-con5').cloneNode(true);
-    mokyc.append(block);
-    const divotp = div(
-      { class: 'main-contaienr' },
-      div(
-        { class: 'wrapper-block' },
-        headtitle,
-        div(
-          { class: 'otpfield' },
-          div(
-            { class: 'otp-wrap' },
-            input({
-              type: 'text',
-              class: 'otp-input',
-              'aria-label': 'OTP digit 1 of 6',
-              required: true,
-              pattern: '[0-9]',
-              tabindex: 1,
-            }),
+    // const mokyc = mofdp.querySelector('.fdp-kyc-form');
+    // const headtitle = optVar.querySelector('.sub-otp-con1').cloneNode(true);
+    // const dis1 = optVar.querySelector('.sub-otp-con2').cloneNode(true);
+    // const dis2 = optVar.querySelector('.sub-otp-con3').cloneNode(true);
+    // const dis3 = optVar.querySelector('.sub-otp-con4').cloneNode(true);
+    // const close = optVar.querySelector('.sub-otp-con5').cloneNode(true);
+    const modalcrossbtn = optVar.querySelector('.sub-otp-con1').cloneNode(true);
+    const headTitle = optVar.querySelector('.sub-otp-con2').cloneNode(true);
+    const panLabel = optVar.querySelector('.sub-otp-con3').textContent;
+    const kycVerify = optVar.querySelector('.sub-otp-con4').cloneNode(true);
+    const otpLabel = optVar.querySelector('.sub-otp-con5').textContent;
+    const reotpLabel = optVar.querySelector('.sub-otp-con6').textContent;
+    const otpSent = optVar.querySelector('.sub-otp-con7').textContent;
+    const sbmtBtn = optVar.querySelector('.sub-otp-con8').textContent;
+    const termspolicy = optVar.querySelector('.sub-otp-con9').cloneNode(true);
+    const haveAccnt = optVar.querySelector('.sub-otp-con10').cloneNode(true);
+    // mokyc.append(block);
+    // const divotp = div(
+    //   { class: 'main-contaienr' },
+    //   div(
+    //     { class: 'wrapper-block' },
+    //     headtitle,
+    //     div(
+    //       { class: 'otpfield' },
+    //       div(
+    //         { class: 'otp-wrap' },
+    //         input({
+    //           type: 'text',
+    //           class: 'otp-input',
+    //           'aria-label': 'OTP digit 1 of 6',
+    //           required: true,
+    //           pattern: '[0-9]',
+    //           tabindex: 1,
+    //         }),
+    //       ),
+    //       div(
+    //         { class: 'otp-wrap' },
+    //         input({
+    //           type: 'text',
+    //           class: 'otp-input',
+    //           'aria-label': 'OTP digit 2 of 6',
+    //           required: true,
+    //           pattern: '[0-9]',
+    //           tabindex: 1,
+    //         }),
+    //       ),
+    //       div(
+    //         { class: 'otp-wrap' },
+    //         input({
+    //           type: 'text',
+    //           class: 'otp-input',
+    //           'aria-label': 'OTP digit 3 of 6',
+    //           required: true,
+    //           pattern: '[0-9]',
+    //           tabindex: 1,
+    //         }),
+    //       ),
+    //       div(
+    //         { class: 'otp-wrap' },
+    //         input({
+    //           type: 'text',
+    //           class: 'otp-input',
+    //           'aria-label': 'OTP digit 4 of 6',
+    //           required: true,
+    //           pattern: '[0-9]',
+    //           tabindex: 1,
+    //         }),
+    //       ),
+    //       div(
+    //         { class: 'otp-wrap' },
+    //         input({
+    //           type: 'text',
+    //           class: 'otp-input',
+    //           'aria-label': 'OTP digit 5 of 6',
+    //           required: true,
+    //           pattern: '[0-9]',
+    //           tabindex: 1,
+    //         }),
+    //       ),
+    //       div(
+    //         { class: 'otp-wrap' },
+    //         input({
+    //           type: 'text',
+    //           class: 'otp-input',
+    //           'aria-label': 'OTP digit 6 of 6',
+    //           required: true,
+    //           pattern: '[0-9]',
+    //           tabindex: 1,
+    //         }),
+    //       ),
+    //     ),
+    //     dis1,
+    //     dis2,
+    //     dis3,
+    //     close,
+    //   ),
+    // );
+    // if (optVar.querySelector('.otp-fdp .main-contaienr') === null) {
+    //   optVar.querySelector('.main-otp-con1').innerHTML = '';
+    //   optVar.querySelector('.main-otp-con1').append(divotp);
+    //   if (optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr')) {
+    //     optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr').remove();
+    //   }
+    // }
+    const otpDiv = div({ clasS: 'otp-container' },
+      div({ class: 'modal-cross-btn' }, modalcrossbtn),
+      div({ class: 'otp-heading' }, headTitle),
+      // div({ class: 'pan-otp-wrap' },
+      div({ class: 'pan-wrap' },
+          div({ class: 'pan-field' },
+            label({ class: 'pan-label' }, panLabel),
+            input({ class: 'pan-inp', type: 'text' }),
           ),
-          div(
-            { class: 'otp-wrap' },
-            input({
-              type: 'text',
-              class: 'otp-input',
-              'aria-label': 'OTP digit 2 of 6',
-              required: true,
-              pattern: '[0-9]',
-              tabindex: 1,
-            }),
-          ),
-          div(
-            { class: 'otp-wrap' },
-            input({
-              type: 'text',
-              class: 'otp-input',
-              'aria-label': 'OTP digit 3 of 6',
-              required: true,
-              pattern: '[0-9]',
-              tabindex: 1,
-            }),
-          ),
-          div(
-            { class: 'otp-wrap' },
-            input({
-              type: 'text',
-              class: 'otp-input',
-              'aria-label': 'OTP digit 4 of 6',
-              required: true,
-              pattern: '[0-9]',
-              tabindex: 1,
-            }),
-          ),
-          div(
-            { class: 'otp-wrap' },
-            input({
-              type: 'text',
-              class: 'otp-input',
-              'aria-label': 'OTP digit 5 of 6',
-              required: true,
-              pattern: '[0-9]',
-              tabindex: 1,
-            }),
-          ),
-          div(
-            { class: 'otp-wrap' },
-            input({
-              type: 'text',
-              class: 'otp-input',
-              'aria-label': 'OTP digit 6 of 6',
-              required: true,
-              pattern: '[0-9]',
-              tabindex: 1,
-            }),
-          ),
-        ),
-        dis1,
-        dis2,
-        dis3,
-        close,
+          div({ class: 'kyc-verify' }, kycVerify),
       ),
+      div({ class: 'otp-wrap' },
+          p({ class: 'otp-label' }, otpLabel),
+          div({ class: 'otp-field' },
+            div({ class: 'otp-wrap' },
+              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 1 of 6',})
+            ),
+            div({ class: 'otp-wrap' },
+              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 2 of 6',})
+            ),
+            div({ class: 'otp-wrap' },
+              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 3 of 6',})
+            ),
+            div({ class: 'otp-wrap' },
+              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 4 of 6',})
+            ),
+            div({ class: 'otp-wrap' },
+              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 5 of 6',})
+            ),
+            div({ class: 'otp-wrap' },
+              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 6 of 6',})
+            ),
+          ),
+          button({ class: 'resend-btn' }, reotpLabel),
+      ),
+      p({ class: 'otp-sent-text' }, otpSent),
+      button({ class: 'sbmt-btn' }, sbmtBtn),
+      div({ class: 'terms-policy' }, termspolicy),
+      div({ class: 'new-investor' }, haveAccnt),
+      // ),
     );
-    if (optVar.querySelector('.otp-fdp .main-contaienr') === null) {
-      optVar.querySelector('.main-otp-con1').innerHTML = '';
-      optVar.querySelector('.main-otp-con1').append(divotp);
-      if (optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr')) {
-        optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr').remove();
-      }
+
+    if (!optVar.querySelector('.otp-container')) {
+      optVar.append(otpDiv);
     }
   }
+
   if (mofdp.querySelector('.reset-passcode')) {
     const resetPasscode = mofdp.querySelector('.reset-passcode');
     dataMapMoObj.CLASS_PREFIXES = ['resetpasscode', 'innerpasscode'];

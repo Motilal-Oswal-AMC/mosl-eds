@@ -81,15 +81,15 @@ function hideFormsClick(btn) {
 
     // v3 for otp
 
-    const classAddv3 = card2.querySelector('.otp-fdp');
-    if (Array.from(classAdd.classList).includes('hide-modal')) {
-      classAddv3.classList.remove('hide-modal');
-    }
-    classAddv3.classList.add('hide-modal');
-    classAddv3.classList.remove('modal-show');
+    // const classAddv3 = card2.querySelector('.otp-fdp');
+    // if (Array.from(classAdd.classList).includes('hide-modal')) {
+    //   classAddv3.classList.remove('hide-modal');
     // }
-    document.body.classList.remove('noscroll');
-    card2.classList.remove('modal-active-parent');
+    // classAddv3.classList.add('hide-modal');
+    // classAddv3.classList.remove('modal-show');
+    // // }
+    // document.body.classList.remove('noscroll');
+    // card2.classList.remove('modal-active-parent');
 
     // Fund added to cart successfully
 
@@ -549,8 +549,8 @@ export async function existingUser(paramblock) {
         // kycForm.style.display = 'none'; // display none kycform
         // panForm.style.display = 'none'; // display none panform
         // pansuccessForm.style.display = 'flex'; // display block otp form
-        const paninp = pansuccessForm.querySelector('.otp-wrap input');
-        paninp.focus();
+        // const paninp = pansuccessForm.querySelector('.otp-wrap input');
+        // paninp.focus();
         const classAddv3 = closestParam.querySelector('.otp-fdp');
         if (Array.from(classAddv3.classList).includes('hide-modal')) {
           classAddv3.classList.remove('hide-modal');
@@ -559,51 +559,51 @@ export async function existingUser(paramblock) {
         classAddv3.classList.add('modal-show');
         panForm.classList.remove('show-modal');
         const inputs = pansuccessForm.querySelectorAll('.otp-wrap input');
-        inputs.forEach((inputel, index) => {
-          inputel.setAttribute('maxLength', 1);
-          inputel.addEventListener('input', () => {
-            inputel.value = inputel.value.replace(/[^0-9]/g, '');
-            if (inputel.value.length === 1 && index < inputs.length - 1) {
-              inputs[index + 1].focus();
-            }
-          });
-          inputel.addEventListener('keydown', (event) => {
-            const totalInputs = inputs.length;
-            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-              event.preventDefault();
-            }
-            switch (event.key) {
-              case 'Tab':
-                if (!event.shiftKey && index === totalInputs - 1) {
-                  event.preventDefault();
-                  inputs[0].focus();
-                } else if (event.shiftKey && index === 0) {
-                  event.preventDefault();
-                  inputs[totalInputs - 1].focus();
-                }
-                break;
+        // inputs.forEach((inputel, index) => {
+        //   inputel.setAttribute('maxLength', 1);
+        //   inputel.addEventListener('input', () => {
+        //     inputel.value = inputel.value.replace(/[^0-9]/g, '');
+        //     if (inputel.value.length === 1 && index < inputs.length - 1) {
+        //       inputs[index + 1].focus();
+        //     }
+        //   });
+        //   inputel.addEventListener('keydown', (event) => {
+        //     const totalInputs = inputs.length;
+        //     if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        //       event.preventDefault();
+        //     }
+        //     switch (event.key) {
+        //       case 'Tab':
+        //         if (!event.shiftKey && index === totalInputs - 1) {
+        //           event.preventDefault();
+        //           inputs[0].focus();
+        //         } else if (event.shiftKey && index === 0) {
+        //           event.preventDefault();
+        //           inputs[totalInputs - 1].focus();
+        //         }
+        //         break;
 
-              case 'ArrowRight': {
-                const nextIndex = (index + 1) % totalInputs;
-                inputs[nextIndex].focus();
-                break;
-              }
-              case 'ArrowLeft': {
-                // Move to the previous input, or wrap to the last
-                const prevIndex = (index - 1 + totalInputs) % totalInputs;
-                inputs[prevIndex].focus();
-                break;
-              }
-              case 'Backspace':
-                if (inputel.value.length === 0 && index > 0) {
-                  inputs[index - 1].focus();
-                }
-                break;
-              default:
-                break;
-            }
-          });
-        });
+        //       case 'ArrowRight': {
+        //         const nextIndex = (index + 1) % totalInputs;
+        //         inputs[nextIndex].focus();
+        //         break;
+        //       }
+        //       case 'ArrowLeft': {
+        //         // Move to the previous input, or wrap to the last
+        //         const prevIndex = (index - 1 + totalInputs) % totalInputs;
+        //         inputs[prevIndex].focus();
+        //         break;
+        //       }
+        //       case 'Backspace':
+        //         if (inputel.value.length === 0 && index > 0) {
+        //           inputs[index - 1].focus();
+        //         }
+        //         break;
+        //       default:
+        //         break;
+        //     }
+        //   });
+        // });
 
         otpCall(param);
         dataMapMoObj.otpLimit = 1;
