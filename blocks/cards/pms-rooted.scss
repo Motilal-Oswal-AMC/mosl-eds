@@ -126,18 +126,18 @@ $breakpoint-desktop-s: 1100px;
         position: absolute;
         top: -120px;
         right: 0;
-        width: 376px;
-        height: 277px;
+        max-width: 376px;
+        max-height: 277px;
 
         @media (width <=$breakpoint-desktop-s) {
-            width: 276px;
-            height: 177px;
+            max-width: 276px;
+            max-height: 177px;
         }
         
         @include media(mobile) {
             top: -93px;
-            width: 142.001px;
-            height: 104.612px;
+            max-width: 142px;
+            max-height: 104px;
         }
     }
 }
