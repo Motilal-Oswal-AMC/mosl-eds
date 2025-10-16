@@ -53,7 +53,7 @@ export default function decorate(block) {
 
     const pmsChoose = block.closest('.pms-choose');
   if (pmsChoose !== null) {
-    dataMapMoObj.CLASS_PREFIXES = ["pms-choose","pms-choose-detail"];
+    dataMapMoObj.CLASS_PREFIXES = ["pms-choose","pms-choose-detail","pms-choose-detail-cont","pms-choose-detail-subcont","pms-choose-detail-list","pms-choose-detail-sublist","pms-choose-detail-cls"];
     dataMapMoObj.addIndexed(pmsChoose);
   }
 }
