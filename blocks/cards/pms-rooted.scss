@@ -3,6 +3,8 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 $breakpoint-desktop-s: 1100px;
+$breakpoint-desktop-ss: 1280px;
+$breakpoint-tablet: 900px;
 
 // pms-rooted component
 
@@ -288,8 +290,17 @@ $breakpoint-desktop-s: 1100px;
     padding: 0;
     display: flex;
     justify-content: space-between;
-    margin: 108px 67px 0;
+    margin: 108px auto 0;
     position: relative;
+    max-width: 1232px;
+
+    @media (max-width: $breakpoint-desktop-ss) {
+        margin: 108px 24px 0;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        margin: 108px 16px 0;
+    }
 
     @include media(mobile) {
         margin: 80px 16px 0;
@@ -355,7 +366,7 @@ $breakpoint-desktop-s: 1100px;
         width: 100%;
         margin: 0 0 61px;
         padding: var(--spacing-16) var(--spacing-none);
-        padding-bottom: 68px;
+        padding-bottom: 84px;
 
         @media (width <=$breakpoint-desktop-s) {
             margin-left: 16px;
@@ -384,7 +395,7 @@ $breakpoint-desktop-s: 1100px;
         }
 
         p.comlist {
-            margin: 0 0 24px;
+            margin: 0 0 32px;
             color: var(--text-body-2);
             font-family: var(--body);
             font-size: var(--body-small-regular-size);
@@ -432,7 +443,7 @@ $breakpoint-desktop-s: 1100px;
 
         .pms-choose-detail12.comlist {
             position: absolute;
-            left: 350px;
+            left: 219px;
             bottom: 0;
             margin: 0;
             aspect-ratio: 1/1;
