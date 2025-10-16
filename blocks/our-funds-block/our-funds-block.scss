@@ -1044,6 +1044,7 @@ body {
                       display: flex;
                       flex-direction: column;
                       gap: 20px;
+                      width: max-content;
 
                       .radio-label {
                         display: flex;

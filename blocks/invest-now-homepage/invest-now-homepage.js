@@ -746,7 +746,8 @@ export async function existingUser(paramblock) {
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
   const ModifyKycForm = closestParam.querySelector('.tnc-container .panvalidsubinner4');
-  ModifyKycForm.addEventListener('click', () => {
+  if (ModifyKycForm !== null) {
+    ModifyKycForm.addEventListener('click', () => {
     const userLoginPanNumber = closestParam.querySelector('.user-pan-number').value; // input
     const isNri = closestParam.querySelector('#opt1').checked;
     const userLoginPanName = closestParam.querySelector('.user-pan-name').value;
@@ -766,6 +767,7 @@ export async function existingUser(paramblock) {
       modiFyKycApicall(formdata);
     }
   });
+  }
   // ModifyKyc API  ends
 
   inputLable.appendChild(addInputDiv);
@@ -857,7 +859,9 @@ export async function existingUser(paramblock) {
       '.sub-otp-con4 .inner-otp-con2 .otp-main-con1',
     );
     // added userPanNumber
-    userPanNumberShow.textContent = userPanNumber.toUpperCase();
+    if (userPanNumberShow !== null) {
+      userPanNumberShow.textContent = userPanNumber.toUpperCase(); 
+    }
 
     const panDet = closestParam.querySelector('.pan-details-modal'); // .style.display = 'block';
     panDet.classList.add('show-modal');
@@ -1398,8 +1402,11 @@ export default function decorate(block) {
     const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
     investMod.classList.add('hide-element');
     panMod.classList.add('show-element');
-
-    existingUser(block);
+    try {
+      existingUser(block); 
+    } catch (error) {
+      console.log(error);
+    }
     const classAddv2 = mainmo.querySelector('.pan-details-modal');
     if (Array.from(classAddv2.classList).includes('hide-modal')) {
       classAddv2.classList.remove('hide-modal');
