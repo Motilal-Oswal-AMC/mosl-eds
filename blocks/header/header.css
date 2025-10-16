@@ -8,7 +8,22 @@ body.no-scroll {
 header a.button:focus,
 button:hover,
 button:focus {
-    background-color: transparent;
+    outline: none;
+}
+
+header a.button:focus-visible,
+button:focus-visible {
+    outline: 2px solid #2E2A94;
+    outline-offset: 2px;
+}
+
+header:focus,a:focus {
+    outline: none;
+}
+
+header:focus-visible,a:focus-visible {
+    outline: 2px solid #2E2A94;
+    outline-offset: 2px;
 }
 
 header .nav-wrapper a.button:any-link,
@@ -1692,7 +1707,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         header nav .nav-sections .section.sub-popup-header {
             padding: 0 24px;
         }
-        
+
         header nav .section.header-top,
         header nav[aria-expanded="true"] .section.header-top {
             width: 100%;
