@@ -158,6 +158,7 @@
   max-width: 294px;
   width: 100%;
   height: 100%;
+  aspect-ratio: unset;
 }
 @media (max-width: 768px) {
   .section.high-skin .pms-high-skin1 .pms-high-skin-card-cont1 .pms-high-skin-card-subcont1 .cards-card-image {
