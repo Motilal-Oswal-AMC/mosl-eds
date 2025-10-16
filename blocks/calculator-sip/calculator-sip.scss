@@ -684,6 +684,7 @@
                       width: fit-content;
                       height: 20px;
                       padding-right: 25px;
+                      -webkit-tap-highlight-color: transparent;
 
                       @include media(mobile) {
                         text-align: start;
