@@ -14,13 +14,17 @@
 /* ------------------------------------------------------------------
  * GLOBAL RESET
  * ------------------------------------------------------------------ */
+html, body, * {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;   /* disable iOS callout on long-press */
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     outline: none;
     text-size-adjust: none;
-    -webkit-tap-highlight-color: transparent;
 
     /* appearance: none; */
 }
