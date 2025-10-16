@@ -228,6 +228,15 @@ button:focus {
     background-color: var(--link-hover-color);
 }
 
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #2E2A94;
+  outline-offset: 2px;
+}
+
 button:disabled,
 button:disabled:hover {
     background-color: var(--light-color);
@@ -500,7 +509,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds>.card-modal-overlay,
     .known-our-funds>.card-modal-overlay {
         position: fixed;
@@ -610,7 +618,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds.modal-active-parent,
     .known-our-funds.modal-active-parent {
         max-height: unset;
@@ -1124,9 +1131,6 @@ position: relative;
     border: 2px solid var(--strokes-typing);
 }
 
-.pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper.active .iptpanfld {
-    caret-color: var(--strokes-typing);
-}
 
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper.active .panlabel {
     overflow: hidden;
@@ -1156,6 +1160,20 @@ position: relative;
     border: var(--border-width-01) solid var(--strokes-error);
 }
 
+.pan-details-modal p.subpandts2>.input-wrapper>.iptpanfld {
+    padding: 10px 12px;
+    border: none;
+    width: 100%;
+    border-radius: var(--border-radius-8);
+    text-transform: uppercase;
+    color: var(--text-typed-input);
+    font-feature-settings: var(--font-features-default);
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: var(--body-medium-regular-size);
+    line-height: var(--body-medium-regular-line-height);
+}
+
 .pan-details-modal .default-content-wrapper p.subpandts2 .input-wrapper.show-error .iptpanfld {
     background: url('../icons/icon-error.svg') center right 12px / 24px 24px no-repeat;
     padding: 10px 40px 10px 12px;
@@ -1178,18 +1196,8 @@ position: relative;
 } */
 
 
-.pan-details-modal p.subpandts2>.input-wrapper>.iptpanfld {
-    padding: 10px 12px;
-    border: none;
-    width: 100%;
-    border-radius: var(--border-radius-8);
-    text-transform: uppercase;
-    color: var(--text-typed-input);
-    font-feature-settings: var(--font-features-default);
-    font-family: var(--body);
-    font-weight: 400;
-    font-size: var(--body-medium-regular-size);
-    line-height: var(--body-medium-regular-line-height);
+.pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper.active .iptpanfld {
+    caret-color: var(--strokes-typing);
 }
 
 /* .pan-details-modal p:nth-child(2)>.input-wrapper>input:focus+label {
