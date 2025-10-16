@@ -11,7 +11,7 @@ $breakpoint-desktop-s: 1100px;
     position: relative;
 
     @include media(mobile) {
-        margin: 93px 0 40px;
+        margin: 93px 0 80px;
     }
 
     .pms-rooted-ex1 .pms-rooted-card1 {
@@ -122,22 +122,29 @@ $breakpoint-desktop-s: 1100px;
         }
     }
 
-    .pms-rooted-ex3 .pms-rooted-card-cont1 img {
-        position: absolute;
-        top: -120px;
-        right: 0;
-        max-width: 376px;
-        max-height: 277px;
+    .pms-rooted-ex3 {
+        .pms-rooted-card1{
+            max-height: 0;
+            max-width: 0;
 
-        @media (width <=$breakpoint-desktop-s) {
-            max-width: 276px;
-            max-height: 177px;
-        }
+            .pms-rooted-card-cont1 img {
+                position: absolute;
+                top: -120px;
+                right: 0;
+                max-width: 376px;
+                max-height: 277px;
         
-        @include media(mobile) {
-            top: -93px;
-            max-width: 142px;
-            max-height: 104px;
+                @media (width <=$breakpoint-desktop-s) {
+                    max-width: 276px;
+                    max-height: 177px;
+                }
+                
+                @include media(mobile) {
+                    top: -93px;
+                    max-width: 142px;
+                    max-height: 104px;
+                }
+            }
         }
     }
 }
@@ -231,7 +238,7 @@ $breakpoint-desktop-s: 1100px;
                         font-size: var(--body-medium-regular-size);
                         font-style: normal;
                         font-weight: 400;
-                        line-height: var(--body-medium-regular-line-height);
+                        line-height: 24px;
                         display: flex;
                         flex-direction: column;
                         gap: 24px;
@@ -278,14 +285,14 @@ $breakpoint-desktop-s: 1100px;
 // PMS Choose component
 
 .section.pms-choose {
-    padding: 108px 67px 0;
+    padding: 0;
     display: flex;
     justify-content: space-between;
-    margin: 0;
+    margin: 108px 67px 0;
     position: relative;
 
     @include media(mobile) {
-        padding: 80px 16px 0;
+        margin: 80px 16px 0;
         flex-direction: column;
     }
 
@@ -329,7 +336,7 @@ $breakpoint-desktop-s: 1100px;
                             font-size: var(--body-medium-regular-size);
                             font-style: normal;
                             font-weight: 400;
-                            line-height: var(--body-medium-regular-line-height);
+                            line-height: 24px;
                             margin: 0;
 
                             @include media(mobile) {
@@ -392,8 +399,8 @@ $breakpoint-desktop-s: 1100px;
 
         .pms-choose-detail11.button-container {
             position: absolute;
-            top: 316px;
-            left: 67px;
+            top: 208px;
+            left: 0;
             display: flex;
             width: 164px;
             height: 40px;
@@ -407,7 +414,7 @@ $breakpoint-desktop-s: 1100px;
 
             @include media(mobile) {
                 position: static;
-                margin-bottom: 418px;
+                margin-bottom: 372px;
             }
 
             a.comlist.pms-choose-detail-cont1 {
