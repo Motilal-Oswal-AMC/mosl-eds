@@ -685,6 +685,7 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
+  display: none;
 
   @include media(mobile) {
     width: 100%;

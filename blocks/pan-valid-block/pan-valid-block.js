@@ -234,7 +234,7 @@ export default function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['main-otp-con', 'sub-otp-con', 'inner-otp-con', 'otp-main-con', 'otp-sub-con'];
     dataMapMoObj.addIndexed(mofdp.querySelector('.otp-fdp'));
     const optVar = mofdp.querySelector('.otp-fdp');
-    // const mokyc = mofdp.querySelector('.fdp-kyc-form');
+    const mokyc = mofdp.querySelector('.fdp-kyc-form');
     // const headtitle = optVar.querySelector('.sub-otp-con1').cloneNode(true);
     // const dis1 = optVar.querySelector('.sub-otp-con2').cloneNode(true);
     // const dis2 = optVar.querySelector('.sub-otp-con3').cloneNode(true);
@@ -250,7 +250,7 @@ export default function decorate(block) {
     const sbmtBtn = optVar.querySelector('.sub-otp-con8').textContent;
     const termspolicy = optVar.querySelector('.sub-otp-con9').cloneNode(true);
     const haveAccnt = optVar.querySelector('.sub-otp-con10').cloneNode(true);
-    // mokyc.append(block);
+    mokyc.append(block);
     // const divotp = div(
     //   { class: 'main-contaienr' },
     //   div(

@@ -417,6 +417,7 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
+  display: none;
 }
 @media (max-width: 768px) {
   .section.otp-fdp {
