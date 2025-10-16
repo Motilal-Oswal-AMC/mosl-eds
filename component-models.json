@@ -381,6 +381,14 @@
           {
             "name": "PMS Choose",
             "value": "pms-choose"
+          },
+          {
+            "name": "PWS Hero Section",
+            "value": "pws-hero-section"
+          },
+          {
+            "name": "Our Strategies",
+            "value": "our-strategies"
           }
         ]
       },
