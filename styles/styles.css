@@ -232,6 +232,7 @@ a.button:focus-visible,
 button:focus-visible {
     outline: 2px solid #2E2A94;
     outline-offset: 2px;
+    box-shadow: 0 0 0 4px #005a9c;
 }
 
 :focus {
@@ -241,6 +242,7 @@ button:focus-visible {
 :focus-visible {
     outline: 2px solid #2E2A94;
     outline-offset: 2px;
+    box-shadow: 0 0 0 4px #005a9c;
 }
 
 button:disabled,

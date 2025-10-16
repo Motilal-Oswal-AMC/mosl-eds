@@ -193,6 +193,7 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.append(...cardElements);
   block.querySelectorAll('.risk-home-two a').forEach((el) => {
+    el.setAttribute('aria-label', 'external-link');
     el.addEventListener('click', (event) => {
       const closer = event.target.closest('.risk-home-two');
       const plancode = closer.querySelector('a').getAttribute('schemesh');
