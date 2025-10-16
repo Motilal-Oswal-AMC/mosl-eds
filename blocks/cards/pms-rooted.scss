@@ -129,6 +129,11 @@ $breakpoint-desktop-s: 1100px;
         width: 376px;
         height: 277px;
 
+        @media (width <=$breakpoint-desktop-s) {
+            width: 276px;
+            height: 177px;
+        }
+        
         @include media(mobile) {
             top: -93px;
             width: 142.001px;
