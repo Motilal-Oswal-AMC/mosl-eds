@@ -228,6 +228,12 @@ button:focus {
     background-color: var(--link-hover-color);
 }
 
+a.button:focus-visible,
+button:focus-visible {
+    outline: 2px solid #2E2A94;
+    outline-offset: 2px;
+}
+
 :focus {
     outline: none;
 }
