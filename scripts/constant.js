@@ -158,7 +158,7 @@ const dataMapMoObj = {
     'custom-tab': '590',
     'key-facts-section': '550',
     'fund-manager-section': '580',
-    downloadsec: '560',
+    'downloadsec': '560',
     'content-library': '580',
     'people-also-like': '580',
     'product-label': '550',
