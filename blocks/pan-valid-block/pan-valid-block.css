@@ -598,11 +598,24 @@
   height: 100%;
   background-color: var(--neutrals-white);
   z-index: 1000;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .section.reset-passcode {
+    width: 100%;
+    border-radius: 32px 32px 0 0;
+  }
 }
 .section.reset-passcode .reset-passcode-container {
   padding: 48px 16px;
   height: 100%;
   position: relative;
+  overflow: auto;
+}
+@media (max-width: 768px) {
+  .section.reset-passcode .reset-passcode-container {
+    padding: 64px 16px 28px;
+  }
 }
 .section.reset-passcode .reset-passcode-container .modal-cross-wrap {
   position: absolute;
@@ -619,7 +632,7 @@
 .section.reset-passcode .reset-passcode-container .reset-title {
   font-size: var(--sub-header-medium-size);
   line-height: var(--sub-header-medium-line-height);
-  color: var(--text-body);
+  color: var(--text-black);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
@@ -633,7 +646,7 @@
 }
 .section.reset-passcode .reset-passcode-container .reset-desc {
   font-size: var(--body-medium-regular-size);
-  line-height: var(--body-medium-regular-line-height);
+  line-height: 24px;
   color: var(--text-body);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
@@ -670,6 +683,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-16);
+}
+@media (max-width: 768px) {
+  .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap {
+    gap: 0;
+  }
 }
 .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .otp-msg {
   font-size: var(--paragraph-xsmall-size);
@@ -715,6 +733,12 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
+@media (max-width: 768px) {
+  .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .otp-field-wrap .otp-wrap .otp-inp {
+    font-size: var(--body-xlarge-semibold-size);
+    line-height: var(--body-xlarge-semibold-line-height);
+  }
+}
 .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .otp-field-wrap .otp-wrap:focus-within {
   border: var(--border-width-02) solid var(--strokes-typing);
 }
@@ -736,12 +760,13 @@
 .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .resend-btn {
   text-decoration: underline;
   text-underline-offset: 20%;
-  margin: 0;
   background-color: transparent;
   border-radius: 0;
   width: -moz-max-content;
   width: max-content;
   padding: 0;
+  border: none;
+  margin: var(--spacing-40) 0 0;
   cursor: pointer;
   font-size: var(--text-link-small-size);
   line-height: var(--text-link-small-line-height);
@@ -749,6 +774,12 @@
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
+}
+@media (max-width: 768px) {
+  .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .resend-btn {
+    font-size: var(--text-link-small-size);
+    line-height: var(--text-link-small-line-height);
+  }
 }
 .section.reset-passcode .reset-passcode-container .passcode {
   margin: var(--spacing-20) 0 0;
@@ -761,6 +792,12 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   margin: 0 0 var(--spacing-8);
+}
+@media (max-width: 768px) {
+  .section.reset-passcode .reset-passcode-container .passcode-title {
+    font-size: var(--label-small-size);
+    line-height: var(--label-small-line-height);
+  }
 }
 .section.reset-passcode .reset-passcode-container .passcode-msg {
   font-size: var(--paragraph-xsmall-size);
@@ -806,6 +843,12 @@
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
+}
+@media (max-width: 768px) {
+  .section.reset-passcode .reset-passcode-container .passcode-field-wrap .pass-wrap .pass-inp {
+    font-size: var(--body-xlarge-semibold-size);
+    line-height: var(--body-xlarge-semibold-line-height);
+  }
 }
 .section.reset-passcode .reset-passcode-container .passcode-field-wrap .pass-wrap:focus-within {
   border: var(--border-width-02, 2px) solid var(--strokes-typing);

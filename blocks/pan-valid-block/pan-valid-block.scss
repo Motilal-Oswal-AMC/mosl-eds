@@ -682,11 +682,22 @@
   height: 100%;
   background-color: var(--neutrals-white);
   z-index: 1000;
+  overflow: hidden;
+
+  @include media(mobile){
+    width: 100%;
+    border-radius: 32px 32px 0 0;
+  }
 
   .reset-passcode-container {
     padding: 48px 16px;
     height: 100%;
     position: relative;
+    overflow: auto;
+
+    @include media(mobile){
+      padding: 64px 16px 28px;
+    }
 
     .modal-cross-wrap {
       position: absolute;
@@ -706,7 +717,7 @@
       @include font-style(
         var(--sub-header-medium-size),
         var(--sub-header-medium-line-height),
-        var(--text-body),
+        var(--text-black),
         500,
         var(--body)
       );
@@ -722,7 +733,7 @@
     .reset-desc {
       @include font-style(
         var(--body-medium-regular-size),
-        var(--body-medium-regular-line-height),
+        24px,
         var(--text-body),
         400,
         var(--body)
@@ -762,6 +773,10 @@
         display: flex;
         flex-direction: column;
         gap: var(--spacing-16);
+
+        @include media(mobile){
+          gap: 0;
+        }
 
         .otp-msg {
           @include font-style(
@@ -810,6 +825,11 @@
                 600,
                 var(--body)
               );
+
+              @include media(mobile){
+                font-size: var(--body-xlarge-semibold-size);
+                line-height: var(--body-xlarge-semibold-line-height);
+              }
             }
 
             &:focus-within {
@@ -845,11 +865,12 @@
         .resend-btn {
           text-decoration: underline;
           text-underline-offset: 20%;
-          margin: 0;
           background-color: transparent;
           border-radius: 0;
           width: max-content;
           padding: 0;
+          border: none;
+          margin: var(--spacing-40) 0 0;
           cursor: pointer;
 
           @include font-style(
@@ -859,6 +880,11 @@
             400,
             var(--body)
           );
+
+          @include media(mobile){
+            font-size: var(--text-link-small-size);
+            line-height: var(--text-link-small-line-height);
+          }
         }
       }
     }
@@ -876,6 +902,11 @@
         );
 
         margin: 0 0 var(--spacing-8);
+
+        @include media(mobile){
+          font-size: var(--label-small-size);
+          line-height: var(--label-small-line-height);
+        }
       }
 
       &-msg {
@@ -926,6 +957,11 @@
               600,
               var(--body)
             );
+
+            @include media(mobile){
+              font-size: var(--body-xlarge-semibold-size);
+              line-height: var(--body-xlarge-semibold-line-height);
+            }
           }
 
           &:focus-within {
