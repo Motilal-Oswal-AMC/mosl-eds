@@ -226,11 +226,10 @@ a.button:focus,
 button:hover,
 button:focus {
     background-color: var(--link-hover-color);
-    outline: 1px solid #FFF;
 }
 
 :focus {
-    outline: 1px solid #FFF;
+    outline: none;
 }
 
 :focus-visible {

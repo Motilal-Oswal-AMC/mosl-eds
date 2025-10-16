@@ -309,6 +309,8 @@ export default function decorate(block) {
               p(
                 {
                   class: 'selectedtext',
+                  'aria-haspopup': 'true',
+                  'aria-expanded': 'false',
                   onclick: (event) => {
                     if (
                       Array.from(
