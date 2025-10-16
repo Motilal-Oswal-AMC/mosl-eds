@@ -891,6 +891,12 @@ export async function existingUser(paramblock) {
   errorPanEl.textContent = 'Invalid PAN number';
   inputLable.appendChild(errorPanEl); // append it once
 
+  inputLable.addEventListener('click', (e) => {
+    if (e.target.value === '') {
+      e.target.parentElement.classList.add('active');
+    }
+  });
+
   inputLable.addEventListener('input', (e) => {
     const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
     const inputValue = e.target.value.toUpperCase();
@@ -901,19 +907,28 @@ export async function existingUser(paramblock) {
       // If empty, hide the error
       errorPanEl.classList.remove('show-error');
       errorPanEl.classList.add('hide-error');
+      e.target.parentElement.classList.remove('active');
     } else if (panRegex.test(inputValue)) {
       // If valid PAN, hide error
       errorPanEl.classList.remove('show-error');
       errorPanEl.classList.add('hide-error');
       btnAuthenticate.classList.add('pan-active');
+      e.target.parentElement.classList.add('active');
     } else {
       // If invalid PAN, show error
       errorPanEl.classList.remove('hide-error');
       errorPanEl.classList.add('show-error');
       btnAuthenticate.classList.remove('pan-active');
+      e.target.parentElement.classList.add('active');
     }
   });
 
+  document.addEventListener('click', (event) => {
+    if (!inputLable.querySelector('input').contains(event.target)
+      && inputLable.querySelector('input').value === '') {
+      inputLable.querySelector('.innerpandts1').classList.remove('active');
+    }
+  });
   // this function for hide modal forms
 
   const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');

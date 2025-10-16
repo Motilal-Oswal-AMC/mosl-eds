@@ -120,7 +120,7 @@ export default function decorate(block) {
               p(
                 block.querySelector('.block-subitem3 .block-subitem-finelsub1'),
               ),
-              p('Nil'), // not found
+              p('nil'), // not found
             ),
             div(
               { class: 'Inception-date' },
@@ -134,7 +134,7 @@ export default function decorate(block) {
               p(
                 block.querySelector('.block-subitem3 .block-subitem-finelsub3'),
               ),
-              p({ class: 'entry-load-detail' }, 'Nil'),
+              p({ class: 'entry-load-detail' }, 'nil'),
             ),
           ),
         ),
@@ -212,15 +212,21 @@ export default function decorate(block) {
       container.appendChild(toggleBtn);
     });
   }
-  block.querySelector('.entry-load-detail').innerHTML = data[0].entryLoad;
+  block.querySelector('.entry-load-detail').innerHTML = data[0].entryLoad.toLowerCase();
   block.querySelector('.load-policy-list').innerHTML = '';
-  const replacepara = data[0].schDetail.exitLoad.replaceAll('<p>', '<li>');
-  const replaceparatwo = replacepara.replaceAll('</p>', '</li>');
-  const prarrep = replaceparatwo.replaceAll('<li>&nbsp;</li>', '');
+  const replacepara = data[0].schDetail.exitLoad.replaceAll('<p>', '<li>').toLowerCase();
+  const replaceparatwo = replacepara.replaceAll('</p>', '</li>').toLowerCase();
+  const prarrep = replaceparatwo.replaceAll('<li>&nbsp;</li>', '').toLowerCase();
 
   const ulCover = document.createElement('ul');
   ulCover.className = 'load-policy-list-ul';
   ulCover.innerHTML = prarrep;
   block.querySelector('.load-policy-list').append(ulCover);
   // block.querySelector('.load-policy-list').innerHTML = prarrep;
+
+  const brEl = document.createElement('br');
+  const keyplan = document.querySelector('.key-plans span')
+  const keyplanparent = document.querySelector('.key-plans span').parentElement;
+  keyplanparent.append(brEl);
+  keyplanparent.append(keyplan);
 }
