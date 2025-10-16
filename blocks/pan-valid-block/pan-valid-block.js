@@ -14,7 +14,7 @@ export default function decorate(block) {
   ];
   dataMapMoObj.addIndexed(block.closest(['.section']));
   const panvalidmain1 = block.closest('.section');
-  const titlle = panvalidmain1.querySelector('.panvalidmain1');
+  const title = panvalidmain1.querySelector('.panvalidmain1');
   const panlab = panvalidmain1
     .querySelector('.panvalidmain2 .panvalidsubinner1')
     .textContent.trim();
@@ -43,185 +43,92 @@ export default function decorate(block) {
   const emlab = panvalidmain1
     .querySelector('.panvalidmain2 .panvalidinner2 .panvalidsubinner2')
     .textContent.trim();
-  const tnctext = panvalidmain1.querySelector(
-    '.panvalidmain2 .panvalidinner2 .panvalidsubinner3',
-  ).cloneNode(true);
+  const citylab = panvalidmain1
+    .querySelector('.panvalidmain2 .panvalidinner2 .panvalidsubinner3')
+    .textContent.trim();
   const tncbtn = panvalidmain1.querySelector(
     '.panvalidmain2 .panvalidinner2 .panvalidsubinner4',
   ).cloneNode(true);
+  const tnctext = panvalidmain1.querySelector(
+    '.panvalidmain2 .panvalidinner2 .panvalidsubinner5',
+  ).cloneNode(true);
+  const tncaccount = panvalidmain1.querySelector(
+    '.panvalidmain2 .panvalidinner2 .panvalidsubinner6',
+  ).cloneNode(true);
 
   const divpv = div(
-    { class: 'maincontainer' },
-    titlle,
-    div(
-      {
-        class: 'form-container',
-      },
-      div(
-        {
-          class: 'pan-container',
-        },
-        div(
-          { class: 'input-wrap' },
-          div(
-            {
-              class: 'pan-input',
-            },
-            label(
-              {
-                for: '',
-              },
-              panlab,
-            ),
-            input({
-              class: 'user-pan-number',
-              type: 'text',
-            }),
-            img({ class: 'pan-image', src: '../../icons/pencil.svg', alt: 'pencil' }),
+    { class: 'pankyc-container' },
+    title,
+    div({ class: 'form-container' },
+      div({ class: 'pan-container' },
+        div({ class: 'pan-field' },
+          div({ class: 'pan-wrap' },
+            label({ class: 'pan-label', for: 'pan' }, panlab),
+            input({ class: 'pan-inp', id: 'pan', type: 'text' }),
+            img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
-          p({ class: 'show-pan-error error' }, 'Invalid PAN Number'),
+          span({ class: 'show-pan-error error-msg' }, 'Please enter a valid PAN'),
         ),
-        div(
-          {
-            class: 'radio-container',
-          },
-          div(
-            {
-              class: 'radios',
-            },
-            div(
-              p(
-                {
-                  class: 'residenttext',
-                },
-                reslab,
+        div({ class: 'kyc-status-wrap' },
+          div({ class: 'kyc-radio-wrap' },
+            p({ class: 'kyc-radio-txt' }, reslab),
+            div({ class: 'kyc-radio' },
+              div({ class: 'radio-field' },
+                input({ type: 'radio', class: 'radio-click', name: 'kyc-radio', id: 'opt1' }),
+                label({ class: 'radio-label', for: 'opt1' }, listraio[0].textContent.trim()),
               ),
-            ),
-            div(
-              {
-                class: 'radio-btns',
-              },
-              div(
-                { class: 'radio-1' },
-                input({
-                  type: 'radio', name: 'radio-click', id: 'opt1',
-                }),
-                label({ class: 'rad-label', for: 'opt1' }, listraio[0].textContent.trim()),
-              ),
-              div(
-                { class: 'radio-2' },
-                input({
-                  type: 'radio', name: 'radio-click', id: 'opt2',
-                }),
-                label({ class: 'rad-label', for: 'opt2' }, listraio[1].textContent.trim()),
+              div({ class: 'radio-field' },
+                input({ type: 'radio', class: 'radio-click', name: 'kyc-radio', id: 'opt2' }),
+                label({ class: 'radio-label', for: 'opt2' }, listraio[1].textContent.trim()),
               ),
             ),
           ),
-          div(
-            {
-              class: 'kyc',
-            },
-            p(
-              {
-                class: 'iscriptin',
-              },
-              distext,
-            ),
-            p(
-              {
-                class: 'subdiscriptin',
-              },
-              distextsub,
-            ),
+          div({ class: 'kyc-txt-content' },
+            p({ class: 'kyc-head' }, distext),
+            p({ class: 'kyc-desc' }, distextsub),
           ),
         ),
       ),
-      div(
-        {
-          class: 'name-container',
-        },
-        div(
-          { class: 'fdp-inp-wrap' },
-          div(
-            {
-              class: 'name-label pan-fields',
-            },
-            label(
-              {
-                class: 'pan-fields-label',
-                for: '',
-              },
-              namelab,
-            ),
-            input({
-              type: 'text',
-              name: '',
-              id: '',
-              class: 'user-pan-name',
-            }),
+      div({ class: 'kyc-detail-container' },
+        div({ class: 'detail-field-wrap' },
+          div({ class: 'name-field detail-field' },
+            label({ class: 'detail-label name-label', for: 'kyc-name' }, namelab),
+            input({ type: 'text', name: 'kyc-name', id: 'kyc-name', class: 'detail-inp name-inp' }),
           ),
-          p({ class: 'name-error error' }, 'Invalid Name'),
+          p({ class: 'name-error error-msg' }, 'Invalid Name'),
         ),
         div(
-          { class: 'fdp-inp-wrap' },
-          div(
-            {
-              class: 'number-label pan-fields',
-            },
-            label(
-              {
-                class: 'pan-fields-label',
-                for: '',
-              },
-              pnlab,
-            ),
-            input({
-              type: 'text',
-              name: '',
-              id: '',
-              class: 'user-number',
-            }),
+          { class: 'detail-field-wrap' },
+          div({ class: 'country-code-wrap' },
             p({ class: 'country-code' }, '+91'),
           ),
-          p({ class: 'number-error error' }, 'Invalid Number'),
-        ),
-        div(
-          { class: 'fdp-inp-wrap' },
-          div(
-            {
-              class: 'email-label pan-fields',
-            },
-            // ul(
-            //   { class: 'list-of-options' },
-            //   li({ class: 'email' }, 'Email'),
-            //   li({ class: 'google' }, 'Google'),
-            //   li({ class: 'Phone' }, 'Phone Number'),
-            //   li({ class: 'etc' }, 'ETC'),
-            //   li({ class: 'email' }, 'Email'),
-            // ),
-            label(
-              {
-                class: 'pan-fields-label',
-                for: '',
-              },
-              emlab,
+          div({ class: 'mobile-field-wrap' },
+            div({ class: 'mob-field detail-field' },
+              label({ class: 'detail-label mob-label', for: 'kyc-mob' }, namelab),
+              input({ type: 'tel', name: 'kyc-mob', id: 'kyc-mob', class: 'detail-inp mob-inp' }),
             ),
-            input(
-              {
-                type: 'email',
-                name: '',
-                id: '',
-                class: 'user-email',
-              },
-            ),
+            p({ class: 'name-error error-msg' }, 'Invalid Name'),
           ),
-          p({ class: 'email-error error' }, 'Invalid Email'),
+        ),
+        div({ class: 'detail-field-wrap' },
+          div({ class: 'email-field detail-field' },
+            label({ class: 'detail-label email-label', for: 'kyc-email' }, emlab),
+            input({ type: 'email', name: 'kyc-email', id: 'kyc-email', class: 'detail-inp email-inp' }),
+          ),
+          p({ class: 'email-error error-msg' }, 'Invalid Email'),
+        ),
+        div({ class: 'detail-field-wrap' },
+          div({ class: 'city-field detail-field' },
+            label({ class: 'detail-label city-label', for: 'kyc-city' }, citylab),
+            input({ type: 'text', name: 'kyc-city', id: 'kyc-city', class: 'detail-inp city-inp' }),
+          ),
+          p({ class: 'city-error error-msg' }, 'Invalid City'),
         ),
       ),
     ),
-    div({ class: 'tnc-container' }, tnctext, tncbtn),
+    div({ class: 'tnc-container' }, tncbtn, tnctext, tncaccount),
   );
-  if (block.querySelector('.maincontainer') === null) {
+  if (block.querySelector('.pankyc-container') === null) {
     block.append(divpv);
   }
 
