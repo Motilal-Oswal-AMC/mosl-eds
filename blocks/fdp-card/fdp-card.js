@@ -7,6 +7,7 @@ import {
   p,
   img,
   input,
+  label,
   a,
 } from '../../scripts/dom-helpers.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -525,7 +526,14 @@ export default function decorate(block) {
             {
               class: 'input-wrapper',
             },
+            label(
+              {
+                for: 'pan-details', // Connects to the input's ID
+              },
+              'Enter PAN details', // Visible text for the label
+            ),
             input({
+              id: 'pan-details',
               placeholder: 'Enter PAN details',
               type: 'text',
             }),
@@ -721,28 +729,28 @@ export default function decorate(block) {
     const breadcrumb = document.querySelector('.breadcrbmain2');
     if (event.target.textContent === 'Copy') {
       const urlCopied = block.closest('main').querySelector('.breadcrumbs-fdp .listindex5');
-    try {
-      const currentUrl = window.location.href;
-      await navigator.clipboard.writeText(currentUrl);
+      try {
+        const currentUrl = window.location.href;
+        await navigator.clipboard.writeText(currentUrl);
 
-      // Provide feedback to the user!
-      // alert('URL copied to clipboard!');
-      urlCopied.style.display = 'block';
-      setTimeout(()=>{
-        urlCopied.style.display = 'none';
-        breadcrumb.style.display = 'none';
-      },1000);
-    } catch (err) {
-      // Catch potential errors and inform the user
-      // console.error('Failed to copy URL: ', err);
-      //alert('Could not copy URL. Please make sure the window is focused.');
-      urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
-      urlCopied.style.display = 'block';
-      setTimeout(()=>{
-        urlCopied.style.display = 'none';
-      },1000);
+        // Provide feedback to the user!
+        // alert('URL copied to clipboard!');
+        urlCopied.style.display = 'block';
+        setTimeout(() => {
+          urlCopied.style.display = 'none';
+          breadcrumb.style.display = 'none';
+        }, 1000);
+      } catch (err) {
+        // Catch potential errors and inform the user
+        // console.error('Failed to copy URL: ', err);
+        //alert('Could not copy URL. Please make sure the window is focused.');
+        urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
+        urlCopied.style.display = 'block';
+        setTimeout(() => {
+          urlCopied.style.display = 'none';
+        }, 1000);
 
-    }
+      }
       return false
     }
     if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
@@ -764,7 +772,7 @@ export default function decorate(block) {
   // Loop through children just to prepare them (e.g., remove href)
   Array.from(shareContainer.children).forEach((listItem, index) => {
     // Find the list item that contains the text 'Copy'
-    listItem.classList.add(`listindex${index+1}`)
+    listItem.classList.add(`listindex${index + 1}`)
     if (listItem.textContent.trim().includes('Copy')) {
       const link = listItem.querySelector('a');
       if (link) {

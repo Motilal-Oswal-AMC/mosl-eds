@@ -58,7 +58,6 @@
   align-items: center;
 }
 .key-facts-container .default-content-wrapper ol li:first-child {
-  min-width: 511px;
   width: 100%;
 }
 @media (max-width: 768px) {
@@ -66,7 +65,7 @@
     min-width: unset;
   }
 }
-.key-facts-container .default-content-wrapper ol li h4 {
+.key-facts-container .default-content-wrapper ol li > p {
   font-size: var(--body-xlarge-bold-size);
   line-height: var(--body-xlarge-bold-line-height);
   color: var(--blue-1-800-primary);
@@ -81,19 +80,19 @@
   gap: 8px;
 }
 @media (width <= 768px) {
-  .key-facts-container .default-content-wrapper ol li h4 {
+  .key-facts-container .default-content-wrapper ol li > p {
     font-size: var(--body-xlarge-bold-size);
     line-height: var(--body-xlarge-bold-line-height);
   }
 }
-.key-facts-container .default-content-wrapper ol li h4 span {
+.key-facts-container .default-content-wrapper ol li > p span {
   max-width: 56px;
   width: 100%;
   max-height: 56px;
   height: 100%;
 }
 @media (width <= 768px) {
-  .key-facts-container .default-content-wrapper ol li h4 span {
+  .key-facts-container .default-content-wrapper ol li > p span {
     max-width: 56px;
     height: 56px;
   }
@@ -119,7 +118,6 @@
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
-  padding: 4px;
   margin: 0;
   border-radius: 2px;
   background: var(--blue-1-50);
@@ -132,6 +130,31 @@
 @media (width <= 768px) {
   .key-facts-container .default-content-wrapper ol li ol li:nth-child(2) {
     font-weight: 400;
+  }
+}
+.key-facts-container .default-content-wrapper ol li ol li:nth-child(2) p {
+  display: flex;
+  width: 169px;
+  height: 24px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 2px;
+  background: var(--blue-1-50, #D5DEFF);
+  color: var(--blue-1800-primary, #2E2A94);
+  font-family: var(--body, Inter);
+  font-size: var(--paragraph-xsmall-size, 12px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--paragraph-xsmall-line-height, 16px);
+}
+@media (max-width: 768px) {
+  .key-facts-container .default-content-wrapper ol li ol li:nth-child(2) p {
+    font-size: var(--paragraph-xsmall-size, 12px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--paragraph-xsmall-line-height, 16px);
   }
 }
 @media (width <= 768px) {
