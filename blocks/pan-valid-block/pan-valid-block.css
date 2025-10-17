@@ -197,12 +197,48 @@
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field {
   display: flex;
   align-items: center;
-  gap: 4px;
   cursor: pointer;
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-click {
   width: 24px;
   height: 24px;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-click::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  display: block;
+  border: 2px solid var(--neutrals-600);
+  border-radius: 50%;
+  visibility: visible;
+  margin: 1px;
+}
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-click:checked::before {
+  width: 20px;
+  height: 20px;
+  outline: 2px solid var(--blue-1-800-primary);
+  background-color: var(--blue-1-800-primary);
+  border: 3px solid var(--neutrals-white);
+  margin: 1px;
+}
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-click:checked ~ .radio-label {
+  font-weight: 500;
+  font-size: var(--body-small-medium-size);
+  line-height: var(--body-small-medium-line-height);
+}
+@media (max-width: 768px) {
+  .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-click:checked ~ .radio-label {
+    font-size: var(--body-small-medium-size);
+    line-height: var(--body-small-medium-line-height);
+  }
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-label {
   font-size: var(--body-small-regular-size);
@@ -211,6 +247,7 @@
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
+  padding-left: 4px;
 }
 @media (max-width: 768px) {
   .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-label {

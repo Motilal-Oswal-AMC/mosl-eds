@@ -716,12 +716,49 @@
                   .radio-field {
                     display: flex;
                     align-items: center;
-                    gap: 4px;
+                    // gap: 4px;
                     cursor: pointer;
 
                     .radio-click {
                       width: 24px;
                       height: 24px;
+                      cursor: pointer;
+                      appearance: none;
+                      visibility: hidden;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+
+                      &::before {
+                        content: "";
+                        width: 22px;
+                        height: 22px;
+                        display: block;
+                        border: 2px solid var(--neutrals-600);
+                        border-radius: 50%;
+                        visibility: visible;
+                        margin: 1px;
+                      }
+
+                      &:checked::before{
+                        width: 20px;
+                        height: 20px;
+                        outline: 2px solid var(--blue-1-800-primary);
+                        background-color: var(--blue-1-800-primary);
+                        border: 3px solid var(--neutrals-white);
+                        margin: 1px;
+                      }
+
+                      &:checked ~ .radio-label{
+                        font-weight: 500;
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
+                        
+                        @include media(mobile){
+                          font-size: var(--body-small-medium-size);
+                          line-height: var(--body-small-medium-line-height);
+                        }
+                      }
                     }
 
                     .radio-label {
@@ -732,6 +769,8 @@
                         400,
                         var(--body)
                       );
+
+                      padding-left: 4px;
 
                       @include media(mobile) {
                         font-size: var(--body-small-regular-size);
