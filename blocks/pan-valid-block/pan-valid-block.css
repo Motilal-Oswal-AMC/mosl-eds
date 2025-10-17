@@ -8,7 +8,6 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
-  display: block !important;
 }
 .section.fdp-kyc-form .pan-valid-block {
   height: 100%;
@@ -24,7 +23,7 @@
     padding: 64px 16px 46px;
   }
 }
-.section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsubmain1 {
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsub1 {
   margin: 0 0 40px;
   font-size: var(--sub-header-medium-size);
   line-height: var(--sub-header-medium-line-height);
@@ -34,13 +33,13 @@
   font-weight: 500;
 }
 @media (max-width: 768px) {
-  .section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsubmain1 {
+  .section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsub1 {
     margin: 0 0 24px;
     font-size: var(--paragraph-large-size);
     line-height: var(--paragraph-medium-line-height);
   }
 }
-.section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsubmain2 {
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsub2 {
   margin: 0;
   position: absolute;
   top: 12px;
@@ -48,7 +47,7 @@
   width: 24px;
   height: 24px;
 }
-.section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsubmain2 .icon {
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsub2 .icon {
   width: 100%;
   height: 100%;
 }
@@ -199,6 +198,21 @@
   align-items: center;
   cursor: pointer;
 }
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-label {
+  font-size: var(--body-small-regular-size);
+  line-height: var(--body-small-regular-line-height);
+  color: var(--text-black);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+  padding-left: 4px;
+}
+@media (max-width: 768px) {
+  .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-label {
+    font-size: var(--body-small-regular-size);
+    line-height: var(--body-small-regular-line-height);
+  }
+}
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-click {
   width: 24px;
   height: 24px;
@@ -238,21 +252,6 @@
   .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-click:checked ~ .radio-label {
     font-size: var(--body-small-medium-size);
     line-height: var(--body-small-medium-line-height);
-  }
-}
-.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-label {
-  font-size: var(--body-small-regular-size);
-  line-height: var(--body-small-regular-line-height);
-  color: var(--text-black);
-  font-family: var(--body);
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 400;
-  padding-left: 4px;
-}
-@media (max-width: 768px) {
-  .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-label {
-    font-size: var(--body-small-regular-size);
-    line-height: var(--body-small-regular-line-height);
   }
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-txt-content .kyc-head {
@@ -835,6 +834,7 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
+  display: block !important;
 }
 @media (max-width: 768px) {
   .section.reset-passcode {
@@ -843,7 +843,7 @@
   }
 }
 .section.reset-passcode .reset-passcode-container {
-  padding: 48px 16px;
+  padding: var(--spacing-36) 16px;
   height: 100%;
   position: relative;
   overflow: auto;
@@ -1000,11 +1000,11 @@
   border-radius: 0;
   width: -moz-max-content;
   width: max-content;
-  padding: 0;
+  padding: var(--spacing-8) 0;
   border: none;
-  margin: var(--spacing-40) 0 0;
+  margin: 0;
   cursor: pointer;
-  font-size: var(--text-link-small-size);
+  font-size: 14px;
   line-height: var(--text-link-small-line-height);
   color: var(--text-text-link);
   font-family: var(--body);
@@ -1015,6 +1015,8 @@
   .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .resend-btn {
     font-size: var(--text-link-small-size);
     line-height: var(--text-link-small-line-height);
+    padding: 0;
+    margin: 40px 0 0;
   }
 }
 .section.reset-passcode .reset-passcode-container .passcode {

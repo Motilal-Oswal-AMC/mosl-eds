@@ -501,7 +501,7 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
-  display: block !important;
+  // display: block !important;
 
   .pan-valid-block {
     height: 100%;
@@ -517,7 +517,7 @@
       }
 
       .panvalidinner1 {
-        .panvalidsubmain1 {
+        .panvalidsub1 {
           margin: 0 0 40px;
 
           @include font-style(
@@ -535,7 +535,7 @@
           }
         }
 
-        .panvalidsubmain2 {
+        .panvalidsub2 {
           margin: 0;
           position: absolute;
           top: 12px;
@@ -716,8 +716,24 @@
                   .radio-field {
                     display: flex;
                     align-items: center;
-                    // gap: 4px;
                     cursor: pointer;
+
+                    .radio-label {
+                      @include font-style(
+                        var(--body-small-regular-size),
+                        var(--body-small-regular-line-height),
+                        var(--text-black),
+                        400,
+                        var(--body)
+                      );
+
+                      padding-left: 4px;
+
+                      @include media(mobile) {
+                        font-size: var(--body-small-regular-size);
+                        line-height: var(--body-small-regular-line-height);
+                      }
+                    }
 
                     .radio-click {
                       width: 24px;
@@ -758,23 +774,6 @@
                           font-size: var(--body-small-medium-size);
                           line-height: var(--body-small-medium-line-height);
                         }
-                      }
-                    }
-
-                    .radio-label {
-                      @include font-style(
-                        var(--body-small-regular-size),
-                        var(--body-small-regular-line-height),
-                        var(--text-black),
-                        400,
-                        var(--body)
-                      );
-
-                      padding-left: 4px;
-
-                      @include media(mobile) {
-                        font-size: var(--body-small-regular-size);
-                        line-height: var(--body-small-regular-line-height);
                       }
                     }
                   }
@@ -1646,6 +1645,7 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
+  display: block !important;
 
   @include media(mobile) {
     width: 100%;
@@ -1653,7 +1653,7 @@
   }
 
   .reset-passcode-container {
-    padding: 48px 16px;
+    padding: var(--spacing-36) 16px;
     height: 100%;
     position: relative;
     overflow: auto;
@@ -1825,13 +1825,13 @@
           background-color: transparent;
           border-radius: 0;
           width: max-content;
-          padding: 0;
+          padding: var(--spacing-8) 0;
           border: none;
-          margin: var(--spacing-40) 0 0;
+          margin: 0;
           cursor: pointer;
 
           @include font-style(
-            var(--text-link-small-size),
+            14px,
             var(--text-link-small-line-height),
             var(--text-text-link),
             400,
@@ -1841,6 +1841,8 @@
           @include media(mobile) {
             font-size: var(--text-link-small-size);
             line-height: var(--text-link-small-line-height);
+            padding: 0;
+            margin: 40px 0 0;
           }
         }
       }
