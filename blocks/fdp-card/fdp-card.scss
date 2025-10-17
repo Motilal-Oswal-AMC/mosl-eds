@@ -66,11 +66,11 @@ main {
 
           // top: 32px;
           top: 100%;
-          left: 0;
+          left: -2px;
           z-index: 5;
           max-width: 340px;
           width: 100%;
-          min-height: fit-content;
+          max-height: 193px;
           overflow: auto;
           margin: 3px 0 0;
           background-color: $primary-white;
@@ -317,6 +317,7 @@ main {
                 align-items: center;
                 gap: 8px;
                 cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
 
                 @include font-style(
                   var(--body-small-medium-size),
@@ -375,7 +376,7 @@ main {
 
               @include media(tab) {
                 // max-width: 120px;
-                width: max-content;
+                max-width: 160px;
               }
 
               // @include media(mobile) {
@@ -443,7 +444,7 @@ main {
                 .dropdownlist {
                   // width: 70px;
                   max-width:143px;
-                  height: auto;
+                  // height: auto;
 
                   // top: 22px;
                   top: 14px;
@@ -453,7 +454,8 @@ main {
                   margin: 4px 0 0 ;
 
                   @include media(mobile) {
-                    margin: 2px 0 0 ;
+                    margin: 3px 0 0 ;
+                    top: 15px
                   }
 
                   .listval {
@@ -513,7 +515,8 @@ main {
 
               @include media(tab) {
                 // max-width: 140px;
-                width: max-content;
+                // width: max-content;
+                max-width: 164px;
                 padding-right: 33px;
               }
 

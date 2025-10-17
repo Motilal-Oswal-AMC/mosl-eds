@@ -369,6 +369,26 @@
           {
             "name": "Reset Passcode",
             "value": "reset-passcode"
+          },
+          {
+            "name": "PMS Rooted",
+            "value": "pms-rooted"
+          },
+          {
+            "name": "High Skin",
+            "value": "high-skin"
+          },
+          {
+            "name": "PMS Choose",
+            "value": "pms-choose"
+          },
+          {
+            "name": "PWS Hero Section",
+            "value": "pws-hero-section"
+          },
+          {
+            "name": "Our Strategies",
+            "value": "our-strategies"
           }
         ]
       },

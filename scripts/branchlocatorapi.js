@@ -334,7 +334,7 @@ const datacfContact = {
         ],
       },
       {
-        MapURL: 'https://maps.google.com/maps?q=59, 2nd Floor,, GEL Church\nComplex Main Road,, nan, Ranchi, Ranchi, 834001&output=embed',
+        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.817389623861!2d85.325839!3d23.3586295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1bddc29ac4d%3A0xc4878bc04a34a0d4!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760608623422!5m2!1sen!2sin',
         contactDet: [
           {
             officeName: 'Motilal Oswal Asset Management Company Ltd.',
@@ -359,7 +359,7 @@ const datacfContact = {
             pincode: '834001',
             iscorporateOffice: 0,
             notes: null,
-            mapIframe: 'https://maps.google.com/maps?q=59, 2nd Floor,, GEL Church\nComplex Main Road,, nan, Ranchi, Ranchi, 834001&output=embed',
+            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.817389623861!2d85.325839!3d23.3586295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1bddc29ac4d%3A0xc4878bc04a34a0d4!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760608623422!5m2!1sen!2sin',
           },
         ],
       },
@@ -934,7 +934,7 @@ const datacfContact = {
         ],
       },
       {
-        MapURL: 'https://maps.google.com/maps?q=N K Tower, 1st floor,, Karnal DelhI Highway,, Next to Hive Hotel,, nan, Panipat, 132103&output=embed',
+        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.494032744599!2d76.97152659999999!3d29.385100599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ddb02470a3971%3A0xa0f55372f7c23b0c!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760608247955!5m2!1sen!2sin',
         contactDet: [
           {
             officeName: 'Motilal Oswal Asset Management Company Ltd.',
@@ -959,7 +959,7 @@ const datacfContact = {
             pincode: '132103',
             iscorporateOffice: 0,
             notes: null,
-            mapIframe: 'https://maps.google.com/maps?q=N K Tower, 1st floor,, Karnal DelhI Highway,, Next to Hive Hotel,, nan, Panipat, 132103&output=embed',
+            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.494032744599!2d76.97152659999999!3d29.385100599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ddb02470a3971%3A0xa0f55372f7c23b0c!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760608247955!5m2!1sen!2sin',
           },
         ],
       },
@@ -1294,7 +1294,7 @@ const datacfContact = {
         ],
       },
       {
-        MapURL: 'https://maps.google.com/maps?q=No 1st Floor,, Pratibha Complex\nBuxipur Road,, Near Jubilee Inter College,, nan, Gorakhpur, 273001&output=embed',
+        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.7049510397574!2d83.36415!3d26.75379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39914531e69eb661%3A0x7d3d3e495877a8e1!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760608809251!5m2!1sen!2sin',
         contactDet: [
           {
             officeName: 'Motilal Oswal Asset Management Company Ltd.',
@@ -1319,7 +1319,7 @@ const datacfContact = {
             pincode: '273001',
             iscorporateOffice: 0,
             notes: null,
-            mapIframe: 'https://maps.google.com/maps?q=No 1st Floor,, Pratibha Complex\nBuxipur Road,, Near Jubilee Inter College,, nan, Gorakhpur, 273001&output=embed',
+            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.7049510397574!2d83.36415!3d26.75379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39914531e69eb661%3A0x7d3d3e495877a8e1!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1760608809251!5m2!1sen!2sin',
           },
         ],
       },

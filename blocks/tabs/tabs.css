@@ -804,6 +804,7 @@ table>tbody>tr>td:nth-child(7) {
     font-size: var(--paragraph-xsmall-size);
     line-height: var(--paragraph-xsmall-line-height);
     color: var(--neutrals-700);
+    margin-right: 16px;
   }
 
   .section.periodicreturn .default-content-wrapper:last-of-type .headgrp2 .headlist2 {
