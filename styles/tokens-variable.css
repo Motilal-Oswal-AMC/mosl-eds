@@ -368,6 +368,8 @@
     --body-xsmall-regular-line-height: 14px;
     --input-field-medium-size: var(--spacing-16);
     --input-field-medium-line-height: var(--spacing-20);
+    --input-field-label-size: var(--spacing-12);
+    --input-field-label-line-height: var(--spacing-16);
 
     /* typescale desktop end */
 }
@@ -539,6 +541,8 @@
         --text-small-semibold-line-height: var(--spacing-20);
         --input-field-medium-size: var(--spacing-16);
         --input-field-medium-line-height: var(--spacing-20);
+        --input-field-label-size: var(--spacing-12);
+        --input-field-label-line-height: var(--spacing-16);
 
         /* typescale mobile end */
     }
