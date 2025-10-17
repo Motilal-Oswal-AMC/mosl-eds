@@ -491,17 +491,12 @@
 
 // Pan KYC Start
 
-.section.invest-now-homepage-container {
-  display: none;
-}
-
 .section.fdp-kyc-form {
   // width: 372px;
   height: 100%;
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
-  // display: block !important;
 
   .pan-valid-block {
     height: 100%;
@@ -1645,7 +1640,6 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
-  display: block !important;
 
   @include media(mobile) {
     width: 100%;

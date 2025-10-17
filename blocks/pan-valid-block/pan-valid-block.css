@@ -1,8 +1,4 @@
 @import "../../../styles/fonts.css";
-.section.invest-now-homepage-container {
-  display: none;
-}
-
 .section.fdp-kyc-form {
   height: 100%;
   background-color: var(--neutrals-white);
@@ -834,7 +830,6 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
-  display: block !important;
 }
 @media (max-width: 768px) {
   .section.reset-passcode {
