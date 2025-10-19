@@ -1078,7 +1078,6 @@ position: relative;
 
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper {
     border-radius: var(--border-radius-8);
-    border: var(--border-width-01) solid var(--strokes-default);
     position: relative;
 }
 
@@ -1120,14 +1119,17 @@ position: relative;
     line-height: var(--body-medium-regular-line-height);
 }
 
+.pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper:focus-within,
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper.active {
     border: 2px solid var(--strokes-typing);
 }
 
+.pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper:focus-within .iptpanfld,
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper.active .iptpanfld {
     caret-color: var(--strokes-typing);
 }
 
+.pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper:focus-within .panlabel,
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper.active .panlabel {
     overflow: hidden;
     color: var(--text-body);
@@ -1180,7 +1182,7 @@ position: relative;
 
 .pan-details-modal p.subpandts2>.input-wrapper>.iptpanfld {
     padding: 10px 12px;
-    border: none;
+    border: var(--border-width-01) solid var(--strokes-default);
     width: 100%;
     border-radius: var(--border-radius-8);
     text-transform: uppercase;
@@ -1200,8 +1202,9 @@ position: relative;
 } */
 
 .otp-fdp {
-    display: none;
+    /* display: none; */
     height: 100%;
+    background-color: #fff;
 }
 
 .otp-fdp>.main-otp-con1 {
@@ -1275,6 +1278,11 @@ position: relative;
 }
 
 .modal-stepup-two {
+    display: none;
+    height: 100%;
+}
+
+.reset-passcode {
     display: none;
     height: 100%;
 }

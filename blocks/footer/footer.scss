@@ -128,6 +128,7 @@
 
             .footer-sub1 {
                 text-align: left;
+                border-bottom: unset;
 
                 .footer-sub-cont1 {
                     color: var(--neutrals-white);
@@ -171,17 +172,23 @@
                             }
 
                             .wrapimgform {
+                                border-radius: var(--border-radius-8);
+                                border: var(--border-width-01) solid var(--neutrals-white);
+                                background: transparent;
+                                padding: 8px 12px;
+
                                 .email-imput {
                                     width: 100%;
-                                    min-width: 200px;
+                                    max-width: 346px;
                                     display: flex;
-                                    padding: var(--spacing-8) var(--spacing-12);
+
+                                    // padding: var(--spacing-8) var(--spacing-12);
                                     flex-direction: column;
                                     justify-content: flex-end;
                                     align-items: flex-start;
                                     gap: 4px;
                                     align-self: stretch;
-                                    height: 40px;
+                                    height: 20px;
                                     color: var(--neutrals-200);
                                     font-feature-settings: var(--font-features-default);
                                     font-family: var(--body);
@@ -189,9 +196,16 @@
                                     font-style: normal;
                                     font-weight: 400;
                                     line-height: var(--body-medium-regular-line-height);
-                                    border-radius: var(--border-radius-8);
-                                    border: var(--border-width-01) solid var(--neutrals-white);
+
+                                    // border-radius: var(--border-radius-8);
+                                    // border: var(--border-width-01) solid var(--neutrals-white);
                                     background: transparent;
+                                    border: none;
+                                    outline: none;
+
+                                    @include media(mobile) {
+                                        max-width: 182px;
+                                    }
 
                                     // &::placeholder {
                                     //     color: var(--neutrals-200);
@@ -226,10 +240,11 @@
                                 margin-left: 5px;
                             }
 
-                            input.email-fail,
-                            input.email-success {
+                            .wrapimgform.email-fail,
+                            .wrapimgform.email-success {
                                 border: var(--border-width-01) solid #ff8088;
-                                padding: 10px 40px 10px 12px;
+
+                                // padding: 10px 40px 10px 12px;
                                 background: url("../../icons/error-cross.svg") no-repeat right 12px center;
 
                                 // &::after {
@@ -282,6 +297,10 @@
                                 margin: 0;
                                 height: 40px;
                                 border: none;
+
+                                @include media(mobile) {
+                                    width: 102px;
+                                }
                             }
                         }
                     }
@@ -709,7 +728,8 @@
                                     input {
                                         // width: 100%;
                                         display: flex;
-                                        padding: var(--spacing-10) var(--spacing-12);
+
+                                        // padding: var(--spacing-10) var(--spacing-12);
                                         flex-direction: column;
                                         justify-content: flex-end;
                                         align-items: flex-start;
@@ -739,10 +759,11 @@
                                         margin-left: 5px;
                                     }
 
-                                    input.email-fail,
-                                    input.email-success {
+                                    .wrapimgform.email-fail,
+                                    .wrapimgform.email-success {
                                         border: var(--border-width-01) solid #ff8088;
-                                        padding: 10px 40px 10px 12px;
+
+                                        // padding: 10px 40px 10px 12px;
                                         background: url("../../icons/error-cross.svg") no-repeat right 12px center;
                                     }
 

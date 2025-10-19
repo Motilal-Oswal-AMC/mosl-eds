@@ -1466,6 +1466,11 @@
         "label": "Enter Label For Email Id Field"
       },
       {
+        "component": "text",
+        "name": "pol_pvcity",
+        "label": "Enter Label For City Name Field"
+      },
+      {
         "component": "richtext",
         "name": "pol_richtext",
         "value": "",
