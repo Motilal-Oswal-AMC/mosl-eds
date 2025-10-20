@@ -480,12 +480,12 @@
 //       @include font-style(16px, 20px, $text-body-2, 500, $poppins);
 //     }
 
-//     .active-form-btn {
-//       background-color: #2e2a94;
-//       color: #fff;
-//       cursor: pointer;
-//       pointer-events: unset;
-//     }
+    // .active-form-btn {
+    //   background-color: #2e2a94;
+    //   color: #fff;
+    //   cursor: pointer;
+    //   pointer-events: unset;
+    // }
 //   }
 // }
 
@@ -1007,6 +1007,15 @@
             }
           }
         }
+        
+        .active-form-btn {
+          .panvalidsubinner1{
+            background-color: #2e2a94;
+            color: #fff;
+            cursor: pointer;
+            pointer-events: unset;
+            }
+          }
 
         .panvalidsubmain2 {
           margin: 0 0 16px;
@@ -1283,7 +1292,8 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
-  display: none;
+
+  // display: none;
 
   @include media(mobile) {
     width: 100%;
