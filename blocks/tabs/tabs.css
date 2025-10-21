@@ -670,7 +670,7 @@ table>tbody>tr>td:nth-child(7) {
   font-size: var(--body-small-regular-size);
   font-weight: 400;
   line-height: var(--label-large-line-height);
-  padding: 12px 24px 12px 0;
+  padding: 10px 24px 10px 0;
   width: 79px;
 }
 
