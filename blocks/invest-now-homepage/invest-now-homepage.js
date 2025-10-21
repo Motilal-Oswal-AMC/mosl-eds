@@ -625,7 +625,7 @@ export async function existingUser(paramblock) {
         request,
       );
       const kycres = rejsin.data.kycStatus;
-      const isKyc = dataMapMoObj.panRes.data.existingClient;
+      // const isKyc = dataMapMoObj.panRes.data.existingClient;
       dataMapMoObj.kycStatus = rejsin.data.kycStatus;
       const boolkyc = kycres === 'Y' ? 'true' : 'false';
       localStorage.setItem('kycstatus', boolkyc);
@@ -652,7 +652,7 @@ export async function existingUser(paramblock) {
           otpCall(parampan);
         }
       });
-      if (isKyc !== '') {
+      if (kycres === 'Y') {
         kycForm.classList.add('hide-element');
         panForm.classList.add('hide-element');
         panForm.classList.remove('show-element');
@@ -1963,6 +1963,25 @@ export default function decorate(block) {
 
   if (blkcompo) {
     blkcompo.style.display = 'none';
+  }
+  if (stepblk !== null) {
+    const drpsel = stepblk.querySelector('.dropdown-wrap .selected-txt');
+    const drpdown = stepblk.querySelector('.dropdown-wrap .dropdown-list');
+    drpsel.addEventListener('click', () => {
+      const className = Array.from(drpsel.parentElement.classList);
+      const classwrap = className.includes('dropdown-active');
+      if (classwrap) {
+        drpsel.parentElement.classList.remove('dropdown-active');
+      } else {
+        drpsel.parentElement.classList.add('dropdown-active');
+      }
+    });
+    drpdown.addEventListener('click', (event) => {
+      const { target } = event;
+      drpsel.textContent = '';
+      drpsel.textContent = target.textContent;
+      drpsel.parentElement.classList.remove('dropdown-active');
+    });
   }
   return block;
 }
