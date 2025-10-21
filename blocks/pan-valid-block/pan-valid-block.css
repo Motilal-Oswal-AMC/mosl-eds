@@ -952,6 +952,7 @@
   .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .otp-msg {
     font-size: var(--paragraph-xsmall-size);
     line-height: var(--paragraph-xsmall-line-height);
+    margin-top: 8px;
   }
 }
 .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .otp-field-wrap {

@@ -1713,6 +1713,7 @@
           @include media(mobile) {
             font-size: var(--paragraph-xsmall-size);
             line-height: var(--paragraph-xsmall-line-height);
+            margin-top: 8px;
           }
         }
 
