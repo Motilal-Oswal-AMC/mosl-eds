@@ -87,4 +87,29 @@ export default function decorate(block) {
       icon.setAttribute('aria-hidden', 'true');
     });
   }
+
+  // document.addEventListener("DOMContentLoaded", function () {
+  // Select all li elements with class starting with "strategy2" (like strategy21, strategy25...)
+  const listItemsStrategy = document.querySelectorAll("li.comlist[class*='strategy2']");
+
+  listItemsStrategy.forEach((li) => {
+    const iconSpan = li.querySelector('span.icon');
+    if (iconSpan) {
+      // Loop through child nodes and find the text node before the icon
+      const nodes = Array.from(li.childNodes);
+      nodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
+          // Wrap the text node in a <span class="text-wrap">
+          const wrapper = document.createElement('span');
+          wrapper.className = 'text-wrap';
+          wrapper.textContent = node.textContent.trim();
+
+          // Replace original text node
+          li.insertBefore(wrapper, node);
+          li.removeChild(node);
+        }
+      });
+    }
+  });
+  // });
 }

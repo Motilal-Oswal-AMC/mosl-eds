@@ -85,6 +85,26 @@ export default async function decorate(block) {
   ];
   dataMapMoObj.addIndexed(block);
 
+  const evenFunc = block.querySelector('.mob-accordion .footer-sub2');
+  const eventv2 = evenFunc.querySelector('.section-content1 .list-items2');
+  const eventv3 = eventv2.querySelector('.list-inneritem-1').children;
+  Array.from(eventv3).forEach((eventElem) => {
+    eventElem.querySelector('a').removeAttribute('href');
+    eventElem.addEventListener('click', (event) => {
+      const textCurr = event.target.textContent
+        .toLowerCase().replaceAll(' funds', '');
+      let joinstr = textCurr.split(' ').join('-').toLowerCase();
+      // console.log(joinstr);
+      if (joinstr === 'index') {
+        joinstr = 'index-funds';
+      }
+      dataMapMoObj.selectviewFunds = joinstr;
+
+      localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
+      const pathname = '/motilalfigma/our-funds';
+      window.location.href = `${window.location.origin}${pathname}`;
+    });
+  });
   // const logoContainers = document.querySelector('.footer-sub-cont1 .section-content1');
 
   // logoContainers.forEach((container) => {
