@@ -480,12 +480,12 @@
 //       @include font-style(16px, 20px, $text-body-2, 500, $poppins);
 //     }
 
-    // .active-form-btn {
-    //   background-color: #2e2a94;
-    //   color: #fff;
-    //   cursor: pointer;
-    //   pointer-events: unset;
-    // }
+// .active-form-btn {
+//   background-color: #2e2a94;
+//   color: #fff;
+//   cursor: pointer;
+//   pointer-events: unset;
+// }
 //   }
 // }
 
@@ -515,13 +515,11 @@
         .panvalidsub1 {
           margin: 0 0 40px;
 
-          @include font-style(
-            var(--sub-header-medium-size),
+          @include font-style(var(--sub-header-medium-size),
             var(--sub-header-medium-line-height),
             var(--text-black),
             500,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             margin: 0 0 24px;
@@ -546,18 +544,17 @@
       }
 
       .form-container {
+
         // All Error Message and Icon Global SCSS
         .error-msg {
           margin: 4px 0 0;
           display: none;
 
-          @include font-style(
-            var(--paragraph-xsmall-size),
+          @include font-style(var(--paragraph-xsmall-size),
             var(--paragraph-xsmall-line-height),
             var(--text-error),
             400,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             font-size: var(--paragraph-xsmall-size);
@@ -601,13 +598,11 @@
                   transform: translateY(-50%);
                   transition: all 0.3s;
 
-                  @include font-style(
-                    var(--body-medium-regular-size),
+                  @include font-style(var(--body-medium-regular-size),
                     var(--body-medium-regular-line-height),
                     var(--text-default-input),
                     400,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--body-medium-regular-size);
@@ -622,13 +617,11 @@
                   width: 100%;
                   padding: 2px 0;
 
-                  @include font-style(
-                    var(--body-medium-regular-size),
+                  @include font-style(var(--body-medium-regular-size),
                     var(--body-medium-regular-line-height),
                     var(--text-typed-input),
                     400,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--body-medium-regular-size);
@@ -644,13 +637,11 @@
                     top: -8px;
                     transform: unset;
 
-                    @include font-style(
-                      var(--label-small-size),
+                    @include font-style(var(--label-small-size),
                       var(--label-small-line-height),
                       var(--text-body),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
                       font-size: var(--label-small-size);
@@ -667,7 +658,7 @@
                   border: var(--border-width-01) solid var(--strokes-error);
 
                   .error-icon,
-                  & ~ .error-msg {
+                  &~.error-msg {
                     display: block;
                   }
                 }
@@ -689,13 +680,11 @@
                 .kyc-radio-txt {
                   margin: 0;
 
-                  @include font-style(
-                    var(--label-large-size),
+                  @include font-style(var(--label-large-size),
                     var(--label-large-line-height),
                     #231f20,
                     400,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--label-large-size);
@@ -714,13 +703,11 @@
                     cursor: pointer;
 
                     .radio-label {
-                      @include font-style(
-                        var(--body-small-regular-size),
+                      @include font-style(var(--body-small-regular-size),
                         var(--body-small-regular-line-height),
                         var(--text-black),
                         400,
-                        var(--body)
-                      );
+                        var(--body));
 
                       padding-left: 4px;
 
@@ -751,7 +738,7 @@
                         margin: 1px;
                       }
 
-                      &:checked::before{
+                      &:checked::before {
                         width: 20px;
                         height: 20px;
                         outline: 2px solid var(--blue-1-800-primary);
@@ -760,12 +747,12 @@
                         margin: 1px;
                       }
 
-                      &:checked ~ .radio-label{
+                      &:checked~.radio-label {
                         font-weight: 500;
                         font-size: var(--body-small-medium-size);
                         line-height: var(--body-small-medium-line-height);
-                        
-                        @include media(mobile){
+
+                        @include media(mobile) {
                           font-size: var(--body-small-medium-size);
                           line-height: var(--body-small-medium-line-height);
                         }
@@ -777,13 +764,11 @@
 
               .kyc-txt-content {
                 .kyc-head {
-                  @include font-style(
-                    var(--label-large-size),
+                  @include font-style(var(--label-large-size),
                     var(--label-large-line-height),
                     #231f20,
                     400,
-                    var(--body)
-                  );
+                    var(--body));
 
                   margin: 0 0 4px;
 
@@ -794,13 +779,11 @@
                 }
 
                 .kyc-desc {
-                  @include font-style(
-                    var(--body-small-regular-size),
+                  @include font-style(var(--body-small-regular-size),
                     var(--label-large-line-height),
                     var(--text-body),
                     400,
-                    var(--body)
-                  );
+                    var(--body));
 
                   margin: 0;
 
@@ -843,13 +826,11 @@
                     align-items: center;
                     gap: 6px;
 
-                    @include font-style(
-                      var(--body-medium-regular-size),
+                    @include font-style(var(--body-medium-regular-size),
                       var(--body-medium-regular-line-height),
                       var(--text-default-input),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
                       font-size: var(--body-medium-regular-size);
@@ -900,13 +881,11 @@
 
                 .detail-label,
                 .detail-inp {
-                  @include font-style(
-                    var(--body-medium-regular-size),
+                  @include font-style(var(--body-medium-regular-size),
                     var(--body-medium-regular-line-height),
                     var(--text-default-input),
                     400,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--body-medium-regular-size);
@@ -929,13 +908,11 @@
                     top: -8px;
                     transform: unset;
 
-                    @include font-style(
-                      var(--label-small-size),
+                    @include font-style(var(--label-small-size),
                       var(--label-small-line-height),
                       var(--text-body),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
 
                     @include media(mobile) {
                       font-size: var(--label-small-size);
@@ -943,13 +920,11 @@
                     }
 
                     &.mob-label {
-                      @include font-style(
-                        var(--input-field-label-size),
+                      @include font-style(var(--input-field-label-size),
                         var(--input-field-label-line-height),
                         var(--surface-text-neutral-normal),
                         400,
-                        var(--body)
-                      );
+                        var(--body));
 
                       @include media(mobile) {
                         font-size: var(--input-field-label-size);
@@ -962,7 +937,7 @@
                 &.show-error {
                   border: var(--border-width-01) solid var(--strokes-error);
 
-                  & ~ .error-msg,
+                  &~.error-msg,
                   .error-icon {
                     display: block;
                   }
@@ -986,13 +961,11 @@
             padding: var(--spacing-12);
             border: none;
 
-            @include font-style(
-              var(--button-medium-size),
+            @include font-style(var(--button-medium-size),
               var(--button-medium-line-height),
               var(--Neutrals-600),
               500,
-              var(--body)
-            );
+              var(--body));
 
             @include media(mobile) {
               margin: 0 0 var(--spacing-20);
@@ -1007,25 +980,23 @@
             }
           }
         }
-        
+
         .active-form-btn {
-          .panvalidsubinner1{
+          .panvalidsubinner1 {
             background-color: #2e2a94;
             color: #fff;
             cursor: pointer;
             pointer-events: unset;
-            }
           }
+        }
 
         .panvalidsubmain2 {
           margin: 0 0 16px;
 
-          @include font-style(
-            var(--paragraph-xsmall-size),
+          @include font-style(var(--paragraph-xsmall-size),
             var(--paragraph-xsmall-line-height),
             var(--neutrals-700) 400,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             margin: 0 0 var(--spacing-12);
@@ -1038,13 +1009,11 @@
             text-decoration: underline;
             text-underline-offset: 2.8px;
 
-            @include font-style(
-              var(--text-link-xsmall-size),
+            @include font-style(var(--text-link-xsmall-size),
               var(--text-link-xsmall-line-height),
               var(--text-text-link),
               400,
-              var(--body)
-            );
+              var(--body));
 
             @include media(mobile) {
               font-size: var(--text-link-xsmall-size);
@@ -1056,13 +1025,11 @@
         .panvalidsubmain3 {
           margin: 0;
 
-          @include font-style(
-            var(--body-small-regular-size),
+          @include font-style(var(--body-small-regular-size),
             var(--label-large-line-height),
             var(--text-black),
             400,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             font-size: var(--paragraph-small-regular-size);
@@ -1073,13 +1040,11 @@
             text-decoration: underline;
             text-underline-offset: 2.8px;
 
-            @include font-style(
-              var(--text-link-small-size),
+            @include font-style(var(--text-link-small-size),
               var(--text-link-small-line-height),
               var(--text-text-link),
               400,
-              var(--body)
-            );
+              var(--body));
 
             @include media(mobile) {
               font-size: var(--paragraph-small-regular-size);
@@ -1330,15 +1295,14 @@
     }
 
     .otp-heading {
+
       .sub-otp-con2,
       .sub-otp-con2 .inner-otp-con1 {
-        @include font-style(
-          var(--sub-header-medium-size),
+        @include font-style(var(--sub-header-medium-size),
           var(--sub-header-medium-line-height),
           var(--text-black),
           500,
-          var(--body)
-        );
+          var(--body));
 
         margin: 0 0 40px;
         display: block;
@@ -1369,13 +1333,11 @@
           transform: translateY(-50%);
           transition: all 0.3s;
 
-          @include font-style(
-            var(--label-small-size),
+          @include font-style(var(--label-small-size),
             var(--label-small-line-height),
             var(--text-body),
             400,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             font-size: var(--label-small-size);
@@ -1390,13 +1352,11 @@
           width: 100%;
           position: relative;
 
-          @include font-style(
-            var(--body-medium-regular-size),
+          @include font-style(var(--body-medium-regular-size),
             var(--body-medium-regular-line-height),
             var(--text-typed-input),
             400,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             font-size: var(--body-medium-regular-size);
@@ -1431,13 +1391,11 @@
           // font-weight: 400;
           // line-height: var(--Paragraph-Small-regular-Line-Height, 20px); /* 142.857% */
 
-          @include font-style(
-            var(--body-small-regular-size),
+          @include font-style(var(--body-small-regular-size),
             var(--label-large-line-height),
             var(--mosl-black),
             400,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             font-size: var(--paragraph-small-regular-size);
@@ -1451,13 +1409,11 @@
       .otp-label {
         margin: var(--spacing-16) 0 var(--spacing-8);
 
-        @include font-style(
-          var(--label-small-size),
+        @include font-style(var(--label-small-size),
           var(--label-small-line-height),
           var(--mo-body-copy-other),
           400,
-          var(--body)
-        );
+          var(--body));
 
         @include media(mobile) {
           font-size: var(--label-small-size);
@@ -1473,6 +1429,26 @@
 
         @include media(mobile) {
           margin: 0 0 var(--spacing-40);
+        }
+
+        &.otp-fail {
+          .otp-wrap {
+            border: var(--border-width-01) solid var(--strokes-error);
+          }
+
+          &~.otp-msg {
+            display: none;
+          }
+        }
+
+        &.otp-success {
+          .otp-wrap {
+            border: var(--border-width-01) solid var(--strokes-success);
+          }
+
+          &~.otp-msg {
+            display: none;
+          }
         }
 
         .otp-wrap {
@@ -1492,13 +1468,11 @@
             outline: none;
             text-align: center;
 
-            @include font-style(
-              var(--body-xlarge-semibold-size),
+            @include font-style(var(--body-xlarge-semibold-size),
               var(--body-xlarge-semibold-line-height),
               var(--text-typed-input),
               600,
-              var(--body)
-            );
+              var(--body));
 
             @include media(mobile) {
               font-size: var(--body-xlarge-semibold-size);
@@ -1515,7 +1489,8 @@
         border: none;
         background-color: transparent;
         text-decoration: underline;
-        text-underline-offset: 2.8px; /* 2.8px */
+        text-underline-offset: 2.8px;
+        /* 2.8px */
 
         @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
 
@@ -1530,13 +1505,11 @@
     .otp-sent-text {
       margin: var(--spacing-36) 0 0;
 
-      @include font-style(
-        var(--body-small-regular-size),
+      @include font-style(var(--body-small-regular-size),
         var(--label-large-line-height),
         var(--text-body-2),
         400,
-        var(--body)
-      );
+        var(--body));
 
       @include media(mobile) {
         margin: 12px 0 0;
@@ -1553,13 +1526,11 @@
       width: 100%;
       cursor: pointer;
 
-      @include font-style(
-        var(--button-medium-size),
+      @include font-style(var(--button-medium-size),
         var(--button-medium-line-height),
         var(--text-white),
         500,
-        var(--body)
-      );
+        var(--body));
 
       @include media(mobile) {
         margin: 24px 0 var(--spacing-20);
@@ -1572,13 +1543,11 @@
       .sub-otp-con9 {
         margin: 0;
 
-        @include font-style(
-          var(--disclaimer-xsmall-size),
+        @include font-style(var(--disclaimer-xsmall-size),
           var(--disclaimer-xsmall-line-height),
           var(--text-disclaimer),
           400,
-          var(--body)
-        );
+          var(--body));
 
         @include media(mobile) {
           font-size: var(--paragraph-xsmall-size);
@@ -1589,13 +1558,11 @@
           text-decoration: underline;
           text-underline-offset: 2.8px;
 
-          @include font-style(
-            var(--text-link-xsmall-size),
+          @include font-style(var(--text-link-xsmall-size),
             var(--text-link-xsmall-line-height),
             var(--text-text-link),
             400,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             font-size: var(--text-link-xsmall-size);
@@ -1609,13 +1576,11 @@
       .sub-otp-con10 {
         margin: var(--spacing-12) 0 0;
 
-        @include font-style(
-          var(--body-small-regular-size),
+        @include font-style(var(--body-small-regular-size),
           var(--label-large-line-height),
           var(--text-black),
           400,
-          var(--body)
-        );
+          var(--body));
 
         @include media(mobile) {
           font-size: var(--paragraph-small-regular-size);
@@ -1681,13 +1646,11 @@
     }
 
     .reset-title {
-      @include font-style(
-        var(--sub-header-medium-size),
+      @include font-style(var(--sub-header-medium-size),
         var(--sub-header-medium-line-height),
         var(--text-black),
         500,
-        var(--body)
-      );
+        var(--body));
 
       margin: 0 0 var(--spacing-20);
 
@@ -1716,13 +1679,11 @@
       .reset-otp-title {
         margin: 0;
 
-        @include font-style(
-          var(--label-small-size),
+        @include font-style(var(--label-small-size),
           var(--label-small-line-height),
           var(--mo-body-copy-other),
           400,
-          var(--body)
-        );
+          var(--body));
 
         @include media(mobile) {
           font-size: var(--label-small-size);
@@ -1740,13 +1701,11 @@
         }
 
         .otp-msg {
-          @include font-style(
-            var(--paragraph-xsmall-size),
+          @include font-style(var(--paragraph-xsmall-size),
             var(--paragraph-xsmall-line-height),
             var(--essentials-red),
             400,
-            var(--body)
-          );
+            var(--body));
 
           margin: -8px 0 0;
           display: none;
@@ -1779,13 +1738,11 @@
               outline: none;
               text-align: center;
 
-              @include font-style(
-                var(--body-xlarge-semibold-size),
+              @include font-style(var(--body-xlarge-semibold-size),
                 var(--body-xlarge-semibold-line-height),
                 var(--text-typed-input),
                 600,
-                var(--body)
-              );
+                var(--body));
 
               @include media(mobile) {
                 font-size: var(--body-xlarge-semibold-size);
@@ -1807,7 +1764,7 @@
               border: var(--border-width-01) solid var(--strokes-error);
             }
 
-            & ~ .otp-msg {
+            &~.otp-msg {
               display: block;
             }
           }
@@ -1817,7 +1774,7 @@
               border: var(--border-width-01) solid var(--strokes-success);
             }
 
-            & ~ .otp-msg {
+            &~.otp-msg {
               display: none;
             }
           }
@@ -1834,13 +1791,11 @@
           margin: 0;
           cursor: pointer;
 
-          @include font-style(
-            14px,
+          @include font-style(14px,
             var(--text-link-small-line-height),
             var(--text-text-link),
             400,
-            var(--body)
-          );
+            var(--body));
 
           @include media(mobile) {
             font-size: var(--text-link-small-size);
@@ -1856,13 +1811,11 @@
       margin: var(--spacing-20) 0 0;
 
       &-title {
-        @include font-style(
-          var(--label-small-size),
+        @include font-style(var(--label-small-size),
           var(--label-small-line-height),
           var(--mo-body-copy-other),
           400,
-          var(--body)
-        );
+          var(--body));
 
         margin: 0 0 var(--spacing-8);
 
@@ -1873,13 +1826,11 @@
       }
 
       &-msg {
-        @include font-style(
-          var(--paragraph-xsmall-size),
+        @include font-style(var(--paragraph-xsmall-size),
           var(--paragraph-xsmall-line-height),
           var(--text-error),
           400,
-          var(--body)
-        );
+          var(--body));
 
         margin: 8px 0 0;
         display: none;
@@ -1913,13 +1864,11 @@
             background-color: transparent;
             text-align: center;
 
-            @include font-style(
-              var(--body-xlarge-semibold-size),
+            @include font-style(var(--body-xlarge-semibold-size),
               var(--body-xlarge-semibold-line-height),
               var(--strokes-on-surface-02),
               600,
-              var(--body)
-            );
+              var(--body));
 
             @include media(mobile) {
               font-size: var(--body-xlarge-semibold-size);
@@ -1945,7 +1894,7 @@
             }
           }
 
-          & ~ .passcode-msg {
+          &~.passcode-msg {
             display: block;
           }
         }
@@ -1959,7 +1908,7 @@
             }
           }
 
-          & ~ .passcode-msg {
+          &~.passcode-msg {
             display: none;
           }
         }
@@ -1974,13 +1923,11 @@
         width: 100%;
         cursor: pointer;
 
-        @include font-style(
-          var(--button-medium-size),
+        @include font-style(var(--button-medium-size),
           var(--button-medium-line-height),
           var(--text-white),
           500,
-          var(--body)
-        );
+          var(--body));
 
         @include media(mobile) {
           font-size: var(--button-medium-size);
