@@ -135,6 +135,7 @@ export async function existingUser(paramblock) {
   const kycForm = closestParam.querySelector('.fdp-kyc-form');
   const panForm = closestParam.querySelector('.pan-details-modal');
   const pansuccessForm = closestParam.querySelector('.otp-fdp');
+  const resetForm = closestParam.querySelector('.reset-passcode');
 
   const demo = Array.from(closestParam.querySelectorAll('.pan-details-modal p'));
   const inputLable = demo[0];
@@ -162,19 +163,20 @@ export async function existingUser(paramblock) {
     existingBox: true,
   };
 
-  function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    const expires = `expires=${d.toUTCString()}`;
-    document.cookie = `${cname}=${cvalue};${expires};path=/`;
-  }
+  // function setCookie(cname, cvalue, exdays) {
+  //   const d = new Date();
+  //   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  //   const expires = `expires=${d.toUTCString()}`;
+  //   document.cookie = `${cname}=${cvalue};${expires};path=/`;
+  // }
 
   // function removeCookie(cname) {
   //   document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   // }
   // removeCookie('')
 
-  async function setmpinforget(params) {
+  // eslint-disable-next-line consistent-return
+  async function setmpinforgets(params) {
     try {
       const reqminfor = {
         userId: dataMapMoObj.panDlts.pannumber,
@@ -189,6 +191,11 @@ export async function existingUser(paramblock) {
         'user-agent': 'WEB/MultipleCampaign',
         UserAgent: 'WEB/MultipleCampaign',
       };
+      if (params.resetpass !== params.confirmpass) {
+        params.confirmPass.classList.add('passcode-fail');
+        params.resetPass.classList.add('passcode-fail');
+        return false;
+      }
       const rejsin = await myAPI(
         'POST',
         'https://api.moamc.com/loginapi/api/Login/SETMPIN',
@@ -197,6 +204,14 @@ export async function existingUser(paramblock) {
       );
       // console.log(rejsin);.
       window.alert(rejsin.message);
+      panForm.classList.add('show-element');
+      panForm.classList.remove('hide-element');
+      panForm.querySelector('.iptpanfld').value = '';
+      panForm.querySelector('.iptpanfld')
+        .parentElement.classList.remove('active');
+      resetForm.classList.remove('show-element');
+      resetForm.classList.add('hide-element');
+      return true;
     } catch (error) {
       console.log(error);
     }
@@ -232,7 +247,7 @@ export async function existingUser(paramblock) {
         header,
       );
       if (rejsin.data && rejsin.data.userInfo) {
-        document.cookie = `accessToken= ${rejsin.data.accessToken}`;
+        document.cookie = `token= ${rejsin.data.accessToken}`;
         document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
         localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
         if (dataMapMoObj.panRes.data.guestClient !== '') {
@@ -325,55 +340,57 @@ export async function existingUser(paramblock) {
         reqAuth,
         header,
       );
-      if (rejsin.data.userInfo) {
+      if (rejsin.data !== 'null' && rejsin.data.userInfo) {
         const twoAuth = closestParam.querySelector('.two-step-auth');
         const resetscreen = closestParam.querySelector('.reset-passcode');
         // twoAuth.style.display = 'block';
-        const boolpin = rejsin.data.userInfo.mPinFlag;
+        // const boolpin = rejsin.data.userInfo.mPinFlag;
         pansuccessForm.classList.add('hide-element');
         pansuccessForm.classList.remove('show-element');
         pansuccessForm.classList.remove('modal-show');
-        if (boolpin === 'true') {
+        pansuccessForm.querySelector('.main-otp-con2 .otp-field')
+          .classList.add('otp-succes');
+        // if (boolpin === 'true') {
+        // resetscreen.classList.add('show-element');
+        // resetscreen.classList.add('modal-show');
+        // resetscreen.classList.remove('hide-modal');
+        // dataMapMoObj.passcode(resetscreen);
+        // } else {
+        twoAuth.classList.add('show-element');
+        twoAuth.classList.add('modal-show');
+        twoAuth.classList.remove('hide-modal');
+        const passpoint = twoAuth.querySelectorAll('input');
+        passCodeValidation(passpoint);
+        const contbtn = twoAuth.querySelectorAll('.twostepmain2 button');
+        contbtn[1].addEventListener('click', () => {
+          let passValue = '';
+          passpoint.forEach((elfor) => {
+            passValue += elfor.value;
+          });
+          if (passValue.length < 4) {
+            // pansuccessForm.querySelector('.otpfield').classList.add('otp-failed');
+          } else {
+            const panNum = {
+              panNo: params.panNo,
+              optNo: passValue,
+              otpField: pansuccessForm,
+            };
+            apiPasscode(panNum);
+          }
+        });
+        const forgetbtn = twoAuth.querySelector('.twostepmain2 .twostepsub4');
+        forgetbtn.addEventListener('click', () => {
+          twoAuth.classList.remove('show-element');
+          twoAuth.classList.add('hide-element');
+          twoAuth.classList.remove('modal-show');
+          twoAuth.classList.remove('hide-modal');
+
           resetscreen.classList.add('show-element');
           resetscreen.classList.add('modal-show');
           resetscreen.classList.remove('hide-modal');
           dataMapMoObj.passcode(resetscreen);
-        } else {
-          twoAuth.classList.add('show-element');
-          twoAuth.classList.add('modal-show');
-          twoAuth.classList.remove('hide-modal');
-          const passpoint = twoAuth.querySelectorAll('input');
-          passCodeValidation(passpoint);
-          const contbtn = twoAuth.querySelectorAll('.twostepmain2 button');
-          contbtn[1].addEventListener('click', () => {
-            let passValue = '';
-            passpoint.forEach((elfor) => {
-              passValue += elfor.value;
-            });
-            if (passValue.length < 4) {
-            // pansuccessForm.querySelector('.otpfield').classList.add('otp-failed');
-            } else {
-              const panNum = {
-                panNo: params.panNo,
-                optNo: passValue,
-                otpField: pansuccessForm,
-              };
-              apiPasscode(panNum);
-            }
-          });
-          const forgetbtn = twoAuth.querySelector('.twostepmain2 .twostepsub4');
-          forgetbtn.addEventListener('click', () => {
-            twoAuth.classList.remove('show-element');
-            twoAuth.classList.add('hide-element');
-            twoAuth.classList.remove('modal-show');
-            twoAuth.classList.remove('hide-modal');
-
-            resetscreen.classList.add('show-element');
-            resetscreen.classList.add('modal-show');
-            resetscreen.classList.remove('hide-modal');
-            dataMapMoObj.passcode(resetscreen);
-          });
-        }
+        });
+        // }
         // document.cookie = `accessToken= ${rejsin.data.accessToken}`;
         // document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
         // localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
@@ -382,11 +399,16 @@ export async function existingUser(paramblock) {
         // } else if (dataMapMoObj.panRes.data.guestClient === '') {
         //   window.location.href = 'https://mf.moamc.com/mutualfund/prelogin-to-postlogin-connector';
         // }
+      } else if (rejsin.data === 'null') {
+        pansuccessForm.querySelector('.main-otp-con2 .otp-field')
+          .classList.add('otp-fail');
       }
       // console.log(rejsin);
-      params.otpField.classList.add('otp-succes');
+      // params.otpField.classList.add('otp-succes');
     } catch (error) {
       // console.log(error);
+      pansuccessForm.querySelector('.main-otp-con2 .otp-field')
+        .classList.add('otp-fail');
     }
   }
 
@@ -418,7 +440,10 @@ export async function existingUser(paramblock) {
 
     const resentSubmit = resetscreen.querySelector('.resetpasscode2 .submt-btn-txt');
     resentSubmit.addEventListener('click', () => {
-      dataMapMoObj.setmpin = {};
+      dataMapMoObj.setmpin = {
+        resetPass: resetpass.querySelector('.passcode-field-wrap'),
+        confirmPass: confirmpass.querySelector('.passcode-field-wrap'),
+      };
       dataMapMoObj.setmpin.otpval = '';
       dataMapMoObj.setmpin.resetpass = '';
       dataMapMoObj.setmpin.confirmpass = '';
@@ -435,7 +460,34 @@ export async function existingUser(paramblock) {
         && dataMapMoObj.setmpin.confirmpass.length === 4
         && dataMapMoObj.setmpin.otpval.length === 6
       ) {
-        setmpinforget(dataMapMoObj.setmpin);
+        resetpass.querySelector('.passcode-field-wrap').classList
+          .remove('passcode-fail');
+        confirmpass.querySelector('.passcode-field-wrap').classList
+          .remove('passcode-fail');
+        resentpass.querySelector('.otp-field-wrap')
+          .classList.remove('otp-fail');
+        resentpass.querySelector('.otp-field-wrap')
+          .classList.add('otp-success');
+
+        setmpinforgets(dataMapMoObj.setmpin);
+      }
+      if (dataMapMoObj.setmpin.resetpass.length < 4) {
+        resetpass.querySelector('.passcode-field-wrap').classList
+          .add('passcode-fail');
+        resetpass.querySelector('.passcode-field-wrap').classList
+          .remove('passcode-success');
+      }
+      if (dataMapMoObj.setmpin.confirmpass.length < 4) {
+        confirmpass.querySelector('.passcode-field-wrap').classList
+          .add('passcode-fail');
+        confirmpass.querySelector('.passcode-field-wrap').classList
+          .remove('passcode-success');
+      }
+      if (dataMapMoObj.setmpin.confirmpass.length < 6) {
+        resentpass.querySelector('.otp-field-wrap')
+          .classList.add('otp-fail');
+        resentpass.querySelector('.otp-field-wrap')
+          .classList.remove('otp-success');
       }
     });
   }
@@ -456,8 +508,9 @@ export async function existingUser(paramblock) {
       );
       const guestFlag = localStorage.getItem('isGuest');
       if (guestFlag === 'true') {
-        setCookie('accessToken', rejsin.data.accessToken);
-        setCookie('refreshToken', rejsin.data.refreshToken);
+        document.cookie = `token=${rejsin.data.accessToken}`;
+        document.cookie = `refreshToken=${rejsin.data.refreshToken}`;
+        // setCookie('refreshToken', rejsin.data.refreshToken);
         window.location.href = 'https://mf.moamc.com/mutualfund/onboarding/personal';
       } else if (guestFlag === 'false') {
         const locobj = {
@@ -625,7 +678,7 @@ export async function existingUser(paramblock) {
         request,
       );
       const kycres = rejsin.data.kycStatus;
-      const isKyc = dataMapMoObj.panRes.data.existingClient;
+      // const isKyc = dataMapMoObj.panRes.data.existingClient;
       dataMapMoObj.kycStatus = rejsin.data.kycStatus;
       const boolkyc = kycres === 'Y' ? 'true' : 'false';
       localStorage.setItem('kycstatus', boolkyc);
@@ -652,13 +705,16 @@ export async function existingUser(paramblock) {
           otpCall(parampan);
         }
       });
-      if (isKyc !== '') {
+      if (kycres === 'Y') {
         kycForm.classList.add('hide-element');
         panForm.classList.add('hide-element');
         panForm.classList.remove('show-element');
         pansuccessForm.classList.remove('hide-element');
         pansuccessForm.classList.add('show-element');
-
+        pansuccessForm
+          .querySelector('.otp-heading .otp-main-con1').textContent = '';
+        pansuccessForm
+          .querySelector('.otp-heading .otp-main-con1').textContent = rejsin.data.nameAsOnPan;
         // kycForm.style.display = 'none'; // display none kycform
         // panForm.style.display = 'none'; // display none panform
         // pansuccessForm.style.display = 'flex'; // display block otp form
@@ -1963,6 +2019,25 @@ export default function decorate(block) {
 
   if (blkcompo) {
     blkcompo.style.display = 'none';
+  }
+  if (stepblk !== null) {
+    const drpsel = stepblk.querySelector('.dropdown-wrap .selected-txt');
+    const drpdown = stepblk.querySelector('.dropdown-wrap .dropdown-list');
+    drpsel.addEventListener('click', () => {
+      const className = Array.from(drpsel.parentElement.classList);
+      const classwrap = className.includes('dropdown-active');
+      if (classwrap) {
+        drpsel.parentElement.classList.remove('dropdown-active');
+      } else {
+        drpsel.parentElement.classList.add('dropdown-active');
+      }
+    });
+    drpdown.addEventListener('click', (event) => {
+      const { target } = event;
+      drpsel.textContent = '';
+      drpsel.textContent = target.textContent;
+      drpsel.parentElement.classList.remove('dropdown-active');
+    });
   }
   return block;
 }
