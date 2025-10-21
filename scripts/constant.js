@@ -151,17 +151,17 @@ const dataMapMoObj = {
 
   ObjDataidFdp: {
     // 'performance-graph' : '2000',
-    'periodic-returns': '600',
-    'past-performance-calculator': '550',
-    'why-this-fund-section': '600',
-    'fund-philosophy-video': '600',
-    'custom-tab': '590',
-    'key-facts-section': '550',
-    'fund-manager-section': '580',
-    'downloadsec': '560',
-    'content-library': '580',
-    'people-also-like': '580',
-    'product-label': '550',
+    'periodic-returns': '720',
+    'past-performance-calculator': '650',
+    'why-this-fund-section': '700',
+    'fund-philosophy-video': '680',
+    'custom-tab': '700',
+    'key-facts-section': '660',
+    'fund-manager-section': '710',
+    'downloadsec': '680',
+    'content-library': '700',
+    'people-also-like': '700',
+    'product-label': '680',
   },
 };
 export default dataMapMoObj;
