@@ -918,6 +918,10 @@ main {
           var(--body)
         );
 
+        position: sticky;
+        top: 27%;
+        z-index: 9999;
+
         &::after {
           content: "";
           background-image: url("../../icons/arrow-left.svg");
