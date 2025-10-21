@@ -448,6 +448,12 @@
   background: var(--button-primary-default);
   color: var(--text-white);
 }
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .tnc-container .active-form-btn .panvalidsubinner1 {
+  background-color: #2e2a94;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: unset;
+}
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .tnc-container .panvalidsubmain2 {
   margin: 0 0 16px;
   font-size: var(--paragraph-xsmall-size);
@@ -520,7 +526,6 @@
   background-color: var(--neutrals-white);
   z-index: 1000;
   overflow: hidden;
-  display: none;
 }
 @media (max-width: 768px) {
   .section.otp-fdp {

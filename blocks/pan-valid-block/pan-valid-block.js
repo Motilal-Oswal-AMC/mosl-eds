@@ -59,71 +59,103 @@ export default function decorate(block) {
   const divpv = div(
     { class: 'pankyc-container' },
     title,
-    div({ class: 'form-container' },
-      div({ class: 'pan-container' },
-        div({ class: 'pan-field' },
-          div({ class: 'pan-wrap pan-fail active' },
+    div(
+      { class: 'form-container' },
+      div(
+        { class: 'pan-container' },
+        div(
+          { class: 'pan-field' },
+          div(
+            { class: 'pan-wrap pan-fail active' },
             label({ class: 'pan-label', for: 'pan' }, panlab),
             input({ class: 'pan-inp', id: 'pan', type: 'text' }),
             img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
           span({ class: 'show-pan-error error-msg' }, 'Please enter a valid PAN'),
         ),
-        div({ class: 'kyc-status-wrap' },
-          div({ class: 'kyc-radio-wrap' },
+        div(
+          { class: 'kyc-status-wrap' },
+          div(
+            { class: 'kyc-radio-wrap' },
             p({ class: 'kyc-radio-txt' }, reslab),
-            div({ class: 'kyc-radio' },
-              div({ class: 'radio-field' },
-                input({ type: 'radio', class: 'radio-click', name: 'kyc-radio', id: 'opt1' }),
+            div(
+              { class: 'kyc-radio' },
+              div(
+                { class: 'radio-field' },
+                input({
+                  type: 'radio', class: 'radio-click', name: 'kyc-radio', id: 'opt1',
+                }),
                 label({ class: 'radio-label', for: 'opt1' }, listraio[0].textContent.trim()),
               ),
-              div({ class: 'radio-field' },
-                input({ type: 'radio', class: 'radio-click', name: 'kyc-radio', id: 'opt2' }),
+              div(
+                { class: 'radio-field' },
+                input({
+                  type: 'radio', class: 'radio-click', name: 'kyc-radio', id: 'opt2',
+                }),
                 label({ class: 'radio-label', for: 'opt2' }, listraio[1].textContent.trim()),
               ),
             ),
           ),
-          div({ class: 'kyc-txt-content' },
+          div(
+            { class: 'kyc-txt-content' },
             p({ class: 'kyc-head' }, distext),
             p({ class: 'kyc-desc' }, distextsub),
           ),
         ),
       ),
-      div({ class: 'kyc-detail-container' },
-        div({ class: 'detail-field-wrap name-wrap' },
-          div({ class: 'name-field detail-field show-error active' },
+      div(
+        { class: 'kyc-detail-container' },
+        div(
+          { class: 'detail-field-wrap name-wrap' },
+          div(
+            { class: 'name-field detail-field' },
             label({ class: 'detail-label name-label', for: 'kyc-name' }, namelab),
-            input({ type: 'text', name: 'kyc-name', id: 'kyc-name', class: 'detail-inp name-inp' }),
+            input({
+              type: 'text', name: 'kyc-name', id: 'kyc-name', class: 'detail-inp name-inp',
+            }),
             img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
           p({ class: 'name-error error-msg' }, 'Invalid Name'),
         ),
         div(
           { class: 'detail-field-wrap mob-wrap' },
-          div({ class: 'country-code-wrap' },
+          div(
+            { class: 'country-code-wrap' },
             p({ class: 'country-code' }, '+91'),
           ),
-          div({ class: 'mobile-field-wrap' },
-            div({ class: 'mob-field detail-field show-error active' },
-              label({ class: 'detail-label mob-label', for: 'kyc-mob' }, namelab),
-              input({ type: 'tel', name: 'kyc-mob', id: 'kyc-mob', class: 'detail-inp mob-inp' }),
+          div(
+            { class: 'mobile-field-wrap' },
+            div(
+              { class: 'mob-field detail-field' },
+              label({ class: 'detail-label mob-label', for: 'kyc-mob' }, pnlab),
+              input({
+                type: 'tel', name: 'kyc-mob', id: 'kyc-mob', class: 'detail-inp mob-inp',
+              }),
               img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
             ),
             p({ class: 'name-error error-msg' }, 'Invalid Name'),
           ),
         ),
-        div({ class: 'detail-field-wrap email-wrap' },
-          div({ class: 'email-field detail-field show-error active' },
+        div(
+          { class: 'detail-field-wrap email-wrap' },
+          div(
+            { class: 'email-field detail-field' },
             label({ class: 'detail-label email-label', for: 'kyc-email' }, emlab),
-            input({ type: 'email', name: 'kyc-email', id: 'kyc-email', class: 'detail-inp email-inp' }),
+            input({
+              type: 'email', name: 'kyc-email', id: 'kyc-email', class: 'detail-inp email-inp',
+            }),
             img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
           p({ class: 'email-error error-msg' }, 'Invalid Email'),
         ),
-        div({ class: 'detail-field-wrap city-wrap' },
-          div({ class: 'city-field detail-field show-error active' },
+        div(
+          { class: 'detail-field-wrap city-wrap' },
+          div(
+            { class: 'city-field detail-field' },
             label({ class: 'detail-label city-label', for: 'kyc-city' }, citylab),
-            input({ type: 'text', name: 'kyc-city', id: 'kyc-city', class: 'detail-inp city-inp' }),
+            input({
+              type: 'text', name: 'kyc-city', id: 'kyc-city', class: 'detail-inp city-inp',
+            }),
             img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
           p({ class: 'city-error error-msg' }, 'Invalid City'),
@@ -249,40 +281,63 @@ export default function decorate(block) {
     //     optVar.querySelector('.otp-fdp .main-contaienr .main-contaienr').remove();
     //   }
     // }
-    const otpDiv = div({ clasS: 'otp-container' },
+    const otpDiv = div(
+      { clasS: 'otp-container' },
       div({ class: 'modal-cross-btn' }, modalcrossbtn),
       div({ class: 'otp-heading' }, headTitle),
       // div({ class: 'pan-otp-wrap' },
-      div({ class: 'pan-wrap' },
-          div({ class: 'pan-field' },
-            label({ class: 'pan-label' }, panLabel),
-            input({ class: 'pan-inp', type: 'text' }),
-          ),
-          div({ class: 'kyc-verify' }, kycVerify),
+      div(
+        { class: 'pan-wrap' },
+        div(
+          { class: 'pan-field' },
+          label({ class: 'pan-label' }, panLabel),
+          input({ class: 'pan-inp', type: 'text' }),
+        ),
+        div({ class: 'kyc-verify' }, kycVerify),
       ),
-      div({ class: 'otp-wrap' },
-          p({ class: 'otp-label' }, otpLabel),
-          div({ class: 'otp-field' },
-            div({ class: 'otp-wrap' },
-              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 1 of 6',})
-            ),
-            div({ class: 'otp-wrap' },
-              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 2 of 6',})
-            ),
-            div({ class: 'otp-wrap' },
-              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 3 of 6',})
-            ),
-            div({ class: 'otp-wrap' },
-              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 4 of 6',})
-            ),
-            div({ class: 'otp-wrap' },
-              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 5 of 6',})
-            ),
-            div({ class: 'otp-wrap' },
-              input({ class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 6 of 6',})
-            ),
+      div(
+        { class: 'otp-wrap' },
+        p({ class: 'otp-label' }, otpLabel),
+        div(
+          { class: 'otp-field' },
+          div(
+            { class: 'otp-wrap' },
+            input({
+              class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 1 of 6',
+            }),
           ),
-          button({ class: 'resend-btn' }, reotpLabel),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 2 of 6',
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 3 of 6',
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 4 of 6',
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 5 of 6',
+            }),
+          ),
+          div(
+            { class: 'otp-wrap' },
+            input({
+              class: 'otp-inp', type: 'text', maxlength: 1, 'aria-label': 'OTP digit 6 of 6',
+            }),
+          ),
+        ),
+        button({ class: 'resend-btn' }, reotpLabel),
       ),
       p({ class: 'otp-sent-text' }, otpSent),
       button({ class: 'sbmt-btn' }, sbmtBtn),

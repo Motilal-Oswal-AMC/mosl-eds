@@ -1236,7 +1236,7 @@ position: relative;
 } */
 
 .otp-fdp {
-    /* display: none; */
+    display: none;
     height: 100%;
     background-color: #fff;
 }
@@ -1363,11 +1363,11 @@ position: relative;
     color: #616161;
 }
 
-.hide-element {
+.section.hide-element {
     display: none;
 }
 
-.show-element {
+.section.show-element {
     display: block;
 }
 
