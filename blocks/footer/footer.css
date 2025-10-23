@@ -116,6 +116,7 @@
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 {
   text-align: left;
+  border-bottom: unset;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 .footer-sub-cont1 {
   color: var(--neutrals-white);
@@ -156,17 +157,22 @@
   background-color: var(--blue-1-800-primary);
   padding: 0 4px;
 }
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform {
+  border-radius: var(--border-radius-8);
+  border: var(--border-width-01) solid var(--neutrals-white);
+  background: transparent;
+  padding: 8px 12px;
+}
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform .email-imput {
   width: 100%;
-  min-width: 200px;
+  max-width: 346px;
   display: flex;
-  padding: var(--spacing-8) var(--spacing-12);
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
   gap: 4px;
   align-self: stretch;
-  height: 40px;
+  height: 20px;
   color: var(--neutrals-200);
   font-feature-settings: var(--font-features-default);
   font-family: var(--body);
@@ -174,9 +180,14 @@
   font-style: normal;
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height);
-  border-radius: var(--border-radius-8);
-  border: var(--border-width-01) solid var(--neutrals-white);
   background: transparent;
+  border: none;
+  outline: none;
+}
+@media (max-width: 768px) {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform .email-imput {
+    max-width: 182px;
+  }
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform .crossimg {
   position: absolute;
@@ -197,10 +208,9 @@
   margin-top: 4px;
   margin-left: 5px;
 }
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-fail,
-.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-success {
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform.email-fail,
+.footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform.email-success {
   border: var(--border-width-01) solid #ff8088;
-  padding: 10px 40px 10px 12px;
   background: url("../../icons/error-cross.svg") no-repeat right 12px center;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper input.email-success {
@@ -228,6 +238,11 @@
   margin: 0;
   height: 40px;
   border: none;
+}
+@media (max-width: 768px) {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.submit-btn .button {
+    width: 102px;
+  }
 }
 .footer-wrapper .footer .footer-section2 .accordion-wrapper .accordion-item {
   display: flex;
@@ -560,7 +575,6 @@
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input {
     display: flex;
-    padding: var(--spacing-10) var(--spacing-12);
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
@@ -588,10 +602,9 @@
     margin-top: 4px;
     margin-left: 5px;
   }
-  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-fail,
-  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-success {
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper .wrapimgform.email-fail,
+  .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper .wrapimgform.email-success {
     border: var(--border-width-01) solid #ff8088;
-    padding: 10px 40px 10px 12px;
     background: url("../../icons/error-cross.svg") no-repeat right 12px center;
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper input.email-success {

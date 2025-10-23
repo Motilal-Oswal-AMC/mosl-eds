@@ -89,7 +89,7 @@ main {
           }
 
           &::-webkit-scrollbar {
-            width: 0;
+            width: 2px;
             background-color: #464343;
           }
 
@@ -917,6 +917,10 @@ main {
           500,
           var(--body)
         );
+
+        position: sticky;
+        top: 27%;
+        z-index: 9999;
 
         &::after {
           content: "";
