@@ -59,7 +59,6 @@ main {
       }
 
       .card-wrapper {
-
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -430,6 +429,7 @@ main {
                 .dropdownlist {
                   // width: 70px;
                   max-width: 143px;
+
                   // height: auto;
 
                   // top: 22px;
@@ -728,6 +728,7 @@ main {
       // padding-left: 16px;
       // padding-right: 16px;
       max-width: 100%;
+      position: relative;
     }
 
     /* ul for second part */
@@ -757,6 +758,13 @@ main {
 
         @include media(mobile) {
           height: auto;
+          height: 250px;
+          overflow: auto;
+          top: 230px;
+
+          // position: absolute;
+          // top: 52px;
+          // position: unset;
         }
       }
 
@@ -768,6 +776,7 @@ main {
         max-width: 100%;
         width: 100%;
         height: auto;
+
         // position: static;
         display: none;
         flex-direction: column;
@@ -871,7 +880,8 @@ main {
         background: $primary-white;
         margin: 0 auto;
         padding: 16px;
-        position: relative;
+
+        // position: relative;
         cursor: pointer;
 
         // flex-direction: row-reverse;
@@ -883,7 +893,9 @@ main {
           var(--body));
 
         position: sticky;
-        top: 27%;
+
+        // top: 27%;
+        top: 179px;
         z-index: 100;
 
         &::after {
@@ -1220,7 +1232,7 @@ main {
   bottom: 0;
   z-index: 100;
   background: var(--neutrals-white, #FFF);
-  box-shadow: -25px -1px 214px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: -25px -1px 214px 0 rgb(0 0 0 / 15%);
 
   @media (width <=768px) {
     display: block;

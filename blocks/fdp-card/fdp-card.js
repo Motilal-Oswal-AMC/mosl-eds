@@ -617,13 +617,13 @@ export default function decorate(block) {
     const hrefValue = link.getAttribute('href');
     const cleanId = hrefValue.replace('#', '');
     elchild.setAttribute('id', cleanId);
-  })
+  });
 
   const listItems = item2Ul.querySelectorAll('li[id]');
-  const sections = mainBlock.querySelector('main');
-  const sec = sections.querySelector('.fdp-card-container .item2');
+  // const sections = mainBlock.querySelector('main');
+  // const sec = sections.querySelector('.fdp-card-container .item2');
   // item2Ul.addEventListener('click', (e) => {
-  listItems.forEach(item => {
+  listItems.forEach((item) => {
     item.addEventListener('click', (e) => {
       if (window.innerWidth) {
         ptag.textContent = e.target.textContent;
@@ -631,33 +631,32 @@ export default function decorate(block) {
           item2Ul.style.display = 'none';
         }
         // item2Ul.style.display = 'none';
-        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active')
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
         const targetId = item.id;
         // const targetSection = document.querySelector(`.section[data-id="${targetId}"]`);
         const sections = document.querySelectorAll('.section[data-id]');
         const targetSection = Array.from(sections).find(
-          sec => sec.dataset.id === targetId
+          (ele) => (ele.dataset.id === targetId),
         );
 
         if (targetSection) {
-
-          const nfoBanner = document.querySelector("#nav > div.section.nfo-banner");
+          const nfoBanner = document.querySelector('#nav > div.section.nfo-banner');
           const nfoHeight = nfoBanner ? nfoBanner.offsetHeight : 0;
-          const stickyHeader = document.querySelector("body > main > div.section.breadcrumbs-fdp.wrapper-fdp");
+          const stickyHeader = document.querySelector('body > main > div.section.breadcrumbs-fdp.wrapper-fdp');
           const stickyHeight = stickyHeader ? stickyHeader.offsetHeight : 65;
-          const dropdown = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p");
+          const dropdown = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p');
           const dropdownHeight = dropdown ? dropdown.offsetHeight : 52;
 
-          const sipCal = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container");
-          const whyFund = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund");
-          const fundVideo = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-philosophy-video.fund-video-container");
-          const keyFacts = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.key-facts-container");
-          const portfolio = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.tabdiv.tabs-container");
-          const fundManager = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.our-funds-fdp-container");
-          const downloads = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.download.table-wrapper");
-          const contentLibrary = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.learning-fdp.future-building-container");
-          const peopleLike = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-card-slider-container");
-          const productLabel = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.product-label.fdp-risk-o-meter.risk-o-meter-container");
+          const sipCal = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container');
+          const whyFund = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund');
+          const fundVideo = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-philosophy-video.fund-video-container');
+          const keyFacts = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.key-facts-container');
+          const portfolio = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.tabdiv.tabs-container');
+          const fundManager = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.our-funds-fdp-container');
+          const downloads = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.download.table-wrapper');
+          const contentLibrary = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.learning-fdp.future-building-container');
+          const peopleLike = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-card-slider-container');
+          const productLabel = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.product-label.fdp-risk-o-meter.risk-o-meter-container');
 
           const elementTop = targetSection.getBoundingClientRect().top + window.scrollY;
 
@@ -746,10 +745,9 @@ export default function decorate(block) {
             top: scrollPosition,
             behavior: 'smooth',
           });
-
         }
       } else {
-        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active')
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
       }
       if (window.innerWidth < 786 && e.target.tagName === 'A') {
         // changes for opstions
@@ -776,13 +774,18 @@ export default function decorate(block) {
   });
 
   ptag.addEventListener('click', () => {
-    if (window.innerWidth < 786) {
+    if (window.innerWidth < 768) {
       if (item2Ul.style.display === 'block') {
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
         item2Ul.style.display = 'none';
+        item2Ul.closest('body').style.overflow = 'unset';
       } else {
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
         item2Ul.style.display = 'block';
+        item2Ul.closest('body').style.overflow = 'hidden';
+        // if (window.innerWidth < 768) {
+        //   item2Ul.cl
+        // }
       }
     }
   });
@@ -793,10 +796,10 @@ export default function decorate(block) {
 
   (function () {
     // Function to calculate the correct header offset based on screen size
-    function getHeaderOffset(targetID) { // targetId
-      // const dataidStorage = dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
-      // return window.innerWidth <= 768 ? dataidStorage : 240;
-    }
+    // function getHeaderOffset(targetID) { // targetId
+    // const dataidStorage = dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
+    // return window.innerWidth <= 768 ? dataidStorage : 240;
+    // }
 
     // Smooth scroll setup with dynamic header offset
     function setupSmoothScroll(linkSelector) {
@@ -825,14 +828,14 @@ export default function decorate(block) {
           const target = document.querySelector(`.section[data-id="${targetId}"]`);
 
           if (target) {
-            const headerOffset = getHeaderOffset(target);
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            // const headerOffset = getHeaderOffset(target);
+            // const elementPosition = target.getBoundingClientRect().top;
+            // const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth',
-            });
+            // window.scrollTo({
+            // top: offsetPosition,
+            // behavior: 'smooth',
+            // });
           }
         });
       });
@@ -871,39 +874,40 @@ export default function decorate(block) {
   dataMapMoObj.CLASS_PREFIXES = ['mainbreadcrb', 'subbreadcrb', 'innerbreadcrb', 'breadcrbmain'];
   dataMapMoObj.addIndexed(ulElement);
 
-  mainBlock.querySelector('.subbreadcrb2').addEventListener('click', async (event) => {
-    const breadcrumb = document.querySelector('.breadcrbmain2');
-    if (event.target.textContent === 'Copy') {
-      const urlCopied = block.closest('main').querySelector('.breadcrumbs-fdp .listindex5');
-      try {
-        const currentUrl = window.location.href;
-        await navigator.clipboard.writeText(currentUrl);
+  mainBlock.querySelector('.subbreadcrb2')
+    .addEventListener('click', async (event) => {
+      const breadcrumb = document.querySelector('.breadcrbmain2');
+      if (event.target.textContent === 'Copy') {
+        const urlCopied = block.closest('main').querySelector('.breadcrumbs-fdp .listindex5');
+        try {
+          const currentUrl = window.location.href;
+          await navigator.clipboard.writeText(currentUrl);
 
-        // Provide feedback to the user!
-        // alert('URL copied to clipboard!');
-        urlCopied.style.display = 'block';
-        setTimeout(() => {
-          urlCopied.style.display = 'none';
-          breadcrumb.style.display = 'none';
-        }, 1000);
-      } catch (err) {
+          // Provide feedback to the user!
+          // alert('URL copied to clipboard!');
+          urlCopied.style.display = 'block';
+          setTimeout(() => {
+            urlCopied.style.display = 'none';
+            breadcrumb.style.display = 'none';
+          }, 1000);
+        } catch (err) {
         // Catch potential errors and inform the user
         // console.error('Failed to copy URL: ', err);
         // //alert('Could not copy URL. Please make sure the window is focused.');
-        urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
-        urlCopied.style.display = 'block';
-        setTimeout(() => {
-          urlCopied.style.display = 'none';
-        }, 1000);
+          urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
+          urlCopied.style.display = 'block';
+          setTimeout(() => {
+            urlCopied.style.display = 'none';
+          }, 1000);
+        }
+        return false;
       }
-      return false;
-    }
-    if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
-      breadcrumb.style.display = 'block';
-    } else {
-      breadcrumb.style.display = 'none';
-    }
-  });
+      if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
+        breadcrumb.style.display = 'block';
+      } else {
+        breadcrumb.style.display = 'none';
+      }
+    });
 
   const imgAltmain = block.closest('main');
   dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb1 img'), 'callback');
@@ -935,7 +939,7 @@ export default function decorate(block) {
 
     // If the click wasn't on our copy button, do nothing
     if (!clickedItem) {
-
+      return false;
     }
 
     // Prevent default behavior, like navigating if the href wasn't removed
