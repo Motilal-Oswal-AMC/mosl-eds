@@ -1060,4 +1060,7 @@ main {
     font-weight: 500;
     line-height: var(--button-small-line-height, 16px);
   }
+}
+.section.fdp-sticky-nav .sticky-item1 .sticky-sub-item2 .submit {
+  color: var(--text-white);
 }/*# sourceMappingURL=fdp-card.css.map */
