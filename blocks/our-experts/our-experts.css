@@ -1,4 +1,7 @@
 @import "../../../styles/fonts.css";
+.section.our-experts-container {
+  margin-bottom: 0;
+}
 .section.our-experts-container .our-experts-wrapper ul {
   width: 100%;
   list-style: none;
@@ -13,13 +16,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 24px;
+  padding: 40px 0;
+  padding-bottom: 0;
 }
 @media (max-width: 768px) {
   .section.our-experts-container .our-experts-wrapper .our-experts {
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
+    padding: 0;
+    padding-top: 24px;
   }
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h1,
@@ -45,7 +51,7 @@
   .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h4,
   .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h5,
   .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h6 {
-    font-size: var(--heading-h5-size, 28px);
+    font-size: 28px;
     font-style: normal;
     font-weight: 600;
     line-height: var(--sub-header-large-line-height);
@@ -126,6 +132,12 @@
   text-underline-offset: 4.9%;
   text-underline-position: from-font;
   white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 li a {
+    font-size: var(--text-link-small-size);
+    line-height: var(--text-link-small-line-height);
+  }
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 .expert-lists2 {
   padding-right: 8px;
