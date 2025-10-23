@@ -708,13 +708,13 @@ export default function decorate(block) {
             case 'fundManager':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
-                : 3785;
+                : 3810;
               break;
 
             case 'downloads':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 4680;
+                : 4550;
               break;
 
             case 'contentLibrary':
