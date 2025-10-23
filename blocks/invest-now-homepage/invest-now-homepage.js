@@ -1136,6 +1136,10 @@ export async function existingUser(paramblock) {
   });
 
   document.addEventListener('click', (event) => {
+    if (!closestParam.querySelector('.dropdown-wrap').contains(event.target)) {
+      closestParam.querySelector('.dropdown-wrap')
+        .classList.remove('dropdown-active');
+    }
     if (!inputLable.querySelector('input').contains(event.target)
       && inputLable.querySelector('input').value === '') {
       inputLable.querySelector('.innerpandts1').classList.remove('active');
@@ -2037,6 +2041,20 @@ export default function decorate(block) {
       drpsel.textContent = '';
       drpsel.textContent = target.textContent;
       drpsel.parentElement.classList.remove('dropdown-active');
+    });
+    document.addEventListener('click', (event) => {
+      if (!stepblk.querySelector('.dropdown-wrap').contains(event.target)) {
+        stepblk.querySelector('.dropdown-wrap')
+          .classList.remove('dropdown-active');
+      }
+      if (!Array.from(event.target.classList).includes('date-drop-down') 
+        && !block.querySelector('.date-drop-down').contains(event.target)) {
+        block.querySelector('.flatpickr-calendar').classList.remove('open');
+      }
+      // if (block.querySelector('.flatpickr-calendar') !== null
+      // && Array.from(block.querySelector('.flatpickr-calendar').classList).includes('open')) {
+      //   block.querySelector('.flatpickr-calendar').classList.remove('open');
+      // }
     });
   }
   return block;
