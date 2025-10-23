@@ -1,9 +1,10 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 main {
   background-color: #f5f5f5;
+  position: relative;
 }
 
 .section.fdp-card-container {
@@ -58,6 +59,7 @@ main {
       }
 
       .card-wrapper {
+
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -111,13 +113,11 @@ main {
             // border-bottom: 1px solid #eee;
             cursor: pointer;
 
-            @include font-style(
-              var(--paragraph-xsmall-size),
+            @include font-style(var(--paragraph-xsmall-size),
               var(--paragraph-xsmall-line-height),
               var(--text-body),
               400,
-              var(--body)
-            );
+              var(--body));
 
             @include media(mobile) {
               padding: 12px;
@@ -131,16 +131,16 @@ main {
               color: var(--blue-1-800-primary);
               font-family: var(--body);
               font-feature-settings:
-                "ss01" on,
-                "ss04" on,
-                "cv01" on,
-                "cv02" on,
-                "cv03" on,
-                "cv04" on,
-                "cv06" on,
-                "cv09" on,
-                "cv10" on,
-                "cv11" on;
+                "ss01"on,
+                "ss04"on,
+                "cv01"on,
+                "cv02"on,
+                "cv03"on,
+                "cv04"on,
+                "cv06"on,
+                "cv09"on,
+                "cv10"on,
+                "cv11"on;
               font-weight: 500;
               padding: 9px 12px;
 
@@ -215,13 +215,11 @@ main {
               .fund-name-title {
                 margin: 0;
 
-                @include font-style(
-                  var(--heading-h6-size),
+                @include font-style(var(--heading-h6-size),
                   var(--heading-h6-line-height),
                   var(--blue-1-800-primary),
                   600,
-                  var(--title)
-                );
+                  var(--title));
 
                 @include media(mobile) {
                   font-size: 20px;
@@ -236,13 +234,11 @@ main {
               margin: 4px 0 0;
               display: block;
 
-              @include font-style(
-                var(--body-small-regular-size),
+              @include font-style(var(--body-small-regular-size),
                 var(--label-large-line-height),
                 var(--blue-1-800-primary),
                 400,
-                var(--body)
-              );
+                var(--body));
 
               // @include font-style(12px, 16px, $primary-blue, 400, $poppins);
 
@@ -273,25 +269,21 @@ main {
                 background-color: var(--neutrals-200);
                 padding: var(--spacing-2) var(--spacing-8);
 
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--blue-1-800-primary),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   height: 24px;
                   padding: 5px 10px;
 
-                  @include font-style(
-                    var(--body-xsmall-regular-size),
+                  @include font-style(var(--body-xsmall-regular-size),
                     var(--body-xsmall-regular-line-height),
                     var(--blue-1-800-primary),
                     400,
-                    var(--body)
-                  );
+                    var(--body));
                 }
               }
             }
@@ -319,13 +311,11 @@ main {
                 cursor: pointer;
                 -webkit-tap-highlight-color: transparent;
 
-                @include font-style(
-                  var(--body-small-medium-size),
+                @include font-style(var(--body-small-medium-size),
                   var(--body-small-medium-line-height),
                   var(--blue-1-800-primary),
                   500,
-                  var(--body)
-                );
+                  var(--body));
 
                 &::after {
                   content: "";
@@ -344,11 +334,11 @@ main {
 
           .nav-return-grp {
             display: flex;
-            
+
             // align-items: center;
             gap: 16px;
-            
-            @include media(tab){
+
+            @include media(tab) {
               flex-wrap: wrap;
             }
 
@@ -385,13 +375,11 @@ main {
               // }
 
               .return-text {
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--text-body),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   font-size: var(--body-xsmall-regular-size);
@@ -412,13 +400,11 @@ main {
                   display: flex;
                   gap: 4px;
 
-                  @include font-style(
-                    var(--body-xsmall-medium-size),
+                  @include font-style(var(--body-xsmall-medium-size),
                     var(--body-xsmall-medium-line-height),
                     var(--blue-1-800-primary),
                     500,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     gap: 4px;
@@ -443,7 +429,7 @@ main {
 
                 .dropdownlist {
                   // width: 70px;
-                  max-width:143px;
+                  max-width: 143px;
                   // height: auto;
 
                   // top: 22px;
@@ -451,10 +437,10 @@ main {
 
                   // left: -100%;
 
-                  margin: 4px 0 0 ;
+                  margin: 4px 0 0;
 
                   @include media(mobile) {
-                    margin: 3px 0 0 ;
+                    margin: 3px 0 0;
                     top: 15px;
                   }
 
@@ -476,13 +462,11 @@ main {
 
                 .value-cagr,
                 .percent {
-                  @include font-style(
-                    var(--body-large-semibold-size),
+                  @include font-style(var(--body-large-semibold-size),
                     var(--body-large-semibold-line-height),
                     var(--blue-1-800-primary),
                     600,
-                    var(--body)
-                  );
+                    var(--body));
 
                   margin: 0;
                 }
@@ -526,13 +510,11 @@ main {
               // }
 
               .nav-label {
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--text-body),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 margin: 0 0 4px;
 
@@ -549,13 +531,11 @@ main {
 
                 .value-nav,
                 .percent {
-                  @include font-style(
-                    var(--body-large-semibold-size),
+                  @include font-style(var(--body-large-semibold-size),
                     var(--body-large-semibold-line-height),
                     var(--blue-1-800-primary),
                     600,
-                    var(--body)
-                  );
+                    var(--body));
 
                   margin: 0;
                 }
@@ -581,13 +561,11 @@ main {
                   }
 
                   .nav-percent {
-                    @include font-style(
-                      var(--body-xsmall-regular-size),
+                    @include font-style(var(--body-xsmall-regular-size),
                       var(--body-xsmall-regular-line-height),
                       var(--text-success),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
 
                     margin: 0;
 
@@ -693,13 +671,11 @@ main {
                 height: 100%;
                 cursor: pointer;
 
-                @include font-style(
-                  var(--button-medium-size),
+                @include font-style(var(--button-medium-size),
                   var(--button-medium-line-height),
                   var(--text-white),
                   500,
-                  var(--body)
-                );
+                  var(--body));
               }
             }
           }
@@ -722,22 +698,18 @@ main {
             .notify-dis {
               margin: 0;
 
-              @include font-style(
-                var(--paragraph-xsmall-size),
+              @include font-style(var(--paragraph-xsmall-size),
                 var(--paragraph-xsmall-line-height),
                 var(--neutrals-800),
                 400,
-                var(--body)
-              );
+                var(--body));
 
               @include media(mobile) {
-                @include font-style(
-                  var(--body-xsmall-regular-size),
+                @include font-style(var(--body-xsmall-regular-size),
                   var(--body-xsmall-regular-line-height),
                   var(--neutrals-800),
                   400,
-                  var(--body)
-                );
+                  var(--body));
               }
             }
           }
@@ -853,25 +825,21 @@ main {
         }
 
         a {
-          @include font-style(
-            var(--body-small-regular-size),
+          @include font-style(var(--body-small-regular-size),
             var(--body-small-regular-line-height),
             var(--neutrals-700),
             400,
-            var(--body)
-          );
+            var(--body));
 
           padding: var(--spacing-10) var(--spacing-none);
           cursor: pointer;
 
           @media (width <=768px) {
-            @include font-style(
-              var(--paragraph-medium-size),
+            @include font-style(var(--paragraph-medium-size),
               var(--paragraph-medium-line-height),
               var(--text-body),
               400,
-              var(--body)
-            );
+              var(--body));
           }
         }
 
@@ -883,13 +851,11 @@ main {
           align-items: start;
           border-bottom: 2px solid var(--blue-1-800-primary);
 
-          @include font-style(
-            var(--body-small-semibold-size),
+          @include font-style(var(--body-small-semibold-size),
             var(--body-small-semibold-line-height),
             var(--blue-1-800-primary),
             600,
-            var(--body)
-          );
+            var(--body));
         }
       }
     }
@@ -910,13 +876,11 @@ main {
 
         // flex-direction: row-reverse;
 
-        @include font-style(
-          var(--body-medium-medium-size),
+        @include font-style(var(--body-medium-medium-size),
           var(--body-medium-medium-line-height),
           var(--blue-1-800-primary),
           500,
-          var(--body)
-        );
+          var(--body));
 
         position: sticky;
         top: 27%;
@@ -1090,13 +1054,11 @@ main {
         }
 
         h2 {
-          @include font-style(
-            var(--body-xlarge-bold-size),
+          @include font-style(var(--body-xlarge-bold-size),
             var(--body-xlarge-bold-line-height),
             var(--blue-1-800-primary),
             600,
-            var(--body)
-          );
+            var(--body));
 
           margin: 0;
 
@@ -1144,13 +1106,11 @@ main {
 
               li.whyfund-innertext-li1:nth-child(1) {
                 // @include font-style(18px, 24px, $primary-blue, 500, $poppins);
-                @include font-style(
-                  var(--body-medium-medium-size),
+                @include font-style(var(--body-medium-medium-size),
                   var(--body-medium-medium-line-height),
                   var(--blue-1-800-primary),
                   500,
-                  var(--body)
-                );
+                  var(--body));
 
                 // @media (width <=768px) {
                 //   font-size: 14px;
@@ -1170,13 +1130,11 @@ main {
 
               li:nth-child(3) {
                 // @include font-style(12px, 16px, $neutrals-black, 400, $poppins);
-                @include font-style(
-                  var(--disclaimer-xsmall-size),
+                @include font-style(var(--disclaimer-xsmall-size),
                   var(--disclaimer-xsmall-line-height),
                   var(--neutrals-black),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 display: flex;
                 gap: 1px;
@@ -1206,13 +1164,11 @@ main {
 
         p {
           // @include font-style(12px, 16px, $text-body-2, 400, $poppins);
-          @include font-style(
-            var(--disclaimer-xsmall-size),
+          @include font-style(var(--disclaimer-xsmall-size),
             var(--disclaimer-xsmall-line-height),
             var(--text-disclaimer),
             400,
-            var(--body)
-          );
+            var(--body));
 
           margin: 0;
           display: flex;
@@ -1226,13 +1182,11 @@ main {
 
           .whyfund-inner-ol1 {
             // @include font-style(12px, 16px, $primary-blue, 400, $poppins);
-            @include font-style(
-              var(--disclaimer-xsmall-size),
+            @include font-style(var(--disclaimer-xsmall-size),
               var(--disclaimer-xsmall-line-height),
               var(--blue-1-800-primary),
               400,
-              var(--body)
-            );
+              var(--body));
           }
         }
       }
@@ -1256,14 +1210,18 @@ main {
 // stky
 
 .section.fdp-sticky-nav {
-  display: none;
+  // display: none;
   padding: 16px;
+  margin: 0;
+  margin-top: 16px;
+  background: var(--neutrals-white, #FFF);
+  box-shadow: -25px -1px 214px 0 rgba(0, 0, 0, 0.15);
 
   @media (width <=768px) {
     display: block;
     background: $primary-white;
     box-shadow: -25px -1px 214px 0 rgb(0 0 0 / 15%);
-    margin: 40px 0;
+    margin: 0;
   }
 
   .sticky-item1 {
@@ -1271,21 +1229,33 @@ main {
     justify-content: space-between;
     align-items: center;
 
+    @include media (mobile) {
+      // flex-direction: column;
+      padding: 0;
+      gap: 48px;
+    }
+
     .sticky-sub-item1 {
       padding: 0;
       list-style: none;
       margin: 0;
 
       .sticky-inner-item1 {
-        width: 176px;
+        width: 400px;
 
-        @include font-style(
-          var(--body-small-medium-size),
-          var(--body-small-medium-line-height),
+        @include font-style(var(--body-xlarge-bold-size),
+          var(--body-xlarge-bold-line-height),
           var(--blue-1-800-primary),
-          500,
-          var(--body)
-        );
+          600,
+          var(--body));
+
+        @include media (mobile) {
+          width: 100%;
+          font-size: var(--body-small-medium-size, 14px);
+          font-style: normal;
+          font-weight: 500;
+          line-height: var(--body-small-medium-line-height, 16px);
+        }
       }
 
       .sticky-inner-item2 {
@@ -1295,20 +1265,40 @@ main {
 
     .sticky-sub-item2 {
       display: flex;
-      width: 124px;
-      height: max-content;
-      padding: var(--spacing-8) var(--spacing-12);
+      width: 192px;
+      height: 40px;
+      padding: var(--spacing-12);
       justify-content: center;
       align-items: center;
       gap: 8px;
       flex-shrink: 0;
       border-radius: var(--border-radius-8);
       background: var(--button-primary-default);
-      text-align: center;
       margin: 0;
       cursor: pointer;
+      color: var(--text-white, #FFF);
+      text-align: center;
+      font-feature-settings: var(--font-features-default);
+      font-family: var(--body, Inter);
+      font-size: var(--button-medium-size, 16px);
+      font-style: normal;
+      font-weight: 500;
+      line-height: var(--button-medium-line-height, 20px);
 
-      @include font-style(14px, 16px, var(--text-white), 500, var(--body));
+      @include media (mobile) {
+        display: flex;
+        width: 116px;
+        height: 32px;
+        padding: var(--spacing-8, 8px) var(--spacing-12, 12px);
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-8, 8px);
+        flex-shrink: 0;
+        font-size: var(--button-small-size, 14px);
+        font-style: normal;
+        font-weight: 500;
+        line-height: var(--button-small-line-height, 16px)
+      }
     }
   }
 }
