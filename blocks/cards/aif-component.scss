@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+// Variables
+$primary-color: #4a90e2;
+$text-color: #333;
+$border-radius: 8px;
+
+// Base (Mobile first)
+.aif-component {
+  
+}
+
+// Tablet (≥ 768px)
+@media (min-width: 768px) {
+  .aif-component {
+    
+  }
+}
+
+// Desktop (≥ 1024px)
+@media (min-width: 1024px) {
+  .aif-component {
+    
+  }
+}
