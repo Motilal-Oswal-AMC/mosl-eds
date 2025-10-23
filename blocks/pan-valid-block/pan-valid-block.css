@@ -202,6 +202,7 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   padding-left: 4px;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap .kyc-radio-wrap .kyc-radio .radio-field .radio-label {
@@ -424,14 +425,17 @@
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .tnc-container .panvalidsubmain1 .button.panvalidsubinner1 {
   margin: 0 0 16px;
+  display: block;
   width: 100%;
   border-radius: var(--border-radius-4);
   background-color: var(--button-primary-disable);
   padding: var(--spacing-12);
   border: none;
+  cursor: pointer;
+  text-align: center;
   font-size: var(--button-medium-size);
   line-height: var(--button-medium-line-height);
-  color: var(--Neutrals-600);
+  color: var(--neutrals-600);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
@@ -443,16 +447,10 @@
     line-height: var(--button-medium-line-height);
   }
 }
-.section.fdp-kyc-form .pan-valid-block .pankyc-container .tnc-container .panvalidsubmain1 .button.panvalidsubinner1.active {
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .tnc-container .panvalidsubmain1 .button.panvalidsubinner1.active-form-btn {
   border-radius: var(--border-radius-8);
   background: var(--button-primary-default);
   color: var(--text-white);
-}
-.section.fdp-kyc-form .pan-valid-block .pankyc-container .tnc-container .active-form-btn .panvalidsubinner1 {
-  background-color: #2e2a94;
-  color: #fff;
-  cursor: pointer;
-  pointer-events: unset;
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .tnc-container .panvalidsubmain2 {
   margin: 0 0 16px;

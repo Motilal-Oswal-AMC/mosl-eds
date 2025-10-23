@@ -766,8 +766,8 @@ export async function existingUser(paramblock) {
             prev.target.previousElementSibling.value = '';
           });
         });
-        const continueBTN = classAddv3.querySelector('.tnc-container .panvalidsubinner4');
-        continueBTN.querySelector('a').removeAttribute('href');
+        const continueBTN = classAddv3.querySelector('.tnc-container .button-container .button');
+        continueBTN.removeAttribute('href');
         const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
         const phoneRegex = /^\d{10}$/;
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -778,6 +778,7 @@ export async function existingUser(paramblock) {
           const errorPanEl = e.target.parentElement;
           if (panRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('active');
             userLoginPanNumber.setAttribute('readonly', true);
             if (panRegex.test(userLoginPanNumber.value)
               && phoneRegex.test(userNo.value)
@@ -788,6 +789,7 @@ export async function existingUser(paramblock) {
             // flagForm = '';
           } else {
             errorPanEl.classList.add('show-error');
+            errorPanEl.classList.add('active');
             continueBTN.classList.remove('active-form-btn');
             // flagForm = 'Y';
           }

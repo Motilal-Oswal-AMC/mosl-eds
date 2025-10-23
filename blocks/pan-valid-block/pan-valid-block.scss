@@ -710,6 +710,7 @@
                         var(--body));
 
                       padding-left: 4px;
+                      cursor: pointer;
 
                       @include media(mobile) {
                         font-size: var(--body-small-regular-size);
@@ -955,15 +956,18 @@
 
           .button.panvalidsubinner1 {
             margin: 0 0 16px;
+            display: block;
             width: 100%;
             border-radius: var(--border-radius-4);
             background-color: var(--button-primary-disable);
             padding: var(--spacing-12);
             border: none;
+            cursor: pointer;
+            text-align: center;
 
             @include font-style(var(--button-medium-size),
               var(--button-medium-line-height),
-              var(--Neutrals-600),
+              var(--neutrals-600),
               500,
               var(--body));
 
@@ -973,20 +977,11 @@
               line-height: var(--button-medium-line-height);
             }
 
-            &.active {
+            &.active-form-btn {
               border-radius: var(--border-radius-8);
               background: var(--button-primary-default);
               color: var(--text-white);
             }
-          }
-        }
-
-        .active-form-btn {
-          .panvalidsubinner1 {
-            background-color: #2e2a94;
-            color: #fff;
-            cursor: pointer;
-            pointer-events: unset;
           }
         }
 
