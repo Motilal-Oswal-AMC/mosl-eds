@@ -647,6 +647,7 @@ export default function decorate(block) {
           const dropdown = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p');
           const dropdownHeight = dropdown ? dropdown.offsetHeight : 52;
 
+          const periodicReturn = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.periodicreturn.table-wrapper.tabs-container");
           const sipCal = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container');
           const whyFund = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund');
           const fundVideo = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-philosophy-video.fund-video-container');
@@ -663,6 +664,7 @@ export default function decorate(block) {
           let sectionKey;
 
           if (sipCal.contains(targetSection)) sectionKey = 'sipCal';
+          else if (periodicReturn.contains(targetSection)) sectionKey = 'periodicReturn';
           else if (whyFund.contains(targetSection)) sectionKey = 'whyFund';
           else if (fundVideo.contains(targetSection)) sectionKey = 'fundVideo';
           else if (keyFacts.contains(targetSection)) sectionKey = 'keyFacts';
@@ -680,6 +682,12 @@ export default function decorate(block) {
             case 'sipCal':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
+                : 780;
+              break;
+
+            case 'periodicReturn':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 70
                 : 780;
               break;
 
