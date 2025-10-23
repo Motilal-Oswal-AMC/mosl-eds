@@ -305,4 +305,11 @@
 }
 .popular-artical.moedge-building-container .default-content-wrapper ul li:last-of-type {
   display: none;
+}
+
+.popular-artical.building-moedge .default-content-wrapper:last-of-type {
+  padding-bottom: 0;
+}
+.popular-artical.building-moedge h3 {
+  display: none;
 }/*# sourceMappingURL=moedge-building.css.map */

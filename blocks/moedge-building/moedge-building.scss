@@ -136,7 +136,7 @@
 
                     .button {
                         color: #2E2A94;
-                        font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
+                        font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
                         font-family: var(--body);
                         font-size: var(--body-large-medium-size);
                         font-style: normal;
@@ -382,5 +382,15 @@
             }
         }
 
+    }
+}
+
+.popular-artical.building-moedge {
+    .default-content-wrapper:last-of-type {
+        padding-bottom: 0;
+    }
+
+    h3 {
+        display: none;
     }
 }
