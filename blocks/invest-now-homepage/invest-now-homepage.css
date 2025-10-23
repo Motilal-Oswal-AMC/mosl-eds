@@ -502,6 +502,7 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-inputs .modal-suggestions .suggestion-btn {
   padding: 4px 8px;
+  margin: 0;
   border-radius: var(--border-radius-12);
   background-color: var(--blue-1-50);
   border: none;
@@ -643,11 +644,13 @@
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--spacing-4);
   padding: 0 var(--spacing-24) 0 var(--spacing-20);
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note {
   margin: 0;
+  max-width: 276px;
+  width: 100%;
   font-size: var(--body-xsmall-regular-size);
   line-height: var(--body-xsmall-regular-line-height);
   color: var(--neutrals-700);
@@ -670,12 +673,16 @@
   display: flex;
   position: relative;
 }
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-info {
+  width: 16px;
+  height: 16px;
+}
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 100%;
-  margin-right: 12px;
+  right: calc(100% + 2px);
+  margin-right: 8px;
   background-color: var(--surface-background-neutral-subtle);
   border-radius: var(--border-radius-8);
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.16);
@@ -686,7 +693,7 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap::after {
   content: "";
-  border-left: 10px solid var(--surface-background-neutral-subtle);
+  border-left: 8px solid var(--surface-background-neutral-subtle);
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   width: 8px;
@@ -899,6 +906,7 @@
   height: 16px;
   width: 16px;
   display: flex;
+  cursor: pointer;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .stepup-checkbox .discripone {
   padding: 0 8px 0 var(--spacing-20);
@@ -1628,14 +1636,17 @@
 }
 
 .modal-stepup-one {
-  max-width: 74.942%;
   width: 100%;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 @media (max-width: 768px) {
   .modal-stepup-one {
     max-width: 100%;
+    align-items: end;
   }
 }
 .modal-stepup-one .modelonemain1 {
@@ -1646,12 +1657,15 @@
   min-height: 512px;
   height: -moz-max-content;
   height: max-content;
+  max-width: 74.942%;
+  width: 100%;
 }
 @media (max-width: 768px) {
   .modal-stepup-one .modelonemain1 {
     min-height: unset;
     padding: 40px 16px 29px;
     border-radius: 32px 32px 0 0;
+    max-width: 100%;
   }
 }
 .modal-stepup-one .modelonemain1 .modelonesub1 {
@@ -1800,6 +1814,7 @@
   right: 24px;
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .modal-stepup-one .modelonemain1 .modelonesub3 {
@@ -1809,21 +1824,25 @@
 }
 
 .modal-stepup-two {
-  max-width: 74.942%;
   width: 100%;
   justify-content: center;
   align-items: center;
   display: none;
-  border-radius: var(--border-radius-16);
   overflow: hidden;
+  position: absolute;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 @media (max-width: 768px) {
   .modal-stepup-two {
     max-width: 100%;
-    border-radius: 32px 32px 0 0;
+    align-items: end;
   }
 }
 .modal-stepup-two .modeltwomain1 {
+  border-radius: var(--border-radius-16);
+  max-width: 74.942%;
+  width: 100%;
   min-height: 416px;
   height: -moz-max-content;
   height: max-content;
@@ -1834,9 +1853,11 @@
 @media (max-width: 768px) {
   .modal-stepup-two .modeltwomain1 {
     min-height: unset;
-    height: 100%;
+    height: 90%;
     overflow: auto;
     padding: 40px 16px 30px;
+    border-radius: 32px 32px 0 0;
+    max-width: 100%;
   }
 }
 .modal-stepup-two .modeltwomain1 .modeltwosub1 {
