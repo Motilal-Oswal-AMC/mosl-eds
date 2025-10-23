@@ -2047,8 +2047,6 @@ export default function decorate(block) {
       drpsel.textContent = target.textContent;
       drpsel.parentElement.classList.remove('dropdown-active');
     });
-<<<<<<< HEAD
-=======
     document.addEventListener('click', (event) => {
       if (!stepblk.querySelector('.dropdown-wrap').contains(event.target)) {
         stepblk.querySelector('.dropdown-wrap')
@@ -2059,7 +2057,6 @@ export default function decorate(block) {
         block.querySelector('.flatpickr-calendar').classList.remove('open');
       }
     });
->>>>>>> 7f8a7d03d8ef90979583cdb564b7cf99828886b6
   }
   return block;
 }
