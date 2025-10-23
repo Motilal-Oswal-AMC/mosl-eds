@@ -768,7 +768,7 @@ main {
         max-width: 100%;
         width: 100%;
         height: auto;
-        position: static;
+        // position: static;
         display: none;
         flex-direction: column;
         justify-content: center;
@@ -884,7 +884,7 @@ main {
 
         position: sticky;
         top: 27%;
-        z-index: 9999;
+        z-index: 100;
 
         &::after {
           content: "";
