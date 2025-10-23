@@ -265,14 +265,14 @@
                       }
                     }
 
-                    &.dropdown-active{
-                      .selected-txt{
-                        &::after{
+                    &.dropdown-active {
+                      .selected-txt {
+                        &::after {
                           transform: rotate(180deg);
                         }
                       }
 
-                      .dropdown-list{
+                      .dropdown-list {
                         display: block;
                       }
                     }
@@ -720,7 +720,7 @@
                           display: flex;
                           position: relative;
 
-                          .tooltip-info{
+                          .tooltip-info {
                             width: 16px;
                             height: 16px;
                           }
@@ -987,6 +987,7 @@
                             height: 16px;
                             width: 16px;
                             display: flex;
+                            cursor: pointer;
                           }
                         }
                       }
@@ -1098,12 +1099,12 @@
                               }
                             }
 
-                            &.active{
-                              &::before{
+                            &.active {
+                              &::before {
                                 display: block;
                               }
 
-                              .stepuplabel{
+                              .stepuplabel {
                                 top: -8px;
                                 transform: unset;
                               }
@@ -1318,14 +1319,14 @@
                             }
                           }
 
-                          &.active{
-                            &::before{
+                          &.active {
+                            &::before {
                               display: block;
                             }
 
-                            .maxstepuplabel{
+                            .maxstepuplabel {
                               top: -8px;
-                              transform: unset
+                              transform: unset;
                             }
                           }
                         }
@@ -1884,16 +1885,16 @@
 }
 
 .modal-stepup-one {
-  // display: block;
-  max-width: 74.942%;
   width: 100%;
-
-  // display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  z-index: 10000;
+  background-color: rgb(0 0 0 / 70%);
 
   @include media(mobile) {
     max-width: 100%;
+    align-items: end;
   }
 
   .modelonemain1 {
@@ -1903,11 +1904,14 @@
     position: relative;
     min-height: 512px;
     height: max-content;
+    max-width: 74.942%;
+    width: 100%;
 
     @include media(mobile) {
       min-height: unset;
       padding: 40px 16px 29px;
       border-radius: 32px 32px 0 0;
+      max-width: 100%;
     }
 
     .modelonesub1 {
@@ -1995,7 +1999,7 @@
         max-width: 54%;
         width: 100%;
 
-        @include media(mobile){
+        @include media(mobile) {
           max-width: 100%;
         }
 
@@ -2012,7 +2016,7 @@
               var(--body)
             );
 
-            @include media(mobile){
+            @include media(mobile) {
               font-size: var(--body-xsmall-regular-size);
               line-height: var(--body-xsmall-regular-line-height);
               color: var(--neutrals-800);
@@ -2022,7 +2026,7 @@
           .comlist.modelsubone1 {
             padding: 0 0 8px;
 
-            @include media(mobile){
+            @include media(mobile) {
               padding: 0 0 4px;
               font-feature-settings: unset;
             }
@@ -2037,7 +2041,7 @@
               var(--body)
             );
 
-            @include media(mobile){
+            @include media(mobile) {
               font-size: var(--paragraph-xsmall-size);
               line-height: var(--paragraph-xsmall-line-height);
             }
@@ -2049,7 +2053,7 @@
               text-decoration: underline;
               text-underline-offset: 20%;
 
-              @include media(mobile){
+              @include media(mobile) {
                 font-size: var(--text-link-xsmall-size);
                 line-height: var(--text-link-xsmall-line-height);
               }
@@ -2066,8 +2070,9 @@
       right: 24px;
       width: 24px;
       height: 24px;
+      cursor: pointer;
 
-      @include media(mobile){
+      @include media(mobile) {
         top: 12px;
         right: 12px;
       }
@@ -2076,33 +2081,39 @@
 }
 
 .modal-stepup-two {
-  max-width: 74.942%;
   width: 100%;
-
+  
   // display: flex;
   justify-content: center;
   align-items: center;
   display: none;
-  border-radius: var(--border-radius-16);
   overflow: hidden;
-
+  position: absolute;
+  z-index: 10000;
+  background-color: rgb(0 0 0 / 70%);
+  
   @include media(mobile) {
     max-width: 100%;
-    border-radius: 32px 32px 0 0;
+    align-items: end;
   }
-
+  
   .modeltwomain1 {
+    border-radius: var(--border-radius-16);
+    max-width: 74.942%;
+    width: 100%;
     min-height: 416px;
     height: max-content;
     position: relative;
     padding: var(--spacing-24);
     background: #fff;
-
+    
     @include media(mobile) {
       min-height: unset;
-      height: 100%;
+      height: 90%;
       overflow: auto;
       padding: 40px 16px 30px;
+      border-radius: 32px 32px 0 0;
+      max-width: 100%;
     }
 
     .modeltwosub1 {

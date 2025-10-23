@@ -42,6 +42,7 @@
   right: 12px;
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsub2 .icon {
   width: 100%;

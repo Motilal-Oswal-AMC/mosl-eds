@@ -1198,18 +1198,33 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 
 export default function decorate(block) {
   const mainclass = block.closest('main');
+  let modeltwo = mainclass.querySelector('.modal-stepup-two');
+  const modalstepOne = mainclass.querySelector('.modal-stepup-one')
   dataMapMoObj.panDlts = {};
   if (mainclass.querySelector('.modal-stepup-one')) {
     const modelone = mainclass.querySelector('.modal-stepup-one');
-    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone'];
+    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone', 'modelinnersubone' ];
     dataMapMoObj.addIndexed(modelone);
+    const mod6 = mainclass.querySelector('.modal-stepup-one .icon-modal-cross-btn');
+    const modeloneread = mainclass.querySelector('.modal-stepup-one .modelsubone3 .modelinnersubone1');
+    modeloneread.addEventListener('click', function () {
+      modeloneread.removeAttribute('href', true);
+      modeltwo.style.display = 'flex';
+      modeloneread.closest('.modal-stepup-one').style.display = 'none';
+    });
+    mod6.addEventListener('click', () => {
+      modalstepOne.style.display = 'none';
+    });
+    // hideFormsClick(mod6);
   }
   if (mainclass.querySelector('.modal-stepup-two')) {
-    const modeltwo = mainclass.querySelector('.modal-stepup-two');
-    dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo'];
+    dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo', 'modelinnersubtwo'];
     dataMapMoObj.addIndexed(modeltwo);
-    const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
-    hideFormsClick(mod5);
+    const mod5 = mainclass.querySelector('.modal-stepup-two .icon-modal-cross-btn');
+    mod5.addEventListener('click', () => {
+      mainclass.querySelector('.modal-stepup-two')
+        .style.display = 'none';
+    });
   }
   if (mainclass.querySelector('.added-fund-cart')) {
     dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
@@ -1330,6 +1345,10 @@ export default function decorate(block) {
         }
       },
     }));
+    checkboxcont.querySelector('img').addEventListener('click', () => {
+     // console.log('bye bye');
+      modalstepOne.style.display = 'flex';
+    })
     divstepup = div(
       { class: 'steup-container' },
       div(
@@ -2038,7 +2057,12 @@ export default function decorate(block) {
 
   if (blkcompo) {
     blkcompo.style.display = 'none';
-  }
+  };
+  // const stepSipIcon = blkcompo.querySelector('.stepupsub2 img');
+  // const modalstepOne = mainclass.querySelector('.modal-stepup-one')
+  // stepSipIcon.addEventListener('click', function () {
+  //   modalstepOne.style.display = 'block';
+  // });
   if (stepblk !== null) {
     const drpsel = stepblk.querySelector('.dropdown-wrap .selected-txt');
     const drpdown = stepblk.querySelector('.dropdown-wrap .dropdown-list');
@@ -2064,9 +2088,12 @@ export default function decorate(block) {
       }
       if (!Array.from(event.target.classList).includes('date-drop-down')
         && !block.querySelector('.date-drop-down').contains(event.target)) {
-        block.querySelector('.flatpickr-calendar').classList.remove('open');
+        if (block.querySelector('.flatpickr-calendar') !== null) {
+          block.querySelector('.flatpickr-calendar').classList.remove('open');
+        }
       }
     });
   }
+  
   return block;
 }
