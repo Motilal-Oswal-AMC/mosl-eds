@@ -544,11 +544,12 @@
       }
 
       .form-container {
-
         // All Error Message and Icon Global SCSS
         .error-msg {
           margin: 4px 0 0;
           display: none;
+          position: absolute;
+          top: 100%;
 
           @include font-style(var(--paragraph-xsmall-size),
             var(--paragraph-xsmall-line-height),
@@ -559,6 +560,23 @@
           @include media(mobile) {
             font-size: var(--paragraph-xsmall-size);
             line-height: var(--paragraph-xsmall-line-height);
+          }
+
+          &.mob-error{
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            &::before{
+              content: '';
+              background-image: url('../../icons/warning.svg');
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              width: 16px;
+              height: 16px;
+              display: block;
+            }
           }
         }
 
@@ -575,6 +593,7 @@
           .pan-container {
             .pan-field {
               margin: 0 0 40px;
+              position: relative;
 
               @include media(mobile) {
                 margin: 0 0 32px;
@@ -659,7 +678,7 @@
 
                   .error-icon,
                   &~.error-msg {
-                    display: block;
+                    display: flex;
                   }
                 }
               }
@@ -809,6 +828,8 @@
             }
 
             .detail-field-wrap {
+              position: relative;
+
               &.mob-wrap {
                 display: flex;
                 align-items: start;
@@ -977,7 +998,7 @@
               line-height: var(--button-medium-line-height);
             }
 
-            &.active-form-btn {
+            &.active-form-btn{
               border-radius: var(--border-radius-8);
               background: var(--button-primary-default);
               color: var(--text-white);

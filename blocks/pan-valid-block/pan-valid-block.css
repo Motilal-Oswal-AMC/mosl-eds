@@ -50,6 +50,8 @@
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .error-msg {
   margin: 4px 0 0;
   display: none;
+  position: absolute;
+  top: 100%;
   font-size: var(--paragraph-xsmall-size);
   line-height: var(--paragraph-xsmall-line-height);
   color: var(--text-error);
@@ -63,6 +65,21 @@
     line-height: var(--paragraph-xsmall-line-height);
   }
 }
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .error-msg.mob-error {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .error-msg.mob-error::before {
+  content: "";
+  background-image: url("../../icons/warning.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .error-icon {
   width: 24px;
   height: 24px;
@@ -74,6 +91,7 @@
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .pan-field {
   margin: 0 0 40px;
+  position: relative;
 }
 @media (max-width: 768px) {
   .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .pan-field {
@@ -155,7 +173,7 @@
   border: var(--border-width-01) solid var(--strokes-error);
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .pan-field .pan-wrap.pan-fail .error-icon, .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .pan-field .pan-wrap.pan-fail ~ .error-msg {
-  display: block;
+  display: flex;
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .pan-container .kyc-status-wrap {
   padding: var(--spacing-16);
@@ -292,6 +310,9 @@
     margin: 32px 0;
     gap: var(--spacing-36);
   }
+}
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .kyc-detail-container .detail-field-wrap {
+  position: relative;
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .kyc-detail-container .detail-field-wrap.mob-wrap {
   display: flex;
