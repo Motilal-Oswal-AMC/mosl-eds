@@ -389,6 +389,10 @@
           {
             "name": "Our Strategies",
             "value": "our-strategies"
+          },
+          {
+            "name": "AIF Component",
+            "value": "aif-component"
           }
         ]
       },
