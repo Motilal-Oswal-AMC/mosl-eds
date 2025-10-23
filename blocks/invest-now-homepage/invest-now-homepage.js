@@ -1109,9 +1109,19 @@ export async function existingUser(paramblock) {
   inputLable.appendChild(errorPanEl); // append it once
 
   inputLable.addEventListener('click', (e) => {
-    if (e.target.value === '') {
+    const inputVal = e.currentTarget.querySelector('input');
+    if (inputVal.value === '') {
       e.target.parentElement.classList.add('active');
     }
+  });
+
+  const erricon = inputLable.querySelectorAll('.error-icon');
+  Array.from(erricon).forEach((el) => {
+    el.addEventListener('click', () => {
+      inputLable.querySelector('input').value = '';
+      inputLable.querySelector('.input-wrapper').classList.remove('show-error');
+      inputLable.querySelector('.input-wrapper').classList.remove('active');
+    });
   });
 
   inputLable.addEventListener('input', (e) => {
@@ -1122,19 +1132,19 @@ export async function existingUser(paramblock) {
 
     if (inputValue === '') {
       // If empty, hide the error
-      errorPanEl.classList.remove('show-error');
-      errorPanEl.classList.add('hide-error');
+      errorPanEl.previousElementSibling.classList.remove('show-error');
+      errorPanEl.previousElementSibling.classList.add('hide-error');
       e.target.parentElement.classList.remove('active');
     } else if (panRegex.test(inputValue)) {
       // If valid PAN, hide error
-      errorPanEl.classList.remove('show-error');
-      errorPanEl.classList.add('hide-error');
+      errorPanEl.previousElementSibling.classList.remove('show-error');
+      errorPanEl.previousElementSibling.classList.add('hide-error');
       btnAuthenticate.classList.add('pan-active');
       e.target.parentElement.classList.add('active');
     } else {
       // If invalid PAN, show error
-      errorPanEl.classList.remove('hide-error');
-      errorPanEl.classList.add('show-error');
+      errorPanEl.previousElementSibling.classList.remove('hide-error');
+      errorPanEl.previousElementSibling.classList.add('show-error');
       btnAuthenticate.classList.remove('pan-active');
       e.target.parentElement.classList.add('active');
     }
@@ -1152,7 +1162,7 @@ export async function existingUser(paramblock) {
   });
   // this function for hide modal forms
 
-  const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');
+  const mod = closestParam.querySelector('.pan-details-modal .icon-modal-cross-btn');
   const mod2 = closestParam
     .querySelector('.fdp-kyc-form .panvalidsub3 .icon-modal-cross-btn');
   const mod3 = closestParam
