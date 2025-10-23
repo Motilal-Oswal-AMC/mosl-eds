@@ -2047,14 +2047,10 @@ export default function decorate(block) {
         stepblk.querySelector('.dropdown-wrap')
           .classList.remove('dropdown-active');
       }
-      if (!Array.from(event.target.classList).includes('date-drop-down') 
+      if (!Array.from(event.target.classList).includes('date-drop-down')
         && !block.querySelector('.date-drop-down').contains(event.target)) {
         block.querySelector('.flatpickr-calendar').classList.remove('open');
       }
-      // if (block.querySelector('.flatpickr-calendar') !== null
-      // && Array.from(block.querySelector('.flatpickr-calendar').classList).includes('open')) {
-      //   block.querySelector('.flatpickr-calendar').classList.remove('open');
-      // }
     });
   }
   return block;
