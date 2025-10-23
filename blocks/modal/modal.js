@@ -226,6 +226,20 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     //   }
     // });
     // dataMapMoObj.planlistArr = '';
+  } else if (window.location.href.includes('/our-funds/funds-details-page')
+    && !cardWrapper) {
+    const clikmain = clickedElement.closest('main');
+    const fdpsec = clikmain.querySelector('.fdp-card-container .card-container');
+    const fdpcont = fdpsec.querySelector('.middlediv .selecttext');
+    dataMapMoObj.plantext = fdpcont.textContent.trim();
+    const stickplan = clickedElement.closest('.sticky-item1');
+    const planName = stickplan.querySelector('.sticky-inner-item1').textContent;
+    dataCfObj.cfDataObjs.forEach((funddata) => {
+      if (funddata.schDetail.schemeName === planName) {
+        schcodeactive = funddata.schcode;
+        dataMapMoObj.planlistArr = funddata.planList;
+      }
+    });
   }
   localStorage.setItem('schcodeactive', schcodeactive);
 

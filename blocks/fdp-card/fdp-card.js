@@ -41,6 +41,9 @@ export default function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['sticky-item', 'sticky-sub-item', 'sticky-inner-item'];
     dataMapMoObj.addIndexed(stky);
 
+    stky.querySelector('.sticky-inner-item1').textContent = '';
+    stky.querySelector('.sticky-inner-item1')
+      .textContent = planObj[0].schDetail.schemeName;
     dataMapMoObj.CLASS_PREFIXES = ['item'];
     dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
   } catch (error) {
@@ -90,7 +93,7 @@ export default function decorate(block) {
   const navlistArrDate = navlistArr[0]?.nav_date?.replaceAll('-', ' ') ?? '';
   const navarrdate = navlistArrDate.split(' ');
   const navyear = navarrdate[2].slice(-2);
-  const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`
+  const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`;
 
   function planGrpEvent(param) {
     const tempReturnsec = [];
@@ -175,7 +178,7 @@ export default function decorate(block) {
       const navdateper = navlistarray[0].nav_date.replaceAll('-', ' ');
       const navarrdate = navdateper.split(' ');
       const navyear = navarrdate[2].slice(-2);
-      const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`
+      const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`;
       const navdiv = middlediv.querySelector('.nav-return-grp .nav-label');
       navdiv.innerHTML = '';
       navdiv.append('NAV as on ');
@@ -608,32 +611,168 @@ export default function decorate(block) {
 
   let currentSelectedText = '';
 
-  item2Ul.addEventListener('click', (e) => {
-    if (window.innerWidth < 786) {
-      ptag.textContent = e.target.textContent;
-      item2Ul.style.display = 'none';
-    }
-    if (window.innerWidth < 786 && e.target.tagName === 'A') {
-      // changes for opstions
-      const selectedText = e.target.textContent.trim();
+  // setting id on the sticky performance list
+  Array.from(item2Ul.children).forEach((elchild) => {
+    const link = elchild.querySelector('a');
+    const hrefValue = link.getAttribute('href');
+    const cleanId = hrefValue.replace('#', '');
+    elchild.setAttribute('id', cleanId);
+  })
 
-      // Show previous selected item back (if any)
-      if (currentSelectedText) {
-        item2Ul.querySelectorAll('li').forEach((lielm) => {
-          if (lielm.textContent.trim() === currentSelectedText) {
-            lielm.style.display = '';
+  const listItems = item2Ul.querySelectorAll('li[id]');
+  const sections = mainBlock.querySelector('main');
+  const sec = sections.querySelector('.fdp-card-container .item2');
+  // item2Ul.addEventListener('click', (e) => {
+  listItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      if (window.innerWidth) {
+        ptag.textContent = e.target.textContent;
+        if (window.innerWidth <= 786) {
+          item2Ul.style.display = 'none';
+        }
+        // item2Ul.style.display = 'none';
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active')
+        const targetId = item.id;
+        // const targetSection = document.querySelector(`.section[data-id="${targetId}"]`);
+        const sections = document.querySelectorAll('.section[data-id]');
+        const targetSection = Array.from(sections).find(
+          sec => sec.dataset.id === targetId
+        );
+
+        if (targetSection) {
+
+          const nfoBanner = document.querySelector("#nav > div.section.nfo-banner");
+          const nfoHeight = nfoBanner ? nfoBanner.offsetHeight : 0;
+          const stickyHeader = document.querySelector("body > main > div.section.breadcrumbs-fdp.wrapper-fdp");
+          const stickyHeight = stickyHeader ? stickyHeader.offsetHeight : 65;
+          const dropdown = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p");
+          const dropdownHeight = dropdown ? dropdown.offsetHeight : 52;
+
+          const sipCal = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container");
+          const whyFund = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund");
+          const fundVideo = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-philosophy-video.fund-video-container");
+          const keyFacts = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.key-facts-container");
+          const portfolio = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.tabdiv.tabs-container");
+          const fundManager = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.our-funds-fdp-container");
+          const downloads = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.download.table-wrapper");
+          const contentLibrary = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.learning-fdp.future-building-container");
+          const peopleLike = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-card-slider-container");
+          const productLabel = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.product-label.fdp-risk-o-meter.risk-o-meter-container");
+
+          const elementTop = targetSection.getBoundingClientRect().top + window.scrollY;
+
+          let sectionKey;
+
+          if (sipCal.contains(targetSection)) sectionKey = 'sipCal';
+          else if (whyFund.contains(targetSection)) sectionKey = 'whyFund';
+          else if (fundVideo.contains(targetSection)) sectionKey = 'fundVideo';
+          else if (keyFacts.contains(targetSection)) sectionKey = 'keyFacts';
+          else if (portfolio.contains(targetSection)) sectionKey = 'portfolio';
+          else if (fundManager.contains(targetSection)) sectionKey = 'fundManager';
+          else if (downloads.contains(targetSection)) sectionKey = 'downloads';
+          else if (contentLibrary.contains(targetSection)) sectionKey = 'contentLibrary';
+          else if (peopleLike.contains(targetSection)) sectionKey = 'peopleLike';
+          else if (productLabel.contains(targetSection)) sectionKey = 'productLabel';
+
+          let scrollPosition = window.innerWidth <= 768
+            ? elementTop - nfoHeight - stickyHeight - dropdownHeight : 250;
+
+          switch (sectionKey) {
+            case 'sipCal':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
+                : 780;
+              break;
+
+            case 'fundVideo':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
+                : 240;
+              break;
+
+            case 'whyFund':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
+                : 1620;
+              break;
+
+            case 'keyFacts':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 40
+                : 3018;
+              break;
+
+            case 'portfolio':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
+                : 2480;
+              break;
+
+            case 'fundManager':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
+                : 3810;
+              break;
+
+            case 'downloads':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
+                : 4550;
+              break;
+
+            case 'contentLibrary':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
+                : 240;
+              break;
+
+            case 'peopleLike':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
+                : 240;
+              break;
+
+            case 'productLabel':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
+                : 240;
+              break;
+
+            default:
+              scrollPosition = 0; // fallback if none matches
           }
-        });
+
+          window.scrollTo({
+            top: scrollPosition,
+            behavior: 'smooth',
+          });
+
+        }
+      } else {
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active')
       }
+      if (window.innerWidth < 786 && e.target.tagName === 'A') {
+        // changes for opstions
+        const selectedText = e.target.textContent.trim();
 
-      // Hide the newly selected item
-      e.target.closest('li').style.display = 'none';
+        // Show previous selected item back (if any)
+        if (currentSelectedText) {
+          item2Ul.querySelectorAll('li').forEach((lielm) => {
+            if (lielm.textContent.trim() === currentSelectedText) {
+              lielm.style.display = '';
+            }
+          });
+        }
 
-      // Update the current selected text
-      currentSelectedText = selectedText;
-      ptagtest.textContent = selectedText;
-      item2Ul.style.display = 'none';
-    }
+        // Hide the newly selected item
+        e.target.closest('li').style.display = 'none';
+
+        // Update the current selected text
+        currentSelectedText = selectedText;
+        ptagtest.textContent = selectedText;
+        item2Ul.style.display = 'none';
+      }
+    });
   });
 
   ptag.addEventListener('click', () => {
@@ -655,8 +794,8 @@ export default function decorate(block) {
   (function () {
     // Function to calculate the correct header offset based on screen size
     function getHeaderOffset(targetID) { // targetId
-      const dataidStorage = dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
-      return window.innerWidth <= 768 ? dataidStorage : 240;
+      // const dataidStorage = dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
+      // return window.innerWidth <= 768 ? dataidStorage : 240;
     }
 
     // Smooth scroll setup with dynamic header offset
@@ -796,7 +935,7 @@ export default function decorate(block) {
 
     // If the click wasn't on our copy button, do nothing
     if (!clickedItem) {
-      return;
+
     }
 
     // Prevent default behavior, like navigating if the href wasn't removed
@@ -809,6 +948,16 @@ export default function decorate(block) {
     dataMapMoObj.planText = plantext.textContent.trim();
   });
 
+  const redirect = mainBlock.querySelector('.fdp-card-container .fdp-card');
+  const redirectbrn = redirect.querySelector('.btn-wrapper a');
+  const link = redirectbrn.getAttribute('href');
+  const stky = mainBlock.querySelector('.fdp-sticky-nav');
+  const textVal = stky.querySelector('.sticky-sub-item2').textContent;
+  stky.querySelector('.sticky-sub-item2').innerHTML = '';
+  stky.querySelector('.sticky-sub-item2').append(a({
+    href: link,
+    class: 'submit',
+  }, textVal));
   document.addEventListener('click', (event) => {
     if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
       const breadcrumb = document.querySelector('.breadcrbmain2');
