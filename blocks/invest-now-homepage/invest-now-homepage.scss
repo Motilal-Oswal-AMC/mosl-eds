@@ -523,6 +523,7 @@
 
                     .suggestion-btn {
                       padding: 4px 8px;
+                      margin: 0;
                       border-radius: var(--border-radius-12);
                       background-color: var(--blue-1-50);
                       border: none;
@@ -688,11 +689,13 @@
                       .start-today-note {
                         display: flex;
                         align-items: center;
-                        gap: 4px;
+                        gap: var(--spacing-4);
                         padding: 0 var(--spacing-24) 0 var(--spacing-20);
 
                         .sip-note {
                           margin: 0;
+                          max-width: 276px;
+                          width: 100%;
 
                           @include font-style(
                             var(--body-xsmall-regular-size),
@@ -717,12 +720,17 @@
                           display: flex;
                           position: relative;
 
+                          .tooltip-info{
+                            width: 16px;
+                            height: 16px;
+                          }
+
                           .tooltip-wrap {
                             position: absolute;
                             top: 50%;
                             transform: translateY(-50%);
-                            right: 100%;
-                            margin-right: 12px;
+                            right: calc(100% + 2px);
+                            margin-right: 8px;
                             background-color: var(--surface-background-neutral-subtle);
                             border-radius: var(--border-radius-8);
                             box-shadow: 0 6px 16px 0 rgb(0 0 0 / 16%);
@@ -733,7 +741,7 @@
 
                             &::after {
                               content: "";
-                              border-left: 10px solid var(--surface-background-neutral-subtle);
+                              border-left: 8px solid var(--surface-background-neutral-subtle);
                               border-top: 8px solid transparent;
                               border-bottom: 8px solid transparent;
                               width: 8px;

@@ -66,7 +66,6 @@
   }
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .error-msg.mob-error {
-  display: flex;
   align-items: center;
   gap: 4px;
 }
