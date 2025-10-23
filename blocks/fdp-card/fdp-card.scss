@@ -1304,6 +1304,10 @@ main {
         font-weight: 500;
         line-height: var(--button-small-line-height, 16px)
       }
+      
+      .submit {
+        color: var(--text-white);
+      }
     }
   }
 }
