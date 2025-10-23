@@ -41,6 +41,9 @@ export default function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['sticky-item', 'sticky-sub-item', 'sticky-inner-item'];
     dataMapMoObj.addIndexed(stky);
 
+    stky.querySelector('.sticky-inner-item1').textContent = '';
+    stky.querySelector('.sticky-inner-item1')
+      .textContent = planObj[0].schDetail.schemeName;
     dataMapMoObj.CLASS_PREFIXES = ['item'];
     dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
   } catch (error) {
@@ -90,7 +93,7 @@ export default function decorate(block) {
   const navlistArrDate = navlistArr[0]?.nav_date?.replaceAll('-', ' ') ?? '';
   const navarrdate = navlistArrDate.split(' ');
   const navyear = navarrdate[2].slice(-2);
-  const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`
+  const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`;
 
   function planGrpEvent(param) {
     const tempReturnsec = [];
@@ -175,7 +178,7 @@ export default function decorate(block) {
       const navdateper = navlistarray[0].nav_date.replaceAll('-', ' ');
       const navarrdate = navdateper.split(' ');
       const navyear = navarrdate[2].slice(-2);
-      const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`
+      const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`;
       const navdiv = middlediv.querySelector('.nav-return-grp .nav-label');
       navdiv.innerHTML = '';
       navdiv.append('NAV as on ');
@@ -932,7 +935,7 @@ export default function decorate(block) {
 
     // If the click wasn't on our copy button, do nothing
     if (!clickedItem) {
-      return;
+
     }
 
     // Prevent default behavior, like navigating if the href wasn't removed
@@ -945,6 +948,16 @@ export default function decorate(block) {
     dataMapMoObj.planText = plantext.textContent.trim();
   });
 
+  const redirect = mainBlock.querySelector('.fdp-card-container .fdp-card');
+  const redirectbrn = redirect.querySelector('.btn-wrapper a');
+  const link = redirectbrn.getAttribute('href');
+  const stky = mainBlock.querySelector('.fdp-sticky-nav');
+  const textVal = stky.querySelector('.sticky-sub-item2').textContent;
+  stky.querySelector('.sticky-sub-item2').innerHTML = '';
+  stky.querySelector('.sticky-sub-item2').append(a({
+    href: link,
+    class: 'submit',
+  }, textVal));
   document.addEventListener('click', (event) => {
     if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
       const breadcrumb = document.querySelector('.breadcrbmain2');
