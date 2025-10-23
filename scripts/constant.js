@@ -148,20 +148,5 @@ const dataMapMoObj = {
       })
       .join(' ');
   },
-
-  ObjDataidFdp: {
-    // 'performance-graph' : '2000',
-    'periodic-returns': '720',
-    'past-performance-calculator': '650',
-    'why-this-fund-section': '700',
-    'fund-philosophy-video': '680',
-    'custom-tab': '700',
-    'key-facts-section': '660',
-    'fund-manager-section': '710',
-    'downloadsec': '680',
-    'content-library': '700',
-    'people-also-like': '700',
-    'product-label': '680',
-  },
 };
 export default dataMapMoObj;
