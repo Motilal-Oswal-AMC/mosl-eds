@@ -1085,7 +1085,7 @@ position: relative;
     line-height: var(--paragraph-xsmall-line-height);
 }
 
-.pan-details-modal .default-content-wrapper p.subpandts4>span.icon-modal-btn {
+.pan-details-modal .default-content-wrapper p.subpandts4>span.icon {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -1098,6 +1098,7 @@ position: relative;
 .pan-details-modal .default-content-wrapper p.subpandts2 {
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 
@@ -1144,6 +1145,7 @@ position: relative;
     font-family: var(--body);
     font-feature-settings: var(--font-features-default);
     font-weight: 400;
+    border-radius: 0;
 }
 
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper .error-icon ,
@@ -1235,6 +1237,8 @@ position: relative;
     font-weight: 400;
     line-height: var(--paragraph-xsmall-line-height);
     margin: 4px 0 0;
+    position: absolute;
+    top: 100%;
     display: none;
 }
 
