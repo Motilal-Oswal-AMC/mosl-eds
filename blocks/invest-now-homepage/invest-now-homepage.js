@@ -148,13 +148,16 @@ export async function existingUser(paramblock) {
 
   const addInputDiv = div(
     { class: 'input-wrapper' },
+    label({ class: 'panlabel' }, 'Enter PAN Number'),
     input({
       type: 'text',
       placeholder: '',
       name: 'pan',
       class: 'iptpanfld',
+      maxlength: '10',
     }),
-    label({ class: 'panlabel' }, 'Enter PAN Number'),
+    img({ class: 'error-icon cancel-error', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
+    img({ class: 'error-icon cancel-icon', src: '../../icons/remove-circle.svg', alt: 'Cross Icon' }),
   );
 
   dataMapMoObj.panDlts.isGuest = 'false';
@@ -594,7 +597,7 @@ export async function existingUser(paramblock) {
         kycForm.querySelector('.city-inp')
           .parentElement.classList.add('active');
 
-        const conti = kycForm.querySelector('.tnc-container .panvalidsubinner4');
+        const conti = kycForm.querySelector('.tnc-container .button-container .button');
         conti.classList.add('active-form-btn');
       }
     } catch (error) {
@@ -953,7 +956,7 @@ export async function existingUser(paramblock) {
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
   const modiparent = closestParam.querySelector('.fdp-kyc-form');
-  const ModifyKycForm = modiparent.querySelector('.tnc-container .panvalidsubinner4');
+  const ModifyKycForm = modiparent.querySelector('.tnc-container .button-container .button');
   if (ModifyKycForm !== null) {
     ModifyKycForm.addEventListener('click', () => {
       const userLoginPanNumber = modiparent.querySelector('.panvalidsub3 .pan-inp').value; // input
@@ -971,7 +974,7 @@ export async function existingUser(paramblock) {
         userCity: usercity,
         kycflag: dataMapMoObj.kycStatus,
       };
-      const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
+      const continueBTN = document.querySelector('.tnc-container .button-container .button');
       if (Array.from(continueBTN.classList).includes('active-form-btn')) {
       // lmsentCall(formdata);
         modiFyKycApicall(formdata);
