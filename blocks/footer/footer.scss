@@ -953,9 +953,12 @@
     }
 
     .scroll-to-top {
-        position: absolute;
+        // position: absolute;
+        position: fixed;
         right: 67px;
-        top: -28px;
+
+        // top: -28px;
+        bottom: 70px;
         width: 56px;
         height: 56px;
         border-radius: 28px;
@@ -971,7 +974,7 @@
         transition:
             opacity 0.3s ease,
             transform 0.2s ease;
-        z-index: 10;
+        z-index: 100;
         margin: 0;
         border: none;
         padding: 0;
