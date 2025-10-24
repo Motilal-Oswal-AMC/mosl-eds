@@ -10,6 +10,12 @@ import {
   ul,
   li,
   h2,
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td,
 } from '../../scripts/dom-helpers.js';
 import '../../scripts/flatpickr.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -1215,6 +1221,97 @@ export default function decorate(block) {
     mod6.addEventListener('click', () => {
       modalstepOne.style.display = 'none';
     });
+
+    const modeltableone = modelone.querySelector('.modeloneinner1 .modelinnerone1');
+    // Table start
+    if (!modeltableone.querySelector('.sip-table-wrap')) { 
+      const tableLi = li({ class: 'sip-table-wrap' },
+        table({ class: 'sip-table' },
+          thead({ class: 'sip-thead-lt' },
+            tr({ class: 'lthead-row' },
+              th({ class: 'lt-head lt-head-1' }, 'Year'),
+              th({ class: 'lt-head lt-head-2' }, 'Without Step up'),
+              th({ class: 'lt-head lt-head-3' }, 'With Step up'),
+            ),
+          ),
+          tbody({ class: 'sip-tbody-lt' },
+            tr({ class: 'ltbody-row' },
+              td({ class: 'lt-body lt-body-1' }, '1'),
+              td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
+              td({ class: 'lt-body lt-body-3' }, '₹ 10,000'),
+            ),
+            tr({ class: 'ltbody-row' },
+              td({ class: 'lt-body lt-body-1' }, '2'),
+              td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
+              td({ class: 'lt-body lt-body-3' }, '₹ 11,000'),
+            ),
+            tr({ class: 'ltbody-row' },
+              td({ class: 'lt-body lt-body-1' }, '3'),
+              td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
+              td({ class: 'lt-body lt-body-3' }, '₹ 12,000'),
+            ),
+            tr({ class: 'ltbody-row' },
+              td({ class: 'lt-body lt-body-1' }, '4'),
+              td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
+              td({ class: 'lt-body lt-body-3' }, '₹ 13,000'),
+            ),
+            tr({ class: 'ltbody-row' },
+              td({ class: 'lt-body lt-body-fulltxt', colspan: '3' }, 'By the 11th Year the SIP amount will be'),
+            ),
+            tr({ class: 'ltbody-row' },
+              td({ class: 'lt-body lt-body-1' }, '11'),
+              td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
+              td({ class: 'lt-body lt-body-3' }, '₹ 20,000')
+            ),
+          ),
+        ),
+      );
+      modeltableone.appendChild(tableLi)
+    }
+
+    const modeltabletwo = modelone.querySelector('.modeloneinner2 .modelinnerone1');
+
+    if (!modeltabletwo.querySelector('.sip-table-graph')) {
+      const tablegraph = li({ class: 'sip-table-graph' },
+        table({ class: 'table-graph-wrap' },
+          thead({ class: 'graph-thead-rt' },
+            tr({ class: 'rthead-row' },
+              th({ class: 'rt-head rt-head-1' }),
+              th({ class: 'rt-head rt-head-2' }, 'Without Step up'),
+              th({ class: 'rt-head rt-head-3' }, 'With Step up'),
+            ),
+          ),
+          tbody({ class: 'graph-tbody-rt' },
+            tr({ class: 'rtbody-row rtbody-row-1' },
+              td({ class: 'rt-body rt-body-1' }, 'Total Investment'),
+              td({ class: 'rt-body rt-body-2' }, '₹ 24 Lakh'),
+              td({ class: 'rt-body rt-body-3' }, '₹ 43.8 Lakh'),
+            ),
+            tr({ class: 'rtbody-row rtbody-row-2' },
+              td({ class: 'rt-body rt-body-1' }, 'Total Returns'),
+              td({ class: 'rt-body rt-body-2' }, '₹ 1.03 Cr*'),
+              td({ class: 'rt-body rt-body-3' }, '₹ 2.05 Cr*'),
+            ),
+            tr({ class: 'rtbody-row rtbody-row-3' },
+              td({ class: 'rt-body rt-body-fullimg' , colspan: '3'},
+                img({ class: 'rt-body-img', src:'../../icons/sip-table-graph.svg', alt:'SIP Table Graph' }),
+              ),
+            ),
+            tr({ class: 'rtbody-row rtbody-row-4' },
+              td({ class: 'rt-body rt-body-fulltxt' , colspan: '3'},
+                p({ class: 'rt-body-text' }, 'Disclaimer: The above calculator is only for purposes and the graph'),
+                // p({ class: 'rt-body-text' }, ['Disclaimer: The above calculator is only for purposes and the graph ', a({ class: 'rt-body-link' }, 'Read More')]),
+                // p({ class: 'rt-body-text' }, 'Disclaimer: The above calculator is only for purposes and the graph ', a({ class: 'rt-body-link' }, 'Read More')),
+              ),
+            ),
+          )
+        )
+      );
+
+      modeltabletwo.appendChild(tablegraph);
+    }
+
+    // Table end
     // hideFormsClick(mod6);
   }
   if (mainclass.querySelector('.modal-stepup-two')) {
