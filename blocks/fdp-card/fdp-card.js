@@ -770,7 +770,7 @@ export default function decorate(block) {
             case 'downloads':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 4700;
+                : 4560;
               break;
 
             case 'contentLibrary':
