@@ -25,7 +25,6 @@
     }
 
     .default-content-wrapper {
-
         h1,
         h2,
         h3,
@@ -226,6 +225,8 @@
 
             .tabs-tab {
                 p {
+                    line-height: 20px;
+                    
                     @include media (mobile) {
                         font-size: var(--paragraph-small-size);
                         line-height: var(--paragraph-small-line-height);
@@ -258,6 +259,11 @@
 
             li:nth-child(2) {
                 display: block;
+                border-radius: var(--border-radius-8);
+
+                a {
+                    font-weight: 500;
+                }
             }
         }
     }

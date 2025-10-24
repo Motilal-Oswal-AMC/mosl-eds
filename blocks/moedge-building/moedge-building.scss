@@ -76,7 +76,7 @@
                     border-radius: var(--border-radius-circle);
                     border: 1px solid var(--strokes-default);
                     color: var(--blue-1800-primary, #2E2A94);
-                    font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                    font-feature-settings: var(--font-features-default);
                     font-family: var(--body, Inter);
                     font-size: var(--label-small-size, 12px);
                     font-style: normal;
@@ -101,7 +101,7 @@
                     align-items: center;
                     gap: 4px;
                     color: var(--neutrals-700, #616161);
-                    font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                    font-feature-settings: var(--font-features-default);
                     font-family: var(--body, Inter);
                     font-size: var(--label-small-size, 12px);
                     font-style: normal;
@@ -137,7 +137,7 @@
 
                     .button {
                         color: #2E2A94;
-                        font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                        font-feature-settings: var(--font-features-default);
                         font-family: var(--body);
                         font-size: var(--body-large-medium-size);
                         font-style: normal;
@@ -177,7 +177,7 @@
                     .moedge-build-list-content1 {
                         background-color: transparent;
                         color: #2E2A94;
-                        font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                        font-feature-settings: var(--font-features-default);
                         font-family: var(--body);
                         font-size: 14px;
                         font-style: normal;
@@ -273,8 +273,6 @@
             }
         }
     }
-   
-
 }
 
 @media (width >=900px) {
@@ -290,6 +288,7 @@
 
         .moedge-build-sec1 {
             flex: 0 0 49.3%;
+            height: auto;
         }
 
         .moedge-build-sec3 {
@@ -309,9 +308,35 @@
 // in-the-news moedge-building-container css start 
 
 .in-the-news.moedge-building-container {
+    position: relative;
+
     .moedge-building {
+        gap: 16px;
+        row-gap: 40px;
+
+        @include media (mobile) {
+            padding-bottom: 80px;
+            gap: unset;
+        }
+
         &>div {
             gap: 24px;
+
+            .moedge-build-sec1 {
+                display: none;
+            }
+
+            .moedge-build-sec3 {
+                .moedge-build-inner-text4 {
+                    p {
+                        line-height: 0;
+                    }
+                }
+
+                .moedge-build-sub1 {
+                    padding: 24px 0;
+                }
+            }
         }
     }
 
@@ -322,16 +347,30 @@
         align-self: stretch;
         margin-bottom: 40px;
 
+        @include media (mobile) {
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
         h4 {
             margin: 0;
             padding: 0;
             color: var(--blue-1800-primary, #2E2A94);
-            font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+            font-feature-settings: var(--font-features-default);
             font-family: var(--title, Inter);
             font-size: var(--heading-h4-size, 32px);
             font-style: normal;
             font-weight: 600;
             line-height: var(--heading-h4-line-height, 40px);
+
+            @include media (mobile) {
+                width: 100%;
+                text-align: left;
+                font-size: var(--heading-h5-size);
+                font-style: normal;
+                font-weight: 600;
+                line-height: var(--sub-header-large-line-height);
+            }
         }
 
         p.button-container {
@@ -346,19 +385,25 @@
             background: var(--button-primary-default, #2E2A94);
             margin: 0;
 
+            @include media(mobile) {
+                position: absolute;
+                bottom: 0;
+            }
+
             a.button {
                 color: var(--text-white, #FFF);
                 text-align: center;
-                font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                font-feature-settings: var(--font-features-default);
                 font-family: var(--body);
-                font-size: var(--button-medium-size, 16px);
+                font-size: var(--button-medium-size);
                 font-style: normal;
                 font-weight: 500;
-                line-height: var(--button-medium-line-height, 20px);
+                line-height: var(--button-medium-line-height);
                 background: transparent;
                 margin: 0;
                 padding: 0;
                 border: unset;
+                border-radius: unset;
             }
         }
     }
@@ -400,7 +445,7 @@
                     color: var(--text-white);
                     background-color: transparent;
                     text-align: center;
-                    font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                    font-feature-settings: var(--font-features-default);
                     font-family: var(--body);
                     font-size: var(--button-medium-size, 16px);
                     font-style: normal;

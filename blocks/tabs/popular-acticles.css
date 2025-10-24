@@ -200,6 +200,9 @@
     margin-bottom: 16px;
   }
 }
+.popular-artical.learn-about.tabs-container .tabs .tabs-list .tabs-tab p {
+  line-height: 20px;
+}
 @media (max-width: 768px) {
   .popular-artical.learn-about.tabs-container .tabs .tabs-list .tabs-tab p {
     font-size: var(--paragraph-small-size);
@@ -226,4 +229,8 @@
 }
 .popular-artical.learn-about.tabs-container > .default-content-wrapper:nth-child(3) > ul li:nth-child(2) {
   display: block;
+  border-radius: var(--border-radius-8);
+}
+.popular-artical.learn-about.tabs-container > .default-content-wrapper:nth-child(3) > ul li:nth-child(2) a {
+  font-weight: 500;
 }/*# sourceMappingURL=popular-acticles.css.map */
