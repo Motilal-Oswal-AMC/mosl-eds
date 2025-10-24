@@ -611,6 +611,41 @@ export default function decorate(block) {
 
   let currentSelectedText = '';
 
+  const left = document.querySelector('.fdp-card-wrapper');
+  if (!left) {
+    console.log('error');
+  } else {
+    function isInsideScrollable(el, stopAt) {
+      while (el && el !== stopAt) {
+        const style = window.getComputedStyle(el);
+        const overflowY = style.overflowY;
+        if (
+          (overflowY === 'auto' || overflowY === 'scroll') &&
+          el.scrollHeight > el.clientHeight
+        ) {
+          return true;
+        }
+        el = el.parentElement;
+      }
+      return false;
+    }
+
+    left.addEventListener('wheel', function (e) {
+      if (isInsideScrollable(e.target, left)) return;
+      const delta = e.deltaY;
+
+      const atTop = this.scrollTop <= 0;
+      const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 1;
+
+      if ((delta < 0 && !atTop) || (delta > 0 && !atBottom)) {
+        e.stopPropagation();
+      } else {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, { passive: false });
+  }
+
   // setting id on the sticky performance list
   Array.from(item2Ul.children).forEach((elchild) => {
     const link = elchild.querySelector('a');
@@ -629,6 +664,7 @@ export default function decorate(block) {
         ptag.textContent = e.target.textContent;
         if (window.innerWidth <= 786) {
           item2Ul.style.display = 'none';
+          item2Ul.querySelector('.tab-li-item1').style.display = 'block';
         }
         // item2Ul.style.display = 'none';
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
@@ -647,6 +683,7 @@ export default function decorate(block) {
           const dropdown = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p');
           const dropdownHeight = dropdown ? dropdown.offsetHeight : 52;
 
+          const performance = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.performance-graph-container");
           const periodicReturn = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.periodicreturn.table-wrapper.tabs-container");
           const sipCal = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container');
           const whyFund = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund');
@@ -664,6 +701,7 @@ export default function decorate(block) {
           let sectionKey;
 
           if (sipCal.contains(targetSection)) sectionKey = 'sipCal';
+          else if (performance.contains(targetSection)) sectionKey = 'performance';
           else if (periodicReturn.contains(targetSection)) sectionKey = 'periodicReturn';
           else if (whyFund.contains(targetSection)) sectionKey = 'whyFund';
           else if (fundVideo.contains(targetSection)) sectionKey = 'fundVideo';
@@ -679,6 +717,12 @@ export default function decorate(block) {
             ? elementTop - nfoHeight - stickyHeight - dropdownHeight : 250;
 
           switch (sectionKey) {
+            case 'performance':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
+                : 10;
+              break;
+
             case 'sipCal':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
@@ -904,9 +948,9 @@ export default function decorate(block) {
             breadcrumb.style.display = 'none';
           }, 1000);
         } catch (err) {
-        // Catch potential errors and inform the user
-        // console.error('Failed to copy URL: ', err);
-        // //alert('Could not copy URL. Please make sure the window is focused.');
+          // Catch potential errors and inform the user
+          // console.error('Failed to copy URL: ', err);
+          // //alert('Could not copy URL. Please make sure the window is focused.');
           urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
           urlCopied.style.display = 'block';
           setTimeout(() => {

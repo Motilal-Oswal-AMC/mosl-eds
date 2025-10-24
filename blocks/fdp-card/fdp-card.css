@@ -32,6 +32,7 @@ main {
   position: sticky;
   top: 209px;
   padding: 0;
+  overflow-y: auto;
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card-wrapper.item1 {
@@ -60,7 +61,7 @@ main {
   z-index: 5;
   max-width: 340px;
   width: 100%;
-  max-height: 193px;
+  max-height: 125px;
   overflow: auto;
   margin: 3px 0 0;
   background-color: #fff;
@@ -255,7 +256,8 @@ main {
   margin: 0 0 8px;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle .label-text .selecttext {
-  margin: 8px 0;
+  margin: 0;
+  padding: 8px 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -688,9 +690,6 @@ main {
     height: unset;
     display: block;
   }
-  .section.fdp-card-container .item2 .item2-ul li.tab-li-item2 {
-    padding-top: 0;
-  }
 }
 .section.fdp-card-container .item2 .item2-ul li.tab-li-item2, .section.fdp-card-container .item2 .item2-ul li.tab-li-item3, .section.fdp-card-container .item2 .item2-ul li.tab-li-item5, .section.fdp-card-container .item2 .item2-ul li.tab-li-item10, .section.fdp-card-container .item2 .item2-ul li.tab-li-item11, .section.fdp-card-container .item2 .item2-ul li.tab-li-item12 {
   display: none;
@@ -766,7 +765,7 @@ main {
     font-weight: 500;
     position: sticky;
     top: 179px;
-    z-index: 100;
+    z-index: 99;
   }
   .section.fdp-card-container .item2 .selectedtext-fdp::after {
     content: "";
@@ -982,7 +981,7 @@ main {
   height: 100%;
   position: sticky;
   bottom: 0;
-  z-index: 100;
+  z-index: 99;
   background: var(--neutrals-white, #FFF);
   box-shadow: -25px -1px 214px 0 rgba(0, 0, 0, 0.15);
 }
