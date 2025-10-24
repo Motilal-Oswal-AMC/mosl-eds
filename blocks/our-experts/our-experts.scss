@@ -23,7 +23,7 @@
         .our-experts {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             padding: 40px 0;
             padding-bottom: 0;
 
@@ -37,7 +37,6 @@
 
             &-cont1 {
                 .our-expert-section1 {
-
                     h1,
                     h2,
                     h3,
@@ -167,6 +166,25 @@
                     }
                 }
 
+            }
+        }
+    }
+}
+
+.section.out-expert-listing.our-experts-container {
+    .our-experts-wrapper {
+        .our-experts {
+            .our-experts-cont1 {
+                .our-expert-section1 {
+                    .our-expert-sub1 {
+                        font-size: var(--sub-header-large-size);
+                        line-height: var(--sub-header-medium-line-height);
+                    }
+                }
+            }
+
+            .our-experts-cont2 {
+                display: none;
             }
         }
     }

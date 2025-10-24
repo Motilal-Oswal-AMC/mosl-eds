@@ -148,6 +148,10 @@
                         border-radius: inherit;
                         margin: 0;
                         padding: 0;
+                        text-align: left;
+                        word-break: auto-phrase;
+                        white-space: unset;
+                        overflow: unset;
 
                         &:hover {
                             color: var(--link-color);
@@ -161,6 +165,7 @@
 
                 .moedge-build-list1 {
                     color: #616161;
+                    font-family: var(--body, inter);
                     font-feature-settings: var(--font-features-default);
                     font-size: var(--paragraph-small-size);
                     line-height: var(--paragraph-small-line-height);
@@ -267,7 +272,14 @@
         &>div {
             flex-direction: column;
 
-            // .moedge-build-sec1 {}
+            .moedge-build-sec1 {
+                img {
+                    border-radius: var(--border-radius-8);
+                    background: lightgray 0 -0.156px / 100% 127.052% no-repeat;
+                    object-position: top;
+                }
+            }
+
             .moedge-build-sec3 {
                 padding-top: 16px;
             }
@@ -277,7 +289,7 @@
 
 @media (width >=900px) {
     .learn-about.moedge-building-container {
-        margin-bottom: 80px;
+        margin-bottom: 40px;
 
         .moedge-building>div {
             max-width: 100%;
@@ -289,6 +301,12 @@
         .moedge-build-sec1 {
             flex: 0 0 49.3%;
             height: auto;
+
+            img {
+                border-radius: var(--border-radius-8);
+                background: lightgray 0 -0.156px / 100% 127.052% no-repeat;
+                object-position: top;
+            }
         }
 
         .moedge-build-sec3 {
@@ -404,6 +422,7 @@
                 padding: 0;
                 border: unset;
                 border-radius: unset;
+
             }
         }
     }
@@ -430,7 +449,7 @@
             align-items: center;
             gap: 10px;
 
-            li.comlist {
+            li {
                 display: flex;
                 width: 164px;
                 height: 40px;
@@ -456,9 +475,9 @@
                     border: none;
                     border-radius: unset;
 
-                    @include media(mobile) {
-                        margin-bottom: 24px;
-                    }
+                    // @include media(mobile) {
+                    //     margin-bottom: 24px;
+                    // }
                 }
             }
 
