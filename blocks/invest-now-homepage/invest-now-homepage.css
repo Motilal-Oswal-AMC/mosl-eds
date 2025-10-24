@@ -130,7 +130,6 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container {
   position: relative;
-  padding: 0 16px;
   max-width: 372px;
   width: 100%;
   height: 100%;
@@ -194,7 +193,7 @@
   align-items: flex-start;
   gap: var(--spacing-16);
   align-self: stretch;
-  padding: var(--spacing-36) 0 var(--spacing-16);
+  padding: var(--spacing-36) 16px var(--spacing-16);
   background-color: #fff;
   position: sticky;
   top: 0;
@@ -202,7 +201,7 @@
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-header-container {
-    padding: var(--spacing-40) 0 var(--spacing-16);
+    padding: var(--spacing-40) 16px var(--spacing-16);
   }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-header-container .modal-header {
@@ -323,6 +322,7 @@
   justify-content: space-between;
   overflow: auto;
   scrollbar-width: none;
+  padding: 0 16px;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container::-webkit-scrollbar {
   display: none;
@@ -649,8 +649,6 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note {
   margin: 0;
-  max-width: 276px;
-  width: 100%;
   font-size: var(--body-xsmall-regular-size);
   line-height: var(--body-xsmall-regular-line-height);
   color: var(--neutrals-700);

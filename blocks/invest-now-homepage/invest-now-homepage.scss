@@ -59,7 +59,7 @@
         position: relative;
 
         // padding: 64px 16px 37px;
-        padding: 0 16px;
+        // padding: 0 16px;
         max-width: 372px;
         width: 100%;
 
@@ -129,14 +129,14 @@
               align-items: flex-start;
               gap: var(--spacing-16);
               align-self: stretch;
-              padding: var(--spacing-36) 0 var(--spacing-16);
+              padding: var(--spacing-36) 16px var(--spacing-16);
               background-color: #fff;
               position: sticky;
               top: 0;
               z-index: 1;
 
               @include media(mobile) {
-                padding: var(--spacing-40) 0 var(--spacing-16);
+                padding: var(--spacing-40) 16px var(--spacing-16);
               }
 
               .modal-header {
@@ -291,6 +291,7 @@
               justify-content: space-between;
               overflow: auto;
               scrollbar-width: none;
+              padding: 0 16px;
 
               &::-webkit-scrollbar {
                 display: none;
@@ -694,8 +695,9 @@
 
                         .sip-note {
                           margin: 0;
-                          max-width: 276px;
-                          width: 100%;
+                          
+                          // max-width: 276px;
+                          // width: 100%;
 
                           @include font-style(
                             var(--body-xsmall-regular-size),
