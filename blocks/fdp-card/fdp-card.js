@@ -724,7 +724,7 @@ export default function decorate(block) {
             case 'downloads':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 4550;
+                : 4700;
               break;
 
             case 'contentLibrary':
@@ -753,6 +753,11 @@ export default function decorate(block) {
             top: scrollPosition,
             behavior: 'smooth',
           });
+
+          setTimeout(() => {
+            document.body.style.overflow = ''; // restore scrolling
+          }, 800);
+
         }
       } else {
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
