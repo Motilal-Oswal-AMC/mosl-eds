@@ -747,6 +747,10 @@ export default function decorate(block) {
             behavior: 'smooth',
           });
 
+          setTimeout(() => {
+            document.body.style.overflow = ''; // restore scrolling
+          }, 800);
+
         }
       } else {
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active')
