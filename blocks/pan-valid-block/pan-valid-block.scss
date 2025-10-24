@@ -535,6 +535,7 @@
           right: 12px;
           width: 24px;
           height: 24px;
+          cursor: pointer;
 
           .icon {
             width: 100%;
@@ -563,7 +564,6 @@
           }
 
           &.mob-error{
-            display: flex;
             align-items: center;
             gap: 4px;
 
