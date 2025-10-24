@@ -791,11 +791,11 @@ export default function decorate(block) {
       if (item2Ul.style.display === 'block') {
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
         item2Ul.style.display = 'none';
-        item2Ul.closest('body').style.overflow = 'unset';
+        // item2Ul.closest('body').style.overflow = 'unset';
       } else {
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
         item2Ul.style.display = 'block';
-        item2Ul.closest('body').style.overflow = 'hidden';
+        // item2Ul.closest('body').style.overflow = 'hidden';
         // if (window.innerWidth < 768) {
         //   item2Ul.cl
         // }

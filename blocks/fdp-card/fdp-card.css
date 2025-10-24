@@ -635,7 +635,6 @@ main {
   border-bottom: 1px solid var(--neutrals-400);
   background-color: #f5f5f5;
   overflow: auto hidden;
-  scrollbar-width: none;
 }
 .section.fdp-card-container .item2 .item2-ul.fdp-tab {
   height: 36px;
@@ -647,9 +646,18 @@ main {
     overflow: auto;
     top: 230px;
   }
-}
-.section.fdp-card-container .item2 .item2-ul::-webkit-scrollbar {
-  display: none;
+  .section.fdp-card-container .item2 .item2-ul.fdp-tab::-webkit-scrollbar {
+    width: 3px;
+  }
+  .section.fdp-card-container .item2 .item2-ul.fdp-tab::-webkit-scrollbar-track {
+    width: 3px;
+    background-color: var(--neutrals-white);
+    border-radius: 0 6px 6px 0;
+  }
+  .section.fdp-card-container .item2 .item2-ul.fdp-tab::-webkit-scrollbar-thumb {
+    width: 3px;
+    background-color: #464343;
+  }
 }
 @media (width <= 768px) {
   .section.fdp-card-container .item2 .item2-ul {
@@ -661,7 +669,8 @@ main {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    background-color: #fff;
+    background-color: var(--neutrals-white);
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.06);
     border: none;
   }
 }
