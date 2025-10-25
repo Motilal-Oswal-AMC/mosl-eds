@@ -1906,7 +1906,8 @@
     padding: 24px;
     position: relative;
     min-height: 512px;
-    height: max-content;
+    height: 512px;
+    overflow: auto;
     max-width: 74.942%;
     width: 100%;
 
@@ -1962,7 +1963,8 @@
           list-style: none;
 
           .modelsubone1 {
-            @include font-style(
+            .modelinnersubone1{
+              @include font-style(
               var(--body-small-regular-size),
               var(--label-large-line-height),
               var(--surface-text-neutral-intense),
@@ -1970,33 +1972,41 @@
               var(--body)
             );
 
-            padding: 0 0 24px;
+            margin: 0 0 24px;
 
             @include media(mobile) {
               font-size: var(--paragraph-small-size);
               line-height: var(--paragraph-small-line-height);
               padding: 0 0 var(--spacing-16);
             }
+            }
           }
 
           .modelsubone2 {
-            max-width: 278px;
-            width: 100%;
-
-            @include font-style(
-              var(--body-small-semibold-size),
-              var(--body-small-semibold-line-height),
-              var(--neutrals-900),
-              600,
-              var(--body)
-            );
-
-            @include media(mobile) {
-              color: var(--surface-text-neutral-strong);
-              font-size: var(--text-xsmall-semibold-size);
-              line-height: var(--text-xsmall-semibold-line-height);
-              max-width: 100%;
+            .modelinnersubone1{
+              max-width: 278px;
+              width: 100%;
+              margin: 0;
+  
+              @include font-style(
+                var(--body-small-semibold-size),
+                var(--body-small-semibold-line-height),
+                var(--neutrals-900),
+                600,
+                var(--body)
+              );
+  
+              @include media(mobile) {
+                color: var(--surface-text-neutral-strong);
+                font-size: var(--text-xsmall-semibold-size);
+                line-height: var(--text-xsmall-semibold-line-height);
+                max-width: 100%;
+              }
             }
+          }
+
+          .modelsubone3{
+            display: none;
           }
 
           .sip-table-wrap {
@@ -2227,7 +2237,7 @@
                     @include media(mobile) {
                       font-size: var(--body-xsmall-semibold-size);
                       line-height: var(--body-xsmall-semibold-line-height);
-                      padding: 13px 0 13px var(--spacing-12);
+                      padding: 13px 0 13px 32px;
                     }
 
                     &-1 {
