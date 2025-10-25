@@ -611,6 +611,43 @@ export default function decorate(block) {
 
   let currentSelectedText = '';
 
+  const left = document.querySelector('.fdp-card-wrapper');
+  if (!left) {
+    console.log('error');
+  } else {
+    function isInsideScrollable(el, stopAt) {
+      while (el && el !== stopAt) {
+        const style = window.getComputedStyle(el);
+        const overflowY = style.overflowY;
+        if (
+          (overflowY === 'auto' || overflowY === 'scroll') &&
+          el.scrollHeight > el.clientHeight
+        ) {
+          return true;
+        }
+        el = el.parentElement;
+      }
+      return false;
+    }
+
+    if (window.innerWidth >= 786) {
+      left.addEventListener('wheel', function (e) {
+      if (isInsideScrollable(e.target, left)) return;
+      const delta = e.deltaY;
+
+      const atTop = this.scrollTop <= 0;
+      const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 1;
+
+      if ((delta < 0 && !atTop) || (delta > 0 && !atBottom)) {
+        e.stopPropagation();
+      } else {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, { passive: false });
+    }
+  }
+
   // setting id on the sticky performance list
   Array.from(item2Ul.children).forEach((elchild) => {
     const link = elchild.querySelector('a');
@@ -629,6 +666,7 @@ export default function decorate(block) {
         ptag.textContent = e.target.textContent;
         if (window.innerWidth <= 786) {
           item2Ul.style.display = 'none';
+          item2Ul.querySelector('.tab-li-item1').style.display = 'block';
         }
         // item2Ul.style.display = 'none';
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
@@ -647,6 +685,7 @@ export default function decorate(block) {
           const dropdown = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p');
           const dropdownHeight = dropdown ? dropdown.offsetHeight : 52;
 
+          const performance = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.performance-graph-container");
           const periodicReturn = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.periodicreturn.table-wrapper.tabs-container");
           const sipCal = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container');
           const whyFund = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund');
@@ -664,6 +703,7 @@ export default function decorate(block) {
           let sectionKey;
 
           if (sipCal.contains(targetSection)) sectionKey = 'sipCal';
+          else if (performance.contains(targetSection)) sectionKey = 'performance';
           else if (periodicReturn.contains(targetSection)) sectionKey = 'periodicReturn';
           else if (whyFund.contains(targetSection)) sectionKey = 'whyFund';
           else if (fundVideo.contains(targetSection)) sectionKey = 'fundVideo';
@@ -679,6 +719,12 @@ export default function decorate(block) {
             ? elementTop - nfoHeight - stickyHeight - dropdownHeight : 250;
 
           switch (sectionKey) {
+            case 'performance':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
+                : 10;
+              break;
+
             case 'sipCal':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
@@ -724,7 +770,7 @@ export default function decorate(block) {
             case 'downloads':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 4700;
+                : 4560;
               break;
 
             case 'contentLibrary':
@@ -904,81 +950,78 @@ export default function decorate(block) {
             breadcrumb.style.display = 'none';
           }, 1000);
         } catch (err) {
-        // Catch potential errors and inform the user
-        // console.error('Failed to copy URL: ', err);
-        // //alert('Could not copy URL. Please make sure the window is focused.');
-          urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
-          urlCopied.style.display = 'block';
-          setTimeout(() => {
-            urlCopied.style.display = 'none';
-          }, 1000);
+          // Catch potential errors and inform the user
+          // console.error('Failed to copy URL: ', err);
+          // //alert('Could not copy URL. Please make sure the window is focused.');
+          try {
+            const currentUrl = window.location.href;
+            await navigator.clipboard.writeText(currentUrl);
+
+            // Provide feedback to the user!
+            // alert('URL copied to clipboard!');
+            urlCopied.style.display = 'block';
+            setTimeout(() => {
+              urlCopied.style.display = 'none';
+              breadcrumb.style.display = 'none';
+            }, 1000);
+          } catch (err) {
+            // Catch potential errors and inform the user
+            // console.error('Failed to copy URL: ', err);
+            // //alert('Could not copy URL. Please make sure the window is focused.');
+            gAltmain.querySelector('.subbreadcrb2 .breadcrbmain2');
+
+            // Loop through children just to prepare them (e.g., remove href)
+            Array.from(shareContainer.children).forEach((listItem, index) => {
+              // Find the list item that contains the text 'Copy'
+              listItem.classList.add(`listindex${index + 1}`);
+              if (listItem.textContent.trim().includes('Copy')) {
+                const link = listItem.querySelector('a');
+                if (link) {
+                  link.removeAttribute('href');
+                  // Add a class or data-attribute for easier targeting
+                  listItem.dataset.action = 'copy';
+                }
+              }
+            });
+
+            // Add ONE event listener to the parent container
+            shareContainer.addEventListener('click', async (event) => {
+              // Find the list item that was actually clicked
+              const clickedItem = event.target.closest('[data-action="copy"]');
+
+              // If the click wasn't on our copy button, do nothing
+              if (!clickedItem) {
+                return false;
+              }
+
+              // Prevent default behavior, like navigating if the href wasn't removed
+              // event.preventDefault();
+            });
+
+            // plantext
+            block.querySelector('.btn-wrapper').addEventListener('click', () => {
+              const plantext = block.querySelector('.middlediv .selecttext');
+              dataMapMoObj.planText = plantext.textContent.trim();
+            });
+
+            const redirect = mainBlock.querySelector('.fdp-card-container .fdp-card');
+            const redirectbrn = redirect.querySelector('.btn-wrapper a');
+            const link = redirectbrn.getAttribute('href');
+            const stky = mainBlock.querySelector('.fdp-sticky-nav');
+            const textVal = stky.querySelector('.sticky-sub-item2').textContent;
+            stky.querySelector('.sticky-sub-item2').innerHTML = '';
+            stky.querySelector('.sticky-sub-item2').append(a({
+              href: link,
+              class: 'submit',
+            }, textVal));
+            document.addEventListener('click', (event) => {
+              if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
+                const breadcrumb = document.querySelector('.breadcrbmain2');
+                breadcrumb.style.display = 'none';
+              }
+            });
+          }
         }
-        return false;
       }
-      if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
-        breadcrumb.style.display = 'block';
-      } else {
-        breadcrumb.style.display = 'none';
-      }
-    });
-
-  const imgAltmain = block.closest('main');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb1 img'), 'callback');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb3 img'), 'portfolio-sheet');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
-
-  // Select the parent container once
-  const shareContainer = imgAltmain.querySelector('.subbreadcrb2 .breadcrbmain2');
-
-  // Loop through children just to prepare them (e.g., remove href)
-  Array.from(shareContainer.children).forEach((listItem, index) => {
-    // Find the list item that contains the text 'Copy'
-    listItem.classList.add(`listindex${index + 1}`);
-    if (listItem.textContent.trim().includes('Copy')) {
-      const link = listItem.querySelector('a');
-      if (link) {
-        link.removeAttribute('href');
-        // Add a class or data-attribute for easier targeting
-        listItem.dataset.action = 'copy';
-      }
-    }
-  });
-
-  // Add ONE event listener to the parent container
-  shareContainer.addEventListener('click', async (event) => {
-    // Find the list item that was actually clicked
-    const clickedItem = event.target.closest('[data-action="copy"]');
-
-    // If the click wasn't on our copy button, do nothing
-    if (!clickedItem) {
-      return false;
-    }
-
-    // Prevent default behavior, like navigating if the href wasn't removed
-    // event.preventDefault();
-  });
-
-  // plantext
-  block.querySelector('.btn-wrapper').addEventListener('click', () => {
-    const plantext = block.querySelector('.middlediv .selecttext');
-    dataMapMoObj.planText = plantext.textContent.trim();
-  });
-
-  const redirect = mainBlock.querySelector('.fdp-card-container .fdp-card');
-  const redirectbrn = redirect.querySelector('.btn-wrapper a');
-  const link = redirectbrn.getAttribute('href');
-  const stky = mainBlock.querySelector('.fdp-sticky-nav');
-  const textVal = stky.querySelector('.sticky-sub-item2').textContent;
-  stky.querySelector('.sticky-sub-item2').innerHTML = '';
-  stky.querySelector('.sticky-sub-item2').append(a({
-    href: link,
-    class: 'submit',
-  }, textVal));
-  document.addEventListener('click', (event) => {
-    if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
-      const breadcrumb = document.querySelector('.breadcrbmain2');
-      breadcrumb.style.display = 'none';
-    }
-  });
+    })
 }
