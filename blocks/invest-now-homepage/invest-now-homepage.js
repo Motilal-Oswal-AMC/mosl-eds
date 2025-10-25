@@ -1285,6 +1285,8 @@ export default function decorate(block) {
       const theadrowdata = theadrow.querySelectorAll('.data-list');
       const tbodyrow = allrows.slice(1);
       const tdcolspan = theadrowdata.length;
+
+      //Table  thead
       const theadmain = thead({ class: 'sip-thead-lt' },
         tr({ class: 'lthead-row' },
           ...Array.from(theadrowdata).map((headrow, i)=>{
@@ -1293,6 +1295,7 @@ export default function decorate(block) {
         ),
       );
 
+      //Table tbody
       const tbodymain = tbody({ class: 'sip-tbody-lt' },
         ...tbodyrow.map((bodyrow)=>{
           const bodyrowul = bodyrow.querySelector('.table-list');
@@ -1314,37 +1317,7 @@ export default function decorate(block) {
       const tableLi = li({ class: 'sip-table-wrap' },
         table({ class: 'sip-table' },
           theadmain,
-          // tbody({ class: 'sip-tbody-lt' },
-            // tr({ class: 'ltbody-row' },
-            //   td({ class: 'lt-body lt-body-1' }, '1'),
-            //   td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
-            //   td({ class: 'lt-body lt-body-3' }, '₹ 10,000'),
-            // ),
-            // tr({ class: 'ltbody-row' },
-            //   td({ class: 'lt-body lt-body-1' }, '2'),
-            //   td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
-            //   td({ class: 'lt-body lt-body-3' }, '₹ 11,000'),
-            // ),
-            // tr({ class: 'ltbody-row' },
-            //   td({ class: 'lt-body lt-body-1' }, '3'),
-            //   td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
-            //   td({ class: 'lt-body lt-body-3' }, '₹ 12,000'),
-            // ),
-            // tr({ class: 'ltbody-row' },
-            //   td({ class: 'lt-body lt-body-1' }, '4'),
-            //   td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
-            //   td({ class: 'lt-body lt-body-3' }, '₹ 13,000'),
-            // ),
-            // tr({ class: 'ltbody-row' },
-            //   td({ class: 'lt-body lt-body-fulltxt', colspan: '3' }, 'By the 11th Year the SIP amount will be'),
-            // ),
-            // tr({ class: 'ltbody-row' },
-            //   td({ class: 'lt-body lt-body-1' }, '11'),
-            //   td({ class: 'lt-body lt-body-2' }, '₹ 10,000'),
-            //   td({ class: 'lt-body lt-body-3' }, '₹ 20,000')
-            // ),
-            tbodymain
-          // ),
+          tbodymain
         ),
       );
       modeltableone.appendChild(tableLi)
