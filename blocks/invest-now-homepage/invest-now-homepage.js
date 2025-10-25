@@ -1571,9 +1571,12 @@ export default function decorate(block) {
                   { class: 'sip-note-highlight' },
                   img({ class: 'tooltip-info', src: infotoolsrc, alt: 'information' }),
                   div(
-                    { class: 'tooltip-wrap' },
-                    p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
-                    button({ class: 'tooltip-btn-mob' }, 'Ok'),
+                    { class: 'tooltip-container' },
+                    div(
+                      { class: 'tooltip-wrap' },
+                      p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
+                      button({ class: 'tooltip-btn-mob' }, 'Ok'),
+                    ),
                   ),
                 ),
               ),

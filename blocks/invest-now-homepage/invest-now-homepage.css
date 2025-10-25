@@ -675,21 +675,39 @@
   width: 16px;
   height: 16px;
 }
-.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap {
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: calc(100% + 2px);
   margin-right: 8px;
+  z-index: 2;
+  width: 272px;
+  display: none;
+}
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container {
+    position: fixed;
+    top: unset;
+    transform: unset;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: end;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap {
   background-color: var(--surface-background-neutral-subtle);
   border-radius: var(--border-radius-8);
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.16);
   padding: var(--spacing-12);
-  width: 272px;
-  z-index: 2;
-  display: none;
 }
-.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap::after {
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap::after {
   content: "";
   border-left: 8px solid var(--surface-background-neutral-subtle);
   border-top: 8px solid transparent;
@@ -702,7 +720,17 @@
   transform: translateY(-50%);
   left: 100%;
 }
-.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap .tooltip-text {
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap {
+    border-radius: 24px 24px 0 0;
+    box-shadow: none;
+    padding: var(--spacing-24) 24px 12px;
+  }
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap::after {
+    content: unset;
+  }
+}
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap .tooltip-text {
   margin: 0;
   font-size: var(--body-small-regular-size);
   line-height: var(--label-large-line-height);
@@ -712,22 +740,36 @@
   font-weight: 400;
 }
 @media (max-width: 768px) {
-  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap .tooltip-text {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap .tooltip-text {
     color: var(--neutrals-800);
     font-size: var(--paragraph-medium-size);
     line-height: var(--paragraph-medium-line-height);
+    padding: 0 0 var(--spacing-16);
   }
 }
-.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap .tooltip-btn-mob {
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap .tooltip-btn-mob {
   display: none;
 }
 @media (max-width: 768px) {
-  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-wrap .tooltip-btn-mob {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap .tooltip-btn-mob {
     display: block;
+    margin: 12px 0 0;
+    width: 100%;
+    padding: 12px var(--spacing-12);
+    border-radius: var(--border-radius-8);
+    border: 1px solid var(--button-primary-default);
+    background-color: transparent;
+    cursor: pointer;
+    font-size: var(--button-medium-size);
+    line-height: var(--button-medium-line-height);
+    color: var(--text-button-default);
+    font-family: var(--body);
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+    font-weight: 500;
   }
 }
-.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight:hover .tooltip-wrap {
-  display: block;
+.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight:hover .tooltip-container {
+  display: flex;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-sip-dropdown .date-drop-down {
   display: flex;
