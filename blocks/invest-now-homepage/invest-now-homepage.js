@@ -132,6 +132,10 @@ function hideFormsClick(btn) {
     document.body.classList.remove('noscroll');
     card2.classList.remove('modal-active-parent');
 
+    if (document.body.style.overflow === 'hidden') {
+      document.body.style.overflow = 'unset';
+    }
+
     // overlay.classList.add('hide-overlay');
     removeClassAfterDelay();
   });
@@ -1219,7 +1223,8 @@ export default function decorate(block) {
 
     const modeltableone = modelone.querySelector('.modeloneinner1 .modelinnerone1');
     const tabledatamainlist = modeltableone.querySelector('.modelsubone3 .modelinnersubone1');
-    Array.from(tabledatamainlist.children).forEach((list) => {
+    if (tabledatamainlist !== null) {
+      Array.from(tabledatamainlist.children).forEach((list) => {
       list.classList.add('table-list-wrap');
       Array.from(list.children).forEach((sublist) => {
         sublist.classList.add('table-list');
@@ -1227,54 +1232,55 @@ export default function decorate(block) {
           datalist.classList.add('data-list');
         });
       });
-    });
+      });
 
-    if (!modeltableone.querySelector('.sip-table-wrap')) {
-      const allrows = Array.from(tabledatamainlist.children);
-      const theadrow = allrows[0];
-      const theadrowdata = theadrow.querySelectorAll('.data-list');
-      const tbodyrow = allrows.slice(1);
-      const tdcolspan = theadrowdata.length;
+      if (!modeltableone.querySelector('.sip-table-wrap')) {
+        const allrows = Array.from(tabledatamainlist.children);
+        const theadrow = allrows[0];
+        const theadrowdata = theadrow.querySelectorAll('.data-list');
+        const tbodyrow = allrows.slice(1);
+        const tdcolspan = theadrowdata.length;
 
-      // Table  thead
+        // Table  thead
 
-      const theadmain = thead(
-        { class: 'sip-thead-lt' },
-        tr(
-          { class: 'lthead-row' },
-          ...Array.from(theadrowdata).map((headrow, i) => th({ class: `lt-head lt-head-${i + 1}` }, headrow.textContent)),
-        ),
-      );
+        const theadmain = thead(
+          { class: 'sip-thead-lt' },
+          tr(
+            { class: 'lthead-row' },
+            ...Array.from(theadrowdata).map((headrow, i) => th({ class: `lt-head lt-head-${i + 1}` }, headrow.textContent)),
+          ),
+        );
 
-      // Table tbody
+        // Table tbody
 
-      const tbodymain = tbody(
-        { class: 'sip-tbody-lt' },
-        ...tbodyrow.map((bodyrow) => {
-          const bodyrowul = bodyrow.querySelector('.table-list');
-          const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
-          if (bodyrowuldata.length === 1) {
+        const tbodymain = tbody(
+          { class: 'sip-tbody-lt' },
+          ...tbodyrow.map((bodyrow) => {
+            const bodyrowul = bodyrow.querySelector('.table-list');
+            const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
+            if (bodyrowuldata.length === 1) {
+              return tr(
+                { class: 'ltbody-row' },
+                td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan }, bodyrowul.textContent),
+              );
+            }
             return tr(
               { class: 'ltbody-row' },
-              td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan }, bodyrowul.textContent),
+              ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `lt-body lt-body-${i + 1}` }, bodyuldata.textContent)),
             );
-          }
-          return tr(
-            { class: 'ltbody-row' },
-            ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `lt-body lt-body-${i + 1}` }, bodyuldata.textContent)),
-          );
-        }),
-      );
+          }),
+        );
 
-      const tableLi = li(
-        { class: 'sip-table-wrap' },
-        table(
-          { class: 'sip-table' },
-          theadmain,
-          tbodymain,
-        ),
-      );
-      modeltableone.appendChild(tableLi);
+        const tableLi = li(
+          { class: 'sip-table-wrap' },
+          table(
+            { class: 'sip-table' },
+            theadmain,
+            tbodymain,
+          ),
+        );
+        modeltableone.appendChild(tableLi);
+      } 
     }
 
     const modeltabletwo = modelone.querySelector('.modeloneinner2 .modelinnerone1');

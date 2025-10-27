@@ -317,6 +317,9 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     // console.log(error);
   }
   document.body.classList.add('modal-open', 'noscroll');
+  if (window.location.href.includes('/motilalfigma/our-funds/')) {
+    document.body.style.overflow = 'hidden';
+  }
   // --- END: NEW LOGIC ---
 }
 // --- The SINGLE, SMART handler for ALL modal clicks ---
