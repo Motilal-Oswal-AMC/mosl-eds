@@ -32,18 +32,27 @@ export default function decorate(block) {
   dataMapMoObj.addIndexed(whyFund);
   const planCode = localStorage.getItem('planCode') || 'Direct:LM';
   const planslabel = planCode.split(':')[1];
-  const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
+  const planObj = dataCfObj.cfDataObjs.filter(
+    (el) => planslabel === el.schcode,
+  );
   try {
-    dataMapMoObj.CLASS_PREFIXES = ['compound-item', 'compound-sub-item', 'compound-inner-item'];
+    dataMapMoObj.CLASS_PREFIXES = [
+      'compound-item',
+      'compound-sub-item',
+      'compound-inner-item',
+    ];
     dataMapMoObj.addIndexed(block);
 
     const stky = mainBlock.querySelector('.fdp-sticky-nav');
-    dataMapMoObj.CLASS_PREFIXES = ['sticky-item', 'sticky-sub-item', 'sticky-inner-item'];
+    dataMapMoObj.CLASS_PREFIXES = [
+      'sticky-item',
+      'sticky-sub-item',
+      'sticky-inner-item',
+    ];
     dataMapMoObj.addIndexed(stky);
 
     stky.querySelector('.sticky-inner-item1').textContent = '';
-    stky.querySelector('.sticky-inner-item1')
-      .textContent = planObj[0].schDetail.schemeName;
+    stky.querySelector('.sticky-inner-item1').textContent = planObj[0].schDetail.schemeName;
     dataMapMoObj.CLASS_PREFIXES = ['item'];
     dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
   } catch (error) {
@@ -54,12 +63,10 @@ export default function decorate(block) {
   const fundsTaggingSection = cfObj[0].fundsTaggingSection.slice(0, 2);
   const finPlangrp = [];
   const tempReturns = [];
-  const DirectPlanlistArr = cfObj[0].planList.filter(
-    (el) => el.planName,
-  );
+  const DirectPlanlistArr = cfObj[0].planList.filter((el) => el.planName);
   dataMapMoObj.planlistArr = DirectPlanlistArr;
   cfObj[0].returns.forEach((ret) => {
-    if (DirectPlanlistArr[0].groupedCode === (ret.plancode + ret.optioncode)) {
+    if (DirectPlanlistArr[0].groupedCode === ret.plancode + ret.optioncode) {
       [...Object.keys(ret)].forEach((key) => {
         if (dataMapMoObj.ObjTempfdp[key]) {
           tempReturns.push(dataMapMoObj.ObjTempfdp[key]);
@@ -70,7 +77,7 @@ export default function decorate(block) {
   });
   // fundsTaggingSection.push(DirectPlanlistArr[0].optionName);
   const navlistArr = cfObj[0].nav.filter(
-    (el) => DirectPlanlistArr[0].groupedCode === (el.plancode + el.optioncode),
+    (el) => DirectPlanlistArr[0].groupedCode === el.plancode + el.optioncode,
   );
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
   const mop = `../../icons/schemeicons/MO_${cfObj[0].schcode}.svg`;
@@ -78,7 +85,9 @@ export default function decorate(block) {
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
     selectedReturn = 'Since 3 years';
-  } else { selectedReturn = `Since ${dataMapMoObj.selectreturns.toLocaleLowerCase()}`; }
+  } else {
+    selectedReturn = `Since ${dataMapMoObj.selectreturns.toLocaleLowerCase()}`;
+  }
   const returnYear = tempReturns.includes(selectedReturn)
     ? selectedReturn
     : firstReturnYear;
@@ -100,10 +109,12 @@ export default function decorate(block) {
     const returnValue = [];
     // const valueText = param.target.textContent.trim();
     // const planType = valueText.replace(' |', '');
-    const plangrp = DirectPlanlistArr.filter((el) => el.groupedCode === param.target.getAttribute('datacode'));
+    const plangrp = DirectPlanlistArr.filter(
+      (el) => el.groupedCode === param.target.getAttribute('datacode'),
+    );
 
     cfObj[0].returns.forEach((ret) => {
-      if ((ret.plancode + ret.optioncode) === plangrp[0].groupedCode) {
+      if (ret.plancode + ret.optioncode === plangrp[0].groupedCode) {
         [...Object.keys(ret)].forEach((key) => {
           if (dataMapMoObj.ObjTempfdp[key]) {
             tempReturnsec.push(dataMapMoObj.ObjTempfdp[key]);
@@ -121,18 +132,23 @@ export default function decorate(block) {
     // year
     const yrsdrp = middlediv.querySelector('.nav-return-grp .dropdown');
     yrsdrp.innerHTML = '';
-    yrsdrp.append(p({
-      class: 'selectedtext',
-      onclick: (event) => {
-        const toggle = event.target.closest('.dropdown');
-        const droplist = toggle.querySelector('.dropdownlist').classList;
-        if (!Array.from(droplist).includes('dropdown-active')) {
-          droplist.add('dropdown-active');
-        } else {
-          droplist.remove('dropdown-active');
-        }
-      },
-    }, returnValue.length !== 0 ? dataMapMoObj.selectreturns : ''));
+    yrsdrp.append(
+      p(
+        {
+          class: 'selectedtext',
+          onclick: (event) => {
+            const toggle = event.target.closest('.dropdown');
+            const droplist = toggle.querySelector('.dropdownlist').classList;
+            if (!Array.from(droplist).includes('dropdown-active')) {
+              droplist.add('dropdown-active');
+            } else {
+              droplist.remove('dropdown-active');
+            }
+          },
+        },
+        returnValue.length !== 0 ? dataMapMoObj.selectreturns : '',
+      ),
+    );
     const drpyrs = ul(
       {
         class: 'dropdownlist',
@@ -152,10 +168,13 @@ export default function decorate(block) {
           parentElem.remove('dropdown-active');
         },
       },
-      ...tempReturnsec.map((eloption) => li({
-        class: 'listval',
-        value: dataMapMoObj.ObjTempfdp[eloption],
-      }, eloption)),
+      ...tempReturnsec.map((eloption) => li(
+        {
+          class: 'listval',
+          value: dataMapMoObj.ObjTempfdp[eloption],
+        },
+        eloption,
+      )),
     );
     yrsdrp.append(drpyrs);
 
@@ -171,7 +190,7 @@ export default function decorate(block) {
 
     // nav
     const navlistarray = cfObj[0].nav.filter(
-      (el) => plangrp[0].groupedCode === (el.plancode + el.optioncode),
+      (el) => plangrp[0].groupedCode === el.plancode + el.optioncode,
     );
 
     if (navlistarray[0].nav_date !== undefined) {
@@ -310,7 +329,9 @@ export default function decorate(block) {
               {
                 class: 'list-tag',
               },
-              toTitleCase(eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' ')),
+              toTitleCase(
+                eloption.replaceAll('motilal-oswal:', '').replaceAll('-', ' '),
+              ),
             )),
           ),
         ),
@@ -370,10 +391,13 @@ export default function decorate(block) {
                 planGrpEvent(event);
               },
             },
-            ...DirectPlanlistArr.map((eloption, ind) => li({
-              class: ind === 0 ? 'listval active' : 'listval',
-              datacode: eloption.groupedCode,
-            }, `${eloption.planName} | ${eloption.optionName}`)),
+            ...DirectPlanlistArr.map((eloption, ind) => li(
+              {
+                class: ind === 0 ? 'listval active' : 'listval',
+                datacode: eloption.groupedCode,
+              },
+              `${eloption.planName} | ${eloption.optionName}`,
+            )),
           ),
         ),
         div(
@@ -384,9 +408,12 @@ export default function decorate(block) {
             {
               class: 'return-grp',
             },
-            span({
-              class: 'return-text',
-            }, 'Return'),
+            span(
+              {
+                class: 'return-text',
+              },
+              'Return',
+            ),
             div(
               {
                 class: 'dropdown',
@@ -436,17 +463,29 @@ export default function decorate(block) {
                     const dataValue = event.target.getAttribute('value');
                     valueCagr.innerHTML = '';
                     valueCagr.append(finPlangrp[0][dataValue]);
-                    valueCagr.append(span({
-                      class: 'percent',
-                    }, '%'));
+                    valueCagr.append(
+                      span(
+                        {
+                          class: 'percent',
+                        },
+                        '%',
+                      ),
+                    );
                     const parentElem = event.target.parentElement.classList;
                     parentElem.remove('dropdown-active');
                   },
                 },
-                ...tempReturns.map((eloption) => li({
-                  class: `listval ${textvalret === eloption.replace('Since', '') ? 'active' : ''}`,
-                  value: dataMapMoObj.ObjTempfdp[eloption],
-                }, eloption)),
+                ...tempReturns.map((eloption) => li(
+                  {
+                    class: `listval ${
+                      textvalret === eloption.replace('Since', '')
+                        ? 'active'
+                        : ''
+                    }`,
+                    value: dataMapMoObj.ObjTempfdp[eloption],
+                  },
+                  eloption,
+                )),
               ),
             ),
             div(
@@ -458,9 +497,12 @@ export default function decorate(block) {
                   class: 'value-cagr',
                 },
                 `${finPlangrp[0][dataMapMoObj.ObjTempfdp[returnYear]]}`,
-                span({
-                  class: 'percent',
-                }, '%'),
+                span(
+                  {
+                    class: 'percent',
+                  },
+                  '%',
+                ),
               ),
             ),
           ),
@@ -515,9 +557,12 @@ export default function decorate(block) {
                     class: 'nav-percent',
                   },
                   Number(navlistArr[0].navchngper),
-                  span({
-                    class: 'navper',
-                  }, '%'),
+                  span(
+                    {
+                      class: 'navper',
+                    },
+                    '%',
+                  ),
                 ),
               ),
             ),
@@ -599,7 +644,9 @@ export default function decorate(block) {
     elchild.style.display = 'none';
   });
   block.append(cardContainer);
-  block.parentElement.parentElement.parentElement.querySelector('.breadcrumbs-fdp').classList.add('wrapper-fdp');
+  block.parentElement.parentElement.parentElement
+    .querySelector('.breadcrumbs-fdp')
+    .classList.add('wrapper-fdp');
 
   dataMapMoObj.CLASS_PREFIXES = ['tab-li-item'];
   dataMapMoObj.addIndexed(item2Ul);
@@ -618,10 +665,10 @@ export default function decorate(block) {
     function isInsideScrollable(el, stopAt) {
       while (el && el !== stopAt) {
         const style = window.getComputedStyle(el);
-        const overflowY = style.overflowY;
+        const { overflowY } = style;
         if (
-          (overflowY === 'auto' || overflowY === 'scroll') &&
-          el.scrollHeight > el.clientHeight
+          (overflowY === 'auto' || overflowY === 'scroll')
+          && el.scrollHeight > el.clientHeight
         ) {
           return true;
         }
@@ -631,20 +678,24 @@ export default function decorate(block) {
     }
 
     if (window.innerWidth >= 786) {
-      left.addEventListener('wheel', function (e) {
-      if (isInsideScrollable(e.target, left)) return;
-      const delta = e.deltaY;
+      left.addEventListener(
+        'wheel',
+        function (e) {
+          if (isInsideScrollable(e.target, left)) return;
+          const delta = e.deltaY;
 
-      const atTop = this.scrollTop <= 0;
-      const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 1;
+          const atTop = this.scrollTop <= 0;
+          const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 1;
 
-      if ((delta < 0 && !atTop) || (delta > 0 && !atBottom)) {
-        e.stopPropagation();
-      } else {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    }, { passive: false });
+          if ((delta < 0 && !atTop) || (delta > 0 && !atBottom)) {
+            e.stopPropagation();
+          } else {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        },
+        { passive: false },
+      );
     }
   }
 
@@ -669,34 +720,66 @@ export default function decorate(block) {
           item2Ul.querySelector('.tab-li-item1').style.display = 'block';
         }
         // item2Ul.style.display = 'none';
-        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
+        item2Ul.parentNode
+          .querySelector('.selectedtext-fdp')
+          .classList.remove('active');
         const targetId = item.id;
         // const targetSection = document.querySelector(`.section[data-id="${targetId}"]`);
         const sections = document.querySelectorAll('.section[data-id]');
         const targetSection = Array.from(sections).find(
-          (ele) => (ele.dataset.id === targetId),
+          (ele) => ele.dataset.id === targetId,
         );
 
         if (targetSection) {
-          const nfoBanner = document.querySelector('#nav > div.section.nfo-banner');
+          const nfoBanner = document.querySelector(
+            '#nav > div.section.nfo-banner',
+          );
           const nfoHeight = nfoBanner ? nfoBanner.offsetHeight : 0;
-          const stickyHeader = document.querySelector('body > main > div.section.breadcrumbs-fdp.wrapper-fdp');
+          const stickyHeader = document.querySelector(
+            'body > main > div.section.breadcrumbs-fdp.wrapper-fdp',
+          );
           const stickyHeight = stickyHeader ? stickyHeader.offsetHeight : 65;
-          const dropdown = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p');
+          const dropdown = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p',
+          );
           const dropdownHeight = dropdown ? dropdown.offsetHeight : 52;
 
-          const performance = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.performance-graph-container");
-          const periodicReturn = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.periodicreturn.table-wrapper.tabs-container");
-          const sipCal = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container');
-          const whyFund = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund');
-          const fundVideo = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-philosophy-video.fund-video-container');
-          const keyFacts = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.key-facts-container');
-          const portfolio = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.tabdiv.tabs-container');
-          const fundManager = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.our-funds-fdp-container');
-          const downloads = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.download.table-wrapper');
-          const contentLibrary = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.learning-fdp.future-building-container');
-          const peopleLike = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-card-slider-container');
-          const productLabel = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.product-label.fdp-risk-o-meter.risk-o-meter-container');
+          const performance = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.performance-graph-container',
+          );
+          const periodicReturn = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.periodicreturn.table-wrapper.tabs-container',
+          );
+          const sipCal = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container',
+          );
+          const whyFund = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund',
+          );
+          const fundVideo = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-philosophy-video.fund-video-container',
+          );
+          const keyFacts = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.key-facts-container',
+          );
+          const portfolio = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.tabdiv.tabs-container',
+          );
+          const fundManager = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.our-funds-fdp-container',
+          );
+          const downloads = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.download.table-wrapper',
+          );
+          const contentLibrary = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.learning-fdp.future-building-container',
+          );
+          const peopleLike = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-card-slider-container',
+          );
+          const productLabel = document.querySelector(
+            'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.product-label.fdp-risk-o-meter.risk-o-meter-container',
+          );
 
           const elementTop = targetSection.getBoundingClientRect().top + window.scrollY;
 
@@ -716,7 +799,8 @@ export default function decorate(block) {
           else if (productLabel.contains(targetSection)) sectionKey = 'productLabel';
 
           let scrollPosition = window.innerWidth <= 768
-            ? elementTop - nfoHeight - stickyHeight - dropdownHeight : 250;
+            ? elementTop - nfoHeight - stickyHeight - dropdownHeight
+            : 250;
 
           switch (sectionKey) {
             case 'performance':
@@ -803,10 +887,11 @@ export default function decorate(block) {
           setTimeout(() => {
             document.body.style.overflow = ''; // restore scrolling
           }, 800);
-
         }
       } else {
-        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
+        item2Ul.parentNode
+          .querySelector('.selectedtext-fdp')
+          .classList.add('active');
       }
       if (window.innerWidth < 786 && e.target.tagName === 'A') {
         // changes for opstions
@@ -835,17 +920,30 @@ export default function decorate(block) {
   ptag.addEventListener('click', () => {
     if (window.innerWidth < 768) {
       if (item2Ul.style.display === 'block') {
-        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
+        item2Ul.parentNode
+          .querySelector('.selectedtext-fdp')
+          .classList.remove('active');
         item2Ul.style.display = 'none';
-        // item2Ul.closest('body').style.overflow = 'unset';
+        item2Ul.closest('body').style.overflow = 'unset';
       } else {
-        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
+        item2Ul.parentNode
+          .querySelector('.selectedtext-fdp')
+          .classList.add('active');
         item2Ul.style.display = 'block';
-        // item2Ul.closest('body').style.overflow = 'hidden';
-        // if (window.innerWidth < 768) {
-        //   item2Ul.cl
-        // }
       }
+    }
+  });
+
+  document.addEventListener('scroll', () => {
+    // added for stky nav
+    const stkyNav = document.querySelector('.selectedtext-fdp');
+    const rect = stkyNav.getBoundingClientRect();
+    const isStuckAtTop = rect.top <= 180;
+    // const chikePostion = window.getComputedStyle(stkyNav);
+    if (isStuckAtTop && stkyNav.classList.contains('active')) {
+      item2Ul.closest('body').style.overflow = 'hidden';
+    } else {
+      item2Ul.closest('body').style.overflow = 'unset';
     }
   });
 
@@ -884,13 +982,14 @@ export default function decorate(block) {
           });
           const targetId = link.getAttribute('href');
           e.target.classList.add('active');
-          const target = document.querySelector(`.section[data-id="${targetId}"]`);
+          const target = document.querySelector(
+            `.section[data-id="${targetId}"]`,
+          );
 
           if (target) {
             // const headerOffset = getHeaderOffset(target);
             // const elementPosition = target.getBoundingClientRect().top;
             // const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
             // window.scrollTo({
             // top: offsetPosition,
             // behavior: 'smooth',
@@ -917,10 +1016,14 @@ export default function decorate(block) {
     // const temp = block.closest('body').querySelector('.breadcrumbs-fdp');
     // const sharlist = temp.querySelector('.innerbreadcrb2');
     if (!dropdownmidle.contains(event.target)) {
-      dropdownmidle.querySelector('.dropdownlist').classList.remove('dropdown-active');
+      dropdownmidle
+        .querySelector('.dropdownlist')
+        .classList.remove('dropdown-active');
     }
     if (!dropdown.contains(event.target)) {
-      dropdown.querySelector('.dropdownlist').classList.remove('dropdown-active');
+      dropdown
+        .querySelector('.dropdownlist')
+        .classList.remove('dropdown-active');
     }
     // if (!sharlist.contains(event.target)) {
     //   sharlist.querySelector('.breadcrbmain2').style.display = 'none';
@@ -930,14 +1033,22 @@ export default function decorate(block) {
   // changes for given class ul li
 
   const ulElement = mainBlock.querySelector('.breadcrumbs-fdp');
-  dataMapMoObj.CLASS_PREFIXES = ['mainbreadcrb', 'subbreadcrb', 'innerbreadcrb', 'breadcrbmain'];
+  dataMapMoObj.CLASS_PREFIXES = [
+    'mainbreadcrb',
+    'subbreadcrb',
+    'innerbreadcrb',
+    'breadcrbmain',
+  ];
   dataMapMoObj.addIndexed(ulElement);
 
-  mainBlock.querySelector('.subbreadcrb2')
+  mainBlock
+    .querySelector('.subbreadcrb2')
     .addEventListener('click', async (event) => {
       const breadcrumb = document.querySelector('.breadcrbmain2');
       if (event.target.textContent === 'Copy') {
-        const urlCopied = block.closest('main').querySelector('.breadcrumbs-fdp .listindex5');
+        const urlCopied = block
+          .closest('main')
+          .querySelector('.breadcrumbs-fdp .listindex5');
         try {
           const currentUrl = window.location.href;
           await navigator.clipboard.writeText(currentUrl);
@@ -999,23 +1110,34 @@ export default function decorate(block) {
             });
 
             // plantext
-            block.querySelector('.btn-wrapper').addEventListener('click', () => {
-              const plantext = block.querySelector('.middlediv .selecttext');
-              dataMapMoObj.planText = plantext.textContent.trim();
-            });
+            block
+              .querySelector('.btn-wrapper')
+              .addEventListener('click', () => {
+                const plantext = block.querySelector('.middlediv .selecttext');
+                dataMapMoObj.planText = plantext.textContent.trim();
+              });
 
-            const redirect = mainBlock.querySelector('.fdp-card-container .fdp-card');
+            const redirect = mainBlock.querySelector(
+              '.fdp-card-container .fdp-card',
+            );
             const redirectbrn = redirect.querySelector('.btn-wrapper a');
             const link = redirectbrn.getAttribute('href');
             const stky = mainBlock.querySelector('.fdp-sticky-nav');
             const textVal = stky.querySelector('.sticky-sub-item2').textContent;
             stky.querySelector('.sticky-sub-item2').innerHTML = '';
-            stky.querySelector('.sticky-sub-item2').append(a({
-              href: link,
-              class: 'submit',
-            }, textVal));
+            stky.querySelector('.sticky-sub-item2').append(
+              a(
+                {
+                  href: link,
+                  class: 'submit',
+                },
+                textVal,
+              ),
+            );
             document.addEventListener('click', (event) => {
-              if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
+              if (
+                !mainBlock.querySelector('.subbreadcrb2').contains(event.target)
+              ) {
                 const breadcrumb = document.querySelector('.breadcrbmain2');
                 breadcrumb.style.display = 'none';
               }
@@ -1023,5 +1145,5 @@ export default function decorate(block) {
           }
         }
       }
-    })
+    });
 }
