@@ -10,6 +10,13 @@ import {
   ul,
   li,
   h2,
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td,
+  a,
 } from '../../scripts/dom-helpers.js';
 import '../../scripts/flatpickr.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -1198,16 +1205,16 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 
 export default function decorate(block) {
   const mainclass = block.closest('main');
-  let modeltwo = mainclass.querySelector('.modal-stepup-two');
-  const modalstepOne = mainclass.querySelector('.modal-stepup-one')
+  const modeltwo = mainclass.querySelector('.modal-stepup-two');
+  const modalstepOne = mainclass.querySelector('.modal-stepup-one');
   dataMapMoObj.panDlts = {};
   if (mainclass.querySelector('.modal-stepup-one')) {
     const modelone = mainclass.querySelector('.modal-stepup-one');
-    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone', 'modelinnersubone' ];
+    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone', 'modelinnersubone'];
     dataMapMoObj.addIndexed(modelone);
     const mod6 = mainclass.querySelector('.modal-stepup-one .icon-modal-cross-btn');
     const modeloneread = mainclass.querySelector('.modal-stepup-one .modelsubone3 .modelinnersubone1');
-    modeloneread.addEventListener('click', function () {
+    modeloneread.addEventListener('click', () => {
       modeloneread.removeAttribute('href', true);
       modeltwo.style.display = 'flex';
       modeloneread.closest('.modal-stepup-one').style.display = 'none';
@@ -1215,6 +1222,123 @@ export default function decorate(block) {
     mod6.addEventListener('click', () => {
       modalstepOne.style.display = 'none';
     });
+
+    const modeltableone = modelone.querySelector('.modeloneinner1 .modelinnerone1');
+    const tabledatamainlist = modeltableone.querySelector('.modelsubone3 .modelinnersubone1');
+    Array.from(tabledatamainlist.children).forEach((list) => {
+      list.classList.add('table-list-wrap');
+      Array.from(list.children).forEach((sublist) => {
+        sublist.classList.add('table-list');
+        Array.from(sublist.children).forEach((datalist) => {
+          datalist.classList.add('data-list');
+        });
+      });
+    });
+
+    if (!modeltableone.querySelector('.sip-table-wrap')) {
+      const allrows = Array.from(tabledatamainlist.children);
+      const theadrow = allrows[0];
+      const theadrowdata = theadrow.querySelectorAll('.data-list');
+      const tbodyrow = allrows.slice(1);
+      const tdcolspan = theadrowdata.length;
+
+      // Table  thead
+
+      const theadmain = thead(
+        { class: 'sip-thead-lt' },
+        tr(
+          { class: 'lthead-row' },
+          ...Array.from(theadrowdata).map((headrow, i) => th({ class: `lt-head lt-head-${i + 1}` }, headrow.textContent)),
+        ),
+      );
+
+      // Table tbody
+
+      const tbodymain = tbody(
+        { class: 'sip-tbody-lt' },
+        ...tbodyrow.map((bodyrow) => {
+          const bodyrowul = bodyrow.querySelector('.table-list');
+          const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
+          if (bodyrowuldata.length === 1) {
+            return tr(
+              { class: 'ltbody-row' },
+              td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan }, bodyrowul.textContent),
+            );
+          }
+          return tr(
+            { class: 'ltbody-row' },
+            ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `lt-body lt-body-${i + 1}` }, bodyuldata.textContent)),
+          );
+        }),
+      );
+
+      const tableLi = li(
+        { class: 'sip-table-wrap' },
+        table(
+          { class: 'sip-table' },
+          theadmain,
+          tbodymain,
+        ),
+      );
+      modeltableone.appendChild(tableLi);
+    }
+
+    const modeltabletwo = modelone.querySelector('.modeloneinner2 .modelinnerone1');
+
+    if (!modeltabletwo.querySelector('.sip-table-graph')) {
+      const tablegraph = li(
+        { class: 'sip-table-graph' },
+        table(
+          { class: 'table-graph-wrap' },
+          thead(
+            { class: 'graph-thead-rt' },
+            tr(
+              { class: 'rthead-row' },
+              th({ class: 'rt-head rt-head-1' }),
+              th({ class: 'rt-head rt-head-2' }, 'Without Step up'),
+              th({ class: 'rt-head rt-head-3' }, 'With Step up'),
+            ),
+          ),
+          tbody(
+            { class: 'graph-tbody-rt' },
+            tr(
+              { class: 'rtbody-row rtbody-row-1' },
+              td({ class: 'rt-body rt-body-1' }, 'Total Investment'),
+              td({ class: 'rt-body rt-body-2' }, '₹ 24 Lakh'),
+              td({ class: 'rt-body rt-body-3' }, '₹ 43.8 Lakh'),
+            ),
+            tr(
+              { class: 'rtbody-row rtbody-row-2' },
+              td({ class: 'rt-body rt-body-1' }, 'Total Returns'),
+              td({ class: 'rt-body rt-body-2' }, '₹ 1.03 Cr*'),
+              td({ class: 'rt-body rt-body-3' }, '₹ 2.05 Cr*'),
+            ),
+            tr(
+              { class: 'rtbody-row rtbody-row-3' },
+              td(
+                { class: 'rt-body rt-body-fullimg', colspan: '3' },
+                img({ class: 'rt-body-img', src: '../../icons/sip-table-graph.svg', alt: 'SIP Table Graph' }),
+              ),
+            ),
+            tr(
+              { class: 'rtbody-row rtbody-row-4' },
+              td(
+                { class: 'rt-body rt-body-fulltxt', colspan: '3' },
+                p(
+                  { class: 'rt-body-text' },
+                  'Disclaimer: The above calculator is only for purposes and the graph',
+                  a({ class: 'rt-body-link' }, 'Read More'),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      modeltabletwo.appendChild(tablegraph);
+    }
+
+    // Table end
     // hideFormsClick(mod6);
   }
   if (mainclass.querySelector('.modal-stepup-two')) {
@@ -1346,9 +1470,9 @@ export default function decorate(block) {
       },
     }));
     checkboxcont.querySelector('img').addEventListener('click', () => {
-     // console.log('bye bye');
+      // console.log('bye bye');
       modalstepOne.style.display = 'flex';
-    })
+    });
     divstepup = div(
       { class: 'steup-container' },
       div(
@@ -1571,9 +1695,12 @@ export default function decorate(block) {
                   { class: 'sip-note-highlight' },
                   img({ class: 'tooltip-info', src: infotoolsrc, alt: 'information' }),
                   div(
-                    { class: 'tooltip-wrap' },
-                    p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
-                    button({ class: 'tooltip-btn-mob' }, 'Ok'),
+                    { class: 'tooltip-container' },
+                    div(
+                      { class: 'tooltip-wrap' },
+                      p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
+                      button({ class: 'tooltip-btn-mob' }, 'Ok'),
+                    ),
                   ),
                 ),
               ),
@@ -2057,7 +2184,7 @@ export default function decorate(block) {
 
   if (blkcompo) {
     blkcompo.style.display = 'none';
-  };
+  }
   // const stepSipIcon = blkcompo.querySelector('.stepupsub2 img');
   // const modalstepOne = mainclass.querySelector('.modal-stepup-one')
   // stepSipIcon.addEventListener('click', function () {
@@ -2094,6 +2221,6 @@ export default function decorate(block) {
       }
     });
   }
-  
+
   return block;
 }
