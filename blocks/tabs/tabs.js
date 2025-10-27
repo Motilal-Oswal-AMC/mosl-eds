@@ -206,7 +206,7 @@ export default async function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['headgrp', 'headlist'];
     dataMapMoObj.addIndexed(defaultwrapper[1]);
     const headtitle = defaultwrapper[1].querySelector('.headgrp1').cloneNode(true);
-    headtitle.prepend(th({ class: 'comthst' }));
+    headtitle.prepend(th({ class: 'comthst', style: 'visibility   : hidden;' }, ''));
     const headstring = headtitle.outerHTML;
     const strhead = headstring.replaceAll('ul', 'tr').replaceAll('li', 'th');
 

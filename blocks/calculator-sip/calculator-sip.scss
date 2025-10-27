@@ -2,8 +2,8 @@
 
 /* Reset */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section {
   &.compounding,
@@ -265,7 +265,7 @@
                     border: 1px solid map.get($strokes, default);
                   }
 
-                  li {
+                  .searchli {
                     padding: 12px 16px;
                     cursor: pointer;
                     font-weight: 400;
@@ -316,7 +316,8 @@
                 padding: 0;
                 background-color: transparent;
                 box-shadow: none;
-                margin-bottom: 8px;
+
+                // margin-bottom: 8px;
               }
 
               .scheme-btns-wrapper {
@@ -427,7 +428,7 @@
                         height: 16.5px;
                         width: 16.5px;
                         left: 2px;
-                        bottom: 2px;
+                        bottom: 1.5px;
                         background-color: var(--neutrals-white);
                         transition: 0.4s;
                         border-radius: 16.667px;
@@ -555,16 +556,11 @@
                     position: relative;
                     display: flex;
                     align-items: center;
-                    gap: 18px;
-
-                    @include media(mobile) {
-                      gap: 15px;
-                    }
 
                     &::before {
                       content: "₹";
                       position: absolute;
-                      top: 50%;
+                      top: 52%;
                       left: 0;
                       transform: translateY(-50%);
                       pointer-events: none;
@@ -583,6 +579,37 @@
                       }
                     }
 
+                    .invest-lebal {
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      left: 16px;
+                      pointer-events: none;
+                      transition: all 0.2s ease-out;
+                      height: 100%;
+                      appearance: none;
+                      outline: none;
+                      background-color: transparent;
+                      border: none;
+
+                      @include font-style(var(--body-medium-medium-size),
+                        var(--body-medium-medium-line-height),
+                        var(--blue-1-800-primary),
+                        map.get($font-weights, medium),
+                        var(--body));
+
+
+                      @include media(mobile) {
+                        padding-left: 15px;
+                        font-size: var(--body-small-medium-size);
+                        line-height: var(--body-small-medium-line-height);
+                      }
+
+                      // &:focus{
+                      //   display: none
+                      // }
+                    }
+
                     .investment-inp {
                       @include font-style(var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
@@ -591,7 +618,7 @@
                         var(--body));
 
                       height: 100%;
-                      padding-left: 12px;
+                      padding-left: 14px;
                       appearance: none;
                       outline: none;
                       background-color: transparent;
@@ -603,13 +630,18 @@
                         line-height: var(--body-small-medium-line-height);
                       }
 
-                      &::placeholder {
-                        @include font-style(14px,
-                          var(--body-medium-medium-line-height),
-                          var(--blue-1-800-primary),
-                          map.get($font-weights, medium),
-                          var(--body));
-                      }
+                      // &::placeholder {
+                      //   @include font-style(14px,
+                      //     var(--body-medium-medium-line-height),
+                      //     var(--blue-1-800-primary),
+                      //     map.get($font-weights, medium),
+                      //     var(--body));
+                      // }
+                    }
+
+                    &:has(.investment-inp:focus) .invest-lebal,
+                    &:has(.investment-inp:not(:placeholder-shown)) .invest-lebal {
+                      display: none;
                     }
                   }
 
@@ -648,12 +680,22 @@
                       // padding-bottom: 4px;
                       display: flex;
                       align-items: center;
+                      gap: 16px;
+                      width: fit-content;
                       height: 20px;
+                      padding-right: 25px;
+                      -webkit-tap-highlight-color: transparent;
 
                       @include media(mobile) {
                         text-align: start;
                         font-size: var(--body-small-medium-size);
                         line-height: var(--body-small-medium-line-height);
+                        width: 100%;
+                        padding-right: 0;
+
+                        &::after {
+                          right: 5px;
+                        }
                       }
 
                       &::after {
@@ -966,8 +1008,8 @@
             400,
             var(--body));
 
-            word-break:" break-word";
-            padding-right: 44px;
+          word-break: " break-word";
+          padding-right: 44px;
 
           @include media(mobile) {
             font-size: var(--paragraph-xsmall-size);
@@ -1087,7 +1129,7 @@
 
                     &::before {
                       top: -3px;
-                      left: 1px;
+                      left: 0;
                       padding-top: 3px;
                       font-size: var(--body-medium-medium-size);
                       line-height: var(--body-medium-medium-line-height);

@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 .sr-only {
     position: absolute;
@@ -59,7 +59,7 @@
             padding: 0 16px;
             display: flex;
             flex-direction: column;
-            
+
             // row-gap: 36px;
             row-gap: 24px;
         }
@@ -128,6 +128,7 @@
 
             .footer-sub1 {
                 text-align: left;
+                border-bottom: unset;
 
                 .footer-sub-cont1 {
                     color: var(--neutrals-white);
@@ -170,36 +171,60 @@
                                 padding: 0 4px;
                             }
 
-                            input {
-                                width: 100%;
-                                min-width: 200px;
-                                display: flex;
-                                padding: var(--spacing-8) var(--spacing-12);
-                                flex-direction: column;
-                                justify-content: flex-end;
-                                align-items: flex-start;
-                                gap: 4px;
-                                align-self: stretch;
-                                height: 40px;
-                                color: var(--neutrals-200);
-                                font-feature-settings: var(--font-features-default);
-                                font-family: var(--body);
-                                font-size: var(--body-medium-regular-size);
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: var(--body-medium-regular-line-height);
+                            .wrapimgform {
                                 border-radius: var(--border-radius-8);
                                 border: var(--border-width-01) solid var(--neutrals-white);
                                 background: transparent;
+                                padding: 8px 12px;
 
-                                &::placeholder {
+                                .email-imput {
+                                    width: 100%;
+                                    max-width: 346px;
+                                    display: flex;
+
+                                    // padding: var(--spacing-8) var(--spacing-12);
+                                    flex-direction: column;
+                                    justify-content: flex-end;
+                                    align-items: flex-start;
+                                    gap: 4px;
+                                    align-self: stretch;
+                                    height: 20px;
                                     color: var(--neutrals-200);
                                     font-feature-settings: var(--font-features-default);
                                     font-family: var(--body);
                                     font-size: var(--body-medium-regular-size);
+                                    font-style: normal;
                                     font-weight: 400;
                                     line-height: var(--body-medium-regular-line-height);
+
+                                    // border-radius: var(--border-radius-8);
+                                    // border: var(--border-width-01) solid var(--neutrals-white);
+                                    background: transparent;
+                                    border: none;
+                                    outline: none;
+
+                                    @include media(mobile) {
+                                        max-width: 182px;
+                                    }
+
+                                    // &::placeholder {
+                                    //     color: var(--neutrals-200);
+                                    //     font-feature-settings: var(--font-features-default);
+                                    //     font-family: var(--body);
+                                    //     font-size: var(--body-medium-regular-size);
+                                    //     font-weight: 400;
+                                    //     line-height: var(--body-medium-regular-line-height);
+                                    // }
                                 }
+
+                                .crossimg {
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 12px;
+                                    transform: translateY(-50%);
+                                    display: none;
+                                }
+
                             }
 
                             .errormsg {
@@ -215,10 +240,10 @@
                                 margin-left: 5px;
                             }
 
-                            input.email-fail,
-                            input.email-success {
+                            .wrapimgform.email-fail{
                                 border: var(--border-width-01) solid #ff8088;
-                                padding: 10px 40px 10px 12px;
+
+                                // padding: 10px 40px 10px 12px;
                                 background: url("../../icons/error-cross.svg") no-repeat right 12px center;
 
                                 // &::after {
@@ -237,7 +262,7 @@
                                 // }
                             }
 
-                            input.email-success {
+                            .wrapimgform.email-success {
                                 border: var(--border-width-01) solid #00c35d;
                                 background: url("../../icons/success-cross.svg") no-repeat right 12px center;
 
@@ -245,7 +270,7 @@
                                 //     background-image: url("../../icons/success-cross.svg");
                                 // }
 
-                                & + .errormsg {
+                                &+.errormsg {
                                     color: #00c35d;
                                 }
                             }
@@ -271,6 +296,10 @@
                                 margin: 0;
                                 height: 40px;
                                 border: none;
+
+                                @include media(mobile) {
+                                    width: 102px;
+                                }
                             }
                         }
                     }
@@ -660,7 +689,8 @@
                     justify-content: space-between;
                     margin: 0;
                     padding-bottom: 32px;
-                    border-bottom: 2px solid #fff3;
+
+                    // border-bottom: 2px solid #FFF3;
 
                     .footer-sub-cont1 {
                         width: 37.3%;
@@ -697,7 +727,8 @@
                                     input {
                                         // width: 100%;
                                         display: flex;
-                                        padding: var(--spacing-10) var(--spacing-12);
+
+                                        // padding: var(--spacing-10) var(--spacing-12);
                                         flex-direction: column;
                                         justify-content: flex-end;
                                         align-items: flex-start;
@@ -727,18 +758,18 @@
                                         margin-left: 5px;
                                     }
 
-                                    input.email-fail,
-                                    input.email-success {
+                                    .wrapimgform.email-fail{
                                         border: var(--border-width-01) solid #ff8088;
-                                        padding: 10px 40px 10px 12px;
+
+                                        // padding: 10px 40px 10px 12px;
                                         background: url("../../icons/error-cross.svg") no-repeat right 12px center;
                                     }
 
-                                    input.email-success {
+                                    .wrapimgform.email-success {
                                         border: var(--border-width-01) solid #00c35d;
                                         background: url("../../icons/success-cross.svg") no-repeat right 12px center;
 
-                                        & + .errormsg {
+                                        &+.errormsg {
                                             color: #00c35d;
                                         }
                                     }
@@ -920,14 +951,18 @@
     }
 
     .scroll-to-top {
-        position: absolute;
+        // position: absolute;
+        position: fixed;
         right: 67px;
-        top: -28px;
+
+        // top: -28px;
+        bottom: 70px;
         width: 56px;
         height: 56px;
         border-radius: 28px;
         background-color: var(--blue-1-200);
-        box-shadow: 0 0 13.2px 0 #00000014;
+
+        // box-shadow: 0 0 13.2px 0 #0014;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -937,7 +972,7 @@
         transition:
             opacity 0.3s ease,
             transform 0.2s ease;
-        z-index: 10;
+        z-index: 100;
         margin: 0;
         border: none;
         padding: 0;

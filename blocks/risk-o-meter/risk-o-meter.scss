@@ -77,7 +77,8 @@
   display: flex;
   gap: 48px;
   flex-direction: column-reverse;
-  margin-top: 40px !important;
+
+  // margin-top: 40px !important;
 
   @include media(mobile){
     gap: 16px;

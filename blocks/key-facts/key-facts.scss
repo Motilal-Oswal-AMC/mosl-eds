@@ -411,7 +411,7 @@
         align-items: center;
 
         &:first-child {
-          min-width: 511px;
+          // min-width: 511px;
           width: 100%;
 
           @include media(mobile) {
@@ -419,7 +419,7 @@
           }
         }
 
-        h4 {
+        >p {
           @include font-style(var(--body-xlarge-bold-size), var(--body-xlarge-bold-line-height), var(--blue-1-800-primary), 600, var(--body));
 
           padding: 0;
@@ -466,7 +466,7 @@
           li:nth-child(2) {
             @include font-style(var(--paragraph-xsmall-size), var(--paragraph-xsmall-line-height), var(--blue-1-800-primary), 500, var(--body));
 
-            padding: 4px;
+            // padding: 4px;
             margin: 0;
             border-radius: 2px;
             background: var(--blue-1-50);
@@ -478,6 +478,31 @@
 
             @media (width <=768px) {
               font-weight: 400;
+            }
+
+            p {
+              display: flex;
+              width: 169px;
+              height: 24px;
+              padding: 4px;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              border-radius: 2px;
+              background: var(--blue-1-50, #D5DEFF);
+              color: var(--blue-1800-primary, #2E2A94);
+              font-family: var(--body, Inter);
+              font-size: var(--paragraph-xsmall-size, 12px);
+              font-style: normal;
+              font-weight: 500;
+              line-height: var(--paragraph-xsmall-line-height, 16px);
+
+              @include media(mobile) {
+                font-size: var(--paragraph-xsmall-size, 12px);
+                font-style: normal;
+                font-weight: 400;
+                line-height: var(--paragraph-xsmall-line-height, 16px);
+              }
             }
           }
         }
@@ -514,23 +539,31 @@
           margin: 0;
         }
 
-        p:nth-child(2) {
-          p {
-            @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+        // p:nth-child(2) {
+        //   p {
+        //     @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
 
-            margin: 0;
+        //     margin: 0;
 
-            @media (width <=768px) {
-              padding-right: 10px;
-              font-size: var(--paragraph-small-size);
-              line-height: var(--paragraph-small-line-height);
-            }
-          }
-        }
+        //     @media (width <=768px) {
+        //       padding-right: 10px;
+        //       font-size: var(--paragraph-small-size);
+        //       line-height: var(--paragraph-small-line-height);
+        //     }
+        //   }
+        // }
 
         .investment-discripstion {
           position: relative;
           margin: 0;
+
+          @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+
+          @media (width <=768px) {
+            padding-right: 10px;
+            font-size: var(--paragraph-small-size);
+            line-height: var(--paragraph-small-line-height);
+          }
 
           .read-toggle-btn {
             @include font-style(14px,
@@ -541,16 +574,22 @@
 
             text-decoration: underline;
             text-underline-offset: 20%;
+            cursor: pointer;
+            position: relative;
+            bottom: 4px;
+            left: 5px;
 
             // position: absolute;
             // bottom: 1%;
             // right: 15%;
-            cursor: pointer;
-
             // @media (width <= 768px) {
             //   bottom: 0%;
             //   right: 38%;
             // }
+
+            @include media(mobile) {
+              bottom: 2px;
+            }
 
             &:focus {
               outline: 2px dashed $primary-blue;
@@ -582,10 +621,10 @@
             height: unset;
           }
 
-          .Redemption-Amount{
+          .redemption-amount {
             width: 50%;
 
-            @include media(mobile){
+            @include media(mobile) {
               width: 100%;
             }
           }

@@ -13,7 +13,7 @@
 
 .section.growth-now-container {
     margin: 0;
-   
+
 
     // background-color: #fff;
     padding: 40px 0 50px;
@@ -325,10 +325,55 @@
 
                             @include media(mobile) {
                                 width: 100%;
-                                
+
                                 // max-width: 176px;
                             }
                         }
+
+                        .phnodata {
+                            position: relative;
+                        }
+
+                        .phnodata label {
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 12px;
+                            color: var(--neutrals-white);
+                            font-feature-settings: var(--font-features-default);
+                            font-family: var(--body);
+                            font-size: var(--body-medium-regular-size);
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: var(--body-medium-regular-line-height);
+                            pointer-events: none;
+                            transition: all 0.2s ease-out;
+                        }
+
+                        .phnodata input {
+                            padding: 20px 12px 8px;
+                            width: 100%;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            font-size: 1rem;
+                            outline: none;
+                            background-color: transparent;
+                        }
+
+                        .phnodata:has(input:focus) label,
+                        .phnodata:has(input:not(:placeholder-shown)) label {
+                            top: -8px;
+                            transform: translateY(0);
+                            padding: 0 5px;
+                            font-size: 12PX;
+                            line-height: 14px;
+                            color: #fff;
+                            background: #2E2A94;
+                        }
+
+                        // .phnodata:has(input:focus) input {
+                        //     border-color: #6a38ee;
+                        // }
 
                         select {
                             background: transparent;
@@ -341,7 +386,8 @@
                             font-weight: 400;
                             line-height: var(--body-medium-regular-line-height);
                             font-feature-settings: var(--font-features-default);
-                            appearance: auto;
+                            appearance: none;
+                            pointer-events: none;
 
                             // padding-right: 4px;
 
@@ -381,9 +427,9 @@
 
                                 // padding-left: 10px;
 
-                                &::placeholder {
-                                    color: var(--neutrals-white);
-                                }
+                                // &::placeholder {
+                                //     color: var(--neutrals-white);
+                                // }
 
                                 @include media(mobile) {
                                     @include font-style(var(--body-medium-regular-size), var(--body-medium-regular-line-height), var(--neutrals-white), 400, var(--body));
@@ -732,6 +778,6 @@
     }
 }
 
-.section.flp-growth{
-     background-color: var(--neutrals-100);
+.section.flp-growth {
+    background-color: var(--neutrals-100);
 }

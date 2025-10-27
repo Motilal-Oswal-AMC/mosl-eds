@@ -375,6 +375,34 @@
             "value": "flp-growth"
           },
           {
+            "name": "Reset Passcode",
+            "value": "reset-passcode"
+          },
+          {
+            "name": "PMS Rooted",
+            "value": "pms-rooted"
+          },
+          {
+            "name": "High Skin",
+            "value": "high-skin"
+          },
+          {
+            "name": "PMS Choose",
+            "value": "pms-choose"
+          },
+          {
+            "name": "PWS Hero Section",
+            "value": "pws-hero-section"
+          },
+          {
+            "name": "Our Strategies",
+            "value": "our-strategies"
+          },
+          {
+            "name": "Building Moedge",
+            "value": "building-moedge"
+          },
+          {
             "name": "Article Left",
             "value": "article-left-wrapper"
           },
@@ -1480,6 +1508,11 @@
         "component": "text",
         "name": "pol_pvemid",
         "label": "Enter Label For Email Id Field"
+      },
+      {
+        "component": "text",
+        "name": "pol_pvcity",
+        "label": "Enter Label For City Name Field"
       },
       {
         "component": "richtext",

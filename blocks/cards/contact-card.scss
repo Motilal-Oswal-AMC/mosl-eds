@@ -239,6 +239,10 @@
                 font-weight: 400;
                 line-height: 20px;
 
+                a {
+                  color: #2E2A94;
+                }
+
                 // text-decoration-line: underline;
 
                 &.list-elem-2,
@@ -336,6 +340,10 @@
                     margin: 0;
                     cursor: pointer;
                     line-height: 20px;
+                    
+                    a {
+                      color: #2E2A94;
+                    }
                   }
                 }
               }

@@ -26,7 +26,7 @@
     --spacing-12: 12px;
     --spacing-14: 14px;
     --spacing-16: 16px;
-    --spacing-18: 16px;
+    --spacing-18: 18px;
     --spacing-24: 24px;
     --spacing-32: 32px;
     --spacing-40: 40px;
@@ -109,6 +109,7 @@
     --red-100: #ffa3b0;
     --red-50: #ffc1ce;
     --red-25: #ffdfec;
+    --essentials-red: #FF1A1A;
     --orange-700: #e36201;
     --orange-600: #f07a07;
     --orange-500-primary: #fb8c00;
@@ -142,6 +143,8 @@
     --surface-text-positive-intense: #09743D;
     --mo-body-copy-other: #48535F;
     --strokes-on-surface-02: #595957;
+    --mosl-black: #231F20;
+    --action-text-neutral-strong: #727279;
 
     /* Colors end */
 
@@ -205,6 +208,11 @@
     --surface-background-neutral-subtle: var(--neutrals-white);
     --surface-text-neutral-intense: var(--neutrals-800);
     --surface-text-neutral-strong: var(--neutrals-900);
+    --surface-border-neutral-normal: var(--neutrals-300);
+    --surface-background-primary-1-subtle: var(--blue-1-25);
+    --surface-text-primary-strong: var(--blue-1-800-primary);
+    --action-text-primary-default: var(--blue-1-800-primary);
+    --mo-blue-800-main: var(--blue-1-800-primary);
 
     /* semantic light end */
 
@@ -367,6 +375,8 @@
     --body-xsmall-regular-line-height: 14px;
     --input-field-medium-size: var(--spacing-16);
     --input-field-medium-line-height: var(--spacing-20);
+    --input-field-label-size: var(--spacing-12);
+    --input-field-label-line-height: var(--spacing-16);
 
     /* typescale desktop end */
 }
@@ -490,6 +500,8 @@
         --paragraph-small-weight: var(--weight-regular);
         --paragraph-small-size: var(--spacing-14);
         --paragraph-small-line-height: var(--spacing-20);
+        --paragraph-small-regular-size: var(--spacing-14);
+        --paragraph-small-regular-line-height: var(--spacing-20);
         --paragraph-xsmall-font: var(--body);
         --paragraph-xsmall-weight: var(--weight-regular);
         --paragraph-xsmall-size: var(--spacing-12);
@@ -537,6 +549,8 @@
         --text-small-semibold-line-height: var(--spacing-20);
         --input-field-medium-size: var(--spacing-16);
         --input-field-medium-line-height: var(--spacing-20);
+        --input-field-label-size: var(--spacing-12);
+        --input-field-label-line-height: var(--spacing-16);
 
         /* typescale mobile end */
     }

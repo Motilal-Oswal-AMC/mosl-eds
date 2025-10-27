@@ -1,9 +1,10 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 main {
   background-color: #f5f5f5;
+  position: relative;
 }
 
 .section.fdp-card-container {
@@ -36,6 +37,7 @@ main {
       position: sticky;
       top: 209px;
       padding: 0;
+      overflow-y: auto;
 
       @include media(mobile) {
         max-width: 100%;
@@ -58,7 +60,6 @@ main {
       }
 
       .card-wrapper {
-
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -67,11 +68,11 @@ main {
 
           // top: 32px;
           top: 100%;
-          left: 0;
+          left: -2px;
           z-index: 5;
-          min-width: 340px;
+          max-width: 340px;
           width: 100%;
-          min-height: fit-content;
+          max-height: 125px;
           overflow: auto;
           margin: 3px 0 0;
           background-color: $primary-white;
@@ -79,17 +80,18 @@ main {
           border: 1px solid $neutrals-200;
           box-shadow: 0 0 14px 0 rgb(40 40 40 / 6%);
 
-          @include media(mobile) {
-            min-width: 143px;
-            // min-height: 238px;
-          }
+          // @include media(mobile) {
+          //   min-width: 143px;
+
+          //   // min-height: 238px;
+          // }
 
           &.dropdown-active {
             display: block;
           }
 
           &::-webkit-scrollbar {
-            width: 0;
+            width: 2px;
             background-color: #464343;
           }
 
@@ -114,16 +116,39 @@ main {
             @include font-style(var(--paragraph-xsmall-size),
               var(--paragraph-xsmall-line-height),
               var(--text-body),
-              500,
+              400,
               var(--body));
+
+            @include media(mobile) {
+              padding: 12px;
+              font-size: var(--paragraph-xsmall-size);
+              line-height: var(--paragraph-xsmall-line-height);
+            }
 
             &.active {
               font-size: var(--body-xsmall-medium-size);
               line-height: var(--body-xsmall-medium-line-height);
               color: var(--blue-1-800-primary);
               font-family: var(--body);
-              font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+              font-feature-settings:
+                "ss01"on,
+                "ss04"on,
+                "cv01"on,
+                "cv02"on,
+                "cv03"on,
+                "cv04"on,
+                "cv06"on,
+                "cv09"on,
+                "cv10"on,
+                "cv11"on;
               font-weight: 500;
+              padding: 9px 12px;
+
+              @include media(mobile) {
+                font-size: var(--body-xsmall-medium-size);
+                line-height: var(--body-xsmall-medium-line-height);
+                padding: 12px;
+              }
             }
           }
         }
@@ -179,11 +204,7 @@ main {
             .brand-name-text {
               margin: 0;
 
-              @include font-style(12px,
-                16px,
-                map.get($blue-1, b400),
-                500,
-                $poppins );
+              @include font-style(12px, 16px, map.get($blue-1, b400), 500, $poppins);
 
               @include media(mobile) {
                 font-weight: 400;
@@ -274,19 +295,21 @@ main {
 
           .dropdownmidle {
             position: relative;
-            max-width: 333px;
+
+            // max-width: 333px;
             width: 100%;
             margin: 0 0 8px;
 
             .label-text {
               .selecttext {
-                margin: 8px 0;
+                margin: 0;
 
-                // padding: 8px 0;
+                padding: 8px 0;
                 display: flex;
                 align-items: center;
                 gap: 8px;
                 cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
 
                 @include font-style(var(--body-small-medium-size),
                   var(--body-small-medium-line-height),
@@ -296,9 +319,10 @@ main {
 
                 &::after {
                   content: "";
-                  background: url("../../icons/arrow-down-blue.svg") center / cover no-repeat;
+                  background: url("../../icons/direction-right.svg") center / cover no-repeat;
                   background-position: center;
                   background-size: cover;
+                  transform: rotate(90deg);
                   width: 16px;
                   height: 16px;
 
@@ -310,24 +334,29 @@ main {
 
           .nav-return-grp {
             display: flex;
-            flex-wrap: wrap;
 
             // align-items: center;
             gap: 16px;
 
-            @include media(mobile) {
-              // padding-right: 35px;
-              // justify-content: space-between;
-              gap: 16px;
+            @include media(tab) {
+              flex-wrap: wrap;
             }
+
+            // @include media(mobile) {
+            //   // padding-right: 35px;
+            //   // justify-content: space-between;
+            //   gap: 16px;
+            // }
 
             .return-grp {
               // max-width: 52.18%;
               // max-width: 192px;
               // width: 100%;
               position: relative;
-              width: auto;
+              max-width: 192px;
+              width: 100%;
               display: flex;
+              align-items: center;
               flex-wrap: wrap;
               gap: 4px 8px;
 
@@ -337,7 +366,7 @@ main {
 
               @include media(tab) {
                 // max-width: 120px;
-                width: max-content;
+                max-width: 160px;
               }
 
               // @include media(mobile) {
@@ -379,6 +408,8 @@ main {
 
                   @include media(mobile) {
                     gap: 4px;
+                    font-size: 12px;
+                    line-height: 14px;
                   }
 
                   &::after {
@@ -398,11 +429,32 @@ main {
 
                 .dropdownlist {
                   // width: 70px;
-                  width: 92%;
-                  height: auto;
+                  max-width: 143px;
+
+                  // height: auto;
 
                   // top: 22px;
-                  top: 100%;
+                  top: 14px;
+
+                  // left: -100%;
+
+                  margin: 4px 0 0;
+
+                  @include media(mobile) {
+                    margin: 3px 0 0;
+                    top: 15px;
+                  }
+
+                  .listval {
+                    padding: 12px;
+                    font-size: var(--body-xsmall-regular-size);
+                    line-height: var(--body-xsmall-regular-line-height);
+
+                    @include media(mobile) {
+                      font-size: var(--paragraph-xsmall-size);
+                      line-height: var(--paragraph-xsmall-line-height);
+                    }
+                  }
                 }
               }
 
@@ -421,15 +473,16 @@ main {
                 }
 
                 .percent {
-                  font-size: var(--body-large-semibold-size);
-                  line-height: var(--body-large-semibold-line-height);
+                  font-size: var(--body-large-regular-size);
+                  line-height: var(--body-large-regular-line-height);
                   color: var(--blue-1-800-primary);
                   font-family: var(--body);
                   font-feature-settings: var(--font-features-default);
-                  font-weight: 600;
+                  font-weight: 400;
 
                   @include media(mobile) {
-                    line-height: 32px;
+                    font-size: var(--body-large-regular-size);
+                    line-height: var(--body-large-regular-line-height);
                   }
                 }
               }
@@ -437,9 +490,9 @@ main {
 
             .nav-grp {
               // max-width: 43.48%;
-              // max-width: 160px;
-              // width: 100%;
-              width: auto;
+              // width: auto;
+              max-width: 160px;
+              width: 100%;
 
               // @include media(desktop-sm) {
               //   max-width: 47%;
@@ -447,7 +500,8 @@ main {
 
               @include media(tab) {
                 // max-width: 140px;
-                width: max-content;
+                // width: max-content;
+                max-width: 164px;
                 padding-right: 33px;
               }
 
@@ -578,11 +632,7 @@ main {
                 bottom: -13px;
                 left: 8px;
 
-                @include font-style(8px,
-                  12px,
-                  map.get($danger, 300),
-                  400,
-                  $poppins );
+                @include font-style(8px, 12px, map.get($danger, 300), 400, $poppins);
 
                 &.show-error {
                   display: block;
@@ -679,12 +729,13 @@ main {
       // padding-left: 16px;
       // padding-right: 16px;
       max-width: 100%;
+      position: relative;
     }
 
     /* ul for second part */
 
     .item2-ul {
-      z-index: 10;
+      z-index: 11;
 
       // max-width: 839px;
       width: 100%;
@@ -701,31 +752,55 @@ main {
       border-bottom: 1px solid var(--neutrals-400);
       background-color: #f5f5f5;
       overflow: auto hidden;
-      scrollbar-width: none;
+      // scrollbar-width: none;
 
       &.fdp-tab {
         height: 36px;
 
-        @include media (mobile) {
+        @include media(mobile) {
           height: auto;
+          height: 250px;
+          overflow: auto;
+          top: 230px;
+
+          // position: absolute;
+          // top: 52px;
+          // position: unset;
+
+          &::-webkit-scrollbar {
+            width: 3px;
+          }
+
+          &::-webkit-scrollbar-track {
+            width: 3px;
+            background-color: var(--neutrals-white);
+            border-radius: 0 6px 6px 0;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            width: 3px;
+            background-color: #464343; //#eee;
+          }
         }
       }
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      // &::-webkit-scrollbar {
+      //   display: none;
+      // }
 
       @media (width <=768px) {
         max-width: 100%;
         width: 100%;
         height: auto;
-        position: static;
+
+        // position: static;
         display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 20px;
-        background-color: $primary-white;
+        background-color: var(--neutrals-white);
+        box-shadow: 0 4px 14px 0 rgb(0 0 0 / 6%);
         border: none;
       }
 
@@ -742,9 +817,9 @@ main {
           height: unset;
           display: block;
 
-          &.tab-li-item2 {
-            padding-top: 0;
-          }
+          // &.tab-li-item2 {
+          //   padding-top: 0;
+          // }
         }
 
         // padding: var(--spacing-10) var(--spacing-none);
@@ -822,7 +897,8 @@ main {
         background: $primary-white;
         margin: 0 auto;
         padding: 16px;
-        position: relative;
+
+        // position: relative;
         cursor: pointer;
 
         // flex-direction: row-reverse;
@@ -832,6 +908,12 @@ main {
           var(--blue-1-800-primary),
           500,
           var(--body));
+
+        position: sticky;
+
+        // top: 27%;
+        top: 179px;
+        z-index: 99;
 
         &::after {
           content: "";
@@ -1159,12 +1241,21 @@ main {
 .section.fdp-sticky-nav {
   display: none;
   padding: 16px;
+  margin: 0;
+  margin-top: 16px;
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 99;
+  background: var(--neutrals-white, #FFF);
+  box-shadow: -25px -1px 214px 0 rgb(0 0 0 / 15%);
 
   @media (width <=768px) {
     display: block;
     background: $primary-white;
     box-shadow: -25px -1px 214px 0 rgb(0 0 0 / 15%);
-    margin: 40px 0;
+    margin: 0;
   }
 
   .sticky-item1 {
@@ -1172,19 +1263,33 @@ main {
     justify-content: space-between;
     align-items: center;
 
+    @include media (mobile) {
+      // flex-direction: column;
+      padding: 0;
+      gap: 48px;
+    }
+
     .sticky-sub-item1 {
       padding: 0;
       list-style: none;
       margin: 0;
 
       .sticky-inner-item1 {
-        width: 176px;
+        width: 400px;
 
-        @include font-style(var(--body-small-medium-size),
-          var(--body-small-medium-line-height),
+        @include font-style(var(--body-xlarge-bold-size),
+          var(--body-xlarge-bold-line-height),
           var(--blue-1-800-primary),
-          500,
+          600,
           var(--body));
+
+        @include media (mobile) {
+          width: 100%;
+          font-size: var(--body-small-medium-size, 14px);
+          font-style: normal;
+          font-weight: 500;
+          line-height: var(--body-small-medium-line-height, 16px);
+        }
       }
 
       .sticky-inner-item2 {
@@ -1194,20 +1299,44 @@ main {
 
     .sticky-sub-item2 {
       display: flex;
-      width: 124px;
-      height: max-content;
-      padding: var(--spacing-8) var(--spacing-12);
+      width: 192px;
+      height: 40px;
+      padding: var(--spacing-12);
       justify-content: center;
       align-items: center;
       gap: 8px;
       flex-shrink: 0;
       border-radius: var(--border-radius-8);
       background: var(--button-primary-default);
-      text-align: center;
       margin: 0;
       cursor: pointer;
+      color: var(--text-white, #FFF);
+      text-align: center;
+      font-feature-settings: var(--font-features-default);
+      font-family: var(--body, Inter);
+      font-size: var(--button-medium-size, 16px);
+      font-style: normal;
+      font-weight: 500;
+      line-height: var(--button-medium-line-height, 20px);
 
-      @include font-style(14px, 16px, var(--text-white), 500, var(--body));
+      @include media (mobile) {
+        display: flex;
+        width: 116px;
+        height: 32px;
+        padding: var(--spacing-8, 8px) var(--spacing-12, 12px);
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-8, 8px);
+        flex-shrink: 0;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+      }
+      
+      .submit {
+        color: var(--text-white);
+      }
     }
   }
 }

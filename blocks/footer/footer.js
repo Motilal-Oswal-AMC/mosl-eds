@@ -3,7 +3,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { loadAutoBlock } from '../../scripts/scripts.js';
-import { span } from '../../scripts/dom-helpers.js';
+import { img, span } from '../../scripts/dom-helpers.js';
 
 /**
  * Initializes the scroll-to-top button.
@@ -85,6 +85,26 @@ export default async function decorate(block) {
   ];
   dataMapMoObj.addIndexed(block);
 
+  const evenFunc = block.querySelector('.mob-accordion .footer-sub2');
+  const eventv2 = evenFunc.querySelector('.section-content1 .list-items2');
+  const eventv3 = eventv2.querySelector('.list-inneritem-1').children;
+  Array.from(eventv3).forEach((eventElem) => {
+    eventElem.querySelector('a').removeAttribute('href');
+    eventElem.addEventListener('click', (event) => {
+      const textCurr = event.target.textContent
+        .toLowerCase().replaceAll(' funds', '');
+      let joinstr = textCurr.split(' ').join('-').toLowerCase();
+      // console.log(joinstr);
+      if (joinstr === 'index') {
+        joinstr = 'index-funds';
+      }
+      dataMapMoObj.selectviewFunds = joinstr;
+
+      localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
+      const pathname = '/motilalfigma/our-funds';
+      window.location.href = `${window.location.origin}${pathname}`;
+    });
+  });
   // const logoContainers = document.querySelector('.footer-sub-cont1 .section-content1');
 
   // logoContainers.forEach((container) => {
@@ -173,31 +193,106 @@ export default async function decorate(block) {
   ).forEach((efthre) => {
     efthre.classList.add('footerthr');
   });
+  const footerContainer = document.querySelector('.footer-sub3 .icon img');
+
+  if (footerContainer) {
+    footerContainer.setAttribute('alt', 'QR code');
+    // const altTextMap = {
+    //   'footer-bar-code': 'QR code',
+    // };
+    // const imagesToFix = footerContainer.querySelectorAll('img[alt=""]');
+
+    // imagesToFix.forEach((image) => {
+    //   const { iconName } = image.dataset;
+
+    //   const altText = altTextMap[iconName];
+
+  //   if (altText) {
+  //     image.setAttribute('alt', altText);
+  //   }
+  // });
+  }
 
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
     await delay(2000);
     if (block.querySelector('#form-email') !== null) {
+      const elemObj = {};
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const formem = block.querySelector('#form-email');
+      formem.classList.add('email-imput');
       formem.addEventListener('input', (event) => {
         const closblock = event.target.closest('.footer');
+        elemObj.errorelm = closblock;
         if (closblock.querySelector('.errormsg') === null) {
           closblock.querySelector('.field-wrapper').append(span({ class: 'errormsg' }, 'Enter a valid email address'));
         }
         const inpval = event.target.value;
-        const inpelm = event.target.classList;
-        if (emailRegex.test(inpval)) {
-          closblock.querySelector('.errormsg').style.display = 'block';
+        const inpelm = event.target.parentElement.classList;
+        if (inpval.length < 1) {
           inpelm.remove('email-fail');
-          inpelm.add('email-success');
+          inpelm.remove('email-success');
+          closblock.querySelector('.errormsg').style.display = 'none';
+          formem.nextElementSibling.style.display = 'none';
+        } else if (emailRegex.test(inpval)) {
+          closblock.querySelector('.errormsg').style.display = 'none';
+          inpelm.remove('email-fail');
+          formem.nextElementSibling.style.display = 'none';
+          // inpelm.add('email-success');
         } else {
           closblock.querySelector('.errormsg').style.display = 'block';
           inpelm.add('email-fail');
-          inpelm.remove('email-success');
+          formem.nextElementSibling.style.display = 'block';
+          // inpelm.remove('email-success');
+        }
+      });
+      const wrapperimg = document.createElement('div');
+      wrapperimg.classList.add('wrapimgform');
+      wrapperimg.append(formem);
+      wrapperimg.append(img({
+        src: '/icons/error-cross.svg',
+        alt: 'Img',
+        class: 'crossimg',
+        onclick: () => {
+          formem.value = '';
+          formem.parentElement.classList.remove('email-fail');
+          elemObj.errorelm.querySelector('.errormsg').style.display = 'none';
+          formem.nextElementSibling.style.display = 'none';
+        },
+      }));
+      block.querySelector('.email-wrapper').append(wrapperimg);
+      block.querySelector('.submit-btn .button').addEventListener('click', () => {
+        if (emailRegex.test(formem.value)) {
+          elemObj.errorelm.querySelector('.errormsg').style.display = 'none';
+          formem.closest('.wrapimgform').classList
+            .remove('email-fail');
+          formem.closest('.wrapimgform').classList
+            .add('email-success');
+          formem.nextElementSibling.style.display = 'none';
         }
       });
     }
   }
   removeClassAfterDelay();
+}
+
+const container = document.querySelector('.footer-sub-cont3');
+
+if (container) {
+  const altTextMap = {
+    'footer-bar-code': 'QR code for app download',
+    'Playstore-footer': 'Google Play Store icon',
+    'Apple-footer': 'Apple App Store icon',
+  };
+
+  const images = container.querySelectorAll('img');
+
+  images.forEach((image) => {
+    const { iconName } = image.dataset;
+
+    const altText = altTextMap[iconName];
+    if (altText) {
+      image.setAttribute('alt', altText);
+    }
+  });
 }

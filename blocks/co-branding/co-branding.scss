@@ -9,9 +9,10 @@
     height: 100%;
     background-color: var(--neutrals-white);
 
-    @include media(mobile){
+    @include media(mobile) {
       border-radius: 24px 24px 0 0;
       max-width: 100%;
+      padding-bottom: 24px;
     }
 
     .crossparbtn {
@@ -24,7 +25,7 @@
       z-index: 10;
       cursor: pointer;
 
-      @include media(mobile){
+      @include media(mobile) {
         right: 9px;
       }
 
@@ -46,13 +47,11 @@
     .co-heading {
       margin: 0 95px 44px 0;
 
-      @include font-style(
-        var(--sub-header-medium-size),
+      @include font-style(var(--sub-header-medium-size),
         var(--sub-header-medium-line-height),
         var(--blue-1-800-primary),
         map.get($font-weights, medium),
-        var(--body)
-      );
+        var(--body));
 
       @include media(mobile) {
         margin: 0 0 40px;
@@ -62,6 +61,7 @@
     }
 
     .cobrand {
+
       &-form,
       &-field {
         display: flex;
@@ -90,13 +90,11 @@
       }
 
       &-label {
-        @include font-style(
-          var(--label-small-size),
+        @include font-style(var(--label-small-size),
           var(--label-small-line-height),
           var(--text-body),
           map.get($font-weights, regular),
-          var(--body)
-        );
+          var(--body));
 
         width: max-content;
         background-color: var(--neutrals-white);
@@ -112,17 +110,15 @@
       }
 
       &-input {
-        padding: var(--spacing-10) var(--spacing-12);
+        padding: var(--spacing-8) var(--spacing-12);
         border-radius: var(--border-radius-8);
         border: var(--border-width-01) solid var(--strokes-default);
 
-        @include font-style(
-          var(--body-medium-regular-size),
+        @include font-style(var(--body-medium-regular-size),
           var(--body-medium-regular-line-height),
           var(--text-typed-input),
           map.get($font-weights, regular),
-          var(--body)
-        );
+          var(--body));
 
         @include media(mobile) {
           font-size: var(--body-medium-regular-size);
@@ -132,18 +128,21 @@
 
       &-btns {
         display: flex;
-        gap: 12px;
+        gap: 16px;
         margin: 48px 0 40px;
+
+        @include media(mobile) {
+          gap: 12px;
+          height: 40px;
+        }
 
         .share,
         .download {
-          @include font-style(
-            var(--button-medium-size),
+          @include font-style(var(--button-medium-size),
             var(--button-medium-line-height),
             var(--text-button-default),
             map.get($font-weights, medium),
-            var(--body)
-          );
+            var(--body));
 
           border: none;
           border-radius: var(--border-radius-8);
@@ -153,10 +152,18 @@
           width: 100%;
           background-color: transparent;
           cursor: pointer;
+          max-width: 176px;
+          width: 100%;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           @include media(mobile) {
             font-size: var(--button-medium-size);
             line-height: var(--button-medium-line-height);
+            max-width: 164px;
+            width: 100%;
           }
         }
 
@@ -175,7 +182,7 @@
 
         .co-diclaimer,
         .co-listname {
-          @include font-style(var(--paragraph-xsmall-size), var(--paragraph-xsmall-line-height), var(--blue-1-800-primary), map.get($font-weights, regular), $poppins);
+          @include font-style(var(--paragraph-xsmall-size), var(--paragraph-xsmall-line-height), var(--blue-1-800-primary), map.get($font-weights, regular), var(--body));
 
           margin: 0;
         }
@@ -197,12 +204,12 @@
 
 
 
-.modal-journey{
-  .modal-content{
-.section.co-branding-container{
-margin-top: 0;
-}
-}
+.modal-journey {
+  .modal-content {
+    .section.co-branding-container {
+      margin-top: 0;
+    }
+  }
 }
 
 
@@ -221,6 +228,13 @@ margin-top: 0;
     justify-content: end;
     overflow: hidden;
 
+    @include media(mobile) {
+      &::backdrop {
+        background-color: var(--neutrals-black);
+        opacity: 0.7;
+      }
+    }
+
     .modal-content {
       padding: 0;
       position: relative;
@@ -234,7 +248,7 @@ margin-top: 0;
 
       @include media(mobile) {
         max-width: 100%;
-        height: 90vh;
+        height: 76vh;
         border-radius: 24px 24px 0 0;
       }
     }
