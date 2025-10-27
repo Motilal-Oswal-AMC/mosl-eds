@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins"as *;
-@use "../../styles/common-theme/css/fluid-typography"as *;
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section.our-experts-container {
     margin-bottom: 0;
@@ -104,10 +104,16 @@
                         }
                     }
 
-                    .our-expert-sub2 {
-                        display: flex;
-                        align-items: center;
-                        gap: 8px;
+          .our-expert-sub2 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            @include media(mobile) {
+              max-width: 350px;
+              width: 100%;
+              overflow: auto;
+            }
 
                         .expert-lists1 {
                             display: flex;
@@ -121,17 +127,17 @@
                             font-weight: 500;
                             line-height: var(--body-small-medium-line-height);
 
-                            .icon {
-                                width: 16px;
-                                height: 16px;
-                                aspect-ratio: 1/1;
-                            }
-                        }
+              .icon {
+                width: 16px;
+                height: 16px;
+                aspect-ratio: 1/1;
+              }
+            }
 
-                        li {
-                            display: flex;
-                            align-items: center;
-                            gap: 8px;
+            li {
+              display: flex;
+              align-items: center;
+              gap: 8px;
 
                             a {
                                 color: #2E2A94;
@@ -161,14 +167,13 @@
                         }
                     }
 
-                    .our-expert-sub3 {
-                        display: none;
-                    }
-                }
-
-            }
+          .our-expert-sub3 {
+            display: none;
+          }
         }
+      }
     }
+  }
 }
 
 .section.out-expert-listing.our-experts-container {

@@ -97,6 +97,11 @@
   font-family: var(--body);
   font-size: var(--body-medium-regular-size, 16px);
   font-style: normal;
+  font-size: var(--body-medium-regular-size);
+  line-height: var(--body-medium-regular-line-height);
+  color: var(--text-body-2);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height, 20px);
 }
@@ -108,6 +113,7 @@
 }
 
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 .expert-lists1 {
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -116,6 +122,11 @@
   font-family: var(--body);
   font-size: var(--body-small-medium-size);
   font-style: normal;
+  font-size: var(--body-small-medium-size);
+  line-height: var(--body-small-medium-line-height);
+  color: var(--neutrals-black);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   line-height: var(--body-small-medium-line-height);
 }
@@ -138,6 +149,11 @@
   font-family: var(--body);
   font-size: var(--text-link-xsmall-size);
   font-style: normal;
+  font-size: var(--text-link-xsmall-size);
+  line-height: var(--text-link-xsmall-line-height);
+  color: var(--blue-1-800-primary);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   line-height: var(--text-link-xsmall-line-height, 16px);
   text-decoration-line: underline;
