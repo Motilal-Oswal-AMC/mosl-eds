@@ -320,6 +320,7 @@ $breakpoint-tablet: 900px;
 
                     .cards-card-body {
                         margin: 0;
+                        position: relative;
 
                         h2.pms-choose-detail-sublist1 {
                             color: var(--blue-1-800-primary);
@@ -355,6 +356,22 @@ $breakpoint-tablet: 900px;
                                 line-height: var(--paragraph-medium-line-height);
                             }
                         }
+                        
+                        p.pms-choose-detail-sublist3{
+                            position: absolute;
+                            top: -26px;
+                            left: -37px;
+                            margin: 0;
+                                
+                            .pms-choose-detail-cls1{
+                                width: 84px;
+                                height: 89px;
+
+                                img{
+                                    object-fit: unset;
+                                    }
+                                }
+                            }
                     }
                 }
             }
