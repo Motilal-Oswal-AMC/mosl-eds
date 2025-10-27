@@ -1013,6 +1013,9 @@ export default function decorate(block) {
   document.addEventListener('click', (event) => {
     const dropdownmidle = block.querySelector('.dropdownmidle');
     const dropdown = block.querySelector('.dropdown');
+    const mainblk = block.closest('main');
+    const dropbk = mainblk.querySelector('.fdp-card-container .item2-ul');
+    const dropsel = mainblk.querySelector('.fdp-card-container .selectedtext-fdp');
     // const temp = block.closest('body').querySelector('.breadcrumbs-fdp');
     // const sharlist = temp.querySelector('.innerbreadcrb2');
     if (!dropdownmidle.contains(event.target)) {
@@ -1024,6 +1027,13 @@ export default function decorate(block) {
       dropdown
         .querySelector('.dropdownlist')
         .classList.remove('dropdown-active');
+    }
+    if (!dropbk.contains(event.target)
+      && !dropsel.contains(event.target)) {
+      mainblk.querySelector('.fdp-card-container .item2-ul')
+        .style.display = 'none';
+      dropsel.classList.remove('active');
+      mainblk.closest('body').style.overflow = 'unset';
     }
     // if (!sharlist.contains(event.target)) {
     //   sharlist.querySelector('.breadcrbmain2').style.display = 'none';
