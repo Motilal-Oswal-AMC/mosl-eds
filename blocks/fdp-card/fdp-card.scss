@@ -37,6 +37,7 @@ main {
       position: sticky;
       top: 209px;
       padding: 0;
+      overflow-y: auto;
 
       @include media(mobile) {
         max-width: 100%;
@@ -71,7 +72,7 @@ main {
           z-index: 5;
           max-width: 340px;
           width: 100%;
-          max-height: 193px;
+          max-height: 125px;
           overflow: auto;
           margin: 3px 0 0;
           background-color: $primary-white;
@@ -301,9 +302,9 @@ main {
 
             .label-text {
               .selecttext {
-                margin: 8px 0;
+                margin: 0;
 
-                // padding: 8px 0;
+                padding: 8px 0;
                 display: flex;
                 align-items: center;
                 gap: 8px;
@@ -816,9 +817,9 @@ main {
           height: unset;
           display: block;
 
-          &.tab-li-item2 {
-            padding-top: 0;
-          }
+          // &.tab-li-item2 {
+          //   padding-top: 0;
+          // }
         }
 
         // padding: var(--spacing-10) var(--spacing-none);
@@ -912,7 +913,7 @@ main {
 
         // top: 27%;
         top: 179px;
-        z-index: 100;
+        z-index: 99;
 
         &::after {
           content: "";
@@ -1246,7 +1247,7 @@ main {
   height: 100%;
   position: sticky;
   bottom: 0;
-  z-index: 100;
+  z-index: 99;
   background: var(--neutrals-white, #FFF);
   box-shadow: -25px -1px 214px 0 rgb(0 0 0 / 15%);
 

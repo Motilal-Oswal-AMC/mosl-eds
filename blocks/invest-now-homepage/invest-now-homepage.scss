@@ -728,64 +728,108 @@
                             height: 16px;
                           }
 
-                          .tooltip-wrap {
+                          .tooltip-container {
                             position: absolute;
                             top: 50%;
                             transform: translateY(-50%);
                             right: calc(100% + 2px);
                             margin-right: 8px;
-                            background-color: var(--surface-background-neutral-subtle);
-                            border-radius: var(--border-radius-8);
-                            box-shadow: 0 6px 16px 0 rgb(0 0 0 / 16%);
-                            padding: var(--spacing-12);
-                            width: 272px;
                             z-index: 2;
+                            width: 272px;
                             display: none;
 
-                            &::after {
-                              content: "";
-                              border-left: 8px solid var(--surface-background-neutral-subtle);
-                              border-top: 8px solid transparent;
-                              border-bottom: 8px solid transparent;
-                              width: 8px;
-                              height: 8px;
-                              display: block;
-                              position: absolute;
-                              top: 50%;
-                              transform: translateY(-50%);
-                              left: 100%;
+                            @include media(mobile) {
+                              position: fixed;
+                              top: unset;
+                              transform: unset;
+                              width: 100%;
+                              height: 100%;
+                              bottom: 0;
+                              right: 0;
+                              left: 0;
+                              margin: 0 auto;
+                              justify-content: center;
+                              align-items: end;
+                              background-color: rgb(0 0 0 / 70%);
                             }
 
-                            .tooltip-text {
-                              margin: 0;
+                            .tooltip-wrap {
+                              background-color: var(--surface-background-neutral-subtle);
+                              border-radius: var(--border-radius-8);
+                              box-shadow: 0 6px 16px 0 rgb(0 0 0 / 16%);
+                              padding: var(--spacing-12);
 
-                              @include font-style(
-                                var(--body-small-regular-size),
-                                var(--label-large-line-height),
-                                var(--neutrals-900),
-                                400,
-                                var(--body)
-                              );
-
-                              @include media(mobile) {
-                                color: var(--neutrals-800);
-                                font-size: var(--paragraph-medium-size);
-                                line-height: var(--paragraph-medium-line-height);
-                              }
-                            }
-
-                            .tooltip-btn-mob {
-                              display: none;
-
-                              @include media(mobile) {
+                              &::after {
+                                content: "";
+                                border-left: 8px solid var(--surface-background-neutral-subtle);
+                                border-top: 8px solid transparent;
+                                border-bottom: 8px solid transparent;
+                                width: 8px;
+                                height: 8px;
                                 display: block;
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                left: 100%;
+                              }
+
+                              @include media(mobile) {
+                                border-radius: 24px 24px 0 0;
+                                box-shadow: none;
+                                padding: var(--spacing-24) 24px 12px;
+
+                                &::after {
+                                  content: unset;
+                                }
+                              }
+
+                              .tooltip-text {
+                                margin: 0;
+
+                                @include font-style(
+                                  var(--body-small-regular-size),
+                                  var(--label-large-line-height),
+                                  var(--neutrals-900),
+                                  400,
+                                  var(--body)
+                                );
+
+                                @include media(mobile) {
+                                  color: var(--neutrals-800);
+                                  font-size: var(--paragraph-medium-size);
+                                  line-height: var(--paragraph-medium-line-height);
+                                  padding: 0 0 var(--spacing-16);
+                                }
+                              }
+
+                              .tooltip-btn-mob {
+                                display: none;
+
+                                @include media(mobile) {
+                                  display: block;
+                                  margin: 12px 0 0;
+                                  width: 100%;
+                                  padding: 12px var(--spacing-12);
+                                  border-radius: var(--border-radius-8);
+                                  border: 1px solid var(--button-primary-default);
+                                  background-color: transparent;
+                                  cursor: pointer;
+
+                                  @include font-style(
+                                    var(--button-medium-size),
+                                    var(--button-medium-line-height),
+                                    var(--text-button-default),
+                                    500,
+                                    var(--body)
+                                  );
+                                }
                               }
                             }
                           }
 
                           &:hover {
-                            .tooltip-wrap {
-                              display: block;
+                            .tooltip-container {
+                              display: flex;
                             }
                           }
                         }

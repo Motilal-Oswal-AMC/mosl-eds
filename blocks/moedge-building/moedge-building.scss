@@ -53,6 +53,8 @@
                 display: flex;
                 flex-direction: column;
                 flex-grow: 1;
+
+                // padding-bottom: 24px;
             }
 
             .moedge-build-inner-text1 {
@@ -68,13 +70,13 @@
                     margin: 0;
                     display: flex;
                     height: 24px;
-                    padding: 0 var(--spacing-12);
+                    padding: 0 var(--spacing-8);
                     align-items: center;
                     gap: 4px;
                     border-radius: var(--border-radius-circle);
                     border: 1px solid var(--strokes-default);
                     color: var(--blue-1800-primary, #2E2A94);
-                    font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                    font-feature-settings: var(--font-features-default);
                     font-family: var(--body, Inter);
                     font-size: var(--label-small-size, 12px);
                     font-style: normal;
@@ -82,8 +84,8 @@
                     line-height: var(--label-small-line-height, 16px);
 
                     span {
-                        width: 20px;
-                        height: 20px;
+                        width: 16px;
+                        height: 16px;
                     }
                 }
 
@@ -99,7 +101,7 @@
                     align-items: center;
                     gap: 4px;
                     color: var(--neutrals-700, #616161);
-                    font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                    font-feature-settings: var(--font-features-default);
                     font-family: var(--body, Inter);
                     font-size: var(--label-small-size, 12px);
                     font-style: normal;
@@ -110,6 +112,7 @@
                         width: 12px;
                         height: 12px;
                         aspect-ratio: 1/1;
+                        margin-left: 4px;
                     }
 
                     &::before {
@@ -134,7 +137,7 @@
 
                     .button {
                         color: #2E2A94;
-                        font-feature-settings: var(--font-feature-setting);
+                        font-feature-settings: var(--font-features-default);
                         font-family: var(--body);
                         font-size: var(--body-large-medium-size);
                         font-style: normal;
@@ -145,6 +148,10 @@
                         border-radius: inherit;
                         margin: 0;
                         padding: 0;
+                        text-align: left;
+                        word-break: auto-phrase;
+                        white-space: unset;
+                        overflow: unset;
 
                         &:hover {
                             color: var(--link-color);
@@ -158,12 +165,10 @@
 
                 .moedge-build-list1 {
                     color: #616161;
-                    font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
-                    font-family: var(--body);
-                    font-size: var(--body-medium-regular-size);
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: var(--body-medium-regular-line-height, 24px);
+                    font-family: var(--body, inter);
+                    font-feature-settings: var(--font-features-default);
+                    font-size: var(--paragraph-small-size);
+                    line-height: var(--paragraph-small-line-height);
                     margin: 0;
                 }
             }
@@ -177,7 +182,7 @@
                     .moedge-build-list-content1 {
                         background-color: transparent;
                         color: #2E2A94;
-                        font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                        font-feature-settings: var(--font-features-default);
                         font-family: var(--body);
                         font-size: 14px;
                         font-style: normal;
@@ -188,7 +193,7 @@
                         text-decoration-skip-ink: auto;
                         text-decoration-thickness: auto;
                         text-underline-position: from-font;
-                        border: navajowhite;
+                        border: none;
                         border-radius: unset;
                         margin: 0;
                         padding: 0;
@@ -212,6 +217,44 @@
     .moedge-building>div {
         max-width: 32.45%;
         flex: 0 0 32.45%;
+
+        .moedge-build-sec1 {
+            height: 220px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: var(--border-radius-8);
+                background: lightgray 50% / cover no-repeat;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .moedge-build-sec3 {
+            .moedge-build-inner-text1 {
+                >.moedge-build-list1 {
+                    padding: 0 var(--spacing-12);
+                    gap: 4px;
+
+                    span {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+            .moedge-build-inner-text3 {
+                .moedge-build-list1 {
+                    font-size: var(--body-medium-regular-size);
+                    line-height: var(--body-medium-regular-line-height);
+                }
+            }
+
+            >.moedge-build-sub1 {
+                padding-bottom: 24px;
+            }
+        }
     }
 
     .learn-about.moedge-building>div {
@@ -223,20 +266,31 @@
 // learn-about moedge-building-container cards css 
 
 .learn-about.moedge-building-container {
-    margin-bottom: 80px;
+    margin-bottom: 24px;
 
     .moedge-building {
         &>div {
             flex-direction: column;
 
-            // .moedge-build-sec1 {}
+            .moedge-build-sec1 {
+                img {
+                    border-radius: var(--border-radius-8);
+                    background: lightgray 0 -0.156px / 100% 127.052% no-repeat;
+                    object-position: top;
+                }
+            }
+
+            .moedge-build-sec3 {
+                padding-top: 16px;
+            }
         }
     }
-
 }
 
 @media (width >=900px) {
     .learn-about.moedge-building-container {
+        margin-bottom: 40px;
+
         .moedge-building>div {
             max-width: 100%;
             flex: 0 0 100%;
@@ -246,6 +300,13 @@
 
         .moedge-build-sec1 {
             flex: 0 0 49.3%;
+            height: auto;
+
+            img {
+                border-radius: var(--border-radius-8);
+                background: lightgray 0 -0.156px / 100% 127.052% no-repeat;
+                object-position: top;
+            }
         }
 
         .moedge-build-sec3 {
@@ -265,9 +326,35 @@
 // in-the-news moedge-building-container css start 
 
 .in-the-news.moedge-building-container {
+    position: relative;
+
     .moedge-building {
+        gap: 16px;
+        row-gap: 40px;
+
+        @include media (mobile) {
+            padding-bottom: 80px;
+            gap: unset;
+        }
+
         &>div {
             gap: 24px;
+
+            .moedge-build-sec1 {
+                display: none;
+            }
+
+            .moedge-build-sec3 {
+                .moedge-build-inner-text4 {
+                    p {
+                        line-height: 0;
+                    }
+                }
+
+                .moedge-build-sub1 {
+                    padding: 24px 0;
+                }
+            }
         }
     }
 
@@ -278,16 +365,30 @@
         align-self: stretch;
         margin-bottom: 40px;
 
+        @include media (mobile) {
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
         h4 {
             margin: 0;
             padding: 0;
             color: var(--blue-1800-primary, #2E2A94);
-            font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+            font-feature-settings: var(--font-features-default);
             font-family: var(--title, Inter);
             font-size: var(--heading-h4-size, 32px);
             font-style: normal;
             font-weight: 600;
             line-height: var(--heading-h4-line-height, 40px);
+
+            @include media (mobile) {
+                width: 100%;
+                text-align: left;
+                font-size: var(--heading-h5-size);
+                font-style: normal;
+                font-weight: 600;
+                line-height: var(--sub-header-large-line-height);
+            }
         }
 
         p.button-container {
@@ -302,19 +403,26 @@
             background: var(--button-primary-default, #2E2A94);
             margin: 0;
 
+            @include media(mobile) {
+                position: absolute;
+                bottom: 0;
+            }
+
             a.button {
                 color: var(--text-white, #FFF);
                 text-align: center;
-                font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                font-feature-settings: var(--font-features-default);
                 font-family: var(--body);
-                font-size: var(--button-medium-size, 16px);
+                font-size: var(--button-medium-size);
                 font-style: normal;
                 font-weight: 500;
-                line-height: var(--button-medium-line-height, 20px);
+                line-height: var(--button-medium-line-height);
                 background: transparent;
                 margin: 0;
                 padding: 0;
                 border: unset;
+                border-radius: unset;
+
             }
         }
     }
@@ -341,7 +449,7 @@
             align-items: center;
             gap: 10px;
 
-            li.comlist {
+            li {
                 display: flex;
                 width: 164px;
                 height: 40px;
@@ -356,7 +464,7 @@
                     color: var(--text-white);
                     background-color: transparent;
                     text-align: center;
-                    font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                    font-feature-settings: var(--font-features-default);
                     font-family: var(--body);
                     font-size: var(--button-medium-size, 16px);
                     font-style: normal;
@@ -367,9 +475,9 @@
                     border: none;
                     border-radius: unset;
 
-                    @include media(mobile) {
-                        margin-bottom: 24px;
-                    }
+                    // @include media(mobile) {
+                    //     margin-bottom: 24px;
+                    // }
                 }
             }
 
@@ -378,5 +486,29 @@
             }
         }
 
+    }
+}
+
+.popular-artical.building-moedge {
+    @include media (mobile) {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .default-content-wrapper:last-of-type {
+        @include media (mobile) {
+            padding: 0;
+            padding: 48px 0 12px;
+        }
+
+        ul {
+            @include media (mobile) {
+                padding: 0;
+            }
+        }
+    }
+
+    h3 {
+        display: none;
     }
 }
