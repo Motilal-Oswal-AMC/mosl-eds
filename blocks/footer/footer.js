@@ -217,31 +217,59 @@ export default async function decorate(block) {
   async function removeClassAfterDelay() {
     await delay(2000);
     if (block.querySelector('#form-email') !== null) {
+      const elemObj = {};
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const formem = block.querySelector('#form-email');
       formem.classList.add('email-imput');
       formem.addEventListener('input', (event) => {
         const closblock = event.target.closest('.footer');
+        elemObj.errorelm = closblock;
         if (closblock.querySelector('.errormsg') === null) {
           closblock.querySelector('.field-wrapper').append(span({ class: 'errormsg' }, 'Enter a valid email address'));
         }
         const inpval = event.target.value;
-        const inpelm = event.target.classList;
-        if (emailRegex.test(inpval)) {
-          closblock.querySelector('.errormsg').style.display = 'block';
+        const inpelm = event.target.parentElement.classList;
+        if (inpval.length < 1) {
           inpelm.remove('email-fail');
-          inpelm.add('email-success');
+          closblock.querySelector('.errormsg').style.display = 'none';
+          formem.nextElementSibling.style.display = 'none';
+        } else if (emailRegex.test(inpval)) {
+          closblock.querySelector('.errormsg').style.display = 'none';
+          inpelm.remove('email-fail');
+          formem.nextElementSibling.style.display = 'none';
+          // inpelm.add('email-success');
         } else {
           closblock.querySelector('.errormsg').style.display = 'block';
           inpelm.add('email-fail');
-          inpelm.remove('email-success');
+          formem.nextElementSibling.style.display = 'block';
+          // inpelm.remove('email-success');
         }
       });
       const wrapperimg = document.createElement('div');
       wrapperimg.classList.add('wrapimgform');
       wrapperimg.append(formem);
-      wrapperimg.append(img({ src: '/icons/error-cross.svg', alt: 'Img', class: 'crossimg' }));
+      wrapperimg.append(img({
+        src: '/icons/error-cross.svg',
+        alt: 'Img',
+        class: 'crossimg',
+        onclick: () => {
+          formem.value = '';
+          formem.parentElement.classList.remove('email-fail');
+          elemObj.errorelm.querySelector('.errormsg').style.display = 'none';
+          formem.nextElementSibling.style.display = 'none';
+        },
+      }));
       block.querySelector('.email-wrapper').append(wrapperimg);
+      block.querySelector('.submit-btn .button').addEventListener('click', () => {
+        if (emailRegex.test(formem.value)) {
+          elemObj.errorelm.querySelector('.errormsg').style.display = 'none';
+          formem.closest('.wrapimgform').classList
+            .remove('email-fail');
+          formem.closest('.wrapimgform').classList
+            .add('email-success');
+          formem.nextElementSibling.style.display = 'none';
+        }
+      });
     }
   }
   removeClassAfterDelay();
