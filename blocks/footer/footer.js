@@ -231,6 +231,7 @@ export default async function decorate(block) {
         const inpelm = event.target.parentElement.classList;
         if (inpval.length < 1) {
           inpelm.remove('email-fail');
+          inpelm.remove('email-success');
           closblock.querySelector('.errormsg').style.display = 'none';
           formem.nextElementSibling.style.display = 'none';
         } else if (emailRegex.test(inpval)) {
