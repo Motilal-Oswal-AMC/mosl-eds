@@ -240,8 +240,7 @@
                                 margin-left: 5px;
                             }
 
-                            .wrapimgform.email-fail,
-                            .wrapimgform.email-success {
+                            .wrapimgform.email-fail{
                                 border: var(--border-width-01) solid #ff8088;
 
                                 // padding: 10px 40px 10px 12px;
@@ -263,7 +262,7 @@
                                 // }
                             }
 
-                            input.email-success {
+                            .wrapimgform.email-success {
                                 border: var(--border-width-01) solid #00c35d;
                                 background: url("../../icons/success-cross.svg") no-repeat right 12px center;
 
@@ -759,15 +758,14 @@
                                         margin-left: 5px;
                                     }
 
-                                    .wrapimgform.email-fail,
-                                    .wrapimgform.email-success {
+                                    .wrapimgform.email-fail{
                                         border: var(--border-width-01) solid #ff8088;
 
                                         // padding: 10px 40px 10px 12px;
                                         background: url("../../icons/error-cross.svg") no-repeat right 12px center;
                                     }
 
-                                    input.email-success {
+                                    .wrapimgform.email-success {
                                         border: var(--border-width-01) solid #00c35d;
                                         background: url("../../icons/success-cross.svg") no-repeat right 12px center;
 
