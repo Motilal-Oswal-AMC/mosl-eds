@@ -1299,7 +1299,6 @@ export default function decorate(block) {
       const tbodymain = tbody({ class: 'sip-tbody-lt' },
         ...tbodyrow.map((bodyrow)=>{
           const bodyrowul = bodyrow.querySelector('.table-list');
-          // if (bodyrowul.children.length != 0 ) {
             const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
             if (bodyrowuldata.length === 1) {
               return tr ({ class: 'ltbody-row' }, 
@@ -1312,11 +1311,6 @@ export default function decorate(block) {
                 })
               )
             }
-          // }else{
-          //   return tr ({ class: 'ltbody-row' }, 
-          //     td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan}, bodyrowul.textContent),
-          //   )
-          // }
         })
       );
       
