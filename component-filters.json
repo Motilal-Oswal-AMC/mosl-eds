@@ -56,7 +56,10 @@
       "login-page",
       "login-image-item",
       "step-up-block",
-      "contact-us-map"
+      "contact-us-map",
+      "investing-terms",
+      "global-dashboard",
+      "our-service"
     ]
   },
   {
@@ -170,6 +173,26 @@
     "id": "login-page",
     "components": [
       "login-rt-item"
+    ]
+  },
+  {
+    "id": "investing-terms",
+    "components": [
+      "investing-image-item",
+      "investing-text-item"
+    ]
+  },
+  {
+    "id": "global-dashboard",
+    "components": [
+      "global-image-item",
+      "global-text-item"
+    ]
+  },
+  {
+    "id": "our-service",
+    "components": [
+      "our-service-item"
     ]
   }
 ]
