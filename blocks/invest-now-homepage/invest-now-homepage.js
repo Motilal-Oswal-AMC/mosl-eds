@@ -1348,8 +1348,13 @@ export default function decorate(block) {
     dataMapMoObj.addIndexed(modeltwo);
     const mod5 = mainclass.querySelector('.modal-stepup-two .icon-modal-cross-btn');
     mod5.addEventListener('click', () => {
-      mainclass.querySelector('.modal-stepup-two')
-        .style.display = 'none';
+      modeltwo.style.display = 'none';
+    });
+    
+    const backDisc = mainclass.querySelector('.modal-stepup-two .modeltwosub1');
+    backDisc.addEventListener('click', () => {
+      modeltwo.style.display = 'none';
+      modalstepOne.style.display = 'flex';
     });
   }
   if (mainclass.querySelector('.added-fund-cart')) {
