@@ -1950,11 +1950,15 @@
     padding: 24px;
     position: relative;
     min-height: 512px;
-    height: 512px;
-    
+    height: max-content;
+
     // overflow: auto;
     max-width: 74.942%;
     width: 100%;
+    
+    @include media(tab){
+      max-width: 95%;
+    }
 
     @include media(mobile) {
       min-height: unset;

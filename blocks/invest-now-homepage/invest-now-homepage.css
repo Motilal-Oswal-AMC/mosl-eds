@@ -1670,9 +1670,15 @@
   padding: 24px;
   position: relative;
   min-height: 512px;
-  height: 512px;
+  height: -moz-max-content;
+  height: max-content;
   max-width: 74.942%;
   width: 100%;
+}
+@media (max-width: 1025px) {
+  .modal-stepup-one .modelonemain1 {
+    max-width: 95%;
+  }
 }
 @media (max-width: 768px) {
   .modal-stepup-one .modelonemain1 {
