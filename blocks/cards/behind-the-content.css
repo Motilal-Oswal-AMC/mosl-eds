@@ -139,7 +139,7 @@
   }
   .behind-the-content > .default-content-wrapper:nth-child(1) p {
     font-size: var(--body-medium-regular-size);
-    line-height: var(--body-medium-regular-line-height);
+    line-height: 24px;
     max-width: 100%;
   }
   .behind-the-content .cards-wrapper {

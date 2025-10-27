@@ -197,7 +197,7 @@
   }
   .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text3 .moedge-build-list1 {
     font-size: var(--body-medium-regular-size);
-    line-height: var(--body-medium-regular-line-height);
+    line-height: 24px;
   }
   .moedge-building > div .moedge-build-sec3 > .moedge-build-sub1 {
     padding-bottom: 24px;
@@ -233,6 +233,16 @@
     gap: 16px;
     flex-direction: unset;
   }
+  .learn-about.moedge-building-container .moedge-building > div .moedge-build-sec3 {
+    flex: 0 0 49.3%;
+    padding: 0;
+  }
+  .learn-about.moedge-building-container .moedge-building > div .moedge-build-sec3 .moedge-build-sub1 {
+    padding-top: 24px;
+  }
+  .learn-about.moedge-building-container .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text2 {
+    flex-grow: unset;
+  }
   .learn-about.moedge-building-container .moedge-build-sec1 {
     flex: 0 0 49.3%;
     height: auto;
@@ -242,15 +252,6 @@
     background: lightgray 0 -0.156px/100% 127.052% no-repeat;
     -o-object-position: top;
        object-position: top;
-  }
-  .learn-about.moedge-building-container .moedge-build-sec3 {
-    flex: 0 0 49.3%;
-  }
-  .learn-about.moedge-building-container .moedge-build-sec3 .moedge-build-sub1 {
-    padding-top: 24px;
-  }
-  .learn-about.moedge-building-container .moedge-build-sec3 .moedge-build-inner-text2 {
-    flex-grow: unset;
   }
 }
 .in-the-news.moedge-building-container {
@@ -306,7 +307,7 @@
   .in-the-news.moedge-building-container .default-content-wrapper h4 {
     width: 100%;
     text-align: left;
-    font-size: var(--heading-h5-size);
+    font-size: 28px;
     font-style: normal;
     font-weight: 600;
     line-height: var(--sub-header-large-line-height);
@@ -365,7 +366,7 @@
   align-items: center;
   gap: 10px;
 }
-.popular-artical.moedge-building-container .default-content-wrapper ul li {
+.popular-artical.moedge-building-container .default-content-wrapper ul li:first-child {
   display: flex;
   width: 164px;
   height: 40px;
@@ -376,7 +377,7 @@
   border-radius: var(--border-radius-8, 8px);
   background: var(--button-primary-default, #2E2A94);
 }
-.popular-artical.moedge-building-container .default-content-wrapper ul li a {
+.popular-artical.moedge-building-container .default-content-wrapper ul li:first-child a {
   color: var(--text-white);
   background-color: transparent;
   text-align: center;
