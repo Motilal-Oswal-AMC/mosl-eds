@@ -623,6 +623,23 @@ export default function decorate(block) {
         throw new Error('No chart data available.');
       }
 
+      if (JSON.stringify(cachedAPIData.data.response) === '{}') {
+        block.closest('.fdp-card-container')
+          .querySelector('.item2-ul').children[0].style.display = 'none';
+        const mop = [];
+        Array.from(block.closest('.fdp-card-container')
+          .querySelector('.item2-ul').children).forEach((el) => {
+          if (el.style.display !== 'none') {
+            mop.push(el.textContent.trim());
+          }
+        });
+        const selval = block.closest('.fdp-card-container');
+        const valp = mop[0];
+        selval.querySelector('.selectedtext-fdp').textContent = '';
+        selval.querySelector('.selectedtext-fdp').textContent = valp;
+        block.style.display = 'none';
+        return false;
+      }
       const key = Object.keys(cachedAPIData.data.response)[0];
       const chartArray = cachedAPIData.data.response[key];
 

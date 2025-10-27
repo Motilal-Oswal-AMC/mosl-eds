@@ -94,6 +94,8 @@ export default function decorate(block) {
   let textvalret = selectedReturn;
   if (returnYear !== 'Since Inception') {
     textvalret = returnYear.replace('Since', '');
+  } else if (firstReturnYear.length !== 0) {
+    textvalret = firstReturnYear;
   }
   dataMapMoObj.gropcodevalue = DirectPlanlistArr[0].groupedCode;
   dataMapMoObj.fundManagerDetails = cfObj[0].fundManager;
@@ -146,7 +148,7 @@ export default function decorate(block) {
             }
           },
         },
-        returnValue.length !== 0 ? dataMapMoObj.selectreturns : '',
+        returnValue.length !== 0 ? tempReturnsec[0] : '',
       ),
     );
     const drpyrs = ul(
@@ -195,13 +197,13 @@ export default function decorate(block) {
 
     if (navlistarray[0].nav_date !== undefined) {
       const navdateper = navlistarray[0].nav_date.replaceAll('-', ' ');
-      const navarrdate = navdateper.split(' ');
-      const navyear = navarrdate[2].slice(-2);
-      const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`;
+      const navarrdatev2 = navdateper.split(' ');
+      const navyearv2 = navarrdatev2[2].slice(-2);
+      const navdaterperv2 = `${navarrdatev2[0]} ${navarrdatev2[1]} ${navyearv2}`;
       const navdiv = middlediv.querySelector('.nav-return-grp .nav-label');
       navdiv.innerHTML = '';
       navdiv.append('NAV as on ');
-      navdiv.append(span({ class: 'nav-date' }, navdaterper));
+      navdiv.append(span({ class: 'nav-date' }, navdaterperv2));
 
       const navValue = middlediv.querySelector('.value-nav');
       navValue.innerHTML = '';
@@ -934,18 +936,18 @@ export default function decorate(block) {
     }
   });
 
-  document.addEventListener('scroll', () => {
-    // added for stky nav
-    const stkyNav = document.querySelector('.selectedtext-fdp');
-    const rect = stkyNav.getBoundingClientRect();
-    const isStuckAtTop = rect.top <= 180;
-    // const chikePostion = window.getComputedStyle(stkyNav);
-    if (isStuckAtTop && stkyNav.classList.contains('active')) {
-      item2Ul.closest('body').style.overflow = 'hidden';
-    } else {
-      item2Ul.closest('body').style.overflow = 'unset';
-    }
-  });
+  // document.addEventListener('scroll', () => {
+  //   // added for stky nav
+  //   const stkyNav = document.querySelector('.selectedtext-fdp');
+  //   const rect = stkyNav.getBoundingClientRect();
+  //   const isStuckAtTop = rect.top <= 180;
+  //   // const chikePostion = window.getComputedStyle(stkyNav);
+  //   if (isStuckAtTop && stkyNav.classList.contains('active')) {
+  //     item2Ul.closest('body').style.overflow = 'hidden';
+  //   } else {
+  //     item2Ul.closest('body').style.overflow = 'unset';
+  //   }
+  // });
 
   document.querySelectorAll('.table-wrapper').forEach((el) => {
     document.querySelector('.item2').append(el);
@@ -1028,12 +1030,16 @@ export default function decorate(block) {
         .querySelector('.dropdownlist')
         .classList.remove('dropdown-active');
     }
-    if (!dropbk.contains(event.target)
+    if (window.innerWidth < 768) {
+      if (!dropbk.contains(event.target)
       && !dropsel.contains(event.target)) {
-      mainblk.querySelector('.fdp-card-container .item2-ul')
-        .style.display = 'none';
-      dropsel.classList.remove('active');
-      mainblk.closest('body').style.overflow = 'unset';
+        if (mainblk.querySelector('.fdp-card-container .item2-ul').style.display === 'block') {
+          mainblk.querySelector('.fdp-card-container .item2-ul')
+            .style.display = 'none';
+          dropsel.classList.remove('active');
+          mainblk.closest('body').style.overflow = 'unset';
+        }
+      }
     }
     // if (!sharlist.contains(event.target)) {
     //   sharlist.querySelector('.breadcrbmain2').style.display = 'none';
