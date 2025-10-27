@@ -215,7 +215,7 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   autolinkVideo(doc);
   const main = doc.querySelector('main');
-  if (window.location.href.includes('/investor-education/all-articles/')) {
+  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/our-authors/')) {
     const maindiv = document.createElement('div');
     maindiv.classList.add('main-wrapper');
     maindiv.append(main.querySelector('.article-left-wrapper'));
