@@ -1299,18 +1299,24 @@ export default function decorate(block) {
       const tbodymain = tbody({ class: 'sip-tbody-lt' },
         ...tbodyrow.map((bodyrow)=>{
           const bodyrowul = bodyrow.querySelector('.table-list');
-          if (bodyrowul.children.length != 0 ) {
+          // if (bodyrowul.children.length != 0 ) {
             const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
-            return tr({ class: 'ltbody-row' },
-              ...Array.from(bodyrowuldata).map((bodyuldata, i)=>{
-                return td({ class:`lt-body lt-body-${i+1}` }, bodyuldata.textContent);
-              })
-            )
-          }else{
-            return tr ({ class: 'ltbody-row' }, 
-              td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan}, bodyrowul.textContent),
-            )
-          }
+            if (bodyrowuldata.length === 1) {
+              return tr ({ class: 'ltbody-row' }, 
+                td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan}, bodyrowul.textContent),
+              )
+            }else{
+              return tr({ class: 'ltbody-row' },
+                ...Array.from(bodyrowuldata).map((bodyuldata, i)=>{
+                  return td({ class:`lt-body lt-body-${i+1}` }, bodyuldata.textContent);
+                })
+              )
+            }
+          // }else{
+          //   return tr ({ class: 'ltbody-row' }, 
+          //     td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan}, bodyrowul.textContent),
+          //   )
+          // }
         })
       );
       

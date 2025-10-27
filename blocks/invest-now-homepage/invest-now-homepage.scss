@@ -1483,33 +1483,33 @@
             }
           }
 
-          .tooltip-box {
-            width: 324px;
+          // .tooltip-box {
+          //   width: 324px;
 
-            @include media(mobile) {
-              width: inherit;
-            }
+          //   @include media(mobile) {
+          //     width: inherit;
+          //   }
 
-            .tooltip-note {
-              color: #2e2a94;
-              font-family: $poppins;
-              font-size: 12px;
-              font-style: normal;
-              font-weight: 500;
-              line-height: 16px;
-              padding: 0;
-              margin: 0;
-            }
+          //   .tooltip-note {
+          //     color: #2e2a94;
+          //     font-family: $poppins;
+          //     font-size: 12px;
+          //     font-style: normal;
+          //     font-weight: 500;
+          //     line-height: 16px;
+          //     padding: 0;
+          //     margin: 0;
+          //   }
 
-            .tooltip-info {
-              color: #616161;
-              font-family: $poppins;
-              font-size: 12px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 16px;
-            }
-          }
+          //   .tooltip-info {
+          //     color: #616161;
+          //     font-family: $poppins;
+          //     font-size: 12px;
+          //     font-style: normal;
+          //     font-weight: 400;
+          //     line-height: 16px;
+          //   }
+          // }
 
           &.show {
             opacity: 1;
@@ -2052,7 +2052,7 @@
                       text-align: left;
                     }
 
-                    &-1 {
+                    &:first-of-type {
                       width: 92px;
                       border-radius: 16px 0 0;
 
@@ -2061,16 +2061,16 @@
                       }
                     }
 
+                    &:last-of-type {
+                      border-radius: 0 16px 0 0;
+                    }
+
                     &:not(&-1) {
                       width: 162px;
 
                       @include media(mobile) {
                         min-width: 140px;
                       }
-                    }
-
-                    &-3 {
-                      border-radius: 0 16px 0 0;
                     }
                   }
                 }
