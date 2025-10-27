@@ -1051,109 +1051,95 @@ export default function decorate(block) {
   ];
   dataMapMoObj.addIndexed(ulElement);
 
-  mainBlock
-    .querySelector('.subbreadcrb2')
-    .addEventListener('click', async (event) => {
-      const breadcrumb = document.querySelector('.breadcrbmain2');
-      if (event.target.textContent === 'Copy') {
-        const urlCopied = block
-          .closest('main')
-          .querySelector('.breadcrumbs-fdp .listindex5');
-        try {
-          const currentUrl = window.location.href;
-          await navigator.clipboard.writeText(currentUrl);
+  mainBlock.querySelector('.subbreadcrb2').addEventListener('click', async (event) => {
+    const breadcrumb = document.querySelector('.breadcrbmain2');
+    if (event.target.textContent === 'Copy') {
+      const urlCopied = block.closest('main').querySelector('.breadcrumbs-fdp .listindex5');
+      try {
+        const currentUrl = window.location.href;
+        await navigator.clipboard.writeText(currentUrl);
 
-          // Provide feedback to the user!
-          // alert('URL copied to clipboard!');
-          urlCopied.style.display = 'block';
-          setTimeout(() => {
-            urlCopied.style.display = 'none';
-            breadcrumb.style.display = 'none';
-          }, 1000);
-        } catch (err) {
-          // Catch potential errors and inform the user
-          // console.error('Failed to copy URL: ', err);
-          // //alert('Could not copy URL. Please make sure the window is focused.');
-          try {
-            const currentUrl = window.location.href;
-            await navigator.clipboard.writeText(currentUrl);
-
-            // Provide feedback to the user!
-            // alert('URL copied to clipboard!');
-            urlCopied.style.display = 'block';
-            setTimeout(() => {
-              urlCopied.style.display = 'none';
-              breadcrumb.style.display = 'none';
-            }, 1000);
-          } catch (err) {
-            // Catch potential errors and inform the user
-            // console.error('Failed to copy URL: ', err);
-            // //alert('Could not copy URL. Please make sure the window is focused.');
-            gAltmain.querySelector('.subbreadcrb2 .breadcrbmain2');
-
-            // Loop through children just to prepare them (e.g., remove href)
-            Array.from(shareContainer.children).forEach((listItem, index) => {
-              // Find the list item that contains the text 'Copy'
-              listItem.classList.add(`listindex${index + 1}`);
-              if (listItem.textContent.trim().includes('Copy')) {
-                const link = listItem.querySelector('a');
-                if (link) {
-                  link.removeAttribute('href');
-                  // Add a class or data-attribute for easier targeting
-                  listItem.dataset.action = 'copy';
-                }
-              }
-            });
-
-            // Add ONE event listener to the parent container
-            shareContainer.addEventListener('click', async (event) => {
-              // Find the list item that was actually clicked
-              const clickedItem = event.target.closest('[data-action="copy"]');
-
-              // If the click wasn't on our copy button, do nothing
-              if (!clickedItem) {
-                return false;
-              }
-
-              // Prevent default behavior, like navigating if the href wasn't removed
-              // event.preventDefault();
-            });
-
-            // plantext
-            block
-              .querySelector('.btn-wrapper')
-              .addEventListener('click', () => {
-                const plantext = block.querySelector('.middlediv .selecttext');
-                dataMapMoObj.planText = plantext.textContent.trim();
-              });
-
-            const redirect = mainBlock.querySelector(
-              '.fdp-card-container .fdp-card',
-            );
-            const redirectbrn = redirect.querySelector('.btn-wrapper a');
-            const link = redirectbrn.getAttribute('href');
-            const stky = mainBlock.querySelector('.fdp-sticky-nav');
-            const textVal = stky.querySelector('.sticky-sub-item2').textContent;
-            stky.querySelector('.sticky-sub-item2').innerHTML = '';
-            stky.querySelector('.sticky-sub-item2').append(
-              a(
-                {
-                  href: link,
-                  class: 'submit',
-                },
-                textVal,
-              ),
-            );
-            document.addEventListener('click', (event) => {
-              if (
-                !mainBlock.querySelector('.subbreadcrb2').contains(event.target)
-              ) {
-                const breadcrumb = document.querySelector('.breadcrbmain2');
-                breadcrumb.style.display = 'none';
-              }
-            });
-          }
-        }
+        // Provide feedback to the user!
+        // alert('URL copied to clipboard!');
+        urlCopied.style.display = 'block';
+        setTimeout(() => {
+          urlCopied.style.display = 'none';
+          breadcrumb.style.display = 'none';
+        }, 1000);
+      } catch (err) {
+        // Catch potential errors and inform the user
+        // console.error('Failed to copy URL: ', err);
+        // //alert('Could not copy URL. Please make sure the window is focused.');
+        urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
+        urlCopied.style.display = 'block';
+        setTimeout(() => {
+          urlCopied.style.display = 'none';
+        }, 1000);
       }
-    });
+      return false;
+    }
+    if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
+      breadcrumb.style.display = 'block';
+    } else {
+      breadcrumb.style.display = 'none';
+    }
+    return true;
+  });
+
+  const imgAltmain = block.closest('main');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb1 img'), 'callback');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb3 img'), 'portfolio-sheet');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
+  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
+
+  // Select the parent container once
+  const shareContainer = imgAltmain.querySelector('.subbreadcrb2 .breadcrbmain2');
+
+  // Loop through children just to prepare them (e.g., remove href)
+  Array.from(shareContainer.children).forEach((listItem, index) => {
+    // Find the list item that contains the text 'Copy'
+    listItem.classList.add(`listindex${index + 1}`);
+    if (listItem.textContent.trim().includes('Copy')) {
+      const link = listItem.querySelector('a');
+      if (link) {
+        link.removeAttribute('href');
+        // Add a class or data-attribute for easier targeting
+        listItem.dataset.action = 'copy';
+      }
+    }
+  });
+
+  // Add ONE event listener to the parent container
+  shareContainer.addEventListener('click', async (event) => {
+    // Find the list item that was actually clicked
+    const clickedItem = event.target.closest('[data-action="copy"]');
+
+    // If the click wasn't on our copy button, do nothing
+    if (!clickedItem) {
+      console.log('copy');
+    }
+  });
+
+  // plantext
+  block.querySelector('.btn-wrapper').addEventListener('click', () => {
+    const plantext = block.querySelector('.middlediv .selecttext');
+    dataMapMoObj.planText = plantext.textContent.trim();
+  });
+
+  const redirect = mainBlock.querySelector('.fdp-card-container .fdp-card');
+  const redirectbrn = redirect.querySelector('.btn-wrapper a');
+  const link = redirectbrn.getAttribute('href');
+  const stky = mainBlock.querySelector('.fdp-sticky-nav');
+  const textVal = stky.querySelector('.sticky-sub-item2').textContent;
+  stky.querySelector('.sticky-sub-item2').innerHTML = '';
+  stky.querySelector('.sticky-sub-item2').append(a({
+    href: link,
+    class: 'submit',
+  }, textVal));
+  document.addEventListener('click', (event) => {
+    if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
+      const breadcrumb = document.querySelector('.breadcrbmain2');
+      breadcrumb.style.display = 'none';
+    }
+  });
 }
