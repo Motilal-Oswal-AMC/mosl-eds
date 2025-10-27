@@ -194,6 +194,8 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
       schcodeactive = starEl.getAttribute('schcode');
     } else if (titleEl && titleEl.getAttribute('schcode')) {
       schcodeactive = titleEl.getAttribute('schcode');
+      dataMapMoObj.planText = cardWrapper.querySelector('.middlediv .selecttext')
+        .textContent.trim();
     }
   } else if (window.location.href.includes('/our-funds/')
     && localStorage.getItem('planCode')
