@@ -1,7 +1,4 @@
 @import "../../../styles/fonts.css";
-.start-building-container {
-  padding: 12px;
-}
 @media (max-width: 768px) {
   .start-building-container {
     padding: unset;
@@ -42,8 +39,8 @@
   align-items: flex-start;
   gap: 12px;
   margin: 0;
-  color: var(--neutrals-white, #FFF);
-  font-feature-settings: var(--font-feature-defult);
+  color: var(--neutrals-white);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-family: var(--title, inter);
   font-size: var(--sub-header-large-size, 24px);
   font-style: normal;
@@ -72,7 +69,7 @@
 }
 .start-building-container .start-building-wrapper .start-building .start-container1 .start-section1 h4 .icon img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 @media (max-width: 768px) {
   .start-building-container .start-building-wrapper .start-building .start-container1 .start-section1 h4 .icon img {
@@ -108,7 +105,7 @@
 }
 .start-building-container .start-building-wrapper .start-building .start-container1 .start-section1 .button-container .button {
   width: 100%;
-  padding: 12px;
+  padding: 10px 12px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -137,9 +134,6 @@
 }
 
 @media (width >= 900px) {
-  .start-building-container {
-    padding: 16px;
-  }
   .start-building-container .start-building-wrapper .start-building {
     flex-direction: row;
     justify-content: space-between;
@@ -181,12 +175,12 @@
     align-items: center;
     color: var(--neutrals-white);
     text-align: center;
-    font-feature-settings: var(--font-feature-defult);
+    font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-family: var(--title, inter);
-    font-size: var(--heading-h4-size, 32px);
+    font-size: var(--heading-h4-size);
     font-style: normal;
     font-weight: 600;
-    line-height: var(--heading-h4-line-height, 40px);
+    line-height: var(--heading-h4-line-height);
   }
   .start-building-container .start-building-wrapper .start-building .start-container1 .start-section1 h4 .icon {
     width: 64px;
