@@ -100,4 +100,19 @@ export default function decorate(block) {
       btn.setAttribute('alt-label', 'hidden');
     });
   }
+
+  // Investor Education article left and right wrapper
+  if (window.location.href.includes('/investor-education/all-articles/')) {
+    const maincloser = block.closest('main');
+    const rightSub = maincloser.querySelectorAll('.article-sub-right');
+    const rightarticle = maincloser.querySelector('.article-right-wrapper');
+    Array.from(rightSub).forEach((rightel) => {
+      rightarticle.append(rightel);
+    });
+    const leftSub = maincloser.querySelectorAll('.article-sub-left');
+    const leftarticle = maincloser.querySelector('.article-left-wrapper');
+    Array.from(leftSub).forEach((leftel) => {
+      leftarticle.append(leftel);
+    });
+  }
 }
