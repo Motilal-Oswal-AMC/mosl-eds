@@ -611,59 +611,100 @@ export default function decorate(block) {
 
   let currentSelectedText = '';
 
+  const left = document.querySelector('.fdp-card-wrapper');
+  if (!left) {
+    console.log('error');
+  } else {
+    function isInsideScrollable(el, stopAt) {
+      while (el && el !== stopAt) {
+        const style = window.getComputedStyle(el);
+        const overflowY = style.overflowY;
+        if (
+          (overflowY === 'auto' || overflowY === 'scroll') &&
+          el.scrollHeight > el.clientHeight
+        ) {
+          return true;
+        }
+        el = el.parentElement;
+      }
+      return false;
+    }
+
+    if (window.innerWidth >= 786) {
+      left.addEventListener('wheel', function (e) {
+      if (isInsideScrollable(e.target, left)) return;
+      const delta = e.deltaY;
+
+      const atTop = this.scrollTop <= 0;
+      const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 1;
+
+      if ((delta < 0 && !atTop) || (delta > 0 && !atBottom)) {
+        e.stopPropagation();
+      } else {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, { passive: false });
+    }
+  }
+
   // setting id on the sticky performance list
   Array.from(item2Ul.children).forEach((elchild) => {
     const link = elchild.querySelector('a');
     const hrefValue = link.getAttribute('href');
     const cleanId = hrefValue.replace('#', '');
     elchild.setAttribute('id', cleanId);
-  })
+  });
 
   const listItems = item2Ul.querySelectorAll('li[id]');
-  const sections = mainBlock.querySelector('main');
-  const sec = sections.querySelector('.fdp-card-container .item2');
+  // const sections = mainBlock.querySelector('main');
+  // const sec = sections.querySelector('.fdp-card-container .item2');
   // item2Ul.addEventListener('click', (e) => {
-  listItems.forEach(item => {
+  listItems.forEach((item) => {
     item.addEventListener('click', (e) => {
       if (window.innerWidth) {
         ptag.textContent = e.target.textContent;
         if (window.innerWidth <= 786) {
           item2Ul.style.display = 'none';
+          item2Ul.querySelector('.tab-li-item1').style.display = 'block';
         }
         // item2Ul.style.display = 'none';
-        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active')
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
         const targetId = item.id;
         // const targetSection = document.querySelector(`.section[data-id="${targetId}"]`);
         const sections = document.querySelectorAll('.section[data-id]');
         const targetSection = Array.from(sections).find(
-          sec => sec.dataset.id === targetId
+          (ele) => (ele.dataset.id === targetId),
         );
 
         if (targetSection) {
-
-          const nfoBanner = document.querySelector("#nav > div.section.nfo-banner");
+          const nfoBanner = document.querySelector('#nav > div.section.nfo-banner');
           const nfoHeight = nfoBanner ? nfoBanner.offsetHeight : 0;
-          const stickyHeader = document.querySelector("body > main > div.section.breadcrumbs-fdp.wrapper-fdp");
+          const stickyHeader = document.querySelector('body > main > div.section.breadcrumbs-fdp.wrapper-fdp');
           const stickyHeight = stickyHeader ? stickyHeader.offsetHeight : 65;
-          const dropdown = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p");
+          const dropdown = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > p');
           const dropdownHeight = dropdown ? dropdown.offsetHeight : 52;
 
-          const sipCal = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container");
-          const whyFund = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund");
-          const fundVideo = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-philosophy-video.fund-video-container");
-          const keyFacts = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.key-facts-container");
-          const portfolio = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.tabdiv.tabs-container");
-          const fundManager = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.our-funds-fdp-container");
-          const downloads = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.download.table-wrapper");
-          const contentLibrary = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.learning-fdp.future-building-container");
-          const peopleLike = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-card-slider-container");
-          const productLabel = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.product-label.fdp-risk-o-meter.risk-o-meter-container");
+          const performance = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.performance-graph-container");
+          const periodicReturn = document.querySelector("body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.periodicreturn.table-wrapper.tabs-container");
+          const sipCal = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container');
+          const whyFund = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund');
+          const fundVideo = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-philosophy-video.fund-video-container');
+          const keyFacts = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.key-facts-container');
+          const portfolio = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.tabdiv.tabs-container');
+          const fundManager = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.our-funds-fdp-container');
+          const downloads = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.download.table-wrapper');
+          const contentLibrary = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.learning-fdp.future-building-container');
+          const peopleLike = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.fund-card-slider-container');
+          const productLabel = document.querySelector('body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.product-label.fdp-risk-o-meter.risk-o-meter-container');
 
           const elementTop = targetSection.getBoundingClientRect().top + window.scrollY;
 
           let sectionKey;
 
           if (sipCal.contains(targetSection)) sectionKey = 'sipCal';
+          else if (performance.contains(targetSection)) sectionKey = 'performance';
+          else if (periodicReturn.contains(targetSection)) sectionKey = 'periodicReturn';
           else if (whyFund.contains(targetSection)) sectionKey = 'whyFund';
           else if (fundVideo.contains(targetSection)) sectionKey = 'fundVideo';
           else if (keyFacts.contains(targetSection)) sectionKey = 'keyFacts';
@@ -678,9 +719,21 @@ export default function decorate(block) {
             ? elementTop - nfoHeight - stickyHeight - dropdownHeight : 250;
 
           switch (sectionKey) {
+            case 'performance':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
+                : 10;
+              break;
+
             case 'sipCal':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
+                : 780;
+              break;
+
+            case 'periodicReturn':
+              scrollPosition = window.innerWidth <= 768
+                ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 70
                 : 780;
               break;
 
@@ -717,7 +770,7 @@ export default function decorate(block) {
             case 'downloads':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 4550;
+                : 4560;
               break;
 
             case 'contentLibrary':
@@ -753,7 +806,7 @@ export default function decorate(block) {
 
         }
       } else {
-        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active')
+        item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
       }
       if (window.innerWidth < 786 && e.target.tagName === 'A') {
         // changes for opstions
@@ -780,13 +833,18 @@ export default function decorate(block) {
   });
 
   ptag.addEventListener('click', () => {
-    if (window.innerWidth < 786) {
+    if (window.innerWidth < 768) {
       if (item2Ul.style.display === 'block') {
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.remove('active');
         item2Ul.style.display = 'none';
+        // item2Ul.closest('body').style.overflow = 'unset';
       } else {
         item2Ul.parentNode.querySelector('.selectedtext-fdp').classList.add('active');
         item2Ul.style.display = 'block';
+        // item2Ul.closest('body').style.overflow = 'hidden';
+        // if (window.innerWidth < 768) {
+        //   item2Ul.cl
+        // }
       }
     }
   });
@@ -797,10 +855,10 @@ export default function decorate(block) {
 
   (function () {
     // Function to calculate the correct header offset based on screen size
-    function getHeaderOffset(targetID) { // targetId
-      // const dataidStorage = dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
-      // return window.innerWidth <= 768 ? dataidStorage : 240;
-    }
+    // function getHeaderOffset(targetID) { // targetId
+    // const dataidStorage = dataMapMoObj.ObjDataidFdp[targetID.getAttribute('data-id')];
+    // return window.innerWidth <= 768 ? dataidStorage : 240;
+    // }
 
     // Smooth scroll setup with dynamic header offset
     function setupSmoothScroll(linkSelector) {
@@ -829,14 +887,14 @@ export default function decorate(block) {
           const target = document.querySelector(`.section[data-id="${targetId}"]`);
 
           if (target) {
-            const headerOffset = getHeaderOffset(target);
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            // const headerOffset = getHeaderOffset(target);
+            // const elementPosition = target.getBoundingClientRect().top;
+            // const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth',
-            });
+            // window.scrollTo({
+            // top: offsetPosition,
+            // behavior: 'smooth',
+            // });
           }
         });
       });
@@ -875,97 +933,95 @@ export default function decorate(block) {
   dataMapMoObj.CLASS_PREFIXES = ['mainbreadcrb', 'subbreadcrb', 'innerbreadcrb', 'breadcrbmain'];
   dataMapMoObj.addIndexed(ulElement);
 
-  mainBlock.querySelector('.subbreadcrb2').addEventListener('click', async (event) => {
-    const breadcrumb = document.querySelector('.breadcrbmain2');
-    if (event.target.textContent === 'Copy') {
-      const urlCopied = block.closest('main').querySelector('.breadcrumbs-fdp .listindex5');
-      try {
-        const currentUrl = window.location.href;
-        await navigator.clipboard.writeText(currentUrl);
-
-        // Provide feedback to the user!
-        // alert('URL copied to clipboard!');
-        urlCopied.style.display = 'block';
-        setTimeout(() => {
-          urlCopied.style.display = 'none';
-          breadcrumb.style.display = 'none';
-        }, 1000);
-      } catch (err) {
-        // Catch potential errors and inform the user
-        // console.error('Failed to copy URL: ', err);
-        // //alert('Could not copy URL. Please make sure the window is focused.');
-        urlCopied.textContent = 'Could not copy URL. Please make sure the window is focused.';
-        urlCopied.style.display = 'block';
-        setTimeout(() => {
-          urlCopied.style.display = 'none';
-        }, 1000);
-      }
-      return false;
-    }
-    if (breadcrumb.style.display === 'none' || breadcrumb.style.display === '') {
-      breadcrumb.style.display = 'block';
-    } else {
-      breadcrumb.style.display = 'none';
-    }
-  });
-
-  const imgAltmain = block.closest('main');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb1 img'), 'callback');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb3 img'), 'portfolio-sheet');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.subbreadcrb4 img'), 'branded-page');
-
-  // Select the parent container once
-  const shareContainer = imgAltmain.querySelector('.subbreadcrb2 .breadcrbmain2');
-
-  // Loop through children just to prepare them (e.g., remove href)
-  Array.from(shareContainer.children).forEach((listItem, index) => {
-    // Find the list item that contains the text 'Copy'
-    listItem.classList.add(`listindex${index + 1}`);
-    if (listItem.textContent.trim().includes('Copy')) {
-      const link = listItem.querySelector('a');
-      if (link) {
-        link.removeAttribute('href');
-        // Add a class or data-attribute for easier targeting
-        listItem.dataset.action = 'copy';
-      }
-    }
-  });
-
-  // Add ONE event listener to the parent container
-  shareContainer.addEventListener('click', async (event) => {
-    // Find the list item that was actually clicked
-    const clickedItem = event.target.closest('[data-action="copy"]');
-
-    // If the click wasn't on our copy button, do nothing
-    if (!clickedItem) {
-
-    }
-
-    // Prevent default behavior, like navigating if the href wasn't removed
-    // event.preventDefault();
-  });
-
-  // plantext
-  block.querySelector('.btn-wrapper').addEventListener('click', () => {
-    const plantext = block.querySelector('.middlediv .selecttext');
-    dataMapMoObj.planText = plantext.textContent.trim();
-  });
-
-  const redirect = mainBlock.querySelector('.fdp-card-container .fdp-card');
-  const redirectbrn = redirect.querySelector('.btn-wrapper a');
-  const link = redirectbrn.getAttribute('href');
-  const stky = mainBlock.querySelector('.fdp-sticky-nav');
-  const textVal = stky.querySelector('.sticky-sub-item2').textContent;
-  stky.querySelector('.sticky-sub-item2').innerHTML = '';
-  stky.querySelector('.sticky-sub-item2').append(a({
-    href: link,
-    class: 'submit',
-  }, textVal));
-  document.addEventListener('click', (event) => {
-    if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
+  mainBlock.querySelector('.subbreadcrb2')
+    .addEventListener('click', async (event) => {
       const breadcrumb = document.querySelector('.breadcrbmain2');
-      breadcrumb.style.display = 'none';
-    }
-  });
+      if (event.target.textContent === 'Copy') {
+        const urlCopied = block.closest('main').querySelector('.breadcrumbs-fdp .listindex5');
+        try {
+          const currentUrl = window.location.href;
+          await navigator.clipboard.writeText(currentUrl);
+
+          // Provide feedback to the user!
+          // alert('URL copied to clipboard!');
+          urlCopied.style.display = 'block';
+          setTimeout(() => {
+            urlCopied.style.display = 'none';
+            breadcrumb.style.display = 'none';
+          }, 1000);
+        } catch (err) {
+          // Catch potential errors and inform the user
+          // console.error('Failed to copy URL: ', err);
+          // //alert('Could not copy URL. Please make sure the window is focused.');
+          try {
+            const currentUrl = window.location.href;
+            await navigator.clipboard.writeText(currentUrl);
+
+            // Provide feedback to the user!
+            // alert('URL copied to clipboard!');
+            urlCopied.style.display = 'block';
+            setTimeout(() => {
+              urlCopied.style.display = 'none';
+              breadcrumb.style.display = 'none';
+            }, 1000);
+          } catch (err) {
+            // Catch potential errors and inform the user
+            // console.error('Failed to copy URL: ', err);
+            // //alert('Could not copy URL. Please make sure the window is focused.');
+            gAltmain.querySelector('.subbreadcrb2 .breadcrbmain2');
+
+            // Loop through children just to prepare them (e.g., remove href)
+            Array.from(shareContainer.children).forEach((listItem, index) => {
+              // Find the list item that contains the text 'Copy'
+              listItem.classList.add(`listindex${index + 1}`);
+              if (listItem.textContent.trim().includes('Copy')) {
+                const link = listItem.querySelector('a');
+                if (link) {
+                  link.removeAttribute('href');
+                  // Add a class or data-attribute for easier targeting
+                  listItem.dataset.action = 'copy';
+                }
+              }
+            });
+
+            // Add ONE event listener to the parent container
+            shareContainer.addEventListener('click', async (event) => {
+              // Find the list item that was actually clicked
+              const clickedItem = event.target.closest('[data-action="copy"]');
+
+              // If the click wasn't on our copy button, do nothing
+              if (!clickedItem) {
+                return false;
+              }
+
+              // Prevent default behavior, like navigating if the href wasn't removed
+              // event.preventDefault();
+            });
+
+            // plantext
+            block.querySelector('.btn-wrapper').addEventListener('click', () => {
+              const plantext = block.querySelector('.middlediv .selecttext');
+              dataMapMoObj.planText = plantext.textContent.trim();
+            });
+
+            const redirect = mainBlock.querySelector('.fdp-card-container .fdp-card');
+            const redirectbrn = redirect.querySelector('.btn-wrapper a');
+            const link = redirectbrn.getAttribute('href');
+            const stky = mainBlock.querySelector('.fdp-sticky-nav');
+            const textVal = stky.querySelector('.sticky-sub-item2').textContent;
+            stky.querySelector('.sticky-sub-item2').innerHTML = '';
+            stky.querySelector('.sticky-sub-item2').append(a({
+              href: link,
+              class: 'submit',
+            }, textVal));
+            document.addEventListener('click', (event) => {
+              if (!mainBlock.querySelector('.subbreadcrb2').contains(event.target)) {
+                const breadcrumb = document.querySelector('.breadcrbmain2');
+                breadcrumb.style.display = 'none';
+              }
+            });
+          }
+        }
+      }
+    })
 }

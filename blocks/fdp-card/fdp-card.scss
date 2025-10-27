@@ -37,6 +37,7 @@ main {
       position: sticky;
       top: 209px;
       padding: 0;
+      overflow-y: auto;
 
       @include media(mobile) {
         max-width: 100%;
@@ -59,7 +60,6 @@ main {
       }
 
       .card-wrapper {
-
         // Dropdown common
         .dropdownlist {
           display: none;
@@ -72,7 +72,7 @@ main {
           z-index: 5;
           max-width: 340px;
           width: 100%;
-          max-height: 193px;
+          max-height: 125px;
           overflow: auto;
           margin: 3px 0 0;
           background-color: $primary-white;
@@ -302,9 +302,9 @@ main {
 
             .label-text {
               .selecttext {
-                margin: 8px 0;
+                margin: 0;
 
-                // padding: 8px 0;
+                padding: 8px 0;
                 display: flex;
                 align-items: center;
                 gap: 8px;
@@ -430,6 +430,7 @@ main {
                 .dropdownlist {
                   // width: 70px;
                   max-width: 143px;
+
                   // height: auto;
 
                   // top: 22px;
@@ -728,6 +729,7 @@ main {
       // padding-left: 16px;
       // padding-right: 16px;
       max-width: 100%;
+      position: relative;
     }
 
     /* ul for second part */
@@ -750,31 +752,55 @@ main {
       border-bottom: 1px solid var(--neutrals-400);
       background-color: #f5f5f5;
       overflow: auto hidden;
-      scrollbar-width: none;
+      // scrollbar-width: none;
 
       &.fdp-tab {
         height: 36px;
 
         @include media(mobile) {
           height: auto;
+          height: 250px;
+          overflow: auto;
+          top: 230px;
+
+          // position: absolute;
+          // top: 52px;
+          // position: unset;
+
+          &::-webkit-scrollbar {
+            width: 3px;
+          }
+
+          &::-webkit-scrollbar-track {
+            width: 3px;
+            background-color: var(--neutrals-white);
+            border-radius: 0 6px 6px 0;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            width: 3px;
+            background-color: #464343; //#eee;
+          }
         }
       }
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      // &::-webkit-scrollbar {
+      //   display: none;
+      // }
 
       @media (width <=768px) {
         max-width: 100%;
         width: 100%;
         height: auto;
+
         // position: static;
         display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 20px;
-        background-color: $primary-white;
+        background-color: var(--neutrals-white);
+        box-shadow: 0 4px 14px 0 rgb(0 0 0 / 6%);
         border: none;
       }
 
@@ -791,9 +817,9 @@ main {
           height: unset;
           display: block;
 
-          &.tab-li-item2 {
-            padding-top: 0;
-          }
+          // &.tab-li-item2 {
+          //   padding-top: 0;
+          // }
         }
 
         // padding: var(--spacing-10) var(--spacing-none);
@@ -871,7 +897,8 @@ main {
         background: $primary-white;
         margin: 0 auto;
         padding: 16px;
-        position: relative;
+
+        // position: relative;
         cursor: pointer;
 
         // flex-direction: row-reverse;
@@ -883,8 +910,10 @@ main {
           var(--body));
 
         position: sticky;
-        top: 27%;
-        z-index: 100;
+
+        // top: 27%;
+        top: 179px;
+        z-index: 99;
 
         &::after {
           content: "";
@@ -1218,9 +1247,9 @@ main {
   height: 100%;
   position: sticky;
   bottom: 0;
-  z-index: 100;
+  z-index: 99;
   background: var(--neutrals-white, #FFF);
-  box-shadow: -25px -1px 214px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: -25px -1px 214px 0 rgb(0 0 0 / 15%);
 
   @media (width <=768px) {
     display: block;
@@ -1299,10 +1328,10 @@ main {
         align-items: center;
         gap: var(--spacing-8, 8px);
         flex-shrink: 0;
-        font-size: var(--button-small-size, 14px);
+        font-size: 14px;
         font-style: normal;
         font-weight: 500;
-        line-height: var(--button-small-line-height, 16px)
+        line-height: 16px;
       }
       
       .submit {
