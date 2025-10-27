@@ -934,18 +934,18 @@ export default function decorate(block) {
     }
   });
 
-  document.addEventListener('scroll', () => {
-    // added for stky nav
-    const stkyNav = document.querySelector('.selectedtext-fdp');
-    const rect = stkyNav.getBoundingClientRect();
-    const isStuckAtTop = rect.top <= 180;
-    // const chikePostion = window.getComputedStyle(stkyNav);
-    if (isStuckAtTop && stkyNav.classList.contains('active')) {
-      item2Ul.closest('body').style.overflow = 'hidden';
-    } else {
-      item2Ul.closest('body').style.overflow = 'unset';
-    }
-  });
+  // document.addEventListener('scroll', () => {
+  //   // added for stky nav
+  //   const stkyNav = document.querySelector('.selectedtext-fdp');
+  //   const rect = stkyNav.getBoundingClientRect();
+  //   const isStuckAtTop = rect.top <= 180;
+  //   // const chikePostion = window.getComputedStyle(stkyNav);
+  //   if (isStuckAtTop && stkyNav.classList.contains('active')) {
+  //     item2Ul.closest('body').style.overflow = 'hidden';
+  //   } else {
+  //     item2Ul.closest('body').style.overflow = 'unset';
+  //   }
+  // });
 
   document.querySelectorAll('.table-wrapper').forEach((el) => {
     document.querySelector('.item2').append(el);
