@@ -101,7 +101,7 @@ export default function decorate(block) {
     });
   }
 
-
+  // Investor Education article left and right wrapper
   if (window.location.href.includes('/investor-education/all-articles/')) {
     const maincloser = block.closest('main');
     const rightSub = maincloser.querySelectorAll('.article-sub-right');
