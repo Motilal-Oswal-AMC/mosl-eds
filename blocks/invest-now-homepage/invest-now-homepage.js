@@ -1213,12 +1213,6 @@ export default function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone', 'modelinnersubone'];
     dataMapMoObj.addIndexed(modelone);
     const mod6 = mainclass.querySelector('.modal-stepup-one .icon-modal-cross-btn');
-    const modeloneread = mainclass.querySelector('.modal-stepup-one .modelsubone3 .modelinnersubone1');
-    modeloneread.addEventListener('click', () => {
-      modeloneread.removeAttribute('href', true);
-      modeltwo.style.display = 'flex';
-      modeloneread.closest('.modal-stepup-one').style.display = 'none';
-    });
     mod6.addEventListener('click', () => {
       modalstepOne.style.display = 'none';
     });
@@ -1326,8 +1320,8 @@ export default function decorate(block) {
                 { class: 'rt-body rt-body-fulltxt', colspan: '3' },
                 p(
                   { class: 'rt-body-text' },
-                  'Disclaimer: The above calculator is only for purposes and the graph',
-                  a({ class: 'rt-body-link' }, 'Read More'),
+                  'Disclaimer: The above calculator is only for purposes and the graph ',
+                  a({ class: 'rt-body-link', href: '' }, 'Read More'),
                 ),
               ),
             ),
@@ -1340,6 +1334,14 @@ export default function decorate(block) {
 
     // Table end
     // hideFormsClick(mod6);
+
+    // table two read more click
+    const modeloneread = mainclass.querySelector('.modal-stepup-one .modeloneinner2 .rt-body-link');
+    modeloneread.addEventListener('click', () => {
+      modeloneread.removeAttribute('href', true);
+      modeltwo.style.display = 'flex';
+      modeloneread.closest('.modal-stepup-one').style.display = 'none';
+    });
   }
   if (mainclass.querySelector('.modal-stepup-two')) {
     dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo', 'modelinnersubtwo'];

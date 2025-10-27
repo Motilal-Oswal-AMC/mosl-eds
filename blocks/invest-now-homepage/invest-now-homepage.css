@@ -2102,6 +2102,23 @@
     line-height: var(--paragraph-xsmall-line-height);
   }
 }
+.modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-link {
+  text-decoration: underline;
+  text-underline-offset: 20%;
+  word-break: unset;
+  font-size: var(--text-link-xsmall-size);
+  line-height: var(--text-link-xsmall-line-height);
+  color: var(--text-text-link);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .modal-stepup-one .modelonemain1 .modelonesub2 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-link {
+    font-size: var(--text-link-xsmall-size);
+    line-height: var(--text-link-xsmall-line-height);
+  }
+}
 .modal-stepup-one .modelonemain1 .modelonesub3 {
   margin: 0;
   position: absolute;
