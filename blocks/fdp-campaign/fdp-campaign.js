@@ -103,4 +103,12 @@ export default function decorate(block) {
       });
     }
   });
+
+  const heroImage = document.querySelector('.pws-hero-section .compaignsub1');
+
+  if (heroImage) {
+    // const paragraphs = heroBlock.querySelectorAll('p');
+    dataMapMoObj.CLASS_PREFIXES = ['img-1', 'img-2'];
+    dataMapMoObj.addIndexed(heroImage);
+  }
 }
