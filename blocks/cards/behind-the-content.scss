@@ -217,7 +217,9 @@ $breakpoint-dks: 1279px;
 
       p {
         font-size: var(--body-medium-regular-size);
-        line-height: var(--body-medium-regular-line-height);
+        line-height: 24px;
+        
+        // line-height: var(--body-medium-regular-line-height);
         max-width: 100%;
       }
     }
@@ -237,7 +239,7 @@ $breakpoint-dks: 1279px;
           max-width: 24%;
           flex: 0 0 24%;
 
-          @media (width <= 1279px) {
+          @media (width <=1279px) {
             max-width: 23.6%;
             flex: 0 0 23.6%;
           }

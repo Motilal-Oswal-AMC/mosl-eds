@@ -57,7 +57,7 @@ main {
   list-style: none;
   position: absolute;
   top: 100%;
-  left: -2px;
+  left: 0;
   z-index: 5;
   max-width: 340px;
   width: 100%;

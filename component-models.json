@@ -171,8 +171,24 @@
             "value": "highlight"
           },
           {
+            "name": "Popular Tab",
+            "value": "popular-tab"
+          },
+          {
+            "name": "Learn Tab",
+            "value": "learn-tab"
+          },
+          {
             "name": "login Registered",
             "value": "login-registered"
+          },
+          {
+            "name": "Investor Faq Video",
+            "value": "our-service"
+          },
+          {
+            "name": "Investor Banner",
+            "value": "investor-banner"
           },
           {
             "name": "FDP FAQ Change",
@@ -393,6 +409,42 @@
           {
             "name": "Building Moedge",
             "value": "building-moedge"
+          },
+          {
+            "name": "Article Left",
+            "value": "article-left-wrapper"
+          },
+          {
+            "name": "Article Right",
+            "value": "article-right-wrapper"
+          },
+          {
+            "name": "Article Sub Left",
+            "value": "article-sub-left"
+          },
+          {
+            "name": "Article Sub Right",
+            "value": "article-sub-right"
+          },
+          {
+            "name": "Stay Updated",
+            "value": "stay-updated"
+          },
+          {
+            "name": "Subscribe Email",
+            "value": "subscribe-email"
+          },
+          {
+            "name": "Recommended Posts",
+            "value": "recommended-posts"
+          },
+          {
+            "name": "Our Podcast",
+            "value": "our-podcast"
+          },
+          {
+            "name": "AIF Component",
+            "value": "aif-component"
           }
         ]
       },
@@ -1731,6 +1783,25 @@
     ]
   },
   {
+    "id": "investing-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "login-image-item",
     "fields": [
       {
@@ -1899,18 +1970,26 @@
     "fields": [
       {
         "component": "reference",
+        "valueType": "string",
         "name": "image",
         "label": "Image",
         "multi": false
       },
       {
         "component": "text",
+        "valueType": "string",
         "name": "imageAlt",
-        "label": "Alt Text"
-      },
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+   {
+    "id": "investing-text-item",
+    "fields": [
       {
         "component": "richtext",
-        "name": "two text",
+        "name": "text",
         "value": "",
         "label": "Text",
         "valueType": "string"
@@ -1918,7 +1997,40 @@
     ]
   },
   {
-    "id": "edge-filter",
+    "id": "global-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "desktop-image",
+        "label": "Image for Desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "desktop-imageAlt",
+        "label": "Alt for Desktop",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobile-image",
+        "label": "Image for Mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobile-imageAlt",
+        "label": "Alt for Mobile",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "global-text-item",
     "fields": [
       {
         "component": "richtext",
@@ -1929,10 +2041,103 @@
       },
       {
         "component": "richtext",
-        "name": "two text",
+        "name": "richtext",
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "investing-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+   {
+    "id": "investing-text-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "global-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "desktop-image",
+        "label": "Image for Desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "desktop-imageAlt",
+        "label": "Alt for Desktop",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobile-image",
+        "label": "Image for Mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobile-imageAlt",
+        "label": "Alt for Mobile",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "global-text-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-service-item",
+    "fields": [
+       {
+        "component": "richtext",
+        "name": "richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Fragment URL"
       }
     ]
   }
