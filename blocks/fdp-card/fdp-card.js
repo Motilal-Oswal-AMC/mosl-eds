@@ -808,73 +808,73 @@ export default function decorate(block) {
             case 'performance':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
-                : 10;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'sipCal':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 780;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'periodicReturn':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 70
-                : 780;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'fundVideo':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 240;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'whyFund':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
-                : 1620;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'keyFacts':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 40
-                : 3018;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'portfolio':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
-                : 2480;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'fundManager':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
-                : 3810;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'downloads':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 4560;
+                : targetSection.offsetTop - 90;
               break;
 
             case 'contentLibrary':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
-                : 240;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'peopleLike':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 80
-                : 240;
+                : targetSection.offsetTop - 100;
               break;
 
             case 'productLabel':
               scrollPosition = window.innerWidth <= 768
                 ? elementTop - nfoHeight - stickyHeight - dropdownHeight - 50
-                : 240;
+                : targetSection.offsetTop - 100;
               break;
 
             default:
