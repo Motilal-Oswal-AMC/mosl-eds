@@ -1392,12 +1392,12 @@ export default function decorate(block) {
     // hideFormsClick(mod6);
 
     // table two read more click
-    // const modeloneread = mainclass.querySelector('.modal-stepup-one .modeloneinner2 .rt-body-link');
-    // modeloneread.addEventListener('click', () => {
-    //   modeloneread.removeAttribute('href', true);
-    //   modeltwo.style.display = 'flex';
-    //   modeloneread.closest('.modal-stepup-one').style.display = 'none';
-    // });
+    const modeloneread = mainclass.querySelector('.modal-stepup-one .modeloneinner2 .rt-body-link');
+    modeloneread.addEventListener('click', () => {
+      modeloneread.removeAttribute('href', true);
+      modeltwo.style.display = 'flex';
+      modeloneread.closest('.modal-stepup-one').style.display = 'none';
+    });
   }
   if (mainclass.querySelector('.modal-stepup-two')) {
     dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo', 'modelinnersubtwo'];
