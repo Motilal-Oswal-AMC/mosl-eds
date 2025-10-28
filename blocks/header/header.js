@@ -121,6 +121,10 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.classList.add('nfo-nav');
+  if (window.location.href.includes('/motilalfigma/pms') || window.location.href.includes('/motilalfigma/aif')) {
+    nav.classList.remove('nfo-nav');
+  }
+
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];
@@ -706,4 +710,5 @@ export default async function decorate(block) {
       'User Profile',
     );
   }
+  
 }
