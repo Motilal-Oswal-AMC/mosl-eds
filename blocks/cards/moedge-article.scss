@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
 .section.main-wrapper.moedge-article-details {
     .article-left-wrapper {
         padding: 0;
