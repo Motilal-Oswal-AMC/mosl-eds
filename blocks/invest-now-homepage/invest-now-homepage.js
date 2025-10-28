@@ -1636,7 +1636,7 @@ export default function decorate(block) {
   // const calendarIconSrc = '../../icons/calendar.svg';
   // // Replace with your real calendar icon path
   const infotoolsrc = '../../icons/information.svg';
-  const closesrc = '../../icons/cross.svg';
+  const closesrc = '../../icons/modal-cross-btn.svg';
   const frequencyOptions = [
     'Annual',
     'Daily',
@@ -2282,6 +2282,11 @@ export default function decorate(block) {
           block.querySelector('.flatpickr-calendar').classList.remove('open');
         }
       }
+    });
+  }
+  if (block.querySelector('.tooltip-btn-mob')) {
+    block.querySelector('.tooltip-btn-mob').addEventListener('click', () => {
+      block.querySelector('.tooltip-container').style.display = 'none';
     });
   }
 
