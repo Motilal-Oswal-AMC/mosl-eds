@@ -515,63 +515,67 @@ export default async function decorate(block) {
     dataMapMoObj.addIndexed(nfoBanner);
   }
   (function initializeNfoBanner() {
-    const setupUI = () => {
-      const liveIndicatorContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list1');
-      if (liveIndicatorContainer) {
-        const liveIndicator = document.createElement('div');
-        liveIndicator.className = 'live-indicator';
-        liveIndicatorContainer.appendChild(liveIndicator);
-      }
+    try {
+      const setupUI = () => {
+        const liveIndicatorContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list1');
+        if (liveIndicatorContainer) {
+          const liveIndicator = document.createElement('div');
+          liveIndicator.className = 'live-indicator';
+          liveIndicatorContainer.appendChild(liveIndicator);
+        }
 
-      const timerContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list3');
-      if (timerContainer) {
-        const timerElement = document.createElement('span');
-        timerElement.id = 'countdown-timer';
-        timerElement.textContent = '00d : 00h : 00m';
-        timerContainer.appendChild(timerElement);
-        return timerElement;
-      }
-      return null;
-    };
+        const timerContainer = nfoBanner.querySelector('.nfo-banner-sub1 .nfo-banner-list3');
+        if (timerContainer) {
+          const timerElement = document.createElement('span');
+          timerElement.id = 'countdown-timer';
+          timerElement.textContent = '00d : 00h : 00m';
+          timerContainer.appendChild(timerElement);
+          return timerElement;
+        }
+        return null;
+      };
 
-    const startCountdown = (element) => {
-      if (!element) {
-        return;
-      }
-
-      const COUNTDOWN_DAYS = 2;
-      const COUNTDOWN_HOURS = 20;
-      const COUNTDOWN_MINUTES = 20;
-      const ONE_SECOND_MS = 1000;
-
-      const countDownDate = new Date();
-      countDownDate.setDate(countDownDate.getDate() + COUNTDOWN_DAYS);
-      countDownDate.setHours(countDownDate.getHours() + COUNTDOWN_HOURS);
-      countDownDate.setMinutes(countDownDate.getMinutes() + COUNTDOWN_MINUTES);
-      const countDownTime = countDownDate.getTime();
-
-      const interval = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = countDownTime - now;
-
-        if (distance < 0) {
-          clearInterval(interval);
-          element.textContent = 'EXPIRED';
+      const startCountdown = (element) => {
+        if (!element) {
           return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const COUNTDOWN_DAYS = 2;
+        const COUNTDOWN_HOURS = 20;
+        const COUNTDOWN_MINUTES = 20;
+        const ONE_SECOND_MS = 1000;
 
-        const pad = (num) => String(num).padStart(2, '0');
+        const countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + COUNTDOWN_DAYS);
+        countDownDate.setHours(countDownDate.getHours() + COUNTDOWN_HOURS);
+        countDownDate.setMinutes(countDownDate.getMinutes() + COUNTDOWN_MINUTES);
+        const countDownTime = countDownDate.getTime();
 
-        element.textContent = `${pad(days)}d : ${pad(hours)}h : ${pad(minutes)}m`;
-      }, ONE_SECOND_MS);
-    };
+        const interval = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = countDownTime - now;
 
-    const timerElement = setupUI();
-    startCountdown(timerElement);
+          if (distance < 0) {
+            clearInterval(interval);
+            element.textContent = 'EXPIRED';
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+          const pad = (num) => String(num).padStart(2, '0');
+
+          element.textContent = `${pad(days)}d : ${pad(hours)}h : ${pad(minutes)}m`;
+        }, ONE_SECOND_MS);
+      };
+
+      const timerElement = setupUI();
+      startCountdown(timerElement);
+    } catch (error) {
+      console.log(error);
+    }
   }());
 
   // hamburger for mobile
