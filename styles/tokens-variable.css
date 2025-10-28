@@ -313,12 +313,12 @@
     --button-small-line-height: var(--spacing-16);
     --label-medium-font: var(--body);
     --label-medium-weight: var(--weight-regular);
+    --label-medium-size: var(--spacing-14);
     --label-medium-line-height: var(--spacing-16);
     --label-small-font: var(--body);
     --label-small-weight: var(--weight-regular);
     --label-small-size: var(--spacing-12);
     --label-small-line-height: var(--spacing-16);
-    --paragraph-small-size: var(--spacing-14);
     --paragraph-xlarge-font: var(--body);
     --paragraph-xlarge-weight: var(--weight-regular);
     --paragraph-xlarge-size: var(--spacing-20);
@@ -332,6 +332,7 @@
     --paragraph-medium-line-height: var(--spacing-24);
     --paragraph-small-font: var(--body);
     --paragraph-small-weight: var(--weight-regular);
+    --paragraph-small-size: var(--spacing-14);
     --paragraph-small-line-height: var(--spacing-20);
     --paragraph-xsmall-font: var(--body);
     --paragraph-xsmall-weight: var(--weight-regular);
@@ -477,6 +478,7 @@
         --button-small-line-height: var(--spacing-20);
         --label-medium-font: var(--body);
         --label-medium-weight: var(--weight-regular);
+        --label-medium-size: var(--spacing-14);
         --label-medium-line-height: var(--spacing-16);
         --label-small-font: var(--body);
         --label-small-weight: var(--weight-regular);

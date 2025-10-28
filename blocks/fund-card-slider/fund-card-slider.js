@@ -27,4 +27,17 @@ export default function decorate(block) {
   Array.from(block.classList).forEach((el) => cardWrapper.classList.add(el));
   block.append(cardWrapper);
   swiperblock(block.querySelector('.card-slider-main'));
+  if (data.length === 0) {
+    const fundslid = block.closest('.fund-card-slider-container');
+    fundslid.style.display = 'none';
+    block.style.display = 'none';
+    if (window.innerWidth < 768) {
+      const item = block.closest('.fdp-card-container').querySelector('.item2-ul');
+      const idval = block.closest('.section').getAttribute('data-id');
+      item.querySelector(`#${idval}`).style.display = 'none';
+    }
+  } else if (window.innerWidth > 1024
+    && block.querySelectorAll('.swiper-slide').length < 3) {
+    block.querySelector('.btn-wrapper').style.display = 'none';
+  }
 }

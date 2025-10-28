@@ -1,7 +1,7 @@
 @import "../../../styles/fonts.css";
 
 .section.table-wrapper.fdp-campaign-container {
-  margin-top: 64px;
+  margin-top: 115px !important;
 }
 
 @media (width <= 768px) {
