@@ -1018,7 +1018,7 @@ position: relative;
     flex-direction: column;
 
     /* align-items: center; */
-    gap: 24px;
+    gap: 40px;
     flex-shrink: 0;
     background: #fff;
     position: relative;
@@ -1039,7 +1039,7 @@ position: relative;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin: 16px 0 0;
+    margin: 0;
 }
 
 .pan-details-modal .default-content-wrapper ul.subpandts3 li.innerpandts1 {
@@ -1086,12 +1086,12 @@ position: relative;
 
 .pan-details-modal .default-content-wrapper p.subpandts4>span.icon {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 12px;
+    right: 12px;
     z-index: 90;
     cursor: pointer;
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
 }
 
 .pan-details-modal .default-content-wrapper p.subpandts2 {
@@ -1145,6 +1145,7 @@ position: relative;
     font-feature-settings: var(--font-features-default);
     font-weight: 400;
     border-radius: 0;
+    z-index: 2;
 }
 
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper .error-icon ,
