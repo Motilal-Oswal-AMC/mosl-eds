@@ -3,7 +3,8 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 .section.table-wrapper.fdp-campaign-container {
-  margin-top: 64px;
+  // margin-top: 64px;
+  // margin-top: 115px !important;
 
   @media (width <=768px) {
     margin: 40px 16px;
@@ -35,4 +36,27 @@
       }
     }
   }
+}
+
+
+.section.table-wrapper.fdp-campaign-container.investor-banner{
+ .fdp-campaign-wrapper{
+  padding: 0;
+  
+  .fdp-campaign {
+    .compaign1 {
+      .compaignsub1{
+        height: 255px;
+        object-fit: cover;
+
+        img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+  }
+}
+
 }

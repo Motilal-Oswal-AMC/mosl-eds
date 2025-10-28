@@ -1,7 +1,7 @@
 /* Reset */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 @import "../fund-card/fund-card.css";
 
 body {
@@ -15,7 +15,7 @@ body {
 .section {
   &.our-funds-block-container {
     background-color: var(--neutrals-100);
-    
+
     // background-color: #fff;
     // padding: 0 0 50px;
     margin: 0;
@@ -57,13 +57,11 @@ body {
         .block-subitem-finelsub1 {
           margin: 0;
 
-          @include font-style(
-            var(--heading-h2-size),
+          @include font-style(var(--heading-h2-size),
             var(--heading-h2-line-height),
             var(--blue-1-800-primary),
             600,
-            var(--title)
-          );
+            var(--title));
 
           @include media(mobile) {
             font-size: 34px;
@@ -153,17 +151,19 @@ body {
             outline: none;
             background-color: transparent;
 
-            @include font-style(
-              var(--body-medium-regular-size),
+            @include font-style(var(--body-medium-regular-size),
               var(--body-medium-regular-line-height),
               var(--text-black),
               500,
-              var(--body)
-            );
+              var(--body));
 
             @include media(mobile) {
               font-size: var(--body-medium-regular-size);
               line-height: var(--body-medium-regular-line-height);
+            }
+
+            &::placeholder {
+              visibility: hidden;
             }
           }
 
@@ -223,13 +223,11 @@ body {
             }
 
             .list-fund-name {
-              @include font-style(
-                var(--body-small-regular-size),
+              @include font-style(var(--body-small-regular-size),
                 var(--label-large-line-height),
                 var(--neutrals-black),
                 400,
-                var(--body)
-              );
+                var(--body));
 
               padding: 12px 20px 12px 40px;
               cursor: pointer;
@@ -256,6 +254,49 @@ body {
               display: block;
             }
           }
+        }
+
+        .search-input .search-label {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 40px;
+          pointer-events: none;
+          transition: all 0.2s ease-out;
+          color: var(--text-body-2);
+          font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+          font-family: var(--body);
+          font-size: var(--body-medium-regular-size);
+          font-style: normal;
+          font-weight: 400;
+          line-height: var(--body-medium-regular-line-height);
+        }
+
+        // .search-input .search {
+        //   padding: 20px 12px 8px ;
+        //   width: 100%;
+        //   border: 1px solid #ccc;
+        //   border-radius: 4px;
+        //   font-size: 1rem; 
+        //   outline: none;
+        //   background-color: transparent;
+        // }
+
+        .search-input:has(.search:focus) .search-label,
+        .search-input:has(.search:not(:placeholder-shown)) .search-label {
+          top: -10px;
+          left: 35px;
+          transform: translateY(0);
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 16px;
+          color: var(--strokes-typing, #1887D2);
+          background-color: var(--neutrals-100);
+          padding: 0 5px;
+        }
+
+        .search-input:has(.search:focus) .search {
+          border-color: var(--strokes-typing, #1887D2);
         }
 
         .watchlist {
@@ -296,13 +337,11 @@ body {
 
           &text {
             span {
-              @include font-style(
-                var(--body-small-medium-size),
+              @include font-style(var(--body-small-medium-size),
                 var(--body-small-medium-line-height),
                 var(--text-text-link),
                 500,
-                var(--body)
-              );
+                var(--body));
 
               text-decoration-line: underline;
 
@@ -359,13 +398,11 @@ body {
             }
 
             .trending-text {
-              @include font-style(
-                var(--body-small-medium-size),
+              @include font-style(var(--body-small-medium-size),
                 var(--body-small-medium-line-height),
                 var(--neutrals-black),
                 500,
-                var(--body)
-              );
+                var(--body));
 
               @include media(mobile) {
                 font-size: var(--body-small-medium-size);
@@ -411,13 +448,11 @@ body {
                   text-decoration-line: underline;
                   text-underline-offset: 20%;
 
-                  @include font-style(
-                    14px,
+                  @include font-style(14px,
                     var(--text-link-small-line-height),
                     var(--blue-1-800-primary),
                     400,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--text-link-small-size);
@@ -503,13 +538,11 @@ body {
               }
 
               p {
-                @include font-style(
-                  var(--body-small-semibold-size),
+                @include font-style(var(--body-small-semibold-size),
                   var(--body-small-semibold-line-height),
                   var(--blue-1-800-primary),
                   500,
-                  var(--body)
-                );
+                  var(--body));
 
                 // cursor: pointer;
                 margin: 0;
@@ -544,13 +577,11 @@ body {
               }
 
               .clearall-btn {
-                @include font-style(
-                  var(--body-small-regular-size),
+                @include font-style(var(--body-small-regular-size),
                   var(--label-large-line-height),
                   var(--neutrals-600),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 margin: 0;
                 padding: 0;
@@ -631,13 +662,11 @@ body {
                   border-bottom: 1px solid var(--neutrals-300);
 
                   span {
-                    @include font-style(
-                      var(--body-medium-regular-size),
+                    @include font-style(var(--body-medium-regular-size),
                       var(--body-medium-regular-line-height),
                       var(--blue-1-800-primary),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
                   }
 
                   button {
@@ -647,13 +676,11 @@ body {
                     border: none;
                     border-radius: 0;
 
-                    @include font-style(
-                      var(--paragraph-small-size),
+                    @include font-style(var(--paragraph-small-size),
                       var(--paragraph-small-line-height),
                       var(--neutrals-600),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
                   }
                 }
               }
@@ -674,13 +701,11 @@ body {
                   .apply-btn {
                     border-left: 1px solid var(--neutrals-300);
 
-                    @include font-style(
-                      var(--body-small-regular-size),
+                    @include font-style(var(--body-small-regular-size),
                       var(--body-small-regular-line-height),
                       var(--blue-1-800-primary),
                       500,
-                      var(--body)
-                    );
+                      var(--body));
                   }
                 }
               }
@@ -753,13 +778,11 @@ body {
                   }
 
                   label {
-                    @include font-style(
-                      var(--body-small-regular-size),
+                    @include font-style(var(--body-small-regular-size),
                       var(--label-large-line-height),
                       var(--neutrals-black),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
 
                     display: flex;
                     align-items: center;
@@ -817,13 +840,11 @@ body {
                       padding: 12px;
                       text-align: left;
 
-                      @include font-style(
-                        var(--disclaimer-xsmall-size),
+                      @include font-style(var(--disclaimer-xsmall-size),
                         var(--disclaimer-xsmall-line-height),
                         var(--text-body-2),
                         400,
-                        var(--body)
-                      );
+                        var(--body));
 
                       @include media(mobile) {
                         padding: 8px;
@@ -986,13 +1007,11 @@ body {
                   border-bottom: 1px solid var(--neutrals-300);
 
                   span {
-                    @include font-style(
-                      var(--body-medium-regular-size),
+                    @include font-style(var(--body-medium-regular-size),
                       var(--body-medium-regular-line-height),
                       var(--blue-1-800-primary),
                       600,
-                      var(--body)
-                    );
+                      var(--body));
                   }
                 }
 
@@ -1014,19 +1033,18 @@ body {
                       padding: 24px 0 20px;
                       display: block;
 
-                      @include font-style(
-                        var(--body-small-medium-size),
+                      @include font-style(var(--body-small-medium-size),
                         var(--body-small-medium-line-height),
                         var(--neutrals-black),
                         500,
-                        var(--body)
-                      );
+                        var(--body));
                     }
 
                     .radio-label-container {
                       display: flex;
                       flex-direction: column;
                       gap: 20px;
+                      width: max-content;
 
                       .radio-label {
                         display: flex;
@@ -1061,13 +1079,11 @@ body {
                         }
 
                         label {
-                          @include font-style(
-                            var(--paragraph-small-size),
+                          @include font-style(var(--paragraph-small-size),
                             var(--paragraph-small-line-height),
                             var(--neutrals-black),
                             400,
-                            var(--body)
-                          );
+                            var(--body));
 
                           width: 100%;
                           cursor: pointer;
@@ -1099,23 +1115,19 @@ body {
                     border-radius: 0;
                     cursor: pointer;
 
-                    @include font-style(
-                      var(--paragraph-small-size),
+                    @include font-style(var(--paragraph-small-size),
                       var(--paragraph-small-line-height),
                       var(--neutrals-600),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
                   }
 
                   button:last-of-type {
-                    @include font-style(
-                      var(--body-small-regular-size),
+                    @include font-style(var(--body-small-regular-size),
                       var(--body-small-regular-line-height),
                       var(--blue-1-800-primary),
                       500,
-                      var(--body)
-                    );
+                      var(--body));
 
                     border-left: 1px solid var(--neutrals-300);
                   }
@@ -1176,13 +1188,11 @@ body {
               gap: 4px;
 
               .sort-pop-label {
-                @include font-style(
-                  var(--body-small-regular-size),
+                @include font-style(var(--body-small-regular-size),
                   var(--label-large-line-height),
                   var(--neutrals-700),
                   400,
-                  var(--body)
-                );
+                  var(--body));
               }
 
               .sort-select-container,
@@ -1190,13 +1200,11 @@ body {
                 position: relative;
 
                 .selectedtext {
-                  @include font-style(
-                    var(--body-small-regular-size),
+                  @include font-style(var(--body-small-regular-size),
                     var(--body-small-regular-line-height),
                     var(--neutrals-black),
                     500,
-                    var(--body)
-                  );
+                    var(--body));
 
                   margin: 0;
                   cursor: pointer;
@@ -1257,13 +1265,11 @@ body {
                   }
 
                   li {
-                    @include font-style(
-                      var(--body-small-regular-size),
+                    @include font-style(var(--body-small-regular-size),
                       var(--label-large-line-height),
                       var(--neutrals-black),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
 
                     padding: 12px;
 
@@ -1371,13 +1377,11 @@ body {
               .toggle-text {
                 margin: 0;
 
-                @include font-style(
-                  var(--body-small-semibold-size),
+                @include font-style(var(--body-small-semibold-size),
                   var(--body-small-semibold-line-height),
                   var(--blue-1-700),
                   600,
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   font-size: var(--body-small-semibold-size);
@@ -1386,13 +1390,11 @@ body {
               }
 
               .toggle-text:last-of-type {
-                @include font-style(
-                  var(--body-small-regular-size),
+                @include font-style(var(--body-small-regular-size),
                   var(--label-large-line-height),
                   var(--neutrals-black),
                   400,
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   font-size: var(--paragraph-small-size);
@@ -1402,13 +1404,11 @@ body {
 
               &.toggle-checked {
                 .toggle-text:first-of-type {
-                  @include font-style(
-                    var(--body-small-regular-size),
+                  @include font-style(var(--body-small-regular-size),
                     var(--label-large-line-height),
                     var(--neutrals-black),
                     400,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--paragraph-small-size);
@@ -1417,13 +1417,11 @@ body {
                 }
 
                 .toggle-text:last-of-type {
-                  @include font-style(
-                    var(--body-small-semibold-size),
+                  @include font-style(var(--body-small-semibold-size),
                     var(--body-small-semibold-line-height),
                     var(--blue-1-700),
                     600,
-                    var(--body)
-                  );
+                    var(--body));
 
                   @include media(mobile) {
                     font-size: var(--body-small-semibold-size);
@@ -1465,9 +1463,13 @@ body {
                     transform: translateX(2px);
                     transition: all 0.3s;
                   }
+
+                  .label-text {
+                    display: none;
+                  }
                 }
 
-                input:checked + .fund-toggle::before {
+                input:checked+.fund-toggle::before {
                   transform: translateX(22px);
                 }
               }
@@ -1495,13 +1497,11 @@ body {
                 border: 1px solid var(--button-primary-default);
                 cursor: pointer;
 
-                @include font-style(
-                  var(--button-small-size),
+                @include font-style(var(--button-small-size),
                   var(--button-small-line-height),
                   var(--text-button-default),
                   500,
-                  var(--body)
-                );
+                  var(--body));
 
                 @include media(mobile) {
                   font-size: 14px;
@@ -1550,13 +1550,11 @@ body {
             gap: 4px;
 
             span {
-              @include font-style(
-                var(--body-small-regular-size),
+              @include font-style(var(--body-small-regular-size),
                 var(--body-small-regular-line-height),
                 var(--text-body-2),
                 400,
-                var(--body)
-              );
+                var(--body));
 
               @include media(mobile) {
                 font-size: var(--body-small-regular-size);
@@ -1620,13 +1618,11 @@ body {
                 margin: 0;
                 padding: 6px 0;
 
-                @include font-style(
-                  var(--body-small-medium-size),
+                @include font-style(var(--body-small-medium-size),
                   var(--body-small-medium-line-height),
                   var(--blue-1-800-primary),
                   500,
-                  var(--body)
-                );
+                  var(--body));
               }
 
               .list-header-text:nth-of-type(1) {
@@ -1763,13 +1759,11 @@ body {
                     .fund-name-txt {
                       margin: 0;
 
-                      @include font-style(
-                        var(--body-medium-medium-size),
+                      @include font-style(var(--body-medium-medium-size),
                         var(--body-medium-medium-line-height),
                         var(--neutrals-black),
                         500,
-                        var(--body)
-                      );
+                        var(--body));
                     }
                   }
 
@@ -1795,13 +1789,11 @@ body {
                   }
 
                   .cagr-value {
-                    @include font-style(
-                      var(--body-medium-semibold-size),
+                    @include font-style(var(--body-medium-semibold-size),
                       var(--body-medium-semibold-line-height),
                       var(--blue-1-800-primary),
                       600,
-                      var(--body)
-                    );
+                      var(--body));
 
                     display: flex;
                   }
@@ -1809,13 +1801,11 @@ body {
                   .cagr-text {
                     margin: 0;
 
-                    @include font-style(
-                      var(--label-small-size),
+                    @include font-style(var(--label-small-size),
                       var(--label-small-line-height),
                       var(--neutrals-600),
                       400,
-                      var(--body)
-                    );
+                      var(--body));
                   }
                 }
 
@@ -1883,13 +1873,11 @@ body {
                     border: none;
                     border-radius: var(--border-radius-8);
 
-                    @include font-style(
-                      var(--button-small-size),
+                    @include font-style(var(--button-small-size),
                       var(--button-small-line-height),
                       var(--text-white),
                       500,
-                      var(--body)
-                    );
+                      var(--body));
                   }
                 }
               }
@@ -1940,13 +1928,11 @@ body {
                         line-height: 0;
 
                         .label-nfo {
-                          @include font-style(
-                            12px,
+                          @include font-style(12px,
                             var(--paragraph-xsmall-line-height),
                             var(--neutrals-white),
                             600,
-                            var(--body)
-                          );
+                            var(--body));
 
                           display: flex;
                           align-items: center;
@@ -1967,13 +1953,11 @@ body {
                         p {
                           margin: 0;
 
-                          @include font-style(
-                            var(--disclaimer-xsmall-size),
+                          @include font-style(var(--disclaimer-xsmall-size),
                             var(--disclaimer-xsmall-line-height),
                             var(--neutrals-white),
                             400,
-                            var(--body)
-                          );
+                            var(--body));
                         }
                       }
                     }

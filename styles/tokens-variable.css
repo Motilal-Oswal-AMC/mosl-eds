@@ -144,6 +144,7 @@
     --mo-body-copy-other: #48535F;
     --strokes-on-surface-02: #595957;
     --mosl-black: #231F20;
+    --action-text-neutral-strong: #727279;
 
     /* Colors end */
 
@@ -207,6 +208,11 @@
     --surface-background-neutral-subtle: var(--neutrals-white);
     --surface-text-neutral-intense: var(--neutrals-800);
     --surface-text-neutral-strong: var(--neutrals-900);
+    --surface-border-neutral-normal: var(--neutrals-300);
+    --surface-background-primary-1-subtle: var(--blue-1-25);
+    --surface-text-primary-strong: var(--blue-1-800-primary);
+    --action-text-primary-default: var(--blue-1-800-primary);
+    --mo-blue-800-main: var(--blue-1-800-primary);
 
     /* semantic light end */
 
@@ -307,12 +313,12 @@
     --button-small-line-height: var(--spacing-16);
     --label-medium-font: var(--body);
     --label-medium-weight: var(--weight-regular);
+    --label-medium-size: var(--spacing-14);
     --label-medium-line-height: var(--spacing-16);
     --label-small-font: var(--body);
     --label-small-weight: var(--weight-regular);
     --label-small-size: var(--spacing-12);
     --label-small-line-height: var(--spacing-16);
-    --paragraph-small-size: var(--spacing-14);
     --paragraph-xlarge-font: var(--body);
     --paragraph-xlarge-weight: var(--weight-regular);
     --paragraph-xlarge-size: var(--spacing-20);
@@ -326,6 +332,7 @@
     --paragraph-medium-line-height: var(--spacing-24);
     --paragraph-small-font: var(--body);
     --paragraph-small-weight: var(--weight-regular);
+    --paragraph-small-size: var(--spacing-14);
     --paragraph-small-line-height: var(--spacing-20);
     --paragraph-xsmall-font: var(--body);
     --paragraph-xsmall-weight: var(--weight-regular);
@@ -471,6 +478,7 @@
         --button-small-line-height: var(--spacing-20);
         --label-medium-font: var(--body);
         --label-medium-weight: var(--weight-regular);
+        --label-medium-size: var(--spacing-14);
         --label-medium-line-height: var(--spacing-16);
         --label-small-font: var(--body);
         --label-small-weight: var(--weight-regular);

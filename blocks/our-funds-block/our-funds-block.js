@@ -62,7 +62,7 @@ function dataFilterfun(param) {
       },
       {
         'flexi-cap': [],
-      }
+      },
       ],
     },
     ],
@@ -153,7 +153,7 @@ function dataFilterfun(param) {
     'motilal-oswal:factor',
     'motilal-oswal:tax-saver-(elss)',
     'motilal-oswal:multi-cap-fund',
-    'motilal-oswal:flexi-cap'
+    'motilal-oswal:flexi-cap',
   ];
   const subcategoryValues = [
     'large-and-mid-cap',
@@ -164,7 +164,7 @@ function dataFilterfun(param) {
     'factor',
     'tax-saver-(elss)',
     'multi-cap-fund',
-    'flexi-cap'
+    'flexi-cap',
   ];
 
   for (let i = 0; i < param.length; i += 1) {
@@ -874,8 +874,16 @@ export default function decorate(block) {
             {
               class: 'search-input',
             },
+            label(
+              {
+                for: 'search-field', // Use a valid ID
+                class: 'search-label',
+              },
+              'Search here',
+            ),
             input({
               class: 'search',
+              id: 'search-field',
               placeholder: block
                 .querySelector('.block-subitem2 .block-subitem-finelsub1')
                 .textContent.trim(),
@@ -1575,7 +1583,7 @@ export default function decorate(block) {
                       }),
                       label(
                         {
-                          for: 'tenyear',
+                          for: 'tenyear1',
                         },
                         '7 years',
                       ),
@@ -1592,7 +1600,7 @@ export default function decorate(block) {
                       }),
                       label(
                         {
-                          for: 'tenyear',
+                          for: 'tenyear2',
                         },
                         '10 years',
                       ),
@@ -1969,10 +1977,15 @@ export default function decorate(block) {
                     checkfilter(block);
                   },
                 }),
-                label({
-                  class: 'fund-toggle',
-                  for: 'toggle',
-                }),
+                label(
+                  {
+                    class: 'fund-toggle',
+                    for: 'toggle',
+                  },
+                  // Add spans for the visible text inside the label
+                  span({ class: 'label-text direct' }, 'Direct'),
+                  span({ class: 'label-text regular' }, 'Regular'),
+                ),
               ),
               p({
                 class: 'toggle-text',
@@ -2191,7 +2204,7 @@ export default function decorate(block) {
           }
         });
       } catch (error) {
-      // console.log(error);
+        // console.log(error);
       }
     });
   }

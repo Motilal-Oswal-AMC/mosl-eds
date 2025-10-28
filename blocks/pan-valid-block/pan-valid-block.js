@@ -133,7 +133,7 @@ export default function decorate(block) {
               }),
               img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
             ),
-            p({ class: 'name-error error-msg' }, 'Invalid Name'),
+            p({ class: 'mob-error error-msg' }, 'Invalid Name'),
           ),
         ),
         div(

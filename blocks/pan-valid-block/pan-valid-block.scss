@@ -535,6 +535,7 @@
           right: 12px;
           width: 24px;
           height: 24px;
+          cursor: pointer;
 
           .icon {
             width: 100%;
@@ -544,11 +545,12 @@
       }
 
       .form-container {
-
         // All Error Message and Icon Global SCSS
         .error-msg {
           margin: 4px 0 0;
           display: none;
+          position: absolute;
+          top: 100%;
 
           @include font-style(var(--paragraph-xsmall-size),
             var(--paragraph-xsmall-line-height),
@@ -559,6 +561,22 @@
           @include media(mobile) {
             font-size: var(--paragraph-xsmall-size);
             line-height: var(--paragraph-xsmall-line-height);
+          }
+
+          &.mob-error{
+            align-items: center;
+            gap: 4px;
+
+            &::before{
+              content: '';
+              background-image: url('../../icons/warning.svg');
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              width: 16px;
+              height: 16px;
+              display: block;
+            }
           }
         }
 
@@ -575,6 +593,7 @@
           .pan-container {
             .pan-field {
               margin: 0 0 40px;
+              position: relative;
 
               @include media(mobile) {
                 margin: 0 0 32px;
@@ -658,8 +677,8 @@
                   border: var(--border-width-01) solid var(--strokes-error);
 
                   .error-icon,
-                  &~.error-msg {
-                    display: block;
+                  &~.error-msg {  
+                    display: flex;
                   }
                 }
               }
@@ -710,6 +729,7 @@
                         var(--body));
 
                       padding-left: 4px;
+                      cursor: pointer;
 
                       @include media(mobile) {
                         font-size: var(--body-small-regular-size);
@@ -808,6 +828,8 @@
             }
 
             .detail-field-wrap {
+              position: relative;
+
               &.mob-wrap {
                 display: flex;
                 align-items: start;
@@ -955,15 +977,18 @@
 
           .button.panvalidsubinner1 {
             margin: 0 0 16px;
+            display: block;
             width: 100%;
             border-radius: var(--border-radius-4);
             background-color: var(--button-primary-disable);
             padding: var(--spacing-12);
             border: none;
+            cursor: pointer;
+            text-align: center;
 
             @include font-style(var(--button-medium-size),
               var(--button-medium-line-height),
-              var(--Neutrals-600),
+              var(--neutrals-600),
               500,
               var(--body));
 
@@ -973,20 +998,11 @@
               line-height: var(--button-medium-line-height);
             }
 
-            &.active {
+            &.active-form-btn{
               border-radius: var(--border-radius-8);
               background: var(--button-primary-default);
               color: var(--text-white);
             }
-          }
-        }
-
-        .active-form-btn {
-          .panvalidsubinner1 {
-            background-color: #2e2a94;
-            color: #fff;
-            cursor: pointer;
-            pointer-events: unset;
           }
         }
 

@@ -70,7 +70,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
     link.href = '/motilalfigma/modals/risk-o-meter';
     const svfion = iconsTemplate.querySelector('img');
     svfion.src = `/icons/risk-icon/${iconsvg}`;
-    svfion.alt = 'Risk-o-meter graph';
+    svfion.alt = 'Risk o meter';
     link.append(svfion);
     divwrapper.append(link);
     iconsTemplate.querySelector('.icon').innerHTML = '';
@@ -193,6 +193,7 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.append(...cardElements);
   block.querySelectorAll('.risk-home-two a').forEach((el) => {
+    el.setAttribute('aria-label', 'external-link');
     el.addEventListener('click', (event) => {
       const closer = event.target.closest('.risk-home-two');
       const plancode = closer.querySelector('a').getAttribute('schemesh');

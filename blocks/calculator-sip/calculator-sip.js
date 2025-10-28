@@ -137,6 +137,7 @@ export default function decorate(block) {
               id: 'investmentAmount',
               placeholder: '',
               class: 'investment-inp',
+              'aria-label': 'Enter Amount',
             }),
           ),
           span(

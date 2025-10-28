@@ -206,7 +206,7 @@ export default async function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['headgrp', 'headlist'];
     dataMapMoObj.addIndexed(defaultwrapper[1]);
     const headtitle = defaultwrapper[1].querySelector('.headgrp1').cloneNode(true);
-    headtitle.prepend(th({ class: 'comthst' }));
+    headtitle.prepend(th({ class: 'comthst', style: 'visibility   : hidden;' }, ''));
     const headstring = headtitle.outerHTML;
     const strhead = headstring.replaceAll('ul', 'tr').replaceAll('li', 'th');
 
@@ -674,6 +674,16 @@ export default async function decorate(block) {
     });
   }
 
+  if (block.closest('.popular-tab')) {
+    const popualrTab = block.closest('.popular-tab');
+    const defaultblk = popualrTab.querySelector('.default-content-wrapper');
+    const tabList = block.querySelector('.tabs-list');
+    const divtab = document.createElement('div');
+    divtab.classList.add('popular-tabwrapper');
+    divtab.append(defaultblk);
+    divtab.append(tabList);
+    block.prepend(divtab);
+  }
   document.addEventListener('click', (event) => {
     document.querySelectorAll('.cagr-container').forEach((el) => {
       if (!el.contains(event.target)) {

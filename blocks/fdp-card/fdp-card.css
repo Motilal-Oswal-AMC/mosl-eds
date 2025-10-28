@@ -1,6 +1,7 @@
 @import "../../../styles/fonts.css";
 main {
   background-color: #f5f5f5;
+  position: relative;
 }
 
 .section.fdp-card-container {
@@ -31,6 +32,7 @@ main {
   position: sticky;
   top: 209px;
   padding: 0;
+  overflow-y: auto;
 }
 @media (max-width: 768px) {
   .section.fdp-card-container .fdp-card-wrapper.item1 {
@@ -55,11 +57,11 @@ main {
   list-style: none;
   position: absolute;
   top: 100%;
-  left: -2px;
+  left: 0;
   z-index: 5;
   max-width: 340px;
   width: 100%;
-  max-height: 193px;
+  max-height: 125px;
   overflow: auto;
   margin: 3px 0 0;
   background-color: #fff;
@@ -254,7 +256,8 @@ main {
   margin: 0 0 8px;
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle .label-text .selecttext {
-  margin: 8px 0;
+  margin: 0;
+  padding: 8px 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -617,10 +620,11 @@ main {
 @media (width <= 768px) {
   .section.fdp-card-container .item2 {
     max-width: 100%;
+    position: relative;
   }
 }
 .section.fdp-card-container .item2 .item2-ul {
-  z-index: 10;
+  z-index: 11;
   width: 100%;
   height: 40px;
   justify-content: space-between;
@@ -633,7 +637,6 @@ main {
   border-bottom: 1px solid var(--neutrals-400);
   background-color: #f5f5f5;
   overflow: auto hidden;
-  scrollbar-width: none;
 }
 .section.fdp-card-container .item2 .item2-ul.fdp-tab {
   height: 36px;
@@ -641,23 +644,35 @@ main {
 @media (max-width: 768px) {
   .section.fdp-card-container .item2 .item2-ul.fdp-tab {
     height: auto;
+    height: 250px;
+    overflow: auto;
+    top: 230px;
   }
-}
-.section.fdp-card-container .item2 .item2-ul::-webkit-scrollbar {
-  display: none;
+  .section.fdp-card-container .item2 .item2-ul.fdp-tab::-webkit-scrollbar {
+    width: 3px;
+  }
+  .section.fdp-card-container .item2 .item2-ul.fdp-tab::-webkit-scrollbar-track {
+    width: 3px;
+    background-color: var(--neutrals-white);
+    border-radius: 0 6px 6px 0;
+  }
+  .section.fdp-card-container .item2 .item2-ul.fdp-tab::-webkit-scrollbar-thumb {
+    width: 3px;
+    background-color: #464343;
+  }
 }
 @media (width <= 768px) {
   .section.fdp-card-container .item2 .item2-ul {
     max-width: 100%;
     width: 100%;
     height: auto;
-    position: static;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    background-color: #fff;
+    background-color: var(--neutrals-white);
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.06);
     border: none;
   }
 }
@@ -674,9 +689,6 @@ main {
     justify-content: start;
     height: unset;
     display: block;
-  }
-  .section.fdp-card-container .item2 .item2-ul li.tab-li-item2 {
-    padding-top: 0;
   }
 }
 .section.fdp-card-container .item2 .item2-ul li.tab-li-item2, .section.fdp-card-container .item2 .item2-ul li.tab-li-item3, .section.fdp-card-container .item2 .item2-ul li.tab-li-item5, .section.fdp-card-container .item2 .item2-ul li.tab-li-item10, .section.fdp-card-container .item2 .item2-ul li.tab-li-item11, .section.fdp-card-container .item2 .item2-ul li.tab-li-item12 {
@@ -744,7 +756,6 @@ main {
     background: #fff;
     margin: 0 auto;
     padding: 16px;
-    position: relative;
     cursor: pointer;
     font-size: var(--body-medium-medium-size);
     line-height: var(--body-medium-medium-line-height);
@@ -753,8 +764,8 @@ main {
     font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
     font-weight: 500;
     position: sticky;
-    top: 27%;
-    z-index: 9999;
+    top: 179px;
+    z-index: 99;
   }
   .section.fdp-card-container .item2 .selectedtext-fdp::after {
     content: "";
@@ -964,13 +975,22 @@ main {
 .section.fdp-sticky-nav {
   display: none;
   padding: 16px;
+  margin: 0;
+  margin-top: 16px;
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 99;
+  background: var(--neutrals-white, #FFF);
+  box-shadow: -25px -1px 214px 0 rgba(0, 0, 0, 0.15);
 }
 @media (width <= 768px) {
   .section.fdp-sticky-nav {
     display: block;
     background: #fff;
     box-shadow: -25px -1px 214px 0 rgba(0, 0, 0, 0.15);
-    margin: 40px 0;
+    margin: 0;
   }
 }
 .section.fdp-sticky-nav .sticky-item1 {
@@ -978,19 +998,34 @@ main {
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .section.fdp-sticky-nav .sticky-item1 {
+    padding: 0;
+    gap: 48px;
+  }
+}
 .section.fdp-sticky-nav .sticky-item1 .sticky-sub-item1 {
   padding: 0;
   list-style: none;
   margin: 0;
 }
 .section.fdp-sticky-nav .sticky-item1 .sticky-sub-item1 .sticky-inner-item1 {
-  width: 176px;
-  font-size: var(--body-small-medium-size);
-  line-height: var(--body-small-medium-line-height);
+  width: 400px;
+  font-size: var(--body-xlarge-bold-size);
+  line-height: var(--body-xlarge-bold-line-height);
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  font-weight: 500;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .section.fdp-sticky-nav .sticky-item1 .sticky-sub-item1 .sticky-inner-item1 {
+    width: 100%;
+    font-size: var(--body-small-medium-size, 14px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--body-small-medium-line-height, 16px);
+  }
 }
 .section.fdp-sticky-nav .sticky-item1 .sticky-sub-item1 .sticky-inner-item2 {
   font-size: 14px;
@@ -1002,23 +1037,42 @@ main {
 }
 .section.fdp-sticky-nav .sticky-item1 .sticky-sub-item2 {
   display: flex;
-  width: 124px;
-  height: -moz-max-content;
-  height: max-content;
-  padding: var(--spacing-8) var(--spacing-12);
+  width: 192px;
+  height: 40px;
+  padding: var(--spacing-12);
   justify-content: center;
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
   border-radius: var(--border-radius-8);
   background: var(--button-primary-default);
-  text-align: center;
   margin: 0;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 16px;
-  color: var(--text-white);
-  font-family: var(--body);
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  color: var(--text-white, #FFF);
+  text-align: center;
+  font-feature-settings: var(--font-features-default);
+  font-family: var(--body, Inter);
+  font-size: var(--button-medium-size, 16px);
+  font-style: normal;
   font-weight: 500;
+  line-height: var(--button-medium-line-height, 20px);
+}
+@media (max-width: 768px) {
+  .section.fdp-sticky-nav .sticky-item1 .sticky-sub-item2 {
+    display: flex;
+    width: 116px;
+    height: 32px;
+    padding: var(--spacing-8, 8px) var(--spacing-12, 12px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-8, 8px);
+    flex-shrink: 0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
+}
+.section.fdp-sticky-nav .sticky-item1 .sticky-sub-item2 .submit {
+  color: var(--text-white);
 }/*# sourceMappingURL=fdp-card.css.map */

@@ -70,7 +70,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
     link.href = '/motilalfigma/modals/risk-o-meter';
     const svfion = iconsTemplate.querySelector('img');
     svfion.src = `/icons/risk-icon/${iconsvg}`;
-    svfion.alt = 'Risk-o-meter graph';
+    svfion.alt = 'Risk O Meter';
     link.append(svfion);
     divwrapper.append(link);
     iconsTemplate.querySelector('.icon').innerHTML = '';
@@ -194,6 +194,7 @@ export default function decorate(block) {
   block.append(...cardElements);
 
   block.querySelectorAll('.risk-home-two a').forEach((el) => {
+    el.setAttribute('aria-label', 'external-link');
     el.addEventListener('click', (event) => {
       const closer = event.target.closest('.risk-home-two');
       const plancode = closer.querySelector('a').getAttribute('schemesh');
@@ -225,25 +226,16 @@ export default function decorate(block) {
   handleResize(mediaQuery);
 }
 
-// 1. Select the main container for the component.
 const container = document.querySelector('.broaden-your-research.block');
 
-// 2. Run the script only if the container exists.
 if (container) {
-  // 3. Create a simple map for icon names to their alt text.
   const altTextMap = {
-    'external-link': 'External Link',
+    'external-link': 'Opens in new window',
   };
-
-  // 4. Find all images within the container that have an empty alt attribute.
   const imagesToFix = container.querySelectorAll('img[alt=""]');
-
-  // 5. Loop through each image and set its alt text from the map.
   imagesToFix.forEach((image) => {
-    const { iconName } = image.dataset; // Get the data-icon-name
-    const altText = altTextMap[iconName]; // Look up the alt text
-
-    // Set the alt attribute if a match is found.
+    const { iconName } = image.dataset;
+    const altText = altTextMap[iconName];
     if (altText) {
       image.setAttribute('alt', altText);
     }

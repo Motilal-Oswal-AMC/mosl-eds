@@ -10,6 +10,13 @@ import {
   ul,
   li,
   h2,
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td,
+  a,
 } from '../../scripts/dom-helpers.js';
 import '../../scripts/flatpickr.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -125,6 +132,10 @@ function hideFormsClick(btn) {
     document.body.classList.remove('noscroll');
     card2.classList.remove('modal-active-parent');
 
+    if (document.body.style.overflow === 'hidden') {
+      document.body.style.overflow = 'unset';
+    }
+
     // overlay.classList.add('hide-overlay');
     removeClassAfterDelay();
   });
@@ -148,13 +159,16 @@ export async function existingUser(paramblock) {
 
   const addInputDiv = div(
     { class: 'input-wrapper' },
+    label({ class: 'panlabel' }, 'Enter PAN Number'),
     input({
       type: 'text',
       placeholder: '',
       name: 'pan',
       class: 'iptpanfld',
+      maxlength: '10',
     }),
-    label({ class: 'panlabel' }, 'Enter PAN Number'),
+    img({ class: 'error-icon cancel-error', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
+    img({ class: 'error-icon cancel-icon', src: '../../icons/remove-circle.svg', alt: 'Cross Icon' }),
   );
 
   dataMapMoObj.panDlts.isGuest = 'false';
@@ -594,7 +608,7 @@ export async function existingUser(paramblock) {
         kycForm.querySelector('.city-inp')
           .parentElement.classList.add('active');
 
-        const conti = kycForm.querySelector('.tnc-container .panvalidsubinner4');
+        const conti = kycForm.querySelector('.tnc-container .button-container .button');
         conti.classList.add('active-form-btn');
       }
     } catch (error) {
@@ -766,8 +780,8 @@ export async function existingUser(paramblock) {
             prev.target.previousElementSibling.value = '';
           });
         });
-        const continueBTN = classAddv3.querySelector('.tnc-container .panvalidsubinner4');
-        continueBTN.querySelector('a').removeAttribute('href');
+        const continueBTN = classAddv3.querySelector('.tnc-container .button-container .button');
+        continueBTN.removeAttribute('href');
         const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
         const phoneRegex = /^\d{10}$/;
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -778,6 +792,7 @@ export async function existingUser(paramblock) {
           const errorPanEl = e.target.parentElement;
           if (panRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.add('active');
             userLoginPanNumber.setAttribute('readonly', true);
             if (panRegex.test(userLoginPanNumber.value)
               && phoneRegex.test(userNo.value)
@@ -788,6 +803,7 @@ export async function existingUser(paramblock) {
             // flagForm = '';
           } else {
             errorPanEl.classList.add('show-error');
+            errorPanEl.classList.add('active');
             continueBTN.classList.remove('active-form-btn');
             // flagForm = 'Y';
           }
@@ -951,7 +967,7 @@ export async function existingUser(paramblock) {
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
 
   const modiparent = closestParam.querySelector('.fdp-kyc-form');
-  const ModifyKycForm = modiparent.querySelector('.tnc-container .panvalidsubinner4');
+  const ModifyKycForm = modiparent.querySelector('.tnc-container .button-container .button');
   if (ModifyKycForm !== null) {
     ModifyKycForm.addEventListener('click', () => {
       const userLoginPanNumber = modiparent.querySelector('.panvalidsub3 .pan-inp').value; // input
@@ -969,7 +985,7 @@ export async function existingUser(paramblock) {
         userCity: usercity,
         kycflag: dataMapMoObj.kycStatus,
       };
-      const continueBTN = document.querySelector('.tnc-container .panvalidsubinner4');
+      const continueBTN = document.querySelector('.tnc-container .button-container .button');
       if (Array.from(continueBTN.classList).includes('active-form-btn')) {
       // lmsentCall(formdata);
         modiFyKycApicall(formdata);
@@ -1104,9 +1120,19 @@ export async function existingUser(paramblock) {
   inputLable.appendChild(errorPanEl); // append it once
 
   inputLable.addEventListener('click', (e) => {
-    if (e.target.value === '') {
+    const inputVal = e.currentTarget.querySelector('input');
+    if (inputVal.value === '') {
       e.target.parentElement.classList.add('active');
     }
+  });
+
+  const erricon = inputLable.querySelectorAll('.error-icon');
+  Array.from(erricon).forEach((el) => {
+    el.addEventListener('click', () => {
+      inputLable.querySelector('input').value = '';
+      inputLable.querySelector('.input-wrapper').classList.remove('show-error');
+      inputLable.querySelector('.input-wrapper').classList.remove('active');
+    });
   });
 
   inputLable.addEventListener('input', (e) => {
@@ -1117,19 +1143,19 @@ export async function existingUser(paramblock) {
 
     if (inputValue === '') {
       // If empty, hide the error
-      errorPanEl.classList.remove('show-error');
-      errorPanEl.classList.add('hide-error');
+      errorPanEl.previousElementSibling.classList.remove('show-error');
+      errorPanEl.previousElementSibling.classList.add('hide-error');
       e.target.parentElement.classList.remove('active');
     } else if (panRegex.test(inputValue)) {
       // If valid PAN, hide error
-      errorPanEl.classList.remove('show-error');
-      errorPanEl.classList.add('hide-error');
+      errorPanEl.previousElementSibling.classList.remove('show-error');
+      errorPanEl.previousElementSibling.classList.add('hide-error');
       btnAuthenticate.classList.add('pan-active');
       e.target.parentElement.classList.add('active');
     } else {
       // If invalid PAN, show error
-      errorPanEl.classList.remove('hide-error');
-      errorPanEl.classList.add('show-error');
+      errorPanEl.previousElementSibling.classList.remove('hide-error');
+      errorPanEl.previousElementSibling.classList.add('show-error');
       btnAuthenticate.classList.remove('pan-active');
       e.target.parentElement.classList.add('active');
     }
@@ -1147,7 +1173,7 @@ export async function existingUser(paramblock) {
   });
   // this function for hide modal forms
 
-  const mod = closestParam.querySelector('.pan-details-modal .icon-modal-btn');
+  const mod = closestParam.querySelector('.pan-details-modal .icon-modal-cross-btn');
   const mod2 = closestParam
     .querySelector('.fdp-kyc-form .panvalidsub3 .icon-modal-cross-btn');
   const mod3 = closestParam
@@ -1183,18 +1209,209 @@ function createCustomDropdown(id, labelText, options, defaultValue) {
 
 export default function decorate(block) {
   const mainclass = block.closest('main');
+  const modeltwo = mainclass.querySelector('.modal-stepup-two');
+  const modalstepOne = mainclass.querySelector('.modal-stepup-one');
   dataMapMoObj.panDlts = {};
   if (mainclass.querySelector('.modal-stepup-one')) {
     const modelone = mainclass.querySelector('.modal-stepup-one');
-    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone'];
+    dataMapMoObj.CLASS_PREFIXES = ['modelonemain', 'modelonesub', 'modeloneinner', 'modelinnerone', 'modelsubone', 'modelinnersubone'];
     dataMapMoObj.addIndexed(modelone);
+    const mod6 = mainclass.querySelector('.modal-stepup-one .icon-modal-cross-btn');
+    mod6.addEventListener('click', () => {
+      modalstepOne.style.display = 'none';
+    });
+
+    // Table left
+    const modeltableone = modelone.querySelector('.modelonesub3 .modelinnerone1');
+    const tabledatamainlist = modeltableone.querySelector('.modelsubone3 .modelinnersubone1');
+    if (tabledatamainlist !== null) {
+      Array.from(tabledatamainlist.children).forEach((list) => {
+      list.classList.add('table-list-wrap');
+      Array.from(list.children).forEach((sublist) => {
+        sublist.classList.add('table-list');
+        Array.from(sublist.children).forEach((datalist) => {
+          datalist.classList.add('data-list');
+        });
+      });
+      });
+
+      if (!modeltableone.querySelector('.sip-table-wrap')) {
+        const allrows = Array.from(tabledatamainlist.children);
+        const theadrow = allrows[0];
+        const theadrowdata = theadrow.querySelectorAll('.data-list');
+        const tbodyrow = allrows.slice(1);
+        const tdcolspan = theadrowdata.length;
+
+        // Table  thead
+
+        const theadmain = thead(
+          { class: 'sip-thead-lt' },
+          tr(
+            { class: 'lthead-row' },
+            ...Array.from(theadrowdata).map((headrow, i) => th({ class: `lt-head lt-head-${i + 1}` }, headrow.textContent)),
+          ),
+        );
+
+        // Table tbody
+
+        const tbodymain = tbody(
+          { class: 'sip-tbody-lt' },
+          ...tbodyrow.map((bodyrow) => {
+            const bodyrowul = bodyrow.querySelector('.table-list');
+            const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
+            if (bodyrowuldata.length === 1) {
+              return tr(
+                { class: 'ltbody-row' },
+                td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan }, bodyrowul.textContent),
+              );
+            }
+            return tr(
+              { class: 'ltbody-row' },
+              ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `lt-body lt-body-${i + 1}` }, bodyuldata.textContent)),
+            );
+          }),
+        );
+
+        const tableLi = li(
+          { class: 'sip-table-wrap' },
+          table(
+            { class: 'sip-table' },
+            theadmain,
+            tbodymain,
+          ),
+        );
+        modeltableone.appendChild(tableLi);
+      } 
+    }
+
+    // Table right
+    const modeltabletwo = modelone.querySelector('.modeloneinner2 .modelinnerone1');
+    const tabletwodatalist = modeltabletwo.querySelector('.modelsubone3 .modelinnersubone1');
+    Array.from(tabletwodatalist.children).forEach((list) => {
+      list.classList.add('table-list-wrap');
+      Array.from(list.children).forEach((sublist) => {
+        sublist.classList.add('table-list');
+        Array.from(sublist.children).forEach((datalist) => {
+          datalist.classList.add('data-list');
+        });
+      });
+    });
+
+    if (!modeltabletwo.querySelector('.sip-table-graph')) {
+      // const allrows = Array.from(tabletwodatalist.children);
+      // const theadrow = allrows[0];
+      // const theadrowdata = theadrow.querySelectorAll('.data-list');
+      // const tbodyrow = allrows.slice(1);
+      // const tdcolspan = theadrowdata.length;
+
+      // Table thead
+      // const theadmain = thead(
+      //   { class: 'graph-thead-rt' },
+      //   tr(
+      //     { class: 'rthead-row' },
+      //     ...Array.from(theadrowdata).map((headrow, i) => th({ class: `rt-head rt-head-${i + 1}` }, headrow.textContent)),
+      //   ),
+      // );
+
+      // Table tbody
+
+      // const tbodymain = tbody(
+      //   { class: 'graph-tbody-rt' },
+      //   ...tbodyrow.map((bodyrow, i) => {
+      //     const bodyrowul = bodyrow.querySelector('.table-list');
+      //     const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
+      //     if (bodyrowuldata.length === 1) {
+      //       return tr(
+      //         { class: `rtbody-row rtbody-row-${i + 1}` },
+      //         td({ class: 'rt-body rt-body-fulltxt', colspan: tdcolspan }, bodyrowul.textContent),
+      //       );
+      //     }
+      //     return tr(
+      //       { class: 'rtbody-row' },
+      //       ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `rt-body rt-body-${i + 1}` }, bodyuldata.textContent)),
+      //     );
+      //   }),
+      // );
+
+
+      const tablegraph = li(
+        { class: 'sip-table-graph' },
+        table(
+          { class: 'table-graph-wrap' },
+          thead(
+            { class: 'graph-thead-rt' },
+            tr(
+              { class: 'rthead-row' },
+              th({ class: 'rt-head rt-head-1' }),
+              th({ class: 'rt-head rt-head-2' }, 'Without Step up'),
+              th({ class: 'rt-head rt-head-3' }, 'With Step up'),
+            ),
+          ),
+          tbody(
+            { class: 'graph-tbody-rt' },
+            tr(
+              { class: 'rtbody-row rtbody-row-1' },
+              td({ class: 'rt-body rt-body-1' }, 'Total Investment'),
+              td({ class: 'rt-body rt-body-2' }, '₹ 24 Lakh'),
+              td({ class: 'rt-body rt-body-3' }, '₹ 43.8 Lakh'),
+            ),
+            tr(
+              { class: 'rtbody-row rtbody-row-2' },
+              td({ class: 'rt-body rt-body-1' }, 'Total Returns'),
+              td({ class: 'rt-body rt-body-2' }, '₹ 1.03 Cr*'),
+              td({ class: 'rt-body rt-body-3' }, '₹ 2.05 Cr*'),
+            ),
+            tr(
+              { class: 'rtbody-row rtbody-row-3' },
+              td(
+                { class: 'rt-body rt-body-fullimg', colspan: '3' },
+                img({ class: 'rt-body-img', src: '../../icons/sip-table-graph.svg', alt: 'SIP Table Graph' }),
+              ),
+            ),
+            tr(
+              { class: 'rtbody-row rtbody-row-4' },
+              td(
+                { class: 'rt-body rt-body-fulltxt', colspan: '3' },
+                p(
+                  { class: 'rt-body-text' },
+                  'Disclaimer: The above calculator is only for purposes and the graph ',
+                  a({ class: 'rt-body-link', href: '' }, 'Read More'),
+                ),
+              ),
+            ),
+          ),
+          // theadmain,
+          // tbodymain
+        ),
+      );
+
+      modeltabletwo.appendChild(tablegraph);
+    }
+
+    // Table end
+    // hideFormsClick(mod6);
+
+    // table two read more click
+    const modeloneread = mainclass.querySelector('.modal-stepup-one .modeloneinner2 .rt-body-link');
+    modeloneread.addEventListener('click', () => {
+      modeloneread.removeAttribute('href', true);
+      modeltwo.style.display = 'flex';
+      modeloneread.closest('.modal-stepup-one').style.display = 'none';
+    });
   }
   if (mainclass.querySelector('.modal-stepup-two')) {
-    const modeltwo = mainclass.querySelector('.modal-stepup-two');
-    dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo'];
+    dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo', 'modelinnersubtwo'];
     dataMapMoObj.addIndexed(modeltwo);
-    const mod5 = mainclass.querySelector('.added-fund-cart .icon-modal-cross-btn');
-    hideFormsClick(mod5);
+    const mod5 = mainclass.querySelector('.modal-stepup-two .icon-modal-cross-btn');
+    mod5.addEventListener('click', () => {
+      modeltwo.style.display = 'none';
+    });
+    
+    const backDisc = mainclass.querySelector('.modal-stepup-two .modeltwosub1');
+    backDisc.addEventListener('click', () => {
+      modeltwo.style.display = 'none';
+      modalstepOne.style.display = 'flex';
+    });
   }
   if (mainclass.querySelector('.added-fund-cart')) {
     dataMapMoObj.CLASS_PREFIXES = ['addcartmain', 'addcartsub', 'addcartinner', 'addinnercar'];
@@ -1315,6 +1532,10 @@ export default function decorate(block) {
         }
       },
     }));
+    checkboxcont.querySelector('img').addEventListener('click', () => {
+      // console.log('bye bye');
+      modalstepOne.style.display = 'flex';
+    });
     divstepup = div(
       { class: 'steup-container' },
       div(
@@ -1535,11 +1756,14 @@ export default function decorate(block) {
                 ),
                 div(
                   { class: 'sip-note-highlight' },
-                  img({ class: '', src: infotoolsrc, alt: 'information' }),
+                  img({ class: 'tooltip-info', src: infotoolsrc, alt: 'information' }),
                   div(
-                    { class: 'tooltip-wrap' },
-                    p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
-                    button({ class: 'tooltip-btn-mob' }, 'Ok'),
+                    { class: 'tooltip-container' },
+                    div(
+                      { class: 'tooltip-wrap' },
+                      p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
+                      button({ class: 'tooltip-btn-mob' }, 'Ok'),
+                    ),
                   ),
                 ),
               ),
@@ -2024,6 +2248,11 @@ export default function decorate(block) {
   if (blkcompo) {
     blkcompo.style.display = 'none';
   }
+  // const stepSipIcon = blkcompo.querySelector('.stepupsub2 img');
+  // const modalstepOne = mainclass.querySelector('.modal-stepup-one')
+  // stepSipIcon.addEventListener('click', function () {
+  //   modalstepOne.style.display = 'block';
+  // });
   if (stepblk !== null) {
     const drpsel = stepblk.querySelector('.dropdown-wrap .selected-txt');
     const drpdown = stepblk.querySelector('.dropdown-wrap .dropdown-list');
@@ -2049,9 +2278,12 @@ export default function decorate(block) {
       }
       if (!Array.from(event.target.classList).includes('date-drop-down')
         && !block.querySelector('.date-drop-down').contains(event.target)) {
-        block.querySelector('.flatpickr-calendar').classList.remove('open');
+        if (block.querySelector('.flatpickr-calendar') !== null) {
+          block.querySelector('.flatpickr-calendar').classList.remove('open');
+        }
       }
     });
   }
+
   return block;
 }
