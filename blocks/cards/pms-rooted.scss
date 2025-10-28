@@ -86,6 +86,7 @@ $breakpoint-tablet: 900px;
 
                     p {
                         margin: 0;
+                        max-width: 395px;
 
                         @include media(mobile) {
                             border-bottom: 1px solid #D0D0D0;
