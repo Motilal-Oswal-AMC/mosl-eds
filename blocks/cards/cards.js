@@ -114,5 +114,21 @@ export default function decorate(block) {
     Array.from(leftSub).forEach((leftel) => {
       leftarticle.append(leftel);
     });
+    if (maincloser.querySelector('.moedge-article-details')) {
+      dataMapMoObj.CLASS_PREFIXES = ['articlemain', 'articlesub', 'articleitem',
+        'subarticle', 'mainarticle', 'itemarticle', 'itemsubart',
+        'mainitemart', 'itemmainart', 'submainart'];
+      dataMapMoObj.addIndexed(
+        maincloser.querySelector('.moedge-article-details'),
+      );
+
+      const mainleft = maincloser.querySelector('.article-left-wrapper');
+      dataMapMoObj.CLASS_PREFIXES = ['leftartmain', 'leftartsub', 'leftartitem',
+        'subleftart', 'mainleftart', 'itemleftart', 'itemleftart',
+        'mainitemleftart', 'itemmainleftart', 'submainleftart'];
+      dataMapMoObj.addIndexed(
+        mainleft,
+      );
+    }
   }
 }
