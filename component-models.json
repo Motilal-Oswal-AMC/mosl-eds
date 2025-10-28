@@ -445,6 +445,10 @@
           {
             "name": "AIF Component",
             "value": "aif-component"
+          },
+          {
+            "name": "Main Wrapper",
+            "value": "main-wrapper"
           }
         ]
       },
