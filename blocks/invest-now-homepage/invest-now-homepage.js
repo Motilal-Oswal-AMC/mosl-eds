@@ -1217,7 +1217,8 @@ export default function decorate(block) {
       modalstepOne.style.display = 'none';
     });
 
-    const modeltableone = modelone.querySelector('.modeloneinner1 .modelinnerone1');
+    // Table left
+    const modeltableone = modelone.querySelector('.modelonesub3 .modelinnerone1');
     const tabledatamainlist = modeltableone.querySelector('.modelsubone3 .modelinnersubone1');
     Array.from(tabledatamainlist.children).forEach((list) => {
       list.classList.add('table-list-wrap');
@@ -1277,9 +1278,56 @@ export default function decorate(block) {
       modeltableone.appendChild(tableLi);
     }
 
+    // Table right
     const modeltabletwo = modelone.querySelector('.modeloneinner2 .modelinnerone1');
+    const tabletwodatalist = modeltabletwo.querySelector('.modelsubone3 .modelinnersubone1');
+    Array.from(tabletwodatalist.children).forEach((list) => {
+      list.classList.add('table-list-wrap');
+      Array.from(list.children).forEach((sublist) => {
+        sublist.classList.add('table-list');
+        Array.from(sublist.children).forEach((datalist) => {
+          datalist.classList.add('data-list');
+        });
+      });
+    });
 
     if (!modeltabletwo.querySelector('.sip-table-graph')) {
+      // const allrows = Array.from(tabletwodatalist.children);
+      // const theadrow = allrows[0];
+      // const theadrowdata = theadrow.querySelectorAll('.data-list');
+      // const tbodyrow = allrows.slice(1);
+      // const tdcolspan = theadrowdata.length;
+
+      // Table thead
+      // const theadmain = thead(
+      //   { class: 'graph-thead-rt' },
+      //   tr(
+      //     { class: 'rthead-row' },
+      //     ...Array.from(theadrowdata).map((headrow, i) => th({ class: `rt-head rt-head-${i + 1}` }, headrow.textContent)),
+      //   ),
+      // );
+
+      // Table tbody
+
+      // const tbodymain = tbody(
+      //   { class: 'graph-tbody-rt' },
+      //   ...tbodyrow.map((bodyrow, i) => {
+      //     const bodyrowul = bodyrow.querySelector('.table-list');
+      //     const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
+      //     if (bodyrowuldata.length === 1) {
+      //       return tr(
+      //         { class: `rtbody-row rtbody-row-${i + 1}` },
+      //         td({ class: 'rt-body rt-body-fulltxt', colspan: tdcolspan }, bodyrowul.textContent),
+      //       );
+      //     }
+      //     return tr(
+      //       { class: 'rtbody-row' },
+      //       ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `rt-body rt-body-${i + 1}` }, bodyuldata.textContent)),
+      //     );
+      //   }),
+      // );
+
+
       const tablegraph = li(
         { class: 'sip-table-graph' },
         table(
@@ -1326,6 +1374,8 @@ export default function decorate(block) {
               ),
             ),
           ),
+          // theadmain,
+          // tbodymain
         ),
       );
 
@@ -1336,12 +1386,12 @@ export default function decorate(block) {
     // hideFormsClick(mod6);
 
     // table two read more click
-    const modeloneread = mainclass.querySelector('.modal-stepup-one .modeloneinner2 .rt-body-link');
-    modeloneread.addEventListener('click', () => {
-      modeloneread.removeAttribute('href', true);
-      modeltwo.style.display = 'flex';
-      modeloneread.closest('.modal-stepup-one').style.display = 'none';
-    });
+    // const modeloneread = mainclass.querySelector('.modal-stepup-one .modeloneinner2 .rt-body-link');
+    // modeloneread.addEventListener('click', () => {
+    //   modeloneread.removeAttribute('href', true);
+    //   modeltwo.style.display = 'flex';
+    //   modeloneread.closest('.modal-stepup-one').style.display = 'none';
+    // });
   }
   if (mainclass.querySelector('.modal-stepup-two')) {
     dataMapMoObj.CLASS_PREFIXES = ['modeltwomain', 'modeltwosub', 'modeltwoinner', 'modelinnertwo', 'modelsubtwo', 'modelinnersubtwo'];
