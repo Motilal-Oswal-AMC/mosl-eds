@@ -1990,6 +1990,21 @@
 
     .modelonesub2 {
       margin: 0;
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+
+      @include media(mobile) {
+        top: 12px;
+        right: 12px;
+      }
+    }
+
+    .modelonesub3 {
+      margin: 0;
       display: flex;
       gap: 40px;
       list-style: none;
@@ -2197,28 +2212,34 @@
           margin: 0;
           list-style: none;
 
-          .comlist {
-            @include font-style(
-              var(--body-small-regular-size),
-              var(--body-small-regular-line-height),
-              var(--surface-text-neutral-intense),
-              400,
-              var(--body)
-            );
+          .comlist:not(.sip-table-graph) {
+            .comlist {
+              @include font-style(
+                var(--body-small-regular-size),
+                var(--body-small-regular-line-height),
+                var(--surface-text-neutral-intense),
+                400,
+                var(--body)
+              );
 
-            @include media(mobile) {
-              font-size: var(--body-xsmall-regular-size);
-              line-height: var(--body-xsmall-regular-line-height);
-              color: var(--neutrals-800);
+              margin: 0;
+
+              @include media(mobile) {
+                font-size: var(--body-xsmall-regular-size);
+                line-height: var(--body-xsmall-regular-line-height);
+                color: var(--neutrals-800);
+              }
             }
           }
 
           .comlist.modelsubone1 {
-            padding: 0 0 8px;
+            .comlist {
+              padding: 0 0 8px;
 
-            @include media(mobile) {
-              padding: 0 0 4px;
-              font-feature-settings: unset;
+              @include media(mobile) {
+                padding: 0 0 4px;
+                font-feature-settings: unset;
+              }
             }
           }
 
@@ -2485,7 +2506,7 @@
                           var(--body)
                         );
 
-                        @include media(mobile){
+                        @include media(mobile) {
                           font-size: var(--text-link-xsmall-size);
                           line-height: var(--text-link-xsmall-line-height);
                         }
@@ -2497,21 +2518,6 @@
             }
           }
         }
-      }
-    }
-
-    .modelonesub3 {
-      margin: 0;
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-
-      @include media(mobile) {
-        top: 12px;
-        right: 12px;
       }
     }
   }

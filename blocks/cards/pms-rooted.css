@@ -331,6 +331,7 @@
 
 .section.pms-choose .pms-choose1 .pms-choose-detail1 ul li .cards-card-body {
   margin: 0;
+  position: relative;
 }
 
 .section.pms-choose .pms-choose1 .pms-choose-detail1 ul li .cards-card-body h2.pms-choose-detail-sublist1 {
@@ -367,7 +368,20 @@
     line-height: var(--paragraph-medium-line-height);
   }
 }
-
+.section.pms-choose .pms-choose1 .pms-choose-detail1 ul li .cards-card-body p.pms-choose-detail-sublist3 {
+  position: absolute;
+  top: -26px;
+  left: -37px;
+  margin: 0;
+}
+.section.pms-choose .pms-choose1 .pms-choose-detail1 ul li .cards-card-body p.pms-choose-detail-sublist3 .pms-choose-detail-cls1 {
+  width: 84px;
+  height: 89px;
+}
+.section.pms-choose .pms-choose1 .pms-choose-detail1 ul li .cards-card-body p.pms-choose-detail-sublist3 .pms-choose-detail-cls1 img {
+  -o-object-fit: unset;
+     object-fit: unset;
+}
 .section.pms-choose .pms-choose2 {
   max-width: 504px;
   width: 100%;

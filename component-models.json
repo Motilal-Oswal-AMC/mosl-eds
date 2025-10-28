@@ -441,6 +441,10 @@
           {
             "name": "Our Podcast",
             "value": "our-podcast"
+          },
+          {
+            "name": "AIF Component",
+            "value": "aif-component"
           }
         ]
       },
