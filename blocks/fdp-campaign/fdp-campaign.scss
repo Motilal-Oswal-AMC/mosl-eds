@@ -2,6 +2,9 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
+$mobile-mini: 373px;
+$breakpoint-tablet: 900px;
+
 .section.table-wrapper.fdp-campaign-container {
   // margin-top: 64px;
   // margin-top: 115px !important;
@@ -24,7 +27,7 @@
       }
 
       .compaignsub1 {
-        height: 193px;
+        height: 100%;
       }
     }
 
@@ -60,3 +63,285 @@
 }
 
 }
+
+
+
+.nfo-nav .section.table-wrapper.pws-hero-section{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 33px;
+
+    @include media(tab){
+      margin-top: 0;
+    }
+
+    .default-content-wrapper{
+      position: absolute;
+      left: 67px;
+      margin: 0;
+      bottom: 48px;
+
+      @include media(mobile){
+        // top: 474px;
+        left: 0;
+        bottom: 32px;
+        padding: 0 15.5px 0 16.5px;
+      }
+
+          .comlist.para1{
+                color: var(--neutrals-white);
+                font-family: var(--body);
+                font-size: 64px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                margin: 0;
+                max-width: 554px;
+      
+                @include media(mobile){
+                  color: var(--neutrals-white);
+                  font-feature-settings: 'liga' off;
+                  font-family:var(--body);
+                  font-size: 36px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: 40px; /* 111.111% */
+                }
+                
+                  .comlist.p21{
+                      line-height: 0;
+                      font-size: 0;
+      
+                      .p31{
+                          img{
+                              width: 100%;
+                              flex-shrink: 0;
+                              aspect-ratio: 1366/681;
+      
+                              @include media(mobile) {
+                                  width: 100%;
+                                  height: 718px;
+                                  flex-shrink: 0;
+                                  aspect-ratio: 186/359;
+                              }
+      
+                          }
+                      }
+                  }
+          
+              }
+  
+          .comlist.para2{
+            color: #FFF;
+            font-family: var(--body);
+            font-size: var(--body-large-regular-size);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px /* 155.556% */;
+            max-width: 512px;
+            margin: 12px 12px 12px 0;
+
+            @include media(mobile) {
+              margin: 8px 0 24px;
+              color: var(--text-white);
+              font-family: var(--body);
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height:  20px;
+              max-width: 320px;
+            }
+              
+            .comlist.p21{
+                  position: absolute;
+                  top: 202px;
+                  left: 67px;
+                  max-width: 554px;
+  
+                  @include media(mobile) {
+                      top: 474px;
+                      right: 16.5px;
+                      left: 13.5px;
+                  }
+  
+                  p{
+                      color: white;
+                  }
+  
+                  .p31{
+                  color: var(--neutrals-white);
+                  font-family: var(--body);
+                  font-size: 64px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
+                  width: 100%;
+                  align-self: stretch;
+  
+                  @include media(mobile) {
+                      // color: var(--neutrals-white);
+                      // font-family: var(--body);
+                      // font-size: 36px;
+                      // font-style: normal;
+                      // font-weight: 500;
+                      // line-height: 40px; /* 111.111% */
+                      max-width: 100%;
+                      width: 100%;
+                      
+                  }
+  
+                  }
+  
+                  .p32{
+                  color: #FFF;
+                  font-family: var(--body);
+                  font-size: var(--body-large-regular-size);
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: var(--body-large-regular-line-height); /* 155.556% */
+                  width: 500px;
+  
+                  @include media(mobile) {
+                      color: var(--text-white, #FFF);
+                      font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
+  
+                      /* Mobile/Paragraph/Small */
+                      font-family: var(--body);
+                      font-size: var(--paragraph-small-size);
+                      font-style: normal;
+                      font-weight: 400;
+                      line-height: var(--paragraph-small-line-height); /* 142.857% */
+                      max-width: 100%;
+                      width: 100%;
+                  }
+  
+  
+                  }
+  
+                  .p33{
+                  border-radius: var(--border-radius-8);
+  
+                  // background: var(--neutrals-white);
+                  display: flex;
+                  width: 160px;
+                  height: 40px;
+                  padding: var(--spacing-12);
+                  justify-content: center;
+                  align-items: center;
+                  gap: var(--spacing-8);
+  
+                  a{
+                      border-radius: var(--border-radius-8);
+                      background: var(--neutrals-white);
+                      color: var(--text-button-default);
+                      text-align: center;
+                      font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
+  
+                      /* Mobile/Button/Medium */
+                      font-family: var(--body);
+                      font-size: var(--button-medium-size);
+                      font-style: normal;
+                      font-weight: 500;
+                      line-height: var(--button-medium-line-height); /* 125% */
+                      position: absolute;
+                      left: 0;
+                  }
+                  }
+              }
+
+
+      
+          }
+  
+          .comlist.para3{
+            padding: 0;
+            border-radius: var(--border-radius-8);
+            max-width: 160px;
+            width: 100%;
+            margin: 0;
+            
+  
+            a.p21{
+              margin: 0 auto;
+              padding: 0;
+              border-radius: var(--border-radius-8);
+              background: var(--neutrals-white);
+              color: var(--text-button-default);
+              font-family: var(--body);
+              font-size: var(--button-medium-size);
+              font-style: normal;
+              font-weight: 500;
+              line-height: var(--button-medium-line-height); /* 125% */
+              width: 100%;
+              padding: 12px;
+              max-height: 40px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+  
+            }
+  
+          }
+
+    }
+
+      .fdp-campaign-wrapper{
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
+
+
+        .fdp-campaign{
+          max-width: 100%;
+          width: 100%;
+
+          .compaign1{
+            width: 100%;
+            max-width: 100%;
+
+
+            @include media(mobile){
+              display: block;
+            }
+
+            @include media(mobile-md){
+              display: none;
+            }
+             
+            .compaignsub1{
+              font-size: 0;
+
+              img{
+                width: 100%;
+                height: revert-layer;
+              }
+            }
+          }
+
+          .compaign2{
+            display: none;
+            width: 100%;
+            max-width: 100%;
+            font-size: 0;
+              
+            @include media(mobile-md){
+              display: block;
+              
+              img{                
+                height: 100%;
+                aspect-ratio: 186/359;
+                width: 100%;
+                max-width: 100%;
+              }
+            }
+          }
+        }
+    }
+    }
+
+    
+
+// }
