@@ -122,6 +122,9 @@ export default async function decorate(block) {
   nav.id = 'nav';
   nav.classList.add('nfo-nav');
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+  if (window.location.href.includes('/motilalfigma/pms') || window.location.href.includes('/motilalfigma/aif')) {
+    nav.classList.remove('nfo-nav');
+  }
 
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {

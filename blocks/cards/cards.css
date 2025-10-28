@@ -2,6 +2,7 @@
 @import "../cards/behind-the-content.css";
 @import "../cards/pms-rooted.css";
 @import "../cards/aif-component.css";
+@import "../cards/moedge-article.css";
 
 /* @import "../cards/behind-the-content.css"; */
 
@@ -34,7 +35,7 @@
   background: url('');
 }
 
-.main-wrapper {
+.section.main-wrapper {
   max-width: 1232px;
   width: 100%;
   margin: 78px auto 0;
@@ -48,12 +49,12 @@ main.nfo-nav .main-wrapper .section:first-of-type {
   margin-top: 0;
 }
 
-.article-left-wrapper {
+.section.article-left-wrapper {
   max-width: 66.234%;
   width: 100%;
 }
 
-.article-right-wrapper {
+.section.article-right-wrapper {
   max-width: 24.026%;
   width: 100%;
 }
