@@ -449,6 +449,10 @@
           {
             "name": "Main Wrapper",
             "value": "main-wrapper"
+          },
+          {
+            "name": "Moedge Article Details",
+            "value": "moedge-article-details"
           }
         ]
       },
@@ -1988,7 +1992,7 @@
       }
     ]
   },
-   {
+  {
     "id": "investing-text-item",
     "fields": [
       {
@@ -2071,7 +2075,7 @@
       }
     ]
   },
-   {
+  {
     "id": "investing-text-item",
     "fields": [
       {
@@ -2131,7 +2135,7 @@
   {
     "id": "our-service-item",
     "fields": [
-       {
+      {
         "component": "richtext",
         "name": "richtext",
         "value": "",

@@ -102,7 +102,7 @@ export default function decorate(block) {
   }
 
   // Investor Education article left and right wrapper
-  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/our-authors/')) {
+  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details')) {
     const maincloser = block.closest('main');
     const rightSub = maincloser.querySelectorAll('.article-sub-right');
     const rightarticle = maincloser.querySelector('.article-right-wrapper');
