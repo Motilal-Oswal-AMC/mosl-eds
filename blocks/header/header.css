@@ -1,3 +1,5 @@
+@import "../header/sub-header.css";
+
 /* header and nav layout */
 body.no-scroll {
     overflow: hidden;

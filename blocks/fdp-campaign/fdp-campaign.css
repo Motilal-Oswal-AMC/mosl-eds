@@ -60,12 +60,12 @@
   position: absolute;
   left: 67px;
   margin: 0;
-  bottom: 48px;
+  top: 359px;
 }
 @media (max-width: 768px) {
   .nfo-nav .section.table-wrapper.pws-hero-section .default-content-wrapper {
+    top: 474px;
     left: 0;
-    bottom: 32px;
     padding: 0 15.5px 0 16.5px;
   }
 }

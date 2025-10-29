@@ -651,6 +651,11 @@
   gap: var(--spacing-4);
   padding: 0 var(--spacing-24) 0 var(--spacing-20);
 }
+@media (max-width: 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note {
+    padding: 0 16px 0 var(--spacing-28);
+  }
+}
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note {
   margin: 0;
   font-size: var(--body-xsmall-regular-size);
@@ -897,8 +902,8 @@
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .steup-container .stepup-checkbox .stepupmain1 .stepup-box {
   visibility: hidden;
-  min-width: 14.67px;
-  height: 14.67px;
+  min-width: 16px;
+  height: 16px;
   cursor: pointer;
   padding: 0.67px;
   -webkit-appearance: none;
@@ -917,7 +922,7 @@
   background-image: url("../../icons/sip-check.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   width: 14.67px;
   height: 14.67px;
   display: block;
@@ -1278,7 +1283,7 @@
   background-color: #fff;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-cta .modal-cta-btn {
-  padding: var(--spacing-12);
+  padding: 10px 37px;
   max-width: 48.3%;
   width: 100%;
   border-radius: var(--border-radius-8);

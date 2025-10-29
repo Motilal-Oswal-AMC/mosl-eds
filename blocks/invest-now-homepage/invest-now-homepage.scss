@@ -697,6 +697,10 @@
                         gap: var(--spacing-4);
                         padding: 0 var(--spacing-24) 0 var(--spacing-20);
 
+                        @include media(mobile){
+                          padding: 0 16px 0 var(--spacing-28);
+                        }
+
                         .sip-note {
                           margin: 0;
 
@@ -983,8 +987,8 @@
 
                         .stepup-box {
                           visibility: hidden;
-                          min-width: 14.67px;
-                          height: 14.67px;
+                          min-width: 16px;
+                          height: 16px;
                           cursor: pointer;
                           padding: 0.67px;
                           appearance: none;
@@ -1000,7 +1004,7 @@
                             background-image: url("../../icons/sip-check.svg");
                             background-position: center;
                             background-repeat: no-repeat;
-                            background-size: cover;
+                            background-size: contain;
                             width: 14.67px;
                             height: 14.67px;
                             display: block;
@@ -1430,7 +1434,8 @@
                 background-color: #fff;
 
                 .modal-cta-btn {
-                  padding: var(--spacing-12);
+                  // padding: var(--spacing-12);
+                  padding: 10px 37px;
                   max-width: 48.3%;
                   width: 100%;
                   border-radius: var(--border-radius-8);

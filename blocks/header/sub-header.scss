@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
+
+header {
+    nav[aria-expanded='true'] {
+        .nav-sections {
+            &.header-sub-pms {
+                .nav-sec-sec1 {
+                    li {
+                        p {
+                            a {
+                                color: var(--neutrals-white);
+                                background-color: transparent;
+                                font-feature-settings: var(--font-feature-default);
+                                font-family: var(--body, Inter);
+                                font-size: var(--body-small-regular-size);
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: var(--label-large-line-height);
+
+                                @include media(mobile) {
+                                    width: 100%;
+                                    text-align: left;
+                                    color: var(--blue-1800-primary, #2E2A94);
+                                    font-size: var(--body-medium-semibold-size);
+                                    font-weight: 500;
+                                    line-height: var(--body-medium-semibold-line-height);
+                                }
+                            }
+                        }
+                    }
+
+                    @include media (mobile) {
+                        .nav-sec-sub2 {
+                            margin-top: 84px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-top {
+            &.header-sub-pms {
+                width: 55%;
+
+                @include media (mobile) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
