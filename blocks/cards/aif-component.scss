@@ -8,7 +8,9 @@
 // $border-radius: 8px;
 
 // Base (Mobile first)
-.aif-component {
+.aif-component.cards-container {
+    margin-top: 0;
+
   h2{
     color: var(--blue-1-800-primary);
     text-align: center;
@@ -77,16 +79,22 @@
 
 // Tablet
 @media (width >= 767px) {
-  .aif-component {
+  .aif-component.cards-container {
+    margin-top: 40px;
+
     h2{
         max-width: 600px;
         text-align: center;
         margin: 0 auto;
         font-size: var(--heading-h5-size);
         line-height: var(--heading-h4-line-height);
+        padding: 40px 0 60px;
+
     }
 
     .cards{
+        padding-bottom: 80px;
+        
         ul{
             display: flex;
             flex-wrap: wrap;

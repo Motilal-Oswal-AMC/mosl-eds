@@ -1,5 +1,8 @@
 @import "../../../styles/fonts.css";
-.aif-component h2 {
+.aif-component.cards-container {
+  margin-top: 0;
+}
+.aif-component.cards-container h2 {
   color: var(--blue-1-800-primary);
   text-align: center;
   font-family: var(--title);
@@ -11,37 +14,37 @@
   padding: 40px 0;
   max-width: 280px;
 }
-.aif-component .cards ul {
+.aif-component.cards-container .cards ul {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
 }
-.aif-component .cards ul li {
+.aif-component.cards-container .cards ul li {
   border-radius: 16px;
   background: var(--neutrals-200);
   max-width: 340px;
   width: 100%;
   border: 0;
 }
-.aif-component .cards ul li .cards-card-body {
+.aif-component.cards-container .cards ul li .cards-card-body {
   margin: 34px 12px;
 }
-.aif-component .cards ul li .cards-card-body p {
+.aif-component.cards-container .cards ul li .cards-card-body p {
   margin: 0;
   line-height: 0;
 }
-.aif-component .cards ul li .cards-card-body p .icon {
+.aif-component.cards-container .cards ul li .cards-card-body p .icon {
   width: 100%;
   height: unset;
 }
-.aif-component .cards ul li .cards-card-body p .icon img {
+.aif-component.cards-container .cards ul li .cards-card-body p .icon img {
   width: 80px;
   height: 80px;
   aspect-ratio: 1/1;
   margin-bottom: 40px;
 }
-.aif-component .cards ul li .cards-card-body h3 {
+.aif-component.cards-container .cards ul li .cards-card-body h3 {
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-size: var(--body-large-semibold-size);
@@ -53,26 +56,33 @@
 }
 
 @media (width >= 767px) {
-  .aif-component h2 {
+  .aif-component.cards-container {
+    margin-top: 40px;
+  }
+  .aif-component.cards-container h2 {
     max-width: 600px;
     text-align: center;
     margin: 0 auto;
     font-size: var(--heading-h5-size);
     line-height: var(--heading-h4-line-height);
+    padding: 40px 0 60px;
   }
-  .aif-component .cards ul {
+  .aif-component.cards-container .cards {
+    padding-bottom: 80px;
+  }
+  .aif-component.cards-container .cards ul {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
   }
-  .aif-component .cards ul li {
+  .aif-component.cards-container .cards ul li {
     max-width: 400px;
   }
-  .aif-component .cards ul li .cards-card-body p .icon img {
+  .aif-component.cards-container .cards ul li .cards-card-body p .icon img {
     margin-bottom: 62px;
   }
-  .aif-component .cards ul li .cards-card-body h3 {
+  .aif-component.cards-container .cards ul li .cards-card-body h3 {
     max-width: 356px;
     font-size: var(--body-large-medium-size, 18px);
     font-weight: 500;

@@ -457,6 +457,14 @@
           {
             "name": "Header Sub Pms",
             "value": "header-sub-pms"
+          },
+          {
+            "name": "aif-banner",
+            "value": "aif-banner"
+          },
+          {
+            "name": "aif-choose",
+            "value": "aif-choose"
           }
         ]
       },
