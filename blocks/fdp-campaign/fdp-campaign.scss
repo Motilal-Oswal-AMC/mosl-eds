@@ -66,7 +66,7 @@ $breakpoint-tablet: 900px;
 
 
 
-.nfo-nav .section.table-wrapper.pws-hero-section{
+.section.table-wrapper.pws-hero-section{
     margin: 0;
     padding: 0;
     position: relative;
@@ -855,10 +855,33 @@ $breakpoint-tablet: 900px;
     }
 }
 
-.nfo-nav .section.table-wrapper.pws-hero-section.aif-banner {
-  .default-content-wrapper{
-    top: 146px;
-    left: 132px;
+.section.table-wrapper.aif-banner.fdp-campaign-container {
+  margin: 33px 0 0;
+
+  @include media(mobile){
+    margin: 0;
+  }
+
+  .fdp-campaign-wrapper{
+    padding: 0;
+
+    .fdp-campaign{
+      .compaign2{
+        .mobimg-21{
+          .mobimg-34{
+            @include media(mobile) {
+              aspect-ratio: 124/211;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+    .default-content-wrapper{
+      top: 146px;
+      left: 132px;
 
     @include media(desktop-md){
       left: 67px;
@@ -870,19 +893,60 @@ $breakpoint-tablet: 900px;
       padding: 0 16px;
     }
 
-    .comlist.para1{
-      .comlist.p21{
-        .p31{
-          .mobimg-34{
+    .para1{
+      // font-family: var(--body);
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 64px;
+
+      @include media(mobile) {
+        font-size: 32px;
+        line-height: 40px;
+      }
+      
+    }
+
+          .para2{
+              margin: 8px 0 48px;
+              max-width: 504px;
+
             @include media(mobile) {
-              aspect-ratio: 372.00/632.56;
-              height: 100%;
+              margin: 8px 0 24px;
+      }
+
+          }
+
+          .para3{
+            max-width: 164px;
+            max-height: 48px;
+            width: 100%;
+
+            @include media(mobile) {
+              max-width: 160px;
+              max-height: 40px;
+            }
+
+            a.p21{
+            display: flex;
+            max-width: 164px;
+            max-height: 48px;
+            font-size: 18px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            @include media(mobile) {
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 20px;
+              max-width: 160px;
+              max-height: 40px;
+            }
             }
           }
-        }
-      }
-    }
   }
+  
 }
   
   

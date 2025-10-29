@@ -65,6 +65,10 @@
     margin: 0 auto;
     font-size: var(--heading-h5-size);
     line-height: var(--heading-h4-line-height);
+    padding: 40px 0 60px;
+  }
+  .aif-component.cards-container .cards {
+    padding-bottom: 80px;
   }
   .aif-component.cards-container .cards ul {
     display: flex;
