@@ -733,7 +733,7 @@
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap {
     border-radius: 24px 24px 0 0;
     box-shadow: none;
-    padding: var(--spacing-24) 24px 12px;
+    padding: 0;
   }
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap::after {
     content: unset;
@@ -753,7 +753,7 @@
     color: var(--neutrals-800);
     font-size: var(--paragraph-medium-size);
     line-height: var(--paragraph-medium-line-height);
-    padding: 0 0 var(--spacing-16);
+    padding: var(--spacing-24) 24px var(--spacing-16);
   }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap .tooltip-btn-mob {
@@ -762,8 +762,8 @@
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight .tooltip-container .tooltip-wrap .tooltip-btn-mob {
     display: block;
-    margin: 12px 0 0;
-    width: 100%;
+    margin: 12px auto;
+    width: calc(100% - 46px);
     padding: 12px var(--spacing-12);
     border-radius: var(--border-radius-8);
     border: 1px solid var(--button-primary-default);
@@ -777,8 +777,10 @@
     font-weight: 500;
   }
 }
-.invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight:hover .tooltip-container {
-  display: flex;
+@media screen and (width > 768px) {
+  .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today .start-today-note .sip-note-highlight:hover .tooltip-container {
+    display: flex;
+  }
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-sip-dropdown .date-drop-down {
   display: flex;
@@ -2082,35 +2084,35 @@
     padding: 8px 0 8px var(--spacing-12);
   }
 }
-.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-3 .rt-body-fullimg {
+.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-3 .rt-body-fullcontent {
   padding: 20px 0;
   text-align: center;
 }
 @media (max-width: 768px) {
-  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-3 .rt-body-fullimg {
+  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-3 .rt-body-fullcontent {
     padding: var(--spacing-16) 20px;
   }
 }
-.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-3 .rt-body-img {
+.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-3 .rt-body-fullcontent .data-list .icon {
   max-width: 300px;
   width: 100%;
   height: 180px;
 }
 @media (max-width: 768px) {
-  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-3 .rt-body-img {
+  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-3 .rt-body-fullcontent .data-list .icon {
     max-width: 100%;
     height: auto;
   }
 }
-.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-fulltxt {
+.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-fullcontent {
   padding: 0 var(--spacing-12) 20px;
 }
 @media (max-width: 768px) {
-  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-fulltxt {
+  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-fullcontent {
     padding: 0 0 var(--spacing-20);
   }
 }
-.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-text {
+.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-fullcontent .data-list {
   margin: 0;
   text-align: center;
   font-size: var(--disclaimer-xsmall-size);
@@ -2121,12 +2123,12 @@
   font-weight: 400;
 }
 @media (max-width: 768px) {
-  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-text {
+  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-fullcontent .data-list {
     font-size: var(--paragraph-xsmall-size);
     line-height: var(--paragraph-xsmall-line-height);
   }
 }
-.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-link {
+.modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-fullcontent .data-list a {
   text-decoration: underline;
   text-underline-offset: 20%;
   word-break: unset;
@@ -2138,7 +2140,7 @@
   font-weight: 400;
 }
 @media (max-width: 768px) {
-  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-link {
+  .modal-stepup-one .modelonemain1 .modelonesub3 .modeloneinner2 .modelinnerone1 .sip-table-graph .table-graph-wrap .graph-tbody-rt .rtbody-row-4 .rt-body-fullcontent .data-list a {
     font-size: var(--text-link-xsmall-size);
     line-height: var(--text-link-xsmall-line-height);
   }
