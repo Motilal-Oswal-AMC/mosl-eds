@@ -728,7 +728,7 @@ export async function existingUser(paramblock) {
         pansuccessForm
           .querySelector('.otp-heading .otp-main-con1').textContent = '';
         pansuccessForm
-          .querySelector('.otp-heading .otp-main-con1').textContent = rejsin.data.nameAsOnPan;
+          .querySelector('.otp-heading .otp-main-con1').textContent = dataMapMoObj.toTitleCase(rejsin.data.nameAsOnPan);
         // kycForm.style.display = 'none'; // display none kycform
         // panForm.style.display = 'none'; // display none panform
         // pansuccessForm.style.display = 'flex'; // display block otp form

@@ -784,8 +784,8 @@
 
               .kyc-txt-content {
                 .kyc-head {
-                  @include font-style(var(--label-large-size),
-                    var(--label-large-line-height),
+                  @include font-style(var(--label-medium-size),
+                    var(--label-medium-line-height),
                     #231f20,
                     400,
                     var(--body));
@@ -793,8 +793,8 @@
                   margin: 0 0 4px;
 
                   @include media(mobile) {
-                    font-size: var(--label-large-size);
-                    line-height: var(--label-large-line-height);
+                    font-size: var(--label-medium-size);
+                    line-height: var(--label-medium-line-height);
                   }
                 }
 
