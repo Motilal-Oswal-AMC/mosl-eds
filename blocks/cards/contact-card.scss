@@ -215,6 +215,25 @@
                     }
                   }
 
+                  .list-elem-20 {
+                    a {
+                      color: var(--text-text-link);
+                      font-family: var(--body, inter);
+
+                      // font-size: var(--text-link-small-size);
+                      font-size: 14px;
+                      font-style: normal;
+                      font-weight: 400;
+                      line-height: var(--text-link-small-line-height);
+                      text-decoration-line: underline;
+                      text-decoration-style: solid;
+                      text-decoration-skip-ink: auto;
+                      text-decoration-thickness: auto;
+                      text-underline-offset: 3%;
+                      text-underline-position: from-font;
+                    }
+                  }
+
                 }
 
                 ul {
@@ -340,7 +359,7 @@
                     margin: 0;
                     cursor: pointer;
                     line-height: 20px;
-                    
+
                     a {
                       color: #2E2A94;
                     }
