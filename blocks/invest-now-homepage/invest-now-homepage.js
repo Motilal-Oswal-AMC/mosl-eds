@@ -2282,6 +2282,9 @@ export default function decorate(block) {
       }
       if (!Array.from(event.target.classList).includes('date-drop-down')
         && !block.querySelector('.date-drop-down').contains(event.target)) {
+        if (block.querySelector('.flatpickr-calendar').contains(event.target)) {
+          return false;
+        }
         if (block.querySelector('.flatpickr-calendar') !== null) {
           block.querySelector('.flatpickr-calendar').classList.remove('open');
         }
