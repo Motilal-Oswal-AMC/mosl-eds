@@ -159,7 +159,7 @@ export async function existingUser(paramblock) {
 
   const addInputDiv = div(
     { class: 'input-wrapper' },
-    label({ class: 'panlabel' }, 'Enter PAN Number'),
+    label({ class: 'panlabel' }, 'Enter PAN'),
     input({
       type: 'text',
       placeholder: '',
@@ -1116,7 +1116,7 @@ export async function existingUser(paramblock) {
 
   const errorPanEl = document.createElement('p');
   errorPanEl.className = 'error-pan hide-error'; // initially hidden
-  errorPanEl.textContent = 'Invalid PAN number';
+  errorPanEl.textContent = 'Please enter a valid PAN';
   inputLable.appendChild(errorPanEl); // append it once
 
   inputLable.addEventListener('click', (e) => {
