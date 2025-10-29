@@ -844,7 +844,7 @@ const datacfContact = {
         ],
       },
       {
-        MapURL: 'https://maps.google.com/maps?q=F-03 & F-\n03A, First Floor, Friends Wasan Plaza,, nan, Above HDFC Bank,, Sanjay Place,, Agra, 282002&output=embed',
+        MapURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.653397893695!2d78.00116379678953!3d27.1986284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397477ea6c4edf21%3A0xbed1c7b2fde6a9bb!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1761743109436!5m2!1sen!2sin',
         contactDet: [
           {
             officeName: 'Motilal Oswal Asset Management Company Ltd.',
@@ -869,7 +869,7 @@ const datacfContact = {
             pincode: '282002',
             iscorporateOffice: 0,
             notes: null,
-            mapIframe: 'https://maps.google.com/maps?q=F-03 & F-\n03A, First Floor, Friends Wasan Plaza,, nan, Above HDFC Bank,, Sanjay Place,, Agra, 282002&output=embed',
+            mapIframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.653397893695!2d78.00116379678953!3d27.1986284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397477ea6c4edf21%3A0xbed1c7b2fde6a9bb!2sMotilal%20Oswal%20Financial%20Services%20Limited!5e0!3m2!1sen!2sin!4v1761743109436!5m2!1sen!2sin',
           },
         ],
       },
