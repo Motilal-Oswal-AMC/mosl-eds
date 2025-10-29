@@ -350,6 +350,9 @@ export function initializeModalHandlers() {
         // await openModal(link.href);
       } else {
         // For all other modal links, use the default behavior
+        const schode = link.closest('.card-container')
+          .querySelector('.star-wrap .star').getAttribute('schcode');
+        localStorage.setItem('planCode', `Direct:${schode}`);
         await openModal(link.href);
       }
     }

@@ -17,13 +17,13 @@ export default function decorate(block) {
 
   dataMapMoObj.CLASS_PREFIXES = [];
   dataMapMoObj.CLASS_PREFIXES = ['risk'];
-  if (block.closest('.product-label')) {
-    const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-    const planslabel = planCode.split(':')[1];
-    // const mop = [];
-    const planobj = dataCfObj.cfDataObjs.filter((el) => el.schcode === planslabel);
-    console.log(planobj);
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const planslabel = planCode.split(':')[1];
+  // const mop = [];
+  const planobj = dataCfObj.cfDataObjs.filter((el) => el.schcode === planslabel);
+  console.log(planobj);
 
+  if (block.closest('.product-label')) {
     console.log(planobj[0].benchmarkreturns[0].groupName);// + Risk- O-Meter
     console.log(planobj[0].schDetail.schemeName); // + 'Risk- O-Meter'
 
@@ -86,19 +86,27 @@ export default function decorate(block) {
         elde.classList.add('defli');
       });
     }
+    // Bench Name
+    if (planobj[0].risk.benchmarkRisk) {
+      const riskMiterBanch = block.querySelector('.corner-1 p');
+      riskMiterBanch.textContent = '';
+      riskMiterBanch.textContent = `${planobj[0].schDetail.schemeName} Risk- O-Meter`;
+      block.querySelector('.corner-1 .column-2').innerHTML = '';
+      block.querySelector('.corner-1 .column-2').append(img(
+        { src: `../../icons/larg-risk-icon/${planobj[0].risk.benchmarkRisk.split(' ').join('-')}.svg`, alt: 'img' },
+      ));
+    }
+    // Scheme Name
+    if (planobj[0].risk.riskType) {
+      const riskMiterScheme = block.querySelector('.corner-2 p');
+      riskMiterScheme.textContent = '';
+      riskMiterScheme.textContent = `${planobj[0].benchmarkreturns[0].groupName} Risk- O-Meter`;
+      block.querySelector('.corner-2 .column-2').innerHTML = '';
+      block.querySelector('.corner-2 .column-2').append(img(
+        { src: `../../icons/larg-risk-icon/${planobj[0].risk.riskType.split(' ').join('-')}.svg`, alt: 'img' },
+      ));
+      // block.querySelector('.corner-2 img').src
+      // = `../larg-risk-icon/${planobj[0].risk.riskType.split('-').join('-')}.svg`;
+    }
   }
-
-  // change images
-
-  const riskMiterScheme = block.querySelector('.corner-1 .deffour1 p');
-  console.log(riskMiterScheme);
-
-  const riskMiterSchemeImage = block.querySelector('.corner-2 .deffour2 img');
-  console.log(riskMiterSchemeImage.src);
-
-  const riskMiterBanch = block.querySelector('.corner-2 .deffour1 p');
-  console.log(riskMiterBanch);
-
-  const riskMiterBanchImage = block.querySelector('.corner-2 .deffour2 img');
-  console.log(riskMiterBanchImage.src);
 }
