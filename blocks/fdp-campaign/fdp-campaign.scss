@@ -82,13 +82,15 @@ $breakpoint-tablet: 900px;
       position: absolute;
       left: 67px;
       margin: 0;
-      // bottom: 48px;
       top: 359px;
+
+      // @include media(desktop-md){
+      //   left:144px
+      // }
 
       @include media(mobile){
         top: 474px;
         left: 0;
-        // bottom: 32px;
         padding: 0 15.5px 0 16.5px;
       }
 
@@ -447,6 +449,7 @@ $breakpoint-tablet: 900px;
             line-height: var(--label-large-line-height); /* 142.857% */
             text-decoration: none;
             width: 497px;
+            list-style: none;
 
             &::marker{
                 content: none;
@@ -542,6 +545,7 @@ $breakpoint-tablet: 900px;
                 line-height: var(--label-large-line-height); /* 142.857% */
                 text-decoration: none;
                 width: 497px;
+                list-style: none;
     
     
                 &::marker{
@@ -633,6 +637,7 @@ $breakpoint-tablet: 900px;
                 line-height: var(--label-large-line-height); /* 142.857% */
                 text-decoration: none;
                 width: 497px;
+                list-style: none;
     
                 &::marker{
                     content: none;
@@ -723,6 +728,7 @@ $breakpoint-tablet: 900px;
                 line-height: var(--label-large-line-height); /* 142.857% */
                 text-decoration: none;
                 width: 497px;
+                list-style: none;
     
                 &::marker{
                     content: none;
@@ -741,6 +747,7 @@ $breakpoint-tablet: 900px;
                     line-height: var(--label-large-line-height); /* 142.857% */
                     align-self: stretch;
                     width: 100%;
+                    list-style: none;
                 }
             }
         }
@@ -808,6 +815,7 @@ $breakpoint-tablet: 900px;
                 line-height: var(--label-large-line-height); /* 142.857% */
                 text-decoration: none;
                 width: 497px;
+                list-style: none;
     
                  &::marker{
                     content: none;
