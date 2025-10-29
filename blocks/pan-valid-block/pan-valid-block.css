@@ -748,7 +748,6 @@
   background-color: transparent;
   text-decoration: underline;
   text-underline-offset: 2.8px;
-  /* 2.8px */
   font-size: 14px;
   line-height: var(--text-link-small-line-height);
   color: var(--text-text-link);
@@ -759,8 +758,8 @@
 @media (max-width: 768px) {
   .section.otp-fdp .otp-container .otp-wrap .resend-btn {
     padding: 0;
-    font-size: 14px;
-    line-height: --text-link-small-line-height;
+    font-size: var(--text-link-small-size);
+    line-height: var(--text-link-small-line-height);
   }
 }
 .section.otp-fdp .otp-container .otp-sent-text {

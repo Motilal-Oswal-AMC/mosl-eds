@@ -1558,14 +1558,13 @@
         background-color: transparent;
         text-decoration: underline;
         text-underline-offset: 2.8px;
-        /* 2.8px */
 
         @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
 
         @include media(mobile) {
           padding: 0;
-          font-size: 14px;
-          line-height: (--text-link-small-line-height);
+          font-size: var(--text-link-small-size);
+          line-height: var(--text-link-small-line-height);
         }
       }
     }
