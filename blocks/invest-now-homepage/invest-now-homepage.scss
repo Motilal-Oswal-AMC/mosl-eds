@@ -697,7 +697,7 @@
                         gap: var(--spacing-4);
                         padding: 0 var(--spacing-24) 0 var(--spacing-20);
 
-                        @include media(mobile){
+                        @include media(mobile) {
                           padding: 0 16px 0 var(--spacing-28);
                         }
 
@@ -783,7 +783,7 @@
                               @include media(mobile) {
                                 border-radius: 24px 24px 0 0;
                                 box-shadow: none;
-                                padding: var(--spacing-24) 24px 12px;
+                                padding: 0;
 
                                 &::after {
                                   content: unset;
@@ -805,7 +805,7 @@
                                   color: var(--neutrals-800);
                                   font-size: var(--paragraph-medium-size);
                                   line-height: var(--paragraph-medium-line-height);
-                                  padding: 0 0 var(--spacing-16);
+                                  padding: var(--spacing-24) 24px var(--spacing-16);
                                 }
                               }
 
@@ -814,8 +814,8 @@
 
                                 @include media(mobile) {
                                   display: block;
-                                  margin: 12px 0 0;
-                                  width: 100%;
+                                  margin: 12px auto;
+                                  width: calc(100% - 46px);
                                   padding: 12px var(--spacing-12);
                                   border-radius: var(--border-radius-8);
                                   border: 1px solid var(--button-primary-default);
@@ -834,9 +834,23 @@
                             }
                           }
 
-                          &:hover {
-                            .tooltip-container {
-                              display: flex;
+                          // &:hover {
+                          //   .tooltip-container {
+                          //     display: flex;
+                          //   }
+
+                          //   @include media(mobile){
+                          //     .tooltip-container {
+                          //       display: unset;
+                          //     }
+                          //   }
+                          // }
+
+                          @media screen and (width > 768px) {
+                            &:hover {
+                              .tooltip-container {
+                                display: flex;
+                              }
                             }
                           }
                         }
@@ -2450,75 +2464,124 @@
 
                   &-3 {
                     .rt-body {
-                      &-fullimg {
+                      &-fullcontent {
                         padding: 20px 0;
                         text-align: center;
 
                         @include media(mobile) {
                           padding: var(--spacing-16) 20px;
                         }
-                      }
 
-                      &-img {
-                        max-width: 300px;
-                        width: 100%;
-                        height: 180px;
+                        .data-list {
+                          .icon {
+                            max-width: 300px;
+                            width: 100%;
+                            height: 180px;
 
-                        @include media(mobile) {
-                          max-width: 100%;
-                          height: auto;
+                            @include media(mobile) {
+                              max-width: 100%;
+                              height: auto;
+                            }
+                          }
                         }
                       }
+
+                      // &-img {
+                      // max-width: 300px;
+                      // width: 100%;
+                      // height: 180px;
+
+                      // @include media(mobile) {
+                      //   max-width: 100%;
+                      //   height: auto;
+                      // }
+                      // }
                     }
                   }
 
                   &-4 {
-                    // background-color: red;
                     .rt-body {
-                      &-fulltxt {
+                      &-fullcontent {
                         padding: 0 var(--spacing-12) 20px;
 
                         @include media(mobile) {
                           padding: 0 0 var(--spacing-20);
                         }
-                      }
 
-                      &-text {
-                        margin: 0;
-                        text-align: center;
+                        .data-list {
+                          margin: 0;
+                          text-align: center;
 
-                        @include font-style(
-                          var(--disclaimer-xsmall-size),
-                          var(--disclaimer-xsmall-line-height),
-                          var(--text-disclaimer),
-                          400,
-                          var(--body)
-                        );
+                          @include font-style(
+                            var(--disclaimer-xsmall-size),
+                            var(--disclaimer-xsmall-line-height),
+                            var(--text-disclaimer),
+                            400,
+                            var(--body)
+                          );
 
-                        @include media(mobile) {
-                          font-size: var(--paragraph-xsmall-size);
-                          line-height: var(--paragraph-xsmall-line-height);
+                          @include media(mobile) {
+                            font-size: var(--paragraph-xsmall-size);
+                            line-height: var(--paragraph-xsmall-line-height);
+                          }
+
+                          a {
+                            text-decoration: underline;
+                            text-underline-offset: 20%;
+                            word-break: unset;
+
+                            @include font-style(
+                              var(--text-link-xsmall-size),
+                              var(--text-link-xsmall-line-height),
+                              var(--text-text-link),
+                              400,
+                              var(--body)
+                            );
+
+                            @include media(mobile) {
+                              font-size: var(--text-link-xsmall-size);
+                              line-height: var(--text-link-xsmall-line-height);
+                            }
+                          }
                         }
                       }
 
-                      &-link {
-                        text-decoration: underline;
-                        text-underline-offset: 20%;
-                        word-break: unset;
+                      // &-text {
+                      //   margin: 0;
+                      //   text-align: center;
 
-                        @include font-style(
-                          var(--text-link-xsmall-size),
-                          var(--text-link-xsmall-line-height),
-                          var(--text-text-link),
-                          400,
-                          var(--body)
-                        );
+                      //   @include font-style(
+                      //     var(--disclaimer-xsmall-size),
+                      //     var(--disclaimer-xsmall-line-height),
+                      //     var(--text-disclaimer),
+                      //     400,
+                      //     var(--body)
+                      //   );
 
-                        @include media(mobile) {
-                          font-size: var(--text-link-xsmall-size);
-                          line-height: var(--text-link-xsmall-line-height);
-                        }
-                      }
+                      //   @include media(mobile) {
+                      //     font-size: var(--paragraph-xsmall-size);
+                      //     line-height: var(--paragraph-xsmall-line-height);
+                      //   }
+                      // }
+
+                      // &-link {
+                      //   text-decoration: underline;
+                      //   text-underline-offset: 20%;
+                      //   word-break: unset;
+
+                      //   @include font-style(
+                      //     var(--text-link-xsmall-size),
+                      //     var(--text-link-xsmall-line-height),
+                      //     var(--text-text-link),
+                      //     400,
+                      //     var(--body)
+                      //   );
+
+                      //   @include media(mobile) {
+                      //     font-size: var(--text-link-xsmall-size);
+                      //     line-height: var(--text-link-xsmall-line-height);
+                      //   }
+                      // }
                     }
                   }
                 }

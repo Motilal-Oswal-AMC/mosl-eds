@@ -159,7 +159,7 @@ export async function existingUser(paramblock) {
 
   const addInputDiv = div(
     { class: 'input-wrapper' },
-    label({ class: 'panlabel' }, 'Enter PAN Number'),
+    label({ class: 'panlabel' }, 'Enter PAN'),
     input({
       type: 'text',
       placeholder: '',
@@ -1116,7 +1116,7 @@ export async function existingUser(paramblock) {
 
   const errorPanEl = document.createElement('p');
   errorPanEl.className = 'error-pan hide-error'; // initially hidden
-  errorPanEl.textContent = 'Invalid PAN number';
+  errorPanEl.textContent = 'Please enter a valid PAN';
   inputLable.appendChild(errorPanEl); // append it once
 
   inputLable.addEventListener('click', (e) => {
@@ -1298,90 +1298,94 @@ export default function decorate(block) {
     });
 
     if (!modeltabletwo.querySelector('.sip-table-graph')) {
-      // const allrows = Array.from(tabletwodatalist.children);
-      // const theadrow = allrows[0];
-      // const theadrowdata = theadrow.querySelectorAll('.data-list');
-      // const tbodyrow = allrows.slice(1);
-      // const tdcolspan = theadrowdata.length;
+      const allrows = Array.from(tabletwodatalist.children);
+      const theadrow = allrows[0];
+      const theadrowdata = theadrow.querySelectorAll('.data-list');
+      const tbodyrow = allrows.slice(1);
+      const tdcolspan = theadrowdata.length;
 
       // Table thead
-      // const theadmain = thead(
-      //   { class: 'graph-thead-rt' },
-      //   tr(
-      //     { class: 'rthead-row' },
-      //     ...Array.from(theadrowdata).map((headrow, i) => th({ class: `rt-head rt-head-${i + 1}` }, headrow.textContent)),
-      //   ),
-      // );
+      const theadmain = thead(
+        { class: 'graph-thead-rt' },
+        tr(
+          { class: 'rthead-row' },
+          ...Array.from(theadrowdata).map((headrow, i) => th({ class: `rt-head rt-head-${i + 1}` }, headrow.textContent)),
+        ),
+      );
 
       // Table tbody
 
-      // const tbodymain = tbody(
-      //   { class: 'graph-tbody-rt' },
-      //   ...tbodyrow.map((bodyrow, i) => {
-      //     const bodyrowul = bodyrow.querySelector('.table-list');
-      //     const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
-      //     if (bodyrowuldata.length === 1) {
-      //       return tr(
-      //         { class: `rtbody-row rtbody-row-${i + 1}` },
-      //         td({ class: 'rt-body rt-body-fulltxt', colspan: tdcolspan }, bodyrowul.textContent),
-      //       );
-      //     }
-      //     return tr(
-      //       { class: 'rtbody-row' },
-      //       ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `rt-body rt-body-${i + 1}` }, bodyuldata.textContent)),
-      //     );
-      //   }),
-      // );
+      const tbodymain = tbody(
+        { class: 'graph-tbody-rt' },
+        ...tbodyrow.map((bodyrow, i) => {
+          const bodyrowul = bodyrow.querySelector('.table-list');
+          const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
+          if (bodyrowuldata.length === 1) {
+            const datainnerhtml = bodyrowul.innerHTML.trim();
+            const maininnerdata = datainnerhtml.replace('<li', '<div').replace('</li', '</div');
+            const divtab =  tr(
+              { class: `rtbody-row rtbody-row-${i + 1}` },
+              td({ class: 'rt-body rt-body-fullcontent', colspan: tdcolspan}),
+            );
+            divtab.querySelector('.rt-body-fullcontent').innerHTML = maininnerdata;
+            return divtab;
+          }
+          return tr(
+            { class: 'rtbody-row' },
+            ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `rt-body rt-body-${i + 1}` }, bodyuldata.textContent)),
+          );
+        }),
+      );
 
 
       const tablegraph = li(
         { class: 'sip-table-graph' },
         table(
           { class: 'table-graph-wrap' },
-          thead(
-            { class: 'graph-thead-rt' },
-            tr(
-              { class: 'rthead-row' },
-              th({ class: 'rt-head rt-head-1' }),
-              th({ class: 'rt-head rt-head-2' }, 'Without Step up'),
-              th({ class: 'rt-head rt-head-3' }, 'With Step up'),
-            ),
-          ),
-          tbody(
-            { class: 'graph-tbody-rt' },
-            tr(
-              { class: 'rtbody-row rtbody-row-1' },
-              td({ class: 'rt-body rt-body-1' }, 'Total Investment'),
-              td({ class: 'rt-body rt-body-2' }, '₹ 24 Lakh'),
-              td({ class: 'rt-body rt-body-3' }, '₹ 43.8 Lakh'),
-            ),
-            tr(
-              { class: 'rtbody-row rtbody-row-2' },
-              td({ class: 'rt-body rt-body-1' }, 'Total Returns'),
-              td({ class: 'rt-body rt-body-2' }, '₹ 1.03 Cr*'),
-              td({ class: 'rt-body rt-body-3' }, '₹ 2.05 Cr*'),
-            ),
-            tr(
-              { class: 'rtbody-row rtbody-row-3' },
-              td(
-                { class: 'rt-body rt-body-fullimg', colspan: '3' },
-                img({ class: 'rt-body-img', src: '../../icons/sip-table-graph.svg', alt: 'SIP Table Graph' }),
-              ),
-            ),
-            tr(
-              { class: 'rtbody-row rtbody-row-4' },
-              td(
-                { class: 'rt-body rt-body-fulltxt', colspan: '3' },
-                p(
-                  { class: 'rt-body-text' },
-                  'Disclaimer: The above calculator is only for purposes and the graph ',
-                  a({ class: 'rt-body-link', href: '' }, 'Read More'),
-                ),
-              ),
-            ),
-          ),
-          // theadmain,
-          // tbodymain
+          // thead(
+          //   { class: 'graph-thead-rt' },
+          //   tr(
+          //     { class: 'rthead-row' },
+          //     th({ class: 'rt-head rt-head-1' }),
+          //     th({ class: 'rt-head rt-head-2' }, 'Without Step up'),
+          //     th({ class: 'rt-head rt-head-3' }, 'With Step up'),
+          //   ),
+          // ),
+          // tbody(
+          //   { class: 'graph-tbody-rt' },
+          //   tr(
+          //     { class: 'rtbody-row rtbody-row-1' },
+          //     td({ class: 'rt-body rt-body-1' }, 'Total Investment'),
+          //     td({ class: 'rt-body rt-body-2' }, '₹ 24 Lakh'),
+          //     td({ class: 'rt-body rt-body-3' }, '₹ 43.8 Lakh'),
+          //   ),
+          //   tr(
+          //     { class: 'rtbody-row rtbody-row-2' },
+          //     td({ class: 'rt-body rt-body-1' }, 'Total Returns'),
+          //     td({ class: 'rt-body rt-body-2' }, '₹ 1.03 Cr*'),
+          //     td({ class: 'rt-body rt-body-3' }, '₹ 2.05 Cr*'),
+          //   ),
+          //   tr(
+          //     { class: 'rtbody-row rtbody-row-3' },
+          //     td(
+          //       { class: 'rt-body rt-body-fullimg', colspan: '3' },
+          //       img({ class: 'rt-body-img', src: '../../icons/sip-table-graph.svg', alt: 'SIP Table Graph' }),
+          //     ),
+          //   ),
+          //   tr(
+          //     { class: 'rtbody-row rtbody-row-4' },
+          //     td(
+          //       { class: 'rt-body rt-body-fulltxt', colspan: '3' },
+          //       p(
+          //         { class: 'rt-body-text' },
+          //         'Disclaimer: The above calculator is only for purposes and the graph ',
+          //         a({ class: 'rt-body-link', href: '' }, 'Read More'),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          theadmain,
+          tbodymain
         ),
       );
 
@@ -1392,7 +1396,7 @@ export default function decorate(block) {
     // hideFormsClick(mod6);
 
     // table two read more click
-    const modeloneread = mainclass.querySelector('.modal-stepup-one .modeloneinner2 .rt-body-link');
+    const modeloneread = mainclass.querySelector('.modal-stepup-one .rt-body-fullcontent a');
     modeloneread.addEventListener('click', () => {
       modeloneread.removeAttribute('href', true);
       modeltwo.style.display = 'flex';
@@ -2284,11 +2288,15 @@ export default function decorate(block) {
       }
     });
   }
-  if (block.querySelector('.tooltip-btn-mob')) {
+  if (block.querySelector('.tooltip-btn-mob') ) {
     block.querySelector('.tooltip-btn-mob').addEventListener('click', () => {
       block.querySelector('.tooltip-container').style.display = 'none';
     });
   }
+  
+  block.querySelector('.tooltip-info').addEventListener('click', () => {
+    block.querySelector('.tooltip-container').style.display = 'flex';
+  });
 
   return block;
 }
