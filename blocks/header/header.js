@@ -384,8 +384,16 @@ export default async function decorate(block) {
               elfor.querySelector('ul').style.display = 'none';
             }
           });
-          toggleAllNavSections(navSections, false);
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          if (expanded) {
+            toggleAllNavSections(navSections, false);
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            Array.from(navSection.querySelectorAll('ul')).forEach((elul) => {
+              elul.style.display = 'none';
+            });
+            return false;
+          }
+          toggleAllNavSections(navSections, false);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
           Array.from(navSection.querySelectorAll('ul')).forEach((elul) => {
             elul.style.display = 'block';
@@ -630,7 +638,8 @@ export default async function decorate(block) {
   }
   if (window.innerWidth < 900) {
     removeClassAfterDelay();
-    // const navContainer = document.querySelector('.nav-sec-sec1');
+    // const navContainer = document.querySelectorAll('.nav-drop');
+    // navContainer.addEventListener('click')
     // navContainer.addEventListener('click', (event) => {
     //   event.stopPropagation();
     //   const clickedListItem = event.target.closest('li.comlist');
