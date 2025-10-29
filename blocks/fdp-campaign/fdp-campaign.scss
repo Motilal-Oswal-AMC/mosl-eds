@@ -82,12 +82,13 @@ $breakpoint-tablet: 900px;
       position: absolute;
       left: 67px;
       margin: 0;
-      bottom: 48px;
+      // bottom: 48px;
+      top: 359px;
 
       @include media(mobile){
-        // top: 474px;
+        top: 474px;
         left: 0;
-        bottom: 32px;
+        // bottom: 32px;
         padding: 0 15.5px 0 16.5px;
       }
 
