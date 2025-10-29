@@ -321,7 +321,7 @@
   width: 100%;
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .kyc-detail-container .detail-field-wrap.mob-wrap .country-code-wrap {
-  padding: var(--spacing-10) var(--spacing-12);
+  padding: var(--spacing-10) var(--spacing-8) var(--spacing-10) var(--spacing-12);
   border-radius: var(--border-radius-8);
   border: 1px solid var(--strokes-default);
   cursor: pointer;
