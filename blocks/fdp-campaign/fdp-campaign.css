@@ -375,6 +375,7 @@
   line-height: var(--label-large-line-height); /* 142.857% */
   text-decoration: none;
   width: 497px;
+  list-style: none;
 }
 .our-strategies .strategy-wrapper .strategy11 .li-wrapper-1 .strategy22::marker {
   content: none;
@@ -456,6 +457,7 @@
   line-height: var(--label-large-line-height); /* 142.857% */
   text-decoration: none;
   width: 497px;
+  list-style: none;
 }
 .our-strategies .strategy-wrapper .strategy11 .li-wrapper-2 .strategy24::marker {
   content: none;
@@ -534,6 +536,7 @@
   line-height: var(--label-large-line-height); /* 142.857% */
   text-decoration: none;
   width: 497px;
+  list-style: none;
 }
 .our-strategies .strategy-wrapper .strategy11 .li-wrapper-3 .strategy26::marker {
   content: none;
@@ -611,6 +614,7 @@
   line-height: var(--label-large-line-height); /* 142.857% */
   text-decoration: none;
   width: 497px;
+  list-style: none;
 }
 .our-strategies .strategy-wrapper .strategy11 .li-wrapper-4 .strategy28::marker {
   content: none;
@@ -627,6 +631,7 @@
     line-height: var(--label-large-line-height); /* 142.857% */
     align-self: stretch;
     width: 100%;
+    list-style: none;
   }
 }
 .our-strategies .strategy-wrapper .strategy11 .li-wrapper-5 {
@@ -682,6 +687,7 @@
   line-height: var(--label-large-line-height); /* 142.857% */
   text-decoration: none;
   width: 497px;
+  list-style: none;
 }
 .our-strategies .strategy-wrapper .strategy11 .li-wrapper-5 .strategy210::marker {
   content: none;
