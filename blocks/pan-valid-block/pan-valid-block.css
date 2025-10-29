@@ -669,6 +669,10 @@
     line-height: var(--paragraph-small-regular-line-height);
   }
 }
+.section.otp-fdp .otp-container .pan-wrap .kyc-verify .sub-otp-con4 .icon {
+  width: 20px;
+  height: 20px;
+}
 .section.otp-fdp .otp-container .otp-wrap .otp-label {
   margin: var(--spacing-16) 0 var(--spacing-8);
   font-size: var(--label-small-size);
