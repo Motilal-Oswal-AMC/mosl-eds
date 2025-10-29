@@ -111,4 +111,12 @@ export default function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['img-1', 'img-2'];
     dataMapMoObj.addIndexed(heroImage);
   }
+
+  const mobImage = document.querySelector('.pws-hero-section .compaign2');
+
+  if (mobImage) {
+    // const paragraphs = heroBlock.querySelectorAll('p');
+    dataMapMoObj.CLASS_PREFIXES = ['mobimg-1', 'mobimg-2', 'mobimg-3'];
+    dataMapMoObj.addIndexed(mobImage);
+  }
 }

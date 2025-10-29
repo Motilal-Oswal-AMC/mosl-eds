@@ -312,7 +312,7 @@ $breakpoint-tablet: 900px;
              
             .compaignsub1{
               font-size: 0;
-              
+
               .img-2{
                 width: 100%;
                 height: revert-layer;
@@ -329,7 +329,7 @@ $breakpoint-tablet: 900px;
             @include media(mobile-md){
               display: block;
               
-              img{                
+              .mobimg-34{                
                 height: 100%;
                 aspect-ratio: 186/359;
                 width: 100%;
@@ -800,8 +800,6 @@ $breakpoint-tablet: 900px;
             .strategy210{
                 color: var(--neutrals-700);
                 font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
-    
-                /* Desktop/Paragraph/Small-regular */
                 font-family: var(--body);
                 font-size: var(--body-small-regular-size);
                 font-style: normal;
@@ -832,7 +830,7 @@ $breakpoint-tablet: 900px;
             }
         }
 
-                    .strategy12{
+                .strategy12{
                 line-height: 0;
                 font-size: 0;
 

@@ -273,7 +273,7 @@
   .nfo-nav .section.table-wrapper.pws-hero-section .fdp-campaign-wrapper .fdp-campaign .compaign2 {
     display: block;
   }
-  .nfo-nav .section.table-wrapper.pws-hero-section .fdp-campaign-wrapper .fdp-campaign .compaign2 img {
+  .nfo-nav .section.table-wrapper.pws-hero-section .fdp-campaign-wrapper .fdp-campaign .compaign2 .mobimg-34 {
     height: 100%;
     aspect-ratio: 186/359;
     width: 100%;
@@ -675,7 +675,6 @@
 .our-strategies .strategy-wrapper .strategy11 .li-wrapper-5 .strategy210 {
   color: var(--neutrals-700);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
-  /* Desktop/Paragraph/Small-regular */
   font-family: var(--body);
   font-size: var(--body-small-regular-size);
   font-style: normal;
