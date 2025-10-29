@@ -92,12 +92,24 @@ export default async function decorate(block) {
     }
   }
   await fundManagerAPI();
-
+  const mopdata = [
+    'ajay-khandelwal',
+    'atul-mehra',
+    'niket-shah',
+    'rakesh-shetty',
+  ];
+  const dataflg = mopdata.includes(agentData.fundManagerName.toLowerCase().replace(/\s+/g, '-'));
+  let datafundimg;
+  if (dataflg) {
+    datafundimg = agentData.fundManagerName.toLowerCase().replace(/\s+/g, '-');
+  } else {
+    datafundimg = 'person';
+  }
   const portfolioBlock = div(
     { class: 'portfolio-composition' },
     div(
       { class: 'fm-details' },
-      img({ src: `/icons/fund-managers/${agentData.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic', class: 'fm-img' }),
+      img({ src: `/icons/fund-managers/${datafundimg}.svg`, alt: 'managerpic', class: 'fm-img' }),
       div(
         { class: 'fm-dealer-details' },
         p({ class: 'managername' }, agentData.fundManagerName),

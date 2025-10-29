@@ -28,17 +28,29 @@ export default async function decorate(block) {
   const fundTime = block.querySelectorAll('p')[0].textContent.trim();
   const aumText = block.querySelectorAll('p')[1].textContent.trim();
   const fundSvg = block.querySelectorAll('p')[2].firstChild.firstChild.src.trim();
-
+  const mopdata = [
+    'ajay-khandelwal',
+    'atul-mehra',
+    'niket-shah',
+    'rakesh-shetty',
+  ];
   block.innerHTML = '';
 
   fundManagers.forEach((manager) => {
+    const dataflg = mopdata.includes(manager.fundManagerName.toLowerCase().replace(/\s+/g, '-'));
+    let datafundimg;
+    if (dataflg) {
+      datafundimg = manager.fundManagerName.toLowerCase().replace(/\s+/g, '-');
+    } else {
+      datafundimg = 'person';
+    }
     const ourFunds = div(
       { class: 'funds-container' },
       div(
         { class: 'fund-wrapper' },
         div(
           { class: 'fund-manager' },
-          div({ class: 'fund-manager-image' }, img({ src: `/icons/fund-managers/${manager.fundManagerName.toLowerCase().replace(/\s+/g, '-')}.svg`, alt: 'managerpic', loading: 'lazy' })),
+          div({ class: 'fund-manager-image' }, img({ src: `/icons/fund-managers/${datafundimg}.svg`, alt: 'managerpic', loading: 'lazy' })),
           div(
             { class: 'fund-manager-detail' },
             p(manager.fundManagerName), // (manager.managerName),
