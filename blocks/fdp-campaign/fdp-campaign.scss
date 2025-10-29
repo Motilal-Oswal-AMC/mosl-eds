@@ -84,6 +84,10 @@ $breakpoint-tablet: 900px;
       margin: 0;
       top: 359px;
 
+      // @include media(desktop-md){
+      //   left:144px
+      // }
+
       @include media(mobile){
         top: 474px;
         left: 0;
@@ -445,6 +449,7 @@ $breakpoint-tablet: 900px;
             line-height: var(--label-large-line-height); /* 142.857% */
             text-decoration: none;
             width: 497px;
+            list-style: none;
 
             &::marker{
                 content: none;
@@ -540,6 +545,7 @@ $breakpoint-tablet: 900px;
                 line-height: var(--label-large-line-height); /* 142.857% */
                 text-decoration: none;
                 width: 497px;
+                list-style: none;
     
     
                 &::marker{
@@ -631,6 +637,7 @@ $breakpoint-tablet: 900px;
                 line-height: var(--label-large-line-height); /* 142.857% */
                 text-decoration: none;
                 width: 497px;
+                list-style: none;
     
                 &::marker{
                     content: none;
@@ -721,6 +728,7 @@ $breakpoint-tablet: 900px;
                 line-height: var(--label-large-line-height); /* 142.857% */
                 text-decoration: none;
                 width: 497px;
+                list-style: none;
     
                 &::marker{
                     content: none;
@@ -739,6 +747,7 @@ $breakpoint-tablet: 900px;
                     line-height: var(--label-large-line-height); /* 142.857% */
                     align-self: stretch;
                     width: 100%;
+                    list-style: none;
                 }
             }
         }
@@ -806,6 +815,7 @@ $breakpoint-tablet: 900px;
                 line-height: var(--label-large-line-height); /* 142.857% */
                 text-decoration: none;
                 width: 497px;
+                list-style: none;
     
                  &::marker{
                     content: none;
