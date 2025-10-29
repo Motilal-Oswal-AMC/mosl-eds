@@ -86,7 +86,8 @@ function renderDetails(container, data) {
   } = data[0];
   let html;
   contactAdd.forEach((addr) => {
-    const mobst = (addr.mobileNo === null || addr.landlineNo === null) ? 'none' : 'block';
+    const mobst = (addr.mobileNo === null ) ? 'none' : 'block';
+    const lanst = (addr.landlineNo === null) ? 'none' : 'block';
     const pincode = addr.pincode === null ? '' : `- ${addr.pincode}`;
     // const emailst = addr.emailid === null ? 'none' : 'block';
     let regOff;
@@ -130,13 +131,6 @@ function renderDetails(container, data) {
           {
             class: 'desc-wrap-description',
           },
-          buildingName,
-          br(),
-          addr.landmark === null ? '' : addr.landmark,
-          br(),
-          addr.streetName === null ? '' : addr.streetName,
-          br(),
-          `${addr.city}${pincode}`,
         ),
       ),
       ul(
@@ -145,7 +139,7 @@ function renderDetails(container, data) {
         },
         li(
           {
-            class: `contact-number-link ${mobst}`,
+            class: `contact-number-link ${lanst}`,
           },
           a({
             class: 'contact-txt',
@@ -165,6 +159,19 @@ function renderDetails(container, data) {
         style: `display:${notes}`,
       }, addr.notes),
     );
+    if (buildingName !== '') {
+      html.querySelector('.desc-wrap-description').append(buildingName);
+    }
+    if (addr.landmark !== null) {
+      html.querySelector('.desc-wrap-description').append(br());
+      html.querySelector('.desc-wrap-description').append(addr.landmark);
+    }
+    if (addr.streetName !== null) {
+      html.querySelector('.desc-wrap-description').append(br());
+      html.querySelector('.desc-wrap-description').append(addr.streetName);
+    }
+    html.querySelector('.desc-wrap-description').append(br());
+    html.querySelector('.desc-wrap-description').append(`${addr.city}${pincode}`);
     container.innerHTML = ' ';
     container.append(html);
   });

@@ -465,8 +465,9 @@
                 margin: unset;
 
                 @include media(mobile) {
-                  // display: flex;
-                  display: none;
+                  display: flex;
+                  
+                  // display: none;
                 }
 
                 .contact-number-link {

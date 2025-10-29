@@ -1,9 +1,7 @@
 @import "../../../styles/fonts.css";
-
 .section.our-experts-container {
   margin-bottom: 0;
 }
-
 .section.our-experts-container .our-experts-wrapper ul {
   width: 100%;
   list-style: none;
@@ -11,11 +9,9 @@
   padding: 0;
   overflow-y: auto;
 }
-
 .section.our-experts-container .our-experts-wrapper ul::-webkit-scrollbar {
   display: none;
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts {
   display: flex;
   justify-content: space-between;
@@ -23,8 +19,7 @@
   padding: 40px 0;
   padding-bottom: 0;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.our-experts-container .our-experts-wrapper .our-experts {
     flex-direction: column;
     align-items: flex-start;
@@ -33,7 +28,6 @@
     padding-top: 24px;
   }
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h1,
 .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h2,
 .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h3,
@@ -50,8 +44,7 @@
   font-weight: 600;
   line-height: var(--heading-h4-line-height);
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h1,
   .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h2,
   .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h3,
@@ -64,12 +57,10 @@
     line-height: var(--sub-header-large-line-height);
   }
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 {
   max-width: 504px;
   width: 100%;
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 {
   display: flex;
   flex-direction: column;
@@ -77,7 +68,6 @@
   gap: 12px;
   flex-shrink: 0;
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 {
   display: flex;
   padding: 10px 8px;
@@ -89,7 +79,6 @@
   border: var(--border-width-01, 1px) solid var(--strokes-default, #9E9E9E);
   margin: 0;
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 input {
   border: none;
   color: var(--text-body-2);
@@ -97,23 +86,22 @@
   font-family: var(--body);
   font-size: var(--body-medium-regular-size, 16px);
   font-style: normal;
-  font-size: var(--body-medium-regular-size);
-  line-height: var(--body-medium-regular-line-height);
-  color: var(--text-body-2);
-  font-family: var(--body);
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height, 20px);
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
+@media (max-width: 768px) {
+  .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 {
+    max-width: 350px;
+    width: 100%;
+    overflow: auto;
+  }
+}
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 .expert-lists1 {
-  margin: 0;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -122,61 +110,45 @@
   font-family: var(--body);
   font-size: var(--body-small-medium-size);
   font-style: normal;
-  font-size: var(--body-small-medium-size);
-  line-height: var(--body-small-medium-line-height);
-  color: var(--neutrals-black);
-  font-family: var(--body);
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
   line-height: var(--body-small-medium-line-height);
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 .expert-lists1 .icon {
   width: 16px;
   height: 16px;
   aspect-ratio: 1/1;
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 li {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 li a {
   color: #2E2A94;
   font-feature-settings: var(--font-features-default);
   font-family: var(--body);
   font-size: var(--text-link-xsmall-size);
   font-style: normal;
-  font-size: var(--text-link-xsmall-size);
-  line-height: var(--text-link-xsmall-line-height);
-  color: var(--blue-1-800-primary);
-  font-family: var(--body);
-  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
   line-height: var(--text-link-xsmall-line-height, 16px);
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-skip: ink;
+  -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
   text-decoration-thickness: auto;
   text-underline-offset: 4.9%;
   text-underline-position: from-font;
   white-space: nowrap;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 li a {
     font-size: var(--text-link-small-size);
     line-height: var(--text-link-small-line-height);
   }
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub2 .expert-lists2 {
   padding-right: 8px;
 }
-
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub3 {
   display: none;
 }
@@ -185,7 +157,6 @@
   font-size: var(--sub-header-large-size);
   line-height: var(--sub-header-medium-line-height);
 }
-
 .section.out-expert-listing.our-experts-container .our-experts-wrapper .our-experts .our-experts-cont2 {
   display: none;
-}
+}/*# sourceMappingURL=our-experts.css.map */
