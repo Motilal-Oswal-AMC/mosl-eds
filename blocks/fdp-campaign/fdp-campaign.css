@@ -713,4 +713,27 @@
 .our-strategies .text-wrap {
   max-width: 541.5px;
   width: 100%;
+}
+
+.nfo-nav .section.table-wrapper.pws-hero-section.aif-banner .default-content-wrapper {
+  top: 146px;
+  left: 132px;
+}
+@media (max-width: 1367px) {
+  .nfo-nav .section.table-wrapper.pws-hero-section.aif-banner .default-content-wrapper {
+    left: 67px;
+  }
+}
+@media (max-width: 768px) {
+  .nfo-nav .section.table-wrapper.pws-hero-section.aif-banner .default-content-wrapper {
+    top: 344px;
+    left: 0;
+    padding: 0 16px;
+  }
+}
+@media (max-width: 768px) {
+  .nfo-nav .section.table-wrapper.pws-hero-section.aif-banner .default-content-wrapper .comlist.para1 .comlist.p21 .p31 .mobimg-34 {
+    aspect-ratio: 372/632.56;
+    height: 100%;
+  }
 }/*# sourceMappingURL=fdp-campaign.css.map */

@@ -369,10 +369,19 @@ $breakpoint-tablet: 900px;
                             top: -26px;
                             left: -37px;
                             margin: 0;
+
+                            @include media(mobile) {
+                                left: 0;
+                            }
                                 
                             .pms-choose-detail-cls1{
                                 width: 84px;
                                 height: 89px;
+
+                                @include media(mobile) {
+                                    width: 64.925px;
+                                    height: 69px;
+                                }
 
                                 img{
                                     object-fit: unset;

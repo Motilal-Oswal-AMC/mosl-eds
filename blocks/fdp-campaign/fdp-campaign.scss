@@ -854,6 +854,37 @@ $breakpoint-tablet: 900px;
         width: 100%;
     }
 }
+
+.nfo-nav .section.table-wrapper.pws-hero-section.aif-banner {
+  .default-content-wrapper{
+    top: 146px;
+    left: 132px;
+
+    @include media(desktop-md){
+      left: 67px;
+    }
+
+    @include media(mobile){
+      top: 344px;
+      left: 0;
+      padding: 0 16px;
+    }
+
+    .comlist.para1{
+      .comlist.p21{
+        .p31{
+          .mobimg-34{
+            @include media(mobile) {
+              aspect-ratio: 372.00/632.56;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  
   
     
 
