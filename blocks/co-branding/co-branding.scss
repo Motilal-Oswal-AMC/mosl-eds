@@ -1,0 +1,263 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.co-branding {
+  .co-branding-section {
+    padding: 40px 16px 62px;
+    max-width: 400px;
+    height: 100%;
+    background-color: var(--neutrals-white);
+
+    @include media(mobile) {
+      border-radius: 24px 24px 0 0;
+      max-width: 100%;
+      padding-bottom: 24px;
+    }
+
+    .crossparbtn {
+      margin: 0;
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      display: flex;
+      border-radius: 18px;
+      z-index: 10;
+      cursor: pointer;
+
+      @include media(mobile) {
+        right: 9px;
+      }
+
+      .icon-modal-btn {
+        width: 36px;
+        height: 36px;
+
+        .img {
+          width: 36px;
+          height: 36px;
+          padding: 11px;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+    }
+
+    .co-heading {
+      margin: 0 95px 44px 0;
+
+      @include font-style(var(--sub-header-medium-size),
+        var(--sub-header-medium-line-height),
+        var(--blue-1-800-primary),
+        map.get($font-weights, medium),
+        var(--body));
+
+      @include media(mobile) {
+        margin: 0 0 40px;
+        font-size: var(--paragraph-large-size);
+        line-height: var(--paragraph-medium-line-height);
+      }
+    }
+
+    .cobrand {
+
+      &-form,
+      &-field {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      &-field {
+        gap: 0;
+        position: relative;
+
+        .error-msg {
+          @include font-style(8px, 12px, map.get($danger, 300), map.get($font-weights, medium), var(--body));
+
+          display: none;
+          margin: 5px 0 0;
+        }
+
+        .show-error {
+          display: block;
+        }
+
+        .hide-error {
+          display: none;
+        }
+      }
+
+      &-label {
+        @include font-style(var(--label-small-size),
+          var(--label-small-line-height),
+          var(--text-body),
+          map.get($font-weights, regular),
+          var(--body));
+
+        width: max-content;
+        background-color: var(--neutrals-white);
+        padding: 0 4px;
+        position: absolute;
+        left: 12px;
+        top: -8px;
+
+        @include media(mobile) {
+          font-size: var(--label-small-size);
+          line-height: var(--label-small-line-height);
+        }
+      }
+
+      &-input {
+        padding: var(--spacing-8) var(--spacing-12);
+        border-radius: var(--border-radius-8);
+        border: var(--border-width-01) solid var(--strokes-default);
+
+        @include font-style(var(--body-medium-regular-size),
+          var(--body-medium-regular-line-height),
+          var(--text-typed-input),
+          map.get($font-weights, regular),
+          var(--body));
+
+        @include media(mobile) {
+          font-size: var(--body-medium-regular-size);
+          line-height: var(--body-medium-regular-line-height);
+        }
+      }
+
+      &-btns {
+        display: flex;
+        gap: 16px;
+        margin: 48px 0 40px;
+
+        @include media(mobile) {
+          gap: 12px;
+          height: 40px;
+        }
+
+        .share,
+        .download {
+          @include font-style(var(--button-medium-size),
+            var(--button-medium-line-height),
+            var(--text-button-default),
+            map.get($font-weights, medium),
+            var(--body));
+
+          border: none;
+          border-radius: var(--border-radius-8);
+          margin: 0;
+          padding: var(--spacing-12);
+          max-width: 49%;
+          width: 100%;
+          background-color: transparent;
+          cursor: pointer;
+          max-width: 176px;
+          width: 100%;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          @include media(mobile) {
+            font-size: var(--button-medium-size);
+            line-height: var(--button-medium-line-height);
+            max-width: 164px;
+            width: 100%;
+          }
+        }
+
+        .share {
+          border: 1px solid var(--button-primary-default);
+        }
+
+        .download {
+          background-color: var(--button-primary-default);
+          color: var(--text-white);
+        }
+      }
+
+      &-disc {
+        padding: 0 14px;
+
+        .co-diclaimer,
+        .co-listname {
+          @include font-style(var(--paragraph-xsmall-size), var(--paragraph-xsmall-line-height), var(--blue-1-800-primary), map.get($font-weights, regular), var(--body));
+
+          margin: 0;
+        }
+
+        .co-listwrap {
+          .co-ullist {
+            margin: 20px 0 0;
+            padding: 0 0 0 20px;
+
+            .co-listname {
+              color: var(--text-disclaimer);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.modal-journey {
+  .modal-content {
+    .section.co-branding-container {
+      margin-top: 0;
+    }
+  }
+}
+
+
+.modal-journey.modal.block {
+  display: block;
+  overflow: hidden;
+
+  @include media(mobile) {
+    display: block;
+  }
+
+  dialog {
+    padding: 0;
+    margin: 0;
+    align-items: end;
+    justify-content: end;
+    overflow: hidden;
+
+    @include media(mobile) {
+      &::backdrop {
+        background-color: var(--neutrals-black);
+        opacity: 0.7;
+      }
+    }
+
+    .modal-content {
+      padding: 0;
+      position: relative;
+      max-width: 400px;
+      justify-content: center;
+      border-radius: 0;
+      background: unset;
+      height: 100%;
+      overflow: hidden auto;
+      scrollbar-width: none;
+
+      @include media(mobile) {
+        max-width: 100%;
+        height: 76vh;
+        border-radius: 24px 24px 0 0;
+      }
+    }
+
+    .close-button {
+      display: block;
+      z-index: -1;
+      background: none;
+      color: transparent;
+    }
+  }
+}

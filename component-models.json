@@ -4,22 +4,47 @@
     "fields": [
       {
         "component": "text",
-        "valueType": "string",
-        "name": "jcr:title",
-        "label": "Title"
+        "name": "description",
+        "label": "Page Description"
+      },
+      {
+        "component": "boolean",
+        "name": "breadcrumbs",
+        "label": "Breadcrumb"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "jcr:description",
-        "label": "Description"
+        "name": "breadcrumbs_title",
+        "label": "Breadcrumb Title"
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "keywords",
-        "multi": true,
-        "label": "Keywords"
+        "component": "boolean",
+        "name": "breadcrumbs_hide",
+        "label": "Hide On Breadcrumbs"
+      },
+      {
+        "component": "multiselect",
+        "name": "robots",
+        "value": "",
+        "label": "Robots Tags",
+        "options": [
+          {
+            "name": "index",
+            "value": "index"
+          },
+          {
+            "name": "noindex",
+            "value": "noindex"
+          },
+          {
+            "name": "follow",
+            "value": "follow"
+          },
+          {
+            "name": "nofollow",
+            "value": "nofollow"
+          }
+        ]
       }
     ]
   },
@@ -134,10 +159,319 @@
         "label": "Style",
         "options": [
           {
+            "name": "Our Popular Funds",
+            "value": "our-popular-funds"
+          },
+          {
+            "name": "Mobile Accordion Only",
+            "value": "mob-accordion"
+          },
+          {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Popular Tab",
+            "value": "popular-tab"
+          },
+          {
+            "name": "Learn Tab",
+            "value": "learn-tab"
+          },
+          {
+            "name": "login Registered",
+            "value": "login-registered"
+          },
+          {
+            "name": "Investor Faq Video",
+            "value": "our-service"
+          },
+          {
+            "name": "Investor Banner",
+            "value": "investor-banner"
+          },
+          {
+            "name": "FDP FAQ Change",
+            "value": "fdp-faq-change"
+          },
+          {
+            "name": "Risk-o-Meter FDP",
+            "value": "fdp-risk-o-meter"
+          },
+          {
+            "name": "Show Modal",
+            "value": "show-modal"
+          },
+          {
+            "name": "fdp-kyc-form",
+            "value": "fdp-kyc-form"
+          },
+          {
+            "name": "pan-details-modal",
+            "value": "pan-details-modal"
+          },
+          {
+            "name": "breadcrumbs-fdp",
+            "value": "breadcrumbs-fdp"
+          },
+          {
+            "name": "fdp-faq",
+            "value": "fdp-faq"
+          },
+          {
+            "name": "co-branded",
+            "value": "co-branded"
+          },
+          {
+            "name": "tabdiv",
+            "value": "tabdiv"
+          },
+          {
+            "name": "Compounding",
+            "value": "compounding"
+          },
+          {
+            "name": "Know Our Funds",
+            "value": "known-our-funds"
+          },
+          {
+            "name": "Quick Actions",
+            "value": "quick-actions"
+          },
+          {
+            "name": "Need Assistance",
+            "value": "need-assistance"
+          },
+          {
+            "name": "Motilal Equity",
+            "value": "motilal-equity"
+          },
+          {
+            "name": "Compound Journey",
+            "value": "compound-journey"
+          },
+          {
+            "name": "Index Fund",
+            "value": "index-fund"
+          },
+          {
+            "name": "Header Top",
+            "value": "header-top"
+          },
+          {
+            "name": "Broaden Your",
+            "value": "broaden-your"
+          },
+          {
+            "name": "Cornerstones Advantage",
+            "value": "cornerstones-advantage"
+          },
+          {
+            "name": "Welcome Component",
+            "value": "welcome-component"
+          },
+          {
+            "name": "Freq Ask Ques",
+            "value": "freq-ask-ques"
+          },
+          {
+            "name": "Table wrapper",
+            "value": "table-wrapper"
+          },
+          {
+            "name": "why-fund",
+            "value": "why-fund"
+          },
+          {
+            "name": "fund-philosophy-video",
+            "value": "fund-philosophy-video"
+          },
+          {
+            "name": "key-facts-Investment",
+            "value": "key-facts-Investment"
+          },
+          {
+            "name": "fdp-calculator",
+            "value": "fdp-calculator"
+          },
+          {
+            "name": "fund-card-section",
+            "value": "fund-card-section"
+          },
+          {
+            "name": "Product Label",
+            "value": "product-label"
+          },
+          {
+            "name": "Live Streaming",
+            "value": "live-streaming"
+          },
+          {
+            "name": "Homepage Growth",
+            "value": "homepage-growth"
+          },
+          {
+            "name": "sub-popup-header",
+            "value": "sub-popup-header"
+          },
+          {
+            "name": "services-header",
+            "value": "services-header"
+          },
+          {
+            "name": "calculator-header",
+            "value": "calculator-header"
+          },
+          {
+            "name": "investor-Edu-header",
+            "value": "investor-Edu-header"
+          },
+          {
+            "name": "mosl-edge-header",
+            "value": "mosl-edge-header"
+          },
+          {
+            "name": "NFO Banner",
+            "value": "nfo-banner"
+          },
+          {
+            "name": "Show Contact Error",
+            "value": "show-contact-error"
+          },
+          {
+            "name": "Out Expert Listing",
+            "value": "out-expert-listing"
+          },
+          {
+            "name": "Popular Artical",
+            "value": "popular-artical"
+          },
+          {
+            "name": "Behind The Content",
+            "value": "behind-the-content"
+          },
+          {
+            "name": "Learn About",
+            "value": "learn-about"
+          },
+          {
+            "name": "In The News",
+            "value": "in-the-news"
+          },
+          {
+            "name": "Our Blogs",
+            "value": "our-blogs"
+          },
+          {
+            "name": "Added Fund Cart",
+            "value": "added-fund-cart"
+          },
+          {
+            "name": "Two Step Verification",
+            "value": "two-step-auth"
+          },
+          {
+            "name": "Modal Stepup One",
+            "value": "modal-stepup-one"
+          },
+          {
+            "name": "Modal Stepup Two",
+            "value": "modal-stepup-two"
+          },
+          {
+            "name": "FLP Growth",
+            "value": "flp-growth"
+          },
+          {
+            "name": "Reset Passcode",
+            "value": "reset-passcode"
+          },
+          {
+            "name": "PMS Rooted",
+            "value": "pms-rooted"
+          },
+          {
+            "name": "High Skin",
+            "value": "high-skin"
+          },
+          {
+            "name": "PMS Choose",
+            "value": "pms-choose"
+          },
+          {
+            "name": "PWS Hero Section",
+            "value": "pws-hero-section"
+          },
+          {
+            "name": "Our Strategies",
+            "value": "our-strategies"
+          },
+          {
+            "name": "Building Moedge",
+            "value": "building-moedge"
+          },
+          {
+            "name": "Article Left",
+            "value": "article-left-wrapper"
+          },
+          {
+            "name": "Article Right",
+            "value": "article-right-wrapper"
+          },
+          {
+            "name": "Article Sub Left",
+            "value": "article-sub-left"
+          },
+          {
+            "name": "Article Sub Right",
+            "value": "article-sub-right"
+          },
+          {
+            "name": "Stay Updated",
+            "value": "stay-updated"
+          },
+          {
+            "name": "Subscribe Email",
+            "value": "subscribe-email"
+          },
+          {
+            "name": "Recommended Posts",
+            "value": "recommended-posts"
+          },
+          {
+            "name": "Our Podcast",
+            "value": "our-podcast"
+          },
+          {
+            "name": "AIF Component",
+            "value": "aif-component"
+          },
+          {
+            "name": "Main Wrapper",
+            "value": "main-wrapper"
+          },
+          {
+            "name": "Moedge Article Details",
+            "value": "moedge-article-details"
+          },
+          {
+            "name": "Header Sub Pms",
+            "value": "header-sub-pms"
+          },
+          {
+            "name": "aif-banner",
+            "value": "aif-banner"
+          },
+          {
+            "name": "aif-choose",
+            "value": "aif-choose"
           }
         ]
+      },
+      {
+        "component": "text",
+        "name": "id",
+        "label": "Enter Section Id"
       }
     ]
   },
@@ -212,6 +546,1618 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "options": [
+          {
+            "name": "XCL World Academy",
+            "children": [
+              {
+                "name": "Hero Video Banner",
+                "value": "hero-video-banner"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "aem-content",
+        "name": "video_url",
+        "label": "Video URL"
+      },
+      {
+        "component": "reference",
+        "name": "video_image",
+        "label": "Video Image"
+      },
+      {
+        "component": "text",
+        "name": "video_imageAlt",
+        "label": "Video Image Alt"
+      },
+      {
+        "component": "text",
+        "name": "video_imageTitle",
+        "label": "Video Image Title"
+      }
+    ]
+  },
+  {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Mobile Accordion Only",
+            "value": "mob-accordion"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accordion-item",
+    "type": "accordion/text",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "question",
+        "label": "Question"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "answer",
+        "label": "Answer",
+        "raw": true
+      }
+    ]
+  },
+  {
+    "id": "tabsitem",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Tab Title"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Fragment URL"
+      },
+      {
+        "component": "aem-content",
+        "name": "Two link",
+        "label": "Fragment URL"
+      }
+    ]
+  },
+  {
+    "id": "future-building-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Future Building Item Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "banner-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col1_deskBanner",
+        "label": "Desktop Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "col1_deskBannerAlt",
+        "label": "Desktop Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col2_bannercontentImg",
+        "label": "Banner Content Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "col2_bannercontentImgAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "col2_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "col3_mobBanner",
+        "label": "Mobile Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "col3_mobBannerAlt",
+        "label": "Mobile Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "col3_text",
+        "value": "",
+        "label": "Mobile Button Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "cornerstones-advantage-title-richtext",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Headline and description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "cornerstones-advantage-cards-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Cards Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "live-streaming-content",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Live Streaming Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "newsletter-subscription",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Live Streaming Content",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col1_label",
+        "label": "Enter Label for Email"
+      },
+      {
+        "component": "aem-content",
+        "name": "col1_link",
+        "label": "Enter Link for Button"
+      },
+      {
+        "component": "text",
+        "name": "col1_linkText",
+        "label": "Enter Text Button"
+      }
+    ]
+  },
+  {
+    "id": "think-equity",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Context think equity",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "name": "twoimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "twoimageAlt",
+        "label": "Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "investment-block",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Context",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "calculator-sip",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col1_search_placeholder",
+        "label": "Search Text Placeholder",
+        "value": "Search a fund"
+      },
+      {
+        "component": "text",
+        "name": "col1_default_fund",
+        "label": "Default Fund Name",
+        "value": "Motilal Oswal Mid cap fund"
+      },
+      {
+        "component": "text",
+        "name": "col1_sip_label",
+        "label": "SIP Button Label",
+        "value": "SIP"
+      },
+      {
+        "component": "text",
+        "name": "col1_lumpsum_label",
+        "label": "Lumpsum Button Label",
+        "value": "Lumpsum"
+      },
+      {
+        "component": "text",
+        "name": "col2_sip_input_label",
+        "label": "SIP Investment Label",
+        "value": "If you would have invested monthly"
+      },
+      {
+        "component": "text",
+        "name": "col2_lumpsum_input_label",
+        "label": "Lumpsum Investment Label",
+        "value": "If you would have invested"
+      },
+      {
+        "component": "number",
+        "name": "col2_default_amount",
+        "label": "Default Investment Amount",
+        "value": 10000
+      },
+      {
+        "component": "text",
+        "name": "col2_tenure_input_label",
+        "label": "Tenure Input Label",
+        "value": "Tenure"
+      },
+      {
+        "component": "select",
+        "name": "col3_default_tenure",
+        "label": "Default Tenure",
+        "value": "10",
+        "options": [
+          {
+            "name": "1 year",
+            "value": "1"
+          },
+          {
+            "name": "2 years",
+            "value": "2"
+          },
+          {
+            "name": "3 years",
+            "value": "3"
+          },
+          {
+            "name": "5 years",
+            "value": "5"
+          },
+          {
+            "name": "10 years",
+            "value": "10"
+          },
+          {
+            "name": "15 years",
+            "value": "15"
+          },
+          {
+            "name": "20 years",
+            "value": "20"
+          },
+          {
+            "name": "25 years",
+            "value": "25"
+          },
+          {
+            "name": "30 years",
+            "value": "30"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "col3_invested_amount_label",
+        "label": "Invested Amount Label",
+        "value": "Invested Amount"
+      },
+      {
+        "component": "number",
+        "name": "col3_invested_amount_value",
+        "label": "Default Invested Amount",
+        "value": 1200000
+      },
+      {
+        "component": "text",
+        "name": "col3_current_value_label",
+        "label": "Current Value Label",
+        "value": "Current Value of Investment"
+      },
+      {
+        "component": "number",
+        "name": "col4_default_current_value",
+        "label": "Default Current Value of Investment",
+        "value": 2500000
+      },
+      {
+        "component": "text",
+        "name": "col4_return_cagr_label",
+        "label": "Return (CAGR) Label",
+        "value": "Return (CAGR)"
+      },
+      {
+        "component": "number",
+        "name": "col4_annual_return_rate",
+        "label": "Annual Return Rate (%)",
+        "value": 18,
+        "description": "Expected annual return rate for calculations"
+      },
+      {
+        "component": "text",
+        "name": "col4_cta_button_text",
+        "label": "CTA Button Text",
+        "value": "Start SIP"
+      },
+      {
+        "component": "text",
+        "name": "col4_other_calculators_text",
+        "label": "Other Calculators Link Text",
+        "value": "View other calculators"
+      },
+      {
+        "component": "text",
+        "name": "col4_other_calculators_url",
+        "label": "Other Calculators URL",
+        "value": "#"
+      }
+    ]
+  },
+  {
+    "id": "growth-now-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "fstimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "fstimageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "reference",
+        "name": "sndimage",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "sndimageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "cont1_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "cont2_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "watchlist-block",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "left",
+        "value": "",
+        "label": "Enter Icon Label View Container",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "right_card",
+        "value": "",
+        "label": "Enter Icon Label View Container",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "broaden-your-research",
+    "fields": [
+      {
+        "component": "text",
+        "name": "Col Name",
+        "label": "Brand name"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Icon Container",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "make-index-funds",
+    "fields": [
+      {
+        "component": "text",
+        "name": "Col1 Name",
+        "label": "Brands name"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Icons Container",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "risk-o-meter-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Scheme Risk- O-Meter",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "risk-meter",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "name": "linkText",
+        "label": "Text"
+      }
+    ]
+  },
+  {
+    "id": "fdp-card",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col1_title_description",
+        "label": "Inter card description"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_return",
+        "label": "Inter return text for card"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Tracking",
+        "label": "Inter Tracking text for card"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_NAV",
+        "label": "Inter NAV text for card"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_AUM",
+        "label": "Inter AUM text for card"
+      },
+      {
+        "component": "aem-content",
+        "name": "col2_link",
+        "label": "Link"
+      },
+      {
+        "component": "richtext",
+        "name": "col2_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "fund-video",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "key-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col1_title_Investment",
+        "label": "Inter Investment Objective"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Minimum_Application_Amount",
+        "label": "Inter Minimum Application Amount"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Minimum_Redemption_Amount",
+        "label": "Inter Minimum Redemption Amount"
+      },
+      {
+        "component": "text",
+        "name": "col1_title_Latest_AUM",
+        "label": "Inter Latest AUM"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Portfolio_Turnover_Ratio",
+        "label": "Inter Portfolio Turnover Ratio"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Plans",
+        "label": "Inter Plans"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Options",
+        "label": "Inter Options (Under each plan)"
+      },
+      {
+        "component": "text",
+        "name": "col2_title_Benchmark",
+        "label": "Inter Benchmark"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Total_Expense_Ratio",
+        "label": "Inter Total Expense Ratio"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Inception date",
+        "label": "Inter Inception date"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Entry Load",
+        "label": "Inter Entry Load"
+      },
+      {
+        "component": "text",
+        "name": "col3_title_Exit_Load_Policy",
+        "label": "Inter Exit Load Policy"
+      }
+    ]
+  },
+  {
+    "id": "risk-o-meter-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Scheme Risk- O-Meter",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "performance-graph",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-funds-fdp",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "fund-card-slider",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Multi Select",
+        "options": [
+          {
+            "name": "Mobile Auto Scroll",
+            "value": "mobile-auto-scroll"
+          },
+          {
+            "name": "Mobile 1.5 View",
+            "value": "mobile-one-point-five-view"
+          },
+          {
+            "name": "Mobile 2.5 View",
+            "value": "two-point-five-view"
+          },
+          {
+            "name": "Mobile 3.5 View",
+            "value": "three-point-five-view"
+          },
+          {
+            "name": "Mobile 1.2 View",
+            "value": "mobile-one-point-two-view"
+          },
+          {
+            "name": "Mobile 1.3 View",
+            "value": "mobile-one-point-three-view"
+          },
+          {
+            "name": "Mobile Center View",
+            "value": "center-view"
+          },
+          {
+            "name": "Mobile Pagination",
+            "value": "mobile-pagination"
+          },
+          {
+            "name": "Mobile Loop",
+            "value": "mobile-loop"
+          },
+          {
+            "name": "Pagination",
+            "value": "desk-pagination"
+          },
+          {
+            "name": "Action Button",
+            "value": "left-right-navigation-btn"
+          },
+          {
+            "name": "Mobile Action Button",
+            "value": "mobile-left-right-navigation-btn"
+          },
+          {
+            "name": "Loop",
+            "value": "loop"
+          },
+          {
+            "name": "3 View",
+            "value": "three-point-view"
+          },
+          {
+            "name": "1.5 View",
+            "value": "one-point-five-view"
+          },
+          {
+            "name": " 2.5 View",
+            "value": "desk-two-point-five-view"
+          },
+          {
+            "name": "Auto Scroll",
+            "value": "auto-scroll"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "our-fund-block-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "col_placeholder",
+        "label": "Enter Placeholder for Input Field"
+      },
+      {
+        "component": "richtext",
+        "name": "col_watchlist",
+        "value": "",
+        "label": "Enter Watchlist Context",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "col_treinding",
+        "value": "",
+        "label": "Enter Trending Context",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-fund-left-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "col_leftfilter",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-fund-right-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col_sort",
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "name": "col_return",
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "name": "col_returnmobile",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "col_richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "co-branding",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "pan-valid-block",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col_pvpan",
+        "label": "Enter Label For Pan Number Field"
+      },
+      {
+        "component": "richtext",
+        "name": "col_richtext",
+        "value": "",
+        "label": "Enter Context For Resident",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col_pvname",
+        "label": "Enter Label For Name Field"
+      },
+      {
+        "component": "text",
+        "name": "pol_pvmob",
+        "label": "Enter Label For Mobile Number Field"
+      },
+      {
+        "component": "text",
+        "name": "pol_pvemid",
+        "label": "Enter Label For Email Id Field"
+      },
+      {
+        "component": "text",
+        "name": "pol_pvcity",
+        "label": "Enter Label For City Name Field"
+      },
+      {
+        "component": "richtext",
+        "name": "pol_richtext",
+        "value": "",
+        "label": "Enter Context For TNC and Set Button CTA",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "invest-now-homepage",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col1_fund_name",
+        "label": "Fund Name",
+        "value": "Nifty 500 Momentum 50 Index Fund"
+      },
+      {
+        "component": "text",
+        "name": "col1_lumpsum_label",
+        "label": "Lumpsum Button Label",
+        "value": "Lumpsum"
+      },
+      {
+        "component": "text",
+        "name": "col1_sip_label",
+        "label": "SIP Button Label",
+        "value": "SIP"
+      },
+      {
+        "component": "text",
+        "name": "col1_investment_input_label",
+        "label": "Investment Input Label",
+        "value": "Enter your investment amount"
+      },
+      {
+        "component": "number",
+        "name": "col2_default_amount",
+        "label": "Default Investment Amount",
+        "value": 10000
+      },
+      {
+        "component": "number",
+        "name": "col2_suggestion_1",
+        "label": "Suggestion Amount 1",
+        "value": 5000
+      },
+      {
+        "component": "number",
+        "name": "col2_suggestion_2",
+        "label": "Suggestion Amount 2",
+        "value": 10000
+      },
+      {
+        "component": "number",
+        "name": "col2_suggestion_3",
+        "label": "Suggestion Amount 3",
+        "value": 15000
+      },
+      {
+        "component": "select",
+        "name": "col3_frequency_default",
+        "label": "Default Frequency",
+        "value": "Monthly",
+        "options": [
+          {
+            "name": "Annual",
+            "value": "Annual"
+          },
+          {
+            "name": "Daily",
+            "value": "Daily"
+          },
+          {
+            "name": "Fortnightly",
+            "value": "Fortnightly"
+          },
+          {
+            "name": "Monthly",
+            "value": "Monthly"
+          },
+          {
+            "name": "Quarterly",
+            "value": "Quarterly"
+          },
+          {
+            "name": "Weekly",
+            "value": "Weekly"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "col3_end_date_default",
+        "label": "Default End Date",
+        "value": "Until I cancel",
+        "options": [
+          {
+            "name": "Until I cancel",
+            "value": "Until I cancel"
+          },
+          {
+            "name": "Select Date",
+            "value": "Select Date"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "col3_cta_button_label",
+        "label": "CTA Button Label",
+        "value": "Invest Now"
+      }
+    ]
+  },
+  {
+    "id": "fm-portfolio",
+    "fields": [
+      {
+        "component": "text",
+        "name": "col_schemename",
+        "label": "Enter Label Scheme Name"
+      },
+      {
+        "component": "text",
+        "name": "col_scheme",
+        "label": "Enter Label Scheme"
+      },
+      {
+        "component": "text",
+        "name": "col_benchmark",
+        "label": "Enter Label Benchmark"
+      }
+    ]
+  },
+  {
+    "id": "popular-article-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Future Building Item Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "start-building",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-experts",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "fdp-campaign",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image for Desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt for Desktop",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image2",
+        "label": "Image for Mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image2Alt",
+        "label": "Alt for mobile",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "investing-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "login-image-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "login-rt-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "step-up-block",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "col1_richtext",
+        "value": "",
+        "label": "Enter context for Checkbox",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col1_stepupamt",
+        "label": "Enter label for Step up amount"
+      },
+      {
+        "component": "text",
+        "name": "col1_frequency",
+        "label": "Enter label for Frequency"
+      },
+      {
+        "component": "richtext",
+        "name": "col1_rich",
+        "value": "",
+        "label": "Enter Discription before SIP Calculation",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col2_frequency",
+        "label": "Enter label for Max SIP Amount"
+      },
+      {
+        "component": "richtext",
+        "name": "col2_rich",
+        "value": "",
+        "label": "Enter Discription after SIP Calculation",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "contact-us-map",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "col_radiolist",
+        "value": "",
+        "label": "Enter Radio list Context",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "col_city",
+        "label": "Enter Placeholder for City Field"
+      },
+      {
+        "component": "text",
+        "name": "col_pincode",
+        "label": "Enter Placeholder for Pincode Field"
+      }
+    ]
+  },
+  {
+    "id": "moedge-building-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      },
+      {
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "motilal edge Building Item Description",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "our-authors",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "investing-text-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "global-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "desktop-image",
+        "label": "Image for Desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "desktop-imageAlt",
+        "label": "Alt for Desktop",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobile-image",
+        "label": "Image for Mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobile-imageAlt",
+        "label": "Alt for Mobile",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "global-text-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "one text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "investing-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "investing-text-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "global-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "desktop-image",
+        "label": "Image for Desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "desktop-imageAlt",
+        "label": "Alt for Desktop",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobile-image",
+        "label": "Image for Mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobile-imageAlt",
+        "label": "Alt for Mobile",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "global-text-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "our-service-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Fragment URL"
       }
     ]
   }

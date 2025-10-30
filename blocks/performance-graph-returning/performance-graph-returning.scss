@@ -1,0 +1,357 @@
+/* Reset */
+@use 'sass:map';
+@use '../../styles/common-theme/css/variables_mixins' as *;
+@use '../../styles/common-theme/css/fluid-typography' as *;
+
+/* MAIN WRAPPER */
+.performance-graph-returning-container {
+    .performance-graph-wrapper {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+        @include media(mobile) {
+            display: flex;
+            padding: 0 16px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+
+        .default-content-wrapper {
+            max-width: 1232px;
+            width: 100%;
+
+            @include media(mobile) {
+                width: 100%;
+            }
+
+            h3 {
+                color: $blue-1-800-primary;
+                font-family: $title;
+                font-size: map.get($typography-desktop, heading-h4-size);
+                font-style: normal;
+                font-weight: 600;
+                line-height: map.get($typography-desktop, heading-h4-line-height);
+                margin: 0;
+
+                @include media(mobile) {
+                    font-size: 24px;
+                    font-style: normal;
+                    line-height: map.get($typography-mobile, heading-h5-line-height);
+                }
+            }
+
+        }
+
+        .performance-graph-returning-wrapper {
+            max-width: 100%;
+            width: 100%;
+
+
+
+            .performance-graph-returning {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                align-self: stretch;
+
+
+                @include media(mobile) {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 16px;
+                    align-self: stretch;
+                }
+
+                .fund-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    align-self: stretch;
+
+                    @include media(mobile) {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 40px;
+                        align-self: stretch;
+                    }
+
+
+                    .fund-details {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 8px;
+                        max-width: 920px;
+                        width: 100%;
+
+                        @include media(mobile) {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 16px;
+                            align-self: stretch;
+                        }
+
+                        .fund-identity {
+                            display: flex;
+                            max-width: 920px;
+                            flex-direction: column;
+                            align-items: flex-start;
+
+                            @include media(mobile) {
+                                display: flex;
+                                width: 340px;
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
+
+                            .fund-note {
+                                color: $blue-1-500;
+                                font-family: $body;
+                                font-size: map.get($typography-desktop, body-xsmall-medium-size);
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: map.get($typography-desktop, body-xsmall-medium-line-height);
+                                margin: 0;
+
+                                @include media(mobile) {
+                                    color: $blue-1-400;
+                                    font-family: $body;
+                                    font-size: map.get($typography-mobile, body-xsmall-medium-size);
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: map.get($typography-mobile, body-xsmall-medium-line-height);
+                                }
+                            }
+
+                            .fund-name {
+                                align-self: stretch;
+                                color: $blue-1-800-primary;
+                                font-family: $body;
+                                font-size: map.get($typography-desktop, body-xlarge-semibold-size);
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: map.get($typography-desktop, body-xlarge-semibold-line-height);
+                                margin: 0;
+
+                                @include media(mobile) {
+                                    color: $blue-1-800-primary;
+                                    font-family: $body;
+                                    font-size: map.get($typography-mobile, body-medium-medium-size);
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: map.get($typography-mobile, body-medium-medium-line-height);
+                                }
+                            }
+                        }
+
+                        .fund-meta {
+                            display: flex;
+                            padding: 0;
+                            align-items: center;
+                            gap: 8px;
+
+                            @include media(mobile) {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                gap: 16px;
+                                align-self: stretch;
+                            }
+
+                            .fund-tags-wrapper {
+                                display: flex;
+                                align-items: center;
+                                gap: 4px;
+
+                                @include media(mobile) {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                    align-self: stretch;
+                                }
+
+                                .fund-tags-main {
+                                    border-radius: 12px;
+                                    background: $neutrals-200;
+                                    display: flex;
+                                    height: 20px;
+                                    padding: 4px 18px;
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: 16px;
+
+                                    @include media(mobile) {
+                                        display: flex;
+                                        padding: 5px 10px;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 8px;
+                                    }
+
+                                    .fund-tag {
+                                        display: flex;
+                                        color: $blue-1-800-primary;
+                                        font-family: $body;
+                                        font-size: map.get($typography-desktop, body-small-regular-size);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: map.get($typography-desktop, body-small-regular-line-height);
+
+                                        @include media(mobile) {
+                                            color: $primary-blue;
+                                            font-family: $body;
+                                            font-size: 12px;
+                                            font-style: normal;
+                                            font-weight: 400;
+                                            line-height: 16px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .fund-returns-main {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+
+                                @include media(mobile) {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                    align-self: stretch;
+                                }
+
+
+                                .fund-returns {
+                                    color: $text-body-2;
+                                    font-family: $body;
+                                    font-size: map.get($typography-desktop, label-small-size);
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: map.get($typography-desktop, label-small-line-height);
+
+                                    @include media(mobile) {
+                                        color: $text-body;
+                                        font-family: $body;
+                                        font-size: map.get($typography-mobile, paragraph-xsmall-size);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: map.get($typography-mobile, paragraph-xsmall-line-height);
+                                    }
+                                }
+
+                                .value {
+                                    width: 55px;
+                                    align-self: stretch;
+                                    color: $blue-1-800-primary;
+                                    font-family: $body;
+                                    font-size: map.get($typography-desktop, body-small-medium-size);
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: map.get($typography-desktop, body-small-medium-line-height);
+
+                                    @include media(mobile) {
+                                        color: $blue-1-800-primary;
+                                        font-family: $body;
+                                        font-size: map.get($typography-mobile, body-small-medium-size);
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: map.get($typography-mobile, body-small-medium-line-height);
+                                        align-self: unset;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .invest-now-btn {
+                        .button-desktop {
+                            text-align: center;
+                            font-style: normal;
+                            display: flex;
+                            padding: 12px;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 8px;
+                            border-radius: 4px;
+                            background: #2e2a94;
+                            border: none;
+                            color: $text-white;
+                            font-family: $body;
+                            font-size: map.get($typography-desktop, button-medium-size);
+                            font-weight: 500;
+                            line-height: map.get($typography-desktop, button-medium-line-height);
+                            cursor: pointer;
+                            transition: background-color 0.2s ease;
+                            width: 164px;
+                            margin: 0;
+
+                            @include media(mobile) {
+                                display: none;
+                            }
+                        }
+                    }
+
+                }
+
+                .chart-filter-bar {
+                    display: none;
+                }
+
+                #chartdiv1 {
+                    width: 1232px;
+                    height: 236px;
+
+                    // height: 400px;
+                    background: transparent;
+                    position: relative;
+
+                }
+
+                .invest-now-btn-mobile {
+                    @include media(mobile) {
+                        padding-top: 4px;
+                        padding-bottom: 14px;
+                        width: 100%;
+                    }
+
+                    .button-mobile {
+                        display: none;
+
+                        @include media(mobile) {
+                            text-align: center;
+                            display: flex;
+                            padding: 12px;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 8px;
+                            border-radius: 4px;
+                            background: #2e2a94;
+                            border: none;
+                            color: $primary-white;
+                            cursor: pointer;
+                            transition: background-color 0.2s ease;
+                            
+                            // width: 176px;
+                            margin: 0;
+                            font-family: var(--body);
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

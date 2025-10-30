@@ -1,0 +1,185 @@
+/* Reset */
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.section.cornerstones-advantage {
+  &-cards-container {
+    // max-width: 1264px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 0 56px;
+
+    @include media(mobile) {
+      // max-width: 100%;
+      padding: 24px 0 12px;
+    }
+
+    .default-content-wrapper{
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0 0 4px;
+        text-align: center;
+
+        @include font-style( var(--heading-h4-size), var(--heading-h4-line-height), var(--blue-1-800-primary), 600, var(--title));
+
+        @include media(mobile) {
+          text-align: left;
+          font-size: var(--sub-header-large-size);
+          line-height: 28px;
+        }
+      }
+
+      p {
+        @include font-style(var(--body-medium-regular-size), 24px, var(--blue-1-800-primary), 400, var(--body));
+
+        text-align: center;
+        margin: 0;
+
+        @include media(mobile) {
+          font-size: var(--paragraph-small-size);
+          line-height: var(--paragraph-small-line-height);
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .cornerstones-advantage {
+    &-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 16px;
+      margin: 40px 0 0;
+
+      @include media(mobile) {
+        flex-wrap: unset;
+        flex-direction: column;
+
+        // gap: 40px;
+        gap: 24px;
+      }
+
+      & .cards-item {
+        max-width: 296px;
+        width: 100%;
+        min-height: 300px;
+
+        @include media(tab) {
+          max-width: 32%;
+        }
+
+        @media screen and (width <=851px) {
+          max-width: 48%;
+        }
+
+        @include media(mobile) {
+          // min-height: 176px;
+          min-height: 136px;
+          max-width: 100%;
+          padding-right: 0;
+        }
+
+        > div {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          padding-right: 26px;
+
+          @include media(mobile) {
+            padding-right: 0;
+            padding-bottom: 16px;
+            display: grid;
+            grid-template-areas:
+              "icon heading"
+              "icon text"
+              "icon button";
+            grid-template-columns: 64px 1fr;
+            gap: 0 8px;
+            align-items: start;
+          }
+        }
+
+        .item-child {
+          margin: 0;
+
+          &.item-child-1,
+          &.item-child-1 .icon {
+            width: 64px;
+            height: 64px;
+
+            @include media(mobile) {
+              grid-area: icon;
+            }
+          }
+
+          &.item-child-2 {
+            margin: 24px 0 8px;
+
+            @include font-style(var(--body-large-medium-size), var(--body-large-medium-line-height), var(--blue-1-800-primary), 500, var(--body));
+
+            @include media(mobile) {
+              grid-area: heading;
+              margin: 0 0 4px;
+              font-size: var(--body-medium-medium-size);
+              line-height: var(--body-medium-medium-line-height);
+            }
+          }
+
+          &.item-child-3 {
+            @include font-style(var(--body-medium-regular-size), 24px, var(--text-body-2), 400, var(--body));
+
+            padding-bottom: 28px;
+
+            @include media(mobile) {
+              font-size: var(--paragraph-small-size);
+              line-height: var(--paragraph-small-line-height);
+              padding-bottom: 0;
+              white-space: break-spaces;
+            }
+          }
+
+          &.button-container {
+            margin-top: auto;
+            line-height: 0;
+
+            @include media(mobile) {
+              grid-area: button;
+              margin: 16px 0 0;
+            }
+
+            .button {
+              margin: 0;
+              padding: 0;
+              background-color: transparent;
+              text-decoration-line: underline;
+              text-underline-offset: 20%;
+              border-radius: 0;
+              border: none;
+              display: block;
+              text-align: left;
+
+              @include font-style(
+                var(--text-link-small-size),
+                var(--text-link-small-line-height),
+                var(--text-text-link),
+                400,
+                var(--body)
+              );
+
+              @include media(mobile){
+                font-size: var(--text-link-small-size);
+                line-height: var(--text-link-small-line-height);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
