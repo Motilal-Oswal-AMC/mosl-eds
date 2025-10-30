@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p143654-e1510741.adobeaemcloud.com/bin/franklin.delivery/Motilal-Oswal-AMC/motilal-oswal-amc-eds-stage/main"
+    url: "https://author-p143654-e1510741.adobeaemcloud.com/bin/franklin.delivery/Motilal-Oswal-AMC/mosl-eds/main"
     type: "markup"
     suffix: ".html"
