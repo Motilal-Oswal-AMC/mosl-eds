@@ -168,10 +168,9 @@
 
 .section.freq-ask-ques {
   width: 100%;
-  background-color: #f5f5f5;
 
+  // background-color: #f5f5f5;
   // margin: 0;
-
   // padding: 40px 0;
 
   .faq-our-fund {
@@ -307,7 +306,7 @@
               border: none;
               border-width: unset;
               transform: translateY(-50%);
-              background: url("../../icons/plus-blue.svg");
+              background: url("/icons/plus-blue.svg");
 
               // transition: all 0.3s ease-in-out;
 
@@ -346,7 +345,7 @@
               &::after {
                 // top: 15px;
                 right: 0;
-                background: url("../../icons/mins-blue.svg");
+                background: url("/icons/mins-blue.svg");
                 transform: translateY(-50%);
 
                 //    @include media(mobile) {

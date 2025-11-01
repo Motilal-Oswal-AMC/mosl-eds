@@ -57,6 +57,7 @@ $breakpoint-dks: 1279px;
   padding: unset;
   text-align: center;
   overflow: hidden;
+  padding-top: 40px;
 
   .default-content-wrapper:nth-child(1) {
     padding: 0 24px;
@@ -218,7 +219,7 @@ $breakpoint-dks: 1279px;
       p {
         font-size: var(--body-medium-regular-size);
         line-height: 24px;
-        
+
         // line-height: var(--body-medium-regular-line-height);
         max-width: 100%;
       }

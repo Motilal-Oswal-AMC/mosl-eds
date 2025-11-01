@@ -86,7 +86,7 @@ function renderDetails(container, data) {
   } = data[0];
   let html;
   contactAdd.forEach((addr) => {
-    const mobst = (addr.mobileNo === null ) ? 'none' : 'block';
+    const mobst = (addr.mobileNo === null) ? 'none' : 'block';
     const lanst = (addr.landlineNo === null) ? 'none' : 'block';
     const pincode = addr.pincode === null ? '' : `- ${addr.pincode}`;
     // const emailst = addr.emailid === null ? 'none' : 'block';

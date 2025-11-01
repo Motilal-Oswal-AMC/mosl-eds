@@ -85,6 +85,10 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: var(--label-large-line-height);
+
+                    @include media (mobile) {
+                        line-height: 16px;
+                    }
                 }
 
                 &:hover {
@@ -122,7 +126,12 @@
 
     .default-content-wrapper:last-of-type {
         text-align: center;
-        padding: 40px 0;
+        padding: 40px 0 0;
+
+        @include media (mobile) {
+            padding: 40px 0;
+        }
+
 
         >ul {
             margin: 0;
@@ -149,6 +158,10 @@
                 border-radius: var(--border-radius-4);
                 background: var(--button-primary-default);
 
+                @include media(mobile) {
+                    border-radius: var(--border-radius-8);
+                }
+
                 a {
                     width: 100%;
                     background: var(--button-primary-default);
@@ -160,6 +173,10 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: var(--body-medium-regular-line-height);
+
+                    @include media(mobile) {
+                        font-weight: 500;
+                    }
                 }
             }
 

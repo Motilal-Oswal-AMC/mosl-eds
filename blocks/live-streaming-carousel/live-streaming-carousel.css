@@ -82,7 +82,7 @@
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination::after {
   content: "";
-  background: url("../../icons/arrow-left.svg");
+  background: url("/icons/arrow-left.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -93,7 +93,7 @@
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-next.swiper-button-disabled::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .swiper-button-prev.swiper-button-disabled::after,
 .section.live-streaming-carousel-container .live-streaming-carousel-wrapper .custom-pagination.swiper-button-disabled::after {
-  background: url("../../icons/arrow-left-disabled.svg");
+  background: url("/icons/arrow-left-disabled.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 25px;

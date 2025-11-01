@@ -64,7 +64,7 @@ export default function decorate(block) {
   const starClass = dataMapMoObj.schstar.includes(block.schcode)
     ? 'star-filled'
     : '';
-  const mop = `../../icons/schemeicons/MO_${block.schcode}.svg`;
+  const mop = `/icons/schemeicons/MO_${block.schcode}.svg`;
   const dspdate = returnYear === 'Since Inception' ? 'block' : 'none';
   // const cagrValue = finPlangrp
   if (finPlangrp.length !== 0) {
@@ -114,12 +114,12 @@ export default function decorate(block) {
                   },
                   img({
                     class: 'star-icon',
-                    src: '../../icons/not-filled-white-star.svg',
+                    src: '/icons/not-filled-white-star.svg',
                     alt: 'star-icon',
                   }),
                   img({
                     class: 'fillstar-icon',
-                    src: '../../icons/filled-star.svg',
+                    src: '/icons/filled-star.svg',
                     alt: 'fillstar-icon',
                   }),
                 ),
@@ -155,7 +155,7 @@ export default function decorate(block) {
               { class: 'banner-container' },
               img({
                 class: 'nfo-img',
-                src: '../../icons/nfo-banner.png',
+                src: '/icons/nfo-banner.png',
                 alt: 'NFO Image',
               }),
               span('Grab Them All'),
@@ -170,7 +170,7 @@ export default function decorate(block) {
                 { class: 'dis-investor' },
                 img({
                   class: 'riskfactor-icon',
-                  src: `../../icons/nfo-risk-icon/${nfosvg}`,
+                  src: `/icons/nfo-risk-icon/${nfosvg}`,
                   alt: 'risk icon',
                 }),
               ),
@@ -187,7 +187,7 @@ export default function decorate(block) {
             ),
             a(
               {
-                href: '/motilalfigma/modals/invest-now-homepage',
+                href: '/in/en/mutual-fund/modals/invest-now-homepage',
                 class: 'invest-now card-btn',
               },
               'Invest',
@@ -249,12 +249,12 @@ export default function decorate(block) {
                 },
                 img({
                   class: 'star-icon',
-                  src: '../../icons/not-filled-star.svg',
+                  src: '/icons/not-filled-star.svg',
                   alt: 'star-icon',
                 }),
                 img({
                   class: 'fillstar-icon',
-                  src: '../../icons/filled-star.svg',
+                  src: '/icons/filled-star.svg',
                   alt: 'fillstar-icon',
                 }),
               ),
@@ -430,14 +430,14 @@ export default function decorate(block) {
               },
               img({
                 class: 'icon person',
-                src: '../../icons/user-icon.svg',
+                src: '/icons/user-icon.svg',
                 alt: 'person',
               }),
               span({ class: 'investor-txt' }, '2.7L Investors in this fund'),
             ),
             a(
               {
-                href: '/motilalfigma/modals/risk-o-meter',
+                href: '/in/en/mutual-fund/modals/risk-o-meter',
                 onclick: (event) => {
                   const clasName = event.target.closest('body');
                   clasName.classList.add('scroll-lock');
@@ -445,7 +445,7 @@ export default function decorate(block) {
               },
               img({
                 class: 'riskfactor-icon',
-                src: `../../icons/risk-icon/${iconsvg}`,
+                src: `/icons/risk-icon/${iconsvg}`,
                 alt: 'risk icon',
               }),
             ),
@@ -470,14 +470,14 @@ export default function decorate(block) {
                   'planCode',
                   `${planFlowsec}:${cardWrapperSh}`,
                 );
-                window.location.href = `${window.location.origin}/motilalfigma/our-funds/funds-details-page`;
+                window.location.href = `${window.location.origin}/in/en/mutual-fund/our-funds/funds-details-page`;
               },
             },
             'Know More',
           ),
           a(
             {
-              href: '/motilalfigma/modals/invest-now-homepage',
+              href: '/in/en/mutual-fund/modals/invest-now-homepage',
               class: 'invest-now card-btn',
             },
             'Invest',

@@ -10,6 +10,7 @@
  * governing permissions and limitations under the License.
  */
 @import '../styles/tokens-variable.css';
+@import '../styles/common.css';
 
 /* ------------------------------------------------------------------
  * GLOBAL RESET
@@ -1530,5 +1531,27 @@ z-index: -1;
         to {
             transform: translateY(100%);
         }
+    }
+}
+
+
+
+.top-nave .section.breadcrumbs-fdp{
+    top: 0;
+    margin-top: 0 !important;
+}
+
+.top-nave .section.fdp-card-container .item2 .item2-ul{
+    top: 56px;
+}
+
+.top-nave .section.fdp-card-container .fdp-card-wrapper.item1{
+    top: 56px;
+}
+
+
+@media (width <=768px) {
+    .top-nave .section.fdp-card-container .item2 .selectedtext-fdp{
+        top: 63px;
     }
 }

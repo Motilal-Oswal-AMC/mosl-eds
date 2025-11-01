@@ -203,9 +203,9 @@ export default function decorate(block) {
         // container.appendChild(fullPara);
         toggleBtn.textContent = 'Read Less';
       } else {
-        //const previewParaAgain = document.createElement('p');
+        // const previewParaAgain = document.createElement('p');
         container.textContent = preview;
-        //container.appendChild(previewParaAgain);
+        // container.appendChild(previewParaAgain);
         toggleBtn.textContent = 'Read More';
       }
 
@@ -225,7 +225,7 @@ export default function decorate(block) {
   // block.querySelector('.load-policy-list').innerHTML = prarrep;
 
   const brEl = document.createElement('br');
-  const keyplan = document.querySelector('.key-plans span')
+  const keyplan = document.querySelector('.key-plans span');
   const keyplanparent = document.querySelector('.key-plans span').parentElement;
   keyplanparent.append(brEl);
   keyplanparent.append(keyplan);

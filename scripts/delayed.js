@@ -45,9 +45,9 @@ export default async function createBreadcrumbs() {
     }),
   );
   const homeIcon = '../../icons/home-icon.svg';
-  // const homeLink = '/motilalfigma/home-page';
+  // const homeLink = '/in/en/mutual-fund/home-page';
   return ul(
-    decorateBreadcrumbItems('Home', '/motilalfigma/home-page', homeIcon),
+    decorateBreadcrumbItems('Home', '/in/en/mutual-fund/home-page', homeIcon),
     ...items.filter((item) => item !== null),
     decorateBreadcrumbItems(
       getMetadata('breadcrumbs_title'),
@@ -67,7 +67,7 @@ async function decorateBreadcrumbs() {
       document.querySelector('.breadcrumbs-fdp').appendChild(breadcrumb);
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 

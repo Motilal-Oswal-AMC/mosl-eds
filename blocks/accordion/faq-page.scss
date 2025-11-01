@@ -2,8 +2,8 @@
 
 /*   media-feature-range-notation */
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 
 // body::-webkit-scrollbar{
 //   display: none;
@@ -73,13 +73,11 @@
           .inneritemfaq1 {
             margin: 0 0 4px;
 
-            @include font-style(
-              var(--heading-h5-size),
+            @include font-style(var(--heading-h5-size),
               var(--heading-h5-line-height),
               var(--blue-1-800-primary),
               600,
-              var(--title)
-            );
+              var(--title));
 
             @include media(mobile) {
               font-size: var(--sub-header-large-size);
@@ -88,13 +86,11 @@
           }
 
           .inneritemfaq2 {
-            @include font-style(
-              var(--body-small-regular-size),
+            @include font-style(var(--body-small-regular-size),
               var(--body-small-regular-line-height),
               var(--blue-1-800-primary),
               400,
-              var(--body)
-            );
+              var(--body));
 
             @include media(mobile) {
               font-size: var(--paragraph-xsmall-size);
@@ -174,13 +170,11 @@
             }
 
             .comlist {
-              @include font-style(
-                var(--body-small-regular-size),
+              @include font-style(var(--body-small-regular-size),
                 var(--body-small-regular-line-height),
                 var(--neutrals-700),
                 400,
-                var(--body)
-              );
+                var(--body));
 
               @include media(mobile) {
                 padding: 0 0 2px;
@@ -198,15 +192,13 @@
               }
 
               .comlist {
-                @include font-style(
-                  var(--body-small-semibold-size),
+                @include font-style(var(--body-small-semibold-size),
                   var(--body-small-semibold-line-height),
                   var(--blue-1-800-primary),
                   600,
-                  var(--body)
-                );
+                  var(--body));
 
-                @include media(mobile){
+                @include media(mobile) {
                   font-size: var(--body-small-semibold-size);
                   line-height: var(--body-small-semibold-line-height);
                 }
@@ -250,13 +242,11 @@
               outline: none;
               background-color: transparent;
 
-              @include font-style(
-                var(--body-medium-regular-size),
+              @include font-style(var(--body-medium-regular-size),
                 var(--body-medium-regular-line-height),
                 var(--text-body-2),
                 400,
-                var(--body)
-              );
+                var(--body));
 
               @include media(mobile) {
                 font-size: var(--body-medium-regular-size);
@@ -407,13 +397,11 @@
                       margin: 0;
                       width: 100%;
 
-                      @include font-style(
-                        var(--body-large-medium-size),
+                      @include font-style(var(--body-large-medium-size),
                         var(--body-large-medium-line-height),
                         var(--blue-1-800-primary),
                         500,
-                        var(--body)
-                      );
+                        var(--body));
 
                       @include media(mobile) {
                         font-size: var(--body-medium-medium-size);
@@ -428,24 +416,43 @@
                     padding: 8px 40px 0 0;
                     margin: 0;
 
-                    @include media(mobile){
+                    @include media(mobile) {
                       padding: 8px 0 0;
                     }
 
                     p {
                       margin: 0;
 
-                      @include font-style(
-                        var(--body-small-regular-size),
+                      @include font-style(var(--body-small-regular-size),
                         var(--label-large-line-height),
                         var(--neutrals-900),
                         400,
-                        var(--body)
-                      );
+                        var(--body));
 
                       @include media(mobile) {
                         font-size: var(--paragraph-xsmall-size);
                         line-height: var(--paragraph-xsmall-line-height);
+                      }
+                    }
+
+                    ol {
+                      padding-left: 19px;
+                      margin: 0;
+                      margin-top: 12px;
+
+                      li {
+                        margin: 0;
+                        font-size: var(--body-small-regular-size);
+                        line-height: var(--label-large-line-height);
+                        color: var(--neutrals-900);
+                        font-family: var(--body);
+                        font-feature-settings: "ss01"on, "ss04"on, "cv01"on, "cv02"on, "cv03"on, "cv04"on, "cv06"on, "cv09"on, "cv10"on, "cv11"on;
+                        font-weight: 400;
+
+                        @include media(mobile) {
+                          font-size: var(--paragraph-xsmall-size);
+                          line-height: var(--paragraph-xsmall-line-height);
+                        }
                       }
                     }
                   }
@@ -461,19 +468,18 @@
                       }
 
                       p {
-                        @include font-style(
-                          var(--body-large-semibold-size),
+                        @include font-style(var(--body-large-semibold-size),
                           var(--body-large-semibold-line-height),
                           var(--blue-1-800-primary),
                           600,
-                          var(--body)
-                        );
+                          var(--body));
 
-                        @include media(mobile){
+                        @include media(mobile) {
                           font-size: var(--body-medium-semibold-size);
                           line-height: var(--body-medium-semibold-line-height);
                         }
                       }
+                      
                     }
 
                     .accordion-item-body {

@@ -317,7 +317,7 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     // console.log(error);
   }
   document.body.classList.add('modal-open', 'noscroll');
-  if (window.location.href.includes('/motilalfigma/our-funds/')) {
+  if (window.location.href.includes('/in/en/mutual-fund/our-funds/')) {
     document.body.style.overflow = 'hidden';
   }
   // --- END: NEW LOGIC ---
@@ -354,6 +354,11 @@ export function initializeModalHandlers() {
           const schode = link.closest('.card-container')
             .querySelector('.star-wrap .star').getAttribute('schcode');
           localStorage.setItem('planCode', `Direct:${schode}`);
+        }
+        if (link.closest('.card-wrap')) {
+          const schode = link.closest('.card-wrap')
+            .querySelector('.risk-home-two a').getAttribute('schemesh');
+          localStorage.setItem('planCode', `${schode}`);
         }
         await openModal(link.href);
       }

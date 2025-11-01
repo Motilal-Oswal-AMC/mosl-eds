@@ -119,4 +119,16 @@ export default function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['mobimg-1', 'mobimg-2', 'mobimg-3'];
     dataMapMoObj.addIndexed(mobImage);
   }
+
+  const arrows = document.querySelector('.our-strategies .strategy-wrapper');
+
+  if (arrows) {
+    // const paragraphs = heroBlock.querySelectorAll('p');
+    dataMapMoObj.CLASS_PREFIXES = ['arrow-1', 'arrow-2', 'arrow-3', 'arrow-4', 'arrow-5'];
+    dataMapMoObj.addIndexed(arrows);
+  }
+  const rrowtwo = document.querySelectorAll('.our-strategies .strategy11 img');
+  if (rrowtwo) {
+    Array.from(rrowtwo).forEach((el, ind) => el.classList.add(`stat${ind}`));
+  }
 }

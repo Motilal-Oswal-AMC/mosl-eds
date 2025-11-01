@@ -19,6 +19,7 @@ function toTitleCase(str) {
 
 export default function decorate(block) {
   const mainBlock = block.closest('body');
+  mainBlock.querySelector('main').classList.add('top-nave');
   const whyFund = mainBlock.querySelector('main .why-fund');
   if (whyFund != null) {
     dataMapMoObj.CLASS_PREFIXES = [
@@ -56,7 +57,7 @@ export default function decorate(block) {
     dataMapMoObj.CLASS_PREFIXES = ['item'];
     dataMapMoObj.addIndexed(block.closest('.fdp-card-container'));
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 
   const cfObj = planObj;
@@ -80,7 +81,7 @@ export default function decorate(block) {
     (el) => DirectPlanlistArr[0].groupedCode === el.plancode + el.optioncode,
   );
   const initalDroptext = `${DirectPlanlistArr[0].planName} | ${DirectPlanlistArr[0].optionName}`;
-  const mop = `../../icons/schemeicons/MO_${cfObj[0].schcode}.svg`;
+  const mop = `/icons/schemeicons/MO_${cfObj[0].schcode}.svg`;
   const [firstReturnYear] = tempReturns;
   let selectedReturn;
   if (dataMapMoObj.selectreturns === '') {
@@ -103,7 +104,12 @@ export default function decorate(block) {
   const navnotpresent = navlistArr[0].nav_date === undefined ? 'block' : 'none';
   const navlistArrDate = navlistArr[0]?.nav_date?.replaceAll('-', ' ') ?? '';
   const navarrdate = navlistArrDate.split(' ');
-  const navyear = navarrdate[2].slice(-2);
+  let navyear = '';
+  if (navlistArr[0].nav_date !== undefined) {
+    navyear = navarrdate[2].slice(-2);
+  } else {
+    navyear = '';
+  }
   const navdaterper = `${navarrdate[0]} ${navarrdate[1]} ${navyear}`;
 
   function planGrpEvent(param) {
@@ -267,7 +273,7 @@ export default function decorate(block) {
                 class: 'contactus-icon',
               },
               img({
-                src: '../../icons/call_back.svg',
+                src: '/icons/call_back.svg',
                 alt: 'callback',
                 class: 'icon-callback',
               }),
@@ -283,7 +289,7 @@ export default function decorate(block) {
                 class: 'share-icon',
               },
               img({
-                src: '../../icons/share.svg',
+                src: '/icons/share.svg',
                 alt: 'callback',
                 class: 'icon-callback',
               }),
@@ -551,7 +557,7 @@ export default function decorate(block) {
                 },
                 img({
                   class: 'nav-img',
-                  src: '../../icons/upperecent.svg',
+                  src: '/icons/upperecent.svg',
                   alt: 'navalt',
                 }),
                 p(
@@ -609,7 +615,7 @@ export default function decorate(block) {
               {
                 class: 'submit ',
                 type: 'submit',
-                href: 'https://mosldev--eds-cloud--rupeshdept.aem.live/motilalfigma/modals/invest-now-homepage',
+                href: 'https://mosldev--eds-cloud--rupeshdept.aem.live/in/en/mutual-fund/modals/invest-now-homepage',
               },
               'Invest Now',
             ),
@@ -621,7 +627,7 @@ export default function decorate(block) {
           },
           img({
             class: 'icon-person',
-            src: '../../icons/Icon.svg',
+            src: '/icons/Icon.svg',
             alt: 'person',
           }),
           p(
@@ -661,44 +667,42 @@ export default function decorate(block) {
   let currentSelectedText = '';
 
   const left = document.querySelector('.fdp-card-wrapper');
+  function isInsideScrollable(el, stopAt) {
+    while (el && el !== stopAt) {
+      const style = window.getComputedStyle(el);
+      const { overflowY } = style;
+      if (
+        (overflowY === 'auto' || overflowY === 'scroll')
+          && el.scrollHeight > el.clientHeight
+      ) {
+        return true;
+      }
+      // eslint-disable-next-line no-param-reassign
+      el = el.parentElement;
+    }
+    return false;
+  }
   if (!left) {
     console.log('error');
-  } else {
-    function isInsideScrollable(el, stopAt) {
-      while (el && el !== stopAt) {
-        const style = window.getComputedStyle(el);
-        const { overflowY } = style;
-        if (
-          (overflowY === 'auto' || overflowY === 'scroll')
-          && el.scrollHeight > el.clientHeight
-        ) {
-          return true;
+  } else if (window.innerWidth >= 786) {
+    left.addEventListener(
+      'wheel',
+      (e) => {
+        if (isInsideScrollable(e.target, left)) return;
+        const delta = e.deltaY;
+
+        const atTop = this.scrollTop <= 0;
+        const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 1;
+
+        if ((delta < 0 && !atTop) || (delta > 0 && !atBottom)) {
+          e.stopPropagation();
+        } else {
+          e.preventDefault();
+          e.stopPropagation();
         }
-        el = el.parentElement;
-      }
-      return false;
-    }
-
-    if (window.innerWidth >= 786) {
-      left.addEventListener(
-        'wheel',
-        function (e) {
-          if (isInsideScrollable(e.target, left)) return;
-          const delta = e.deltaY;
-
-          const atTop = this.scrollTop <= 0;
-          const atBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 1;
-
-          if ((delta < 0 && !atTop) || (delta > 0 && !atBottom)) {
-            e.stopPropagation();
-          } else {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-        },
-        { passive: false },
-      );
-    }
+      },
+      { passive: false },
+    );
   }
 
   // setting id on the sticky performance list
@@ -755,7 +759,7 @@ export default function decorate(block) {
           const sipCal = document.querySelector(
             'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.compounding.fdp-calculator.calculator-sip-container',
           );
-          const whyFund = document.querySelector(
+          const whyFundvari = document.querySelector(
             'body > main > div.section.fdp-card-container > div.default-content-wrapper.comlist.item2 > div.section.table-wrapper.why-fund',
           );
           const fundVideo = document.querySelector(
@@ -790,7 +794,7 @@ export default function decorate(block) {
           if (sipCal.contains(targetSection)) sectionKey = 'sipCal';
           else if (performance.contains(targetSection)) sectionKey = 'performance';
           else if (periodicReturn.contains(targetSection)) sectionKey = 'periodicReturn';
-          else if (whyFund.contains(targetSection)) sectionKey = 'whyFund';
+          else if (whyFundvari.contains(targetSection)) sectionKey = 'whyFund';
           else if (fundVideo.contains(targetSection)) sectionKey = 'fundVideo';
           else if (keyFacts.contains(targetSection)) sectionKey = 'keyFacts';
           else if (portfolio.contains(targetSection)) sectionKey = 'portfolio';
@@ -1147,5 +1151,9 @@ export default function decorate(block) {
       const breadcrumb = document.querySelector('.breadcrbmain2');
       breadcrumb.style.display = 'none';
     }
+  });
+
+  document.querySelectorAll('.fdp-tab a').forEach((anc) => {
+    anc.removeAttribute('title');
   });
 }

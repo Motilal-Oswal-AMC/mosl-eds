@@ -69,7 +69,7 @@ export default function decorate(block) {
             { class: 'pan-wrap pan-fail active' },
             label({ class: 'pan-label', for: 'pan' }, panlab),
             input({ class: 'pan-inp', id: 'pan', type: 'text' }),
-            img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
+            img({ class: 'error-icon', src: '/icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
           span({ class: 'show-pan-error error-msg' }, 'Please enter a valid PAN'),
         ),
@@ -113,9 +113,9 @@ export default function decorate(block) {
             input({
               type: 'text', name: 'kyc-name', id: 'kyc-name', class: 'detail-inp name-inp',
             }),
-            img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
+            img({ class: 'error-icon', src: '/icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
-          p({ class: 'name-error error-msg' }, 'Invalid Name'),
+          p({ class: 'name-error error-msg' }, 'Please enter valid PAN name'),
         ),
         div(
           { class: 'detail-field-wrap mob-wrap' },
@@ -131,9 +131,9 @@ export default function decorate(block) {
               input({
                 type: 'tel', name: 'kyc-mob', id: 'kyc-mob', class: 'detail-inp mob-inp',
               }),
-              img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
+              img({ class: 'error-icon', src: '/icons/icon-error.svg', alt: 'Cross Icon' }),
             ),
-            p({ class: 'mob-error error-msg' }, 'Invalid Name'),
+            p({ class: 'mob-error error-msg' }, 'Enter valid Mobile number'),
           ),
         ),
         div(
@@ -144,9 +144,9 @@ export default function decorate(block) {
             input({
               type: 'email', name: 'kyc-email', id: 'kyc-email', class: 'detail-inp email-inp',
             }),
-            img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
+            img({ class: 'error-icon', src: '/icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
-          p({ class: 'email-error error-msg' }, 'Invalid Email'),
+          p({ class: 'email-error error-msg' }, 'Please enter valid email id'),
         ),
         div(
           { class: 'detail-field-wrap city-wrap' },
@@ -156,9 +156,9 @@ export default function decorate(block) {
             input({
               type: 'text', name: 'kyc-city', id: 'kyc-city', class: 'detail-inp city-inp',
             }),
-            img({ class: 'error-icon', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
+            img({ class: 'error-icon', src: '/icons/icon-error.svg', alt: 'Cross Icon' }),
           ),
-          p({ class: 'city-error error-msg' }, 'Invalid City'),
+          p({ class: 'city-error error-msg' }, 'Please enter city name'),
         ),
       ),
     ),
@@ -337,6 +337,7 @@ export default function decorate(block) {
             }),
           ),
         ),
+        p({ class: 'otp-error error-msg' }, 'Incorrect OTP'),
         button({ class: 'resend-btn' }, reotpLabel),
       ),
       p({ class: 'otp-sent-text' }, otpSent),
@@ -412,25 +413,25 @@ export default function decorate(block) {
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 1 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 1 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 2 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 2 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 4 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 4 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 3 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 3 of 4',
             }),
           ),
         ),
@@ -444,25 +445,25 @@ export default function decorate(block) {
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 1 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 1 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 2 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 2 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 4 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 4 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 3 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'confpass-inp pass-inp', 'aria-label': 'Passcode digit 3 of 4',
             }),
           ),
         ),

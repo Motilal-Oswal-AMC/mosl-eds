@@ -284,7 +284,7 @@ function viewFunction(param) {
     }
   }
 
-  dataMapMoObj.parseFunction(param, 'viewfunc');
+  // dataMapMoObj.parseFunction(param, 'viewfunc');
 }
 
 function searchFunctionality(block) {
@@ -441,17 +441,72 @@ function searchFunctionality(block) {
       event.preventDefault();
       currentFocusIndex = (currentFocusIndex + 1) % visibleItems.length;
       updateActiveItem(visibleItems);
-    } else if (event.key === 'ArrowUp') {
+      return false;
+    } if (event.key === 'ArrowUp') {
       event.preventDefault();
       currentFocusIndex = (currentFocusIndex - 1 + visibleItems.length) % visibleItems.length;
       updateActiveItem(visibleItems);
-    } else if (event.key === 'Enter') {
+      return false;
+    } if (event.key === 'Enter') {
       if (visibleItems[currentFocusIndex]) {
-        visibleItems[currentFocusIndex].click();
+        // visibleItems[currentFocusIndex].click();
+        searchInput.value = visibleItems[currentFocusIndex].textContent;
       } else if (visibleItems.length > 0) {
-        visibleItems[0].click();
+        // visibleItems[0].click();
+        searchInput.value = visibleItems[currentFocusIndex].textContent;
       }
-    } else if (event.key === 'Backspace' || event.key === 'Delete') {
+      searchContainer.classList.remove('search-active');
+      dataMapMoObj.funddata = dataCfObj.cfDataObjs
+        .filter((ellim) => ellim.schDetail.schemeName === searchInput.value);
+      // viewFunction(block);
+      // CARD HIDE LOGIC ON SEARCH
+      const cardsContainercd = block.querySelector('.filter-cards');
+      const cardsContainer = cardsContainercd.querySelector('.cards-container');
+      const squarecard = block.querySelector('.squareby-container');
+      if (Array.from(squarecard.classList).includes('grid-view-active')) {
+        const datatem = dataCfObj.cfDataObjs.filter(
+          (elsch) => elsch.schDetail.schemeName === searchInput.value,
+        );
+        cardsContainer.innerHTML = '';
+        cardsContainer.append(fundcardblock(datatem[0]));
+      }
+
+      const listHeadercd = block.querySelector('.filter-cards');
+      const listHeader = listHeadercd.querySelector('.list-container');
+      const listcard = block.querySelector('.listby-container');
+      if (Array.from(listcard).includes('list-view-active')) {
+        if (cardsContainer && cardsContainer.checkVisibility()) {
+          const datatem = dataCfObj.cfDataObjs.filter(
+            (elsch) => (elsch.schDetail.schemeName === searchInput.value),
+          );
+          listHeader.innerHTML = '';
+          listHeader.append(listviewblock(datatem[0]));
+        }
+      }
+      cancelButton.style.display = searchInput.value.length > 0 ? 'flex' : 'none';
+      const flitwrap = block.querySelector('.applied-filter-wrap');
+      if (Array.from(flitwrap.classList).includes('filter-active')) {
+        flitwrap.classList.remove('filter-active');
+      }
+      Array.from(block.querySelector('.filter-list-wrapper').children).forEach((el) => {
+        if (el.closest('.checkbox-label-container').querySelector('.innerindianequity')) {
+          el.closest('.checkbox-label-container').querySelectorAll('.innerindianequity input').forEach((elemsub) => {
+            if (elemsub.checked) {
+              elemsub.checked = false;
+            }
+          });
+        }
+        if (el.querySelector('input').checked) {
+          // const moplabel = el.querySelector('input').nextElementSibling;
+          if (el.querySelector('input').getAttribute('id') !== 'index1') {
+            if (el.querySelector('input').checked) {
+              el.querySelector('input').checked = false;
+            }
+          }
+        }
+      });
+      return false;
+    } if (event.key === 'Backspace' || event.key === 'Delete') {
       currentFocusIndex = -1; // Reset selection on backspace/delete
       const cardsContainer = block.querySelector('.filter-cards .cards-container');
 
@@ -468,6 +523,7 @@ function searchFunctionality(block) {
           datatem.forEach((elist) => cardsContainer.append(listviewblock(elist)));
         }
       }
+      return false;
     }
   });
 
@@ -560,6 +616,7 @@ function searchFunctionality(block) {
   if (searchInput.value.length === 0) {
     cancelButton.style.display = 'none';
   }
+  return false;
 }
 
 function checkfilter(block) {
@@ -633,7 +690,7 @@ function checkfilter(block) {
     // Render applied filters
     for (let i = 0; i < Filterparam.length; i += 1) {
       const dspclose = Filterparam[i] === 'Indian Equity' ? 'none' : 'flex';
-      appliedList.innerHTML += `<li class="applied-filter-name" style="display:${dspclose}"><span>${Filterparam[i]}</span><img src="../../icons/cross-icon.svg" alt="cross icon" class="filter-cross-icon"></li>`;
+      appliedList.innerHTML += `<li class="applied-filter-name" style="display:${dspclose}"><span>${Filterparam[i]}</span><img src="/icons/cross-icon.svg" alt="cross icon" class="filter-cross-icon"></li>`;
     }
     if (Filterparam.length !== 0) {
       if (Filterparam.length === 1 && Filterparam[0] === 'Indian Equity') {
@@ -758,7 +815,7 @@ dataMapMoObj.parseFunction = (param, attrparam) => {
 export default function decorate(block) {
   const ultooltip = block.closest('.section');
   const ullisttoop = ultooltip.querySelector('.default-content-wrapper ul');
-  console.log(ullisttoop);
+  // console.log(ullisttoop);
   Array.from(block.closest('.section').children).forEach((el, index) => {
     el.classList.add(`item${index + 1}`);
   });
@@ -894,7 +951,7 @@ export default function decorate(block) {
               },
               img({
                 class: 'cancel-btn',
-                src: '../../icons/input-cancel.svg',
+                src: '/icons/input-cancel.svg',
                 alt: 'cancel button',
               }),
             ),
@@ -1251,7 +1308,7 @@ export default function decorate(block) {
                             class: 'tooltip-wrap',
                           },
                           img({
-                            src: '../../icons/filter-info.svg',
+                            src: '/icons/filter-info.svg',
                             alt: 'Filter Info Icon',
                           }),
                           p(
@@ -1334,7 +1391,7 @@ export default function decorate(block) {
                         class: 'tooltip-wrap',
                       },
                       img({
-                        src: '../../icons/filter-info.svg',
+                        src: '/icons/filter-info.svg',
                         alt: 'Filter Info Icon',
                       }),
                       p(
@@ -2014,7 +2071,7 @@ export default function decorate(block) {
               span('Large Cap'),
               img({
                 class: 'filter-cross-icon',
-                src: '../../icons/cross-icon.svg',
+                src: '/icons/cross-icon.svg',
                 alt: 'cross icon',
               }),
             ),
@@ -2024,7 +2081,7 @@ export default function decorate(block) {
               },
               span('Tax saver (ELSS)'),
               img({
-                src: '../../icons/cross-icon.svg',
+                src: '/icons/cross-icon.svg',
                 alt: 'cross icon',
               }),
             ),
@@ -2034,7 +2091,7 @@ export default function decorate(block) {
               },
               span('Hybrid & Balanced'),
               img({
-                src: '../../icons/cross-icon.svg',
+                src: '/icons/cross-icon.svg',
                 alt: 'cross icon',
               }),
             ),
@@ -2132,7 +2189,7 @@ export default function decorate(block) {
         },
         img({
           class: 'filter-info-icon',
-          src: '../../icons/filter-info.svg',
+          src: '/icons/filter-info.svg',
           alt: 'Filter Info Icon',
         }),
         p(

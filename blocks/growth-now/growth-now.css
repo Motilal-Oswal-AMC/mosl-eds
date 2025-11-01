@@ -241,7 +241,7 @@
   display: inline-block;
   width: 28px;
   height: 20px;
-  background: url("../../icons/national-flag.svg"), no-repeat, center, center;
+  background: url("/icons/national-flag.svg"), no-repeat, center, center;
 }
 .section.growth-now-container .growth-now .fund-us-container .fund-sec-4 form fieldset .phnodata.field-wrapper {
   width: 188px;

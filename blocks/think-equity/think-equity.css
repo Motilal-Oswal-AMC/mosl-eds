@@ -266,7 +266,7 @@
   top: 0;
   left: -42px;
   display: block;
-  background: url("../../icons/think-logo-circle.svg");
+  background: url("/icons/think-logo-circle.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 223px;
@@ -274,7 +274,7 @@
 }
 @media (max-width: 768px) {
   .think-equity.block .imagelist1 .subimagelist::before {
-    background: url("../../icons/think-logo-circle-mob.svg");
+    background: url("/icons/think-logo-circle-mob.svg");
     width: 107px;
     height: 115px;
     top: -2px;

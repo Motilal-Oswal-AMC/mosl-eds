@@ -30,7 +30,7 @@
 }
 .section.pms-rooted p {
   font-style: normal;
-  max-width: 882px;
+  max-width: 829px;
   font-weight: 400;
   font-size: var(--body-large-regular-size);
   line-height: var(--body-large-regular-line-height);
@@ -168,7 +168,7 @@
 }
 @media (max-width: 768px) {
   .section.high-skin .pms-high-skin1 .pms-high-skin-card-cont1 .pms-high-skin-card-subcont1 .cards-card-image {
-    margin-left: 6px;
+    margin: 0 auto;
   }
 }
 .section.high-skin .pms-high-skin1 .pms-high-skin-card-cont1 .pms-high-skin-card-subcont1 .cards-card-image img {

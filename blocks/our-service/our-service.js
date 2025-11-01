@@ -11,7 +11,7 @@ export default function decorate(block) {
   });
   tabPanels[0].setAttribute('aria-hidden', false);
   const tabs = block.querySelectorAll('.tabs-tab');
-
+  console.log(tabs);
   if (tabPanels.length > 0) {
     const wrapper = document.createElement('div');
     wrapper.classList.add('tabs-panels-wrapper');
@@ -64,7 +64,7 @@ export default function decorate(block) {
       } else {
         e.target.setAttribute('aria-selected', true);
       }
-      console.log(isSelected);
+      // console.log(isSelected);
     });
   }
   updateTabsForMobile();

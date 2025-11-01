@@ -121,12 +121,12 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.classList.add('nfo-nav');
-  if (window.location.href.includes('/motilalfigma/pms') || window.location.href.includes('/motilalfigma/aif')) {
+  if (window.location.href.includes('/in/en/pms') || window.location.href.includes('/in/en/aif')) {
     nav.classList.remove('nfo-nav');
   }
 
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-  if (window.location.href.includes('/motilalfigma/pms') || window.location.href.includes('/motilalfigma/aif')) {
+  if (window.location.href.includes('/in/en/pms') || window.location.href.includes('/in/en/aif')) {
     nav.classList.remove('nfo-nav');
   }
 
@@ -174,7 +174,7 @@ export default async function decorate(block) {
 
       // Add the click event listener to redirect to the home page.
       container.addEventListener('click', () => {
-        window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/motilalfigma/home-page';
+        window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/in/en/mutual-fund/home-page';
       });
     });
   }
@@ -297,7 +297,7 @@ export default async function decorate(block) {
                       });
                       if (dataMapMoObj.selectviewFunds !== '') {
                         localStorage.setItem('planCode', `Direct:${dataMapMoObj.selectviewFunds}`);
-                        const pathname = '/motilalfigma/our-funds/funds-details-page';
+                        const pathname = '/in/en/mutual-fund/our-funds/funds-details-page';
                         window.location.href = `${window.location.origin}${pathname}`;
                       }
                     } else {
@@ -312,13 +312,13 @@ export default async function decorate(block) {
                         textcurr = 'multi-cap-fund';
                       }
                       if (textcurr === 'View All Funds') {
-                        const pathname = '/motilalfigma/our-funds';
+                        const pathname = '/in/en/mutual-fund/our-funds';
                         window.location.href = `${window.location.origin}${pathname}`;
                         return false;
                       }
                       dataMapMoObj.selectviewFunds = textcurr.toLocaleLowerCase().split(' ').join('-');
                       localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
-                      const pathname = '/motilalfigma/our-funds';
+                      const pathname = '/in/en/mutual-fund/our-funds';
                       window.location.href = `${window.location.origin}${pathname}`;
                     }
                     return textcurr;
@@ -398,6 +398,7 @@ export default async function decorate(block) {
           Array.from(navSection.querySelectorAll('ul')).forEach((elul) => {
             elul.style.display = 'block';
           });
+          return false;
         });
       }
 
@@ -589,7 +590,7 @@ export default async function decorate(block) {
       const timerElement = setupUI();
       startCountdown(timerElement);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }());
 
@@ -722,5 +723,5 @@ export default async function decorate(block) {
       'User Profile',
     );
   }
-  
+  navblk.classList.remove('top-nave');
 }

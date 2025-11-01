@@ -229,7 +229,7 @@
 }
 .section .card-container .card-wrapper .cagr-container .cagr-dropdown .cagr-select-wrapper .selectedtext::after {
   content: "";
-  background: url("../../icons/down-arrow.svg") center/cover no-repeat;
+  background: url("/icons/down-arrow.svg") center/cover no-repeat;
   min-width: 16px;
   height: 16px;
   display: block;
@@ -401,7 +401,7 @@
 }
 .section .card-container .card-wrapper .risk-container .risk-text::after {
   content: "";
-  background: url("../../icons/info-icon.svg") center/cover no-repeat;
+  background: url("/icons/info-icon.svg") center/cover no-repeat;
   width: 12px;
   height: 12px;
   display: block;

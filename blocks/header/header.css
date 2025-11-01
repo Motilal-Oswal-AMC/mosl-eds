@@ -135,14 +135,14 @@ header nav .nav-hamburger button::after {
     display: block;
     width: 24px;
     height: 24px;
-    background: url('../../icons/menu-line-horizontal-header.svg');
+    background: url('/icons/menu-line-horizontal-header.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger button::after {
-    background: url('../../icons/remove-icon-blue.svg');
+    background: url('/icons/remove-icon-blue.svg');
     width: 32px;
     height: 32px;
     background-repeat: no-repeat;
@@ -200,7 +200,7 @@ header .nav-brand {
     display: block;
     width: 20px;
     height: 20px;
-    background: url('../../icons/arrow-down-white.svg');
+    background: url('/icons/arrow-down-white.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -457,7 +457,7 @@ header nav .nav-sections .nav-sec-sec1 .nav-drop.nav-sec-sub2 {
     display: block;
     width: 24px;
     height: 24px;
-    background: url('../../icons/Accordian-icons-plus.svg');
+    background: url('/icons/Accordian-icons-plus.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -471,7 +471,7 @@ header nav .nav-sections .nav-sec-sec1 .nav-drop::after {
     display: block;
     width: 24px;
     height: 24px;
-    background: url('../../icons/Accordian-icons-plus.svg');
+    background: url('/icons/Accordian-icons-plus.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -480,7 +480,7 @@ header nav .nav-sections .nav-sec-sec1 .nav-drop::after {
 /* header nav .nav-sections .nav-sec-sec1 .nav-drop[aria-expanded="true"]::after,
 .section.sub-popup-header .sub-popup-sec2 .sub-popup-sub1[aria-expanded="true"] .sub-popup-inner-text1::after,
 .sub-popup-header .default-content-wrapper .sub-popup-sec1 li.comlist[aria-expanded="true"] .sub-popup-inner-text1::after {
-    background: url('../../icons/Accordian-icons-mins.svg');
+    background: url('/icons/Accordian-icons-mins.svg');
     width: 24px;
     height: 24px;
 } */
@@ -492,7 +492,7 @@ header nav .nav-sections .nav-sec-sec1 .nav-drop::after {
 } */
 
 header nav .nav-sections .nav-sec-sec1 .nav-drop[aria-expanded="true"]::after {
-    background: url('../../icons/Accordian-icons-mins.svg');
+    background: url('/icons/Accordian-icons-mins.svg');
     width: 24px;
     height: 24px;
 }
@@ -1109,7 +1109,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     display: block;
     width: 20px;
     height: 20px;
-    background: url('../../icons/direction-right-hd.svg');
+    background: url('/icons/direction-right-hd.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -1378,7 +1378,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     display: block;
     width: 20px;
     height: 20px;
-    background: url('../../icons/arrow-down-white.svg');
+    background: url('/icons/arrow-down-white.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -1809,7 +1809,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         display: block;
         width: 20px;
         height: 20px;
-        background: url('../../icons/arrow-down-white.svg');
+        background: url('/icons/arrow-down-white.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100%;
@@ -1908,14 +1908,14 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         position: unset;
         width: 20px;
         height: 20px;
-        background: url('../../icons/arrow-down-white.svg');
+        background: url('/icons/arrow-down-white.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100%;
     }
 
     header nav .nav-sections .nav-sec-cont1 .nav-sec-sec1 .nav-drop[aria-expanded='true']::after {
-        background: url('../../icons/direction-down-yollow.svg');
+        background: url('/icons/direction-down-yollow.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100%;
@@ -2257,7 +2257,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         top: 0;
         left: 0;
         display: block;
-        background: url('../../icons/equity-header.svg');
+        background: url('/icons/equity-header.svg');
         background-repeat: no-repeat;
         background-position: center;
         width: 98.546px;
@@ -2565,7 +2565,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     display: block;
     width: 20px;
     height: 20px;
-    background: url('../../icons/direction-right.svg');
+    background: url('/icons/direction-right.svg');
     background-repeat: no-repeat;
     background-position: center; */
         top: unset;
@@ -2821,7 +2821,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         display: block;
         width: 20px;
         height: 20px;
-        background: url('../../icons/arrow-down-white.svg');
+        background: url('/icons/arrow-down-white.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100%;

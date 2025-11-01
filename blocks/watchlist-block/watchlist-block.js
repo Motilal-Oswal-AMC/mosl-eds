@@ -61,15 +61,15 @@ export default function decorate(block) {
           { class: 'upper-right' },
           div(
             { class: 'fund-logo' },
-            img({ src: '../../icons/Group.svg', alt: 'FundLogo' }),
+            img({ src: '/icons/Group.svg', alt: 'FundLogo' }),
           ),
           div(
             { class: 'wishlist-icon' },
             a(
-              { href: '/motilalfigma/modals/risk-o-meter', class: 'risk-meter-icon' },
+              { href: '/in/en/mutual-fund/modals/risk-o-meter', class: 'risk-meter-icon' },
               img({
                 class: 'riskfactor-icon',
-                src: '../../icons/risk-icon/high-risk.svg',
+                src: '/icons/risk-icon/high-risk.svg',
                 alt: 'risk icon',
               }),
             ),

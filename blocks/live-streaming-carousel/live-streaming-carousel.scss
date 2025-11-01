@@ -82,7 +82,7 @@
 
         &::after {
           content: "";
-          background: url("../../icons/arrow-left.svg");
+          background: url("/icons/arrow-left.svg");
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
@@ -93,7 +93,7 @@
 
         &.swiper-button-disabled {
           &::after {
-            background: url("../../icons/arrow-left-disabled.svg");
+            background: url("/icons/arrow-left-disabled.svg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: 25px;

@@ -16,7 +16,6 @@ import {
   tr,
   th,
   td,
-  a,
 } from '../../scripts/dom-helpers.js';
 import '../../scripts/flatpickr.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
@@ -167,8 +166,8 @@ export async function existingUser(paramblock) {
       class: 'iptpanfld',
       maxlength: '10',
     }),
-    img({ class: 'error-icon cancel-error', src: '../../icons/icon-error.svg', alt: 'Cross Icon' }),
-    img({ class: 'error-icon cancel-icon', src: '../../icons/remove-circle.svg', alt: 'Cross Icon' }),
+    img({ class: 'error-icon cancel-error', src: '/icons/icon-error.svg', alt: 'Cross Icon' }),
+    img({ class: 'error-icon cancel-icon', src: '/icons/remove-circle.svg', alt: 'Cross Icon' }),
   );
 
   dataMapMoObj.panDlts.isGuest = 'false';
@@ -227,7 +226,7 @@ export async function existingUser(paramblock) {
       resetForm.classList.add('hide-element');
       return true;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -1116,7 +1115,7 @@ export async function existingUser(paramblock) {
 
   const errorPanEl = document.createElement('p');
   errorPanEl.className = 'error-pan hide-error'; // initially hidden
-  errorPanEl.textContent = 'Please enter a valid PAN';
+  errorPanEl.textContent = 'Enter a valid PAN';
   inputLable.appendChild(errorPanEl); // append it once
 
   inputLable.addEventListener('click', (e) => {
@@ -1226,13 +1225,13 @@ export default function decorate(block) {
     const tabledatamainlist = modeltableone.querySelector('.modelsubone3 .modelinnersubone1');
     if (tabledatamainlist !== null) {
       Array.from(tabledatamainlist.children).forEach((list) => {
-      list.classList.add('table-list-wrap');
-      Array.from(list.children).forEach((sublist) => {
-        sublist.classList.add('table-list');
-        Array.from(sublist.children).forEach((datalist) => {
-          datalist.classList.add('data-list');
+        list.classList.add('table-list-wrap');
+        Array.from(list.children).forEach((sublist) => {
+          sublist.classList.add('table-list');
+          Array.from(sublist.children).forEach((datalist) => {
+            datalist.classList.add('data-list');
+          });
         });
-      });
       });
 
       if (!modeltableone.querySelector('.sip-table-wrap')) {
@@ -1281,7 +1280,7 @@ export default function decorate(block) {
           ),
         );
         modeltableone.appendChild(tableLi);
-      } 
+      }
     }
 
     // Table right
@@ -1323,20 +1322,19 @@ export default function decorate(block) {
           if (bodyrowuldata.length === 1) {
             const datainnerhtml = bodyrowul.innerHTML.trim();
             const maininnerdata = datainnerhtml.replace('<li', '<div').replace('</li', '</div');
-            const divtab =  tr(
+            const divtab = tr(
               { class: `rtbody-row rtbody-row-${i + 1}` },
-              td({ class: 'rt-body rt-body-fullcontent', colspan: tdcolspan}),
+              td({ class: 'rt-body rt-body-fullcontent', colspan: tdcolspan }),
             );
             divtab.querySelector('.rt-body-fullcontent').innerHTML = maininnerdata;
             return divtab;
           }
           return tr(
             { class: 'rtbody-row' },
-            ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `rt-body rt-body-${i + 1}` }, bodyuldata.textContent)),
+            ...Array.from(bodyrowuldata).map((bodyuldata) => td({ class: `rt-body rt-body-${i + 1}` }, bodyuldata.textContent)),
           );
         }),
       );
-
 
       const tablegraph = li(
         { class: 'sip-table-graph' },
@@ -1369,7 +1367,8 @@ export default function decorate(block) {
           //     { class: 'rtbody-row rtbody-row-3' },
           //     td(
           //       { class: 'rt-body rt-body-fullimg', colspan: '3' },
-          //       img({ class: 'rt-body-img', src: '../../icons/sip-table-graph.svg', alt: 'SIP Table Graph' }),
+          //       img({ class: 'rt-body-img',
+          // src: '/icons/sip-table-graph.svg', alt: 'SIP Table Graph' }),
           //     ),
           //   ),
           //   tr(
@@ -1385,7 +1384,7 @@ export default function decorate(block) {
           //   ),
           // ),
           theadmain,
-          tbodymain
+          tbodymain,
         ),
       );
 
@@ -1410,7 +1409,7 @@ export default function decorate(block) {
     mod5.addEventListener('click', () => {
       modeltwo.style.display = 'none';
     });
-    
+
     const backDisc = mainclass.querySelector('.modal-stepup-two .modeltwosub1');
     backDisc.addEventListener('click', () => {
       modeltwo.style.display = 'none';
@@ -1429,7 +1428,7 @@ export default function decorate(block) {
     });
     addcardSec.querySelector('.addcartsub4 .addcartinner2').addEventListener('click', () => {
       localStorage.clear();
-      window.location.href = `${window.location.origin}/motilalfigma/our-funds`;
+      window.location.href = `${window.location.origin}/in/en/mutual-fund/our-funds`;
     });
     // return false;
   }
@@ -1457,24 +1456,24 @@ export default function decorate(block) {
           { class: 'passcode-inp-wrap' },
           div(
             { clasS: 'passcode-field' },
-            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1', placeholder:'' }),
           ),
           div(
             { clasS: 'passcode-field' },
-            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1', placeholder:'' }),
           ),
           div(
             { clasS: 'passcode-field' },
-            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1', placeholder:'' }),
           ),
           div(
             { clasS: 'passcode-field' },
-            input({ type: 'password', class: 'passcode-inp', maxlength: '1' }),
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1', placeholder:'' }),
           ),
         ),
-        span({ class: 'passcode-error' }, 'Incorrect Passcode'),
+        span({ class: 'passcode-error' }, 'Incorrect OTP'),
+        button({ class: 'frgt-pass-btn' }, twostpfrgtpass),
       ),
-      button({ class: 'frgt-pass-btn' }, twostpfrgtpass),
       button({ class: 'cont-btn' }, twostpcontbtn),
       div({ class: 'terms-cons' }, twostpterms),
     );
@@ -1634,13 +1633,13 @@ export default function decorate(block) {
 
   // Frequency options (mirror your JSON)
   // const brandName = 'Motilal Oswal';
-  // const logoSrc = '../../icons/Group.svg';
+  // const logoSrc = '/icons/Group.svg';
   const mop = `MO_${schcodeFromStorage}.svg`;
-  const logoSrc = `../../icons/schemeicons/${mop}`;
-  // const calendarIconSrc = '../../icons/calendar.svg';
+  const logoSrc = `/icons/schemeicons/${mop}`;
+  // const calendarIconSrc = '/icons/calendar.svg';
   // // Replace with your real calendar icon path
-  const infotoolsrc = '../../icons/information.svg';
-  const closesrc = '../../icons/modal-cross-btn.svg';
+  const infotoolsrc = '/icons/information.svg';
+  const closesrc = '/icons/modal-cross-btn.svg';
   const frequencyOptions = [
     'Annual',
     'Daily',
@@ -1872,7 +1871,7 @@ export default function decorate(block) {
     try {
       existingUser(block);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
     const classAddv2 = mainmo.querySelector('.pan-details-modal');
     if (Array.from(classAddv2.classList).includes('hide-modal')) {
@@ -2289,17 +2288,20 @@ export default function decorate(block) {
           block.querySelector('.flatpickr-calendar').classList.remove('open');
         }
       }
+      return event;
     });
   }
-  if (block.querySelector('.tooltip-btn-mob') ) {
+  if (block.querySelector('.tooltip-btn-mob')) {
     block.querySelector('.tooltip-btn-mob').addEventListener('click', () => {
       block.querySelector('.tooltip-container').style.display = 'none';
     });
   }
   
-  block.querySelector('.tooltip-info').addEventListener('click', () => {
-    block.querySelector('.tooltip-container').style.display = 'flex';
-  });
+  if (window.innerWidth <= 768) {
+      block.querySelector('.tooltip-info').addEventListener('click', () => {
+      block.querySelector('.tooltip-container').style.display = 'flex';
+    });
+  }
 
   return block;
 }

@@ -51,12 +51,12 @@ export default function decorate(block) {
         { class: 'cancel-search-wrap searchbar-active' },
         img({
           class: 'cancel-btn',
-          src: '../../icons/input-cancel.svg',
+          src: '/icons/input-cancel.svg',
           alt: 'cancel button',
         }),
         img({
           class: 'search-btn',
-          src: '../../icons/search-blue.svg',
+          src: '/icons/search-blue.svg',
           alt: 'cancel button',
         }),
       ),
@@ -204,7 +204,7 @@ export default function decorate(block) {
   // -------------------------------
   const sipBtn = calContainer.querySelector('.sip-btn');
   const btncont = calContainer.querySelector('.start-sip-btn a');
-  btncont.setAttribute('href', '/motilalfigma/modals/invest-now-homepage');
+  btncont.setAttribute('href', '/in/en/mutual-fund/modals/invest-now-homepage');
   sipBtn.addEventListener('click', () => {
     btncont.textContent = '';
     btncont.textContent = 'Start SIP';
@@ -702,7 +702,7 @@ export default function decorate(block) {
         elild.classList.add('searchli');
       });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 
   // -------------------------------

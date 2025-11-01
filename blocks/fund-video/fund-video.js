@@ -10,8 +10,8 @@ export default function decorate(block) {
   const imgWrapper = document.createElement('div');
   imgWrapper.classList.add('fundsubinner');
   const fundv2 = block.querySelector('.fundvedmain2');
-  const fundvedone = block.querySelector('.fundvedmain2 .fundvedinnermain1');
-  const fundvedtwo = block.querySelector('.fundvedmain2 .fundvedinnermain2');
+  const fundvedone = block.querySelector('.fundvedmain2 .fundvedinnermain1').cloneNode(true);
+  const fundvedtwo = block.querySelector('.fundvedmain2 .fundvedinnermain2').cloneNode(true);
   imgWrapper.appendChild(fundvedone);
   imgWrapper.appendChild(fundvedtwo);
   fundv2.prepend(imgWrapper);

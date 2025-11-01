@@ -66,7 +66,7 @@ $breakpoint-tablet: 900px;
 
 
 
-.section.table-wrapper.pws-hero-section{
+.section.table-wrapper.pws-hero-section.fdp-campaign-container{
     margin: 0;
     padding: 0;
     position: relative;
@@ -80,18 +80,19 @@ $breakpoint-tablet: 900px;
 
     .default-content-wrapper{
       position: absolute;
-      left: 67px;
+      left: calc((100vw - 1248px) / 2);
       margin: 0;
       top: 359px;
 
-      // @include media(desktop-md){
-      //   left:144px
-      // }
+      @include media(desktop-md){
+        left: 67px;
+      }
 
       @include media(mobile){
-        top: 474px;
+        top: unset;
         left: 0;
-        padding: 0 15.5px 0 16.5px;
+        padding: 0 16.5px 0 15.5px;
+        bottom: 32px;
       }
 
           .comlist.para1{
@@ -377,11 +378,12 @@ $breakpoint-tablet: 900px;
             margin: 0;
 
             .li-wrapper-1{
-                padding: 20px 0 32px;
+                padding: 28px 0;
                 border-bottom: 1px solid var(--neutrals-300);
 
                 @include media(mobile){
                   padding: 32px 0;
+                  margin-top: 12px;
 
                 }
 
@@ -406,15 +408,21 @@ $breakpoint-tablet: 900px;
             }
 
             .strategy31{
-                width: 26px;
-                height: 24px;
+                width: 26.5px;
+                height: 15px;
+
+                @include media(mobile){
+                        max-width: 26px;
+                        height: 24px;
+                        width: 100%;
+                    }
 
 
                 
-                img{
+                .stat0{
                     @include media(mobile){
-                        width: 26px;
-                        height: 24px;
+                        width: 100%;
+                        height: 100%;
                     }
                 }
 
@@ -504,12 +512,13 @@ $breakpoint-tablet: 900px;
                 }
 
                 .strategy31.icon {
-                    width: 26px;
-                    height: 24px;
+                    width: 26.5px;
+                    height: 15px;
 
                     @include media(mobile) {
-                    width: 26px;
+                    max-width: 26px;
                     height: 24px;
+                    width: 100%;
                 }
     
                 }
@@ -602,8 +611,14 @@ $breakpoint-tablet: 900px;
                 }
     
                 .strategy31.icon{
-                    width: 26px;
+                    width: 26.5px;
+                    height: 15px;
+
+                    @include media(mobile) {
+                    max-width: 26px;
                     height: 24px;
+                    width: 100%;
+                }
     
                 }
     
@@ -693,12 +708,29 @@ $breakpoint-tablet: 900px;
                     content: none;
     
                 }
-    
-                .icon-vector-arrow{
-                    width: 26.5px;
-                    height: 15px;
-    
+
+                .arrow-42{
+                  width: 26.5px;
+                  height: 15px;
+
+                  @include media(mobile) {
+                    max-width: 26px;
+                    height: 24px;
+                    width: 100%;
                 }
+                  
+                  .stat3{
+                      width: 26.5px;
+                      height: 15px;
+
+                    @include media(mobile) {
+                      width: 100%;
+                      height: 100%;
+                }
+      
+                  }
+                }
+
     
                 @include media(mobile) {
                     color: var(--blue-1-800-primary);
@@ -779,12 +811,30 @@ $breakpoint-tablet: 900px;
                     content: none;
     
                 }
-                
-                .icon-vector-arrow{
-                    width: 26.5px;
-                    height: 15px;
-    
+
+                .strategy31.arrow-42{
+                width: 26.5px;
+                height: 15px;
+
+                @include media(mobile) {
+                    max-width: 26px;
+                    height: 24px;
+                    width: 100%;
                 }
+
+                  .stat4{
+                      width: 26.5px;
+                      height: 15px;
+
+                    @include media(mobile) {
+                      width: 100%;
+                      height: 100%;
+                }
+      
+                  }
+
+                }
+                
     
     
                 @include media(mobile) {
@@ -845,7 +895,7 @@ $breakpoint-tablet: 900px;
 
                 .strategy21{
                     .strategy34{
-                        width: 100%;
+                        width: 504px;
                         max-width: 100%;
                         height: 100%;
                         aspect-ratio: 3/4;
@@ -935,7 +985,7 @@ $breakpoint-tablet: 900px;
               max-height: 40px;
             }
 
-            a.p21{
+            .p21{
             display: flex;
             max-width: 164px;
             max-height: 48px;

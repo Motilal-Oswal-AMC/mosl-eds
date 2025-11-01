@@ -1015,7 +1015,7 @@ button.swiper-pagination-bullet {
 .block.home-banner .swiper-button-prev::after,
 .block.home-banner .swiper-button-next::after {
   content: "";
-  background: url("../../icons/arrow-left.svg") no-repeat center;
+  background: url("/icons/arrow-left.svg") no-repeat center;
   background-size: cover;
   min-width: 20px;
   height: 20px;

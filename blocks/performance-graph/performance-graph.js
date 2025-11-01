@@ -663,6 +663,7 @@ export default function decorate(block) {
       // console.error('Error loading chart data:', error);
       graphDiv.innerHTML = `<div class='chart-error'>Could not load chart. ${error.message}</div>`;
     }
+    return false;
   }
 
   function updateReturnsDisplay(filter) {

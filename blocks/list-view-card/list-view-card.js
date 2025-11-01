@@ -91,7 +91,7 @@ export default function decorate(block) {
                 { class: 'logo-container' },
                 img({
                   class: 'fund-logo',
-                  src: `../../icons/schemeicons/${mop}`,
+                  src: `/icons/schemeicons/${mop}`,
                   alt: 'Img',
                 }),
               ),
@@ -104,7 +104,7 @@ export default function decorate(block) {
               ),
               img({
                 class: 'logoscheme',
-                src: '../../icons/nfo-righticon.svg',
+                src: '/icons/nfo-righticon.svg',
                 alt: 'Direction Right',
               }),
             ),
@@ -128,12 +128,12 @@ export default function decorate(block) {
             { class: 'risk-star-icon' },
             a(
               {
-                href: '/motilalfigma/modals/risk-o-meter',
+                href: '/in/en/mutual-fund/modals/risk-o-meter',
                 class: 'risk-icon',
               },
               img({
                 class: 'riskfactor-icon',
-                src: `../../icons/nfo-risk-icon/${nfosvg}`,
+                src: `/icons/nfo-risk-icon/${nfosvg}`,
                 alt: 'risk icon',
               }),
             ),
@@ -157,12 +157,12 @@ export default function decorate(block) {
             },
             img({
               class: 'star-icon',
-              src: '../../icons/not-filled-white-star.svg',
+              src: '/icons/not-filled-white-star.svg',
               alt: 'star-icon',
             }),
             img({
               class: 'fillstar-icon',
-              src: '../../icons/filled-star.svg',
+              src: '/icons/filled-star.svg',
               alt: 'fillstar-icon',
             }),
           ),
@@ -180,7 +180,7 @@ export default function decorate(block) {
           { class: 'fund-name-wrapper', schcode: block.schcode },
           div(
             { class: 'logo-container' },
-            img({ class: 'fund-logo', src: `../../icons/schemeicons/${mopsec}`, alt: 'Img' }),
+            img({ class: 'fund-logo', src: `/icons/schemeicons/${mopsec}`, alt: 'Img' }),
           ),
           div(
             { class: 'fund-name-container' },
@@ -188,7 +188,7 @@ export default function decorate(block) {
           ),
           img({
             class: 'logoscheme',
-            src: '../../icons/direction-right.svg',
+            src: '/icons/direction-right.svg',
             alt: 'Direction Right',
           }),
         ),
@@ -206,12 +206,12 @@ export default function decorate(block) {
           { class: 'risk-star-icon' },
           a(
             {
-              href: '/motilalfigma/modals/risk-o-meter',
+              href: '/in/en/mutual-fund/modals/risk-o-meter',
               class: 'risk-icon',
             },
             img({
               class: 'riskfactor-icon',
-              src: `../../icons/risk-icon/${iconsvg}`,
+              src: `/icons/risk-icon/${iconsvg}`,
               alt: 'risk icon',
             }),
           ),
@@ -235,12 +235,12 @@ export default function decorate(block) {
           },
           img({
             class: 'star-icon',
-            src: '../../icons/not-filled-star.svg',
+            src: '/icons/not-filled-star.svg',
             alt: 'star-icon',
           }),
           img({
             class: 'fillstar-icon',
-            src: '../../icons/filled-star.svg',
+            src: '/icons/filled-star.svg',
             alt: 'fillstar-icon',
           }),
         ),

@@ -426,7 +426,7 @@ export default async function decorate(block) {
         }),
         img({
           class: 'cancel-btn',
-          src: '../../icons/input-cancel.svg',
+          src: '/icons/input-cancel.svg',
           alt: 'cancel button',
         }),
       ),

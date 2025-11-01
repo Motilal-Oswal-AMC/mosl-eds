@@ -318,7 +318,7 @@ main {
 
                 &::after {
                   content: "";
-                  background: url("../../icons/direction-right.svg") center / cover no-repeat;
+                  background: url("/icons/direction-right.svg") center / cover no-repeat;
                   background-position: center;
                   background-size: cover;
                   transform: rotate(90deg);
@@ -413,7 +413,7 @@ main {
 
                   &::after {
                     content: "";
-                    background: url("../../icons/direction-right.svg") center / cover no-repeat;
+                    background: url("/icons/direction-right.svg") center / cover no-repeat;
                     min-width: 16px;
                     height: 16px;
                     display: block;
@@ -734,7 +734,7 @@ main {
     /* ul for second part */
 
     .item2-ul {
-      z-index: 11;
+      z-index: 10;
 
       // max-width: 839px;
       width: 100%;
@@ -917,7 +917,7 @@ main {
 
         &::after {
           content: "";
-          background-image: url("../../icons/arrow-left.svg");
+          background-image: url("/icons/arrow-left.svg");
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;

@@ -210,11 +210,11 @@
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform.email-fail {
   border: var(--border-width-01) solid #ff8088;
-  background: url("../../icons/error-cross.svg") no-repeat right 12px center;
+  background: url("/icons/error-cross.svg") no-repeat right 12px center;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform.email-success {
   border: var(--border-width-01) solid #00c35d;
-  background: url("../../icons/success-cross.svg") no-repeat right 12px center;
+  background: url("/icons/success-cross.svg") no-repeat right 12px center;
 }
 .footer-wrapper .footer .footer-section2 .footer-sub1 form .field-wrapper.email-wrapper .wrapimgform.email-success + .errormsg {
   color: #00c35d;
@@ -281,7 +281,7 @@
   display: inline-block;
   width: 22px;
   height: 20px;
-  background: url("../../icons/direction-down-footer.svg");
+  background: url("/icons/direction-down-footer.svg");
   background-repeat: no-repeat;
   background-position: center;
   border: none;
@@ -603,11 +603,11 @@
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper .wrapimgform.email-fail {
     border: var(--border-width-01) solid #ff8088;
-    background: url("../../icons/error-cross.svg") no-repeat right 12px center;
+    background: url("/icons/error-cross.svg") no-repeat right 12px center;
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper .wrapimgform.email-success {
     border: var(--border-width-01) solid #00c35d;
-    background: url("../../icons/success-cross.svg") no-repeat right 12px center;
+    background: url("/icons/success-cross.svg") no-repeat right 12px center;
   }
   .footer-wrapper .footer .footer-section2 .footer-sub1 ul.footer-sub-cont2 form .field-wrapper.email-wrapper .wrapimgform.email-success + .errormsg {
     color: #00c35d;
@@ -666,6 +666,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: var(--paragraph-xsmall-line-height);
+    cursor: pointer;
   }
   .footer-wrapper .footer .footer-section3 {
     grid-area: contact;

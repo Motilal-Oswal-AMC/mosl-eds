@@ -132,3 +132,36 @@ export default function decorate(block) {
     }
   }
 }
+
+function decorateArticlePage() {
+  const articleDetailsElement = document.querySelector('.moedge-article-details');
+  let mainElement;
+  if (articleDetailsElement) {
+    mainElement = articleDetailsElement.closest('main');
+    if (mainElement) {
+      mainElement.classList.add('moedge-article-main');
+    }
+  }
+
+  // const searchContext = mainElement || document;
+
+  const newSection = document.querySelector('.moedge-article-main .article-sub-left.articlesub1 .leftartsub1');
+
+  if (newSection) {
+    const item5 = newSection.querySelector('.leftartitem5');
+    const item6 = newSection.querySelector('.leftartitem6');
+
+    if (item5 && item6 && item5.parentNode === item6.parentNode) {
+      const directParent = item5.parentNode;
+      const wrapperDiv = document.createElement('div');
+
+      directParent.insertBefore(wrapperDiv, item5);
+
+      wrapperDiv.appendChild(item5);
+      wrapperDiv.appendChild(item6);
+    }
+  }
+}
+
+// Run the combined function
+decorateArticlePage();

@@ -117,7 +117,7 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-  background-image: url("../../icons/dow1.svg");
+  background-image: url("/icons/dow1.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
@@ -144,7 +144,7 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-  background-image: url("../../icons/dow2.svg");
+  background-image: url("/icons/dow2.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
@@ -171,7 +171,7 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-  background-image: url("../../icons/dow3.svg");
+  background-image: url("/icons/dow3.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
@@ -198,7 +198,7 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-  background-image: url("../../icons/dow4.svg");
+  background-image: url("/icons/dow4.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
@@ -225,7 +225,7 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-  background-image: url("../../icons/dow5.svg");
+  background-image: url("/icons/dow5.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 16px;
@@ -248,7 +248,7 @@
 }
 .investnow .default-content-wrapper {
   border-radius: 8px;
-  background-image: url("../../icons/fdp/wealth-purpose-bg.svg");
+  background-image: url("/icons/fdp/wealth-purpose-bg.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

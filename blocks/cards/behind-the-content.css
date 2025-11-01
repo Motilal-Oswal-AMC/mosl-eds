@@ -3,6 +3,7 @@
   padding: unset;
   text-align: center;
   overflow: hidden;
+  padding-top: 40px;
 }
 .behind-the-content .default-content-wrapper:nth-child(1) {
   padding: 0 24px;

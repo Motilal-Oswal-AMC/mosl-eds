@@ -244,11 +244,11 @@
                                 border: var(--border-width-01) solid #ff8088;
 
                                 // padding: 10px 40px 10px 12px;
-                                background: url("../../icons/error-cross.svg") no-repeat right 12px center;
+                                background: url("/icons/error-cross.svg") no-repeat right 12px center;
 
                                 // &::after {
                                 //     content: "";
-                                //     background-image: url("../../icons/error-cross.svg");
+                                //     background-image: url("/icons/error-cross.svg");
                                 //     background-position: center;
                                 //     background-repeat: no-repeat;
                                 //     background-size: cover;
@@ -264,10 +264,10 @@
 
                             .wrapimgform.email-success {
                                 border: var(--border-width-01) solid #00c35d;
-                                background: url("../../icons/success-cross.svg") no-repeat right 12px center;
+                                background: url("/icons/success-cross.svg") no-repeat right 12px center;
 
                                 // &::after {
-                                //     background-image: url("../../icons/success-cross.svg");
+                                //     background-image: url("/icons/success-cross.svg");
                                 // }
 
                                 &+.errormsg {
@@ -346,7 +346,7 @@
                             display: inline-block;
                             width: 22px;
                             height: 20px;
-                            background: url("../../icons/direction-down-footer.svg");
+                            background: url("/icons/direction-down-footer.svg");
                             background-repeat: no-repeat;
                             background-position: center;
                             border: none;
@@ -762,12 +762,12 @@
                                         border: var(--border-width-01) solid #ff8088;
 
                                         // padding: 10px 40px 10px 12px;
-                                        background: url("../../icons/error-cross.svg") no-repeat right 12px center;
+                                        background: url("/icons/error-cross.svg") no-repeat right 12px center;
                                     }
 
                                     .wrapimgform.email-success {
                                         border: var(--border-width-01) solid #00c35d;
-                                        background: url("../../icons/success-cross.svg") no-repeat right 12px center;
+                                        background: url("/icons/success-cross.svg") no-repeat right 12px center;
 
                                         &+.errormsg {
                                             color: #00c35d;
@@ -840,6 +840,7 @@
                                             font-style: normal;
                                             font-weight: 400;
                                             line-height: var(--paragraph-xsmall-line-height);
+                                            cursor: pointer;
                                         }
                                     }
                                 }

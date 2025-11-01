@@ -272,7 +272,7 @@ main {
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .dropdownmidle .label-text .selecttext::after {
   content: "";
-  background: url("../../icons/direction-right.svg") center/cover no-repeat;
+  background: url("/icons/direction-right.svg") center/cover no-repeat;
   background-position: center;
   background-size: cover;
   transform: rotate(90deg);
@@ -344,7 +344,7 @@ main {
 }
 .section.fdp-card-container .fdp-card .card-container .card-wrapper .middlediv .nav-return-grp .return-grp .dropdown .selectedtext::after {
   content: "";
-  background: url("../../icons/direction-right.svg") center/cover no-repeat;
+  background: url("/icons/direction-right.svg") center/cover no-repeat;
   min-width: 16px;
   height: 16px;
   display: block;
@@ -624,7 +624,7 @@ main {
   }
 }
 .section.fdp-card-container .item2 .item2-ul {
-  z-index: 11;
+  z-index: 10;
   width: 100%;
   height: 40px;
   justify-content: space-between;
@@ -769,7 +769,7 @@ main {
   }
   .section.fdp-card-container .item2 .selectedtext-fdp::after {
     content: "";
-    background-image: url("../../icons/arrow-left.svg");
+    background-image: url("/icons/arrow-left.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

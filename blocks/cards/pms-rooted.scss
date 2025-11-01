@@ -40,7 +40,7 @@ $breakpoint-tablet: 900px;
 
     p {
         font-style: normal;
-        max-width: 882px;
+        max-width: 829px;
         font-weight: 400;
 
         // color: var(--neutrals-800);
@@ -191,7 +191,7 @@ $breakpoint-tablet: 900px;
                     aspect-ratio: unset;
 
                     @include media(mobile) {
-                        margin-left: 6px;
+                        margin: 0 auto;
                     }
 
                     img {

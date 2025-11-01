@@ -117,7 +117,7 @@ export default function decorate(block) {
   });
 
   if (
-    window.location.href.includes('/motilalfigma/our-funds') || window.location.href.includes('/motilalfigma/motilal-oswal-edge')
+    window.location.href.includes('/in/en/mutual-fund/our-funds') || window.location.href.includes('/in/en/mutual-fund/motilal-oswal-edge')
   ) {
     const mainwrapper = block.closest('.freq-ask-ques');
     if (mainwrapper && !mainwrapper.querySelector('.faq-our-fund')) {

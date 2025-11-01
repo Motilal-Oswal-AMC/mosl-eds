@@ -36,6 +36,14 @@ export default function decorate(block) {
       const idval = block.closest('.section').getAttribute('data-id');
       item.querySelector(`#${idval}`).style.display = 'none';
     }
+  } else if (block.querySelector('.swiper-wrapper').children.length === 0) {
+    const fundslid = block.closest('.fund-card-slider-container');
+    block.style.display = 'none';
+    fundslid.style.display = 'none';
+    fundslid.style.margin = '0px';
+    fundslid.style.padding = '0px';
+    block.closest('.fdp-card-container')
+      .querySelector('.item2-ul #people-also-like').style.display = 'none';
   } else if (window.innerWidth > 1024
     && block.querySelectorAll('.swiper-slide').length < 3) {
     block.querySelector('.btn-wrapper').style.display = 'none';

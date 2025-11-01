@@ -44,7 +44,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
         { class: 'imgelogo' },
         img({
           class: 'logoscheme',
-          src: `../../icons/schemeicons/${mop}`,
+          src: `/icons/schemeicons/${mop}`,
           alt: 'Img',
           loading: 'lazy',
         }),
@@ -67,7 +67,7 @@ function createCardElement(cardData, brandName, iconsTemplate) {
     const divwrapper = document.createElement('div');
     divwrapper.classList.add('risk-home');
     const link = document.createElement('a');
-    link.href = '/motilalfigma/modals/risk-o-meter';
+    link.href = '/in/en/mutual-fund/modals/risk-o-meter';
     const svfion = iconsTemplate.querySelector('img');
     svfion.src = `/icons/risk-icon/${iconsvg}`;
     svfion.alt = 'Risk o meter';
@@ -198,7 +198,7 @@ export default function decorate(block) {
       const closer = event.target.closest('.risk-home-two');
       const plancode = closer.querySelector('a').getAttribute('schemesh');
       localStorage.setItem('planCode', plancode);
-      window.location.href = `${window.location.origin}/motilalfigma/our-funds/funds-details-page`;
+      window.location.href = `${window.location.origin}/in/en/mutual-fund/our-funds/funds-details-page`;
     });
   });
 

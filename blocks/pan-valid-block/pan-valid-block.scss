@@ -422,7 +422,7 @@
 
 //       // .email-label::after {
 //       //   content: "";
-//       //   background: url('../../icons/direction-down.svg') center / cover no-repeat;
+//       //   background: url('/icons/direction-down.svg') center / cover no-repeat;
 //       //   min-width: 20px;
 //       //   height: 20px;
 //       //   display: block;
@@ -573,7 +573,7 @@
 
             &::before {
               content: "";
-              background-image: url("../../icons/warning.svg");
+              background-image: url("/icons/warning.svg");
               background-position: center;
               background-repeat: no-repeat;
               background-size: cover;
@@ -842,7 +842,7 @@
 
             @include media(mobile) {
               margin: 32px 0;
-              gap: var(--spacing-36);
+              gap: 32px;
             }
 
             .detail-field-wrap {
@@ -882,7 +882,7 @@
                     &::after,
                     &::before {
                       content: "";
-                      background-image: url("../../icons/national-flag.svg");
+                      background-image: url("/icons/national-flag.svg");
                       background-position: center;
                       background-repeat: no-repeat;
                       background-size: cover;
@@ -893,7 +893,7 @@
 
                     &::after {
                       content: "";
-                      background-image: url("../../icons/arrow-down-black.svg");
+                      background-image: url("/icons/arrow-down-black.svg");
                       width: 20px;
                       margin-left: 5px;
                     }
@@ -1040,7 +1040,8 @@
           @include font-style(
             var(--paragraph-xsmall-size),
             var(--paragraph-xsmall-line-height),
-            var(--neutrals-700) 400,
+            var(--neutrals-700),
+            400,
             var(--body)
           );
 
@@ -1053,7 +1054,7 @@
 
           .panvalidsubinner1 {
             text-decoration: underline;
-            text-underline-offset: 2.8px;
+            text-underline-offset: 20%;
 
             @include font-style(
               var(--text-link-xsmall-size),
@@ -1090,13 +1091,7 @@
             text-decoration: underline;
             text-underline-offset: 2.8px;
 
-            @include font-style(
-              var(--text-link-small-size),
-              var(--text-link-small-line-height),
-              var(--text-text-link),
-              400,
-              var(--body)
-            );
+            @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
 
             @include media(mobile) {
               font-size: var(--paragraph-small-regular-size);
@@ -1371,7 +1366,7 @@
     .pan-wrap {
       .pan-field {
         position: relative;
-        padding: 10px 12px;
+        padding: var(--spacing-8) var(--spacing-12);
         border-radius: var(--border-radius-8, 8px);
         border: var(--border-width-01) solid var(--strokes-default);
         line-height: 0;
@@ -1406,6 +1401,7 @@
           background-color: transparent;
           width: 100%;
           position: relative;
+          padding: 2px 0;
 
           @include font-style(
             var(--body-medium-regular-size),
@@ -1461,7 +1457,7 @@
             line-height: var(--paragraph-small-regular-line-height);
           }
 
-          .icon{
+          .icon {
             width: 20px;
             height: 20px;
           }
@@ -1470,6 +1466,8 @@
     }
 
     .otp-wrap {
+      line-height: 0;
+
       .otp-label {
         margin: var(--spacing-16) 0 var(--spacing-8);
 
@@ -1487,6 +1485,24 @@
         }
       }
 
+      .otp-error {
+        margin: 8px 0 0;
+        display: none;
+
+        @include font-style(
+          var(--paragraph-xsmall-size),
+          var(--paragraph-xsmall-line-height),
+          var(--essentials-red),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile){
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
+      }
+
       .otp-field {
         display: flex;
         align-items: center;
@@ -1498,21 +1514,34 @@
         }
 
         &.otp-fail {
+          margin: 0;
+
           .otp-wrap {
             border: var(--border-width-01) solid var(--strokes-error);
           }
 
-          & ~ .otp-msg {
+          & ~ .otp-error {
+            display: block;
+            margin: 8px 0 12px;
+          }
+
+          & ~ .resend-btn {
             display: none;
           }
         }
 
         &.otp-success {
+          margin: 0 0 36px;
+
           .otp-wrap {
             border: var(--border-width-01) solid var(--strokes-success);
           }
 
-          & ~ .otp-msg {
+          & ~ .otp-error {
+            display: none;
+          }
+
+          & ~ .resend-btn {
             display: none;
           }
         }
@@ -1522,10 +1551,18 @@
           height: 40px;
           border-radius: var(--border-radius-8);
           border: var(--border-width-01) solid var(--strokes-default);
-          padding: 8px 13px 8px 14px;
+          padding: 8px;
           display: flex;
           align-items: center;
           justify-content: center;
+
+          &:focus-within {
+            border: var(--border-width-02) solid var(--strokes-typing);
+
+            .otp-inp {
+              caret-color: var(--strokes-typing);
+            }
+          }
 
           .otp-inp {
             width: 100%;
@@ -1551,7 +1588,7 @@
       }
 
       .resend-btn {
-        margin: 0;
+        margin: 0 0 var(--spacing-36);
         padding: var(--spacing-8) 0;
         border-radius: 0;
         border: none;
@@ -1563,6 +1600,7 @@
 
         @include media(mobile) {
           padding: 0;
+          margin: 0 0 12px;
           font-size: var(--text-link-small-size);
           line-height: var(--text-link-small-line-height);
         }
@@ -1570,7 +1608,8 @@
     }
 
     .otp-sent-text {
-      margin: var(--spacing-36) 0 0;
+      // margin: var(--spacing-36) 0 0;
+      margin: 0;
 
       @include font-style(
         var(--body-small-regular-size),
@@ -1581,7 +1620,6 @@
       );
 
       @include media(mobile) {
-        margin: 12px 0 0;
         font-size: var(--body-small-regular-size);
         line-height: var(--label-large-line-height);
       }
@@ -1668,7 +1706,7 @@
         .inner-otp-con1 {
           text-decoration: underline;
           text-underline-offset: 2.8px;
-          padding: 0 0 0 4px;
+          padding: 0 0 0 var(--spacing-4);
           cursor: pointer;
 
           @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
@@ -1807,7 +1845,7 @@
           gap: var(--spacing-8);
 
           .otp-wrap {
-            padding: 8px;
+            padding: 8px 13px 8px 14px;
             width: 40px;
             height: 40px;
             border-radius: var(--border-radius-8);
@@ -1938,10 +1976,27 @@
           border: var(--border-width-01) solid var(--strokes-default);
           width: 40px;
           height: 40px;
-          padding: 8px;
           display: flex;
           justify-content: center;
           align-items: center;
+          position: relative;
+
+          &::before {
+            content: "";
+            min-width: 14px;
+            height: 14px;
+            background-color: var(--neutrals-black);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+          }
+
+          &:has(input:not(:placeholder-shown))::before {
+            display: block;
+          }
 
           .pass-inp {
             width: 100%;
@@ -1950,11 +2005,13 @@
             outline: none;
             background-color: transparent;
             text-align: center;
+            padding: 14px;
+            z-index: 2;
 
             @include font-style(
               var(--body-xlarge-semibold-size),
               var(--body-xlarge-semibold-line-height),
-              var(--strokes-on-surface-02),
+              transparent,
               600,
               var(--body)
             );
@@ -1978,6 +2035,10 @@
           .pass-wrap {
             border: var(--border-width-01) solid var(--strokes-error);
 
+            &::before {
+              background-color: var(--strokes-error);
+            }
+
             .pass-inp {
               color: var(--strokes-error);
             }
@@ -1991,6 +2052,10 @@
         &.passcode-success {
           .pass-wrap {
             border: var(--border-width-01) solid var(--strokes-success);
+
+            &::before {
+              background-color: var(--strokes-success);
+            }
 
             .pass-inp {
               color: var(--strokes-success);
@@ -2007,7 +2072,9 @@
     .submt-btn {
       &-txt {
         margin: var(--spacing-40) 0 0;
+        padding: var(--spacing-12);
         border-radius: var(--border-radius-8);
+        border: none;
         background: var(--button-primary-default);
         width: 100%;
         cursor: pointer;
