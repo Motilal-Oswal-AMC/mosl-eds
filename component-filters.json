@@ -17,7 +17,8 @@
       "columns",
       "fragment",
       "accordion",
-      "broaden-your-research"
+      "broaden-your-research",
+      "calculator-sip"
     ]
   },
   {
@@ -28,6 +29,9 @@
   },
   {
     "id": "broaden-your-research"
+  },
+  {
+    "id": "calculator-sip"
   },
   {
     "id": "cards",
