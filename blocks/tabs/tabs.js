@@ -143,7 +143,7 @@ export default async function decorate(block) {
           dataCf = dataCf.slice(1, 5);
           dataMapMoObj.selectviewFunds = 'etf';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-others') {
-          dataCf = dataCfObj.map((elem) => (elem.sebiSubCategory === 'Other ETF' ? elem : ''));
+          dataCf = dataCfObj.cfDataObjs.map((elem) => (elem.sebiSubCategory === 'Other ETF' ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(1, 5);
           dataMapMoObj.selectviewFunds = 'OtherFund';
