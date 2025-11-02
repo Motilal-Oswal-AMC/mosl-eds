@@ -1,0 +1,38 @@
+{
+    "definitions": [
+        {
+            "title": "Broaden Your Research",
+            "id": "broaden-your-research",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block",
+                        "template": {
+                            "name": "Broaden Your Research",
+                            "model": "broaden-your-research"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "models": [
+        {
+            "id": "broaden-your-research",
+            "fields": [
+                {
+                    "component": "text",
+                    "name": "Col Name",
+                    "label": "Brand name"
+                },
+                {
+                    "component": "richtext",
+                    "name": "text",
+                    "value": "",
+                    "label": "Enter Icon Container",
+                    "valueType": "string"
+                }
+            ]
+        }
+    ]
+}
