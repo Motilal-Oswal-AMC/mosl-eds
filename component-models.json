@@ -110,10 +110,323 @@
         "label": "Style",
         "options": [
           {
+            "name": "Our Popular Funds",
+            "value": "our-popular-funds"
+          },
+          {
+            "name": "Mobile Accordion Only",
+            "value": "mob-accordion"
+          },
+          {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Popular Tab",
+            "value": "popular-tab"
+          },
+          {
+            "name": "Learn Tab",
+            "value": "learn-tab"
+          },
+          {
+            "name": "login Registered",
+            "value": "login-registered"
+          },
+          {
+            "name": "Investor Faq Video",
+            "value": "our-service"
+          },
+          {
+            "name": "Investor Banner",
+            "value": "investor-banner"
+          },
+          {
+            "name": "FDP FAQ Change",
+            "value": "fdp-faq-change"
+          },
+          {
+            "name": "Risk-o-Meter FDP",
+            "value": "fdp-risk-o-meter"
+          },
+          {
+            "name": "Show Modal",
+            "value": "show-modal"
+          },
+          {
+            "name": "fdp-kyc-form",
+            "value": "fdp-kyc-form"
+          },
+          {
+            "name": "pan-details-modal",
+            "value": "pan-details-modal"
+          },
+          {
+            "name": "breadcrumbs-fdp",
+            "value": "breadcrumbs-fdp"
+          },
+          {
+            "name": "fdp-faq",
+            "value": "fdp-faq"
+          },
+          {
+            "name": "co-branded",
+            "value": "co-branded"
+          },
+          {
+            "name": "tabdiv",
+            "value": "tabdiv"
+          },
+          {
+            "name": "Compounding",
+            "value": "compounding"
+          },
+          {
+            "name": "Know Our Funds",
+            "value": "known-our-funds"
+          },
+          {
+            "name": "Quick Actions",
+            "value": "quick-actions"
+          },
+          {
+            "name": "Need Assistance",
+            "value": "need-assistance"
+          },
+          {
+            "name": "Motilal Equity",
+            "value": "motilal-equity"
+          },
+          {
+            "name": "Compound Journey",
+            "value": "compound-journey"
+          },
+          {
+            "name": "Index Fund",
+            "value": "index-fund"
+          },
+          {
+            "name": "Header Top",
+            "value": "header-top"
+          },
+          {
+            "name": "Broaden Your",
+            "value": "broaden-your"
+          },
+          {
+            "name": "Cornerstones Advantage",
+            "value": "cornerstones-advantage"
+          },
+          {
+            "name": "Welcome Component",
+            "value": "welcome-component"
+          },
+          {
+            "name": "Freq Ask Ques",
+            "value": "freq-ask-ques"
+          },
+          {
+            "name": "Table wrapper",
+            "value": "table-wrapper"
+          },
+          {
+            "name": "why-fund",
+            "value": "why-fund"
+          },
+          {
+            "name": "fund-philosophy-video",
+            "value": "fund-philosophy-video"
+          },
+          {
+            "name": "key-facts-Investment",
+            "value": "key-facts-Investment"
+          },
+          {
+            "name": "fdp-calculator",
+            "value": "fdp-calculator"
+          },
+          {
+            "name": "fund-card-section",
+            "value": "fund-card-section"
+          },
+          {
+            "name": "Product Label",
+            "value": "product-label"
+          },
+          {
+            "name": "Live Streaming",
+            "value": "live-streaming"
+          },
+          {
+            "name": "Homepage Growth",
+            "value": "homepage-growth"
+          },
+          {
+            "name": "sub-popup-header",
+            "value": "sub-popup-header"
+          },
+          {
+            "name": "services-header",
+            "value": "services-header"
+          },
+          {
+            "name": "calculator-header",
+            "value": "calculator-header"
+          },
+          {
+            "name": "investor-Edu-header",
+            "value": "investor-Edu-header"
+          },
+          {
+            "name": "mosl-edge-header",
+            "value": "mosl-edge-header"
+          },
+          {
+            "name": "NFO Banner",
+            "value": "nfo-banner"
+          },
+          {
+            "name": "Show Contact Error",
+            "value": "show-contact-error"
+          },
+          {
+            "name": "Out Expert Listing",
+            "value": "out-expert-listing"
+          },
+          {
+            "name": "Popular Artical",
+            "value": "popular-artical"
+          },
+          {
+            "name": "Behind The Content",
+            "value": "behind-the-content"
+          },
+          {
+            "name": "Learn About",
+            "value": "learn-about"
+          },
+          {
+            "name": "In The News",
+            "value": "in-the-news"
+          },
+          {
+            "name": "Our Blogs",
+            "value": "our-blogs"
+          },
+          {
+            "name": "Added Fund Cart",
+            "value": "added-fund-cart"
+          },
+          {
+            "name": "Two Step Verification",
+            "value": "two-step-auth"
+          },
+          {
+            "name": "Modal Stepup One",
+            "value": "modal-stepup-one"
+          },
+          {
+            "name": "Modal Stepup Two",
+            "value": "modal-stepup-two"
+          },
+          {
+            "name": "FLP Growth",
+            "value": "flp-growth"
+          },
+          {
+            "name": "Reset Passcode",
+            "value": "reset-passcode"
+          },
+          {
+            "name": "PMS Rooted",
+            "value": "pms-rooted"
+          },
+          {
+            "name": "High Skin",
+            "value": "high-skin"
+          },
+          {
+            "name": "PMS Choose",
+            "value": "pms-choose"
+          },
+          {
+            "name": "PWS Hero Section",
+            "value": "pws-hero-section"
+          },
+          {
+            "name": "Our Strategies",
+            "value": "our-strategies"
+          },
+          {
+            "name": "Building Moedge",
+            "value": "building-moedge"
+          },
+          {
+            "name": "Article Left",
+            "value": "article-left-wrapper"
+          },
+          {
+            "name": "Article Right",
+            "value": "article-right-wrapper"
+          },
+          {
+            "name": "Article Sub Left",
+            "value": "article-sub-left"
+          },
+          {
+            "name": "Article Sub Right",
+            "value": "article-sub-right"
+          },
+          {
+            "name": "Stay Updated",
+            "value": "stay-updated"
+          },
+          {
+            "name": "Subscribe Email",
+            "value": "subscribe-email"
+          },
+          {
+            "name": "Recommended Posts",
+            "value": "recommended-posts"
+          },
+          {
+            "name": "Our Podcast",
+            "value": "our-podcast"
+          },
+          {
+            "name": "AIF Component",
+            "value": "aif-component"
+          },
+          {
+            "name": "Main Wrapper",
+            "value": "main-wrapper"
+          },
+          {
+            "name": "Moedge Article Details",
+            "value": "moedge-article-details"
+          },
+          {
+            "name": "Header Sub Pms",
+            "value": "header-sub-pms"
+          },
+          {
+            "name": "aif-banner",
+            "value": "aif-banner"
+          },
+          {
+            "name": "aif-choose",
+            "value": "aif-choose"
+          },
+          {
+            "name": "Moedge Buliding",
+            "value": "moedge-buliding"
           }
         ]
+      },
+      {
+        "component": "text",
+        "name": "id",
+        "label": "Enter Section Id"
       }
     ]
   },
