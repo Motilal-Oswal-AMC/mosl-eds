@@ -18,7 +18,8 @@
       "fragment",
       "accordion",
       "broaden-your-research",
-      "calculator-sip"
+      "calculator-sip",
+      "co-branding"
     ]
   },
   {
@@ -38,6 +39,9 @@
     "components": [
       "card"
     ]
+  },
+  {
+    "id": "co-branding"
   },
   {
     "id": "columns",

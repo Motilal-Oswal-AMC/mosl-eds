@@ -341,6 +341,18 @@
     ]
   },
   {
+    "id": "co-branding",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
       {
