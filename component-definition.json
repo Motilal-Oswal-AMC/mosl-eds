@@ -831,7 +831,7 @@
                 "template": {
                   "name": "Login Page",
                   "model": "login-page",
-                  "filter": "login-page"
+                  "filter":"login-page"
                 }
               }
             }
@@ -1005,7 +1005,7 @@
             }
           }
         },
-        {
+         {
           "title": "Our Service Item",
           "id": "our-service-item",
           "plugins": {
@@ -1015,205 +1015,6 @@
                 "template": {
                   "name": "Our Service Item",
                   "model": "our-service-item"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Previous Studies Blog",
-          "id": "previous-studies-blog",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Previous Studies Blog",
-                  "filter": "previous-studies-blog"
-                }
-              }
-            }
-          }
-        },
-         {
-          "title": "Previous Studies Blog Item",
-          "id": "previous-studies-blog-item",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Previous Studies Blog Item",
-                  "model": "previous-studies-blog-item"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Wealth Modal",
-          "id": "wealth-modal",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Wealth Modal",
-                  "model": "wealth-modal"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "MoEdge Article Details",
-          "id": "moedge-article-details",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "MoEdge Article Details",
-                  "model": "moedge-article-details"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "MoEdge Article Video",
-          "id": "moedge-article-video",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "MoEdge Article Video",
-                  "model": "moedge-article-video"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Why choose us",
-          "id": "why-choose-us",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Why choose us",
-                  "model": "why-choose-us"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "FDP Campaign",
-          "id": "fdp-campaign",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "FDP Campaign",
-                  "model": "fdp-campaign"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Decoding QGLP",
-          "id": "decoding-qglp",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Decoding QGLP",
-                  "model": "decoding-qglp",
-                  "filter": "decoding-qglp"
-                }
-              }
-            }
-          }
-        },
-         {
-          "title": "TAB GLP",
-          "id": "tab-glp",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "TAB GLP",
-                  "model": "tab-glp",
-                  "filter": "tab-glp"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "MO QGLP",
-          "id": "mo-qglp",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "MO QGLP",
-                  "model": "mo-qglp",
-                  "filter": "mo-qglp"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "MO QGLP Item",
-          "id": "mo-qglp-item",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "MO QGLP Item",
-                  "model": "mo-qglp-item"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Rich Tabs",
-          "id": "rich-tabs",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Rich Tabs",
-                  "filter": "rich-tabs",
-                  "model": "rich-tabs"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Rich Tabs item",
-          "id": "rich-tabsitem",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "RichTabs item",
-                  "model": "rich-tabsitem"
                 }
               }
             }

@@ -167,32 +167,8 @@
             "value": "mob-accordion"
           },
           {
-            "name": "GLP Decoding",
-            "value": "glp-decoding"
-          },
-          {
             "name": "Highlight",
             "value": "highlight"
-          },
-          {
-            "name": "Calculators Card",
-            "value": "calculators-card"
-          },
-          {
-            "name": "Calc Cards",
-            "value": "calc-cards"
-          },
-          {
-            "name": "GLP TAB",
-            "value": "glp-tab"
-          },
-          {
-            "name": "GLP TAB Price",
-            "value": "glp-tab-price"
-          },
-          {
-            "name": "Wealth-Register",
-            "value": "wealth-register"
           },
           {
             "name": "Popular Tab",
@@ -493,62 +469,6 @@
           {
             "name": "Moedge Buliding",
             "value": "moedge-buliding"
-          },
-          {
-            "name": "Previous Studies Ctn",
-            "value": "previous-studies-ctn"
-          },
-          {
-            "name": "Previous Studies Each Details",
-            "value": "previous-studies-each-details"
-          },
-          {
-            "name": "Investment Philosophy",
-            "value": "investment-philosophy"
-          },
-          {
-            "name": "Moedge Skin Game",
-            "value": "moedge-skin-game"
-          },
-          {
-            "name": "WCS Series PDF",
-            "value": "wcs-series-pdf"
-          },
-          {
-            "name": "Moedge List",
-            "value": "moedge-list"
-          },
-          {
-            "name": "Our Author List",
-            "value": "our-author-list"
-          },
-          {
-            "name": "Our Author Detail",
-            "value": "our-author-detail"
-          },
-          {
-            "name": "QGLP Tabs",
-            "value": "qglp-tabs"
-          },
-          {
-            "name": "Moedge Videos",
-            "value": "moedge-videos"
-          },
-          {
-            "name": "aif-header",
-            "value": "aif-header"
-          },
-          {
-            "name": "Media Coverage",
-            "value": "media-coverage"
-          },
-          {
-            "name": "Invester Blogs",
-            "value": "invester-blogs"
-          },
-          {
-            "name": "wcs-landing",
-            "value": "wcs-landing"
           }
         ]
       },
@@ -1883,13 +1803,6 @@
         "name": "image2Alt",
         "label": "Alt for mobile",
         "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
       }
     ]
   },
@@ -2064,10 +1977,9 @@
         "label": "Alt Text"
       },
       {
-        "component": "richtext",
-        "name": "Video_link",
-        "label": "Video Link",
-        "value": ""
+        "component": "text",
+        "name": "col_link",
+        "label": "Image Link"
       },
       {
         "component": "richtext",
@@ -2093,13 +2005,6 @@
         "name": "imageAlt",
         "label": "Alt",
         "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
       }
     ]
   },
@@ -2257,227 +2162,6 @@
         "component": "aem-content",
         "name": "link",
         "label": "Fragment URL"
-      }
-    ]
-  },
-  {
-    "id": "previous-studies-blog-item",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "text-one",
-        "value": "",
-        "label": "Enter the text authors name",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "text-two",
-        "value": "",
-        "label": "Enter the text authors name",
-        "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "name": "link",
-        "label": "Link"
-      }
-    ]
-  },
-  {
-    "id": "wealth-modal",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "moedge-article-video",
-    "fields": [
-      {
-        "component": "reference",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "name": "imageAlt",
-        "label": "Alt Text"
-      },
-      {
-        "component": "richtext",
-        "name": "Play Icons",
-        "label": "MoEdge Article video play icon",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "Download Analysis",
-        "value": "",
-        "label": "Read the complete report Only Mobile View",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "moedge-article-details",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "richtext",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "Author Name",
-        "value": "",
-        "label": "Author Name And Designation",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "why-choose-us",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text",
-        "label": "Why choose us text",
-        "value": ""
-      },
-      {
-        "component": "reference",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "name": "imageAlt",
-        "label": "Alt Text"
-      }
-    ]
-  },
-  {
-    "id": "decoding-qglp",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      }
-    ]
-  },
-  {
-    "id": "tab-glp",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "text1",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "mo-qglp-item",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text_link",
-        "value": "",
-        "label": "Text",
-        "valueType": "Links Add Cards"
-      },
-      {
-        "component": "richtext",
-        "name": "text1",
-        "value": "",
-        "label": "Text",
-        "valueType": "Title Name Add"
-      }
-    ]
-  },
-  {
-    "id": "rich-tabsitem",
-    "fields": [
-      {
-        "component": "text",
-        "name": "title",
-        "label": "Tab Title"
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "name": "video_url",
-        "label": "Video URL"
-      },
-      {
-        "component": "reference",
-        "name": "video_image",
-        "label": "Video Image"
-      },
-      {
-        "component": "text",
-        "name": "video_imageAlt",
-        "label": "Video Image Alt"
-      },
-      {
-        "component": "text",
-        "name": "video_imageTitle",
-        "label": "Video Image Title"
       }
     ]
   }

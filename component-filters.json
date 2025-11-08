@@ -56,19 +56,10 @@
       "investing-terms",
       "global-dashboard",
       "our-service",
-      "login-page",
+       "login-page",
       "login-image-item",
       "step-up-block",
-      "contact-us-map",
-      "previous-studies-blog",
-      "moedge-article-details",
-      "moedge-article-video",
-      "why-choose-us",
-      "decoding-qglp",
-      "tab-glp",
-      "mo-qglp",
-      "rich-tabs",
-      "wealth-modal"
+      "contact-us-map"
     ]
   },
   {
@@ -202,24 +193,6 @@
     "id": "our-service",
     "components": [
       "our-service-item"
-    ]
-  },
-  {
-    "id": "previous-studies-blog",
-    "components": [
-      "previous-studies-blog-item"
-    ]
-  },
-  {
-    "id": "mo-qglp",
-    "components": [
-      "mo-qglp-item"
-    ]
-  },
-  {
-    "id": "rich-tabs",
-    "components": [
-      "rich-tabsitem"
     ]
   }
 ]
