@@ -1,17 +1,17 @@
 {
   "mappings": [
-    "/content/mosl-eds/:/",
-    "/content/mosl-eds/configuration:/.helix/config.json",
-    "/content/mosl-eds/metadata:/metadata.json",
-    "/content/mosl-eds/api/faq:/api/faq.json",
-    "/content/mosl-eds/api/form-api:/api/form-api.json",
-    "/content/mosl-eds/api/fund-api:/api/fund-api.json",
-    "/content/mosl-eds/placeholder:/placeholder.json",
-    "/content/mosl-eds/schememaster:/schememaster.json",
-    "/content/mosl-eds/api/nav-and-dividendupload:/api/nav-and-dividendupload.json"
+    "/content/mosleds/:/",
+    "/content/mosleds/configuration:/.helix/config.json",
+    "/content/mosleds/metadata:/metadata.json",
+    "/content/mosleds/api/faq:/api/faq.json",
+    "/content/mosleds/api/form-api:/api/form-api.json",
+    "/content/mosleds/api/fund-api:/api/fund-api.json",
+    "/content/mosleds/placeholder:/placeholder.json",
+    "/content/mosleds/schememaster:/schememaster.json",
+    "/content/mosleds/api/nav-and-dividendupload:/api/nav-and-dividendupload.json"
 
   ],
   "includes": [
-    "/content/mosl-eds/"
+    "/content/mosleds/"
   ]
 }
