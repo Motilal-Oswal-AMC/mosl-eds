@@ -44,10 +44,10 @@ export default async function createBreadcrumbs() {
       );
     }),
   );
-  const homeIcon = '../../icons/home-icon.svg';
+  const homeIcon = '/icons/home-icon.svg';
   // const homeLink = '/in/en/mutual-fund/home-page';
   return ul(
-    decorateBreadcrumbItems('Home', '/in/en/mutual-fund/home-page', homeIcon),
+    decorateBreadcrumbItems('Home', '/mutual-fund/in/en/home-page', homeIcon),
     ...items.filter((item) => item !== null),
     decorateBreadcrumbItems(
       getMetadata('breadcrumbs_title'),

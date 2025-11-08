@@ -220,7 +220,7 @@ async function loadLazy(doc) {
     // maindiv.classList.add('main-wrapper');
     maindiv.append(main.querySelector('.article-left-wrapper'));
     maindiv.append(main.querySelector('.article-right-wrapper'));
-    main.append(maindiv);
+    main.prepend(maindiv);
   }
   wrapImgsInLinks(doc);
   await loadSections(main);
@@ -385,3 +385,58 @@ initializeModalHandlers();
 /* -------------------------
    API UTILS COMMENTED OUT
 ------------------------- */
+
+/* glp page start */
+
+const glpDecoding = document.querySelector('.glp-decoding');
+
+if (glpDecoding != null) {
+  dataMapMoObj.CLASS_PREFIXES = [
+    'glpcoding',
+    'glpcoding-inner',
+    'glpcoding-sub-inner',
+  ];
+  dataMapMoObj.addIndexed(glpDecoding);
+}
+
+/* glp page End */
+
+const tabLinks = document.querySelectorAll('.table-wrapper');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      Array.from(document.querySelectorAll('.fdp-tab .comlist')).forEach((el) => {
+        const b = el.querySelector('a').getAttribute('href');
+        if (entry.target.getAttribute('data-id') === b) {
+          el.children[0].classList.add('active');
+        } else {
+          el.children[0].classList.remove('active');
+        }
+      });
+    }
+  });
+}, {
+  root: null, // viewport
+  threshold: 0, // trigger when 0.3 30% of the section is visible
+  rootMargin: '0px 0px -40% 0px', // triggers a bit earlier
+});
+
+tabLinks.forEach((section) => observer.observe(section));
+
+// *Calculators card  starts *//
+
+const calculatorsCard = document.querySelector('.calculators-cards');
+
+if (calculatorsCard != null) {
+  dataMapMoObj.CLASS_PREFIXES = [
+    'cal-car',
+    'cal-car-inner',
+    'cal-car-sub-inner',
+    'cal-car-sub-inner-sub',
+    'cal-car-sub-inner-sub-inner',
+  ];
+  dataMapMoObj.addIndexed(calculatorsCard);
+}
+
+// *Calculators card  End *//
