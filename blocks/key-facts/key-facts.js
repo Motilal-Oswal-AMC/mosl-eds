@@ -19,23 +19,8 @@ export default function decorate(block) {
     });
   });
 
-  const planCode = localStorage.getItem('planCode');
-  let planFlow;
-  let planslabel;
-  if (planCode !== null) {
-    [planFlow, planslabel] = planCode.split(':');
-  } else if (window.location.href.includes('/our-funds/funds-details-page')) {
-    planslabel = 'LM';
-    planFlow = 'Direct';
-  } else {
-    const path = window.location.pathname.split('/').at(-1);
-    const planobj = dataCfObj.cfDataObjs.filter(
-      (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
-    );
-    planslabel = planobj[0].schcode;
-    planFlow = 'Direct';
-  }
-  // const [planFlow, planslabel] = planCode.split(':');
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const [planFlow, planslabel] = planCode.split(':');
   const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
   const data = planObj;
   const DirectPlanlistArr = planObj[0].planList.filter(
@@ -244,9 +229,4 @@ export default function decorate(block) {
   const keyplanparent = document.querySelector('.key-plans span').parentElement;
   keyplanparent.append(brEl);
   keyplanparent.append(keyplan);
-
-  const dateLaunch = block.closest('.key-facts-container');
-  const datelch = dateLaunch.querySelector('.default-content-wrapper ol ol').children;
-  datelch[1].textContent = '';
-  datelch[1].textContent = `Launched on ${dateFormat(planObj[0].dateOfAllotment)}`;
 }

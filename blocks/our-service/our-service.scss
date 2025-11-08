@@ -189,7 +189,7 @@ main > .section.our-service-container {
           &[aria-selected="true"] {
             border-radius: 8px;
             border: 1px solid #b9bbff;
-            box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
             display: flex;
             width: 608px;
             padding: 32px 16px;

@@ -121,7 +121,6 @@ export default function decorate(block) {
           { class: 'detail-field-wrap mob-wrap' },
           div(
             { class: 'country-code-wrap' },
-            p({ class: 'country-label' }, 'Country Code'),
             p({ class: 'country-code' }, '+91'),
           ),
           div(
@@ -414,25 +413,25 @@ export default function decorate(block) {
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 1 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 1 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 2 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 2 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 4 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 4 of 4',
             }),
           ),
           div(
             { class: 'pass-wrap' },
             input({
-              type: 'password', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 3 of 4',
+              type: 'password', placeholder: '', maxlength: 1, class: 'newpass-inp pass-inp', 'aria-label': 'Passcode digit 3 of 4',
             }),
           ),
         ),

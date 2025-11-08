@@ -29,9 +29,6 @@
     display: block;
   }
 }
-.section.table-wrapper.fdp-campaign-container .fdp-campaign .compaign3 {
-  display: none;
-}
 
 .section.table-wrapper.fdp-campaign-container.investor-banner .fdp-campaign-wrapper {
   padding: 0;
@@ -86,7 +83,7 @@
   font-weight: 400;
   line-height: normal;
   margin: 0;
-  max-width: 504px;
+  max-width: 554px;
 }
 @media (max-width: 768px) {
   .section.table-wrapper.pws-hero-section.fdp-campaign-container .default-content-wrapper .comlist.para1 {
@@ -298,7 +295,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: var(--heading-h3-line-height); /* 122.222% */
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 @media (max-width: 768px) {
   .our-strategies h2 {
@@ -791,9 +788,6 @@
 .section.table-wrapper.aif-banner.fdp-campaign-container .fdp-campaign-wrapper {
   padding: 0;
 }
-.section.table-wrapper.aif-banner.fdp-campaign-container .fdp-campaign-wrapper .fdp-campaign .compaign1 .compaignsub1 .img-24 {
-  max-height: 605px;
-}
 @media (max-width: 768px) {
   .section.table-wrapper.aif-banner.fdp-campaign-container .fdp-campaign-wrapper .fdp-campaign .compaign2 .mobimg-21 .mobimg-34 {
     aspect-ratio: 124/211;
@@ -814,46 +808,41 @@
     top: 344px;
     left: 0;
     padding: 0 16px;
-    z-index: 50;
   }
 }
-.section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .comlist.para1 {
+.section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .para1 {
   font-size: 56px;
   font-style: normal;
   font-weight: 500;
   line-height: 64px;
 }
 @media (max-width: 768px) {
-  .section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .comlist.para1 {
+  .section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .para1 {
     font-size: 32px;
     line-height: 40px;
   }
 }
-.section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .comlist.para2 {
+.section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .para2 {
   margin: 8px 0 48px;
   max-width: 504px;
 }
 @media (max-width: 768px) {
-  .section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .comlist.para2 {
+  .section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .para2 {
     margin: 8px 0 24px;
   }
 }
-.section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .comlist.para3 {
+.section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .para3 {
   max-width: 164px;
   max-height: 48px;
   width: 100%;
-  border-radius: var(--border-radius-8);
-  background: var(--neutrals-white);
-  padding: 14px;
 }
 @media (max-width: 768px) {
-  .section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .comlist.para3 {
+  .section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .para3 {
     max-width: 160px;
     max-height: 40px;
-    padding: 12px;
   }
 }
-.section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .comlist.para3 a.p21 {
+.section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .para3 .p21 {
   display: flex;
   max-width: 164px;
   max-height: 48px;
@@ -861,11 +850,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0;
-  border: 0;
 }
 @media (max-width: 768px) {
-  .section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .comlist.para3 a.p21 {
+  .section.table-wrapper.aif-banner.fdp-campaign-container .default-content-wrapper .para3 .p21 {
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;

@@ -30,7 +30,7 @@
             img {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 16 / 8.85;
+                aspect-ratio: 16 / 9;
                 object-fit: cover;
                 display: block;
                 border-radius: var(--border-radius-8);
@@ -69,7 +69,6 @@
 
                 >.moedge-build-list1 {
                     margin: 0;
-                    min-width: 74px;
                     display: flex;
                     height: 24px;
                     padding: 0 var(--spacing-8);
@@ -115,7 +114,6 @@
                         height: 12px;
                         aspect-ratio: 1/1;
                         margin-left: 4px;
-                        margin-bottom: 1.5px;
                     }
 
                     &::before {
@@ -156,9 +154,9 @@
                         white-space: unset;
                         overflow: unset;
 
-                        // &:hover {
-                        //     color: var(--link-color);
-                        // }
+                        &:hover {
+                            color: var(--link-color);
+                        }
                     }
                 }
             }
@@ -171,7 +169,6 @@
                     font-family: var(--body, inter);
                     font-feature-settings: var(--font-features-default);
                     font-size: var(--paragraph-small-size);
-                    font-weight: 400;
                     line-height: var(--paragraph-small-line-height);
                     margin: 0;
                 }
@@ -197,7 +194,6 @@
                         text-decoration-skip-ink: auto;
                         text-decoration-thickness: auto;
                         text-underline-position: from-font;
-                        text-underline-offset: 0.8px;
                         border: none;
                         border-radius: unset;
                         margin: 0;
@@ -220,8 +216,8 @@
     }
 
     .moedge-building>div {
-        max-width: 32.46%;
-        flex: 0 0 32.46%;
+        max-width: 32.45%;
+        flex: 0 0 32.45%;
 
         .moedge-build-sec1 {
             height: 220px;
@@ -240,7 +236,6 @@
             .moedge-build-inner-text1 {
                 >.moedge-build-list1 {
                     padding: 0 var(--spacing-12);
-                    min-width: 86px;
                     gap: 4px;
 
                     span {
@@ -269,56 +264,14 @@
     }
 }
 
-// MOedge Videos Sections css start 
-.moedge-videos {
-    .moedge-building {
-        .secs-wrapper {
-            position: relative;
-
-            .button-container.moedge-build-sec2 {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: absolute;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 8px;
-                background: linear-gradient(0deg, rgb(0 0 0 / 30%), rgb(0 0 0 / 30%));
-
-                .moedge-build-sub1 {
-                    .button {
-                        background-color: transparent;
-                        margin: 0;
-                        padding: 0;
-                        border: none;
-                        border-radius: unset;
-                        font-family: unset;
-                    }
-                }
-            }
-        }
-    }
-}
-
-// MOedge Videos Sections css End
-
 // learn-about moedge-building-container cards css 
 
 .learn-about.moedge-building-container {
     margin-bottom: 24px;
 
-    @include media (mobile) {
-        margin: 24px 0;
-    }
-
     .moedge-building {
         &>div {
             flex-direction: column;
-
-            @include media(mobile) {
-                gap: 40px;
-            }
 
             .moedge-build-sec1 {
                 img {
@@ -330,10 +283,6 @@
 
             .moedge-build-sec3 {
                 padding-top: 16px;
-
-                @include media (mobile) {
-                    padding-top: 0;
-                }
             }
         }
     }
@@ -350,7 +299,7 @@
             flex-direction: unset;
 
             .moedge-build-sec3 {
-                flex: 0 0 49.35%;
+                flex: 0 0 49.3%;
                 padding: 0;
 
                 .moedge-build-sub1 {
@@ -364,7 +313,7 @@
         }
 
         .moedge-build-sec1 {
-            flex: 0 0 49.35%;
+            flex: 0 0 49.3%;
             height: auto;
 
             img {
@@ -377,30 +326,22 @@
     }
 }
 
-
-
 // in-the-news moedge-building-container css start 
 
-.in-the-news.popular-artical.moedge-building-container {
+.in-the-news.moedge-building-container {
     position: relative;
-    margin-top: 0;
-    padding: 0;
 
     .moedge-building {
         gap: 16px;
         row-gap: 40px;
 
         @include media (mobile) {
-            padding-bottom: 0;
+            padding-bottom: 80px;
             gap: unset;
         }
 
-        .hidden {
-            display: none;
-        }
-
         &>div {
-            gap: 0;
+            gap: 24px;
 
             .moedge-build-sec1 {
                 display: none;
@@ -429,8 +370,6 @@
 
         @include media (mobile) {
             justify-content: center;
-            padding-top: 0;
-            margin-top: 0;
             margin-bottom: 16px;
         }
 
@@ -494,39 +433,8 @@
     }
 }
 
-.section.in-the-news.edge-filter-container {
-    @include media(mobile) {
-        display: none;
-    }
-}
-
-.out-expert-listing.in-the-news {
-    .our-experts-wrapper {
-        .our-experts {
-            @include media(mobile) {
-                padding-bottom: 24px;
-            }
-        }
-    }
-}
-
-.popular-artical.our-author-detail.moedge-building-container {
-    .moedge-building {
-        row-gap: 40px;
-
-        .hidden {
-            display: none;
-        }
-    }
-}
-
 .popular-artical.moedge-building-container {
     max-width: 100%;
-
-    @include media(mobile) {
-        padding-top: 16px;
-        margin-top: 0;
-    }
 
     p.comlist,
     a {
@@ -535,13 +443,7 @@
         line-height: 10px;
     }
 
-    >div.default-content-wrapper {
-        padding-top: 40px;
-
-        @include media (mobile) {
-            padding-top: 40px;
-        }
-
+    .default-content-wrapper {
         ul {
             margin: 0;
             list-style: none;
@@ -551,10 +453,6 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-
-            @include media (mobile) {
-                padding-bottom: 0;
-            }
 
             li:first-child {
                 display: flex;
@@ -594,26 +492,18 @@
         }
 
     }
-
-    // .moedge-building-wrapper {
-    //     .moedge-building {
-    //         @include media (mobile) {
-    //             gap: 40px;
-    //         }
-    //     }
-    // }
 }
 
 .popular-artical.building-moedge {
     @include media (mobile) {
-        padding-bottom: 40px;
+        padding-bottom: 0;
         margin-bottom: 0;
     }
 
     .default-content-wrapper:last-of-type {
         @include media (mobile) {
             padding: 0;
-            padding: 48px 0 0;
+            padding: 48px 0 12px;
         }
 
         ul {
@@ -627,31 +517,3 @@
         display: none;
     }
 }
-
-// MO Edge Listing css start 
-
-.learn-about.moedge-list.moedge-building-container {
-    margin-top: 0;
-
-    .moedge-building {
-        >div {
-            @include media (mobile) {
-                gap: 24px;
-            }
-        }
-    }
-}
-
-.popular-artical.moedge-list.moedge-building-container {
-    .moedge-building-wrapper {
-        .moedge-building {
-            row-gap: 40px;
-
-            .hidden {
-                display: none;
-            }
-        }
-    }
-}
-
-// MO Edge Listing css start end

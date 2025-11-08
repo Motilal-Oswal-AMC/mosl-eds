@@ -227,7 +227,7 @@
 
             &::before {
               content: "";
-              background-image: url("/icons/search-icon-black.svg");
+              background-image: url("../../icons/search-icon-black.svg");
               background-position: center;
               background-repeat: no-repeat;
               background-size: cover;
@@ -381,7 +381,7 @@
 
                     &::after {
                       content: "";
-                      background-image: url("/icons/plus-blue.svg");
+                      background-image: url("../../icons/plus-blue.svg");
                       background-position: center;
                       background-repeat: no-repeat;
                       background-size: cover;
@@ -464,7 +464,7 @@
                       background-color: transparent;
 
                       &::after {
-                        background-image: url("/icons/mins-blue.svg");
+                        background-image: url("../../icons/mins-blue.svg");
                       }
 
                       p {

@@ -128,7 +128,7 @@ export default function decorate(block) {
             { class: 'risk-star-icon' },
             a(
               {
-                href: '/mutual-fund/in/en/modals/risk-o-meter',
+                href: '/in/en/mutual-fund/modals/risk-o-meter',
                 class: 'risk-icon',
               },
               img({
@@ -206,7 +206,7 @@ export default function decorate(block) {
           { class: 'risk-star-icon' },
           a(
             {
-              href: '/mutual-fund/in/en/modals/risk-o-meter',
+              href: '/in/en/mutual-fund/modals/risk-o-meter',
               class: 'risk-icon',
             },
             img({

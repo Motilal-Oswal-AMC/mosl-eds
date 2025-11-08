@@ -6,12 +6,13 @@
   color: var(--blue-1-800-primary);
   text-align: center;
   font-family: var(--title);
-  font-size: 20px;
+  font-size: var(--sub-header-medium-size);
   font-style: normal;
   font-weight: 500;
   line-height: 28px;
   margin: 0 auto;
   padding: 40px 0;
+  max-width: 280px;
 }
 .aif-component.cards-container .cards ul {
   display: flex;
@@ -25,34 +26,25 @@
   max-width: 340px;
   width: 100%;
   border: 0;
-  padding: 34px 12px;
 }
 .aif-component.cards-container .cards ul li .cards-card-body {
-  margin: 0;
+  margin: 34px 12px;
 }
-.aif-component.cards-container .cards ul li .cards-card-body.aif-each-in2 {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
-  min-height: 192px;
-}
-.aif-component.cards-container .cards ul li .cards-card-body.aif-each-in2 p {
+.aif-component.cards-container .cards ul li .cards-card-body p {
   margin: 0;
   line-height: 0;
 }
-.aif-component.cards-container .cards ul li .cards-card-body.aif-each-in2 p .icon {
+.aif-component.cards-container .cards ul li .cards-card-body p .icon {
   width: 100%;
   height: unset;
 }
-.aif-component.cards-container .cards ul li .cards-card-body.aif-each-in2 p .icon img {
+.aif-component.cards-container .cards ul li .cards-card-body p .icon img {
   width: 80px;
   height: 80px;
   aspect-ratio: 1/1;
+  margin-bottom: 40px;
 }
-.aif-component.cards-container .cards ul li .cards-card-body.aif-each-in2 h3 {
+.aif-component.cards-container .cards ul li .cards-card-body h3 {
   color: var(--blue-1-800-primary);
   font-family: var(--body);
   font-size: var(--body-large-semibold-size);
@@ -86,15 +78,11 @@
   }
   .aif-component.cards-container .cards ul li {
     max-width: 400px;
-    padding: 40px 12px;
   }
-  .aif-component.cards-container .cards ul li .cards-card-body.aif-each-in2 {
-    min-height: unset;
+  .aif-component.cards-container .cards ul li .cards-card-body p .icon img {
+    margin-bottom: 62px;
   }
-  .aif-component.cards-container .cards ul li .cards-card-body.aif-each-in2 p .icon img {
-    margin-bottom: 50px;
-  }
-  .aif-component.cards-container .cards ul li .cards-card-body.aif-each-in2 h3 {
+  .aif-component.cards-container .cards ul li .cards-card-body h3 {
     max-width: 356px;
     font-size: var(--body-large-medium-size, 18px);
     font-weight: 500;

@@ -3,6 +3,7 @@
   padding: unset;
   text-align: center;
   overflow: hidden;
+  padding-top: 40px;
 }
 .behind-the-content .default-content-wrapper:nth-child(1) {
   padding: 0 24px;
@@ -80,21 +81,6 @@
   margin: 0;
   padding: 0;
 }
-.behind-the-content .cards-wrapper .cards > ul li .cards-card-body p:first-of-type a {
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: unset;
-  background: transparent;
-  color: var(--blue-1800-primary, #2E2A94);
-  font-feature-settings: var(--font-features-default);
-  font-family: var(--body, Inter);
-  font-size: var(--body-medium-medium-size);
-  font-style: normal;
-  font-weight: 500;
-  line-height: var(--body-medium-medium-line-height);
-  cursor: pointer;
-}
 .behind-the-content .cards-wrapper .cards > ul li .cards-card-body p:last-of-type {
   color: var(--text-body, #424242);
   font-feature-settings: var(--font-features-default);
@@ -110,12 +96,6 @@
 .behind-the-content .default-content-wrapper:last-of-type {
   margin-top: 40px;
 }
-@media (max-width: 768px) {
-  .behind-the-content .default-content-wrapper:last-of-type {
-    margin-top: 32px;
-    margin-bottom: 16px;
-  }
-}
 .behind-the-content .default-content-wrapper:last-of-type .button-container {
   margin: 0;
   display: flex;
@@ -130,7 +110,7 @@
   justify-content: center;
   align-items: center;
   gap: var(--spacing-8, 8px);
-  border-radius: var(--border-radius-8, 8px);
+  border-radius: var(--border-radius-4, 4px);
   background: var(--button-primary-default, #2E2A94);
   color: var(--neutrals-white, #FFF);
   font-family: var(--body, Inter);
@@ -143,6 +123,10 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin: 0;
+}
+.behind-the-content .default-content-wrapper:last-of-type .button-container .button:hover {
+  background-color: #2b2e8c;
+  transform: translateY(-2px);
 }
 
 @media (width >= 900px) {
@@ -185,28 +169,4 @@
   .behind-the-content .default-content-wrapper:last-of-type .button-container {
     padding: 16px 0;
   }
-}
-.behind-the-content.our-author-list {
-  margin-top: 0;
-  /* optional: make the view all button visually consistent */
-}
-@media (max-width: 768px) {
-  .behind-the-content.our-author-list {
-    margin-top: 36px;
-  }
-}
-.behind-the-content.our-author-list .cards-card-hidden {
-  display: none !important;
-}
-.behind-the-content.our-author-list .button.view-all {
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-.behind-the-content.our-author-list .cards ul > li.card-hidden {
-  display: none;
-}
-.behind-the-content.our-author-list.all-cards-visible .button-container {
-  display: none;
 }/*# sourceMappingURL=behind-the-content.css.map */

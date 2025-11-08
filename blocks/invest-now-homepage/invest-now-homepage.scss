@@ -662,7 +662,6 @@
                             width: 14.67px;
                             height: 14.67px;
                             display: block;
-                            cursor: pointer;
 
                             @include media(mobile) {
                               width: 18px;
@@ -1451,7 +1450,7 @@
 
                 .modal-cta-btn {
                   // padding: var(--spacing-12);
-                  padding: 10px var(--spacing-12);
+                  padding: 10px;
                   max-width: 48.3%;
                   width: 100%;
                   border-radius: var(--border-radius-8);
@@ -1682,7 +1681,7 @@
       gap: 12px;
       margin: auto 0 0;
 
-      @include media(mobile) {
+      @include media(mobile){
         padding: 12px 0;
       }
 
@@ -1741,12 +1740,12 @@
   }
 
   .two-step-wrap {
-    padding: var(--spacing-36) 16px 0;
+    padding: var(--spacing-36) 16px;
     height: 100%;
     position: relative;
 
     @include media(mobile) {
-      padding: 64px 16px 0;
+      padding: 64px 16px;
     }
 
     .modal-cross-wrap {
@@ -1853,15 +1852,14 @@
 
           &::before {
             content: "";
-            min-width: 12px;
-            height: 12px;
+            min-width: 14px;
+            height: 14px;
             background-color: var(--neutrals-black);
             border-radius: 50%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 3;
             display: none;
           }
 
@@ -1869,10 +1867,8 @@
             border: var(--border-width-02) solid var(--strokes-typing);
           }
 
-          &.valid-inp {
-            &::before {
-              display: block;
-            }
+          &:has(input:not(:placeholder-shown))::before {
+            display: block;
           }
 
           .passcode-inp {
@@ -1906,10 +1902,8 @@
           .passcode-field {
             border: 1px solid var(--strokes-error);
 
-            &.valid-inp {
-              &::before {
-                background-color: var(--strokes-error);
-              }
+            &::before {
+              background-color: var(--strokes-error);
             }
 
             .passcode-inp {
@@ -1929,14 +1923,12 @@
 
         &.passcode-success {
           padding: 0 0 56px;
-
+          
           .passcode-field {
             border: 1px solid var(--strokes-success);
 
-            &.valid-inp {
-              &::before {
-                background-color: var(--strokes-success);
-              }
+            &::before {
+              background-color: var(--strokes-success);
             }
 
             .passcode-inp {

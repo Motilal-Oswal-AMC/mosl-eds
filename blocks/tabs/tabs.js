@@ -143,7 +143,7 @@ export default async function decorate(block) {
           dataCf = dataCf.slice(1, 5);
           dataMapMoObj.selectviewFunds = 'etf';
         } else if (event.currentTarget.getAttribute('aria-controls') === 'tabpanel-others') {
-          dataCf = dataCfObj.map((elem) => (elem.sebiSubCategory === 'Other ETF' ? elem : ''));
+          dataCf = dataCfObj.cfDataObjs.map((elem) => (elem.sebiSubCategory === 'Other ETF' ? elem : ''));
           dataCf = dataCf.filter((el) => el);
           dataCf = dataCf.slice(1, 5);
           dataMapMoObj.selectviewFunds = 'OtherFund';
@@ -232,21 +232,8 @@ export default async function decorate(block) {
     const tablegrp = (param) => {
       const returnValue = [];
       dataMapMoObj.attr = param;
-      const planCode = localStorage.getItem('planCode');
-      let planslabel;
-      if (planCode !== null) {
-        const schode = planCode.split(':')[1];
-        planslabel = schode;
-      } else if (window.location.href.includes('/our-funds/funds-details-page')) {
-        planslabel = 'LM';
-      } else {
-        const path = window.location.pathname.split('/').at(-1);
-        const planobj = dataCfObj.cfDataObjs.filter(
-          (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
-        );
-        planslabel = planobj[0] !== undefined ? planobj[0].schcode : '';
-      }
-      // const planslabel = planCode.split(':')[1];
+      const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+      const planslabel = planCode.split(':')[1];
       const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
       const cfObj = planObj;
       cfObj[0].returns.forEach((ret) => {
@@ -310,43 +297,6 @@ export default async function decorate(block) {
         tablegrp(dataattr);
       });
     });
-    const ary = [];
-    const planCode = localStorage.getItem('planCode');
-    let planslabel;
-    if (planCode !== null) {
-      const schode = planCode.split(':')[1];
-      planslabel = schode;
-    } else if (window.location.href.includes('/our-funds/funds-details-page')) {
-      planslabel = 'LM';
-    } else {
-      const path = window.location.pathname.split('/').at(-1);
-      const planobj = dataCfObj.cfDataObjs.filter(
-        (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
-      );
-      planslabel = planobj[0] !== undefined ? planobj[0].schcode : '';
-    }
-    // const planslabel = planCode.split(':')[1];
-    const planObj = dataCfObj.cfDataObjs.filter(
-      (el) => planslabel === el.schcode,
-    );
-    Array.from(container.querySelector('.headgrp2').children).forEach((el) => ary.push(el));
-    container.querySelector('.headgrp2').innerHTML = '';
-    if (planObj[0].periodicReturnsTc !== '<p>NIL</p>\n') {
-      container.querySelector('.headgrp2').innerHTML += planObj[0].periodicReturnsTc;
-    }
-    ary.forEach((elfor) => {
-      container.querySelector('.headgrp2').append(elfor);
-    });
-    container.querySelector('.default-content-wrapper')
-      .children[1].textContent = '';
-    container.querySelector('.default-content-wrapper')
-      .children[1].textContent = `Data as on ${dataMapMoObj.formatDate(planObj[0].schDetail.nfoStartDate)}`;
-    // console.log(ary);
-    container.querySelector('.headgrp2 .headlist2').removeAttribute('href');
-    container.querySelector('.headgrp2 .headlist2')
-      .addEventListener('click', () => {
-        window.location.href = `${window.location.origin}/mutual-fund/in/en/our-funds`;
-      });
   }
   /// //////////////////////first Tab ////////////////////////////
   function generateBarChart(data) {
@@ -419,21 +369,8 @@ export default async function decorate(block) {
     tabpaneltwo.appendChild(wrapper);
     return wrapper;
   }
-  const planCode = localStorage.getItem('planCode');
-  let planslabel;
-  if (planCode !== null) {
-    const schode = planCode.split(':')[1];
-    planslabel = schode;
-  } else if (window.location.href.includes('/our-funds/funds-details-page')) {
-    planslabel = 'LM';
-  } else {
-    const path = window.location.pathname.split('/').at(-1);
-    const planobj = dataCfObj.cfDataObjs.filter(
-      (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
-    );
-    planslabel = planobj[0] !== undefined ? planobj[0].schcode : '';
-  }
-  // const planslabel = planCode.split(':')[1];
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const planslabel = planCode.split(':')[1];
   const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
   if (block.parentElement.parentElement.classList.contains('tabdiv')) {
     dataMapMoObj.scheme = planObj;
@@ -763,90 +700,4 @@ export default async function decorate(block) {
       }
     });
   });
-
-  if (block.closest('.qglp-tabs')) {
-    const mainwrapper = block.closest('main');
-    const grpwrap = mainwrapper.querySelectorAll('.tab-glp-container');
-    const panel = block.closest('.qglp-tabs').querySelectorAll('.tabs-panel');
-    Array.from(panel).forEach((paneldata, index) => {
-      paneldata.innerHTML = '';
-      const struct = grpwrap[index].cloneNode(true);
-      paneldata.append(struct);
-      struct.style.display = 'block';
-    });
-    Array.from(mainwrapper.children).forEach((elchild) => {
-      if (Array.from(elchild.classList).includes('tab-glp-container')) {
-        elchild.style.display = 'none';
-        elchild.classList.add('hide-section');
-      }
-    });
-  }
-
-
-  // previous studies tab start
-  const previousStudiesCtn = block.closest('.previous-studies-ctn');
-  if (previousStudiesCtn !== null) {
-    dataMapMoObj.CLASS_PREFIXES = ['previous-studies-ex', 'previous-studies-inter', 'previous-studies-wrp', 'previous-studies-cover', 'previous-studies-txt'];
-    dataMapMoObj.addIndexed(previousStudiesCtn);
-  }
-
-  // Wait for the HTML document to be fully loaded
-
-  
-  // Get all the tab buttons
-  const tabsPreviousStudies = document.querySelectorAll('.previous-studies-ctn .tabs-list .tabs-tab');
-
-  if(tabsPreviousStudies){
-
-  // Function to handle switching tabs
-  function switchTab(clickedTab) {
-    // 1. Remove 'active' and 'aria-selected' from all tabs
-    tabsPreviousStudies.forEach(tab => {
-      tab.classList.remove('active');
-      tab.setAttribute('aria-selected', 'false');
-    });
-
-    // 2. Add 'active' and 'aria-selected' to the one you clicked
-    clickedTab.classList.add('active');
-    clickedTab.setAttribute('aria-selected', 'true');
-  }
-
-  // --- Set Initial State ---
-  // Find the tab that is already selected in your HTML
-  const initialActiveTab = document.querySelector('.tabs-tab[aria-selected="true"]');
-  if (initialActiveTab) {
-    initialActiveTab.classList.add('active');
-  }
-
-  // --- Add Click Listeners ---
-  // Add a click event listener to each tab
-  tabsPreviousStudies.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // When a tab is clicked, run the switchTab function
-      switchTab(tab);
-    });
-  });
-}
-
-
-if (block.closest('.previous-studies-ctn')) {
-    const mainwrapper = block.closest('main');
-    const grpwrap = mainwrapper.querySelectorAll('.previous-studies-each-details');
-    const panel = block.closest('.previous-studies-ex2 .previous-studies-inter1').querySelectorAll('.tabs-panel');
-    Array.from(panel).forEach((paneldata, index) => {
-      paneldata.innerHTML = '';
-      const struct = grpwrap[index].cloneNode(true);
-      paneldata.append(struct);
-      struct.style.display = 'block';
-    });
-    Array.from(mainwrapper.children).forEach((elchild) => {
-      if (Array.from(elchild.classList).includes('previous-studies-each-details')) {
-        elchild.style.display = 'none';
-        // elchild.classList.add('hide-section');
-        elchild.remove();
-      }
-    });
-  }
-// previous studies tab end
-
 }

@@ -131,33 +131,4 @@ export default function decorate(block) {
     },
   });
   return block;
-  // let config;
-  // if (block.closest('.moedge-article-main')) {
-  //   config = {
-  //     slidesPerView: '1.2',
-  //     spaceBetween: 12,
-  //     loop: true,
-  //     navigation, // will be false if no buttons
-  //     breakpoints: {
-  //       769: {
-  //         slidesPerView: '1.2',
-  //         spaceBetween: 16,
-  //       },
-  //     },
-  //   };
-  // } else {
-  //   config = {
-  //     slidesPerView: 'auto',
-  //     spaceBetween: 12,
-  //     loop: true,
-  //     navigation, // will be false if no buttons
-  //     breakpoints: {
-  //       769: {
-  //         spaceBetween: 16,
-  //       },
-  //     },
-  //   };
-  // }
-  // Swiper(block, config);
-  // return block;
 }

@@ -20,14 +20,9 @@ import {
 import '../../scripts/flatpickr.js';
 import dataCfObj from '../../scripts/dataCfObj.js';
 import dataMapMoObj from '../../scripts/constant.js';
-import {
-  myAPI,
-} from '../../scripts/scripts.js';
+import { myAPI } from '../../scripts/scripts.js';
 
-const delay = (ms) => new Promise((resolve) => {
-  setTimeout(resolve, ms);
-});
-
+const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 async function removeClassAfterDelay() {
   const closestParam = document.querySelector('main');
   await delay(1200);
@@ -162,30 +157,17 @@ export async function existingUser(paramblock) {
   inputLable.innerHTML = '';
 
   const addInputDiv = div(
-    {
-      class: 'input-wrapper',
-    },
-    label({
-      class: 'panlabel',
-    }, 'Enter PAN'),
+    { class: 'input-wrapper' },
+    label({ class: 'panlabel' }, 'Enter PAN'),
     input({
       type: 'text',
       placeholder: '',
       name: 'pan',
       class: 'iptpanfld',
       maxlength: '10',
-      autocomplete: 'off',
     }),
-    img({
-      class: 'error-icon cancel-error',
-      src: '/icons/icon-error.svg',
-      alt: 'Cross Icon',
-    }),
-    img({
-      class: 'error-icon cancel-icon',
-      src: '/icons/remove-circle.svg',
-      alt: 'Cross Icon',
-    }),
+    img({ class: 'error-icon cancel-error', src: '/icons/icon-error.svg', alt: 'Cross Icon' }),
+    img({ class: 'error-icon cancel-icon', src: '/icons/remove-circle.svg', alt: 'Cross Icon' }),
   );
 
   dataMapMoObj.panDlts.isGuest = 'false';
@@ -233,37 +215,8 @@ export async function existingUser(paramblock) {
         reqminfor,
         header,
       );
-      const errordata = closestParam.querySelector('.reset-passcode .otp-field-wrap');
-      if (Array.from(errordata.classList).includes('otp-fail')) {
-        errordata.classList.remove('otp-fail');
-      }
-      const reerrdata = closestParam.querySelector('.reset-passcode .new-pass-wrap');
-      if (Array.from(reerrdata.classList).includes('passcode-fail')) {
-        reerrdata.classList.remove('passcode-fail');
-      }
-      const conferrdata = closestParam.querySelector('.conf-pass-wrap');
-      if (Array.from(conferrdata.classList).includes('passcode-fail')) {
-        conferrdata.classList.remove('passcode-fail');
-      }
       // console.log(rejsin);.
       window.alert(rejsin.message);
-      const resetopt = closestParam.querySelectorAll('.reset-passcode .otp-wrap input');
-      Array.from(resetopt).forEach((el) => {
-        el.value = '';
-      });
-
-      const resetpass = closestParam.querySelectorAll('.reset-passcode .new-pass-wrap .pass-wrap input');
-      Array.from(resetpass).forEach((el) => {
-        el.value = '';
-        el.closest('.pass-wrap').classList.remove('valid-inp');
-      });
-
-      const confpass = closestParam.querySelectorAll('.reset-passcode .conf-pass-wrap .new-pass-wrap .pass-wrap input');
-      Array.from(confpass).forEach((el) => {
-        el.value = '';
-        el.closest('.pass-wrap').classList.remove('valid-inp');
-      });
-
       panForm.classList.add('show-element');
       panForm.classList.remove('hide-element');
       panForm.querySelector('.iptpanfld').value = '';
@@ -300,7 +253,6 @@ export async function existingUser(paramblock) {
         UserAgent: 'WEB/MultipleCampaign',
       };
       const passclass = closestParam.querySelector('.two-step-auth .twostepinner2');
-      const forgtxt = closestParam.querySelector('.two-step-auth .twostepmain2 .twostepsub3 .twostepinner4');
       const rejsin = await myAPI(
         'POST',
         'https://api.moamc.com/loginapi/api/Login/AuthenticateUserCred',
@@ -308,10 +260,6 @@ export async function existingUser(paramblock) {
         header,
       );
       if (rejsin.data && rejsin.data.userInfo) {
-        const painput = passclass.querySelectorAll('input');
-        Array.from(painput).forEach((elinp) => {
-          elinp.value = '';
-        });
         document.cookie = `token= ${rejsin.data.accessToken}`;
         document.cookie = `refreshToken= ${rejsin.data.refreshToken}`;
         localStorage.setItem('userObj', JSON.stringify(rejsin.data.userInfo));
@@ -322,83 +270,36 @@ export async function existingUser(paramblock) {
         }
         passclass.classList.add('passcode-success');
         window.location.href = 'https://mf.moamc.com/mutualfund/portfolio';
-        const passscreen = closestParam.querySelectorAll('.two-step-auth .twostepmain2 .passcode-inp-wrap input');
-        Array.from(passscreen).forEach((el) => {
-          el.value = '';
-          el.closest('.passcode-field').classList.remove('valid-inp');
-        });
       } else {
         passclass.classList.add('passcode-fail');
-        forgtxt.style.display = 'block';
       }
     } catch (error) {
       // console.log(error);
     }
   }
 
-  dataMapMoObj.moveCursorToEnd = (myInput) => {
-    const len = myInput.value.length;
-    myInput.setSelectionRange(len, len);
-  };
-
   function passCodeValidation(passpoint) {
     passpoint.forEach((inputelfac, index) => {
       inputelfac.setAttribute('maxLength', 1);
-    passpoint.forEach((inputelfac, index) => {
-      inputelfac.setAttribute('maxLength', 1);
-
-      inputelfac.addEventListener('click', () => {
-        dataMapMoObj.moveCursorToEnd(inputelfac);
-      });
-      inputelfac.addEventListener('click', () => {
-        dataMapMoObj.moveCursorToEnd(inputelfac);
-      });
-
       inputelfac.addEventListener('input', () => {
         inputelfac.value = inputelfac.value.replace(/[^0-9]/g, '');
-        if (inputelfac.value.length === 1 && index < passpoint.length) {
-          if (passpoint[index + 1]) {
-            passpoint[index + 1].focus();
-          } else {
-            passpoint[index].focus();
-          }
-          // Add valid class for various contexts
-          if (inputelfac.closest('.two-step-auth')) {
-            inputelfac.closest('.passcode-field').classList.add('valid-inp');
-          }
-          if (inputelfac.closest('.new-passcode')) {
-            inputelfac.closest('.pass-wrap').classList.add('valid-inp');
-          }
-          if (inputelfac.closest('.conf-passcode')) {
-            inputelfac.closest('.pass-wrap').classList.add('valid-inp');
-          }
+        if (inputelfac.value.length === 1 && index < passpoint.length - 1) {
+          passpoint[index + 1].focus();
         }
-        dataMapMoObj.moveCursorToEnd(inputelfac);
       });
-
       inputelfac.addEventListener('keydown', (event) => {
         const totalInputs = passpoint.length;
-
-        // 🚫 Disable ArrowUp and ArrowDown keys completely
-        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-          event.preventDefault(); // Stop cursor from moving
-          event.stopPropagation(); // Prevent event from bubbling
-          return; // Exit early
-        }
-
-        // Prevent default for side arrow keys
         if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
           event.preventDefault();
         }
-
         switch (event.key) {
           case 'Tab':
             if (!event.shiftKey && index === totalInputs - 1) {
               event.preventDefault();
-              passpoint[0].focus(); // Loop to first input
+              passpoint[0].focus();
             } else if (event.shiftKey && index === 0) {
               event.preventDefault();
-              passpoint[totalInputs - 1].focus(); // Loop to last input
+              passpoint[totalInputs - 1].focus();
             }
             break;
 
@@ -407,60 +308,24 @@ export async function existingUser(paramblock) {
             passpoint[nextIndex].focus();
             break;
           }
-
           case 'ArrowLeft': {
+            // Move to the previous input, or wrap to the last
             const prevIndex = (index - 1 + totalInputs) % totalInputs;
             passpoint[prevIndex].focus();
             break;
           }
-
-          case 'Enter':
-          // ...existing Enter handling logic...
-            break;
-
           case 'Backspace':
-            // inputelfac.value = '';
             if (inputelfac.value.length === 0 && index > 0) {
-              dataMapMoObj.moveCursorToEnd(inputelfac);
               passpoint[index - 1].focus();
-
-              // Remove valid class when going back
-              if (inputelfac.closest('.two-step-auth')) {
-                inputelfac.closest('.passcode-field').classList.remove('valid-inp');
-              }
-              if (inputelfac.closest('.new-passcode')) {
-                passpoint[index - 1].closest('.pass-wrap').classList.remove('valid-inp');
-              }
-              if (inputelfac.closest('.conf-passcode')) {
-                inputelfac.closest('.pass-wrap').classList.remove('valid-inp');
-              }
-            } else if (inputelfac.value.length === 1) {
-              dataMapMoObj.moveCursorToEnd(inputelfac);
-              passpoint[index].focus();
-
-              if (inputelfac.closest('.two-step-auth')) {
-                inputelfac.closest('.passcode-field').classList.remove('valid-inp');
-              }
-              if (inputelfac.closest('.new-passcode')) {
-                passpoint[index - 1].closest('.pass-wrap').classList.remove('valid-inp');
-              }
-              if (inputelfac.closest('.conf-passcode')) {
-                inputelfac.closest('.pass-wrap').classList.remove('valid-inp');
-              }
             }
-            // if (inputelfac.value.length === 0) {
-            //   if (inputelfac.closest('.new-passcode')) {
-            //     inputelfac.closest('.pass-wrap').classList.remove('valid-inp');
-            //   }
-            // }
             break;
-
           default:
             break;
         }
       });
     });
   }
+
   async function apiAuth(params) {
     try {
       const reqAuth = {
@@ -490,10 +355,6 @@ export async function existingUser(paramblock) {
       );
       if (rejsin.data !== 'null' && rejsin.data.userInfo) {
         const twoAuth = closestParam.querySelector('.two-step-auth');
-        const otpfield = closestParam.querySelectorAll('.otp-fdp .otp-field input');
-        Array.from(otpfield).forEach((el) => {
-          el.value = '';
-        });
         const resetscreen = closestParam.querySelector('.reset-passcode');
         // twoAuth.style.display = 'block';
         // const boolpin = rejsin.data.userInfo.mPinFlag;
@@ -530,7 +391,7 @@ export async function existingUser(paramblock) {
             apiPasscode(panNum);
           }
         });
-        const forgetbtn = twoAuth.querySelector('.twostepmain2 .twostepinner4');
+        const forgetbtn = twoAuth.querySelector('.twostepmain2 .twostepsub4');
         forgetbtn.addEventListener('click', () => {
           twoAuth.classList.remove('show-element');
           twoAuth.classList.add('hide-element');
@@ -541,35 +402,6 @@ export async function existingUser(paramblock) {
           resetscreen.classList.add('modal-show');
           resetscreen.classList.remove('hide-modal');
           dataMapMoObj.passcode(resetscreen);
-          const passscreen = closestParam.querySelectorAll('.two-step-auth .twostepmain2 .passcode-inp-wrap input');
-          const fieldcreen = closestParam.querySelector('.two-step-auth .twostepmain2 .passcode-inp-wrap');
-          fieldcreen.classList.remove('passcode-fail');
-          Array.from(passscreen).forEach((el) => {
-            el.value = '';
-            el.closest('.passcode-field').classList.remove('valid-inp');
-          });
-          const fieldcreenre = closestParam.querySelector('.resetpasscode2 .otp-field-wrap');
-          try {
-            fieldcreenre.classList.remove('otp-success');
-            fieldcreenre.classList.remove('passcode-fail');
-          } catch (error) {
-            console.log('asdcv');
-          }
-          const repassscreen = closestParam.querySelectorAll('.resetpasscode2 .otp-field-wrap input');
-          Array.from(repassscreen).forEach((el) => {
-            el.value = '';
-            // el.closest('.passcode-field').classList.remove('valid-inp');
-          });
-          const confpass = closestParam.querySelectorAll('.resetpasscode2 .conf-passcode input');
-          Array.from(confpass).forEach((el) => {
-            el.value = '';
-            el.closest('.pass-wrap').classList.remove('valid-inp');
-          });
-          const resetpass = closestParam.querySelectorAll('.resetpasscode2 .new-pass-wrap input');
-          Array.from(resetpass).forEach((el) => {
-            el.value = '';
-            el.closest('.pass-wrap').classList.remove('valid-inp');
-          });
         });
         // }
         // document.cookie = `accessToken= ${rejsin.data.accessToken}`;
@@ -664,7 +496,7 @@ export async function existingUser(paramblock) {
         confirmpass.querySelector('.passcode-field-wrap').classList
           .remove('passcode-success');
       }
-      if (dataMapMoObj.setmpin.otpval.length < 6) {
+      if (dataMapMoObj.setmpin.confirmpass.length < 6) {
         resentpass.querySelector('.otp-field-wrap')
           .classList.add('otp-fail');
         resentpass.querySelector('.otp-field-wrap')
@@ -782,21 +614,6 @@ export async function existingUser(paramblock) {
       // console.log(error);
     }
   }
-  dataMapMoObj.otpcount = 0;
-  async function myDelayedLogic() {
-    await delay(30000);
-    if (dataMapMoObj.otpcount < 4) {
-      closestParam.querySelector('.otp-fdp .resend-btn').style.display = 'block';
-    }
-    closestParam.querySelector('.otp-fdp .resend-btn')
-      .addEventListener('click', () => {
-        dataMapMoObj.otpcount += 1;
-        if (dataMapMoObj.otpcount < 6) {
-          const paramPan = dataMapMoObj.panDlts.pannumber;
-          dataMapMoObj.otpCallpan(paramPan);
-        }
-      });
-  }
 
   async function otpCall(param) {
     try {
@@ -826,18 +643,6 @@ export async function existingUser(paramblock) {
         header,
       );
       if (rejsin.data !== null) {
-        try {
-          closestParam.querySelector('.otp-fdp .main-otp-con2 .sub-otp-con4 .inner-otp-con3').style.display = 'none';
-          // .classList.remove('.otp-fail');
-          closestParam.querySelector('.otp-fdp .main-otp-con2 .otp-field')
-            .classList.remove('.otp-fail');
-          closestParam.querySelector('.otp-fdp .main-otp-con2 .otp-field')
-            .classList.remove('.otp-succes');
-        } catch (error) {
-          // .erricon.
-        }
-        closestParam.querySelector('.otp-fdp .resend-btn')
-          .style.display = 'none';
         const subtext = pansuccessForm.querySelector('.main-otp-con2 .sub-otp-con5');
         subtext.textContent = '';
         subtext.textContent = rejsin.data;
@@ -865,19 +670,10 @@ export async function existingUser(paramblock) {
             apiAuth(panNum);
           }
         });
-        myDelayedLogic();
       } else if (rejsin.message.toLocaleLowerCase() !== 'successful') {
         const subtext = pansuccessForm.querySelector('.sub-otp-con3');
         subtext.textContent = '';
         subtext.textContent = rejsin.message;
-        if (rejsin.message === 'You are logged in on another browser. Please log out from there.') {
-          window.alert(rejsin.message);
-          kycForm.classList.add('hide-element');
-          panForm.classList.add('show-element');
-          panForm.classList.remove('hide-element');
-          pansuccessForm.classList.remove('show-element');
-          pansuccessForm.classList.add('hide-element');
-        }
       }
     } catch (error) {
       // console.log(error);
@@ -902,8 +698,7 @@ export async function existingUser(paramblock) {
 
       const KRA_VERIFIED = ['002', '102', '202', '302', '402', '502'];
       const KRA_VALIDATED = ['007', '107', '207', '307', '407', '507', '011', '111', '211', '311',
-        '411', '511', '012', '112', '212', '312', '412', '512',
-      ];
+        '411', '511', '012', '112', '212', '312', '412', '512'];
       if (KRA_VERIFIED.includes(rejsin.data.cvlAppStatus)) {
         localStorage.setItem('kraVerified', 'Y');
       }
@@ -947,26 +742,8 @@ export async function existingUser(paramblock) {
         panForm.classList.remove('show-modal');
         const inputs = pansuccessForm.querySelectorAll('.otp-wrap input');
         dataMapMoObj.otpinput(inputs);
-        let countlingLimit;
-        if (localStorage.getItem(dataMapMoObj.panDlts.pannumber)
-          && dataMapMoObj.panDlts.pannumber !== undefined) {
-          let item = localStorage.getItem(dataMapMoObj.panDlts.pannumber);
-          item = Number(item) + 1;
-          countlingLimit = item;
-          localStorage.setItem(dataMapMoObj.panDlts.pannumber, item);
-        } else {
-          localStorage.setItem(dataMapMoObj.panDlts.pannumber, 1);
-          countlingLimit = 1;
-        }
-        if (countlingLimit < 6) {
-          otpCall(param);
-        } else {
-          pansuccessForm.querySelector('.main-otp-con2 .sub-otp-con4 .inner-otp-con3')
-            .textContent = 'Too many attempts. Please try again after 24 hours.';
-          pansuccessForm.querySelector('.main-otp-con2 .sub-otp-con4 .inner-otp-con3')
-            .style.display = 'block';
-        }
-        dataMapMoObj.otpLimit = countlingLimit;
+        otpCall(param);
+        dataMapMoObj.otpLimit = 1;
       } else {
         kycForm.style.display = 'block';
         panForm.style.display = 'none';
@@ -1000,15 +777,13 @@ export async function existingUser(paramblock) {
         Array.from(clearbtn).forEach((clear) => {
           clear.addEventListener('click', (prev) => {
             prev.target.previousElementSibling.value = '';
-            prev.target.closest('.detail-field').classList.remove('show-error');
-            prev.target.previousElementSibling.focus();
           });
         });
         const continueBTN = classAddv3.querySelector('.tnc-container .button-container .button');
         continueBTN.removeAttribute('href');
         const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
-        const phoneRegex = /^(?!(\d)\1{9}$)[6-9]\d{9}$/;
-        const emailRegex = /^(?=.{6,30}@)[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9.-]+\.[a-z]{2,}$/i;
+        const phoneRegex = /^\d{10}$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         const usernameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
 
         userLoginPanNumber.addEventListener('input', (e) => {
@@ -1037,9 +812,7 @@ export async function existingUser(paramblock) {
           }
         });
         userNm.addEventListener('input', (e) => {
-          let inputValue = e.target.value.toUpperCase();
-          e.target.value = inputValue.replace(/[^a-zA-Z ]/g, '');
-          inputValue = e.target.value;
+          const inputValue = e.target.value.toUpperCase();
           const errorPanEl = e.target.parentElement;
           if (usernameRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
@@ -1051,25 +824,21 @@ export async function existingUser(paramblock) {
               && usernameRegex.test(userNm.value)) {
               continueBTN.classList.add('active-form-btn');
             }
-          } else if (inputValue.length === 0) {
-            errorPanEl.classList.remove('show-error');
-            errorPanEl.classList.add('active');
           } else {
             errorPanEl.classList.add('show-error');
             errorPanEl.classList.add('active');
             continueBTN.classList.remove('active-form-btn');
           }
-        });
-        userNm.addEventListener('focusout', () => {
-          if (userNm.value.length === 0) {
-            userNm.parentElement.classList.remove('active');
+
+          if (inputValue.length === 0) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.remove('active');
           }
         });
         userNo.addEventListener('input', (e) => {
-          let inputValue = e.target.value.toUpperCase();
+          const inputValue = e.target.value.toUpperCase();
           const errorPanEl = e.target.parentElement;
           e.target.value = inputValue.replace(/[^0-9]/g, '');
-          inputValue = e.target.value;
           if (phoneRegex.test(inputValue)) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('active');
@@ -1080,18 +849,14 @@ export async function existingUser(paramblock) {
               && usernameRegex.test(userNm.value)) {
               continueBTN.classList.add('active-form-btn');
             }
-          } else if (inputValue.length === 0) {
-            errorPanEl.classList.remove('show-error');
-            errorPanEl.classList.add('active');
           } else {
             errorPanEl.classList.add('show-error');
             errorPanEl.classList.add('active');
             continueBTN.classList.remove('active-form-btn');
           }
-        });
-        userNo.addEventListener('focusout', () => {
-          if (userNo.value.length === 0) {
-            userNo.parentElement.classList.remove('active');
+          if (inputValue.length === 0) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.remove('active');
           }
         });
         userem.addEventListener('input', (e) => {
@@ -1107,34 +872,29 @@ export async function existingUser(paramblock) {
               && usernameRegex.test(userNm.value)) {
               continueBTN.classList.add('active-form-btn');
             }
-          } else if (inputValue.length === 0) {
-            errorPanEl.classList.remove('show-error');
-            errorPanEl.classList.remove('active');
           } else {
             errorPanEl.classList.add('active');
             errorPanEl.classList.add('show-error');
             continueBTN.classList.remove('active-form-btn');
           }
-        });
-        userem.addEventListener('focusout', () => {
-          if (userem.value.length === 0) {
-            userem.parentElement.classList.remove('active');
+          if (inputValue.length === 0) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.remove('active');
           }
         });
         usercity.addEventListener('input', (e) => {
-          let inputValue = e.target.value.toUpperCase();
+          const inputValue = e.target.value.toUpperCase();
           const errorPanEl = e.target.parentElement;
-          e.target.value = inputValue.replace(/[^a-zA-Z ]/g, '');
-          inputValue = e.target.value;
           if (inputValue.length !== 0) {
             errorPanEl.classList.remove('show-error');
             errorPanEl.classList.add('active');
-          } else if (inputValue.length === 0) {
-            errorPanEl.classList.remove('show-error');
-            errorPanEl.classList.remove('active');
           } else {
             errorPanEl.classList.add('show-error');
             errorPanEl.classList.add('active');
+          }
+          if (inputValue.length === 0) {
+            errorPanEl.classList.remove('show-error');
+            errorPanEl.classList.remove('active');
           }
         });
         if (boolkyc === 'true') {
@@ -1151,37 +911,17 @@ export async function existingUser(paramblock) {
       // console.log(error);
     }
   }
-
   function otpValidation(inputs) {
     inputs.forEach((inputel, index) => {
       inputel.setAttribute('maxLength', 1);
-
-      inputel.addEventListener('focus', () => {
-        inputel.setSelectionRange(inputel.value.length, inputel.value.length);
-      });
-
-      dataMapMoObj.moveCursorToEnd(inputel);
-
-      inputel.addEventListener('click', () => {
-        dataMapMoObj.moveCursorToEnd(inputel);
-      });
-
       inputel.addEventListener('input', () => {
-        dataMapMoObj.moveCursorToEnd(inputel);
         inputel.value = inputel.value.replace(/[^0-9]/g, '');
         if (inputel.value.length === 1 && index < inputs.length - 1) {
           inputs[index + 1].focus();
         }
       });
-
       inputel.addEventListener('keydown', (event) => {
         const totalInputs = inputs.length;
-
-        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-          event.preventDefault();
-          event.stopPropagation();
-          return;
-        }
         if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
           event.preventDefault();
         }
@@ -1201,59 +941,23 @@ export async function existingUser(paramblock) {
             inputs[nextIndex].focus();
             break;
           }
-
           case 'ArrowLeft': {
+            // Move to the previous input, or wrap to the last
             const prevIndex = (index - 1 + totalInputs) % totalInputs;
             inputs[prevIndex].focus();
             break;
           }
-
-          case 'Enter': {
-            if (inputel.closest('.otp-fdp')) {
-              const subevent = closestParam.querySelector('.main-otp-con2 .sub-otp-con6');
-              subevent.classList.add('sbmt-active');
-              const param = closestParam.querySelector('.main-otp-con2 .sub-otp-con3 input').value;
-              const inotp = pansuccessForm.querySelectorAll('.otp-wrap input');
-              if (dataMapMoObj.otpLimit < 6) {
-                if (subevent.querySelector('.inner-otp-con1')) {
-                  subevent.querySelector('.inner-otp-con1').removeAttribute('href');
-                }
-                subevent.addEventListener('click', () => {
-                  let optValue = '';
-                  inotp.forEach((elfor) => {
-                    optValue += elfor.value;
-                  });
-                  if (optValue.length < 6) {
-                    pansuccessForm.querySelector('.otpfield').classList.add('otp-failed');
-                  } else {
-                    const panNum = {
-                      panNo: param,
-                      optNo: optValue,
-                      otpField: pansuccessForm.querySelector('.otpfield'),
-                    };
-                    apiAuth(panNum);
-                  }
-                });
-                subevent.click();
-              }
-            }
-            break;
-          }
-
           case 'Backspace':
             if (inputel.value.length === 0 && index > 0) {
               inputs[index - 1].focus();
-              dataMapMoObj.moveCursorToEnd(inputel);
             }
             break;
-
           default:
             break;
         }
       });
     });
   }
-
   dataMapMoObj.otpinput = otpValidation;
   // ModifyKyc API  start
   //  https://api.moamc.com/prelogin/api/KYC/KYCProcess
@@ -1282,7 +986,7 @@ export async function existingUser(paramblock) {
       };
       const continueBTN = document.querySelector('.tnc-container .button-container .button');
       if (Array.from(continueBTN.classList).includes('active-form-btn')) {
-        // lmsentCall(formdata);
+      // lmsentCall(formdata);
         modiFyKycApicall(formdata);
       }
     });
@@ -1334,21 +1038,8 @@ export async function existingUser(paramblock) {
       }
 
       if (window.location.href.includes('/our-funds/funds-details-page')) {
-        const planCodesh = localStorage.getItem('planCode');
-        let planslabel;
-        if (planCodesh !== null) {
-          const schode = planCodesh.split(':')[1];
-          planslabel = schode;
-        } else if (window.location.href.includes('/our-funds/funds-details-page')) {
-          planslabel = 'LM';
-        } else {
-          const path = window.location.pathname.split('/').at(-1);
-          const planobj = dataCfObj.cfDataObjs.filter(
-            (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
-          );
-          planslabel = planobj[0].schcode;
-        }
-        // const planslabel = planCodesh.split(':')[1];
+        const planCodesh = localStorage.getItem('planCode') || 'Direct:LM';
+        const planslabel = planCodesh.split(':')[1];
         const schemeCode = planslabel;
         const parcloset = closestParam.querySelector('.fdp-card-container');
         const paranearby = parcloset.querySelector('.dropdownmidle .selecttext');
@@ -1358,9 +1049,7 @@ export async function existingUser(paramblock) {
         const optioncode = dataplan[0].planList
           .filter((elop) => elop.groupedCode === planCodenearby);
         const sOptCode = optioncode[0].optionCode; //
-        const {
-          planCode,
-        } = optioncode[0];
+        const { planCode } = optioncode[0];
         const existingQueryParams = '?';
 
         const redirectURL = `/quickbuy?fund=${schemeCode}&plan=${planCode}&amcPlan=${amcPlanCode}&option=${sOptCode}${existingQueryParams}&landingPage=true`;
@@ -1442,11 +1131,6 @@ export async function existingUser(paramblock) {
       inputLable.querySelector('input').value = '';
       inputLable.querySelector('.input-wrapper').classList.remove('show-error');
       inputLable.querySelector('.input-wrapper').classList.remove('active');
-      if (el.closest('.mainpandts1')) {
-        const mainoan = el.closest('.mainpandts1');
-        const maindlt = mainoan.querySelector('.subpandts3 .innerpandts1');
-        maindlt.classList.remove('pan-active');
-      }
     });
   });
 
@@ -1476,12 +1160,6 @@ export async function existingUser(paramblock) {
     }
   });
 
-  inputLable.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      // console.log('hELLO');
-      authenticateClick.click();
-    }
-  });
   document.addEventListener('click', (event) => {
     if (!closestParam.querySelector('.dropdown-wrap').contains(event.target)) {
       closestParam.querySelector('.dropdown-wrap')
@@ -1520,27 +1198,11 @@ function loadCSS(href) {
 // Helper function to create a custom dropdown
 function createCustomDropdown(id, labelText, options, defaultValue) {
   return div(
-    {
-      class: 'custom-select-wrapper',
-      id: `custom-select-${id}`,
-    },
-    label({
-      class: 'custom-select-label',
-    }, labelText),
-    p({
-      class: 'select-selected',
-    }, defaultValue),
-    ul({
-      class: 'select-options',
-    }, ...options.map((opt) => li({
-      class: 'select-list',
-      'data-value': opt,
-    }, opt))),
-    input({
-      type: 'hidden',
-      id,
-      value: defaultValue,
-    }),
+    { class: 'custom-select-wrapper', id: `custom-select-${id}` },
+    label({ class: 'custom-select-label' }, labelText),
+    p({ class: 'select-selected' }, defaultValue),
+    ul({ class: 'select-options' }, ...options.map((opt) => li({ class: 'select-list', 'data-value': opt }, opt))),
+    input({ type: 'hidden', id, value: defaultValue }),
   );
 }
 
@@ -1582,58 +1244,37 @@ export default function decorate(block) {
         // Table  thead
 
         const theadmain = thead(
-          {
-            class: 'sip-thead-lt',
-          },
+          { class: 'sip-thead-lt' },
           tr(
-            {
-              class: 'lthead-row',
-            },
-            ...Array.from(theadrowdata).map((headrow, i) => th({
-              class: `lt-head lt-head-${i + 1}`,
-            }, headrow.textContent)),
+            { class: 'lthead-row' },
+            ...Array.from(theadrowdata).map((headrow, i) => th({ class: `lt-head lt-head-${i + 1}` }, headrow.textContent)),
           ),
         );
 
         // Table tbody
 
         const tbodymain = tbody(
-          {
-            class: 'sip-tbody-lt',
-          },
+          { class: 'sip-tbody-lt' },
           ...tbodyrow.map((bodyrow) => {
             const bodyrowul = bodyrow.querySelector('.table-list');
             const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
             if (bodyrowuldata.length === 1) {
               return tr(
-                {
-                  class: 'ltbody-row',
-                },
-                td({
-                  class: 'lt-body lt-body-fulltxt',
-                  colspan: tdcolspan,
-                }, bodyrowul.textContent),
+                { class: 'ltbody-row' },
+                td({ class: 'lt-body lt-body-fulltxt', colspan: tdcolspan }, bodyrowul.textContent),
               );
             }
             return tr(
-              {
-                class: 'ltbody-row',
-              },
-              ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({
-                class: `lt-body lt-body-${i + 1}`,
-              }, bodyuldata.textContent)),
+              { class: 'ltbody-row' },
+              ...Array.from(bodyrowuldata).map((bodyuldata, i) => td({ class: `lt-body lt-body-${i + 1}` }, bodyuldata.textContent)),
             );
           }),
         );
 
         const tableLi = li(
-          {
-            class: 'sip-table-wrap',
-          },
+          { class: 'sip-table-wrap' },
           table(
-            {
-              class: 'sip-table',
-            },
+            { class: 'sip-table' },
             theadmain,
             tbodymain,
           ),
@@ -1664,25 +1305,17 @@ export default function decorate(block) {
 
       // Table thead
       const theadmain = thead(
-        {
-          class: 'graph-thead-rt',
-        },
+        { class: 'graph-thead-rt' },
         tr(
-          {
-            class: 'rthead-row',
-          },
-          ...Array.from(theadrowdata).map((headrow, i) => th({
-            class: `rt-head rt-head-${i + 1}`,
-          }, headrow.textContent)),
+          { class: 'rthead-row' },
+          ...Array.from(theadrowdata).map((headrow, i) => th({ class: `rt-head rt-head-${i + 1}` }, headrow.textContent)),
         ),
       );
 
       // Table tbody
 
       const tbodymain = tbody(
-        {
-          class: 'graph-tbody-rt',
-        },
+        { class: 'graph-tbody-rt' },
         ...tbodyrow.map((bodyrow, i) => {
           const bodyrowul = bodyrow.querySelector('.table-list');
           const bodyrowuldata = bodyrowul.querySelectorAll('.data-list');
@@ -1690,36 +1323,23 @@ export default function decorate(block) {
             const datainnerhtml = bodyrowul.innerHTML.trim();
             const maininnerdata = datainnerhtml.replace('<li', '<div').replace('</li', '</div');
             const divtab = tr(
-              {
-                class: `rtbody-row rtbody-row-${i + 1}`,
-              },
-              td({
-                class: 'rt-body rt-body-fullcontent',
-                colspan: tdcolspan,
-              }),
+              { class: `rtbody-row rtbody-row-${i + 1}` },
+              td({ class: 'rt-body rt-body-fullcontent', colspan: tdcolspan }),
             );
             divtab.querySelector('.rt-body-fullcontent').innerHTML = maininnerdata;
             return divtab;
           }
           return tr(
-            {
-              class: 'rtbody-row',
-            },
-            ...Array.from(bodyrowuldata).map((bodyuldata) => td({
-              class: `rt-body rt-body-${i + 1}`,
-            }, bodyuldata.textContent)),
+            { class: 'rtbody-row' },
+            ...Array.from(bodyrowuldata).map((bodyuldata) => td({ class: `rt-body rt-body-${i + 1}` }, bodyuldata.textContent)),
           );
         }),
       );
 
       const tablegraph = li(
-        {
-          class: 'sip-table-graph',
-        },
+        { class: 'sip-table-graph' },
         table(
-          {
-            class: 'table-graph-wrap',
-          },
+          { class: 'table-graph-wrap' },
           // thead(
           //   { class: 'graph-thead-rt' },
           //   tr(
@@ -1808,7 +1428,7 @@ export default function decorate(block) {
     });
     addcardSec.querySelector('.addcartsub4 .addcartinner2').addEventListener('click', () => {
       localStorage.clear();
-      window.location.href = `${window.location.origin}/mutual-fund/in/en/our-funds`;
+      window.location.href = `${window.location.origin}/in/en/mutual-fund/our-funds`;
     });
     // return false;
   }
@@ -1826,80 +1446,36 @@ export default function decorate(block) {
     const twostpcrossbtn = twoStepAuthMain.querySelector('.twostepsub6').cloneNode(true);
     twoStepAuthMain.querySelector('.twostepmain1').style.display = 'none';
     const twoStepMainStr = div(
-      {
-        class: 'two-step-wrap',
-      },
-      div({
-        class: 'modal-cross-wrap',
-      }, twostpcrossbtn),
-      h2({
-        class: 'two-step-heading',
-      }, twoStpTitle),
+      { class: 'two-step-wrap' },
+      div({ class: 'modal-cross-wrap' }, twostpcrossbtn),
+      h2({ class: 'two-step-heading' }, twoStpTitle),
       div(
-        {
-          class: 'passcode-wrap',
-        },
-        p({
-          class: 'passcode-label',
-        }, twostppasscodelabel),
+        { class: 'passcode-wrap' },
+        p({ class: 'passcode-label' }, twostppasscodelabel),
         div(
-          {
-            class: 'passcode-inp-wrap',
-          },
+          { class: 'passcode-inp-wrap' },
           div(
-            {
-              class: 'passcode-field',
-            },
-            input({
-              type: 'password',
-              class: 'passcode-inp',
-              maxlength: '1',
-            }),
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1', placeholder:'' }),
           ),
           div(
-            {
-              class: 'passcode-field',
-            },
-            input({
-              type: 'password',
-              class: 'passcode-inp',
-              maxlength: '1',
-            }),
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1', placeholder:'' }),
           ),
           div(
-            {
-              class: 'passcode-field',
-            },
-            input({
-              type: 'password',
-              class: 'passcode-inp',
-              maxlength: '1',
-            }),
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1', placeholder:'' }),
           ),
           div(
-            {
-              class: 'passcode-field',
-            },
-            input({
-              type: 'password',
-              class: 'passcode-inp',
-              maxlength: '1',
-            }),
+            { clasS: 'passcode-field' },
+            input({ type: 'password', class: 'passcode-inp', maxlength: '1', placeholder:'' }),
           ),
         ),
-        span({
-          class: 'passcode-error',
-        }, 'Incorrect Passcode'),
-        button({
-          class: 'frgt-pass-btn',
-        }, twostpfrgtpass),
+        span({ class: 'passcode-error' }, 'Incorrect OTP'),
+        button({ class: 'frgt-pass-btn' }, twostpfrgtpass),
       ),
-      button({
-        class: 'cont-btn',
-      }, twostpcontbtn),
-      div({
-        class: 'terms-cons',
-      }, twostpterms),
+      button({ class: 'cont-btn' }, twostpcontbtn),
+      div({ class: 'terms-cons' }, twostpterms),
     );
     if (!twoStepAuthMain.querySelector('.two-step-wrap')) {
       twoStepAuthMain.append(twoStepMainStr);
@@ -1964,46 +1540,26 @@ export default function decorate(block) {
       modalstepOne.style.display = 'flex';
     });
     divstepup = div(
-      {
-        class: 'steup-container',
-      },
+      { class: 'steup-container' },
       div(
-        {
-          class: 'stepup-checkbox',
-        },
+        { class: 'stepup-checkbox' },
         checkboxcont,
-        div({
-          class: 'discripone',
-        }, fieldlabel1),
+        div({ class: 'discripone' }, fieldlabel1),
       ),
       div(
-        {
-          class: 'form-container',
-        },
+        { class: 'form-container' },
         div(
-          {
-            class: 'input-wrapper',
-          },
+          { class: 'input-wrapper' },
           div(
-            {
-              class: 'inputfield',
-            },
+            { class: 'inputfield' },
             div(
-              {
-                class: 'stepupfield',
-              },
+              { class: 'stepupfield' },
               label(
-                {
-                  class: 'stepuplabel',
-                  for: 'stepamnt',
-                },
+                { class: 'stepuplabel', for: 'stepamnt' },
                 fieldlabel2,
               ),
               input({
-                class: 'stepupamt',
-                type: 'text',
-                id: 'stepamnt',
-                value: '1,000',
+                class: 'stepupamt', type: 'text', id: 'stepamnt', value: '1,000',
               }),
             ),
             div(
@@ -2019,44 +1575,28 @@ export default function decorate(block) {
             ),
           ),
           p(
-            {
-              class: 'stepdisp',
-            },
+            { class: 'stepdisp' },
             fieldlabel6,
           ),
         ),
       ),
       div(
-        {
-          class: 'input-contain',
-        },
+        { class: 'input-contain' },
         div(
-          {
-            class: 'maxsipfield',
-          },
+          { class: 'maxsipfield' },
           div(
-            {
-              class: 'maxstepupfield',
-            },
+            { class: 'maxstepupfield' },
             label(
-              {
-                class: 'maxstepuplabel',
-                for: 'maxsipamnt',
-              },
+              { class: 'maxstepuplabel', for: 'maxsipamnt' },
               fieldlabel4,
             ),
             input({
-              class: 'maxstepupamt',
-              type: 'text',
-              id: 'maxsipamnt',
-              value: '24,000',
+              class: 'maxstepupamt', type: 'text', id: 'maxsipamnt', value: '24,000',
             }),
           ),
         ),
         div(
-          {
-            class: 'discription2',
-          },
+          { class: 'discription2' },
           fieldlabel5,
         ),
       ),
@@ -2117,72 +1657,40 @@ export default function decorate(block) {
   function getTodaysDateFormatted() {
     const today = new Date();
     const day = today.getDate();
-    const month = today.toLocaleString('default', {
-      month: 'short',
-    });
+    const month = today.toLocaleString('default', { month: 'short' });
     const year = today.getFullYear();
     return `${day} ${month} ${year}`;
   }
 
   const closebtn = div(
-    {
-      class: 'modal-btn',
-    },
+    { class: 'modal-btn' },
     span(
-      {
-        class: 'close-btn',
-      },
-      img({
-        class: 'modal-btn-svg',
-        src: closesrc,
-        alt: 'cross',
-      }),
+      { class: 'close-btn' },
+      img({ class: 'modal-btn-svg', src: closesrc, alt: 'cross' }),
     ),
   );
 
   // Build modal
   const textdrop = dataMapMoObj.planText === undefined ? '' : dataMapMoObj.planText;
   const modal = div(
-    {
-      class: 'invest-now-modal fdp-sip-modal',
-    },
+    { class: 'invest-now-modal fdp-sip-modal' },
     div(
-      {
-        class: 'modal-header-container',
-      },
+      { class: 'modal-header-container' },
       div(
-        {
-          class: 'modal-header',
-        },
+        { class: 'modal-header' },
         div(
-          {
-            class: 'modal-header-logo',
-          },
-          img({
-            class: 'brandlogo',
-            src: logoSrc,
-            alt: 'BrandLogo',
-          }),
+          { class: 'modal-header-logo' },
+          img({ class: 'brandlogo', src: logoSrc, alt: 'BrandLogo' }),
         ),
         div(
-          {
-            class: 'modal-header-subtitle',
-          },
+          { class: 'modal-header-subtitle' },
           // p({ class: 'brandname' }, brandName),
-          h3({
-            class: 'fund-name',
-          }, fundNameFromData),
+          h3({ class: 'fund-name' }, fundNameFromData),
           div(
-            {
-              class: 'dropdown-wrap',
-            },
-            p({
-              class: 'selected-txt',
-            }, textdrop),
+            { class: 'dropdown-wrap' },
+            p({ class: 'selected-txt' }, textdrop),
             ul(
-              {
-                class: 'dropdown-list',
-              },
+              { class: 'dropdown-list' },
               ...dataMapMoObj.planlistArr.map((eloption) => li({
                 class: 'list-name',
                 datacode: eloption.groupedCode,
@@ -2193,46 +1701,24 @@ export default function decorate(block) {
       ),
     ),
     div(
-      {
-        class: 'modal-inputs-container',
-      },
+      { class: 'modal-inputs-container' },
       div(
-        {
-          class: 'modal-inputs-subcontainer',
-        },
+        { class: 'modal-inputs-subcontainer' },
         div(
-          {
-            class: 'modal-inputs',
-          },
+          { class: 'modal-inputs' },
           div(
-            {
-              class: 'modal-toggle',
-            },
+            { class: 'modal-toggle' },
             div(
-              {
-                class: 'modal-btn-lumpsum lumsum-sip-btn active',
-              },
-              button({
-                class: 'lumsip-btn',
-              }, lumpsumLabel),
+              { class: 'modal-btn-lumpsum lumsum-sip-btn active' },
+              button({ class: 'lumsip-btn' }, lumpsumLabel),
             ),
-            div({
-              class: 'modal-btn-sip lumsum-sip-btn',
-            }, button({
-              class: 'lumsip-btn',
-            }, sipLabel)),
+            div({ class: 'modal-btn-sip lumsum-sip-btn' }, button({ class: 'lumsip-btn' }, sipLabel)),
           ),
           div(
-            {
-              class: 'modal-input',
-            },
-            label({
-              class: 'invest-amnt-label',
-            }, inputLabel),
+            { class: 'modal-input' },
+            label({ class: 'invest-amnt-label' }, inputLabel),
             div(
-              {
-                class: 'modal-input-symbol',
-              },
+              { class: 'modal-input-symbol' },
               // input({ type: 'number', value: defaultAmount, class: 'amount-input' })),
               input({
                 type: 'tel',
@@ -2242,96 +1728,53 @@ export default function decorate(block) {
                 class: 'amount-input',
               }),
             ),
-            span({
-              class: 'amount-word-format',
-            }, 'Rupees ten thousand only'),
+            span({ class: 'amount-word-format' }, 'Rupees ten thousand only'),
             span(
-              {
-                class: 'amount-error error-hide',
-              },
+              { class: 'amount-error error-hide' },
               'Amount must be between 500 and 1000000',
             ),
           ),
           div(
-            {
-              class: 'modal-suggestions',
-            },
-            ...suggestions.map((s) => button({
-              class: 'suggestion-btn',
-            }, `+₹${s}`)),
+            { class: 'modal-suggestions' },
+            ...suggestions.map((s) => button({ class: 'suggestion-btn' }, `+₹${s}`)),
           ),
         ),
         div(
-          {
-            class: 'modal-input-fields hidden',
-          },
+          { class: 'modal-input-fields hidden' },
           div(
-            {
-              class: 'modal-sip',
-            },
+            { class: 'modal-sip' },
             div(
-              {
-                class: 'modal-start-today',
-              },
+              { class: 'modal-start-today' },
               label(
-                {
-                  class: 'start-today-label',
-                },
-                input({
-                  type: 'checkbox',
-                  class: 'start-today-checkbox',
-                }),
+                { class: 'start-today-label' },
+                input({ type: 'checkbox', class: 'start-today-checkbox' }),
                 // span({ class: 'custom-box' }),
-                span({
-                  class: 'label-txt',
-                }, ' Start Today'),
+                span({ class: 'label-txt' }, ' Start Today'),
               ),
               div(
-                {
-                  class: 'start-today-note',
-                },
+                { class: 'start-today-note' },
                 p(
-                  {
-                    class: 'sip-note',
-                  },
+                  { class: 'sip-note' },
                   'Your first SIP instalment will be deducted today.',
                 ),
                 div(
-                  {
-                    class: 'sip-note-highlight',
-                  },
-                  img({
-                    class: 'tooltip-info',
-                    src: infotoolsrc,
-                    alt: 'information',
-                  }),
+                  { class: 'sip-note-highlight' },
+                  img({ class: 'tooltip-info', src: infotoolsrc, alt: 'information' }),
                   div(
-                    {
-                      class: 'tooltip-container',
-                    },
+                    { class: 'tooltip-container' },
                     div(
-                      {
-                        class: 'tooltip-wrap',
-                      },
-                      p({
-                        class: 'tooltip-text',
-                      }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
-                      button({
-                        class: 'tooltip-btn-mob',
-                      }, 'Ok'),
+                      { class: 'tooltip-wrap' },
+                      p({ class: 'tooltip-text' }, 'We’ll debit your first SIP installment today through your chosen payment mode, and all future installments will be automatically collected via your registered Autopay or URN.'),
+                      button({ class: 'tooltip-btn-mob' }, 'Ok'),
                     ),
                   ),
                 ),
               ),
             ),
             div(
-              {
-                class: 'modal-sip-dropdown',
-              },
+              { class: 'modal-sip-dropdown' },
               div(
-                {
-                  class: 'date-drop-down',
-                },
+                { class: 'date-drop-down' },
                 createCustomDropdown('startDate', 'Start Date', startDateOptions, getTodaysDateFormatted()),
                 createCustomDropdown(
                   'frequency',
@@ -2347,21 +1790,13 @@ export default function decorate(block) {
         ),
       ),
       div(
-        {
-          class: 'modal-cta',
-        },
+        { class: 'modal-cta' },
         button({
           class: 'buy-now-btn modal-cta-btn',
           onclick: () => {
             const mainmo = block.closest('main');
             const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
             const panMod = mainmo.querySelector('.added-fund-cart'); // .style.display = 'block';
-            const inputValue = parseInt(amountInput.value.trim() || 0);
-            const amountError = block.querySelector('.amount-error');
-            const hasInputError = amountError.classList.contains('error-show');
-            if (!inputValue || hasInputError) {
-              return;
-            }
             investMod.classList.add('hide-element');
             investMod.classList.remove('show-element');
             panMod.classList.add('show-element');
@@ -2378,9 +1813,7 @@ export default function decorate(block) {
             classAddv2.classList.add('modal-show');
           },
         }, 'Add to Cart'),
-        button({
-          class: 'start-now modal-cta-btn',
-        }, 'Invest Now'),
+        button({ class: 'start-now modal-cta-btn' }, 'Invest Now'),
       ),
     ),
   );
@@ -2409,10 +1842,7 @@ export default function decorate(block) {
   // );
 
   const modalContainer = div(
-    {
-      class: 'invest-now-container',
-      id: 'invest-now-wrapper-flat',
-    },
+    { class: 'invest-now-container', id: 'invest-now-wrapper-flat' },
     closebtn,
     modal,
     // tooltip,
@@ -2433,24 +1863,22 @@ export default function decorate(block) {
   modal.querySelector('.start-now').addEventListener('click', () => {
     const mainmo = block.closest('main');
     const investMod = mainmo.querySelector('.invest-now-homepage-container'); // .style.display = 'none';
-    if (investMod.querySelector('.error-show') === null) {
-      const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
-      investMod.classList.add('hide-element');
-      investMod.classList.remove('show-element');
-      panMod.classList.remove('hide-element');
-      panMod.classList.add('show-element');
-      try {
-        existingUser(block);
-      } catch (error) {
-        // console.log(error);
-      }
-      const classAddv2 = mainmo.querySelector('.pan-details-modal');
-      if (Array.from(classAddv2.classList).includes('hide-modal')) {
-        classAddv2.classList.remove('hide-modal');
-      }
-      classAddv2.classList.remove('hide-modal');
-      classAddv2.classList.add('modal-show');
+    const panMod = mainmo.querySelector('.pan-details-modal'); // .style.display = 'block';
+    investMod.classList.add('hide-element');
+    investMod.classList.remove('show-element');
+    panMod.classList.remove('hide-element');
+    panMod.classList.add('show-element');
+    try {
+      existingUser(block);
+    } catch (error) {
+      // console.log(error);
     }
+    const classAddv2 = mainmo.querySelector('.pan-details-modal');
+    if (Array.from(classAddv2.classList).includes('hide-modal')) {
+      classAddv2.classList.remove('hide-modal');
+    }
+    classAddv2.classList.remove('hide-modal');
+    classAddv2.classList.add('modal-show');
 
     // const classAddv3 = mainmo.querySelector('.otp-fdp');
     // if (Array.from(classAddv3.classList).includes('hide-modal')) {
@@ -2487,10 +1915,10 @@ export default function decorate(block) {
       // Remove .active from all buttons
       suggestionButtons.forEach((b) => b.classList.remove('active'));
       // Add .active to the clicked button
+      btn.classList.add('active');
       const value = btn.textContent.split('₹')[1];
       amountInput.value = value;
       amountInput.dispatchEvent(new Event('input'));
-      btn.classList.add('active');
     });
   });
 
@@ -2510,121 +1938,25 @@ export default function decorate(block) {
     });
   }
 
-  function numberToWords(num) {
-    if (num === 0) return 'zero';
-
-    const ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-    const teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-    const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
-    const scales = ['', 'thousand', 'million', 'billion', 'trillion'];
-
-    function convertLessThanThousand(n) {
-      let word = '';
-      if (n >= 100) {
-        word += `${ones[Math.floor(n / 100)]} hundred`;
-        n %= 100;
-        if (n > 0) word += ' ';
-      }
-      if (n >= 20) {
-        word += tens[Math.floor(n / 10)];
-        n %= 10;
-        if (n > 0) word += '-';
-      }
-      if (n >= 10) {
-        word += teens[n - 10];
-      } else if (n > 0) {
-        word += ones[n];
-      }
-      return word;
-    }
-
-    if (num < 0) {
-      return `negative ${numberToWords(Math.abs(num))}`;
-    }
-
-    let words = '';
-    let scaleIndex = 0;
-    let numPart = 0;
-
-    do {
-      numPart = num % 1000;
-      if (numPart > 0) {
-        const partInWords = convertLessThanThousand(numPart);
-        const scaleWord = scales[scaleIndex];
-        words = partInWords + (scaleWord ? ` ${scaleWord}` : '') + (words ? ` ${words}` : '');
-      }
-      scaleIndex++;
-      num = Math.floor(num / 1000);
-    } while (num > 0);
-
-    return words.trim();
-  }
-
-  function numberToRupees(num) {
-    // Get the integer part (Rupees)
-    const rupees = Math.floor(num);
-
-    // Get the decimal part (Paisa), round to 2 decimal places
-    const paisa = Math.round((num - rupees) * 100);
-
-    // Convert the rupee part to words
-    let rupeeWords = numberToWords(rupees);
-
-    // Capitalize the first letter of the rupee words
-    rupeeWords = rupeeWords.charAt(0).toUpperCase() + rupeeWords.slice(1);
-
-    let finalString = `Rupees ${rupeeWords}`;
-
-    // Check if there is a paisa part
-    if (paisa > 0) {
-      const paisaWords = numberToWords(paisa);
-      finalString += ` and ${paisaWords} paisa`;
-    }
-
-    // Add the "only" at the end
-    finalString += ' only';
-
-    return finalString;
-  }
-
   // --- 3. MODIFY the `handleAmountInput` function to call the new sync function ---
   function handleAmountInput(e) {
     const inputVal = e.target;
-    const movb = /[^0-9]/g;
-    if (inputVal.value == 0) {
-      inputVal.value = '';
-      return 0;
-    }
-    e.target.value = inputVal.value.replace(/[^0-9]/g, '');
-    let rawValue;
-    if (movb.test(inputVal.value)) {
-      rawValue = inputVal.value.replace(/[^0-9]/g, '');
-    } else {
-      rawValue = inputVal.value; // .replace(/[^0-9]/g, '');
-    }
+    const rawValue = inputVal.value.replace(/[^0-9]/g, '');
 
     if (rawValue) {
-      e.target.closest('.modal-input')
-        .querySelector('.amount-word-format').textContent = '';
-      e.target.closest('.modal-input')
-        .querySelector('.amount-word-format').textContent = numberToRupees(Number(rawValue));
       const formattedValue = parseInt(rawValue, 10).toLocaleString('en-IN');
       input.value = formattedValue;
     } else {
-      e.target.closest('.modal-input')
-        .querySelector('.amount-word-format').textContent = '';
       input.value = '';
     }
 
     const amount = parseFloat(rawValue) || 0;
     const amountError = block.querySelector('.amount-error');
-    const wrodnum = block.querySelector('.amount-word-format');
+
     if (amount < 500 && rawValue !== '') {
       amountError.classList.add('error-show');
-      wrodnum.style.display = 'none';
     } else {
       amountError.classList.remove('error-show');
-      wrodnum.style.display = 'block';
     }
 
     if (amount > 1000000) {
@@ -2659,7 +1991,6 @@ export default function decorate(block) {
   const selDate = block.querySelector('#custom-select-endDate .select-options');
   const finsel = selDate.querySelector('[data-value="Select Date"]');
   const dateSel = block.querySelector('#custom-select-endDate .select-selected');
-
   function flakterDate(datelement, displayDate) {
     // ADDED: A variable to store the user-selected date
     let originalSipDate = '';
@@ -2679,9 +2010,7 @@ export default function decorate(block) {
       onChange(selectedDates) { // (selectedDates, dateStr, instance) {
         const selectedDate = selectedDates[0];
         const day = selectedDate.getDate();
-        const month = selectedDate.toLocaleString('default', {
-          month: 'short',
-        });
+        const month = selectedDate.toLocaleString('default', { month: 'short' });
         const year = selectedDate.getFullYear();
         const formattedDate = `${day} ${month} ${year}`;
 
@@ -2828,9 +2157,7 @@ export default function decorate(block) {
         if (!selectedDates[0]) return;
         const selectedDate = selectedDates[0];
         const day = selectedDate.getDate();
-        const month = selectedDate.toLocaleString('default', {
-          month: 'short',
-        });
+        const month = selectedDate.toLocaleString('default', { month: 'short' });
         const year = selectedDate.getFullYear();
         const formattedDate = `${day} ${month} ${year}`;
         displayDate.textContent = formattedDate;
@@ -2841,9 +2168,7 @@ export default function decorate(block) {
     // Manually set the initial display text after initialization
     if (defaultDate) {
       const day = defaultDate.getDate();
-      const month = defaultDate.toLocaleString('default', {
-        month: 'short',
-      });
+      const month = defaultDate.toLocaleString('default', { month: 'short' });
       const year = defaultDate.getFullYear();
       displayDate.textContent = `${day} ${month} ${year}`;
     }
@@ -2944,9 +2269,7 @@ export default function decorate(block) {
       }
     });
     drpdown.addEventListener('click', (event) => {
-      const {
-        target,
-      } = event;
+      const { target } = event;
       drpsel.textContent = '';
       drpsel.textContent = target.textContent;
       drpsel.parentElement.classList.remove('dropdown-active');
@@ -2958,10 +2281,8 @@ export default function decorate(block) {
       }
       if (!Array.from(event.target.classList).includes('date-drop-down')
         && !block.querySelector('.date-drop-down').contains(event.target)) {
-        if (block.querySelector('.flatpickr-calendar') !== null) {
-          if (block.querySelector('.flatpickr-calendar').contains(event.target)) {
-            return false;
-          }
+        if (block.querySelector('.flatpickr-calendar').contains(event.target)) {
+          return false;
         }
         if (block.querySelector('.flatpickr-calendar') !== null) {
           block.querySelector('.flatpickr-calendar').classList.remove('open');
@@ -2975,29 +2296,12 @@ export default function decorate(block) {
       block.querySelector('.tooltip-container').style.display = 'none';
     });
   }
-
+  
   if (window.innerWidth <= 768) {
-    block.querySelector('.tooltip-info').addEventListener('click', () => {
+      block.querySelector('.tooltip-info').addEventListener('click', () => {
       block.querySelector('.tooltip-container').style.display = 'flex';
     });
   }
-  const inputs = block.querySelectorAll('.steup-container input');
-
-  inputs.forEach((input) => {
-    input.addEventListener('input', () => {
-      input.value = input.value.replace(/[^0-9]/g, '');
-
-      const parentDiv = input.parentElement;
-
-      if (input.value.trim() !== '') {
-        if (!parentDiv.classList.contains('active')) {
-          parentDiv.classList.add('active');
-        }
-      } else {
-        parentDiv.classList.remove('active');
-      }
-    });
-  });
 
   return block;
 }

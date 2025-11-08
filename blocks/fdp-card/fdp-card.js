@@ -31,20 +31,8 @@ export default function decorate(block) {
     ];
   }
   dataMapMoObj.addIndexed(whyFund);
-  const planCode = localStorage.getItem('planCode');
-  let planslabel;
-  if (planCode !== null) {
-    const schode = planCode.split(':')[1];
-    planslabel = schode;
-  } else if (window.location.href.includes('/our-funds/funds-details-page')) {
-    planslabel = 'LM';
-  } else {
-    const path = window.location.pathname.split('/').at(-1);
-    const planobj = dataCfObj.cfDataObjs.filter(
-      (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
-    );
-    planslabel = planobj[0].schcode;
-  }
+  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
+  const planslabel = planCode.split(':')[1];
   const planObj = dataCfObj.cfDataObjs.filter(
     (el) => planslabel === el.schcode,
   );
@@ -250,8 +238,6 @@ export default function decorate(block) {
   }
 
   const typeOfScheme = cfObj[0].typeOfScheme === undefined ? '' : cfObj[0].typeOfScheme;
-  const navchg = navlistArr[0].navchngper === undefined ? '' : Number(navlistArr[0].navchngper);
-  const displaynav = navchg === '' ? 'none' : 'display';
   const cardContainer = div(
     {
       class: 'card-container',
@@ -568,7 +554,6 @@ export default function decorate(block) {
               div(
                 {
                   class: 'perecent-value',
-                  style: `display:${displaynav}`,
                 },
                 img({
                   class: 'nav-img',
@@ -579,7 +564,7 @@ export default function decorate(block) {
                   {
                     class: 'nav-percent',
                   },
-                  navchg,
+                  Number(navlistArr[0].navchngper),
                   span(
                     {
                       class: 'navper',
@@ -630,7 +615,7 @@ export default function decorate(block) {
               {
                 class: 'submit ',
                 type: 'submit',
-                href: 'https://mosldev--eds-cloud--rupeshdept.aem.live/mutual-fund/in/en/modals/invest-now-homepage',
+                href: 'https://mosldev--eds-cloud--rupeshdept.aem.live/in/en/mutual-fund/modals/invest-now-homepage',
               },
               'Invest Now',
             ),
@@ -904,9 +889,7 @@ export default function decorate(block) {
             top: scrollPosition,
             behavior: 'smooth',
           });
-          if (window.innerWidth < 786) {
-            item2Ul.closest('body').style.overflow = '';
-          }
+
           setTimeout(() => {
             document.body.style.overflow = ''; // restore scrolling
           }, 800);
@@ -953,10 +936,10 @@ export default function decorate(block) {
           .querySelector('.selectedtext-fdp')
           .classList.add('active');
         item2Ul.style.display = 'block';
-        item2Ul.closest('body').style.overflow = 'hidden';
       }
     }
   });
+
   // document.addEventListener('scroll', () => {
   //   // added for stky nav
   //   const stkyNav = document.querySelector('.selectedtext-fdp');
@@ -1026,7 +1009,6 @@ export default function decorate(block) {
     setupSmoothScroll('.item2-ul li a');
     setupSmoothScroll('.navlinks ul li a');
 
-    // setupSmoothScroll('.fdp-card-container');
     // Optional: re-initialize on window resize (if layout changes)
     window.addEventListener('resize', () => {
       // No need to re-bind listeners, just let `getHeaderOffset()` always return current value
@@ -1174,21 +1156,4 @@ export default function decorate(block) {
   document.querySelectorAll('.fdp-tab a').forEach((anc) => {
     anc.removeAttribute('title');
   });
-
-  // const itemsc = mainBlock.querySelector('.fdp-card-container');
-  // // itemsc.style.overflowY = 'scroll';
-  // itemsc.addEventListener('scroll', () => {
-  //   console.log('Hello');
-  // });
-  // const container = document.querySelector('.fdp-card-container');
-
-  // // The rest of your code works exactly the same
-  // if (container) {
-  //   document.addEventListener('scroll', (event) => {
-  //     console.log('Scrolling the container with a CLASS!');
-  //     console.log('Current scroll position:', event.target.querySelector('main'));
-  //   });
-  // } else {
-  //   console.error('Could not find element with class "myContainer"');
-  // }
 }

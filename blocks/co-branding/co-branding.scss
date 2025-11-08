@@ -61,6 +61,7 @@
     }
 
     .cobrand {
+
       &-form,
       &-field {
         display: flex;
@@ -147,6 +148,8 @@
           border-radius: var(--border-radius-8);
           margin: 0;
           padding: var(--spacing-12);
+          max-width: 49%;
+          width: 100%;
           background-color: transparent;
           cursor: pointer;
           max-width: 176px;

@@ -111,10 +111,6 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  if (window.location.href.includes('/wealth-page')) {
-    block.classList.add('wealth-header');
-  }
-
   // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
@@ -125,12 +121,12 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.classList.add('nfo-nav');
-  if (window.location.href.includes('/mutual-fund/in/en/pms') || window.location.href.includes('/mutual-fund/in/en/aif')) {
+  if (window.location.href.includes('/in/en/pms') || window.location.href.includes('/in/en/aif')) {
     nav.classList.remove('nfo-nav');
   }
 
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-  if (window.location.href.includes('/mutual-fund/in/en/pms') || window.location.href.includes('/mutual-fund/in/en/aif')) {
+  if (window.location.href.includes('/in/en/pms') || window.location.href.includes('/in/en/aif')) {
     nav.classList.remove('nfo-nav');
   }
 
@@ -178,7 +174,7 @@ export default async function decorate(block) {
 
       // Add the click event listener to redirect to the home page.
       container.addEventListener('click', () => {
-        window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/mutual-fund/in/en/home-page';
+        window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/in/en/mutual-fund/home-page';
       });
     });
   }
@@ -301,7 +297,7 @@ export default async function decorate(block) {
                       });
                       if (dataMapMoObj.selectviewFunds !== '') {
                         localStorage.setItem('planCode', `Direct:${dataMapMoObj.selectviewFunds}`);
-                        const pathname = '/mutual-fund/in/en/our-funds/funds-details-page';
+                        const pathname = '/in/en/mutual-fund/our-funds/funds-details-page';
                         window.location.href = `${window.location.origin}${pathname}`;
                       }
                     } else {
@@ -316,13 +312,13 @@ export default async function decorate(block) {
                         textcurr = 'multi-cap-fund';
                       }
                       if (textcurr === 'View All Funds') {
-                        const pathname = '/mutual-fund/in/en/our-funds';
+                        const pathname = '/in/en/mutual-fund/our-funds';
                         window.location.href = `${window.location.origin}${pathname}`;
                         return false;
                       }
                       dataMapMoObj.selectviewFunds = textcurr.toLocaleLowerCase().split(' ').join('-');
                       localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
-                      const pathname = '/mutual-fund/in/en/our-funds';
+                      const pathname = '/in/en/mutual-fund/our-funds';
                       window.location.href = `${window.location.origin}${pathname}`;
                     }
                     return textcurr;
@@ -485,43 +481,41 @@ export default async function decorate(block) {
     ];
     dataMapMoObj.addIndexed(headerTop);
   }
-  if (headerTop !== null) {
-    const dropTrigger = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text1');
-    const dropMenu = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text2');
+  const dropTrigger = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text1');
+  const dropMenu = headerTop.querySelector('.header-top-sec1 .header-top-sub5 .header-top-inner-text2');
 
-    if (dropTrigger && dropMenu) {
-      dropTrigger.addEventListener('click', (event) => {
-        event.stopPropagation();
-        dropMenu.classList.toggle('open');
-        dropTrigger.classList.toggle('active');
-        const logineventab = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
-        const nextel = logineventab.nextElementSibling;
-        if (nextel.style.display === 'block') {
-          nextel.style.display = 'none';
-        }
-        const dropdownTrigge = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
-        const dropdownMer = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
-        if (dropdownMer.classList.contains('open')) {
-          dropdownMer.classList.remove('open');
-          dropdownTrigge.classList.remove('active');
-        }
-      });
+  if (dropTrigger && dropMenu) {
+    dropTrigger.addEventListener('click', (event) => {
+      event.stopPropagation();
+      dropMenu.classList.toggle('open');
+      dropTrigger.classList.toggle('active');
+      const logineventab = block.querySelector('.nav-tools .nav-tools-sub4 .nav-tools-inner-net1');
+      const nextel = logineventab.nextElementSibling;
+      if (nextel.style.display === 'block') {
+        nextel.style.display = 'none';
+      }
+      const dropdownTrigge = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net1');
+      const dropdownMer = navBrand.querySelector('.navbrand-sec3 .navbrand-inner-net2');
+      if (dropdownMer.classList.contains('open')) {
+        dropdownMer.classList.remove('open');
+        dropdownTrigge.classList.remove('active');
+      }
+    });
 
-      dropMenu.addEventListener('click', (event) => {
-        event.stopPropagation();
-      });
+    dropMenu.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
 
-      document.addEventListener('click', (event) => {
-        if (dropMenu.classList.contains('open')) {
-          dropMenu.classList.remove('open');
-          dropTrigger.classList.remove('active');
-        }
-        if (!navSections.contains(event.target)) {
-          toggleAllNavSections(navSections);
-          document.body.classList.remove('no-scroll');
-        }
-      });
-    }
+    document.addEventListener('click', (event) => {
+      if (dropMenu.classList.contains('open')) {
+        dropMenu.classList.remove('open');
+        dropTrigger.classList.remove('active');
+      }
+      if (!navSections.contains(event.target)) {
+        toggleAllNavSections(navSections);
+        document.body.classList.remove('no-scroll');
+      }
+    });
   }
 
   const nfoBanner = nav.querySelector('.section.nfo-banner');
@@ -730,34 +724,4 @@ export default async function decorate(block) {
     );
   }
   navblk.classList.remove('top-nave');
-
-  //
-  document.addEventListener('scroll', () => {
-    try {
-      if (dropdownTrigger && dropdownTrigger.classList.contains('active')) {
-        dropdownTrigger.classList.remove('active');
-      }
-
-      if (dropdownMenu && dropdownMenu.classList.contains('open')) {
-        dropdownMenu.classList.remove('open');
-      }
-    } catch (error) {
-      console.error('Error in scroll event handler:', error);
-    }
-  });
-
-  // if (window.location.href.includes('/mutual-fund/in/en/pms') || window.location.href.includes('/mutual-fund/in/en/aif')) {
-
-  //     try {
-  //       const navSecSub1 = document.querySelector('.comlist.nav-sec-sub1');
-  //       console.log("navSecSub1",navSecSub1)
-  //       if (navSecSub1) {
-  //         navSecSub1.remove();
-  //         console.log('Removed .nav-sec-sub1 element successfully');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error removing element:', error);
-  //     }
-
-  //   }
 }

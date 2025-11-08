@@ -913,7 +913,7 @@ main {
 
         // top: 27%;
         top: 179px;
-        z-index: 5;
+        z-index: 99;
 
         &::after {
           content: "";
@@ -1247,7 +1247,7 @@ main {
   height: 100%;
   position: sticky;
   bottom: 0;
-  z-index: 5;
+  z-index: 99;
   background: var(--neutrals-white, #FFF);
   box-shadow: -25px -1px 214px 0 rgb(0 0 0 / 15%);
 
