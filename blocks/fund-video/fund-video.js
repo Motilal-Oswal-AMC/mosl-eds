@@ -19,7 +19,8 @@ export default function decorate(block) {
   fundv2.prepend(imgWrapper);
 
   const imgAltmain = block.closest('main');
-  dataMapMoObj.altFunction(imgAltmain.querySelector('.fund-video-container .fundvedmain2 .fundvedinnermain2 img'), 'video-play-btn');
+  const imgALT = imgAltmain.querySelector('.fund-video-container .fundvedmain2 .fundvedinnermain2 img').cloneNode(true);
+  dataMapMoObj.altFunction(imgALT, 'video-play-btn');
   block.querySelector('.fundvedmain2 .fundvedsubmain1 .fundvedinnermain1')
   .style.display = 'none';
   block.querySelector('.fundvedmain2 .fundvedsubmain1 .fundvedinnermain2')
