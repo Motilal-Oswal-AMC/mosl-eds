@@ -240,7 +240,7 @@
                                 margin-left: 5px;
                             }
 
-                            .wrapimgform.email-fail{
+                            .wrapimgform.email-fail {
                                 border: var(--border-width-01) solid #ff8088;
 
                                 // padding: 10px 40px 10px 12px;
@@ -758,7 +758,7 @@
                                         margin-left: 5px;
                                     }
 
-                                    .wrapimgform.email-fail{
+                                    .wrapimgform.email-fail {
                                         border: var(--border-width-01) solid #ff8088;
 
                                         // padding: 10px 40px 10px 12px;
@@ -952,18 +952,15 @@
     }
 
     .scroll-to-top {
-        // position: absolute;
-        position: fixed;
+        position: absolute;
         right: 67px;
-
-        // top: -28px;
+        top: -28px;
         bottom: 70px;
         width: 56px;
         height: 56px;
         border-radius: 28px;
         background-color: var(--blue-1-200);
-
-        // box-shadow: 0 0 13.2px 0 #0014;
+        box-shadow: 0 0 13.2px 0 #0014;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -973,7 +970,7 @@
         transition:
             opacity 0.3s ease,
             transform 0.2s ease;
-        z-index: 100;
+        z-index: 10;
         margin: 0;
         border: none;
         padding: 0;
@@ -981,7 +978,10 @@
         white-space: unset;
 
         @include media(mobile) {
+            position: fixed;
             right: 16px;
+            top: unset;
+            bottom: 150px;
         }
     }
 

@@ -174,6 +174,14 @@
   display: none;
 }
 
+.popular-artical.learn-about.tabs-container {
+  padding-top: 40px;
+}
+@media (max-width: 768px) {
+  .popular-artical.learn-about.tabs-container {
+    padding-top: 0;
+  }
+}
 .popular-artical.learn-about.tabs-container .default-content-wrapper h1,
 .popular-artical.learn-about.tabs-container .default-content-wrapper h2,
 .popular-artical.learn-about.tabs-container .default-content-wrapper h3,
@@ -236,6 +244,21 @@
 }
 .popular-artical.learn-about.tabs-container .tabs .tabs-list .tabs-tab[aria-selected=true] p {
   line-height: 16px;
+}
+.popular-artical.learn-about.tabs-container .learn-about.moedge-building-container {
+  padding-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .popular-artical.learn-about.tabs-container .learn-about.moedge-building-container {
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 768px) {
+  .popular-artical.learn-about.tabs-container .learn-about.moedge-building-container .tabpanel1 .learn-about.moedge-building-container .moedge-building > div {
+    gap: 40px;
+  }
 }
 .popular-artical.learn-about.tabs-container > .default-content-wrapper:nth-child(3) {
   padding: 40px 0;

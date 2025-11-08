@@ -38,6 +38,10 @@ $breakpoint-tablet: 900px;
         display: block;
       }
     }
+
+    .compaign3{
+      display: none;
+    }
   }
 }
 
@@ -103,7 +107,7 @@ $breakpoint-tablet: 900px;
                 font-weight: 400;
                 line-height: normal;
                 margin: 0;
-                max-width: 554px;
+                max-width: 504px;
       
                 @include media(mobile){
                   color: var(--neutrals-white);
@@ -354,7 +358,7 @@ $breakpoint-tablet: 900px;
         font-style: normal;
         font-weight: 500;
         line-height: var(--heading-h3-line-height); /* 122.222% */
-        margin-bottom: 20px;
+        margin-bottom: 12px;
         
         @include media(mobile) {
                     margin-bottom: 24px;
@@ -924,6 +928,14 @@ $breakpoint-tablet: 900px;
     padding: 0;
 
     .fdp-campaign{
+      .compaign1{
+        .compaignsub1{
+          .img-24{
+            max-height: 605px;
+          }
+        }
+      }
+
       .compaign2{
         .mobimg-21{
           .mobimg-34{
@@ -933,6 +945,18 @@ $breakpoint-tablet: 900px;
             }
           }
         }
+
+        // .mobimg-11{
+        //   &::before {
+        //             content: '';
+        //             z-index: 10;
+        //             width: 100%;
+        //             height: 100%;
+        //             display: block;
+        //             position: absolute;
+        //             background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, transparent 60%);
+        //           }
+        // }
       }
     }
   }
@@ -949,9 +973,10 @@ $breakpoint-tablet: 900px;
       top: 344px;
       left: 0;
       padding: 0 16px;
+      z-index: 50;
     }
 
-    .para1{
+    .comlist.para1{
       // font-family: var(--body);
       font-size: 56px;
       font-style: normal;
@@ -965,27 +990,30 @@ $breakpoint-tablet: 900px;
       
     }
 
-          .para2{
-              margin: 8px 0 48px;
-              max-width: 504px;
+    .comlist.para2{
+      margin: 8px 0 48px;
+      max-width: 504px;
 
-            @include media(mobile) {
-              margin: 8px 0 24px;
+      @include media(mobile) {
+        margin: 8px 0 24px;
+      }
       }
 
-          }
+    .comlist.para3{
+      max-width: 164px;
+      max-height: 48px;
+      width: 100%;
+      border-radius: var(--border-radius-8);
+      background: var(--neutrals-white);
+      padding: 14px;
 
-          .para3{
-            max-width: 164px;
-            max-height: 48px;
-            width: 100%;
-
-            @include media(mobile) {
+      @include media(mobile) {
               max-width: 160px;
               max-height: 40px;
+              padding: 12px;
             }
 
-            .p21{
+      a.p21{
             display: flex;
             max-width: 164px;
             max-height: 48px;
@@ -993,6 +1021,8 @@ $breakpoint-tablet: 900px;
             justify-content: center;
             align-items: center;
             width: 100%;
+            padding: 0;
+            border: 0;
 
             @include media(mobile) {
               font-size: 16px;

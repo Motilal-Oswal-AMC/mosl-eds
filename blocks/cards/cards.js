@@ -1,6 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
+import formBlock from '../form/form.js';
 
 export default function decorate(block) {
   /* change to ul, li */
@@ -22,6 +23,80 @@ export default function decorate(block) {
   });
   block.textContent = '';
   block.append(ul);
+
+  function setupAuthorListToggle() {
+    const sections = document.querySelectorAll('.behind-the-content.our-author-list');
+    sections.forEach((section) => {
+      const cardsBlock = section.querySelector('.cards.block');
+      if (!cardsBlock) return;
+
+      const ul = cardsBlock.querySelector('ul');
+      if (!ul) return;
+
+      const allItems = Array.from(ul.querySelectorAll('li'));
+      const SHOW_COUNT = 12;
+
+      if (allItems.length <= SHOW_COUNT) return;
+
+      const hiddenItems = allItems.slice(SHOW_COUNT);
+      hiddenItems.forEach((li) => li.classList.add('cards-card-hidden'));
+
+      let viewAllBtn = section.querySelector('.default-content-wrapper .button');
+      if (!viewAllBtn) {
+        const wrapper = section.querySelector('.default-content-wrapper') || section;
+        viewAllBtn = document.createElement('a');
+        viewAllBtn.className = 'button view-all';
+        viewAllBtn.setAttribute('href', '#');
+        viewAllBtn.textContent = 'View All';
+        const p = document.createElement('p');
+        p.className = 'button-container';
+        p.appendChild(viewAllBtn);
+        wrapper.appendChild(p);
+      } else {
+        // normalize to act as button (prevent navigation)
+        viewAllBtn.classList.add('view-all');
+      }
+
+      // Accessibility: set aria-controls and aria-expanded
+      const ulId = ul.id || `cards-${Math.random().toString(36).slice(2, 8)}`;
+      ul.id = ulId;
+      viewAllBtn.setAttribute('aria-controls', ulId);
+      viewAllBtn.setAttribute('aria-expanded', 'false');
+      viewAllBtn.setAttribute('role', 'button');
+
+      let isExpanded = false;
+
+      const toggleShowAll = (e) => {
+        e.preventDefault();
+        if (!isExpanded) {
+          // show all
+          hiddenItems.forEach((li) => li.classList.remove('cards-card-hidden'));
+          viewAllBtn.textContent = 'View Less'; // optional: change label
+          viewAllBtn.setAttribute('aria-expanded', 'true');
+          isExpanded = true;
+        } else {
+          // hide them again
+          hiddenItems.forEach((li) => li.classList.add('cards-card-hidden'));
+          viewAllBtn.textContent = 'View All';
+          viewAllBtn.setAttribute('aria-expanded', 'false');
+          isExpanded = false;
+
+          // optionally scroll to top of section so user sees beginning again
+          // section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+
+      viewAllBtn.addEventListener('click', toggleShowAll);
+      // also allow keyboard activation on Enter/Space for anchor acting as button
+      viewAllBtn.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          toggleShowAll(ev);
+        }
+      });
+    });
+  }
+  setupAuthorListToggle();
 
   const blkmain = block.closest('.contact-card');
   if (blkmain !== null) {
@@ -101,6 +176,14 @@ export default function decorate(block) {
     });
   }
 
+  // aif component start
+  const aifCard = block.closest('main').querySelector('.aif-component .cards-wrapper .cards');
+  if (aifCard !== null) {
+    dataMapMoObj.CLASS_PREFIXES = ['aifCard-ctn', 'aif-each-ex', 'aif-each-in'];
+    dataMapMoObj.addIndexed(aifCard);
+  }
+  // aif component end
+
   // Investor Education article left and right wrapper
   if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details')) {
     const maincloser = block.closest('main');
@@ -130,7 +213,27 @@ export default function decorate(block) {
         mainleft,
       );
     }
+    const formpath = maincloser.querySelector('.article-right-wrapper .subscribe-email');
+    const formdiv = formpath
+      .querySelector('.subscribe-email .button-container');
+    formBlock(formdiv);
   }
+
+  // WCS Series
+  if (block.closest('.wcs-series-pdf')) {
+    dataMapMoObj.CLASS_PREFIXES = ['wcs-mainitem',
+      'wcs-subitem', 'wcs-inneritem', 'wcs-subinner',
+      'wcs-carditem', 'wcs-cardinner', 'wcs-cardsub'];
+    dataMapMoObj.addIndexed(block);
+  }
+
+  // cal class strat /s
+  const calClass = block.closest('.calc-cards');
+  if (calClass !== null) {
+    dataMapMoObj.CLASS_PREFIXES = ['cal-item', 'cal-item-sub', 'cal-item-inner', 'sub-cal-item', 'sub-inner-cal-item', 'sub-cal-item-inner'];
+    dataMapMoObj.addIndexed(calClass);
+  }
+  // cal class end
 }
 
 function decorateArticlePage() {
@@ -144,24 +247,57 @@ function decorateArticlePage() {
   }
 
   // const searchContext = mainElement || document;
-
-  const newSection = document.querySelector('.moedge-article-main .article-sub-left.articlesub1 .leftartsub1');
-
-  if (newSection) {
-    const item5 = newSection.querySelector('.leftartitem5');
-    const item6 = newSection.querySelector('.leftartitem6');
-
-    if (item5 && item6 && item5.parentNode === item6.parentNode) {
-      const directParent = item5.parentNode;
-      const wrapperDiv = document.createElement('div');
-
-      directParent.insertBefore(wrapperDiv, item5);
-
-      wrapperDiv.appendChild(item5);
-      wrapperDiv.appendChild(item6);
-    }
-  }
 }
 
 // Run the combined function
 decorateArticlePage();
+
+// const subSection = document.querySelectorAll('.section.investment-philosophy');
+// dataMapMoObj.CLASS_PREFIXES = [
+//   'invest-philo-cont',
+//   'invest-philo-sec',
+//   'invest-philo-sub',
+//   'invest-philo-inner-text',
+//   'invest-philo-list',
+//   'invest-philo-list-content',
+//   'invest-philo-list-row',
+// ];
+// subSection.forEach((sublist) => dataMapMoObj.addIndexed(sublist));
+
+const subSection = document.querySelectorAll('.section.investment-philosophy');
+
+subSection.forEach((sublist) => {
+  dataMapMoObj.CLASS_PREFIXES = [
+    'invest-philo-cont',
+    'invest-philo-sec',
+    'invest-philo-sub',
+    'invest-philo-inner-text',
+    'invest-philo-list',
+    'invest-philo-list-content',
+    'invest-philo-list-row',
+  ];
+
+  dataMapMoObj.addIndexed(sublist);
+});
+
+// const emailFields = document.querySelectorAll(
+//   '.section.article-sub-right.subscribe-email .field-wrapper.email-wrapper input'
+// );
+
+// emailFields.forEach((input) => {
+//   const label = input.parentElement.querySelector('label');
+
+//   const toggleLabel = () => {
+//     if (input.value.trim() !== '' || document.activeElement === input) {
+//       label.classList.add('active');
+//     } else {
+//       label.classList.remove('active');
+//     }
+//   };
+
+//   // initialize and attach events
+//   toggleLabel();
+//   input.addEventListener('focus', toggleLabel);
+//   input.addEventListener('blur', toggleLabel);
+//   input.addEventListener('input', toggleLabel);
+// });

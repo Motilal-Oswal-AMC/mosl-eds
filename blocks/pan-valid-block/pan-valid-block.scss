@@ -503,12 +503,28 @@
 
     .pankyc-container {
       position: relative;
-      padding: var(--spacing-36) 16px 24px;
+      padding: var(--spacing-36) 16px 0;
       overflow: auto;
       height: 100%;
 
+      &::-webkit-scrollbar {
+        width: 0;
+        background-color: #464343;
+      }
+
+      &::-webkit-scrollbar-track {
+        width: 0;
+        background-color: var(--neutrals-white);
+        border-radius: 0 1px 1px 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        width: 0;
+        background-color: #464343;
+      }
+
       @include media(mobile) {
-        padding: 64px 16px 46px;
+        padding: 64px 16px 0;
       }
 
       .panvalidinner1 {
@@ -859,6 +875,30 @@
                   border-radius: var(--border-radius-8);
                   border: 1px solid var(--strokes-default);
                   cursor: pointer;
+                  position: relative;
+                  height: 40px;
+
+                  .country-label {
+                    margin: 0;
+                    position: absolute;
+                    top: -8px;
+                    left: 12px;
+                    padding: 0 4px;
+                    background-color: var(--neutrals-white);
+
+                    @include font-style(
+                      var(--label-small-size),
+                      var(--label-small-line-height),
+                      var(--text-typed-input),
+                      400,
+                      var(--body)
+                    );
+
+                    @include media(mobile) {
+                      font-size: var(--label-small-size);
+                      line-height: var(--label-small-line-height);
+                    }
+                  }
 
                   .country-code {
                     margin: 0;
@@ -869,7 +909,7 @@
                     @include font-style(
                       var(--body-medium-regular-size),
                       var(--body-medium-regular-line-height),
-                      var(--text-default-input),
+                      var(--text-typed-input),
                       400,
                       var(--body)
                     );
@@ -987,7 +1027,7 @@
 
                   & ~ .error-msg,
                   .error-icon {
-                    display: block;
+                    display: flex;
                   }
                 }
               }
@@ -1497,7 +1537,7 @@
           var(--body)
         );
 
-        @include media(mobile){
+        @include media(mobile) {
           font-size: var(--paragraph-xsmall-size);
           line-height: var(--paragraph-xsmall-line-height);
         }
@@ -1633,6 +1673,9 @@
       background: var(--button-primary-default);
       width: 100%;
       cursor: pointer;
+      min-width: calc(100% + 6px);
+      margin-left: -3px;
+      margin-right: -3px;
 
       @include font-style(
         var(--button-medium-size),
@@ -1845,7 +1888,7 @@
           gap: var(--spacing-8);
 
           .otp-wrap {
-            padding: 8px 13px 8px 14px;
+            padding: 8px;
             width: 40px;
             height: 40px;
             border-radius: var(--border-radius-8);
@@ -1983,19 +2026,17 @@
 
           &::before {
             content: "";
-            min-width: 14px;
-            height: 14px;
-            background-color: var(--neutrals-black);
+            min-width: 12px;
+            height: 12px;
+            // background-color: var(--neutrals-black);
+            background-color: rgba(0,0,0,0.4);
             border-radius: 50%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 3;
             display: none;
-          }
-
-          &:has(input:not(:placeholder-shown))::before {
-            display: block;
           }
 
           .pass-inp {
@@ -2011,7 +2052,7 @@
             @include font-style(
               var(--body-xlarge-semibold-size),
               var(--body-xlarge-semibold-line-height),
-              transparent,
+              red,
               600,
               var(--body)
             );
@@ -2029,14 +2070,22 @@
               caret-color: var(--strokes-typing);
             }
           }
+
+          &.valid-inp {
+            &::before {
+              display: block;
+            }
+          }
         }
 
         &.passcode-fail {
           .pass-wrap {
             border: var(--border-width-01) solid var(--strokes-error);
 
-            &::before {
-              background-color: var(--strokes-error);
+            &.valid-inp {
+              &::before {
+                background-color: var(--strokes-error);
+              }
             }
 
             .pass-inp {
@@ -2053,8 +2102,10 @@
           .pass-wrap {
             border: var(--border-width-01) solid var(--strokes-success);
 
-            &::before {
-              background-color: var(--strokes-success);
+            &.valid-inp {
+              &::before {
+                background-color: var(--strokes-success);
+              }
             }
 
             .pass-inp {

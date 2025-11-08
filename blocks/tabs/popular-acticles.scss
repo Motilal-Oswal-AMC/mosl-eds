@@ -199,6 +199,12 @@
 }
 
 .popular-artical.learn-about.tabs-container {
+    padding-top: 40px;
+
+    @include media(mobile) {
+        padding-top: 0;
+    }
+
     .default-content-wrapper {
         h1,
         h2,
@@ -254,6 +260,28 @@
 
                 &[aria-selected='true'] p {
                     line-height: 16px;
+                }
+            }
+        }
+    }
+
+    .learn-about.moedge-building-container {
+        padding-bottom: 40px;
+
+        @include media(mobile) {
+            padding-top: 0;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        .tabpanel1 {
+            .learn-about.moedge-building-container {
+                .moedge-building {
+                    >div {
+                        @include media (mobile) {
+                            gap: 40px;
+                        }
+                    }
                 }
             }
         }

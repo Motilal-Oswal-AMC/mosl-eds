@@ -1,0 +1,92 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
+
+
+.mo-qglp-container {
+    .mo-qglp {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+        grid-gap: 16px;
+
+        >div {
+            display: flex;
+            width: 296px;
+            height: 296px;
+            padding: 16px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            border-radius: 8px;
+            border: 1px solid #B9BBFF;
+            background: var(--neutrals-white);
+            box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);;
+
+            @include media (mobile) {
+                width: 100%;
+            }
+
+            .invest-philo-inner-text1 {
+                display: flex;
+                padding: 24px 12px;
+                justify-content: center;
+                align-items: center;
+                flex: 1 0 0;
+                align-self: stretch;
+                border-radius: 12px;
+                border: 1px solid var(--neutrals-200);
+                background: #F8F8FF;
+                box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
+
+                p {
+                    margin: 0;
+
+                    a {
+                        margin: 0;
+                        color: var(--blue-1800-primary, #2E2A94);
+                        font-family: var(--body, Inter);
+                        font-size: 158px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: var(--label-small-line-height);
+                        text-align: center;
+                        text-decoration: none;
+                        background-color: transparent;
+                        cursor: pointer;
+                        overflow: hidden;
+                        text-overflow: unset;
+                        white-space: unset;
+                        box-sizing: border-box;
+                        display: flex;
+                        max-width: inherit;
+                        border: none;
+                        border-radius: unset;
+                        padding: 58px;
+                    }
+                }
+            }
+
+            .invest-philo-inner-text2 {
+                display: flex;
+                padding: 0 12px;
+                justify-content: space-between;
+                align-items: center;
+                align-self: stretch;
+
+                .invest-philo-list1 {
+                    margin: 0;
+                    color: var(--blue-1800-primary, #2E2A94);
+                    font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
+                    font-family: var(--body, Inter);
+                    font-size: var(--body-medium-medium-size, 16px);
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: var(--body-medium-medium-line-height, 20px);
+                }
+            }
+        }
+    }
+}
