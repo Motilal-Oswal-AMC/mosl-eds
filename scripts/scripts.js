@@ -1,4 +1,6 @@
-import { loadEmbed } from '../blocks/embed/embed.js';
+import {
+  loadEmbed,
+} from '../blocks/embed/embed.js';
 import {
   loadHeader,
   loadFooter,
@@ -15,23 +17,13 @@ import {
 
 import dataMapMoObj from './constant.js';
 
-import {
-  div,
-  ul,
-  li,
-  h2,
-  span,
-  p,
-  img,
-  input,
-  label,
-  a,
-} from '../../scripts/dom-helpers.js';
-
 // eslint-disable-next-line import/no-cycle
-import { initializeModalHandlers, openModal } from '../blocks/modal/modal.js';
-import { createForm } from '../blocks/form/form.js';
-import { button } from './dom-helpers.js';
+import {
+  initializeModalHandlers,
+} from '../blocks/modal/modal.js';
+import {
+  createForm,
+} from '../blocks/form/form.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -52,7 +44,9 @@ function wrapImgsInLinks(container) {
 export function moveAttributes(from, to, attributes) {
   let attrs = attributes;
   if (!attrs) {
-    attrs = [...from.attributes].map(({ nodeName }) => nodeName);
+    attrs = [...from.attributes].map(({
+      nodeName,
+    }) => nodeName);
   }
   attrs.forEach((attr) => {
     const value = from.getAttribute(attr);
@@ -68,7 +62,9 @@ export function moveInstrumentation(from, to) {
     from,
     to,
     [...from.attributes]
-      .map(({ nodeName }) => nodeName)
+      .map(({
+        nodeName,
+      }) => nodeName)
       .filter(
         (attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'),
       ),
@@ -151,10 +147,7 @@ export async function loadFragment(path) {
 
       const resetAttributeBase = (tag, attr) => {
         main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
-          elem[attr] = new URL(
-            elem.getAttribute(attr),
-            new URL(cleanPath, window.location),
-          ).href;
+          elem[attr] = new URL(elem.getAttribute(attr), new URL(cleanPath, window.location)).href;
         });
       };
       resetAttributeBase('img', 'src');
@@ -193,11 +186,7 @@ function decorateAutoBlock(element) {
       div.append(origin);
       parent.append(div);
       decorateFragment(div);
-    } else if (
-      origin
-      && origin.href
-      && origin.href.includes('/www.youtube.com/')
-    ) {
+    } else if (origin && origin.href && origin.href.includes('/www.youtube.com/')) {
       loadEmbed(origin, origin.href);
     }
   });
@@ -226,20 +215,19 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   autolinkVideo(doc);
   const main = doc.querySelector('main');
-  if (
-    window.location.href.includes('/investor-education/all-articles/')
-    || window.location.href.includes('/motilal-oswal-edge/article-details')
-  ) {
+  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details')) {
     const maindiv = main.querySelector('.main-wrapper');
     // maindiv.classList.add('main-wrapper');
     maindiv.append(main.querySelector('.article-left-wrapper'));
     maindiv.append(main.querySelector('.article-right-wrapper'));
-    main.prepend(maindiv);
+    main.append(maindiv);
   }
   wrapImgsInLinks(doc);
   await loadSections(main);
 
-  const { hash } = window.location;
+  const {
+    hash,
+  } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
@@ -296,9 +284,7 @@ export function wishlist() {
   const count = stars.length;
   const watchlistSpan = document.querySelector('.watchlisttext span');
   if (watchlistSpan) {
-    watchlistSpan.textContent = `My Watchlist (${
-      count < 10 ? '0' : ''
-    }${count})`;
+    watchlistSpan.textContent = `My Watchlist (${count < 10 ? '0' : ''}${count})`;
   }
 }
 
@@ -336,11 +322,9 @@ const initComponent = (selector, prefixes) => {
     dataMapMoObj.addIndexed(el);
   }
   if (document.querySelector('.quicksubactmain2') !== null) {
-    Array.from(document.querySelector('.quicksubactmain2').children).forEach(
-      (elmain) => {
-        elmain.classList.add('quicksubactlist');
-      },
-    );
+    Array.from(document.querySelector('.quicksubactmain2').children).forEach((elmain) => {
+      elmain.classList.add('quicksubactlist');
+    });
   }
 };
 
@@ -357,21 +341,13 @@ async function loadPage() {
 loadPage();
 
 initComponent('.quick-actions', [
-  'quckactmain',
-  'quckactmain-sub',
-  'quckactmain-sub-wrp',
-  'quicksubactmain',
-  'quicksubinnactmain',
-  'quckaqweactmain',
+  'quckactmain', 'quckactmain-sub', 'quckactmain-sub-wrp',
+  'quicksubactmain', 'quicksubinnactmain', 'quckaqweactmain',
 ]);
 
 initComponent('.welcome-component', [
-  'welcomemain',
-  'welcomemain-sub',
-  'welcomemain-sub-wrp',
-  'welcomeactmain',
-  'welcomeinnactmain',
-  'welcomeaqweactmain',
+  'welcomemain', 'welcomemain-sub', 'welcomemain-sub-wrp',
+  'welcomeactmain', 'welcomeinnactmain', 'welcomeaqweactmain',
 ]);
 
 export async function decorateForm(block) {
@@ -409,58 +385,3 @@ initializeModalHandlers();
 /* -------------------------
    API UTILS COMMENTED OUT
 ------------------------- */
-
-/* glp page start */
-
-const glpDecoding = document.querySelector('.glp-decoding');
-
-if (glpDecoding != null) {
-  dataMapMoObj.CLASS_PREFIXES = [
-    'glpcoding',
-    'glpcoding-inner',
-    'glpcoding-sub-inner',
-  ];
-  dataMapMoObj.addIndexed(glpDecoding);
-}
-
-/* glp page End */
-
-const tabLinks = document.querySelectorAll('.table-wrapper');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      Array.from(document.querySelectorAll('.fdp-tab .comlist')).forEach((el) => {
-        const b = el.querySelector('a').getAttribute('href');
-        if (entry.target.getAttribute('data-id') === b) {
-          el.children[0].classList.add('active');
-        } else {
-          el.children[0].classList.remove('active');
-        }
-      });
-    }
-  });
-}, {
-  root: null, // viewport
-  threshold: 0, // trigger when 0.3 30% of the section is visible
-  rootMargin: '0px 0px -40% 0px', // triggers a bit earlier
-});
-
-tabLinks.forEach((section) => observer.observe(section));
-
-// *Calculators card  starts *//
-
-const calculatorsCard = document.querySelector('.calculators-cards');
-
-if (calculatorsCard != null) {
-  dataMapMoObj.CLASS_PREFIXES = [
-    'cal-car',
-    'cal-car-inner',
-    'cal-car-sub-inner',
-    'cal-car-sub-inner-sub',
-    'cal-car-sub-inner-sub-inner',
-  ];
-  dataMapMoObj.addIndexed(calculatorsCard);
-}
-
-// *Calculators card  End *//
