@@ -1,6 +1,8 @@
-[{
+[
+  {
     "id": "page-metadata",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "description",
         "label": "Page Description"
@@ -25,7 +27,8 @@
         "name": "robots",
         "value": "",
         "label": "Robots Tags",
-        "options": [{
+        "options": [
+          {
             "name": "index",
             "value": "index"
           },
@@ -47,7 +50,8 @@
   },
   {
     "id": "image",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "name": "image",
         "label": "Image",
@@ -62,7 +66,8 @@
   },
   {
     "id": "title",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "title",
         "label": "Title"
@@ -71,7 +76,8 @@
         "component": "select",
         "name": "titleType",
         "label": "Title Type",
-        "options": [{
+        "options": [
+          {
             "name": "h1",
             "value": "h1"
           },
@@ -101,7 +107,8 @@
   },
   {
     "id": "button",
-    "fields": [{
+    "fields": [
+      {
         "component": "aem-content",
         "name": "link",
         "label": "Link"
@@ -120,7 +127,8 @@
         "component": "select",
         "name": "linkType",
         "label": "Type",
-        "options": [{
+        "options": [
+          {
             "name": "default",
             "value": ""
           },
@@ -138,7 +146,8 @@
   },
   {
     "id": "section",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "name",
         "label": "Section Name",
@@ -148,7 +157,8 @@
         "component": "multiselect",
         "name": "style",
         "label": "Style",
-        "options": [{
+        "options": [
+          {
             "name": "Our Popular Funds",
             "value": "our-popular-funds"
           },
@@ -551,7 +561,8 @@
   },
   {
     "id": "card",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -569,7 +580,8 @@
   },
   {
     "id": "columns",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "valueType": "number",
         "name": "columns",
@@ -587,15 +599,18 @@
   },
   {
     "id": "fragment",
-    "fields": [{
-      "component": "aem-content",
-      "name": "reference",
-      "label": "Reference"
-    }]
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "reference",
+        "label": "Reference"
+      }
+    ]
   },
   {
     "id": "hero",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -620,17 +635,22 @@
   },
   {
     "id": "embed",
-    "fields": [{
+    "fields": [
+      {
         "component": "multiselect",
         "name": "classes",
         "label": "Style",
-        "options": [{
-          "name": "XCL World Academy",
-          "children": [{
-            "name": "Hero Video Banner",
-            "value": "hero-video-banner"
-          }]
-        }]
+        "options": [
+          {
+            "name": "XCL World Academy",
+            "children": [
+              {
+                "name": "Hero Video Banner",
+                "value": "hero-video-banner"
+              }
+            ]
+          }
+        ]
       },
       {
         "component": "aem-content",
@@ -656,20 +676,25 @@
   },
   {
     "id": "accordion",
-    "fields": [{
-      "component": "multiselect",
-      "name": "style",
-      "label": "Style",
-      "options": [{
-        "name": "Mobile Accordion Only",
-        "value": "mob-accordion"
-      }]
-    }]
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Mobile Accordion Only",
+            "value": "mob-accordion"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "accordion-item",
     "type": "accordion/text",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "valueType": "string",
         "name": "question",
@@ -686,7 +711,8 @@
   },
   {
     "id": "tabsitem",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "title",
         "label": "Tab Title"
@@ -705,7 +731,8 @@
   },
   {
     "id": "future-building-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "name": "image",
         "label": "Image",
@@ -731,7 +758,8 @@
   },
   {
     "id": "banner-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "col1_deskBanner",
@@ -791,37 +819,44 @@
   },
   {
     "id": "cornerstones-advantage-title-richtext",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Headline and description",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Headline and description",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "cornerstones-advantage-cards-item",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Cards Content",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Cards Content",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "live-streaming-content",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Live Streaming Content",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Live Streaming Content",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "newsletter-subscription",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
@@ -847,7 +882,8 @@
   },
   {
     "id": "think-equity",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
@@ -869,17 +905,20 @@
   },
   {
     "id": "investment-block",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Enter Context",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter Context",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "calculator-sip",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "col1_search_placeholder",
         "label": "Search Text Placeholder",
@@ -932,7 +971,8 @@
         "name": "col3_default_tenure",
         "label": "Default Tenure",
         "value": "10",
-        "options": [{
+        "options": [
+          {
             "name": "1 year",
             "value": "1"
           },
@@ -1029,7 +1069,8 @@
   },
   {
     "id": "growth-now-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "name": "fstimage",
         "label": "Image",
@@ -1069,7 +1110,8 @@
   },
   {
     "id": "watchlist-block",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "left",
         "value": "",
@@ -1087,7 +1129,8 @@
   },
   {
     "id": "broaden-your-research",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "Col Name",
         "label": "Brand name"
@@ -1103,7 +1146,8 @@
   },
   {
     "id": "make-index-funds",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "Col1 Name",
         "label": "Brands name"
@@ -1119,7 +1163,8 @@
   },
   {
     "id": "risk-o-meter-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "description",
         "label": "Scheme Risk- O-Meter",
@@ -1140,7 +1185,8 @@
   },
   {
     "id": "risk-meter",
-    "fields": [{
+    "fields": [
+      {
         "component": "aem-content",
         "name": "link",
         "label": "Link"
@@ -1154,7 +1200,8 @@
   },
   {
     "id": "fdp-card",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "col1_title_description",
         "label": "Inter card description"
@@ -1195,7 +1242,8 @@
   },
   {
     "id": "fund-video",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "title",
         "label": "Title"
@@ -1211,7 +1259,8 @@
   },
   {
     "id": "key-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "col1_title_Investment",
         "label": "Inter Investment Objective"
@@ -1275,7 +1324,8 @@
   },
   {
     "id": "risk-o-meter-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "description",
         "label": "Scheme Risk- O-Meter",
@@ -1296,31 +1346,37 @@
   },
   {
     "id": "performance-graph",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "our-funds-fdp",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "fund-card-slider",
-    "fields": [{
+    "fields": [
+      {
         "component": "multiselect",
         "name": "classes",
         "label": "Multi Select",
-        "options": [{
+        "options": [
+          {
             "name": "Mobile Auto Scroll",
             "value": "mobile-auto-scroll"
           },
@@ -1399,7 +1455,8 @@
         "component": "select",
         "name": "titleType",
         "label": "Title Type",
-        "options": [{
+        "options": [
+          {
             "name": "h1",
             "value": "h1"
           },
@@ -1429,7 +1486,8 @@
   },
   {
     "id": "our-fund-block-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "title",
         "label": "Title"
@@ -1438,7 +1496,8 @@
         "component": "select",
         "name": "titleType",
         "label": "Title Type",
-        "options": [{
+        "options": [
+          {
             "name": "h1",
             "value": "h1"
           },
@@ -1487,17 +1546,20 @@
   },
   {
     "id": "our-fund-left-item",
-    "fields": [{
-      "component": "richtext",
-      "name": "col_leftfilter",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "col_leftfilter",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "our-fund-right-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "col_sort",
         "label": "Title"
@@ -1523,17 +1585,20 @@
   },
   {
     "id": "co-branding",
-    "fields": [{
-      "component": "richtext",
-      "name": "richtext",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "richtext",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "pan-valid-block",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "col_pvpan",
         "label": "Enter Label For Pan Number Field"
@@ -1576,7 +1641,8 @@
   },
   {
     "id": "invest-now-homepage",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "col1_fund_name",
         "label": "Fund Name",
@@ -1629,7 +1695,8 @@
         "name": "col3_frequency_default",
         "label": "Default Frequency",
         "value": "Monthly",
-        "options": [{
+        "options": [
+          {
             "name": "Annual",
             "value": "Annual"
           },
@@ -1660,7 +1727,8 @@
         "name": "col3_end_date_default",
         "label": "Default End Date",
         "value": "Until I cancel",
-        "options": [{
+        "options": [
+          {
             "name": "Until I cancel",
             "value": "Until I cancel"
           },
@@ -1680,7 +1748,8 @@
   },
   {
     "id": "fm-portfolio",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "col_schemename",
         "label": "Enter Label Scheme Name"
@@ -1699,7 +1768,8 @@
   },
   {
     "id": "popular-article-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "name": "image",
         "label": "Image",
@@ -1725,17 +1795,20 @@
   },
   {
     "id": "start-building",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "our-experts",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "title",
         "label": "Title"
@@ -1744,7 +1817,8 @@
         "component": "select",
         "name": "titleType",
         "label": "Title Type",
-        "options": [{
+        "options": [
+          {
             "name": "h1",
             "value": "h1"
           },
@@ -1781,7 +1855,8 @@
   },
   {
     "id": "fdp-campaign",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -1820,7 +1895,8 @@
   },
   {
     "id": "investing-image-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -1838,7 +1914,8 @@
   },
   {
     "id": "login-image-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
@@ -1863,17 +1940,20 @@
   },
   {
     "id": "login-rt-item",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "step-up-block",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "col1_richtext",
         "value": "",
@@ -1913,7 +1993,8 @@
   },
   {
     "id": "contact-us-map",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "title",
         "label": "Title"
@@ -1922,7 +2003,8 @@
         "component": "select",
         "name": "titleType",
         "label": "Title Type",
-        "options": [{
+        "options": [
+          {
             "name": "h1",
             "value": "h1"
           },
@@ -1969,7 +2051,8 @@
   },
   {
     "id": "moedge-building-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "name": "image",
         "label": "Image",
@@ -1996,7 +2079,8 @@
   },
   {
     "id": "our-authors",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -2021,17 +2105,20 @@
   },
   {
     "id": "investing-text-item",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "global-image-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "desktop-image",
@@ -2063,7 +2150,8 @@
   },
   {
     "id": "global-text-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "one text",
         "value": "",
@@ -2081,7 +2169,8 @@
   },
   {
     "id": "investing-image-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -2099,17 +2188,20 @@
   },
   {
     "id": "investing-text-item",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "global-image-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "desktop-image",
@@ -2141,17 +2233,20 @@
   },
   {
     "id": "global-text-item",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "our-service-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "richtext",
         "value": "",
@@ -2167,7 +2262,8 @@
   },
   {
     "id": "previous-studies-blog-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -2204,17 +2300,20 @@
   },
   {
     "id": "wealth-modal",
-    "fields": [{
-      "component": "richtext",
-      "name": "text",
-      "value": "",
-      "label": "Text",
-      "valueType": "string"
-    }]
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   },
   {
     "id": "moedge-article-video",
-    "fields": [{
+    "fields": [
+      {
         "component": "reference",
         "name": "image",
         "label": "Image",
@@ -2242,7 +2341,8 @@
   },
   {
     "id": "moedge-article-details",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "richtext",
         "value": "",
@@ -2260,7 +2360,8 @@
   },
   {
     "id": "why-choose-us",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "text",
         "label": "Why choose us text",
@@ -2281,7 +2382,8 @@
   },
   {
     "id": "decoding-qglp",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
@@ -2306,7 +2408,8 @@
   },
   {
     "id": "tab-glp",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
@@ -2324,7 +2427,8 @@
   },
   {
     "id": "mo-qglp-item",
-    "fields": [{
+    "fields": [
+      {
         "component": "richtext",
         "name": "text_link",
         "value": "",
@@ -2342,7 +2446,8 @@
   },
   {
     "id": "rich-tabsitem",
-    "fields": [{
+    "fields": [
+      {
         "component": "text",
         "name": "title",
         "label": "Tab Title"
