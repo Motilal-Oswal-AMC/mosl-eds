@@ -10,6 +10,7 @@
  * governing permissions and limitations under the License.
  */
 @import '../styles/tokens-variable.css';
+@import '../styles/common.css';
 
 /* ------------------------------------------------------------------
  * GLOBAL RESET
@@ -526,7 +527,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds>.card-modal-overlay,
     .known-our-funds>.card-modal-overlay {
         position: fixed;
@@ -636,7 +636,6 @@ footer .footer[data-block-status="loaded"] {
 }
 
 @media (width <=768px) {
-
     .our-popular-funds.modal-active-parent,
     .known-our-funds.modal-active-parent {
         max-height: unset;
@@ -725,8 +724,7 @@ body.noscroll {
     margin: unset;
     display: flex;
     justify-content: space-between;
-    overflow: auto hidden;
-    scrollbar-width: none;
+    overflow-x: auto;
     word-break: unset;
     align-items: center;
 
@@ -1017,7 +1015,7 @@ position: relative;
 
     /* height: 100vh; */
     height: 100%;
-    padding: 36px 16px 0;
+    padding: 36px 16px;
     flex-direction: column;
 
     /* align-items: center; */
@@ -1151,7 +1149,7 @@ position: relative;
     z-index: 2;
 }
 
-.pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper .error-icon,
+.pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper .error-icon ,
 .pan-details-modal .default-content-wrapper p.subpandts2>.input-wrapper .error-icon.cancel-icon {
     width: 24px;
     height: 24px;
@@ -1249,11 +1247,11 @@ position: relative;
     border: var(--border-width-01) solid var(--strokes-error);
 }
 
-.pan-details-modal .default-content-wrapper p.subpandts2 .input-wrapper.show-error .error-icon.cancel-error {
+.pan-details-modal .default-content-wrapper p.subpandts2 .input-wrapper.show-error .error-icon.cancel-error{
     display: block;
 }
 
-.pan-details-modal .default-content-wrapper p.subpandts2 .input-wrapper.show-error .error-icon.cancel-icon {
+.pan-details-modal .default-content-wrapper p.subpandts2 .input-wrapper.show-error .error-icon.cancel-icon{
     display: none;
 }
 
@@ -1343,7 +1341,7 @@ position: relative;
 
 @media (width <=768px) {
     .pan-details-modal .mainpandts1 {
-        padding: 64px 16px 0;
+        padding: 64px 16px;
         border-radius: 32px 32px 0 0;
         max-width: 100%;
     }
@@ -1538,150 +1536,22 @@ z-index: -1;
 
 
 
-.top-nave .section.breadcrumbs-fdp {
+.top-nave .section.breadcrumbs-fdp{
     top: 0;
     margin-top: 0 !important;
 }
 
-.top-nave .section.fdp-card-container .item2 .item2-ul {
+.top-nave .section.fdp-card-container .item2 .item2-ul{
     top: 56px;
 }
 
-.top-nave .section.fdp-card-container .fdp-card-wrapper.item1 {
+.top-nave .section.fdp-card-container .fdp-card-wrapper.item1{
     top: 56px;
 }
 
 
 @media (width <=768px) {
-    .top-nave .section.fdp-card-container .item2 .selectedtext-fdp {
+    .top-nave .section.fdp-card-container .item2 .selectedtext-fdp{
         top: 63px;
     }
 }
-
-
-/*calculators-cards Start */
-
-.section.calculators-cards {
-    max-width: 1366px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner1 {
-    color: var(--blue-1-800-primary);
-    font-family: var(--title);
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 44px;
-    margin: 0;
-    padding: 0;
-
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner1 .cal-car-sub-inner-sub1 {
-    margin: 0;
-
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner1 .cal-car-sub-inner-sub-inner1 {
-    width: 88px;
-    height: 88px;
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner2 .cal-car-sub-inner-sub1 .cal-car-sub-inner-sub-inner1 {
-    color: var(--blue-1-800-primary);
-    font-family: var(--body);
-    font-size: var(--sub-header-large-size);
-    font-style: normal;
-    font-weight: 500;
-    line-height: var(--sub-header-large-line-height);
-    margin: 0;
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner2 .cal-car-sub-inner-sub1 .cal-car-sub-inner-sub-inner2 {
-    color: var(--blue-1-800-primary);
-    font-family: var(--body);
-    font-size: var(--body-medium-regular-size);
-    font-style: normal;
-    font-weight: 400;
-    line-height: var(--body-medium-regular-line-height);
-}
-
-
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 {
-    margin: 0;
-    margin: 24px 0;
-    padding: 40px 16px;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
-    align-items: center;
-    border-radius: 8px;
-    background: var(--blue-1-50);
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner1{
-   margin-right: 16px;
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner2{
-    max-width: 887px;
-    width: 100%;
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner2 .comlist {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin: 0;
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner3 .cal-car-sub-inner-sub1{
-margin: 0;
-display: flex;
-height: 44px;
-padding: var(--spacing-12);
-justify-content: center;
-align-items: center;
-gap: var(--spacing-8);
-border-radius: var(--border-radius-4);
-background: var(--button-primary-default);
-color: var(--neutrals-white);
-text-align: center;
-font-family: var(--body);
-font-size: var(--body-medium-regular-size);
-font-style: normal;
-font-weight: 500;
-line-height: var(--body-medium-regular-line-height);
-cursor: pointer;
-}
-
-@media (width <=768px) {
-    .section.calculators-cards .cal-car1 .cal-car-inner1 {
-        font-size: 24px;
-        line-height: 28px;
-    }
-
-    .section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner2 .cal-car-sub-inner-sub1 .cal-car-sub-inner-sub-inner1 {
-        font-size: 22px;
-        line-height: 32px;
-    }
-
-    .section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner2{
-    margin-bottom: 40px;
-}
-
-.section.calculators-cards .cal-car1 .cal-car-inner2 .cal-car-sub-inner1{
-   margin : 0 0 16px 0;
-}
-
-
-
-}
-
-
-/*calculators-cards end*/
