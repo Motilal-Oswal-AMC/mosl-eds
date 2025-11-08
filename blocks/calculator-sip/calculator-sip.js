@@ -23,7 +23,7 @@ export default function decorate(block) {
     const schdata = planCode.split(':')[1];
     schcode = schdata;
   } else if (window.location.href.includes('/our-funds/funds-details-page') 
-    && window.location.href.includes('/home-page')) {
+    || window.location.href.includes('/home-page')) {
     schcode = 'LM';
   } else {
     const path = window.location.pathname.split('/').at(-1);
