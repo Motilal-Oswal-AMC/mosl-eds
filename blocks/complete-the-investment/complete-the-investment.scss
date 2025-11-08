@@ -1,0 +1,82 @@
+@use '../../styles/common-theme/css/variables_mixins' as *;
+@use '../../styles/common-theme/css/fluid-typography' as *;
+@use 'sass:map';
+
+.complete-the-investment {
+    >div:first-child {
+        // display: grid;
+        display: none; // RM11
+        grid-template-columns: 1fr 1fr;
+        padding: 20px 16px;
+        align-items: flex-start;
+        flex-shrink: 0;
+        align-self: stretch;
+
+        @include media(mobile) {
+            padding: 0 16px;
+            grid-template-columns: 1fr;
+            row-gap: 20px;
+        }
+
+        >p:first-child {
+            @include font-style(28px, 32px, $primary-blue-1-900, map.get($font-weights, medium), $butlerpro);
+
+            grid-column: 1 / 2;
+
+            @include media(mobile) {
+                grid-column: 1 / -1;
+                text-align: left;
+            }
+        }
+
+        >p:nth-child(2) {
+            @include font-style(28px, 32px, $primary-blue-1-900, map.get($font-weights, medium), $butlerpro);
+
+            grid-column: 1 / 2;
+            margin: 0;
+            padding: 0;
+            padding-top: 132px;
+
+            @include media(mobile) {
+                grid-column: 1 / -1;
+                text-align: left;
+                padding: 0;
+            }
+
+            a {
+                @include font-style(14px, 16px, $primary-white, map.get($font-weights, semi-bold), $poppins);
+
+                margin: 0;
+                display: flex;
+                width: 143px;
+                padding: 12px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                border-radius: map.get($radius, r8);
+                background: $primary-blue-1-900;
+            }
+        }
+
+        >p:nth-child(3) {
+            font-size: 18px;
+            font-weight: bold;
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+
+            @include media(mobile) {
+                grid-column: 1 / 3;
+                grid-row: 2 / 2;
+                padding: 0;
+                margin: 0;
+            }
+
+            img {
+                max-width: 100%;
+                height: 276px;
+                object-fit: cover;
+                border-radius: map.get($radius, r8);
+            }
+        }
+    }
+}

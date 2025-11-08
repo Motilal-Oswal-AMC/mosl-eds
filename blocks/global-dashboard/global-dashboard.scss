@@ -1,0 +1,269 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+.section.global-dashboard-container {
+  max-width: 1232px;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  margin: 0 auto;
+
+  @include media(mobile) {
+    flex-direction: column;
+  }
+
+  .global-dashboard-wrapper {
+        max-width: 712px;
+    margin: 0;
+
+    .global-dashboard {
+      .global1 {
+        display: flex;
+        height: 284px;
+        padding: 0 115px 0 116px;
+        margin-bottom: 24px;
+        justify-content: center;
+        align-items: center;
+        align-self: stretch;
+        padding-bottom: 24px;
+        border-radius: var(--border-radius-8);
+        background: #2c2a95;
+
+        @include media(mobile) {
+          padding: 0;
+          height: unset;
+        }
+
+        .globalsub1 {
+          display: block;
+          max-height: 284px;
+          height: 100%;
+
+          @include media(mobile) {
+            display: none;
+          }
+
+          img{
+            height: 100%;
+          }
+        }
+
+        .globalsub2 {
+          display: none;
+
+          @include media(mobile) {
+            display: block;
+          }
+        }
+      }
+
+      .global2 {
+        .globalsub1 {
+          .globalinner1 {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin: 0;
+            padding-bottom: 24px;
+
+            li {
+              display: flex;
+              gap: 4px;
+              align-items: center;
+              justify-content: center;
+              font-style: normal;
+
+              @include font-style(
+                var(--label-small-size),
+                var(--label-small-line-height),
+                var(--neutrals-700),
+                400,
+                var(--body)
+              );
+
+              .icon-ellipse-inves {
+                width: 4px;
+                height: 4px;
+                display: flex;
+              }
+
+              .icon-calendar-inves {
+                width: 12px;
+                height: 12px;
+                cursor: pointer;
+              }
+            }
+
+            .globalsubinner1 {
+              display: flex;
+              height: 24px;
+              padding: 0 var(--spacing-12);
+              align-items: center;
+              gap: 4px;
+              border-radius: var(--border-radius-circle);
+              border: 1px solid var(--strokes-default);
+              font-style: normal;
+
+              @include font-style(
+                var(--label-small-size),
+                var(--label-small-line-height),
+                var(--blue-1-800-primary),
+                400,
+                var(--body)
+              );
+            }
+          }
+
+          .globalinner2 {
+            margin: 0;
+            font-style: normal;
+            padding-bottom: 4px;
+
+            @include font-style(
+              var(--body-large-medium-size),
+              var(--body-large-medium-line-height),
+              var(--blue-1-800-primary),
+              500,
+              var(--body)
+            );
+          }
+
+          .globalinner3 {
+            margin: 0;
+            font-style: normal;
+            padding-bottom: 16px;
+
+            @include font-style(
+              var(--body-medium-regular-size),
+              var(--body-medium-regular-line-height),
+              var(--text-body-2),
+              400,
+              var(--body)
+            );
+          }
+
+          .globalinner4 {
+            margin: 0;
+
+            .globalsubinner1 {
+              margin: 0;
+              font-style: normal;
+              text-decoration-style: solid;
+              text-decoration-skip-ink: auto;
+              text-decoration-thickness: auto;
+              text-underline-position: from-font;
+              background: none;
+              padding: 0;
+              text-decoration-line: underline;
+              text-underline-offset: auto;
+              border-radius: 0;
+
+              @include font-style(
+                var(--text-link-small-size),
+                var(--text-link-small-line-height),
+                var(--text-text-link),
+                400,
+                var(--body)
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .default-content-wrapper {
+    margin: 0;
+    max-width: 504px;
+    width: 100%;
+
+    .global-text1 {
+      list-style: none;
+      margin: 0;
+
+      li.comlist {
+        display: flex;
+        align-items: start;
+        gap: 8px;
+        padding: 12px 0;
+
+        ul.comlist {
+          margin: 0;
+          list-style: none;
+
+          li.comlist {
+            padding: 0;
+          }
+
+          li.global-textsubinner1 {
+            display: flex;
+            align-items: center;
+
+            // gap: 4px;
+            font-style: normal;
+            padding-bottom: 8px;
+
+            @include font-style(
+              14px,
+              var(--label-medium-line-height),
+              var(--blue-1-800-primary),
+              400,
+              var(--body)
+            );
+          }
+
+          li.global-textsubinner1::before {
+            content: "";
+            display: inline-block;
+            align-items: center;
+            width: 4px;
+            height: 4px;
+            background-color:var(--blue-1-800-primary);
+            border-radius: 50%;
+            vertical-align: middle;
+          }
+
+          li.global-textsubinner2 {
+            font-style: normal;
+            padding-bottom: 4px;
+
+            @include font-style(
+              var(--body-small-medium-size),
+              var(--body-small-medium-line-height),
+              var(--neutrals-900),
+              500,
+              var(--body)
+            );
+          }
+
+          li.global-textsubinner3 {
+            font-style: normal;
+
+            @include font-style(
+              var(--paragraph-xsmall-size),
+              var(--paragraph-xsmall-line-height),
+              var(--text-body-2),
+              400,
+              var(--body)
+            );
+          }
+        }
+
+        p.comlist {
+          margin: 0;
+
+          .icon {
+            width: 56px;
+            height: 56px;
+          }
+        }
+      }
+
+      li.global-textsub1 {
+        padding-top: 0;
+      }
+    }
+  }
+}

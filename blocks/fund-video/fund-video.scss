@@ -1,0 +1,125 @@
+@use "sass:map";
+@use "../../styles/common-theme/css/variables_mixins" as *;
+@use "../../styles/common-theme/css/fluid-typography" as *;
+
+// @import "../live-streaming-carousel/live-streaming-carousel";
+
+.section.fund-video-container {
+  width: 100%;
+  background-color: var(--blue-1-800-primary);
+  padding: 16px;
+  border-radius: 8px;
+
+  @media (width <= 768px) {
+    border-radius: 0;
+  }
+
+  //   height: 170px;
+
+  .fund-video-wrapper {
+    .fund-video {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+
+      @media (width <= 768px) {
+        flex-direction: column;
+        gap: 40px;
+        align-items: baseline;
+      }
+
+      .fundvedmain1 {
+        max-width: 288px;
+
+        div {
+          p {
+          @include font-style(var(--body-xlarge-bold-size), var(--body-xlarge-bold-line-height), var(--neutrals-white), 600,var(--body));
+
+
+            margin: 0;
+          }
+        }
+      }
+
+      .fundvedmain2 {
+        position: relative;
+        display: flex;
+        gap: 24px;
+        min-height: 90px;
+
+        @include media(mobile) {
+          align-items: center;
+        }
+
+        .fundsubinner {
+          .fundvedinnermain1 {
+            margin: 0;
+            height: 90px;
+
+            img {
+              border-radius: 3.333px;
+              opacity: 0.6;
+              background: #2e2a94;
+              width: 160px;
+              height: 90px;
+              margin: 0;
+            }
+          }
+
+          .fundvedinnermain2 {
+            position: absolute;
+            margin: 0;
+            top: 23%;
+            left: 11%;
+
+            @media (width <= 768px) {
+              left: 15%;
+            }
+
+            a {
+              margin: 0;
+              background: none;
+
+              span {
+                width: 16px;
+                height: 16px;
+
+                @media (width <= 768px) {
+                  width: 10px;
+                  height: 10px;
+                }
+              }
+            }
+          }
+        }
+
+        .fundvedsubmain1 {
+          p {
+            max-width: 255px;
+            margin: 10px 0;
+
+            @include font-style(var(--body-medium-regular-size), 24px, var(--blue-1-50), 400,var(--body));
+
+
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+
+            strong {
+              @include font-style(var(--body-medium-medium-size), var(--body-medium-medium-line-height), var(--neutrals-white), 500,var(--body));
+
+            }
+
+            @media (width <= 768px) {
+              font-size:var(--paragraph-xsmall-size);
+              line-height:var(--paragraph-xsmall-line-height);
+              width: 125px;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
