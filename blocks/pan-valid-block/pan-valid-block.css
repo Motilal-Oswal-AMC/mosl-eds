@@ -10,13 +10,26 @@
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container {
   position: relative;
-  padding: var(--spacing-36) 16px 24px;
+  padding: var(--spacing-36) 16px 0;
   overflow: auto;
   height: 100%;
 }
+.section.fdp-kyc-form .pan-valid-block .pankyc-container::-webkit-scrollbar {
+  width: 0;
+  background-color: #464343;
+}
+.section.fdp-kyc-form .pan-valid-block .pankyc-container::-webkit-scrollbar-track {
+  width: 0;
+  background-color: var(--neutrals-white);
+  border-radius: 0 1px 1px 0;
+}
+.section.fdp-kyc-form .pan-valid-block .pankyc-container::-webkit-scrollbar-thumb {
+  width: 0;
+  background-color: #464343;
+}
 @media (max-width: 768px) {
   .section.fdp-kyc-form .pan-valid-block .pankyc-container {
-    padding: 64px 16px 46px;
+    padding: 64px 16px 0;
   }
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .panvalidinner1 .panvalidsub1 {
@@ -325,6 +338,28 @@
   border-radius: var(--border-radius-8);
   border: 1px solid var(--strokes-default);
   cursor: pointer;
+  position: relative;
+  height: 40px;
+}
+.section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .kyc-detail-container .detail-field-wrap.mob-wrap .country-code-wrap .country-label {
+  margin: 0;
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  padding: 0 4px;
+  background-color: var(--neutrals-white);
+  font-size: var(--label-small-size);
+  line-height: var(--label-small-line-height);
+  color: var(--text-typed-input);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .kyc-detail-container .detail-field-wrap.mob-wrap .country-code-wrap .country-label {
+    font-size: var(--label-small-size);
+    line-height: var(--label-small-line-height);
+  }
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .kyc-detail-container .detail-field-wrap.mob-wrap .country-code-wrap .country-code {
   margin: 0;
@@ -333,7 +368,7 @@
   gap: 6px;
   font-size: var(--body-medium-regular-size);
   line-height: var(--body-medium-regular-line-height);
-  color: var(--text-default-input);
+  color: var(--text-typed-input);
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
@@ -438,7 +473,7 @@
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .kyc-detail-container .detail-field-wrap .detail-field.show-error ~ .error-msg,
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .form-container .panvalidsubmain1 .kyc-detail-container .detail-field-wrap .detail-field.show-error .error-icon {
-  display: block;
+  display: flex;
 }
 .section.fdp-kyc-form .pan-valid-block .pankyc-container .tnc-container .panvalidsubmain1 {
   margin: 0;
@@ -825,6 +860,9 @@
   background: var(--button-primary-default);
   width: 100%;
   cursor: pointer;
+  min-width: calc(100% + 6px);
+  margin-left: -3px;
+  margin-right: -3px;
   font-size: var(--button-medium-size);
   line-height: var(--button-medium-line-height);
   color: var(--text-white);
@@ -1023,7 +1061,7 @@
   gap: var(--spacing-8);
 }
 .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .otp-field-wrap .otp-wrap {
-  padding: 8px 13px 8px 14px;
+  padding: 8px;
   width: 40px;
   height: 40px;
   border-radius: var(--border-radius-8);
@@ -1146,21 +1184,16 @@
 }
 .section.reset-passcode .reset-passcode-container .passcode-field-wrap .pass-wrap::before {
   content: "";
-  min-width: 14px;
-  height: 14px;
-  background-color: var(--neutrals-black);
+  min-width: 12px;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 3;
   display: none;
-}
-.section.reset-passcode .reset-passcode-container .passcode-field-wrap .pass-wrap:has(input:not(:-moz-placeholder))::before {
-  display: block;
-}
-.section.reset-passcode .reset-passcode-container .passcode-field-wrap .pass-wrap:has(input:not(:placeholder-shown))::before {
-  display: block;
 }
 .section.reset-passcode .reset-passcode-container .passcode-field-wrap .pass-wrap .pass-inp {
   width: 100%;
@@ -1173,7 +1206,7 @@
   z-index: 2;
   font-size: var(--body-xlarge-semibold-size);
   line-height: var(--body-xlarge-semibold-line-height);
-  color: transparent;
+  color: red;
   font-family: var(--body);
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
@@ -1190,10 +1223,13 @@
 .section.reset-passcode .reset-passcode-container .passcode-field-wrap .pass-wrap:focus-within .pass-inp {
   caret-color: var(--strokes-typing);
 }
+.section.reset-passcode .reset-passcode-container .passcode-field-wrap .pass-wrap.valid-inp::before {
+  display: block;
+}
 .section.reset-passcode .reset-passcode-container .passcode-field-wrap.passcode-fail .pass-wrap {
   border: var(--border-width-01) solid var(--strokes-error);
 }
-.section.reset-passcode .reset-passcode-container .passcode-field-wrap.passcode-fail .pass-wrap::before {
+.section.reset-passcode .reset-passcode-container .passcode-field-wrap.passcode-fail .pass-wrap.valid-inp::before {
   background-color: var(--strokes-error);
 }
 .section.reset-passcode .reset-passcode-container .passcode-field-wrap.passcode-fail .pass-wrap .pass-inp {
@@ -1205,7 +1241,7 @@
 .section.reset-passcode .reset-passcode-container .passcode-field-wrap.passcode-success .pass-wrap {
   border: var(--border-width-01) solid var(--strokes-success);
 }
-.section.reset-passcode .reset-passcode-container .passcode-field-wrap.passcode-success .pass-wrap::before {
+.section.reset-passcode .reset-passcode-container .passcode-field-wrap.passcode-success .pass-wrap.valid-inp::before {
   background-color: var(--strokes-success);
 }
 .section.reset-passcode .reset-passcode-container .passcode-field-wrap.passcode-success .pass-wrap .pass-inp {

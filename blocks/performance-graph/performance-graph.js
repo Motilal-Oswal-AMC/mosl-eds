@@ -44,8 +44,21 @@ export default function decorate(block) {
   let planType = 'Direct';
   let planOption = 'Growth';
 
-  const planCodeObj = localStorage.getItem('planCode') || 'Direct:LM';
-  const schcode = planCodeObj.split(':')[1];
+  const planCodeObj = localStorage.getItem('planCode');
+  let schcode;
+  if (planCodeObj !== null) {
+    const schdata = planCodeObj.split(':')[1];
+    schcode = schdata;
+  } else if (window.location.href.includes('/our-funds/funds-details-page')) {
+    schcode = 'LM';
+  } else {
+    const path = window.location.pathname.split('/').at(-1);
+    const planobj = dataCfObj.cfDataObjs.filter(
+      (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
+    );
+    schcode = planobj[0].schcode;
+  }
+  // const schcode = planCodeObj.split(':')[1];
   const selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
 
   // 2. Get the returns data for the current fund immediately.

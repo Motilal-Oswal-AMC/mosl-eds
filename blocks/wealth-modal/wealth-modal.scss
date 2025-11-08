@@ -115,7 +115,7 @@
 
           &:not(:empty)::before {
             content: "";
-            background-image: url(/icons/warning.svg);
+            background-image: url('/icons/warning.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -222,7 +222,7 @@
         position: relative;
 
         .dropdown-arrow {
-          background-image: url(/icons/arrow-down-black.svg);
+          background-image: url('/icons/arrow-down-black.svg');
           width: 20px;
           height: 20px;
           position: absolute;
@@ -255,7 +255,7 @@
           
             &::after{
               content: "";
-              background-image: url(/icons/arrow-down-black.svg);
+              background-image: url('/icons/arrow-down-black.svg');
               width: 20px;
               height: 20px;
               position: absolute;

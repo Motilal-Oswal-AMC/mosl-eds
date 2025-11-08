@@ -1,4 +1,5 @@
 import dataMapMoObj from '../../scripts/constant.js';
+// import url '../accordion/accordion.js';
 // import {
 //   input
 // } from '../../scripts/dom-helpers.js';

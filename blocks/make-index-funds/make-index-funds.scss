@@ -316,3 +316,11 @@
     //     }
     // }
 }
+
+.moedge-buliding.make-index-funds-container {
+    padding: 66px 0;
+
+    @include media (mobile) {
+        padding: 40px 0;
+    }
+}

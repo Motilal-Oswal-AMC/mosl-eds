@@ -17,8 +17,20 @@ export default function decorate(block) {
   const schemeNames = dataCfObj.cfDataObjs.map((fund) => fund.schDetail.schemeName);
 
   // let selectedFund = dataCfObj.find((fund) => fund.schcode === 'FM'); // CP
-  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  const schcode = planCode.split(':')[1];
+  const planCode = localStorage.getItem('planCode');
+  let schcode;
+  if (planCode !== null) {
+    const schdata = planCode.split(':')[1];
+    schcode = schdata;
+  } else if (window.location.href.includes('/our-funds/funds-details-page')) {
+    schcode = 'LM';
+  } else {
+    const path = window.location.pathname.split('/').at(-1);
+    const planobj = dataCfObj.cfDataObjs.filter(
+      (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
+    );
+    schcode = planobj[0].schcode;
+  }
   let selectedFund = dataCfObj.cfDataObjs.find((fund) => fund.schcode === schcode);
   let returnCAGR = 0;
   dataMapMoObj.mode = 'sip';
@@ -56,7 +68,7 @@ export default function decorate(block) {
         }),
         img({
           class: 'search-btn',
-          src: '/icons/search-blue.svg',
+          src: './icons/search-blue.svg',
           alt: 'cancel button',
         }),
       ),
@@ -204,7 +216,7 @@ export default function decorate(block) {
   // -------------------------------
   const sipBtn = calContainer.querySelector('.sip-btn');
   const btncont = calContainer.querySelector('.start-sip-btn a');
-  btncont.setAttribute('href', '/in/en/mutual-fund/modals/invest-now-homepage');
+  btncont.setAttribute('href', '/mutual-fund/in/en/modals/invest-now-homepage');
   sipBtn.addEventListener('click', () => {
     btncont.textContent = '';
     btncont.textContent = 'Start SIP';

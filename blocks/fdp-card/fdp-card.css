@@ -765,7 +765,7 @@ main {
     font-weight: 500;
     position: sticky;
     top: 179px;
-    z-index: 99;
+    z-index: 5;
   }
   .section.fdp-card-container .item2 .selectedtext-fdp::after {
     content: "";
@@ -981,7 +981,7 @@ main {
   height: 100%;
   position: sticky;
   bottom: 0;
-  z-index: 99;
+  z-index: 5;
   background: var(--neutrals-white, #FFF);
   box-shadow: -25px -1px 214px 0 rgba(0, 0, 0, 0.15);
 }

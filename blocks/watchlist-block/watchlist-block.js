@@ -66,7 +66,7 @@ export default function decorate(block) {
           div(
             { class: 'wishlist-icon' },
             a(
-              { href: '/in/en/mutual-fund/modals/risk-o-meter', class: 'risk-meter-icon' },
+              { href: '/mutual-fund/in/en/modals/risk-o-meter', class: 'risk-meter-icon' },
               img({
                 class: 'riskfactor-icon',
                 src: '/icons/risk-icon/high-risk.svg',

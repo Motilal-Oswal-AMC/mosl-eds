@@ -101,7 +101,7 @@ export default async function decorate(block) {
       dataMapMoObj.selectviewFunds = joinstr;
 
       localStorage.setItem('viewmark', dataMapMoObj.selectviewFunds);
-      const pathname = '/in/en/mutual-fund/our-funds';
+      const pathname = '/mutual-fund/in/en/our-funds';
       window.location.href = `${window.location.origin}${pathname}`;
     });
   });
@@ -113,7 +113,7 @@ export default async function decorate(block) {
 
   //   // Add the click event listener to redirect to the home page.
   //   container.addEventListener('click', () => {
-  //     window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/in/en/mutual-fund/home-page';
+  //     window.location.href = 'https://mosldevexp--eds-cloud--rupeshdept.aem.live/mutual-fund/in/en/home-page';
   //   });
   // });
 
@@ -216,10 +216,16 @@ export default async function decorate(block) {
   const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
   async function removeClassAfterDelay() {
     await delay(2000);
-    if (block.querySelector('#form-email') !== null) {
+    let blokform;
+    if (block.querySelector('#form-email-1')) {
+      blokform = block.querySelector('#form-email-1');
+    } else if (block.querySelector('#form-email')) {
+      blokform = block.querySelector('#form-email');
+    }
+    if (blokform !== null) {
       const elemObj = {};
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const formem = block.querySelector('#form-email');
+      const formem = blokform;
       formem.classList.add('email-imput');
       formem.addEventListener('input', (event) => {
         const closblock = event.target.closest('.footer');

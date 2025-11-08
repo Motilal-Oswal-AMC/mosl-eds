@@ -9,6 +9,7 @@ import {
   a,
 } from '../../scripts/dom-helpers.js';
 import dataMapMoObj from '../../scripts/constant.js';
+import dataCfObj from '../../scripts/dataCfObj.js';
 import {
   evaluateByDays,
   wishlist,
@@ -187,7 +188,7 @@ export default function decorate(block) {
             ),
             a(
               {
-                href: '/in/en/mutual-fund/modals/invest-now-homepage',
+                href: '/mutual-fund/in/en/modals/invest-now-homepage',
                 class: 'invest-now card-btn',
               },
               'Invest',
@@ -437,7 +438,7 @@ export default function decorate(block) {
             ),
             a(
               {
-                href: '/in/en/mutual-fund/modals/risk-o-meter',
+                href: '/mutual-fund/in/en/modals/risk-o-meter',
                 onclick: (event) => {
                   const clasName = event.target.closest('body');
                   clasName.classList.add('scroll-lock');
@@ -470,14 +471,24 @@ export default function decorate(block) {
                   'planCode',
                   `${planFlowsec}:${cardWrapperSh}`,
                 );
-                window.location.href = `${window.location.origin}/in/en/mutual-fund/our-funds/funds-details-page`;
+                let schCard;
+                dataCfObj.cfDataObjs.forEach((el) => {
+                  if (el.schcode === cardWrapperSh) {
+                    schCard = el.schDetail.schemeName.toLowerCase().split(' ').join('-');
+                  }
+                });
+                if (schCard === undefined) {
+                  window.location.href = `${window.location.origin}/mutual-fund/in/en/our-funds/funds-details-page`;
+                } else {
+                  window.location.href = `${window.location.origin}/mutual-fund/in/en/our-funds/${schCard}`;
+                }
               },
             },
             'Know More',
           ),
           a(
             {
-              href: '/in/en/mutual-fund/modals/invest-now-homepage',
+              href: '/mutual-fund/in/en/modals/invest-now-homepage',
               class: 'invest-now card-btn',
             },
             'Invest',

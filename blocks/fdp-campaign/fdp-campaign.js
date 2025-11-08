@@ -131,4 +131,13 @@ export default function decorate(block) {
   if (rrowtwo) {
     Array.from(rrowtwo).forEach((el, ind) => el.classList.add(`stat${ind}`));
   }
+
+  const compaignImage = block.querySelector('.compaignsub1');
+  const compaignLink = block.querySelector('.compaign3 a');
+
+  if (compaignLink && compaignImage) {
+    compaignImage.addEventListener('click', () => {
+      window.location.href = compaignLink.href;
+    });
+  }
 }

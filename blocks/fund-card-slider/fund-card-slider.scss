@@ -101,15 +101,25 @@
           background-repeat: no-repeat;
         }
 
-        .swiper-button-prev::after {
-          content: "";
-          display: inline-block;
-          width: 9.6px;
-          height: 8px;
-          flex-shrink: 0;
-          background-image: url("/icons/swiper-prev.svg");
-          background-size: contain;
-          background-repeat: no-repeat;
+        .swiper-button-prev{
+          // &.swiper-button-disabled{
+          //   opacity: .35;
+          // }
+
+          &::after {
+            content: "";
+            display: inline-block;
+            width: 9.6px;
+            height: 8px;
+            flex-shrink: 0;
+            background-image: url("/icons/swiper-prev.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+      }
+
+      .swiper-button-disabled{
+            opacity: 0.35;
         }
       }
 

@@ -24,16 +24,22 @@ header {
                                     text-align: left;
                                     color: var(--blue-1800-primary, #2E2A94);
                                     font-size: var(--body-medium-semibold-size);
-                                    font-weight: 500;
+                                    font-weight: 600;
                                     line-height: var(--body-medium-semibold-line-height);
                                 }
+                            }
+                        }
+
+                        &.nav-sec-sub1{
+                            @include media (mobile) {
+                                display: none;
                             }
                         }
                     }
 
                     @include media (mobile) {
                         .nav-sec-sub2 {
-                            margin-top: 84px;
+                            margin-top: 24px;
                         }
                     }
                 }

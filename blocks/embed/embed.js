@@ -4,6 +4,7 @@
  * Show videos and social posts directly on your page
  * https://www.hlx.live/developer/block-collection/embed
  */
+import dataMapMoObj from '../../scripts/constant.js';
 
 const loadScript = (url, callback, type) => {
   const head = document.querySelector('head');
@@ -93,6 +94,17 @@ export default function decorate(block) {
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
   block.textContent = '';
+  // wcs js
+  try {
+    const main = block.closest('main');
+    const wcsLanding = main.querySelector('.wcs-landing');
+    if (wcsLanding !== null) {
+      dataMapMoObj.CLASS_PREFIXES = ['wcs', 'text', 'cta', 'media'];
+      dataMapMoObj.addIndexed(wcsLanding);
+    }
+  } catch (error) {
+    // console.log('classes not appended');
+  }
 
   if (placeholder) {
     const wrapper = document.createElement('div');

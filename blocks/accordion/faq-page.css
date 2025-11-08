@@ -195,7 +195,7 @@
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tablist-search .search-container .search-wrapper::before {
   content: "";
-  background-image: url("../../icons/search-icon-black.svg");
+  background-image: url("/icons/search-icon-black.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -335,7 +335,7 @@
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tabs-panel .button-container .accordion-container .accordion-wrapper .accordion .accordion-item .accordion-item-label::after {
   content: "";
-  background-image: url("../../icons/plus-blue.svg");
+  background-image: url("/icons/plus-blue.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -415,7 +415,7 @@
   background-color: transparent;
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tabs-panel .button-container .accordion-container .accordion-wrapper .accordion .accordion-item[open] .accordion-item-label::after {
-  background-image: url("../../icons/mins-blue.svg");
+  background-image: url("/icons/mins-blue.svg");
 }
 .section.page-faq-section .itemfaq2 .subitemfaq1 .tabs-panel .button-container .accordion-container .accordion-wrapper .accordion .accordion-item[open] .accordion-item-label p {
   font-size: var(--body-large-semibold-size);

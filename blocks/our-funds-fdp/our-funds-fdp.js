@@ -72,7 +72,7 @@ export default async function decorate(block) {
           ),
         ),
       ),
-      div({ class: 'fund-links', data_id: manager.fundManagerName.trim().split(' ').join('') }, a({ class: 'fundlink', href: '/in/en/mutual-fund/modals/fm-portfolio' }, 'View other funds managed by him')),
+      div({ class: 'fund-links', data_id: manager.fundManagerName.trim().split(' ').join('') }, a({ class: 'fundlink', href: '/mutual-fund/in/en/modals/fm-portfolio' }, 'View other funds managed by him')),
     );
 
     block.append(ourFunds);

@@ -110,16 +110,17 @@ export default function decorate(block) {
   assocInput.addEventListener('click', toggleDropdown);
   arrow.addEventListener('click', toggleDropdown);
 
-  assocDrop.querySelectorAll('li').forEach((li) => {
+  assocDrop.querySelectorAll('li').forEach((liarg) => {
     li.addEventListener('click', () => {
-      assocInput.value = li.textContent;
+      const touchedFields = new Set();
+      assocInput.value = liarg.textContent;
       assocDrop.classList.remove('open');
       assocDiv.classList.remove('active');
-      const label = assocInput.parentElement.querySelector('.label');
-      label.classList.add('filled');
+      const labelagr = assocInput.parentElement.querySelector('.label');
+      labelagr.classList.add('filled');
       touchedFields.add(assocInput);
-      validateField(assocInput);
-      toggleSubmitButton();
+      dataMapMoObj.validateField(assocInput);
+      dataMapMoObj.toggleSubmitButton();
     });
   });
 
@@ -156,84 +157,87 @@ export default function decorate(block) {
   const fields = [nameInput, emailInput, phoneInput, assocInput];
   const touchedFields = new Set();
 
-  function validateField(input) {
+  function validateForm() {
+    // Ensure all fields are validated, including the associated dropdown
+    return fields.every((f) => dataMapMoObj.validateField(f));
+  }
+
+  function toggleSubmitButton() {
+    // FIX: removed hasAttribute('readonly') logic that was incorrectly marking assocInput as filled
+    const allFilled = fields.every((f) => f.value.trim() !== '');
+    const allValid = fields
+      .every((f) => (touchedFields.has(f) ? dataMapMoObj.validateField(f) : true));
+
+    submitButton.disabled = !(allFilled && allValid);
+    submitButton.classList.toggle('active', allFilled && allValid);
+  }
+  dataMapMoObj.toggleSubmitButton = toggleSubmitButton;
+
+  function toggleErrorIcon(inputarg, isValid) {
+    const icon = inputarg.parentElement.querySelector('.error-icon');
+    if (!icon) return;
+    if (!isValid && inputarg.value.trim() !== '') icon.style.display = 'inline';
+    else icon.style.display = 'none';
+    icon.onclick = () => {
+      inputarg.value = '';
+      const errorMsg = inputarg.parentElement.querySelector('.error-msg');
+      if (errorMsg) errorMsg.textContent = '';
+      icon.style.display = 'none';
+      inputarg.classList.remove('error');
+      toggleSubmitButton();
+    };
+  }
+
+  function validateField(inputarg) {
     const nameError = wealthModal.querySelector('.name-error');
     const emailError = wealthModal.querySelector('.email-error');
     const phoneError = wealthModal.querySelector('.num-error');
     const assocError = wealthModal.querySelector('.assoc-error');
     let valid = true;
 
-    if (input.classList.contains('name-inp')) {
+    if (inputarg.classList.contains('name-inp')) {
       const nameRegex = /^[a-zA-Z\s]*$/;
-      if (input.value.trim() && !nameRegex.test(input.value.trim())) {
+      if (inputarg.value.trim() && !nameRegex.test(inputarg.value.trim())) {
         valid = false;
         nameError.textContent = 'Only letters and spaces allowed.';
       } else nameError.textContent = '';
     }
 
-    if (input.classList.contains('email-inp')) {
+    if (inputarg.classList.contains('email-inp')) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (input.value.trim() && !emailRegex.test(input.value.trim())) {
+      if (inputarg.value.trim() && !emailRegex.test(inputarg.value.trim())) {
         valid = false;
         emailError.textContent = 'Please enter a valid email.';
       } else emailError.textContent = '';
     }
 
-    if (input.classList.contains('num-inp')) {
+    if (inputarg.classList.contains('num-inp')) {
       const phoneRegex = /^(?!([6-9])\1{9})[6-9]\d{9}$/;
-      if (input.value.trim() && !phoneRegex.test(input.value.trim())) {
+      if (inputarg.value.trim() && !phoneRegex.test(inputarg.value.trim())) {
         valid = false;
         phoneError.textContent = 'Enter a valid 10-digit Indian number.';
       } else phoneError.textContent = '';
     }
 
-    if (input.classList.contains('associated-inp')) {
-      if (!input.value.trim()) {
+    if (inputarg.classList.contains('associated-inp')) {
+      if (!inputarg.value.trim()) {
         valid = false;
         assocError.textContent = 'Please select an association.';
       } else assocError.textContent = '';
     }
 
-    input.classList.toggle('error', !valid && input.value.trim() !== '');
+    inputarg.classList.toggle('error', !valid && input.value.trim() !== '');
     toggleErrorIcon(input, valid);
     return valid;
   }
-
-  function toggleErrorIcon(input, isValid) {
-    const icon = input.parentElement.querySelector('.error-icon');
-    if (!icon) return;
-    if (!isValid && input.value.trim() !== '') icon.style.display = 'inline';
-    else icon.style.display = 'none';
-    icon.onclick = () => {
-      input.value = '';
-      const errorMsg = input.parentElement.querySelector('.error-msg');
-      if (errorMsg) errorMsg.textContent = '';
-      icon.style.display = 'none';
-      input.classList.remove('error');
-      toggleSubmitButton();
-    };
-  }
-
-  function validateForm() {
-    // Ensure all fields are validated, including the associated dropdown
-    return fields.every((f) => validateField(f));
-  }
-
-  function toggleSubmitButton() {
-    // FIX: removed hasAttribute('readonly') logic that was incorrectly marking assocInput as filled
-    const allFilled = fields.every((f) => f.value.trim() !== '');
-    const allValid = fields.every((f) => (touchedFields.has(f) ? validateField(f) : true));
-
-    submitButton.disabled = !(allFilled && allValid);
-    submitButton.classList.toggle('active', allFilled && allValid);
-  }
+  dataMapMoObj.validateField = validateField;
 
   fields.forEach((field) => {
-    const label = field.parentElement.querySelector('.label');
-    field.addEventListener('focus', () => label.classList.add('filled'));
+    const labelval = field.parentElement.querySelector('.label');
+    field.addEventListener('focus', () => labelval.classList.add('filled'));
     field.addEventListener('blur', () => {
-      if (field.value.trim() === '') label.classList.remove('filled');
-      else label.classList.add('filled');
+      if (field.value.trim() === '') labelval.classList.remove('filled');
+      else labelval.classList.add('filled');
     });
     field.addEventListener('input', () => {
       if (field.classList.contains('name-inp')) field.value = field.value.replace(/[^a-zA-Z\s]/g, '');

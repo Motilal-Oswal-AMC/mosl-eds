@@ -17,8 +17,21 @@ export default function decorate(block) {
 
   dataMapMoObj.CLASS_PREFIXES = [];
   dataMapMoObj.CLASS_PREFIXES = ['risk'];
-  const planCode = localStorage.getItem('planCode') || 'Direct:LM';
-  const planslabel = planCode.split(':')[1];
+  const planCode = localStorage.getItem('planCode');
+  let planslabel;
+  if (planCode !== null) {
+    const schode = planCode.split(':')[1];
+    planslabel = schode;
+  } else if (window.location.href.includes('/our-funds/funds-details-page')) {
+    planslabel = 'LM';
+  } else {
+    const path = window.location.pathname.split('/').at(-1);
+    const planobj = dataCfObj.cfDataObjs.filter(
+      (el) => path === el.schDetail.schemeName.toLocaleLowerCase().split(' ').join('-'),
+    );
+    planslabel = planobj[0].schcode;
+  }
+  // const planslabel = planCode.split(':')[1];
   // const mop = [];
   const planobj = dataCfObj.cfDataObjs.filter((el) => el.schcode === planslabel);
   console.log(planobj);

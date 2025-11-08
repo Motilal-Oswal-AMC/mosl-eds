@@ -1,7 +1,8 @@
 import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
-  const data = document.querySelectorAll('.tab-glp');
+  // console.log(block);
+  const data = block.querySelectorAll('.tab-glp');
   data.forEach((ele) => {
     if (ele != null) {
       dataMapMoObj.CLASS_PREFIXES = [

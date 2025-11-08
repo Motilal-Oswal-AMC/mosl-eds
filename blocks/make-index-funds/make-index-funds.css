@@ -268,4 +268,12 @@
     border-radius: 2px;
     opacity: unset;
   }
+}
+.moedge-buliding.make-index-funds-container {
+  padding: 66px 0;
+}
+@media (max-width: 768px) {
+  .moedge-buliding.make-index-funds-container {
+    padding: 40px 0;
+  }
 }/*# sourceMappingURL=make-index-funds.css.map */

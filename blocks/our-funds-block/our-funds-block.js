@@ -441,12 +441,12 @@ function searchFunctionality(block) {
       event.preventDefault();
       currentFocusIndex = (currentFocusIndex + 1) % visibleItems.length;
       updateActiveItem(visibleItems);
-      return false;
+      // return false;
     } if (event.key === 'ArrowUp') {
       event.preventDefault();
       currentFocusIndex = (currentFocusIndex - 1 + visibleItems.length) % visibleItems.length;
       updateActiveItem(visibleItems);
-      return false;
+      // return false;
     } if (event.key === 'Enter') {
       if (visibleItems[currentFocusIndex]) {
         // visibleItems[currentFocusIndex].click();
@@ -525,6 +525,7 @@ function searchFunctionality(block) {
       }
       return false;
     }
+    return event;
   });
 
   listContainer.addEventListener('click', (event) => {

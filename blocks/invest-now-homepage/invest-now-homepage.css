@@ -622,6 +622,7 @@
   width: 14.67px;
   height: 14.67px;
   display: block;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-inputs-subcontainer .modal-input-fields .modal-sip .modal-start-today label.start-today-label .start-today-checkbox::before {
@@ -1286,7 +1287,7 @@
   background-color: #fff;
 }
 .invest-now-homepage-container .invest-now-homepage-wrapper .invest-now-homepage .invest-now-container .invest-now-modal > p .modal-inputs-container .modal-cta .modal-cta-btn {
-  padding: 10px;
+  padding: 10px var(--spacing-12);
   max-width: 48.3%;
   width: 100%;
   border-radius: var(--border-radius-8);
@@ -1484,13 +1485,13 @@
   }
 }
 .two-step-auth .two-step-wrap {
-  padding: var(--spacing-36) 16px;
+  padding: var(--spacing-36) 16px 0;
   height: 100%;
   position: relative;
 }
 @media (max-width: 768px) {
   .two-step-auth .two-step-wrap {
-    padding: 64px 16px;
+    padding: 64px 16px 0;
   }
 }
 .two-step-auth .two-step-wrap .modal-cross-wrap {
@@ -1592,23 +1593,21 @@
 }
 .two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap .passcode-field::before {
   content: "";
-  min-width: 14px;
-  height: 14px;
+  min-width: 12px;
+  height: 12px;
   background-color: var(--neutrals-black);
   border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 3;
   display: none;
 }
 .two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap .passcode-field:focus-within {
   border: var(--border-width-02) solid var(--strokes-typing);
 }
-.two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap .passcode-field:has(input:not(:-moz-placeholder))::before {
-  display: block;
-}
-.two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap .passcode-field:has(input:not(:placeholder-shown))::before {
+.two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap .passcode-field.valid-inp::before {
   display: block;
 }
 .two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap .passcode-field .passcode-inp {
@@ -1637,7 +1636,7 @@
 .two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap.passcode-fail .passcode-field {
   border: 1px solid var(--strokes-error);
 }
-.two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap.passcode-fail .passcode-field::before {
+.two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap.passcode-fail .passcode-field.valid-inp::before {
   background-color: var(--strokes-error);
 }
 .two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap.passcode-fail .passcode-field .passcode-inp {
@@ -1656,7 +1655,7 @@
 .two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap.passcode-success .passcode-field {
   border: 1px solid var(--strokes-success);
 }
-.two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap.passcode-success .passcode-field::before {
+.two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap.passcode-success .passcode-field.valid-inp::before {
   background-color: var(--strokes-success);
 }
 .two-step-auth .two-step-wrap .passcode-wrap .passcode-inp-wrap.passcode-success .passcode-field .passcode-inp {

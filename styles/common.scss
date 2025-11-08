@@ -6,112 +6,7 @@
 @use "../styles/common-theme/css/variables_mixins" as *;
 @use "../styles/common-theme/css/fluid-typography" as *;
 
-// Welcome Anushuka Component Start
 
-// .section.welcome-component {
-//     width: 100%;
-
-//     div {
-//         width: 100%;
-//         display: flex;
-//         justify-content: space-between;
-
-//         @include media(mobile) {
-//             position: relative;
-//             flex-direction: column;
-//             gap: 40px;
-//             padding-bottom: 80px;
-//         }
-
-//         /* stylelint-disable-next-line no-descending-specificity */
-//         ul {
-//             list-style: none;
-//             width: 32.5%;
-//             margin: 0;
-
-//             @include media(mobile) {
-//                 width: 100%;
-//             }
-
-//             li:first-child {
-//                 @include font-style(36px, 44px, $primary-blue, map.get($font-weights, bold), $butlerpro);
-
-//                 margin-bottom: 16px;
-
-//                 @include media(mobile) {
-//                     @include font-style(24px, 28px, $primary-blue, map.get($font-weights, bold), $butlerpro);
-//                 }
-//             }
-
-//             li:nth-child(2) {
-//                 @include font-style(20px, 24px, $primary-blue-dark, map.get($font-weights, medium), $poppins);
-
-//                 margin-bottom: 8px;
-
-//                 @include media(mobile) {
-//                     @include font-style(16px, 20px, $primary-blue, map.get($font-weights, medium), $poppins);
-//                 }
-//             }
-
-//             li:nth-child(3) {
-//                 margin-bottom: 40px;
-
-//                 @include font-style(16px, 24px, $primary-blue, map.get($font-weights, regular), $poppins);
-
-//                 @include media(mobile) {
-//                     margin-bottom: 0;
-
-//                     @include font-style(12px, 16px, $primary-blue, map.get($font-weights, regular), $poppins);
-//                 }
-
-//             }
-
-//             li:nth-child(4) {
-//                 @include media(mobile) {
-//                     position: absolute;
-//                     bottom: 0;
-//                 }
-
-//                 a {
-//                     display: flex;
-//                     width: 176px;
-//                     padding: 12px;
-//                     justify-content: center;
-//                     align-items: center;
-//                     gap: 8px;
-
-//                     @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $poppins);
-
-//                     border-radius: 4px;
-//                     background: $primary-blue;
-//                     text-align: center;
-//                 }
-//             }
-//         }
-
-//         /* stylelint-disable-next-line no-descending-specificity */
-//         p {
-//             width: 57.8%;
-//             height: 381px;
-//             margin: 0;
-//             padding: 0;
-
-//             @include media(mobile) {
-//                 width: 100%;
-//                 height: 226px;
-//             }
-
-//             img {
-//                 width: 100%;
-//                 height: 100%;
-//             }
-//         }
-//     }
-// }
-
-// Welcome Anushuka Component End
-
-// Download Component start
 
 .section.download {
   width: 100%;
@@ -209,7 +104,7 @@
             border-radius: 8px;
             background-color: #fff;
             box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
-            background-image: url("/icons/dow#{$i}.svg");
+            background-image: url("../../icons/dow#{$i}.svg");
             background-repeat: no-repeat;
             background-position: center;
             margin-right: 16px;
@@ -240,7 +135,7 @@
     border-radius: 8px;
 
     // background: #030C82;
-    background-image: url("/icons/fdp/wealth-purpose-bg.svg");
+    background-image: url("../../icons/fdp/wealth-purpose-bg.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -300,3 +195,126 @@
 }
 
 // Invest Now Scss Start
+
+
+// WCS Landing Scss Start
+.wcs-landing.section.embed-container{
+  max-width: 1232px;
+  margin: 0 auto;
+  margin-top: 16px;
+  padding-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  @include media(mobile) {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 56px;
+    position: relative;
+    }
+
+  .wcs1{
+    margin-left: 0;
+    margin-right: 0;
+
+    .text1{
+      max-width: 504px;
+      width: 100%;
+      margin-top: 0;
+      color: var(--blue-1-800-primary);
+      font-family: var(--title);
+      font-size: var(--heading-h1-size);
+      font-style: normal;
+      font-weight: 600;
+      line-height: var(--heading-h1-line-height);
+      margin-bottom: 12px;
+
+       @include media(mobile) {
+        font-size: 28px;
+        line-height: var(--sub-header-large-line-height);
+    }
+    }
+
+    .text2{
+      margin-top: 0;
+      max-width: 504px;
+      width: 100%;
+      color: var(--neutrals-800);
+      font-family: var(--body);
+      font-size: var(--body-medium-regular-size);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      margin-bottom: 48px;
+
+      @include media(mobile) {
+        margin-bottom: 28px;
+    }
+    }
+
+    .text3{
+      padding: 0 4px 0 0;
+       @include media(mobile) {
+        padding: 0 16px 0 20px;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;    
+        display: flex;
+      }
+
+      .cta1{
+        color: var(--text-white);
+        text-align: center;
+        font-family: var(--body);
+        font-size: var(--button-medium-size);
+        font-style: normal;
+        font-weight: 500;
+        line-height: var(--button-medium-line-height);
+        border-radius: var(--border-radius-8);
+        background: var(--button-primary-default);
+        margin-top: 0;
+        padding: 12px;
+
+        @include media(mobile) {
+          width: 100%;
+          margin: 0 auto 28px;
+          border: none;
+       }
+      }
+    }
+  }
+
+  .wcs2{
+    display: flex;
+    max-width: 607px;
+    width: 100%;
+    max-height: 341.083px;
+    height: 100%;
+    margin: 0;
+    border-radius: 5.948px;
+    overflow: hidden;
+
+     @include media(mobile) {
+     display: flex;
+     width: 100%;
+     height: 100%;
+     flex-direction: column;
+     margin: 0 auto 80px;
+
+    //  max-width: 339.441px;
+    //  max-height: 190.737px;
+    }
+  }
+}
+
+// WCs Landing Scss End
+
+// Inverters Blogs scss start
+
+
+
+// Inverters Blogs scss End

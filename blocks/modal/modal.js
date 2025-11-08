@@ -317,7 +317,7 @@ async function openModalOnElement(fragmentUrl, clickedElement) {
     // console.log(error);
   }
   document.body.classList.add('modal-open', 'noscroll');
-  if (window.location.href.includes('/in/en/mutual-fund/our-funds/')) {
+  if (window.location.href.includes('/mutual-fund/in/en/our-funds/')) {
     document.body.style.overflow = 'hidden';
   }
   // --- END: NEW LOGIC ---
@@ -359,6 +359,11 @@ export function initializeModalHandlers() {
           const schode = link.closest('.card-wrap')
             .querySelector('.risk-home-two a').getAttribute('schemesh');
           localStorage.setItem('planCode', `${schode}`);
+        }
+        if (link.closest('.list-view-container')) {
+          const schode = link.closest('.list-view-container')
+            .querySelector('.star').getAttribute('schcode');
+          localStorage.setItem('planCode', `Direct:${schode}`);
         }
         await openModal(link.href);
       }

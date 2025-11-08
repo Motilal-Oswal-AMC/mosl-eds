@@ -9,7 +9,7 @@ import { isDesktop } from '../header/header.js';
  * @param {HTMLElement} block - The accordion block element.
  */
 export default function decorate(block) {
-  if (window.location.href.includes('author')) return;
+  if (window.location.href.includes('//author')) return;
 
   // --- Part 1: Convert rows to semantic <details>/<summary> ---
   [...block.children].forEach((row) => {
@@ -117,7 +117,7 @@ export default function decorate(block) {
   });
 
   if (
-    window.location.href.includes('/in/en/mutual-fund/our-funds') || window.location.href.includes('/in/en/mutual-fund/motilal-oswal-edge')
+    window.location.href.includes('/mutual-fund/in/en/our-funds') || window.location.href.includes('/mutual-fund/in/en/motilal-oswal-edge')
   ) {
     const mainwrapper = block.closest('.freq-ask-ques');
     if (mainwrapper && !mainwrapper.querySelector('.faq-our-fund')) {

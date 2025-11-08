@@ -106,6 +106,9 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+.section.fund-card-slider-container .block .card-slider-main .btn-wrapper .swiper-button-disabled {
+  opacity: 0.35;
+}
 .section.fund-card-slider-container .block .card-slider-main .swiper-slide {
   height: auto;
 }/*# sourceMappingURL=fund-card-slider.css.map */

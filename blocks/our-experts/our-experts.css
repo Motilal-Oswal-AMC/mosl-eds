@@ -75,6 +75,7 @@
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 {
   display: flex;
+  height: 44px;
   padding: 10px 8px;
   justify-content: flex-start;
   align-items: center;
@@ -95,7 +96,7 @@
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 input {
   border: none;
-  color: var(--text-body-2);
+  color: var(--neutrals-black);
   font-feature-settings: var(--font-features-default);
   font-family: var(--body);
   font-size: var(--body-medium-regular-size, 16px);
@@ -103,9 +104,12 @@
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height, 20px);
 }
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper {
+  line-height: 0;
+}
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper label {
   position: absolute;
-  top: 14px;
+  top: 12px;
   left: 45px;
   color: var(--text-body-2, #616161);
   font-feature-settings: var(--font-features-default);
@@ -214,9 +218,23 @@
   display: none;
 }
 
-.section.out-expert-listing.our-experts-container .our-experts-wrapper .our-experts .our-experts-cont1 .our-expert-section1 .our-expert-sub1 {
-  font-size: var(--sub-header-large-size);
-  line-height: var(--sub-header-medium-line-height);
+@media (max-width: 768px) {
+  .our-author-list.our-experts-container .our-experts-wrapper .our-experts {
+    gap: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .our-author-list.our-experts-container .our-experts-wrapper .our-experts .our-experts-cont1 .our-expert-section1 .our-expert-sub1 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section.out-expert-listing.our-experts-container .our-experts-wrapper .our-experts .our-experts-cont1 .our-expert-section1 .our-expert-sub1 {
+    font-size: var(--sub-header-large-size);
+    line-height: 28px;
+  }
 }
 .section.out-expert-listing.our-experts-container .our-experts-wrapper .our-experts .our-experts-cont2 {
   display: none;
