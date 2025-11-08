@@ -1,10 +1,8 @@
 {
-  "groups": [
-    {
+  "groups": [{
       "title": "Default Content",
       "id": "default",
-      "components": [
-        {
+      "components": [{
           "title": "Text",
           "id": "text",
           "plugins": {
@@ -61,28 +59,25 @@
     {
       "title": "Sections",
       "id": "sections",
-      "components": [
-        {
-          "title": "Section",
-          "id": "section",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/section/v1/section",
-                "template": {
-                  "model": "section"
-                }
+      "components": [{
+        "title": "Section",
+        "id": "section",
+        "plugins": {
+          "xwalk": {
+            "page": {
+              "resourceType": "core/franklin/components/section/v1/section",
+              "template": {
+                "model": "section"
               }
             }
           }
         }
-      ]
+      }]
     },
     {
       "title": "Blocks",
       "id": "blocks",
-      "components": [
-        {
+      "components": [{
           "title": "Cards",
           "id": "cards",
           "plugins": {
@@ -1035,7 +1030,7 @@
             }
           }
         },
-         {
+        {
           "title": "Previous Studies Blog Item",
           "id": "previous-studies-blog-item",
           "plugins": {
@@ -1141,7 +1136,7 @@
             }
           }
         },
-         {
+        {
           "title": "TAB GLP",
           "id": "tab-glp",
           "plugins": {
