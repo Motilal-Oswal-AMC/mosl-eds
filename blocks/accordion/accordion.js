@@ -8,6 +8,7 @@ import { isDesktop } from '../header/header.js';
  *
  * @param {HTMLElement} block - The accordion block element.
  */
+// Hello World
 export default function decorate(block) {
   if (window.location.href.includes('//author')) return;
 
