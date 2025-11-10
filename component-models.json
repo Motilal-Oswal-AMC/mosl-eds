@@ -2102,12 +2102,6 @@
             "value": "article"
           }
         ]
-      },
-      {
-        "component": "text",
-        "name": "style",
-        "label": "CSS Classes",
-        "placeholder": "e.g., class-one class-two"
       }
     ]
   },
