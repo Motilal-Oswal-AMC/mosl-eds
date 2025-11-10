@@ -5,7 +5,9 @@
 .section.our-experts-container {
     margin-bottom: 0;
 
-    // @include media mobile {}
+    @include media (mobile) {
+        margin-top: 0;
+    }
 
     .our-experts-wrapper {
         ul {

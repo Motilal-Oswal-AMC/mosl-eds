@@ -549,6 +549,10 @@
           {
             "name": "wcs-landing",
             "value": "wcs-landing"
+          },
+          {
+            "name": "Breadcrumbs",
+            "value": "breadcrumbs"
           }
         ]
       },
@@ -2478,6 +2482,18 @@
         "component": "text",
         "name": "video_imageTitle",
         "label": "Video Image Title"
+      }
+    ]
+  },
+  {
+    "id": "blog-author-details",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Enter the text authors Details",
+        "valueType": "string"
       }
     ]
   }
