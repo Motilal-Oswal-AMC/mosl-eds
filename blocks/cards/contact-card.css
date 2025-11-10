@@ -234,9 +234,9 @@
     line-height: 20px;
   }
 }
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list.list-elem-19 .list-elem-20 a,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list.list-elem-19 .list-elem-20 a,
-.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list.list-elem-19 .list-elem-20 a {
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub1 .cards-card-body ul.comlist .common-list.list-elem-19 .list-elem-20 a.list-data,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub2 .cards-card-body ul.comlist .common-list.list-elem-19 .list-elem-20 a.list-data,
+.section.contact-card .cards-wrapper .cards ul.contact-main1 li.contact-sub3 .cards-card-body ul.comlist .common-list.list-elem-19 .list-elem-20 a.list-data {
   color: var(--text-text-link);
   font-family: var(--body, inter);
   font-size: 14px;

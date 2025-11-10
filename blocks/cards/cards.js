@@ -112,6 +112,12 @@ export default function decorate(block) {
 
     Array.from(listul).forEach((Element, index) => Element.classList.add(`list-elem-${index + 1}`));
     Array.from(listul).forEach((Element) => Element.classList.add('common-list'));
+
+    const fetchAnchor = document.querySelectorAll('.cards-wrapper .contact-main1 .comlist a');
+    Array.from(fetchAnchor).forEach((anchor) => {
+      anchor.classList.add('list-data');
+    });
+
   }
 
   const pmsRooted = block.closest('.pms-rooted');
