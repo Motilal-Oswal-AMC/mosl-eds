@@ -2078,6 +2078,29 @@
         "name": "description",
         "label": "motilal edge Building Item Description",
         "value": ""
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "video",
+            "value": "video"
+          },
+          {
+            "name": "blog",
+            "value": "blog"
+          },
+          {
+            "name": "podcast",
+            "value": "podcast"
+          },
+          {
+            "name": "article",
+            "value": "article"
+          }
+        ]
       }
     ]
   },
