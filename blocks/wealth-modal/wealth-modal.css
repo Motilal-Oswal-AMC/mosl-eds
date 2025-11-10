@@ -12,14 +12,14 @@
     padding: 36px 16px;
     position: fixed;
     z-index: 11;
-    bottom: 0px;
+    bottom: 0;
     border-radius: 24px 24px 0 0;
     height: 83vh !important;
   }
 }
 @media (width <= 768px) {
   .section.wealth-register .wealth-modal-wrapper {
-    padding: 0px;
+    padding: 0;
   }
 }
 .section.wealth-register .wealth-modal .main-wealth-modal .cross-btn {
@@ -34,7 +34,7 @@
   margin: 0;
 }
 .section.wealth-register .ragis-lab-btn > .rag-lable {
-  margin: 0 0 40px 0;
+  margin: 0 0 40px;
   color: var(--text-black);
   font-family: var(--body);
   font-size: var(--sub-header-medium-size);
@@ -166,7 +166,7 @@
   box-shadow: 0 4px 16px 0 rgba(47, 64, 84, 0.12);
   border-radius: var(--border-radius-8);
   padding: 0;
-  margin: 4px 0 0 0;
+  margin: 4px 0 0;
   display: none;
   max-height: 150px;
   overflow-y: auto;
@@ -294,7 +294,7 @@
   }
   .section.wealth-register .ragis-lab-btn .section.wealth-register {
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     z-index: 11;
   }
 }
@@ -305,5 +305,5 @@
 .modal.modal-journey .modal-content {
   display: flex;
   justify-content: end;
-  padding-right: 0px;
+  padding-right: 0;
 }/*# sourceMappingURL=wealth-modal.css.map */

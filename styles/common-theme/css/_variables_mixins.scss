@@ -29,14 +29,12 @@ $primary-blue-1-900: #242177;
 
 
 // Brand buttons
-$button-primary: (
-  default: #2e2a94,
+$button-primary: (default: #2e2a94,
   hover: #2b2e8c,
   active: #262a84,
   disabled: #969696,
 );
-$button-secondary: (
-  default: #fff,
+$button-secondary: (default: #fff,
   hover: #f3f3f3,
   active: #e6e6e6,
   disabled: #b0b0b0,
@@ -44,8 +42,7 @@ $button-secondary: (
 );
 
 // Neutral colors blue-1-25
-$blue-1: (
-  b25: #EDF1FF,
+$blue-1: (b25: #EDF1FF,
   b50: #D5DEFF,
   b200: #9DADFE,
   b300: #7986fd,
@@ -53,16 +50,14 @@ $blue-1: (
   b900: #242177,
   b500: #4338f3,
   b700: #332ab5,
-  b150:#D5DEFF
-);
+  b150:#D5DEFF);
 
 // body-Color
 
 $color-text-body: #424242;
 
 // Old Silver
-$old-silver: (
-  00: #efefef,
+$old-silver: (00: #efefef,
   50: #f3f3f3,
   75: #ccc,
   100: #b7b7b7,
@@ -75,8 +70,7 @@ $old-silver: (
 );
 
 // Olive Drab
-$olive-drab: (
-  50: #ededec,
+$olive-drab: (50: #ededec,
   75: #b6b3b1,
   100: #989490,
   200: #6c6560,
@@ -86,8 +80,7 @@ $olive-drab: (
 );
 
 // Dark Liver
-$dark-liver: (
-  50: #edeeed,
+$dark-liver: (50: #edeeed,
   75: #b6b8b6,
   100: #979a98,
   200: #6a6f6b,
@@ -97,16 +90,14 @@ $dark-liver: (
 );
 
 // strokes
-$strokes: (
-  default:#9E9E9E,
+$strokes: (default:#9E9E9E,
   typing: #1887D2,
   disabled: #BDBDBD,
 );
 
 
 // Success
-$success: (
-  50: #e9fdec,
+$success: (50: #e9fdec,
   75: #a4f8b2,
   100: #7ef591,
   200: #46f062,
@@ -116,8 +107,7 @@ $success: (
 );
 
 // Alarm
-$alarm: (
-  50: #fdf6e9,
+$alarm: (50: #fdf6e9,
   75: #f8dca4,
   100: #f5cd7e,
   200: #f0b846,
@@ -127,8 +117,7 @@ $alarm: (
 );
 
 // Danger
-$danger: (
-  50: #fde9e9,
+$danger: (50: #fde9e9,
   75: #f8a4a4,
   100: #f57e7e,
   200: #f04646,
@@ -161,18 +150,19 @@ $sub-header: #212121;
 // ----------------------------------------
 // FONTS
 // ----------------------------------------
-$poppins: "Poppins", sans-serif;
-$butlerpro: "ButlerPro", sans-serif;
-$inter: "Inter", sans-serif;
-$font-weights: (
-  light: 300,
+$poppins: "Poppins",
+sans-serif;
+$butlerpro: "ButlerPro",
+sans-serif;
+$inter: "Inter",
+sans-serif;
+$font-weights: (light: 300,
   regular: 400,
   medium: 500,
   semibold: 600,
   bold: 700,
   extrabold: 800,
-  heavy: 900
-);
+  heavy: 900);
 
 // Font mixin
 @mixin font-style($size, $line-height, $color, $weight: null, $family: $body) {
@@ -180,9 +170,9 @@ $font-weights: (
   line-height: $line-height;
   color: $color;
   font-family: $family;
-  font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
+  font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
 
-  @if $weight != 'null' {
+  @if $weight !='null' {
     font-weight: $weight;
   }
 }
@@ -204,8 +194,7 @@ $font-weights: (
 // BORDER RADIUS
 // ----------------------------------------
 
-$radius: (
-  r4: 4px,
+$radius: (r4: 4px,
   r8: 8px,
   r12: 12px,
   r14: 14px,
@@ -219,15 +208,13 @@ $radius: (
   r52: 52px,
   r83: 83px,
   r100: 100px,
-  r50: 50%
-);
+  r50: 50%);
 
 // ----------------------------------------
 // SPACING
 // ----------------------------------------
 
-$spacing: (
-  xxs: 4px,
+$spacing: (xxs: 4px,
   xs: 8px,
   sm: 12px,
   md: 16px,
@@ -246,16 +233,14 @@ $box-shadow-soft: 0 8px 24px rgba($primary-black, 0.08);
 // BREAKPOINTS
 // ----------------------------------------
 
-$breakpoints: (
-  mobile-sm: 361px,
+$breakpoints: (mobile-sm: 361px,
   mobile-md: 391px,
   mobile: 768px,
   tab: 1025px,
   desktop-sm: 1299px,
   desktop-md: 1367px,
   desktop-lg: 1681px,
-  desktop-xl: 1921px
-);
+  desktop-xl: 1921px);
 
 
 // // Media query mixin using map.get
@@ -322,18 +307,20 @@ $breakpoints: (
 }
 
 
-//Typeface start
+// Typeface start
 
-$title: "Inter", sans-serif;
-$body: "Inter", sans-serif;
+$title: "Inter",
+sans-serif;
+$body: "Inter",
+sans-serif;
 $weight-regular: "Regular";
 $weight-semibold: "Semibold";
 $weight-medium: "Medium";
 $weight-bold: "Bold";
 
-//Typeface end
+// Typeface end
 
-//spacing start
+// spacing start
 
 $spacing-none: 0px;
 $spacing-4: 4px;
@@ -370,7 +357,7 @@ $spacing-68: 68px;
 $spacing-76: 76px;
 $spacing-80: 80px;
 
-//spacing end
+// spacing end
 
 // colors start
 
@@ -456,7 +443,7 @@ $neutrals-white: #fff;
 // colors end
 
 
-//semantic-lights start
+// semantic-lights start
 
 $text-header: $blue-1-600;
 $text-sub-header: $neutrals-900;
@@ -515,11 +502,10 @@ $text-button-disabled: $neutrals-500;
 $card-stroke: #B9BBFF;
 $surface-icon-primary-normal: $blue-1-800-primary;
 
-//semantic-lights end
+// semantic-lights end
 
-//typescale-desktop start
-$typography-desktop: (
-  body-xlarge-bold-font: $body,
+// typescale-desktop start
+$typography-desktop: (body-xlarge-bold-font: $body,
   body-xlarge-bold-weight: $weight-semibold,
   body-xlarge-bold-size: $spacing-20,
   body-xlarge-bold-line-height: $spacing-24,
@@ -671,14 +657,12 @@ $typography-desktop: (
   body-xsmall-regular-font: $body,
   body-xsmall-regular-weight: $weight-regular,
   body-xsmall-regular-size: $spacing-12,
-  body-xsmall-regular-line-height: 14px
-);
+  body-xsmall-regular-line-height: 14px);
 
-//typescale-desktop end
+// typescale-desktop end
 
-//typescale-mobile start
-$typography-mobile: (
-  body-xlarge-bold-font: $body,
+// typescale-mobile start
+$typography-mobile: (body-xlarge-bold-font: $body,
   body-xlarge-bold-weight: $weight-semibold,
   body-xlarge-bold-size: $spacing-20,
   body-xlarge-bold-line-height: $spacing-24,
@@ -832,7 +816,6 @@ $typography-mobile: (
   body-xsmall-regular-font: body,
   body-xsmall-regular-weight: $weight-regular,
   body-xsmall-regular-size: $spacing-12,
-  body-xsmall-regular-line-height: 14px
-);
+  body-xsmall-regular-line-height: 14px);
 
-//typescale-mobile end
+// typescale-mobile end
