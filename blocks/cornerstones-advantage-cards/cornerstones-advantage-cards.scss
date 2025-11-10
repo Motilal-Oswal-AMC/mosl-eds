@@ -5,14 +5,14 @@
 
 .section.cornerstones-advantage {
   &-cards-container {
-    // max-width: 1264px;
-    width: 100%;
+    // max-width: 1264px;max-widthmax-width
+    width: 100%;width
     margin: 0 auto;
     padding: 40px 0 56px;
 
     @include media(mobile) {
-      // max-width: 100%;
-      padding: 24px 0 12px;
+      // max-width: 100%;max-widthmax-width
+      padding: 24px 0 12px;padding
     }
 
     .default-content-wrapper{
@@ -60,9 +60,8 @@
       @include media(mobile) {
         flex-wrap: unset;
         flex-direction: column;
-
-        // gap: 40px;
-        gap: 24px;
+        // gap: 40px;gapgap
+        gap: 24px;gap
       }
 
       & .cards-item {
@@ -79,8 +78,8 @@
         }
 
         @include media(mobile) {
-          // min-height: 176px;
-          min-height: 136px;
+          // min-height: 176px;min-heightmin-height
+          min-height: 136px;min-height
           max-width: 100%;
           padding-right: 0;
         }

@@ -6,7 +6,7 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 // body::-webkit-scrollbar{
-//   display: none;
+//   display: none;displaydisplay
 // }
 
 .section.page-faq-section {
@@ -39,11 +39,9 @@
       //   map.get($font-weights, bold),
       //   $inter);
 
-      // @include media(mobile) {
-      //   gap: 8px;
-      //   font-size: 24px;
-      //   line-height: 28px;
-      //   text-wrap: balance;
+      // @include media(mobile) {font-size
+      //   line-height: 28px;line-heightline-height
+      //   text-wrap: balance;text-wraptext-wrap
       // }
 
       .subinnerfaq1 {
@@ -102,14 +100,14 @@
     }
 
     // .subitemfaq2 {
-    //   margin: 8px 0 0;
+    //   margin: 8px 0 0;marginmargin
 
     //   @include font-style(16px, 24px, $text-body-2, map.get($font-weights, regular), $inter);
 
     //   @include media(mobile) {
-    //     margin: 24px 0 0;
-    //     font-size: 14px;
-    //     line-height: 20px;
+    //     margin: 24px 0 0;marginmargin
+    //     font-size: 14px;font-sizefont-size
+    //     line-height: 20px;line-heightline-height
     //   }
     // }
   }
@@ -156,8 +154,8 @@
           @include media(mobile) {
             max-width: 100%;
 
-            // margin-left: 32px;
-            // border-bottom: 1px solid #b6bcc7;
+            // margin-left: 32px;margin-leftmargin-left
+            // border-bottom: 1px solid #b6bcc7;border-bottomborder-bottom
           }
 
           .tabs-tab {

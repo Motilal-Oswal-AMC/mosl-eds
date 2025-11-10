@@ -20,13 +20,11 @@ $breakpoint-tablet: 900px;
         font-style: normal;
         font-weight: 500;
         max-width: 400px;
-
-        // color: #2E2A94;
-        // font-family: var(--heading-h1-font);
-        // font-size: var(--heading-h3-size);
-        // line-height: var(--heading-h3-line-height);
+        // color: #2E2A94;colorcolor
+        // font-family: var(--heading-h1-font);font-familyfont-family
+        // font-size: var(--heading-h3-size);font-sizefont-size
+        // line-height: var(--heading-h3-line-height);line-heightline-height
         @include font-style(var(--heading-h3-size), var(--heading-h3-line-height), var(--blue-1-800-primary), 500, var(--title));
-
         margin: 0 0 24px;
 
         @include media(mobile) {
@@ -41,14 +39,9 @@ $breakpoint-tablet: 900px;
     p {
         font-style: normal;
         max-width: 829px;
-        font-weight: 400;
-
-        // color: var(--neutrals-800);
-        // font-family: var(--boby);
-        // font-size: var(--body-large-regular-size);
-        // line-height: var(--body-large-regular-line-height);
+        font-weight: 400;font-size
+        // line-height: var(--body-large-regular-line-height);line-heightline-height
         @include font-style(var(--body-large-regular-size), var(--body-large-regular-line-height), var(--neutrals-800), 400, var(--body));
-
         margin: 0 0 68px;
 
         /* 133.333% */
@@ -99,9 +92,8 @@ $breakpoint-tablet: 900px;
                             width: 64px;
                             height: 64px;
 
-                            img {
-                                // width: 64px;
-                                // height: 64px;
+                            img {width
+                                // height: 64px;heightheight
                             }
                         }
 
@@ -316,7 +308,7 @@ $breakpoint-tablet: 900px;
 
         @include media(mobile) {
             margin: 0 16px;
-            // padding: 0 16px;
+            // padding: 0 16px;paddingpadding
         }
 
         .pms-choose-detail1 {
@@ -408,11 +400,10 @@ $breakpoint-tablet: 900px;
         @include media(mobile) {
             margin: 0;
             padding-top: 16px;
-
-            // padding-bottom: 0;
-            // margin-left: unset;
-            // padding-left: 16px;
-            // padding-right: 16px;
+            // padding-bottom: 0;padding-bottompadding-bottom
+            // margin-left: unset;margin-leftmargin-left
+            // padding-left: 16px;padding-leftpadding-left
+            // padding-right: 16px;padding-rightpadding-right
         }
 
 
@@ -517,8 +508,8 @@ $breakpoint-tablet: 900px;
             }
 
             @include media(mobile) {
-                // position: static;
-                max-width: 386px;
+                // position: static;positionposition
+                max-width: 386px;max-width
                 width: 100%;
                 left: 50%;
                 transform: translateX(-50%);

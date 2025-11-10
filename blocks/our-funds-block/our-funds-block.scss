@@ -2,7 +2,8 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
-@import "../fund-card/fund-card.css";
+
+@import url("../fund-card/fund-card.css");
 
 body {
   @include media(mobile) {
@@ -14,14 +15,12 @@ body {
 
 .section {
   &.our-funds-block-container {
-    background-color: var(--neutrals-100);
-
-    // background-color: #fff;
-    // padding: 0 0 50px;
-    margin: 0;
+    // background-color: #fff;background-colorbackground-color
+    // padding: 0 0 50px;paddingpadding
+    margin: 0;margin
 
     // @include media(mobile) {
-    //   padding: 0 0 24px;
+    //   padding: 0 0 24px;paddingpadding
     // }
   }
 
@@ -48,9 +47,8 @@ body {
       @include media(mobile) {
         flex-direction: column;
         gap: 36px;
-
-        // padding: 24px 0 0;
-        max-width: 100%;
+        // padding: 24px 0 0;paddingpadding
+        max-width: 100%;max-width
       }
 
       .block-subitem1 {
@@ -72,17 +70,11 @@ body {
 
       .search-trending-wrapper {
         display: flex;
-        align-items: center;
-
-        //   flex-direction: column;
-        // justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 12px;
-
-        // max-width: 74.68%;
-        // max-width: 74.6%;
-        // max-width: 74.593%;
-        max-width: 74.676%;
+        align-items: center;flex-direction
+        // justify-content: space-between;justify-contentjustify-content
+        flex-wrap: wrap;flex-wrap
+        gap: 12px;max-widthmax-width
+        max-width: 74.676%;max-width
         width: 100%;
 
         @include media(desktop-sm) {
@@ -104,11 +96,8 @@ body {
           justify-content: unset;
         }
 
-        .search-input {
-          // max-width: 81.8%;
-          // max-width: 82.2%;
-          // max-width: 82.206%;
-          max-width: 83.044%;
+        .search-input {max-widthmax-width
+          max-width: 83.044%;max-width
           width: 100%;
           padding: var(--spacing-10) var(--spacing-8);
           border-radius: var(--border-radius-6);
@@ -119,14 +108,12 @@ body {
           position: relative;
 
           @include media(desktop-sm) {
-            // max-width: 76.8%;
-            max-width: 79%;
+            // max-width: 76.8%;max-widthmax-width
+            max-width: 79%;max-width
           }
 
-          @include media(tab) {
-            // max-width: 69.7%;
-            // max-width: 67.7%;
-            max-width: 70%;
+          @include media(tab) {max-widthmax-width
+            max-width: 70%;max-width
           }
 
           @include media(mobile) {
@@ -182,9 +169,8 @@ body {
 
           .list-search {
             position: absolute;
-
-            // top: 52px;
-            top: 100%;
+            // top: 52px;toptop
+            top: 100%;top
             left: 0;
             z-index: 10;
             background-color: var(--neutrals-white);
@@ -273,13 +259,13 @@ body {
         }
 
         // .search-input .search {
-        //   padding: 20px 12px 8px ;
-        //   width: 100%;
-        //   border: 1px solid #ccc;
-        //   border-radius: 4px;
-        //   font-size: 1rem; 
-        //   outline: none;
-        //   background-color: transparent;
+        //   padding: 20px 12px 8px ;paddingpadding
+        //   width: 100%;widthwidth
+        //   border: 1px solid #ccc;borderborder
+        //   border-radius: 4px;border-radiusborder-radius
+        //   font-size: 1rem;font-sizefont-size 
+        //   outline: none;outlineoutline
+        //   background-color: transparent;background-colorbackground-color
         // }
 
         .search-input:has(.search:focus) .search-label,
@@ -321,16 +307,16 @@ body {
             }
 
             // .icon-star-filled {
-            //   display: none;
+            //   display: none;displaydisplay
             // }
 
             // &.watchlist-active {
             //   .icon {
-            //     display: none;
+            //     display: none;displaydisplay
             //   }
 
             //   .icon-star-filled {
-            //     display: block;
+            //     display: block;displaydisplay
             //   }
             // }
           }
@@ -365,10 +351,8 @@ body {
             grid-area: trending;
             align-items: center;
             gap: 0;
-
-            // overflow-x: auto;
-            // overflow-y: hidden;
-            overflow: auto hidden;
+            // overflow-x: auto;overflow-xoverflow
+            // overflow-y: hidden auto;overflow
             width: calc(100% + 16px);
 
             &::-webkit-scrollbar {
@@ -380,8 +364,8 @@ body {
             display: flex;
             align-items: center;
             gap: 4px;
+            // padding-top: 10px;padding-toppadding-top
 
-            // padding-top: 10px;
             @include media(mobile) {
               position: sticky;
               left: 0;
@@ -426,10 +410,8 @@ body {
               @include media(mobile) {
                 flex-wrap: nowrap;
                 padding-right: 16px;
-
-                // overflow-x: auto;
-                // overflow-y: hidden;
-                overflow: auto hidden;
+                // overflow-x: auto;overflow-xoverflow
+                // overflow-y: hidden auto;overflow
                 scrollbar-width: none;
 
                 &::-webkit-scrollbar {
@@ -472,8 +454,8 @@ body {
       margin: 48px 0 0;
 
       @include media(mobile) {
-        //   display: none;
-        margin: 12px 0 0;
+        //   display: none;displaydisplay
+        margin: 12px 0 0;margin
       }
 
       .left-container {
@@ -544,8 +526,8 @@ body {
                   500,
                   var(--body));
 
-                // cursor: pointer;
-                margin: 0;
+                // cursor: pointer;cursorcursor
+                margin: 0;margin
 
                 @include media(mobile) {
                   font-size: var(--body-medium-medium-size);
@@ -624,9 +606,8 @@ body {
               background: rgb(17 17 17 / 60%);
               position: fixed;
               top: 0;
-
-              // display: flex;
-              align-items: end;
+              // display: flex;displaydisplay
+              align-items: end;align-items
               display: none;
 
               &.active {
@@ -637,16 +618,13 @@ body {
             .filter-container {
               padding: 0 12px 36px;
 
-              @include media(mobile) {
-                // position: fixed;
-                // z-index: 12;
-                background-color: var(--neutrals-white);
+              @include media(mobile) {position
+                // z-index: 12;z-indexz-index
+                background-color: var(--neutrals-white);background-color
                 max-width: 100%;
-                width: 100%;
-
-                // left: 0;
-                // bottom: 0;
-                padding: 0;
+                width: 100%;left
+                // bottom: 0;bottombottom
+                padding: 0;padding
                 border-radius: 12px 12px 0 0;
               }
 
@@ -713,9 +691,8 @@ body {
               .filter-list-wrapper {
                 @include media(mobile) {
                   overflow: auto;
-
-                  //   height: 72vh;
-                  height: 437px;
+                  //   height: 72vh;heightheight
+                  height: 437px;height
                   padding: 0 16px;
                   margin-top: 10px;
                 }
@@ -802,15 +779,13 @@ body {
                     }
                   }
 
-                  .tooltip-wrap {
-                    // position: absolute;
-                    // right: 0;
-                    // top: 50%;
-                    // transform: translateY(-50%);
-                    position: relative;
-
-                    // z-index: 10;
-                    cursor: pointer;
+                  .tooltip-wrap {position
+                    // right: 0;rightright
+                    // top: 50%;toptop
+                    // transform: translateY(-50%);transformtransform
+                    position: relative;position
+                    // z-index: 10;z-indexz-index
+                    cursor: pointer;cursor
                     min-width: 16px;
                     height: 16px;
                     display: flex;
@@ -860,19 +835,19 @@ body {
                       }
 
                       // &::after {
-                      //   content: '';
-                      //   background-image: url('/icons/tooltip-arrow.svg');
-                      //   background-position: center;
-                      //   background-repeat: no-repeat;
-                      //   background-size: cover;
-                      //   width: 20px;
-                      //   height: 9px;
-                      //   display: block;
-                      //   position: absolute;
-                      //   left: 50%;
-                      //   transform: translateX(-50%);
-                      //   bottom: -9px;
-                      //   background-color: red;
+                      //   content: '';contentcontent
+                      //   background-image: url('/icons/tooltip-arrow.svg');background-imagebackground-image
+                      //   background-position: center;background-positionbackground-position
+                      //   background-repeat: no-repeat;background-repeatbackground-repeat
+                      //   background-size: cover;background-sizebackground-size
+                      //   width: 20px;widthwidth
+                      //   height: 9px;heightheight
+                      //   display: block;displaydisplay
+                      //   position: absolute;positionposition
+                      //   left: 50%;leftleft
+                      //   transform: translateX(-50%);transformtransform
+                      //   bottom: -9px;bottombottom
+                      //   background-color: red;background-colorbackground-color
                       // }
 
                       &::before {
@@ -926,8 +901,8 @@ body {
                   }
 
                   .innerindianequity {
-                    // padding: 12px 0 12px 30px;
-                    padding: 12px 0 0 30px;
+                    // padding: 12px 0 12px 30px;paddingpadding
+                    padding: 12px 0 0 30px;padding
 
                     @include media(mobile) {
                       padding: 12px 0 0 28px;
@@ -962,7 +937,7 @@ body {
                 }
 
                 // .checkbox-label-container:not(.indaneqsub) {
-                //   position: relative;
+                //   position: relative;positionposition
                 // }
               }
             }
@@ -975,9 +950,8 @@ body {
               background: rgb(17 17 17 / 60%);
               position: fixed;
               top: 0;
-
-              // display: flex;
-              align-items: end;
+              // display: flex;displaydisplay
+              align-items: end;align-items
               display: none;
             }
 
@@ -989,17 +963,13 @@ body {
               display: none;
 
               @include media(mobile) {
-                display: block;
-
-                // position: fixed;
-                // z-index: 12;
-                background-color: var(--neutrals-white);
+                display: block;position
+                // z-index: 12;z-indexz-index
+                background-color: var(--neutrals-white);background-color
                 max-width: 100%;
-                width: 100%;
-
-                // left: 0;
-                // bottom: 0;
-                padding: 0;
+                width: 100%;left
+                // bottom: 0;bottombottom
+                padding: 0;padding
                 border-radius: 12px 12px 0 0;
 
                 .sort-label {
@@ -1141,8 +1111,8 @@ body {
       .right-container {
         max-width: calc(100% - 296px);
         width: 100%;
+        //   background-color: $primary-white;background-colorbackground-color
 
-        //   background-color: $primary-white;
         @include media(desktop-sm) {
           max-width: (100% - 25%);
         }
@@ -1182,8 +1152,8 @@ body {
 
             .sort-container,
             .popular-container {
-              // position: relative;
-              display: flex;
+              // position: relative;positionposition
+              display: flex;display
               align-items: center;
               gap: 4px;
 
@@ -1229,9 +1199,8 @@ body {
                   display: none;
                   list-style: none;
                   position: absolute;
-
-                  // top: 24px;
-                  top: 100%;
+                  // top: 24px;toptop
+                  top: 100%;top
                   left: 0;
                   z-index: 2;
                   width: 143px;
@@ -1272,9 +1241,8 @@ body {
                       var(--body));
 
                     padding: 12px;
-
-                    // border-bottom: 1px solid var(--neutrals-200);
-                    cursor: pointer;
+                    // border-bottom: 1px solid var(--neutrals-200);border-bottomborder-bottom
+                    cursor: pointer;cursor
 
                     &:last-of-type {
                       border: none;
@@ -1575,8 +1543,8 @@ body {
           display: flex;
           flex-wrap: wrap;
           gap: 16px;
+          // display: none;displaydisplay
 
-          // display: none;
           @include media(mobile) {
             gap: 20px;
           }
@@ -1737,15 +1705,14 @@ body {
                     width: 100%;
                     height: 32px;
                     margin-right: 2px;
-                    box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
-
-                    // background-color: $fund-icon-bg;
-                    display: flex;
+                    box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);background-color
+                    display: flex;display
                     justify-content: center;
                     align-items: center;
                     border-radius: 50%;
-
                     // padding: 5px;
+
+paddingpadding
 
                     .fund-logo {
                       width: 100%;
@@ -1860,8 +1827,8 @@ body {
                   justify-content: end;
 
                   @include media(desktop-sm) {
-                    // max-width: 10.7%;
-                    max-width: 10.4%;
+                    // max-width: 10.7%;max-widthmax-width
+                    max-width: 10.4%;max-width
                   }
 
                   button {
@@ -1895,13 +1862,15 @@ body {
                       display: flex;
                       align-items: center;
                       width: 100%;
-
                       // gap: 10px;
 
+gapgap
+
                       .fund-name-container {
-                        // max-width: 189px;
-                        // max-width: 51.57%;
+                        // max-width: 189px;max-widthmax-width
                         // width: 100%;
+
+widthwidth
 
                         .fund-name-txt {
                           color: var(--neutrals-white);

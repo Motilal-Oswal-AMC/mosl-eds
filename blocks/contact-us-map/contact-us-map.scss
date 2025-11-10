@@ -3,12 +3,11 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.contact-us-map-container {
-  // padding-bottom: 40px;
-  margin: 0;
+  // padding-bottom: 40px;padding-bottompadding-bottom
+  margin: 0;margin
 
-  // @include media(mobile) {
-  //   padding: 0;
-  //   margin: 0;
+  // @include media(mobile) {padding
+  //   margin: 0;marginmargin
   // }
 
   .contact-us-map-wrapper {
@@ -19,7 +18,7 @@
         gap: 40px;
 
         // @include media(mobile) {
-        //   gap: 40px;
+        //   gap: 40px;gapgap
         // }
 
         .location {
@@ -64,9 +63,8 @@
               display: flex;
               height: 40px;
               align-items: center;
-
-              // gap: 8px;
-              justify-content: space-between;
+              // gap: 8px;gapgap
+              justify-content: space-between;justify-content
               margin: 0;
               padding: 8px 12px;
               list-style: none;
@@ -188,9 +186,11 @@
               display: flex;
               align-items: center;
               gap: 10px;
-
-              // background: urlicons/search-icon.svg) no-repeat left 12px center;
+              // background: urlicons/search-icon.svg) no-repeat left 12px center;backgroundbackground
               // background: white;
+
+backgroundbackground
+
               &:focus-within {
                 border-color: #0078d4;
               }
@@ -209,19 +209,14 @@
                 flex: 1;
                 border: none;
                 outline: none;
-                font-size: 16px;
-                color: #000;
-                background: transparent;
-
-                // color: var(--text-typed-input);
-                // font-feature-settings: (--font-features-default);
-                // font-family: var(--body, Inter);
-                // font-size: var(--body-medium-regular-size);
-                // font-style: normal;
-                // font-weight: 400;
-                // line-height: var(--body-medium-regular-line-height);
+                background: transparent;color
+                // font-feature-settings: (--font-features-default);font-feature-settingsfont-feature-settings
+                // font-family: var(--body, Inter);font-familyfont-size
+                // font-style: normal;font-stylefont-style
+                // font-weight: 400;font-weightfont-weight
+                // line-height: var(--body-medium-regular-line-height);line-heightline-height
                 // &::-webkit-input-placeholder {
-                //   display: none;
+                //   display: none;displaydisplay
                 // }
               }
             }
@@ -341,7 +336,7 @@
 
             .featrure2 {
               @include media(mobile) {
-                // display: none;
+                // display: none;displaydisplay
               }
 
               label {
@@ -466,8 +461,7 @@
 
                 @include media(mobile) {
                   display: flex;
-                  
-                  // display: none;
+                  // display: none;displaydisplay
                 }
 
                 .contact-number-link {

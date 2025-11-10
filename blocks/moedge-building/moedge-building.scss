@@ -13,17 +13,15 @@
         gap: 24px;
 
         // .button-container >p {
-        //     margin: 0;
+        //     margin: 0;marginmargin
         // }
 
-        // &>div[class^="moedge-build-cont"] {
-        //     background-color: var(--card-background);
-        //     border-radius: var(--card-border-radius);
-        //     box-shadow: var(--card-shadow);
-        //     overflow: hidden;
-        //     display: flex;
-        //     flex-direction: column;
-        //     height: 100%;
+        // &>div[class^="moedge-build-cont"] {border-radius
+        //     box-shadow: var(--card-shadow);box-shadowbox-shadow
+        //     overflow: hidden;overflowoverflow
+        //     display: flex;displaydisplay
+        //     flex-direction: column;flex-directionflex-direction
+        //     height: 100%;heightheight
         // }
 
         .moedge-build-sec1 {
@@ -54,8 +52,7 @@
                 display: flex;
                 flex-direction: column;
                 flex-grow: 1;
-
-                // padding-bottom: 24px;
+                // padding-bottom: 24px;padding-bottompadding-bottom
             }
 
             .moedge-build-inner-text1 {
@@ -157,7 +154,7 @@
                         overflow: unset;
 
                         // &:hover {
-                        //     color: var(--link-color);
+                        //     color: var(--link-color);colorcolor
                         // }
                     }
                 }
@@ -202,8 +199,7 @@
                         border-radius: unset;
                         margin: 0;
                         padding: 0;
-
-                        // text-underline-offset: 20%;
+                        // text-underline-offset: 20%;text-underline-offsettext-underline-offset
                     }
                 }
             }
@@ -213,8 +209,8 @@
 
 @media (width >=900px) {
     .moedge-building {
-        // grid-template-columns: repeat(3, 1fr);
-        flex-direction: unset;
+        // grid-template-columns: repeat(3, 1fr);grid-template-columnsgrid-template-columns
+        flex-direction: unset;flex-direction
         flex-wrap: wrap;
         gap: 16px;
     }
@@ -448,9 +444,8 @@
             @include media (mobile) {
                 width: 100%;
                 text-align: left;
-
-                // font-size: var(--heading-h5-size);
-                font-size: 28px;
+                // font-size: var(--heading-h5-size);font-sizefont-size
+                font-size: 28px;font-size
                 font-style: normal;
                 font-weight: 600;
                 line-height: var(--sub-header-large-line-height);
@@ -583,7 +578,7 @@
                     border-radius: unset;
 
                     // @include media(mobile) {
-                    //     margin-bottom: 24px;
+                    //     margin-bottom: 24px;margin-bottommargin-bottom
                     // }
                 }
             }
@@ -598,7 +593,7 @@
     // .moedge-building-wrapper {
     //     .moedge-building {
     //         @include media (mobile) {
-    //             gap: 40px;
+    //             gap: 40px;gapgap
     //         }
     //     }
     // }

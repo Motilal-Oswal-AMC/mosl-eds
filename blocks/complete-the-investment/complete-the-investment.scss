@@ -3,11 +3,10 @@
 @use 'sass:map';
 
 .complete-the-investment {
-    >div:first-child {
-        // display: grid;
-        display: none; // RM11
-        grid-template-columns: 1fr 1fr;
-        padding: 20px 16px;
+    >div:first-child {display
+        display: none;display // RM11
+        grid-template-columns: 1fr 1fr;RM11grid-template-columnsRM11grid-template-columns
+        padding: 20px 16px;padding
         align-items: flex-start;
         flex-shrink: 0;
         align-self: stretch;

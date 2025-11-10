@@ -5,7 +5,8 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
-@import "./faq-page.css";
+
+@import url("./faq-page.css");
 
 .accordion-container {
   display: flex;
@@ -31,8 +32,9 @@
       cursor: pointer;
       list-style: none;
       overflow: auto;
-
       // transition: background-color 0.2s;
+
+transitiontransition
 
       &:focus,
       &:hover {
@@ -92,7 +94,7 @@
 
   .accordion-wrapper {
     .accordion {
-      // gap: 40px;
+      // gap: 40px;gapgap
 
       @media (width <=768px) {
         gap: 0;
@@ -103,7 +105,7 @@
         margin: 0;
 
         @media (width <=768px) {
-          // padding: 16px 12px;
+          // padding: 16px 12px;paddingpadding
         }
       }
     }
@@ -168,36 +170,31 @@
 
 .section.freq-ask-ques {
   width: 100%;
-
-  // background-color: #f5f5f5;
-  // margin: 0;
+  // background-color: #f5f5f5;background-colorbackground-color
+  // margin: 0;marginmargin
   // padding: 40px 0;
+
+paddingpadding
 
   .faq-our-fund {
     display: grid;
     justify-content: space-between;
     max-width: 1232px;
     width: 100%;
-    margin: 0 auto;
-
-    // padding: 40px 0 68px;
-    // padding: 40px 0 24px;
-
-    // padding: 40px 0 72px;
-    grid-template-columns: 24.05% 66.3%;
+    margin: 0 auto;padding
+    // padding: 40px 0 72px;paddingpadding
+    grid-template-columns: 24.05% 66.3%;grid-template-columns
 
     @media (width <=1279px) {
-      // padding: 40px 24px 132px;
+      // padding: 40px 24px 132px;paddingpadding
     }
 
     @include media(mobile) {
       display: flex;
       flex-direction: column;
       gap: 20px;
-
-      // padding: 24px 16px 16px;
-
-      // padding-top: 24px;
+      // padding: 24px 16px 16px;paddingpadding
+      // padding-top: 24px;padding-toppadding-top
     }
 
     >.default-content-wrapper,
@@ -245,12 +242,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-
-        // gap: 52px;
-        flex: 1 0 0;
+        // gap: 52px;gapgap
+        flex: 1 0 0;flex
 
         // @include media(mobile) {
-        //   gap: 36px;
+        //   gap: 36px;gapgap
         // }
 
         details {
@@ -283,8 +279,9 @@
             cursor: pointer;
             list-style: none;
             overflow: hidden;
-
             // transition: all 0.3s ease-in-out;
+
+transitiontransition
 
             &:focus,
             &:hover {
@@ -297,22 +294,19 @@
 
             &::after {
               content: "";
-              position: absolute;
-
-              // top: 2px;
-              right: 0;
+              position: absolute;top
+              right: 0;right
               width: 24px;
               height: 24px;
               border: none;
               border-width: unset;
               transform: translateY(-50%);
               background: url("/icons/plus-blue.svg");
-
-              // transition: all 0.3s ease-in-out;
+              // transition: all 0.3s ease-in-out;transitiontransition
 
               @include media(mobile) {
-                // top: 12px;
-                // right: 0;
+                // top: 12px;toptop
+                // right: 0;rightright
               }
             }
           }
@@ -328,28 +322,25 @@
             transition: transform 0.2s;
 
             summary {
-              color: #2e2a94;
-
-              // background: #242177;
-              border-radius: 8px 8px 0 0;
+              color: #2e2a94;background
+              border-radius: 8px 8px 0 0;border-radius
               padding: $spacing-16 $spacing-none $spacing-8 $spacing-none;
-
-              // padding-bottom: 8px;
-              background-color: transparent;
+              // padding-bottom: 8px;padding-bottompadding-bottom
+              background-color: transparent;background-color
 
               @include media(mobile) {
-                // padding: 16px 12px;
-                // padding-bottom: 8px;
+                // padding: 16px 12px;paddingpadding
+                // padding-bottom: 8px;padding-bottompadding-bottom
               }
 
               &::after {
-                // top: 15px;
-                right: 0;
+                // top: 15px;toptop
+                right: 0;right
                 background: url("/icons/mins-blue.svg");
                 transform: translateY(-50%);
 
                 //    @include media(mobile) {
-                //    right: 0;
+                //    right: 0;rightright
                 // }
               }
 
@@ -375,17 +366,14 @@
               margin-top: -1px;
               padding: $spacing-16 $spacing-none;
               padding-top: 0;
-              border-radius: 0 0 8px 8px;
-
-              // background: #242177;
-              box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+              border-radius: 0 0 8px 8px;background
+              box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);box-shadow
               background-color: transparent;
-
-              // transition: all 0.3s ease-in-out;
+              // transition: all 0.3s ease-in-out;transitiontransition
 
               @include media(mobile) {
-                // padding: 16px 12px;
-                padding-top: 0;
+                // padding: 16px 12px;paddingpadding
+                padding-top: 0;padding-top
               }
 
               p {
@@ -410,10 +398,10 @@
 
         .accordion-item {
           overflow: hidden;
-
-          // transition: all 0.4s ease-in-out;
-
+          // transition: all 0.4s ease-in-out;transitiontransition
           // margin-bottom: 1em;
+
+margin-bottommargin-bottom
 
           &.hidden {
             display: none;
@@ -433,9 +421,8 @@
      grid-column: 2 / 2;
       grid-row: 2;
       margin-top: 16px;
-
-      // padding-left: 15px;
-      // pad/ding: 0 16px;
+      // padding-left: 15px;padding-leftpadding-left
+      // pad/ding: 0 16px;pad/dingpad/ding
 
       @include media(mobile) {
         margin-top: 16px;

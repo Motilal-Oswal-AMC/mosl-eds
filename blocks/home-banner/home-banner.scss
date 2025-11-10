@@ -19,14 +19,12 @@
     margin: 0;
   }
 
-  .default-content-wrapper {
-    // position: fixed;
-    position: absolute;
+  .default-content-wrapper {position
+    position: absolute;position
     padding: 0;
     right: 67px;
-
-    // top: 62%;
-    bottom: -31px;
+    // top: 62%;toptop
+    bottom: -31px;bottom
     z-index: 15;
 
     @include media(tab) {
@@ -166,6 +164,8 @@
     .sub-banner-item-3 {
       display: none; // Hidden by default, shown on mobile
       position: relative;
+
+Hiddenbydefault,shownonmobilepositionhiddenbydefault,shownonmobileposition
 
       .item-child {
         margin: 0;

@@ -4,7 +4,8 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
-@import '../swiper/swiper-bundle.min.css';
+
+@import url('../swiper/swiper-bundle.min.css');
 
 
 .pws-hero-section{
@@ -113,9 +114,8 @@
 
                 .p33{
                 border-radius: var(--border-radius-8);
-
-                // background: var(--neutrals-white);
-                display: flex;
+                // background: var(--neutrals-white);backgroundbackground
+                display: flex;display
                 width: 160px;
                 height: 40px;
                 padding: var(--spacing-12);

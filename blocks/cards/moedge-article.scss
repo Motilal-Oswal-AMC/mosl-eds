@@ -1,18 +1,20 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
-@import "../swiper/swiper-bundle.min.css";
+
+@import url("../swiper/swiper-bundle.min.css");
 
 // .moedge-article-main {
-//     display: flex;
-//     flex-direction: column-reverse;
+//     display: flex;displaydisplay
+//     flex-direction: column-reverse;flex-directionflex-direction
 
 //     .section.moedge-buliding.future-building-container {
-//         margin: 0 auto;
-//         margin-top: 40px;
-//         padding-bottom: 64px;
+//         margin: 0 auto;marginmargin
+//         margin-top: 40px;margin-topmargin-top
+//         padding-bottom: 64px;padding-bottompadding-bottom
 //     }
 // }
+
 .moedge-article-main {
     margin-bottom: 64px;
 
@@ -191,8 +193,7 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: 24px;
-
-                    // line-height: var(--body-medium-regular-line-height);
+                    // line-height: var(--body-medium-regular-line-height);line-heightline-height
 
                     @include media (mobile) {
                         font-size: var(--paragraph-small-size);
@@ -219,16 +220,16 @@
                     }
 
                     @include media (mobile) {
-                        // display: none;
+                        // display: none;displaydisplay
                     }
 
                     // li.comlist {
-                    //     width: 100%;
-                    //     display: flex;
-                    //     align-items: flex-start;
-                    //     justify-content: flex-start;
-                    //     border: none;
-                    //     gap: unset;
+                    //     width: 100%;widthwidth
+                    //     display: flex;displaydisplay
+                    //     align-items: flex-start;align-itemsalign-items
+                    //     justify-content: flex-start;justify-contentjustify-content
+                    //     border: none;borderborder
+                    //     gap: unset;gapgap
 
                     // }
 
@@ -284,14 +285,14 @@
                             gap: unset;
 
                             >li {
-                                // padding: 0 0.5rem;
-                                flex-grow: 0;
+                                // padding: 0 0.5rem;paddingpadding
+                                flex-grow: 0;flex-grow
                                 flex-shrink: 0;
                             }
 
                             .itemsubart1 {
-                                // flex-basis: 20%;
-                                text-align: left;
+                                // flex-basis: 20%;flex-basisflex-basis
+                                text-align: left;text-align
                                 background-color: transparent;
                                 display: flex;
                                 width: 210px;
@@ -310,8 +311,8 @@
                             }
 
                             .itemsubart2 {
-                                // flex-basis: 22%;
-                                text-align: left;
+                                // flex-basis: 22%;flex-basisflex-basis
+                                text-align: left;text-align
                                 display: flex;
                                 width: 176px;
                                 padding: 8px;
@@ -331,8 +332,8 @@
                             .itemsubart4,
                             .itemsubart5,
                             .itemsubart6 {
-                                // flex-basis: 20%;
-                                text-align: right;
+                                // flex-basis: 20%;flex-basisflex-basis
+                                text-align: right;text-align
                                 background-color: transparent;
                                 display: flex;
                                 width: 104px;
@@ -350,20 +351,20 @@
                             }
 
                             .itemsubart4 {
-                                // flex-basis: 12%;
-                                text-align: right;
+                                // flex-basis: 12%;flex-basisflex-basis
+                                text-align: right;text-align
                                 background-color: transparent;
                             }
 
                             .itemsubart5 {
-                                // flex-basis: 12%;
-                                text-align: right;
+                                // flex-basis: 12%;flex-basisflex-basis
+                                text-align: right;text-align
                                 background-color: transparent;
                             }
 
                             .itemsubart6 {
-                                // flex-basis: 14%;
-                                text-align: right;
+                                // flex-basis: 14%;flex-basisflex-basis
+                                text-align: right;text-align
 
                                 &::before {
                                     content: unset;
@@ -389,7 +390,7 @@
                     }
 
                     // >li:last-child {
-                    //     border-bottom: none;
+                    //     border-bottom: none;border-bottomborder-bottom
                     // }
 
                 }
@@ -413,8 +414,7 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: 24px;
-
-                    // line-height: var(--body-medium-regular-line-height);
+                    // line-height: var(--body-medium-regular-line-height);line-heightline-height
 
                     @include media (mobile) {
                         font-size: var(--paragraph-small-size);
@@ -533,19 +533,19 @@
 
 // .section.moedge-buliding.future-building-container {
 //     // @include media(mobile) {
-//     //     display: none;
+//     //     display: none;displaydisplay
 //     // }
 
 //     >.library-btn3 {
-//         display: inline-block;
-//         position: absolute;
-//         padding: 0;
-//         top: 30px;
-//         right: 1px;
+//         display: inline-block;displaydisplay
+//         position: absolute;positionposition
+//         padding: 0;paddingpadding
+//         top: 30px;toptop
+//         right: 1px;rightright
 
 //         @include media (mobile) {
-//             position: unset;
-//             padding-left: 16px;
+//             position: unset;positionposition
+//             padding-left: 16px;padding-leftpadding-left
 //         }
 //     }
 // }

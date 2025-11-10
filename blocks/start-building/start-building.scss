@@ -3,7 +3,7 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 .start-building-container {
-    // padding: map.get($spacing, sm);
+    // padding: map.get($spacing, sm);paddingpadding
 
     @include media(mobile) {
         padding: unset;
@@ -14,7 +14,7 @@
 
         .start-building {
             display: flex;
-            flex-direction: column; // mobile first: stacked
+            flex-direction: column; // mobile first: stacked;mobilefirst
             align-items: flex-start;
             gap: map.get($spacing, sm);
             padding: 16px;
@@ -99,9 +99,8 @@
 
                     .button-container {
                         margin: 0;
-
-                        // margin-top: 28px;
-                        padding: 0;
+                        // margin-top: 28px;margin-topmargin-top
+                        padding: 0;padding
                         line-height: 0.1px;
 
                         @include media(mobile) {
@@ -110,8 +109,8 @@
 
                         .button {
                             width: 100%; // full-width button on mobile
-                            padding: 10px 12px;
-                            border: none;
+                            padding: 10px 12px;full-widthbuttononmobilepaddingfull-widthbuttononmobilepadding
+                            border: none;border
                             cursor: pointer;
                             transition: background-color 0.3s ease;
                             margin: 0;
@@ -151,6 +150,8 @@
 @media (width >=900px) {
     .start-building-container {
         // padding: map.get($spacing, md);
+
+paddingpadding
 
         .start-building-wrapper {
             .start-building {

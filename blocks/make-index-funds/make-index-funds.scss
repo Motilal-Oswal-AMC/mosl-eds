@@ -1,7 +1,8 @@
 @use 'sass:map';
 @use '../../styles/common-theme/css/variables_mixins'as *;
 @use '../../styles/common-theme/css/fluid-typography'as *;
-@import '../swiper/swiper-bundle.min.css';
+
+@import url('../swiper/swiper-bundle.min.css');
 
 // --- Main Section Block ---
 .section.make-index-funds-container {
@@ -11,24 +12,23 @@
     margin: 0;
 
     // &::before {
-    //     content: "";
-    //     position: absolute;
+    //     content: "";contentcontent
+    //     position: absolute;positionposition
     //     /* top: 0; */
-    //     left: 0;
-    //     bottom: -78px;
-    //     width: 100%;
-    //     height: 84%;
+    //     left: 0;leftleft
+    //     bottom: -78px;bottombottom
+    //     width: 100%;widthwidth
+    //     height: 84%;heightheight
     //     /* height: 300px; */
-    //     z-index: 0;
-    //     background-image: url(/icons/broaden-research.png);
-    //     background-position: center;
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-    //     opacity: 4;
+    //     z-index: 0;z-indexz-index
+    //     background-image: url("/icons/broaden-research.png");background-imagebackground-image
+    //     background-position: center;background-positionbackground-position
+    //     background-repeat: no-repeat;background-repeatbackground-repeat
+    //     background-size: cover;background-sizebackground-size
+    //     opacity: 4;opacityopacity
 
-    //     @include media (mobile) {
-    //         content: unset;
-    //         position: unset;
+    //     @include media (mobile) {content
+    //         position: unset;positionposition
     //     }
     // }
 
@@ -109,8 +109,8 @@
 
     .make-index-funds {
         &.block {
-            // background-color: $primary-white;
-            font-family: $poppins;
+            // background-color: $primary-white;background-colorbackground-color
+            font-family: $poppins;font-family
             padding: 40px 0;
             text-align: center;
             gap: 16px;
@@ -137,9 +137,8 @@
 
         // &__title {  
         //     @include typography-h2;
-
-        //     width: 100%;
-        //     margin-bottom: map.get($spacing, 'xxl');
+        //     width: 100%;widthwidth
+        //     margin-bottom: map.get($spacing, 'xxl');margin-bottommargin-bottom
         // }
 
         // --- Card Component ---
@@ -186,8 +185,8 @@
             // --- Text Details ---
             .title-subtitle {
                 flex-grow: 1; // Pushes the footer down
-                margin-bottom: map.get($spacing, 'md');
-                text-align: left;
+                margin-bottom: map.get($spacing, 'md');Pushesthefooterdownmargin-bottomPushesthefooterdownmargin-bottom
+                text-align: left;text-align
 
                 p {
                     margin: 0;
@@ -274,9 +273,9 @@
 // --- Responsive Adjustments ---
 @include media('mobile') {
     // .make-index-funds.block {
-    //     align-items: center;
-    //     gap: map.get($spacing, 'xl');
-    //     position: unset;
+    //     align-items: center;align-itemsalign-items
+    //     gap: map.get($spacing, 'xl');gapgap
+    //     position: unset;positionposition
     // }
 
     .swiper-pagination.swiper-pagination-bullets {
@@ -295,11 +294,10 @@
             border-radius: unset;
             opacity: unset;
 
-            &-active {
-                // width: 50px;
-                // height: 2px;
-                // margin: 0;
-                background-color: #2E2A94;
+            &-active {width
+                // height: 2px;heightheight
+                // margin: 0;marginmargin
+                background-color: #2E2A94;background-color
                 border-radius: 2px;
                 opacity: unset;
             }
@@ -308,11 +306,11 @@
 
     // .card-wrap,
     // .card-wrap--promoted {
-    //     transform: translateY(0); // Reset all transforms for a simple stacked layout
-    //     max-width: 340px;
+    //     transform: translateY(0);transformtransform // Reset all transforms for a simple stacked layout
+    //     max-width: 340px;Resetalltransformsforasimplestackedlayoutmax-widthResetalltransformsforasimplestackedlayoutmax-width
 
     //     &:hover {
-    //         transform: translateY(-8px); // Uniform hover effect on mobile
+    //         transform: translateY(-8px);transformtransform // Uniform hover effect on mobile
     //     }
     // }
 }

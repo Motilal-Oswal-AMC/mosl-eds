@@ -2,10 +2,10 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-// Variables
-// $primary-color: #4a90e2;
-// $text-color: #333;
-// $border-radius: 8px;
+Variables$primary-color
+
+// $text-color: #333;$text-color$text-color
+// $border-radius: 8px;$border-radius$border-radius
 
 // Base (Mobile first)
 .aif-component.cards-container {
@@ -112,28 +112,33 @@
             justify-content: center;
 
             li{
-                // border-radius: 16px;
-                // background: var(--neutrals-200);
-                max-width: 400px;
+                // border-radius: 16px;border-radiusborder-radius
+                // background: var(--neutrals-200);backgroundbackground
+                max-width: 400px;max-width
                 padding: 40px 12px;
         
                 .cards-card-body{
                 // margin: 34px 12px;
+
+marginmargin
             
                 &.aif-each-in2{
                     min-height: unset;
 
                 p{
                     // margin: 0;
+
+marginmargin
             
                     .icon{
                         // width: 100%;
+
+widthwidth
             
-                        img{
-                            // width: 80px;
-                            // height: 80px;
-                            // aspect-ratio: 1/1;
-                            margin-bottom: 50px;
+                        img{width
+                            // height: 80px;heightheight
+                            // aspect-ratio: 1/1;aspect-ratioaspect-ratio
+                            margin-bottom: 50px;margin-bottom
                         }
                     }
                 }

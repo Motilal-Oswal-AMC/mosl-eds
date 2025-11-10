@@ -7,19 +7,13 @@
     max-width: 296px;
     width: 100%;
     padding: 16px;
-    border-radius: 16px;
-    background:
-      linear-gradient(var(--neutrals-white), var(--neutrals-white)) padding-box,
-      linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
-    border: 1px solid transparent;
     box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
-
-    // border-radius: map.get($radius, r8);
+    // border-radius: map.get($radius, r8);border-radiusborder-radius
     // background:
     //   linear-gradient(var(--neutrals-white), var(--neutrals-white)) padding-box,
-    //   linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
-    // border: 1px solid transparent;
-    // box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
+    //   linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;backgroundbackground
+    // border: 1px solid transparent;borderborder
+    // box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);box-shadowbox-shadow
 
     @include flex-center;
 
@@ -33,15 +27,12 @@
       .card-upper-title {
         @include flex-center($align: center, $justify: space-between);
 
-        align-items: start;
-
-        // gap: 30px;
-        gap: 16px;
+        align-items: start;gap
+        gap: 16px;gap
         margin: 0 0 var(--spacing-8);
         height: 100%;
-
-        // min-height: 50px;
-        flex-direction: column;
+        // min-height: 50px;min-heightmin-height
+        flex-direction: column;flex-direction
 
         .brand-star-wrap {
           display: flex;
@@ -50,23 +41,22 @@
           width: 100%;
 
           .brand-logo {
-            position: relative;
-
-            // min-width: 40px;
-            width: 32px;
+            position: relative;min-width
+            width: 32px;width
             height: 32px;
             box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
             border-radius: 50%;
-
             // background: #bdcbff;
+
+backgroundbackground
+
             .logoscheme {
-              // position: absolute;
-              // top: 20%;
-              // left: 15%;
-              // width: 29.977px;
-              // height: 20.855px;
-              // flex-shrink: 0;
-              width: 100%;
+              // position: absolute;positionposition
+              // top: 20%;toptop
+              // left: 15%;leftleft
+              // width: 29.977px;widthwidth
+              // height: 20.855px;flex-shrinkflex-shrink
+              width: 100%;width
               height: 100%;
             }
           }
@@ -111,11 +101,10 @@
 
         .brand-fund-wrap {
           width: 100%;
-
-          // height: 100%;
+          // height: 100%;heightheight
 
           // .brand-name-text {
-          //   margin: 0;
+          //   margin: 0;marginmargin
 
           //   @include font-style(
           //     12px,
@@ -145,20 +134,11 @@
         }
       }
 
-      .card-category {
-        // @include flex-center($align: center, $justify: flex-start);
-        // gap: 4px 8px;
-
-        // padding: 4px 0;
-        // margin: 0 0 16px;
-        margin: 0 0 40px;
-
-        // flex-wrap: wrap;
-
-        // margin-top: auto;
-        // min-height: unset;
-        // height: 100%;
-        // height: auto;
+      .card-category {gap
+        // padding: 4px 0;paddingpadding
+        // margin: 0 0 16px;marginmargin
+        margin: 0 0 40px;marginheight
+        // height: auto;heightheight
 
         @include media(mobile) {
           margin: 0 0 38px;
@@ -203,8 +183,8 @@
         }
 
         .planlist-dropdown {
-          // max-width: 70px;
-          max-width: max-content;
+          // max-width: 70px;max-widthmax-width
+          max-width: max-content;max-width
           width: 100%;
 
           @include flex-center($align: center, $justify: flex-start);
@@ -234,48 +214,29 @@
 
       .cagr-container {
         display: flex;
-        justify-content: start;
-
-        // gap: 24px;
-        gap: 8px;
+        justify-content: start;gap
+        gap: 8px;gap
         flex-direction: column-reverse;
-        min-height: 88px;
-
-        // min-height: 109px;
-
-        // height: 88px;
-        // height: 100%;
-
-        // padding: 24px 12px;
-        // padding: 12px;
-        // align-self: stretch;
-        // border-radius: 12px;
-        // border: 0.5px solid #e8e8e8;
-        // background: $neutrals-50;
-        // box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
-
-        // margin-top: auto;
-        margin: 0 0 16px;
+        min-height: 88px;box-shadow
+        // margin-top: auto;margin-topmargin-top
+        margin: 0 0 16px;margin
 
         @include media(tab) {
-          // height: 100%;
-          min-height: unset;
+          // height: 100%;heightheight
+          min-height: unset;min-height
           margin: 0 0 var(--spacing-24);
         }
 
         .cagr-dropdown {
-          // display: flex;
-          // flex-direction: column;
-          // align-items: flex-start;
-          // gap: 2px;
-
-          // flex: 1 0 0;
-
-          // max-width: 46%;
-          // width: 100%;
-          // position: relative;
-
-          line-height: 0;
+          // display: flex;displaydisplay
+          // flex-direction: column;flex-directionflex-direction
+          // align-items: flex-start;align-itemsalign-items
+          // gap: 2px;gapgap
+          // flex: 1 0 0;flexflex
+          // max-width: 46%;max-widthmax-width
+          // width: 100%;widthwidth
+          // position: relative;positionposition
+          line-height: 0;line-height
 
           .cagr-txt {
             @include font-style(var(--body-xsmall-regular-size),
@@ -291,34 +252,29 @@
             }
           }
 
-          .cagr-select-wrapper {
-            // @include flex-center($align: center, $justify: start);
-            // gap: 4px;
-            // width: 80px;
-            // width: 117px;
-            // width: max-content;
-            // max-width: 130px;
-            max-width: max-content;
+          .cagr-select-wrapper {widthwidth
+            // max-width: 130px;max-widthmax-width
+            max-width: max-content;max-width
             width: 100%;
             position: relative;
             margin: 4px 0 0;
 
             // @include media(desktop-sm) {
-            //   width: 80px;
+            //   width: 80px;widthwidth
             // }
 
             // @media screen and (width <= 900px) {
-            //   // width: 80px;
+            //   // width: 80px;widthwidth
             //   .dropdown-list {
-            //     top: 35px;
+            //     top: 35px;toptop
             //   }
             // }
 
             // @include media(mobile) {
-            //   // width: 125px;
+            //   // width: 125px;widthwidth
 
             //   .dropdown-list {
-            //     top: 18px;
+            //     top: 18px;toptop
             //   }
             // }
 
@@ -363,16 +319,13 @@
 
             .dropdown-list {
               display: none;
-              position: absolute;
-
-              // top: 18px;
-              top: 100%;
+              position: absolute;top
+              top: 100%;top
               left: 12px;
               z-index: 2;
               width: 143px;
-
-              // max-height: 200px;
-              margin: 6px 0 0;
+              // max-height: 200px;max-heightmax-height
+              margin: 6px 0 0;margin
               overflow: auto;
               background-color: var(--neutrals-white);
               border-radius: var(--border-radius-8);
@@ -396,8 +349,8 @@
               }
 
               // &::-webkit-scrollbar-thumb {
-              //   width: 3px;
-              //   background-color: #464343;
+              //   width: 3px;widthwidth
+              //   background-color: #464343;background-colorbackground-color
               // }
 
               &.dropdown-active {
@@ -428,8 +381,8 @@
         }
 
         .cagr-value {
-          // max-width: 46%;
-          max-width: max-content;
+          // max-width: 46%;max-widthmax-width
+          max-width: max-content;max-width
           width: 100%;
           line-height: 0;
 
@@ -478,10 +431,9 @@
         }
 
         .cagr-desc {
-          // background: map.get($old-silver, 50);
-          // padding: 4px 8px;
-
-          line-height: 0;
+          // background: map.get($old-silver, 50);backgroundbackground
+          // padding: 4px 8px;paddingpadding
+          line-height: 0;line-height
           width: 100%;
 
           .cagr-desc-text {
@@ -491,8 +443,8 @@
               400,
               $poppins);
 
-            // padding: 8px 0;
-            display: block;
+            // padding: 8px 0;paddingpadding
+            display: block;display
           }
         }
 
@@ -551,12 +503,11 @@
         }
       }
 
-      .discription {
-        // margin: 24px 0 0;
-        // margin: 10px 0 0;
-        margin-top: auto;
-
+      .discription {margin
+        margin-top: auto;margin-top
         // padding: 8px 12px;
+
+paddingpadding
 
         .dis-choosen {
           display: flex;
@@ -595,10 +546,9 @@
       .button-container {
         @include flex-center($align: center, $justify: space-between);
 
-        // flex-wrap: wrap;
-
-        // gap: 24px 9.08%;
-        gap: 24px 8px;
+        // flex-wrap: wrap;flex-wrapflex-wrap
+        // gap: 24px 9.08%;gapgap
+        gap: 24px 8px;gap
         margin: 24px 0 0;
 
         @include media(mobile) {
@@ -606,9 +556,8 @@
         }
 
         .card-btn {
-          // max-width: 120px;
-          // max-width: 45.46%;
-          max-width: 48.4%;
+          // max-width: 120px;max-widthmax-width
+          max-width: 48.4%;max-width
           width: 100%;
           display: block;
           margin: 0;
@@ -705,8 +654,8 @@
           }
 
           .planlist-dropdown {
-            //   max-width: 88px;
-            max-width: max-content;
+            //   max-width: 88px;max-widthmax-width
+            max-width: max-content;max-width
 
             p {
               color: var(--text-white);
@@ -722,9 +671,11 @@
         }
 
         .banner-timing-container {
-          // border-radius: 8px;
-          // border: 0.5px solid rgb(255 255 255 / 22%);
+          // border-radius: 8px;border-radiusborder-radius
+          // border: 0.5px solid rgb(255 255 255 / 22%);borderborder
           // box-shadow: 0 4px 50px 0 rgb(0 0 0 / 10%);
+
+box-shadowbox-shadow
 
           .banner-container {
             width: 100%;
@@ -748,9 +699,9 @@
             }
 
             .nfo-img {
-              // object-fit: cover;
-              // object-position: right;
-              width: 100%;
+              // object-fit: cover;object-fitobject-fit
+              // object-position: right;object-positionobject-position
+              width: 100%;width
               height: 100%;
               border-radius: 12px;
             }
@@ -779,15 +730,16 @@
             }
           }
 
-          .timing-nfo-value {
-            // background: rgb(255 255 255 / 8%);
-            display: flex;
+          .timing-nfo-value {background
+            display: flex;display
             align-items: start;
             justify-content: space-between;
             gap: 20px;
             padding-top: 24px;
-
             // border-radius: 0 0 8px 8px;
+
+border-radiusborder-radius
+
             .timing-container {
               .timing-text {
                 @include font-style(var(--body-xsmall-medium-size),
@@ -847,8 +799,8 @@
   }
 
   &.fund-tab.tabs-container {
-    // max-width: 1264px;
-    width: 100%;
+    // max-width: 1264px;max-widthmax-width
+    width: 100%;width
     margin: 0 auto;
     padding: 40px 0 64px;
 
@@ -856,10 +808,11 @@
       padding: 40px 0 49px;
     }
 
-    .default-content-wrapper {
-      // margin: 0;
-      // padding: 0;
+    .default-content-wrapper {margin
+      // padding: 0;paddingpadding
       // max-width: 100%;
+
+max-widthmax-width
 
       h1 {
         @include font-style(var(--heading-h4-size),
@@ -1034,8 +987,8 @@
 
       .default-content-wrapper,
       .tabs-wrapper {
-        // max-width: 1264px;
-        width: 100%;
+        // max-width: 1264px;max-widthmax-width
+        width: 100%;width
         margin: 0 auto;
 
         .wrappertablist {

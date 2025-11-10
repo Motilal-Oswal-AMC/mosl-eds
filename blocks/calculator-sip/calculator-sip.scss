@@ -53,8 +53,7 @@
 
         @include media(mobile) {
           align-items: flex-start;
-
-          // padding-top: 40px;
+          // padding-top: 40px;padding-toppadding-top
         }
 
         .hero-image {
@@ -146,8 +145,9 @@
               display: flex;
               flex-direction: column;
               position: relative;
-
               // gap: map.get($spacing, xs);
+
+gapgap
 
               .search-bar-label {
                 text-align: left;
@@ -316,8 +316,7 @@
                 padding: 0;
                 background-color: transparent;
                 box-shadow: none;
-
-                // margin-bottom: 8px;
+                // margin-bottom: 8px;margin-bottommargin-bottom
               }
 
               .scheme-btns-wrapper {
@@ -394,7 +393,7 @@
                       var(--body));
 
                     // &.active {
-                    //   color: var(--blue-1-800-primary);
+                    //   color: var(--blue-1-800-primary);colorcolor
                     // }
 
                     &:last-of-type {
@@ -521,8 +520,9 @@
                 display: flex;
                 flex-wrap: wrap;
                 gap: 24px;
-
                 // margin: 8px 0;
+
+marginmargin
 
                 .sip-wrapper,
                 .tenure-wrapper {
@@ -541,8 +541,8 @@
                     var(--text-body-2),
                     map.get($font-weights, regular));
 
-                  // color: #616161;
-                  font-family: var(--body);
+                  // color: #616161;colorcolor
+                  font-family: var(--body);font-family
 
                   @include media(mobile) {
                     text-align: start;
@@ -572,9 +572,9 @@
                         var(--body));
 
                       @include media(mobile) {
-                        // top: 4px;
-                        // height: 100%;
-                        font-size: var(--body-small-medium-size);
+                        // top: 4px;toptop
+                        // height: 100%;heightheight
+                        font-size: var(--body-small-medium-size);font-size
                         line-height: var(--body-small-medium-line-height);
                       }
                     }
@@ -607,7 +607,7 @@
 
                       // &:focus{
                       //   display: none
-                      // }
+                      //displaydisplay }
                     }
 
                     .investment-inp {
@@ -676,9 +676,8 @@
                       cursor: pointer;
                       position: relative;
                       user-select: none;
-
-                      // padding-bottom: 4px;
-                      display: flex;
+                      // padding-bottom: 4px;padding-bottompadding-bottom
+                      display: flex;display
                       align-items: center;
                       gap: 16px;
                       width: fit-content;
@@ -900,8 +899,7 @@
                   @include media(mobile) {
                     position: static;
                     width: 100%;
-
-                    // padding-top: 8px;
+                    // padding-top: 8px;padding-toppadding-top
                   }
 
                   .sip-btn {
@@ -934,8 +932,8 @@
                     }
 
                     &:hover {
-                      // background: var(--primary-blue-dark);
-                      background-color: #181643;
+                      // background: var(--primary-blue-dark);backgroundbackground
+                      background-color: #181643;background-color
                     }
                   }
                 }
@@ -1064,7 +1062,7 @@
           h4,
           h5,
           h6 {
-            // margin: 0 0 4px;
+            // margin: 0 0 4px;marginmargin
 
             @include font-style(var(--body-xlarge-bold-size),
               var(--body-xlarge-bold-line-height),

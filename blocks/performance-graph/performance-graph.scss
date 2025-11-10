@@ -4,66 +4,60 @@
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
-// .performance-graph {
-//     padding-top: 40px;
-//     display: flex;
-//     flex-direction: column;
-//     gap: 16px;
+// .performance-graph {padding-top
+//     display: flex;displaydisplay
+//     flex-direction: column;flex-directionflex-direction
+//     gap: 16px;gapgap
 
 //   @media (width <= 768px) {
-//     padding: 0 16px  }
+//     padding: 0 16pxpaddingpadding  }
 
 //     .fund-note-container {
-//         h4 {
-//             @include font-style(32px, 40px, $primary-blue, 700, $butlerpro);
+//         h4 {padding
+//             margin: 0;marginmargin
 
-//             padding: 0;
-//             margin: 0;
-
-//     @media (width <= 768px) {
-//      font-size: 24px;
-//      line-height: 28px;
+//     @media (width <= 768px) {font-size
+//      line-height: 28px;line-heightline-height
 //     }
 //         }
 //     }
 
 //     .fund-main {
-//         display: flex;
-//         align-items: center;
-//         justify-content: space-between;
+//         display: flex;displaydisplay
+//         align-items: center;align-itemsalign-items
+//         justify-content: space-between;justify-contentjustify-content
 
 //     @media (width <= 768px) {
-//       display: table;
+//       display: table;displaydisplay
 //     }
 
 //         .fund-filters {
 //             .chart-filter-bar {
-//                 display: flex;
-//                 gap: 8px;
+//                 display: flex;displaydisplay
+//                 gap: 8px;gapgap
 
 //                 .filter-btn {
-//                     margin: 0;
-//                     width: 56px;
-//                     height: 32px;
-//                     padding: 8px 12px;
-//                     border-radius: 1000px;
-//                     border: 1px solid map.get($strokes, disabled);
-//                     background-color: $neutrals-50;
+//                     margin: 0;marginmargin
+//                     width: 56px;widthwidth
+//                     height: 32px;heightheight
+//                     padding: 8px 12px;paddingpadding
+//                     border-radius: 1000px;border-radiusborder-radius
+//                     border: 1px solid map.get($strokes, disabled);borderborder
+//                     background-color: $neutrals-50;background-colorbackground-color
 
 //                     @include font-style(14px, 20px, $color-text-body, 400, $poppins);
 
-//           @media (width <= 768px) {
-//             // max-width: 40px;
-//             width: 100%;
-//             border-radius: 4px;
-//             padding: 8px 12px;
-//             max-width: max-content;
+//           @media (width <= 768px) {max-width
+//             width: 100%;widthwidth
+//             border-radius: 4px;border-radiusborder-radius
+//             padding: 8px 12px;paddingpadding
+//             max-width: max-content;max-widthmax-width
 //           }
 //                 }
 
 //                 .active {
-//                     border: 1px solid $text-header;
-//                     background-color: map.get($blue-1, b25);
+//                     border: 1px solid $text-header;borderborder
+//                     background-color: map.get($blue-1, b25);background-colorbackground-color
 
 //                     @include font-style(14px, 16px, $primary-blue, 500, $poppins);
 //                 }
@@ -71,20 +65,19 @@
 //         }
 
 //         .fund-cagr {
-//             display: flex;
-//             gap: 8px;
-//             align-self: center;
-//             justify-content: center;
+//             display: flex;displaydisplay
+//             gap: 8px;gapgap
+//             align-self: center;align-selfalign-self
+//             justify-content: center;justify-contentjustify-content
 
 //       @media (width <= 768px) {
-//         justify-content: start;
-//         margin-top: 16px;
+//         justify-content: start;justify-contentjustify-content
+//         margin-top: 16px;margin-topmargin-top
 //       }
 
 //             .graph-cagr {
-//                 p {
-//                     padding: 0;
-//                     margin: 0;
+//                 p {padding
+//                     margin: 0;marginmargin
 
 //                     @include font-style(16px, 24px, $primary-blue, 400, $poppins);
 //                 }
@@ -97,12 +90,12 @@
 //     }
 
 //     #chartdiv {
-//         width: 100%;
-//         height: 432px;
-//         flex-shrink: 0;
-//         border-radius: 8px;
-//         background-color: $primary-white;
-//         box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+//         width: 100%;widthwidth
+//         height: 432px;heightheight
+//         flex-shrink: 0;flex-shrinkflex-shrink
+//         border-radius: 8px;border-radiusborder-radius
+//         background-color: $primary-white;background-colorbackground-color
+//         box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);box-shadowbox-shadow
 //     }
 
 // }
@@ -114,7 +107,7 @@
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
 // .section.performance-graph-container{
-//   margin-top: 0;
+//   margin-top: 0;margin-topmargin-top
 
 //   .performance-graph-wrapper{
 .performance-graph {
@@ -200,8 +193,8 @@
 
             // Accessibility: focus & hover styles
             // &:focus {
-            //   outline: 2px solid $primary-blue;
-            //   outline-offset: 2px;
+            //   outline: 2px solid $primary-blue;outlineoutline
+            //   outline-offset: 2px;outline-offsetoutline-offset
             // }
 
             &:hover {
@@ -209,15 +202,11 @@
               background-color: map.get($blue-1, b10);
             }
 
-            // @media (width <=768px) {
-            //   min-width: 32px;
-
-            //   // width: 100%;
-            //   height: 40px;
-
-            //   // border-radius: 4px;
-            //   // padding: var(--spacing-8) var(--spacing-12);
-            //   // max-width: 100%;
+            // @media (width <=768px) {min-width
+            //   // width: 100%;widthheight
+            //   // border-radius: 4px;border-radiusborder-radius
+            //   // padding: var(--spacing-8) var(--spacing-12);paddingpadding
+            //   // max-width: 100%;max-widthmax-width
             // }
           }
 

@@ -68,13 +68,11 @@
             }
         }
 
-        .mainarticle3 {
-            // width: max-content;
-            padding: 0;
+        .mainarticle3 {width
+            padding: 0;padding
             margin: 0;
             margin: 40px 0 16px;
-
-            // display: none;
+            // display: none;displaydisplay
 
             @include media(mobile) {
                 display: block;
@@ -92,8 +90,8 @@
                     align-self: stretch;
                     margin: 0;
                     list-style: none;
+                    // margin-bottom: 40px;margin-bottommargin-bottom
 
-                    // margin-bottom: 40px;
                     @include media(mobile) {
                         gap: 40px;
                     }
@@ -123,6 +121,9 @@
                         }
 
                         // line-height: var(--body-large-medium-line-height);
+
+line-heightline-height
+
                         ul {
                             width: 100%;
                             margin: 0;
@@ -188,8 +189,7 @@
                             font-size: var(--body-medium-regular-size);
                             font-weight: 400;
                             line-height: 24px;
-
-                            // line-height: var(--body-medium-regular-line-height);
+                            // line-height: var(--body-medium-regular-line-height);line-heightline-height
 
                             @include media (mobile) {
                                 font-size: var(--paragraph-small-size);
@@ -213,8 +213,7 @@
                                 font-size: var(--body-medium-regular-size);
                                 font-weight: 400;
                                 line-height: 24px;
-
-                                // line-height: var(--body-medium-regular-line-height);
+                                // line-height: var(--body-medium-regular-line-height);line-heightline-height
 
                                 @include media (mobile) {
                                     font-size: var(--paragraph-small-size);
