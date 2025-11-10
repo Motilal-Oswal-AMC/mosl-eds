@@ -2081,9 +2081,9 @@
       },
       {
         "component": "select",
-        "name": "style",
-        "label": "Style Options",
-        "multi": true,
+        "name": "titleType",
+        "label": "Title Type",
+        "multi": false,
         "options": [
           {
             "name": "video",
@@ -2102,12 +2102,6 @@
             "value": "article"
           }
         ]
-      },
-      {
-        "component": "text",
-        "name": "style",
-        "label": "CSS Classes",
-        "placeholder": "e.g., class-one class-two"
       }
     ]
   },
