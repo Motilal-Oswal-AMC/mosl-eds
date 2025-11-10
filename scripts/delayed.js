@@ -44,10 +44,10 @@ export default async function createBreadcrumbs() {
       );
     }),
   );
-  const homeIcon = '/icons/home-icon.svg';
-  // const homeLink = '/in/en/mutual-fund/home-page';
+  const homeIcon = '../../icons/home-icon.svg';
+  // const homeLink = '/motilalfigma/home-page';
   return ul(
-    decorateBreadcrumbItems('Home', '/mutual-fund/in/en/home-page', homeIcon),
+    decorateBreadcrumbItems('Home', '/motilalfigma/home-page', homeIcon),
     ...items.filter((item) => item !== null),
     decorateBreadcrumbItems(
       getMetadata('breadcrumbs_title'),
@@ -56,6 +56,48 @@ export default async function createBreadcrumbs() {
   );
 }
 
+// async function decorateBreadcrumbs() {
+//   try {
+//     if (getMetadata('breadcrumbs') === 'true') {
+//       const breadcrumb = await createBreadcrumbs();
+//       breadcrumb.classList.add('breadul');
+//       Array.from(breadcrumb.children).forEach((brelesub) => {
+//         brelesub.classList.add('breadli');
+//       });
+//       document.querySelector('.breadcrumbs-fdp').appendChild(breadcrumb);
+//     }
+//   } catch (error) {
+//     // console.log(error);
+//   }
+// }
+
+// decorateBreadcrumbs();
+
+// async function decorateBreadcrumbs() {
+//   try {
+//     if (getMetadata('breadcrumbs') === 'true') {
+//       const breadcrumb = await createBreadcrumbs();
+//       breadcrumb.classList.add('breadul');
+//       Array.from(breadcrumb.children).forEach((brelesub) => {
+//         brelesub.classList.add('breadli');
+//       });
+
+//       // --- CHANGE IS HERE ---
+//       // Find the container using the data-id attribute
+//       const container = document.querySelector('[data-id="breadcrumb"]');
+
+//       // Check if the container exists before appending
+//       if (container) {
+//         container.appendChild(breadcrumb);
+//       } else {
+//         // Log an error if the container isn't found
+//         console.warn('Breadcrumb container [data-id="breadcrumb"] not found.');
+//       }
+//     }
+//   } catch (error) {
+//     console.error('Error decorating breadcrumbs:', error);
+//   }
+// }
 async function decorateBreadcrumbs() {
   try {
     if (getMetadata('breadcrumbs') === 'true') {
@@ -64,11 +106,44 @@ async function decorateBreadcrumbs() {
       Array.from(breadcrumb.children).forEach((brelesub) => {
         brelesub.classList.add('breadli');
       });
-      document.querySelector('.breadcrumbs-fdp').appendChild(breadcrumb);
+
+      // --- CHANGE IS HERE ---
+      // Select the first element that has EITHER [data-id="breadcrumb"] OR .breadcrumbs-fdp
+      const container = document.querySelector(
+        '[data-id="breadcrumb"], .breadcrumbs-fdp'
+      );
+
+      // Check if a container was found
+      if (container) {
+        container.appendChild(breadcrumb);
+      } else {
+        // Log an error if neither container is found
+        console.warn(
+          'Breadcrumb container ([data-id="breadcrumb"] or .breadcrumbs-fdp) not found.'
+        );
+      }
     }
   } catch (error) {
-    // console.log(error);
+    console.error('Error decorating breadcrumbs:', error);
   }
 }
 
+// (Assumes createBreadcrumbs function is defined elsewhere as in previous examples)
 decorateBreadcrumbs();
+
+const newSection = document.querySelector('.moedge-article-main .article-sub-left.articlesub1 .leftartsub1');
+
+if (newSection) {
+  const item5 = newSection.querySelector('.leftartitem5');
+  const item6 = newSection.querySelector('.leftartitem6');
+
+  if (item5 && item6 && item5.parentNode === item6.parentNode) {
+    const directParent = item5.parentNode;
+    const wrapperDiv = document.createElement('div');
+
+    directParent.insertBefore(wrapperDiv, item5);
+
+    wrapperDiv.appendChild(item5);
+    wrapperDiv.appendChild(item6);
+  }
+}
