@@ -1,36 +1,65 @@
 // @use "../../../styles/fonts.css";
 @use "sass:map";
+@import "../../../styles/fonts.css";
 
-@import url("../../../styles/fonts.css");
 
-TYPOGRAPHYSIZESSPACINGH2Specifics$font-size-h2-min
-$font-size-h2-fluid: 5vw;$font-size-h2-fluid
+// ----------------------------------------
+// TYPOGRAPHY SIZES & SPACING
+// ----------------------------------------
+
+// H2 Specifics
+$font-size-h2-min: 2rem;
+$font-size-h2-fluid: 5vw;
 $font-size-h2-max: 2.75rem;
 $line-height-h2: 1.2;
 
-SpacingUnits$spacing-mdSpacingUnits$spacing-md
+// Spacing Units
+$spacing-md: 16px;
+
 // ----------------------------------------
 // COLORS
 // ----------------------------------------
 
 // Primary colors
-$primary-black: #000;COLORSPrimarycolors$primary-blackCOLORSPrimarycolors$primary-black
-$primary-white: #fff;$primary-white
+$primary-black: #000;
+$primary-white: #fff;
 $primary-blue: #2e2a94;
 $primary-blue-dark: #2b2e8c;
 $primary-blue-1-900: #242177;
 
-Brandbuttons$button-primaryBrandbuttons$button-primary
+
+// Brand buttons
+$button-primary: (
+  default: #2e2a94,
+  hover: #2b2e8c,
+  active: #262a84,
+  disabled: #969696,
+);
 $button-secondary: (
   default: #fff,
   hover: #f3f3f3,
   active: #e6e6e6,
   disabled: #b0b0b0,
   text: #2e2a94,
-);Neutralcolorsblue-1-25$blue-1Neutralcolorsblue-1-25$blue-1
+);
+
+// Neutral colors blue-1-25
+$blue-1: (
+  b25: #EDF1FF,
+  b50: #D5DEFF,
+  b200: #9DADFE,
+  b300: #7986fd,
+  b400: #5659FA,
+  b900: #242177,
+  b500: #4338f3,
+  b700: #332ab5,
+  b150:#D5DEFF
+);
+
 // body-Color
 
-$color-text-body: #424242;body-Color$color-text-bodybody-Color$color-text-body
+$color-text-body: #424242;
+
 // Old Silver
 $old-silver: (
   00: #efefef,
@@ -43,7 +72,8 @@ $old-silver: (
   500: #505050,
   600: #545454,
   700: #404040,
-);OldSilver$old-silverOldSilver$old-silver
+);
+
 // Olive Drab
 $olive-drab: (
   50: #ededec,
@@ -53,7 +83,8 @@ $olive-drab: (
   300: #4e4640,
   400: #37312d,
   500: #302b27,
-);OliveDrab$olive-drabOliveDrab$olive-drab
+);
+
 // Dark Liver
 $dark-liver: (
   50: #edeeed,
@@ -63,13 +94,16 @@ $dark-liver: (
   300: #4c514d,
   400: #353936,
   500: #2e312f,
-);DarkLiver$dark-liverDarkLiver$dark-liver
+);
+
 // strokes
 $strokes: (
   default:#9E9E9E,
   typing: #1887D2,
   disabled: #BDBDBD,
-);strokes$strokesstrokes$strokes
+);
+
+
 // Success
 $success: (
   50: #e9fdec,
@@ -79,7 +113,8 @@ $success: (
   300: #20ed42,
   400: #16a62e,
   500: #149128,
-);Success$successSuccess$success
+);
+
 // Alarm
 $alarm: (
   50: #fdf6e9,
@@ -89,7 +124,8 @@ $alarm: (
   300: #eda920,
   400: #a67616,
   500: #916714,
-);Alarm$alarmAlarm$alarm
+);
+
 // Danger
 $danger: (
   50: #fde9e9,
@@ -100,13 +136,14 @@ $danger: (
   400: #a61616,
   500: #911414,
   600: #EE212E,
-);Danger$dangerDanger$danger
+);
+
 // ----------------------------------------
 // MISC COLORS
 // ----------------------------------------
 
-$blue-100: #4e78e6;MISCCOLORS$blue-100MISCCOLORS$blue-100
-$dark-500: #7b7b7b;$dark-500
+$blue-100: #4e78e6;
+$dark-500: #7b7b7b;
 $light-600: #9d9d9d;
 $text-header: #382ad7;
 $neutrals-50: #FAFAFA;
@@ -121,8 +158,11 @@ $neutrals-100: #F5F5F5;
 $fund-icon-bg: #BDCBFF;
 $sub-header: #212121;
 
-FONTS$poppinsFONTS$poppins
-$butlerpro: "ButlerPro", sans-serif;$butlerpro
+// ----------------------------------------
+// FONTS
+// ----------------------------------------
+$poppins: "Poppins", sans-serif;
+$butlerpro: "ButlerPro", sans-serif;
 $inter: "Inter", sans-serif;
 $font-weights: (
   light: 300,
@@ -160,7 +200,28 @@ $font-weights: (
   font-size: clamp($font-size-h2-min, $font-size-h2-fluid, $font-size-h2-max);
 }
 
-BORDERRADIUS$radiusBORDERRADIUS$radius
+// ----------------------------------------
+// BORDER RADIUS
+// ----------------------------------------
+
+$radius: (
+  r4: 4px,
+  r8: 8px,
+  r12: 12px,
+  r14: 14px,
+  r16: 16px,
+  r24: 24px,
+  r26: 26px,
+  r32: 32px,
+  r37: 37px,
+  r40: 40px,
+  r41: 41px,
+  r52: 52px,
+  r83: 83px,
+  r100: 100px,
+  r50: 50%
+);
+
 // ----------------------------------------
 // SPACING
 // ----------------------------------------
@@ -173,12 +234,28 @@ $spacing: (
   lg: 24px,
   xl: 32px,
   xxl: 40px,
-);SPACING$spacingSPACING$spacing
+);
+
 // ----------------------------------------
 // SHADOWS
 // ----------------------------------------
-// $box-shadow-soft: 0 8px 24px rgba(map.get($primary-black, 1), 0.08);SHADOWS$box-shadow-softSHADOWS$box-shadow-soft
-$box-shadow-soft: 0 8px 24px rgba($primary-black, 0.08);BREAKPOINTS$breakpointsBREAKPOINTS$breakpoints
+// $box-shadow-soft: 0 8px 24px rgba(map.get($primary-black, 1), 0.08);
+$box-shadow-soft: 0 8px 24px rgba($primary-black, 0.08);
+
+// ----------------------------------------
+// BREAKPOINTS
+// ----------------------------------------
+
+$breakpoints: (
+  mobile-sm: 361px,
+  mobile-md: 391px,
+  mobile: 768px,
+  tab: 1025px,
+  desktop-sm: 1299px,
+  desktop-md: 1367px,
+  desktop-lg: 1681px,
+  desktop-xl: 1921px
+);
 
 
 // // Media query mixin using map.get
@@ -244,8 +321,11 @@ $box-shadow-soft: 0 8px 24px rgba($primary-black, 0.08);BREAKPOINTS$breakpointsB
   }
 }
 
-start$titlestart$title
-$body: "Inter", sans-serif;$body
+
+//Typeface start
+
+$title: "Inter", sans-serif;
+$body: "Inter", sans-serif;
 $weight-regular: "Regular";
 $weight-semibold: "Semibold";
 $weight-medium: "Medium";
@@ -255,8 +335,8 @@ $weight-bold: "Bold";
 
 //spacing start
 
-$spacing-none: 0;end//spacingstart$spacing-noneend//spacingstart$spacing-none
-$spacing-4: 4px;$spacing-4
+$spacing-none: 0px;
+$spacing-4: 4px;
 $spacing-8: 8px;
 $spacing-10: 10px;
 $spacing-12: 12px;
@@ -294,8 +374,8 @@ $spacing-80: 80px;
 
 // colors start
 
-$neutrals-black: #111;endcolorsstart$neutrals-blackendcolorsstart$neutrals-black
-$neutrals-900: #212121;$neutrals-900
+$neutrals-black: #111;
+$neutrals-900: #212121;
 $green-900: #004c15;
 $yellow-900: #f57f16;
 $red-900: #a00000;
@@ -378,8 +458,8 @@ $neutrals-white: #fff;
 
 //semantic-lights start
 
-$text-header: $blue-1-600;colorsend//semantic-lightsstart$text-headercolorsend//semantic-lightsstart$text-header
-$text-sub-header: $neutrals-900;$text-sub-header
+$text-header: $blue-1-600;
+$text-sub-header: $neutrals-900;
 $surface-background: $neutrals-white;
 $strokes-information: $blue-2-500-primary;
 $text-button-default: $blue-1-800-primary;
@@ -592,7 +672,8 @@ $typography-desktop: (
   body-xsmall-regular-weight: $weight-regular,
   body-xsmall-regular-size: $spacing-12,
   body-xsmall-regular-line-height: 14px
-);end//typescale-desktopstart$typography-desktopend//typescale-desktopstart$typography-desktop
+);
+
 //typescale-desktop end
 
 //typescale-mobile start
@@ -752,6 +833,6 @@ $typography-mobile: (
   body-xsmall-regular-weight: $weight-regular,
   body-xsmall-regular-size: $spacing-12,
   body-xsmall-regular-line-height: 14px
-);//typescale-desktopend//typescale-mobilestart$typography-mobileend//typescale-mobilestart$typography-mobile
+);
 
 //typescale-mobile end

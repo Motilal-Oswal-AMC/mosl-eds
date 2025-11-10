@@ -7,13 +7,19 @@
     max-width: 296px;
     width: 100%;
     padding: 16px;
+    border-radius: 16px;
+    background:
+      linear-gradient(var(--neutrals-white), var(--neutrals-white)) padding-box,
+      linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
+    border: 1px solid transparent;
     box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
-    // border-radius: map.get($radius, r8);border-radiusborder-radius
+
+    // border-radius: map.get($radius, r8);
     // background:
     //   linear-gradient(var(--neutrals-white), var(--neutrals-white)) padding-box,
-    //   linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;backgroundbackground
-    // border: 1px solid transparent;borderborder
-    // box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);box-shadowbox-shadow
+    //   linear-gradient(135deg, var(--card-stroke) 0%, var(--neutrals-white) 50%, var(--card-stroke) 100%) border-box;
+    // border: 1px solid transparent;
+    // box-shadow: 0 0 8px 0 rgb(0 0 0 / 6%);
 
     @include flex-center;
 
@@ -27,12 +33,15 @@
       .card-upper-title {
         @include flex-center($align: center, $justify: space-between);
 
-        align-items: start;gap
-        gap: 16px;gap
+        align-items: start;
+
+        // gap: 30px;
+        gap: 16px;
         margin: 0 0 var(--spacing-8);
         height: 100%;
-        // min-height: 50px;min-heightmin-height
-        flex-direction: column;flex-direction
+
+        // min-height: 50px;
+        flex-direction: column;
 
         .brand-star-wrap {
           display: flex;
@@ -41,22 +50,23 @@
           width: 100%;
 
           .brand-logo {
-            position: relative;min-width
-            width: 32px;width
+            position: relative;
+
+            // min-width: 40px;
+            width: 32px;
             height: 32px;
             box-shadow: 0 0 14px 0 rgb(0 0 0 / 7%);
             border-radius: 50%;
+
             // background: #bdcbff;
-
-backgroundbackground
-
             .logoscheme {
-              // position: absolute;positionposition
-              // top: 20%;toptop
-              // left: 15%;leftleft
-              // width: 29.977px;widthwidth
-              // height: 20.855px;flex-shrinkflex-shrink
-              width: 100%;width
+              // position: absolute;
+              // top: 20%;
+              // left: 15%;
+              // width: 29.977px;
+              // height: 20.855px;
+              // flex-shrink: 0;
+              width: 100%;
               height: 100%;
             }
           }
@@ -101,10 +111,11 @@ backgroundbackground
 
         .brand-fund-wrap {
           width: 100%;
-          // height: 100%;heightheight
+
+          // height: 100%;
 
           // .brand-name-text {
-          //   margin: 0;marginmargin
+          //   margin: 0;
 
           //   @include font-style(
           //     12px,
@@ -134,11 +145,20 @@ backgroundbackground
         }
       }
 
-      .card-category {gap
-        // padding: 4px 0;paddingpadding
-        // margin: 0 0 16px;marginmargin
-        margin: 0 0 40px;marginheight
-        // height: auto;heightheight
+      .card-category {
+        // @include flex-center($align: center, $justify: flex-start);
+        // gap: 4px 8px;
+
+        // padding: 4px 0;
+        // margin: 0 0 16px;
+        margin: 0 0 40px;
+
+        // flex-wrap: wrap;
+
+        // margin-top: auto;
+        // min-height: unset;
+        // height: 100%;
+        // height: auto;
 
         @include media(mobile) {
           margin: 0 0 38px;
@@ -183,8 +203,8 @@ backgroundbackground
         }
 
         .planlist-dropdown {
-          // max-width: 70px;max-widthmax-width
-          max-width: max-content;max-width
+          // max-width: 70px;
+          max-width: max-content;
           width: 100%;
 
           @include flex-center($align: center, $justify: flex-start);
@@ -214,29 +234,48 @@ backgroundbackground
 
       .cagr-container {
         display: flex;
-        justify-content: start;gap
-        gap: 8px;gap
+        justify-content: start;
+
+        // gap: 24px;
+        gap: 8px;
         flex-direction: column-reverse;
-        min-height: 88px;box-shadow
-        // margin-top: auto;margin-topmargin-top
-        margin: 0 0 16px;margin
+        min-height: 88px;
+
+        // min-height: 109px;
+
+        // height: 88px;
+        // height: 100%;
+
+        // padding: 24px 12px;
+        // padding: 12px;
+        // align-self: stretch;
+        // border-radius: 12px;
+        // border: 0.5px solid #e8e8e8;
+        // background: $neutrals-50;
+        // box-shadow: 0 0 24px 0 rgb(0 0 0 / 4%);
+
+        // margin-top: auto;
+        margin: 0 0 16px;
 
         @include media(tab) {
-          // height: 100%;heightheight
-          min-height: unset;min-height
+          // height: 100%;
+          min-height: unset;
           margin: 0 0 var(--spacing-24);
         }
 
         .cagr-dropdown {
-          // display: flex;displaydisplay
-          // flex-direction: column;flex-directionflex-direction
-          // align-items: flex-start;align-itemsalign-items
-          // gap: 2px;gapgap
-          // flex: 1 0 0;flexflex
-          // max-width: 46%;max-widthmax-width
-          // width: 100%;widthwidth
-          // position: relative;positionposition
-          line-height: 0;line-height
+          // display: flex;
+          // flex-direction: column;
+          // align-items: flex-start;
+          // gap: 2px;
+
+          // flex: 1 0 0;
+
+          // max-width: 46%;
+          // width: 100%;
+          // position: relative;
+
+          line-height: 0;
 
           .cagr-txt {
             @include font-style(var(--body-xsmall-regular-size),
@@ -252,29 +291,34 @@ backgroundbackground
             }
           }
 
-          .cagr-select-wrapper {widthwidth
-            // max-width: 130px;max-widthmax-width
-            max-width: max-content;max-width
+          .cagr-select-wrapper {
+            // @include flex-center($align: center, $justify: start);
+            // gap: 4px;
+            // width: 80px;
+            // width: 117px;
+            // width: max-content;
+            // max-width: 130px;
+            max-width: max-content;
             width: 100%;
             position: relative;
             margin: 4px 0 0;
 
             // @include media(desktop-sm) {
-            //   width: 80px;widthwidth
+            //   width: 80px;
             // }
 
             // @media screen and (width <= 900px) {
-            //   // width: 80px;widthwidth
+            //   // width: 80px;
             //   .dropdown-list {
-            //     top: 35px;toptop
+            //     top: 35px;
             //   }
             // }
 
             // @include media(mobile) {
-            //   // width: 125px;widthwidth
+            //   // width: 125px;
 
             //   .dropdown-list {
-            //     top: 18px;toptop
+            //     top: 18px;
             //   }
             // }
 
@@ -319,13 +363,16 @@ backgroundbackground
 
             .dropdown-list {
               display: none;
-              position: absolute;top
-              top: 100%;top
+              position: absolute;
+
+              // top: 18px;
+              top: 100%;
               left: 12px;
               z-index: 2;
               width: 143px;
-              // max-height: 200px;max-heightmax-height
-              margin: 6px 0 0;margin
+
+              // max-height: 200px;
+              margin: 6px 0 0;
               overflow: auto;
               background-color: var(--neutrals-white);
               border-radius: var(--border-radius-8);
@@ -349,8 +396,8 @@ backgroundbackground
               }
 
               // &::-webkit-scrollbar-thumb {
-              //   width: 3px;widthwidth
-              //   background-color: #464343;background-colorbackground-color
+              //   width: 3px;
+              //   background-color: #464343;
               // }
 
               &.dropdown-active {
@@ -381,8 +428,8 @@ backgroundbackground
         }
 
         .cagr-value {
-          // max-width: 46%;max-widthmax-width
-          max-width: max-content;max-width
+          // max-width: 46%;
+          max-width: max-content;
           width: 100%;
           line-height: 0;
 
@@ -431,9 +478,10 @@ backgroundbackground
         }
 
         .cagr-desc {
-          // background: map.get($old-silver, 50);backgroundbackground
-          // padding: 4px 8px;paddingpadding
-          line-height: 0;line-height
+          // background: map.get($old-silver, 50);
+          // padding: 4px 8px;
+
+          line-height: 0;
           width: 100%;
 
           .cagr-desc-text {
@@ -443,8 +491,8 @@ backgroundbackground
               400,
               $poppins);
 
-            // padding: 8px 0;paddingpadding
-            display: block;display
+            // padding: 8px 0;
+            display: block;
           }
         }
 
@@ -503,11 +551,12 @@ backgroundbackground
         }
       }
 
-      .discription {margin
-        margin-top: auto;margin-top
-        // padding: 8px 12px;
+      .discription {
+        // margin: 24px 0 0;
+        // margin: 10px 0 0;
+        margin-top: auto;
 
-paddingpadding
+        // padding: 8px 12px;
 
         .dis-choosen {
           display: flex;
@@ -546,9 +595,10 @@ paddingpadding
       .button-container {
         @include flex-center($align: center, $justify: space-between);
 
-        // flex-wrap: wrap;flex-wrapflex-wrap
-        // gap: 24px 9.08%;gapgap
-        gap: 24px 8px;gap
+        // flex-wrap: wrap;
+
+        // gap: 24px 9.08%;
+        gap: 24px 8px;
         margin: 24px 0 0;
 
         @include media(mobile) {
@@ -556,8 +606,9 @@ paddingpadding
         }
 
         .card-btn {
-          // max-width: 120px;max-widthmax-width
-          max-width: 48.4%;max-width
+          // max-width: 120px;
+          // max-width: 45.46%;
+          max-width: 48.4%;
           width: 100%;
           display: block;
           margin: 0;
@@ -654,8 +705,8 @@ paddingpadding
           }
 
           .planlist-dropdown {
-            //   max-width: 88px;max-widthmax-width
-            max-width: max-content;max-width
+            //   max-width: 88px;
+            max-width: max-content;
 
             p {
               color: var(--text-white);
@@ -671,11 +722,9 @@ paddingpadding
         }
 
         .banner-timing-container {
-          // border-radius: 8px;border-radiusborder-radius
-          // border: 0.5px solid rgb(255 255 255 / 22%);borderborder
+          // border-radius: 8px;
+          // border: 0.5px solid rgb(255 255 255 / 22%);
           // box-shadow: 0 4px 50px 0 rgb(0 0 0 / 10%);
-
-box-shadowbox-shadow
 
           .banner-container {
             width: 100%;
@@ -699,9 +748,9 @@ box-shadowbox-shadow
             }
 
             .nfo-img {
-              // object-fit: cover;object-fitobject-fit
-              // object-position: right;object-positionobject-position
-              width: 100%;width
+              // object-fit: cover;
+              // object-position: right;
+              width: 100%;
               height: 100%;
               border-radius: 12px;
             }
@@ -730,16 +779,15 @@ box-shadowbox-shadow
             }
           }
 
-          .timing-nfo-value {background
-            display: flex;display
+          .timing-nfo-value {
+            // background: rgb(255 255 255 / 8%);
+            display: flex;
             align-items: start;
             justify-content: space-between;
             gap: 20px;
             padding-top: 24px;
+
             // border-radius: 0 0 8px 8px;
-
-border-radiusborder-radius
-
             .timing-container {
               .timing-text {
                 @include font-style(var(--body-xsmall-medium-size),
@@ -799,8 +847,8 @@ border-radiusborder-radius
   }
 
   &.fund-tab.tabs-container {
-    // max-width: 1264px;max-widthmax-width
-    width: 100%;width
+    // max-width: 1264px;
+    width: 100%;
     margin: 0 auto;
     padding: 40px 0 64px;
 
@@ -808,11 +856,10 @@ border-radiusborder-radius
       padding: 40px 0 49px;
     }
 
-    .default-content-wrapper {margin
-      // padding: 0;paddingpadding
+    .default-content-wrapper {
+      // margin: 0;
+      // padding: 0;
       // max-width: 100%;
-
-max-widthmax-width
 
       h1 {
         @include font-style(var(--heading-h4-size),
@@ -987,8 +1034,8 @@ max-widthmax-width
 
       .default-content-wrapper,
       .tabs-wrapper {
-        // max-width: 1264px;max-widthmax-width
-        width: 100%;width
+        // max-width: 1264px;
+        width: 100%;
         margin: 0 auto;
 
         .wrappertablist {

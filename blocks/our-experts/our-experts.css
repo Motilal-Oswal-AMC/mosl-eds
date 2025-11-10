@@ -2,11 +2,6 @@
 .section.our-experts-container {
   margin-bottom: 0;
 }
-@media (max-width: 768px) {
-  .section.our-experts-container {
-    margin-top: 0;
-  }
-}
 .section.our-experts-container .our-experts-wrapper ul {
   width: 100%;
   list-style: none;

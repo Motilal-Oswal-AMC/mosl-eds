@@ -4,11 +4,15 @@
 
 .section.fm-portfolio-container {
   display: flex;
-  flex-direction: column;align-items
-  // gap: 4px;gapgap
-  width: 683px;widthwidth
-  // padding: 8px 16px 0;paddingpadding
-  padding: 12px 16px 19px;padding
+  flex-direction: column;
+
+  // align-items: center;
+  // gap: 4px;
+  width: 683px;
+
+  // width: 100%;
+  // padding: 8px 16px 0;
+  padding: 12px 16px 19px;
   background: var(--neutrals-white);
   height: 100%;
   overflow: auto;
@@ -16,8 +20,9 @@
   @include media(mobile) {
     border-top-left-radius: 32px;
     border-top-right-radius: 32px;
-    // background-color: aqua;background-colorbackground-color
-    max-width: 360px;max-width
+
+    // background-color: aqua;
+    max-width: 360px;
     overflow: scroll;
     padding: 16px 16px 70px;
   }
@@ -97,7 +102,7 @@
             }
 
             //   @include media(mobile) {
-            //     border: 1px solid map.get($strokes, default);borderborder
+            //     border: 1px solid map.get($strokes, default);
             //   }
 
             thead {
@@ -163,8 +168,8 @@
                     var(--body)
                   );
 
-                  // padding: 12px 26px;paddingpadding
-                  padding: 20px 4px;padding
+                  // padding: 12px 26px;
+                  padding: 20px 4px;
                   min-width: 80px;
                   text-align: left;
 
@@ -222,7 +227,8 @@
           .managername,
           .designation {
             margin: unset;
-            // line-height: 24px;line-heightline-height
+
+            // line-height: 24px;
           }
 
           .managername {
@@ -279,8 +285,9 @@
 
     .modal-content {
       max-width: 689px;
-      // height: 100dvh;heightheight
-      height: 100%;height
+
+      // height: 100dvh;
+      height: 100%;
       background-color: transparent;
       overflow: hidden;
       border-radius: 0;

@@ -4,49 +4,51 @@
 
 // .behind-the-content .cards {
 //   >ul {
-//     list-style: none;list-stylelist-style
-//     margin: 0;marginmargin
-//     padding: 0;paddingpadding
-//     display: grid;displaydisplay
-//     grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));grid-template-columnsgrid-template-columns
-//     grid-gap: 24px;grid-gapgrid-gap
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+//     grid-gap: 24px;
 
 //     >li {
-//       // border: 1px solid #dadada;borderborder
-//       // background-color: var(--background-color);background-colorbackground-color
+//       // border: 1px solid #dadada;
+//       // background-color: var(--background-color);
 
 //       img {
-//         width: 100%;widthwidth
-//         aspect-ratio: 4 / 3;aspect-ratioaspect-ratio
-//         object-fit: cover;object-fitobject-fit
-//         background: url('');backgroundbackground
+//         width: 100%;
+//         aspect-ratio: 4 / 3;
+//         object-fit: cover;
+//         background: url('');
 //       }
 //     }
 //   }
 
 //   .cards-card-body {
-//     margin: 16px 16px 16px 0;marginmargin
+//     margin: 16px 16px 16px 0;
 
 //     @include media(mobile) {
-//       margin: 16px 16px 0 0;marginmargin
+//       margin: 16px 16px 0 0;
 //     }
 //   }
 
 //   .cards-card-image {
-//     line-height: 0;line-heightline-height
-//     // width: 296px;widthwidth
-//     // height: 296px;heightheight
-//     aspect-ratio: 1/1;aspect-ratioaspect-ratio
+//     line-height: 0;
+
+//     // width: 296px;
+//     // height: 296px;
+//     aspect-ratio: 1/1;
 
 //     @include media(mobile) {
-//       aspect-ratio: unset;aspect-ratioaspect-ratio
-//       height: 164px;heightheight
+//       aspect-ratio: unset;
+//       height: 164px;
 //     }
 //   }
 // }
 
-Definethespecificbreakpointforthiscomponent$breakpoint-desktop
-$breakpoint-dks: 1279px;$breakpoint-dks
+// Define the specific breakpoint for this component
+$breakpoint-desktop: 900px;
+$breakpoint-dks: 1279px;
 
 // --- 1. Base styles for mobile (default) ---
 // These styles create a horizontally scrolling list on small screens.
@@ -55,9 +57,8 @@ $breakpoint-dks: 1279px;$breakpoint-dks
   padding: unset;
   text-align: center;
   overflow: hidden;
-  // padding-top: 40px;
 
-padding-toppadding-top
+  // padding-top: 40px;
 
   .default-content-wrapper:nth-child(1) {
     padding: 0 24px;
@@ -99,9 +100,9 @@ padding-toppadding-top
       width: 100%;
 
       >ul {
-        // display: grid;displaydisplay
-        // grid-template-columns: repeat(2, 1fr);grid-template-columnsgrid-template-columns
-        display: flex;display
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        display: flex;
         flex-wrap: wrap;
         gap: 40px 12px;
         list-style: none;
@@ -214,8 +215,8 @@ padding-toppadding-top
         margin: 0;
 
         // &:hover {
-        //   background-color: map.get($button-primary, hover);background-colorbackground-color
-        //   transform: translateY(-2px);transformtransform
+        //   background-color: map.get($button-primary, hover);
+        //   transform: translateY(-2px);
         // }
       }
     }
@@ -239,8 +240,10 @@ padding-toppadding-top
 
       p {
         font-size: var(--body-medium-regular-size);
-        // line-height: var(--body-medium-regular-line-height);line-heightline-height
-        max-width: 100%;max-width
+        line-height: 24px;
+
+        // line-height: var(--body-medium-regular-line-height);
+        max-width: 100%;
       }
     }
 
@@ -250,8 +253,8 @@ padding-toppadding-top
       .cards ul {
         display: flex;
         grid-template-columns: repeat(4, 1fr); // Switch to 4 columns
-        gap: 40px 16px;Switchto4columnsgapSwitchto4columnsgap
-        flex-wrap: wrap;flex-wrap
+        gap: 40px 16px;
+        flex-wrap: wrap;
         padding: 0;
         margin: 0;
 
@@ -271,29 +274,32 @@ padding-toppadding-top
       .button-container {
         padding: 16px 0;
 
-        // .button {height
-        //   display: inline-block;displaydisplay
-        //   padding: map.get($spacing, sm) map.get($spacing, xl);paddingpadding
-        //   background-color: map.get($button-primary, default);background-colorbackground-color
-        //   color: $primary-white;colorcolor
-        //   text-decoration: none;text-decorationtext-decoration
-        //   font-family: $poppins;font-familyfont-size
-        //   line-height: 20px;line-heightline-height
-        //   font-weight: map.get($font-weights, medium);font-weightfont-weight
-        //   border-radius: map.get($radius, r4);border-radiusborder-radius
-        //   border: none;borderborder
-        //   cursor: pointer;cursorcursor
-        //   transition: background-color 0.3s ease, transform 0.2s ease;transitiontransition
-        //   margin: 16px 0;marginmargin
-        //   margin-bottom: unset;margin-bottommargin-bottom
+        // .button {
+        //   width: 164px;
+        //   height: 44px;
+        //   display: inline-block;
+        //   padding: map.get($spacing, sm) map.get($spacing, xl);
+        //   background-color: map.get($button-primary, default);
+        //   color: $primary-white;
+        //   text-decoration: none;
+        //   font-family: $poppins;
+        //   font-size: 16px;
+        //   line-height: 20px;
+        //   font-weight: map.get($font-weights, medium);
+        //   border-radius: map.get($radius, r4);
+        //   border: none;
+        //   cursor: pointer;
+        //   transition: background-color 0.3s ease, transform 0.2s ease;
+        //   margin: 16px 0;
+        //   margin-bottom: unset;
 
         //   @include media(mobile) {
-        //     margin: 16px 0;marginmargin
+        //     margin: 16px 0;
         //   }
 
         //   &:hover {
-        //     background-color: map.get($button-primary, hover);background-colorbackground-color
-        //     transform: translateY(-2px);transformtransform
+        //     background-color: map.get($button-primary, hover);
+        //     transform: translateY(-2px);
         //   }
         // }
       }
@@ -329,145 +335,159 @@ padding-toppadding-top
 
 
 // Define the specific breakpoint for this component
-// $breakpoint-desktop: 900px;Definethespecificbreakpointforthiscomponent$breakpoint-desktopDefinethespecificbreakpointforthiscomponent$breakpoint-desktop
+// $breakpoint-desktop: 900px;
 
 // --- 1. Base styles for mobile (default) ---
 // These styles create a horizontally scrolling list on small screens.
 
 // .behind-the-content {
-//   padding: 40px 16px;paddingpadding
-//   text-align: center;text-aligntext-align
-//   overflow: hidden;overflowoverflow
+//   padding: 40px 16px;
+//   text-align: center;
+//   overflow: hidden;
 
 //   @include media(mobile) {
-//     padding: unset;paddingpadding
+//     padding: unset;
 //   }
 
 //   h1 {
 //     @include typography-h2;
-//     font-size: 28px;font-sizefont-size
-//     margin-bottom: map.get($spacing, xs);margin-bottommargin-bottom
-//     margin-top: unset;margin-topmargin-top
+
+//     font-size: 28px;
+//     margin-bottom: map.get($spacing, xs);
+//     margin-top: unset;
 
 //     @include media(mobile) {
-//       text-align: left;text-aligntext-align
+//       text-align: left;
 //     }
 //   }
 
-//   p& {font-size
-//     color: $color-text-body;colorcolor
-//     font-family: $poppins;font-familyfont-family
-//     font-weight: map.get($font-weights, regular);font-weightfont-weight
-//     max-width: 600px;max-widthmax-width
-//     // margin: 0 auto 40px;marginmargin
+//   p& {
+//     font-size: 16px;
+//     color: $color-text-body;
+//     font-family: $poppins;
+//     font-weight: map.get($font-weights, regular);
+//     max-width: 600px;
+
+//     // margin: 0 auto 40px;
 
 //     @include media(mobile) {
-//       color: #2E2A94;colorcolor
-//       line-height: 24px;line-heightline-height
-//       // margin-top: 20px;margin-topmargin-top
-//       margin: unset;marginmargin
-//       text-align: center;text-aligntext-align
+//       color: #2E2A94;
+//       line-height: 24px;
+
+//       // margin-top: 20px;
+//       margin: unset;
+//       text-align: center;
 //     }
 //   }
 
 //   .cards-wrapper {
-//     overflow-x: auto;overflow-xoverflow-x
-//     -ms-overflow-style: none;-ms-overflow-style-ms-overflow-style
-//     scrollbar-width: none;scrollbar-widthscrollbar-width
+//     overflow-x: auto;
+//     -ms-overflow-style: none;
+//     scrollbar-width: none;
 
 //     &::-webkit-scrollbar {
-//       display: none;displaydisplay
+//       display: none;
 //     }
 //   }
 
 //   .cards ul {
-//     display: grid;displaydisplay
-//     grid-template-columns: repeat(2, 1fr);grid-template-columnsgrid-template-columns
-//     gap: 40px 16px;gapgap
-//     list-style: none;list-stylelist-style
-//     padding: 4px map.get($spacing, md) 20px map.get($spacing, md);paddingpadding
-//     margin: 0 (map.get($spacing, md) * -1);marginmargin
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     gap: 40px 16px;
+//     list-style: none;
+//     padding: 4px map.get($spacing, md) 20px map.get($spacing, md);
+//     margin: 0 (map.get($spacing, md) * -1);
 
 //     @include media(mobile) {
-//       padding: 4px 16px 0;paddingpadding
+//       padding: 4px 16px 0;
 //     }
 
 //     li {
-//       flex: 0 0 70%;flexflex
-//       text-align: left;text-aligntext-align
-//       overflow: hidden;overflowoverflow
-//       border: none;borderborder
+//       flex: 0 0 70%;
+//       text-align: left;
+//       overflow: hidden;
+//       border: none;
 //     }
 //   }
 
-//   .cards-card-image img {width
-//     height: 100%;heightheight
-//     display: block;displaydisplay
-//     border-radius: 8px;border-radiusborder-radius
+//   .cards-card-image img {
+//     width: 100%;
+//     height: 100%;
+//     display: block;
+//     border-radius: 8px;
 //   }
 
-//   .cards .cards-card-body {padding
-//     margin: 0;marginmargin
-//     margin-top: 8px;margin-topmargin-top
-//     border: none;borderborder
+//   .cards .cards-card-body {
+//     padding: 0;
+//     margin: 0;
+//     margin-top: 8px;
+//     border: none;
 
 //     @include media(mobile) {
-//       // padding: 8px 16px 0 0;paddingpadding
-//       margin: 0;marginmargin
+//       // padding: 8px 16px 0 0;
+//       padding: 0;
+//       margin: 0;
 //     }
 
-//     p:first-of-type {color
-//       font-feature-settings: var(--font-features-default);font-feature-settingsfont-feature-settings
-//       font-family: var(--body, Inter);font-familyfont-family
-//       font-size: var(--body-medium-medium-size);font-sizefont-size
-//       font-style: normal;font-stylefont-style
-//       font-weight: 500;font-weightfont-weight
-//       line-height: var(--body-medium-medium-line-height);line-heightline-height
-//       margin: 0;marginmargin
-//       padding: 0;paddingpadding
+//     p:first-of-type {
+//       color: var(--blue-1800-primary, #2E2A94);
+//       font-feature-settings: var(--font-features-default);
+//       font-family: var(--body, Inter);
+//       font-size: var(--body-medium-medium-size);
+//       font-style: normal;
+//       font-weight: 500;
+//       line-height: var(--body-medium-medium-line-height);
+//       margin: 0;
+//       padding: 0;
 //     }
 
-//     p:last-of-type {color
-//       font-feature-settings: var(--font-features-default);font-feature-settingsfont-size
-//       font-style: normal;font-stylefont-style
-//       font-weight: 400;font-weightfont-weight
-//       line-height: var(--label-medium-line-height, 16px);line-heightline-height
-//       margin: 0;marginmargin
-//       padding: 0;paddingpadding
+//     p:last-of-type {
+//       color: var(--text-body, #424242);
+//       font-feature-settings: var(--font-features-default);
+//       font-family: var(--body, Inter);
+//       font-size: var(--label-medium-size, 14px);
+//       font-style: normal;
+//       font-weight: 400;
+//       line-height: var(--label-medium-line-height, 16px);
+//       margin: 0;
+//       padding: 0;
 //     }
 //   }
 
 //   .button-container {
-//     // margin-top: map.get($spacing, lg);margin-topmargin-top // 24px
-//     margin-top: 40px;24pxmargin-top24pxmargin-top
+//     // margin-top: map.get($spacing, lg); // 24px
+//     margin-top: 40px;
 
 //     @include media(mobile) {
-//       margin-top: 20px;margin-topmargin-top
+//       margin-top: 20px;
 //     }
 
-//     .button {height
-//       display: inline-block;displaydisplay
-//       padding: map.get($spacing, sm) map.get($spacing, xl);paddingpadding
-//       background-color: map.get($button-primary, default);background-colorbackground-color
-//       color: $primary-white;colorcolor
-//       text-decoration: none;text-decorationtext-decoration
-//       font-family: $poppins;font-familyfont-size
-//       line-height: 20px;line-heightline-height
-//       font-weight: map.get($font-weights, medium);font-weightfont-weight
-//       border-radius: map.get($radius, r4);border-radiusborder-radius
-//       border: none;borderborder
-//       cursor: pointer;cursorcursor
-//       transition: background-color 0.3s ease, transform 0.2s ease;transitiontransition
-//       margin: 16px 0;marginmargin
-//       margin-bottom: unset;margin-bottommargin-bottom
+//     .button {
+//       width: 164px;
+//       height: 44px;
+//       display: inline-block;
+//       padding: map.get($spacing, sm) map.get($spacing, xl);
+//       background-color: map.get($button-primary, default);
+//       color: $primary-white;
+//       text-decoration: none;
+//       font-family: $poppins;
+//       font-size: 16px;
+//       line-height: 20px;
+//       font-weight: map.get($font-weights, medium);
+//       border-radius: map.get($radius, r4);
+//       border: none;
+//       cursor: pointer;
+//       transition: background-color 0.3s ease, transform 0.2s ease;
+//       margin: 16px 0;
+//       margin-bottom: unset;
 
 //       @include media(mobile) {
-//         margin: 16px 0;marginmargin
+//         margin: 16px 0;
 //       }
 
 //       &:hover {
-//         background-color: map.get($button-primary, hover);background-colorbackground-color
-//         transform: translateY(-2px);transformtransform
+//         background-color: map.get($button-primary, hover);
+//         transform: translateY(-2px);
 //       }
 //     }
 //   }
@@ -479,44 +499,44 @@ padding-toppadding-top
 
 // @media (width >=$breakpoint-desktop) {
 //   .behind-the-content {
-//     padding: 40px 24px 0;paddingpadding
+//     padding: 40px 24px 0;
 
 //     h1 {
-//       color: #2E2A94;colorcolor
-//       font-variant-numeric: lining-nums proportional-nums;font-variant-numericfont-variant-numeric
-//       font-feature-settings: 'liga'off;font-feature-settingsfont-feature-settings
-//       font-family: $butlerpro;font-familyfont-family
-//       font-size: rem(48px);font-sizefont-size
-//       font-style: normal;font-stylefont-style
-//       font-weight: 700;font-weightfont-weight
-//       line-height: rem(56px);line-heightline-height
+//       color: #2E2A94;
+//       font-variant-numeric: lining-nums proportional-nums;
+//       font-feature-settings: 'liga'off;
+//       font-family: $butlerpro;
+//       font-size: rem(48px);
+//       font-style: normal;
+//       font-weight: 700;
+//       line-height: rem(56px);
 //     }
 
 //     p {
-//       color: #2E2A94;colorcolor
-//       font-family: $poppins;font-familyfont-family
-//       font-size: rem(16px);font-sizefont-size
-//       font-style: normal;font-stylefont-style
-//       font-weight: 400;font-weightfont-weight
-//       line-height: rem(24px);line-heightline-height
-//       max-width: 100%;max-widthmax-width
+//       color: #2E2A94;
+//       font-family: $poppins;
+//       font-size: rem(16px);
+//       font-style: normal;
+//       font-weight: 400;
+//       line-height: rem(24px);
+//       max-width: 100%;
 //     }
 
 //     .cards-wrapper {
-//       overflow-x: visible;overflow-xoverflow-x
+//       overflow-x: visible;
 //     }
 
 //     .cards ul {
-//       display: flex;displaydisplay
-//       grid-template-columns: repeat(4, 1fr);grid-template-columnsgrid-template-columns // Switch to 4 columns
-//       gap: 40px 16px;Switchto4columnsgapSwitchto4columnsgap
-//       flex-wrap: wrap;flex-wrapflex-wrap
-//       padding: 0;paddingpadding
-//       margin: 0;marginmargin
+//       display: flex;
+//       grid-template-columns: repeat(4, 1fr); // Switch to 4 columns
+//       gap: 40px 16px;
+//       flex-wrap: wrap;
+//       padding: 0;
+//       margin: 0;
 
 //       li {
-//         max-width: 24%;max-widthmax-width
-//         flex: 0 0 24%;flexflex
+//         max-width: 24%;
+//         flex: 0 0 24%;
 //       }
 //     }
 //   }

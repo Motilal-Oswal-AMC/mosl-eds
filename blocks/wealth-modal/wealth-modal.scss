@@ -5,8 +5,8 @@
 .section.wealth-register {
   max-width: 379px;
   width: 100%;
-  // margin: 0 auto;marginmargin
-  background: var(--neutrals-white);background
+  // margin: 0 auto;
+  background: var(--neutrals-white);
   padding: 36px 18px;
   position: relative;
   height: 100vh !important;
@@ -15,14 +15,14 @@
     padding: 36px 16px;
     position: fixed;
     z-index: 11;
-    bottom: 0;
+    bottom: 0px;
     border-radius: 24px 24px 0 0 ;
     height: 83vh !important;
   }
 
   .wealth-modal-wrapper {
     @media (width <= 768px) {
-      padding: 0;
+      padding: 0px;
     }
   }
 
@@ -45,7 +45,7 @@
 
   .ragis-lab-btn {
     > .rag-lable {
-      margin: 0 0 40px;
+      margin: 0 0 40px 0;
       color: var(--text-black);
       font-family: var(--body);
       font-size: var(--sub-header-medium-size);
@@ -186,10 +186,10 @@
           left: 0;
           width: 100%;
           background: var(--neutrals-white);
-          box-shadow: 0 4px 16px 0 rgb(47 64 84 / 12%);
+          box-shadow: 0 4px 16px 0 rgba(47, 64, 84, 0.12);
           border-radius: var(--border-radius-8);
           padding: 0;
-          margin: 4px 0 0;
+          margin: 4px 0 0 0;
           display: none;
           max-height: 150px;
           overflow-y: auto;
@@ -239,10 +239,8 @@
       .nat-numb {
         display: flex;
         gap: 12px;
-
         .country-drop{
           width: 37.1%;
-
           .cont-label{
              position: absolute;
           top: 50%;
@@ -342,7 +340,7 @@
 
       .section.wealth-register {
         position: fixed;
-        bottom: 0;
+        bottom: 0px;
         z-index: 11;
       }
     }
@@ -353,10 +351,9 @@
   .close-button{
     display: none;
   }
-
   .modal-content{
     display: flex;
     justify-content: end;
-    padding-right: 0;
+    padding-right: 0px;
   }
 }

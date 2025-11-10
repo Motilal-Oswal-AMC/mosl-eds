@@ -217,9 +217,9 @@
 
   /* stylelint-disable-next-line no-descending-specificity */
   // &-wrapper {
-  //   display: flex;displaydisplay
-  //   flex-direction: column;flex-directionflex-direction
-  //   align-items: center;align-itemsalign-items
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
   // }
 
   &.block {
@@ -230,7 +230,7 @@
     margin-bottom: 24px;
 
     @include media(tab) {
-      // padding: 0 16px;paddingpadding
+      // padding: 0 16px;
     }
 
     @include media(mobile) {
@@ -250,8 +250,9 @@
     & .imagelist1 {
       padding: 28px 0;
       flex-basis: 44.4%;
-      // position: relative;positionposition
-      min-height: 237px;min-height
+
+      // position: relative;
+      min-height: 237px;
 
       @include media(mobile) {
         padding: 0;
@@ -324,8 +325,8 @@
       width: 685px;
 
       @include media(mobile) {
-        // margin: 0 9px;marginmargin
-         width: 340px;width
+        // margin: 0 9px;
+         width: 340px;
         height: 145px;
 
         .subimagelist,

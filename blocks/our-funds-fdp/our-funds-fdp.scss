@@ -5,70 +5,75 @@
 
 // .section.our-funds-fdp-container {
 //   // Make sure this has enough contrast with text
-//   padding: 40px 0;MakesurethishasenoughcontrastwithtextpaddingMakesurethishasenoughcontrastwithtextpadding
+//   padding: 40px 0;
 
 //   @media (width <= 768px) {
-//     padding: 0 16px;paddingpadding
+//     padding: 0 16px;
 //   }
 
 //   .default-content-wrapper {
 //     h4 {
 //       @include font-style(2rem, 2.5rem, $primary-blue, 700, $butlerpro);
-//       margin: 0 0 2.5rem;marginmargin
 
-//       @media (width <= 768px) {font-size
-//         line-height: 1.75rem;line-heightline-height
+//       margin: 0 0 2.5rem;
+
+//       @media (width <= 768px) {
+//         font-size: 1.5rem;
+//         line-height: 1.75rem;
 //       }
 //     }
 //   }
 
 //   .our-funds-fdp-wrapper {
 //     .our-funds-fdp {
-//       display: flex;displaydisplay
-//       flex-direction: column;flex-directionflex-direction
-//       gap: 1rem;gapgap
+//       display: flex;
+//       flex-direction: column;
+//       gap: 1rem;
 
 //       .funds-container {
-//         display: flex;displaydisplay
-//         background-color: $primary-white;background-colorbackground-color
-//         box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);box-shadowbox-shadow
-//         border-radius: 0.5rem;border-radiusborder-radius
-//         padding: 1rem;paddingpadding
-//         flex-direction: column;flex-directionflex-direction
-//         justify-content: center;justify-contentjustify-content
-//         align-items: flex-start;align-itemsalign-items
-//         gap: 1rem;gapgap
+//         display: flex;
+//         background-color: $primary-white;
+//         box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+//         border-radius: 0.5rem;
+//         padding: 1rem;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: flex-start;
+//         gap: 1rem;
 
 //         .fund-wrapper {
-//           display: flex;displaydisplay
-//           justify-content: space-between;justify-contentjustify-content
-//           align-items: center;align-itemsalign-items
-//           align-self: stretch;align-selfalign-self
+//           display: flex;
+//           justify-content: space-between;
+//           align-items: center;
+//           align-self: stretch;
 
 //           @media (width <= 768px) {
-//             flex-direction: column;flex-directionflex-direction
-//             gap: 1rem;gapgap
-//             align-items: flex-start;align-itemsalign-items
+//             flex-direction: column;
+//             gap: 1rem;
+//             align-items: flex-start;
 //           }
 
 //           .fund-manager {
-//             display: flex;displaydisplay
-//             max-width: 399px;max-widthmax-width
-//             width: 100%;widthwidth
-//             align-items: center;align-itemsalign-items
-//             gap: 1rem;gapgap
+//             display: flex;
+//             max-width: 399px;
+//             width: 100%;
+//             align-items: center;
+//             gap: 1rem;
 
-//             .fund-manager-image {width /* adjust as needed */
-//               height: 64px;heightheight
+//             .fund-manager-image {
+//               width: 61px; /* adjust as needed */
+//               height: 64px;
 
-//               img {width
-//                 height: 100%;heightheight
+//               img {
+//                 width: 100%;
+//                 height: 100%;
 //               }
 //             }
 
 //             .fund-manager-detail {
-//               p {margin
-//                 padding: 0;paddingpadding
+//               p {
+//                 margin: 0;
+//                 padding: 0;
 //               }
 
 //               p:nth-child(1) {
@@ -90,26 +95,28 @@
 //                   $poppins
 //                 );
 
-//                 @media (width <= 768px) {font-size
-//                   line-height: 1rem;line-heightline-height
+//                 @media (width <= 768px) {
+//                   font-size: 0.75rem;
+//                   line-height: 1rem;
 //                 }
 //               }
 //             }
 //           }
 
 //           .fund-list {
-//             display: flex;displaydisplay
-//             flex-direction: column;flex-directionflex-direction
-//             gap: 0.5rem;gapgap
+//             display: flex;
+//             flex-direction: column;
+//             gap: 0.5rem;
 
 //             .funds-time {
-//               display: flex;displaydisplay
-//               justify-content: center;justify-contentjustify-content
-//               align-items: center;align-itemsalign-items
+//               display: flex;
+//               justify-content: center;
+//               align-items: center;
 
 //               .funds-time-text,
-//               .funds-time-year {margin
-//                 padding: 0;paddingpadding
+//               .funds-time-year {
+//                 margin: 0;
+//                 padding: 0;
 
 //                 @include font-style(
 //                   0.875rem,
@@ -122,12 +129,13 @@
 //             }
 
 //             .fund-aum {
-//               display: flex;displaydisplay
-//               align-items: center;align-itemsalign-items
-//               gap: 0.25rem;gapgap
+//               display: flex;
+//               align-items: center;
+//               gap: 0.25rem;
 
-//               .fund-aum-text {margin
-//                 padding: 0;paddingpadding
+//               .fund-aum-text {
+//                 margin: 0;
+//                 padding: 0;
 
 //                 @include font-style(
 //                   0.875rem,
@@ -138,8 +146,9 @@
 //                 );
 //               }
 
-//               .fund-aum-rupee {margin
-//                 padding: 0;paddingpadding
+//               .fund-aum-rupee {
+//                 margin: 0;
+//                 padding: 0;
 
 //                 @include font-style(
 //                   1rem,
@@ -162,21 +171,22 @@
 //               500,
 //               $poppins
 //             );
-//             text-decoration-line: underline;text-decoration-linetext-decoration-line
-//             text-decoration-style: solid;text-decoration-styletext-decoration-style
-//             text-underline-offset: 0.2em;text-underline-offsettext-underline-offset
-//             text-decoration-thickness: 1px;text-decoration-thicknesstext-decoration-thickness
-//             text-decoration-skip-ink: auto;text-decoration-skip-inktext-decoration-skip-ink
-//             padding: 0 5rem;paddingpadding
+
+//             text-decoration-line: underline;
+//             text-decoration-style: solid;
+//             text-underline-offset: 0.2em;
+//             text-decoration-thickness: 1px;
+//             text-decoration-skip-ink: auto;
+//             padding: 0 5rem;
 
 //             @media (width <= 768px) {
-//               padding: 0;paddingpadding
+//               padding: 0;
 //             }
 
 //             // Accessibility: Add focus-visible styles
 //             &:focus-visible {
-//               outline: 2px dashed map.get($blue-1, b700);outlineoutline // Accessible focus indicator
-//               outline-offset: 4px;Accessiblefocusindicatoroutline-offsetAccessiblefocusindicatoroutline-offset
+//               outline: 2px dashed map.get($blue-1, b700); // Accessible focus indicator
+//               outline-offset: 4px;
 //             }
 //           }
 //         }
@@ -190,8 +200,7 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
-
-@import url("../fund-card/fund-card.css");
+@import "../fund-card/fund-card.css";
 
 .section.our-funds-fdp-container {
   padding: 24px 0;
@@ -211,9 +220,10 @@
 
       margin: 0 0 2.5rem;
 
-      @media (width <=768px) {font-size
-        // line-height: 1.75rem;line-heightline-height
-        margin: 0 0 16px;margin
+      @media (width <=768px) {
+        // font-size: 1.5rem;
+        // line-height: 1.75rem;
+        margin: 0 0 16px;
       }
     }
   }
@@ -242,13 +252,14 @@
 
         // Add role for screen readers
         // &[role="region"] {
-        //   aria-label: "Fund details";aria-labelaria-label
+        //   aria-label: "Fund details";
         // }
 
         .fund-wrapper {
           display: flex;
-          // justify-content: space-between;justify-contentjustify-content
-          gap: 67px;gap
+
+          // justify-content: space-between;
+          gap: 67px;
           align-items: center;
           align-self: stretch;
 
@@ -409,8 +420,8 @@
               outline-offset: 4px;
             }
 
-            // Optional: for screen readers, make link descriptions more meaningful
-            // e.g., <a aria-label="View more about XYZ Fund">view more</a>optionalOptional
+            // Optional: For screen readers, make link descriptions more meaningful
+            // e.g., <a aria-label="View more about XYZ Fund">View More</a>
           }
         }
       }
@@ -480,7 +491,7 @@
         }
       }
 
-      // position: unset;positionposition
+      // position: unset;
     }
   }
 }

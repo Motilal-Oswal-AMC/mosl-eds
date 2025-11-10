@@ -10,7 +10,8 @@ html {
   font-size: rem(16px);
   font-family: $butlerpro;
   font-weight: map.get($font-weights, regular);
-  // scroll-behavior: smooth;scroll-behaviorscroll-behavior
+
+  // scroll-behavior: smooth;
 }
 
 *,
@@ -85,8 +86,9 @@ a {
 
 button {
   cursor: pointer;
-  // font-family:$butlerpro;font-familyfont-family
-  background: none;background
+
+  // font-family:$butlerpro;
+  background: none;
   border: none;
 }
 
@@ -101,8 +103,9 @@ select {
   outline: 0;
   resize: none;
   border-radius: 0;
-  // font-family:$butlerpro;font-familyfont-family
-  font-size: inherit;font-size
+
+  // font-family:$butlerpro;
+  font-size: inherit;
   box-sizing: border-box;
 }
 

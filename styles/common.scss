@@ -132,14 +132,17 @@
   }
 
   .default-content-wrapper {
-    border-radius: 8px;background
-    background-image: url("../../icons/fdp/wealth-purpose-bg.svg");background-image
+    border-radius: 8px;
+
+    // background: #030C82;
+    background-image: url("../../icons/fdp/wealth-purpose-bg.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    // height: 100%;heightheight
-    display: block;display
+
+    // height: 100%;
+    display: block;
     height: 192px;
     position: relative;
 
@@ -147,8 +150,9 @@
       position: absolute;
       left: 32px;
 
-      // span {width
-      //   height: 156px;heightheight
+      // span {
+      //   width: 171px;
+      //   height: 156px;
       // }
     }
 
@@ -204,7 +208,7 @@
   margin-bottom: 40px;
 
   @include media(mobile) {
-    margin-top: 0;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     padding-top: 56px;
@@ -252,7 +256,6 @@
 
     .text3{
       padding: 0 4px 0 0;
-
        @include media(mobile) {
         padding: 0 16px 0 20px;
         margin: 0 auto;
@@ -300,89 +303,18 @@
      width: 100%;
      height: 100%;
      flex-direction: column;
-     margin: 0 auto 80px;max-width
-    //  max-height: 190.737px;max-heightmax-height
+     margin: 0 auto 80px;
+
+    //  max-width: 339.441px;
+    //  max-height: 190.737px;
     }
   }
 }
 
 // WCs Landing Scss End
 
-// common breadcrumbs scss start
-.section.breadcrumbs {
-  margin: 0;
-  padding: 24px 0;
+// Inverters Blogs scss start
 
 
-  .breadul {
-    max-width: 1232px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
 
-    @media (width <=1279px) {
-      padding: 0 24px;
-    }
-
-    @include media (mobile) {
-      padding: 0 16px;
-    }
-
-
-    .breadli {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      &:not(:first-child) {
-        &::before {
-          content: "|";
-          width: 6px;
-          display: inline-block;
-          color: var(--neutrals-800);
-          font-family: var(--body);
-          font-size: 12px;
-          font-style: normal;
-          font-weight: 300;
-          line-height: 16px;
-          transform: rotate(7deg);
-        }
-      }
-
-      a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: var(--blue-1800-primary, #2E2A94);
-        font-feature-settings: var(--font-features-default);
-        font-family: var(--body, Inter);
-        font-size: var(--label-small-size);
-        font-style: normal;
-        font-weight: 400;
-        line-height: var(--label-small-line-height);
-
-        img {
-          width: 20px;
-          height: 20px;
-        }
-      }
-
-      &:last-child {
-        a {
-          color: var(--blue-1800-primary, #2E2A94);
-          font-feature-settings: var(--font-features-default);
-          font-family: var(--body, Inter);
-          font-size: var(--label-small-size);
-          font-style: normal;
-          font-weight: 400;
-          line-height: var(--label-small-line-height);
-        }
-      }
-    }
-  }
-}
-
-// common breadcrumbs scss End
+// Inverters Blogs scss End

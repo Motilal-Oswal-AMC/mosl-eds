@@ -2,8 +2,8 @@
 /* invest-now-homepage.scss */
 
 // --- Variables ---
-$brand-font: 'Your-Brand-Font', sans-serif;Variables$brand-fontVariables$brand-font
-$brand-primary-color: #4A00E0;$brand-primary-color
+$brand-font: 'Your-Brand-Font', sans-serif;
+$brand-primary-color: #4A00E0;
 $brand-light-hover: #EAE0FF;
 $text-color-dark: #333;
 $text-color-light: #999;
@@ -101,8 +101,8 @@ $day-size: 36px;
       &.selected.today,
       &.selected {
         // Added .selected here too for non-today selections
-        background: $brand-primary-color;Added.selectedheretoofornon-todayselectionsbackgroundAdded.selectedheretoofornon-todayselectionsbackground
-        color: $background-color;color
+        background: $brand-primary-color;
+        color: $background-color;
         border: none;
       }
 

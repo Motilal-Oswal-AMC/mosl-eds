@@ -309,8 +309,10 @@
 
                 #chartdiv1 {
                     width: 1232px;
-                    // height: 400px;heightheight
-                    background: transparent;background
+                    height: 236px;
+
+                    // height: 400px;
+                    background: transparent;
                     position: relative;
 
                 }
@@ -338,8 +340,9 @@
                             color: $primary-white;
                             cursor: pointer;
                             transition: background-color 0.2s ease;
-                            // width: 176px;widthwidth
-                            margin: 0;margin
+                            
+                            // width: 176px;
+                            margin: 0;
                             font-family: var(--body);
                             font-size: 14px;
                             font-style: normal;

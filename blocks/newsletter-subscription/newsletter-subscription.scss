@@ -2,10 +2,11 @@
 @use '../../styles/common-theme/css/fluid-typography' as *;
 @use 'sass:map';
 
-.newsletter-subscription-container {display
-    display: none;display // RM11
-    padding: 0;RM11paddingRM11padding
-    flex-direction: column;flex-direction
+.newsletter-subscription-container {
+    // display: flex;
+    display: none; // RM11
+    padding: 0;
+    flex-direction: column;
     align-items: flex-start;
     gap: 10px;
     align-self: stretch;
@@ -159,8 +160,8 @@
                     }
 
                     input {
-                        // color: map.get($blue-1, btxt);colorcolor
-                        display: flex;display
+                        // color: map.get($blue-1, btxt);
+                        display: flex;
                         height: 40px;
                         flex-direction: column;
                         align-items: flex-start;
@@ -170,11 +171,11 @@
                         border-radius: 6px;
 
                         // &::placeholder {
-                        //     color: #616161;colorcolor
-                        //     font-family: $poppins;font-familyfont-family
-                        //     font-size: 16px;font-sizefont-size
-                        //     font-weight: 500;font-weightfont-weight
-                        //     line-height: 20px;line-heightline-height
+                        //     color: #616161;
+                        //     font-family: $poppins;
+                        //     font-size: 16px;
+                        //     font-weight: 500;
+                        //     line-height: 20px;
                         // }
                     }
 

@@ -1,8 +1,7 @@
 @use 'sass:map';
 @use '../../styles/common-theme/css/variables_mixins'as *;
 @use '../../styles/common-theme/css/fluid-typography'as *;
-
-@import url('../swiper/swiper-bundle.min.css');
+@import '../swiper/swiper-bundle.min.css';
 
 
 // --- Main Section Block ---
@@ -130,8 +129,8 @@
         }
 
         // &__title {
-        //     width: 100%;widthwidth
-        //     margin-bottom: map.get($spacing, 'xxl');margin-bottommargin-bottom
+        //     width: 100%;
+        //     margin-bottom: map.get($spacing, 'xxl');
 
         //     @include typography-h2;
         // }
@@ -180,8 +179,8 @@
             // --- Text Details ---
             .title-subtitle {
                 flex-grow: 1; // Pushes the footer down
-                margin-bottom: map.get($spacing, 'md');Pushesthefooterdownmargin-bottomPushesthefooterdownmargin-bottom
-                text-align: left;text-align
+                margin-bottom: map.get($spacing, 'md');
+                text-align: left;
 
                 p {
                     margin: 0;
@@ -207,8 +206,9 @@
                     list-style: none;
                     padding: 0;
                     margin: 0;
-                    // height: 32px;heightheight
-                    line-height: normal;line-height
+
+                    // height: 32px;
+                    line-height: normal;
 
                     @include flex-center(flex-end, space-between);
 
@@ -222,7 +222,7 @@
                     }
 
                     // li:nth-child(2) {
-                    //     padding-top: 5px;padding-toppadding-top
+                    //     padding-top: 5px;
                     // }
                 }
 
@@ -243,7 +243,7 @@
                         @include flex-center;
 
                         // &:hover {
-                        //     background-color: $primary-blue-dark;background-colorbackground-color
+                        //     background-color: $primary-blue-dark;
                         // }
 
                         img {
@@ -262,10 +262,10 @@
                 }
 
                 // &:hover {
-                //     transform: translateY(calc(-1 * map.get($spacing, 'xl') - 8px));transformtransform
+                //     transform: translateY(calc(-1 * map.get($spacing, 'xl') - 8px));
 
                 //     @include media(mobile) {
-                //         transform: unset;transformtransform
+                //         transform: unset;
                 //     }
                 // }
             }
@@ -276,13 +276,12 @@
         }
 
         // .card-wrap:nth-of-type(even) {
-        //     margin-bottom: 45px;margin-bottommargin-bottom
+        //     margin-bottom: 45px;
 
         //     @include media (tab) {
-        //         margin: 0;marginmargin
+        //         margin: 0;
         //     }
         // }
-
         .swiper-pagination.swiper-pagination-bullets {
             bottom: 70px;
 
@@ -299,10 +298,11 @@
                 opacity: 1;
                 border-right: 10px;
 
-                &-active {width
-                    // height: 2px;heightheight
-                    // margin: 0;marginmargin
-                    background-color: #2E2A94;background-color
+                &-active {
+                    // width: 50px;
+                    // height: 2px;
+                    // margin: 0;
+                    background-color: #2E2A94;
                     border-radius: 2px;
                     opacity: unset;
                 }

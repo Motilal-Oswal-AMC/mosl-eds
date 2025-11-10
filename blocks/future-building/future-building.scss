@@ -1,8 +1,7 @@
 @use "sass:map";
 @use "../../styles/common-theme/css/variables_mixins"as *;
 @use "../../styles/common-theme/css/fluid-typography"as *;
-
-@import url("../swiper/swiper-bundle.min.css");
+@import "../swiper/swiper-bundle.min.css";
 
 // @import '../blocks/swiper/swiper-bundle.min.css';
 
@@ -101,9 +100,8 @@
         .swiper-wrapper {
             display: flex;
             align-items: stretch;
-            // position: static;
 
-positionposition
+            // position: static;
 
             .swiper-slide {
                 width: 400px !important;
@@ -198,16 +196,18 @@ positionposition
                                 font-style: normal;
                                 font-weight: 400;
                                 line-height: 16px;
-                                // min-width: 124px;min-widthmin-width
-                                min-height: 32px;min-height
+
+                                // min-width: 124px;
+                                min-height: 32px;
                             }
                         }
 
                         &>li.cards-list-1-cards1 {
                             display: flex;
                             align-items: center;
-                            // justify-content: space-between;justify-contentjustify-content
-                            gap: 8px;gap
+
+                            // justify-content: space-between;
+                            gap: 8px;
                             margin-bottom: 24px;
 
                             @include media(mobile) {
@@ -303,24 +303,23 @@ positionposition
 
                         &>li.cards-list-1-cards2 {
                             margin-bottom: 4px;
-                            // min-height: 48px;
 
-min-heightmin-height
+                            // min-height: 48px;
 
                             p {
                                 margin: 0;
                                 padding: 0;
-                                // margin-bottom: 8px;
 
-margin-bottommargin-bottom
+                                // margin-bottom: 8px;
 
                                 a {
                                     background: transparent;
                                     border: none;
                                     margin: 0;
                                     padding: 0;
-                                    // margin-bottom: 8px;margin-bottommargin-bottom
-                                    overflow: hidden;overflow
+
+                                    // margin-bottom: 8px;
+                                    overflow: hidden;
                                     border-radius: unset;
                                     min-height: unset;
                                     word-break: auto-phrase;
@@ -401,7 +400,7 @@ margin-bottommargin-bottom
                             }
 
                             // @include media(mobile) {
-                            //     margin-top: 12px;margin-topmargin-top
+                            //     margin-top: 12px;
                             // }
                         }
 
@@ -418,7 +417,7 @@ margin-bottommargin-bottom
 
                 // &:nth-child(5) {
                 //   display: none
-                //displaydisplay }
+                // }
             }
 
             .swiper-slide:first-child {
