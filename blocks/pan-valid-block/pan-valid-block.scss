@@ -489,6 +489,440 @@
 //   }
 // }
 
+// OTP FDP Start
+.section.otp-fdp {
+  // width: 372px;
+  height: 100%;
+  background-color: var(--neutrals-white);
+  z-index: 1000;
+  overflow: hidden;
+
+  // display: none;
+
+  @include media(mobile) {
+    width: 100%;
+    border-radius: 32px 32px 0 0;
+  }
+
+  .default-content-wrapper {
+    display: none;
+  }
+
+  .otp-container {
+    position: relative;
+    padding: 36px 16px 21px;
+    overflow: auto;
+    height: 100%;
+
+    @include media(mobile) {
+      padding: 64px 16px 74px;
+    }
+
+    .modal-cross-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 24px;
+      height: 24px;
+
+      .sub-otp-con1,
+      .sub-otp-con1 .icon {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .otp-heading {
+      .sub-otp-con2,
+      .sub-otp-con2 .inner-otp-con1 {
+        @include font-style(
+          var(--sub-header-medium-size),
+          var(--sub-header-medium-line-height),
+          var(--text-black),
+          500,
+          var(--body)
+        );
+
+        margin: 0 0 40px;
+        display: block;
+
+        @include media(mobile) {
+          font-size: var(--paragraph-large-size);
+          line-height: var(--paragraph-medium-line-height);
+          margin: 0 0 var(--spacing-24);
+        }
+      }
+    }
+
+    .pan-wrap {
+      .pan-field {
+        position: relative;
+        padding: var(--spacing-8) var(--spacing-12);
+        border-radius: var(--border-radius-8, 8px);
+        border: var(--border-width-01) solid var(--strokes-default);
+        line-height: 0;
+        margin: 0 0 var(--spacing-8);
+
+        .pan-label {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          padding: 0 4px;
+          background-color: var(--neutrals-white);
+          transform: translateY(-50%);
+          transition: all 0.3s;
+
+          @include font-style(
+            var(--label-small-size),
+            var(--label-small-line-height),
+            var(--text-body),
+            400,
+            var(--body)
+          );
+
+          @include media(mobile) {
+            font-size: var(--label-small-size);
+            line-height: var(--label-small-line-height);
+          }
+        }
+
+        .pan-inp {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 100%;
+          position: relative;
+          padding: 2px 0;
+
+          @include font-style(
+            var(--body-medium-regular-size),
+            var(--body-medium-regular-line-height),
+            var(--text-typed-input),
+            400,
+            var(--body)
+          );
+
+          @include media(mobile) {
+            font-size: var(--body-medium-regular-size);
+            line-height: var(--body-medium-regular-line-height);
+          }
+        }
+
+        &:focus-within,
+        &.active {
+          .pan-label {
+            top: -8px;
+            transform: unset;
+            z-index: 2;
+          }
+        }
+      }
+
+      .kyc-verify {
+        .sub-otp-con4 {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-8);
+
+          //           color: var(--MOSL-Black, #231F20);
+          // font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
+
+          // /* Mobile/Paragraph/Small-regular */
+          // font-family: var(--Body, Inter);
+          // font-size: var(--Paragraph-Small-regular-Size, 14px);
+          // font-style: normal;
+          // font-weight: 400;
+          // line-height: var(--Paragraph-Small-regular-Line-Height, 20px); /* 142.857% */
+
+          @include font-style(
+            var(--body-small-regular-size),
+            var(--label-large-line-height),
+            var(--mosl-black),
+            400,
+            var(--body)
+          );
+
+          @include media(mobile) {
+            font-size: var(--paragraph-small-regular-size);
+            line-height: var(--paragraph-small-regular-line-height);
+          }
+
+          .icon {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+
+    .otp-wrap {
+      line-height: 0;
+
+      .otp-label {
+        margin: var(--spacing-16) 0 var(--spacing-8);
+
+        @include font-style(
+          var(--label-small-size),
+          var(--label-small-line-height),
+          var(--mo-body-copy-other),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--label-small-size);
+          line-height: var(--label-small-line-height);
+        }
+      }
+
+      .otp-error {
+        margin: 8px 0 0;
+        display: none;
+
+        @include font-style(
+          var(--paragraph-xsmall-size),
+          var(--paragraph-xsmall-line-height),
+          var(--essentials-red),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
+      }
+
+      .otp-field {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-8);
+        margin: 0 0 var(--spacing-4);
+
+        @include media(mobile) {
+          margin: 0 0 var(--spacing-40);
+        }
+
+        .resend-btn {
+        margin: 0 0 var(--spacing-36);
+        padding: var(--spacing-8) 0;
+        border-radius: 0;
+        border: none;
+        background-color: transparent;
+        text-decoration: underline;
+        text-underline-offset: 2.8px;
+
+        @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
+
+        @include media(mobile) {
+          padding: 0;
+          margin: 0 0 12px;
+          font-size: var(--text-link-small-size);
+          line-height: var(--text-link-small-line-height);
+        }
+      }
+
+        .otp-wrap {
+          width: 40px;
+          height: 40px;
+          border-radius: var(--border-radius-8);
+          border: var(--border-width-01) solid var(--strokes-default);
+          padding: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .otp-inp {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            text-align: center;
+
+            @include font-style(
+              var(--body-xlarge-semibold-size),
+              var(--body-xlarge-semibold-line-height),
+              var(--text-typed-input),
+              600,
+              var(--body)
+            );
+
+            @include media(mobile) {
+              font-size: var(--body-xlarge-semibold-size);
+              line-height: var(--body-xlarge-semibold-line-height);
+            }
+          }
+
+          &:focus-within {
+            border: var(--border-width-02) solid var(--strokes-typing);
+
+            .otp-inp {
+              caret-color: var(--strokes-typing);
+            }
+          }
+
+        }
+
+        &.otp-fail {
+          margin: 0;
+
+          .otp-wrap {
+            border: var(--border-width-01) solid var(--strokes-error);
+          }
+
+          & ~ .otp-error {
+            display: block;
+            margin: 8px 0 12px;
+          }
+
+          & ~ .resend-btn {
+            display: none;
+          }
+        }
+
+        &.otp-success {
+          margin: 0 0 36px;
+
+          .otp-wrap {
+            border: var(--border-width-01) solid var(--strokes-success);
+          }
+
+          & ~ .otp-error {
+            display: none;
+          }
+
+          & ~ .resend-btn {
+            display: none;
+          }
+        }
+
+        
+      }
+
+      
+    }
+
+    .otp-sent-text {
+      // margin: var(--spacing-36) 0 0;
+      margin: 0;
+
+      @include font-style(
+        var(--body-small-regular-size),
+        var(--label-large-line-height),
+        var(--text-body-2),
+        400,
+        var(--body)
+      );
+
+      @include media(mobile) {
+        font-size: var(--body-small-regular-size);
+        line-height: var(--label-large-line-height);
+      }
+    }
+
+    .sbmt-btn {
+      margin: var(--spacing-20) 0;
+      padding: var(--spacing-12);
+      border: none;
+      border-radius: var(--border-radius-8);
+      background: var(--button-primary-default);
+      width: 100%;
+      cursor: pointer;
+      min-width: calc(100% + 6px);
+      margin-left: -3px;
+      margin-right: -3px;
+
+      @include font-style(
+        var(--button-medium-size),
+        var(--button-medium-line-height),
+        var(--text-white),
+        500,
+        var(--body)
+      );
+
+      @include media(mobile) {
+        margin: 24px 0 var(--spacing-20);
+        font-size: var(--button-medium-size);
+        line-height: var(--button-medium-line-height);
+      }
+    }
+
+    .terms-policy {
+      .sub-otp-con9 {
+        margin: 0;
+
+        @include font-style(
+          var(--disclaimer-xsmall-size),
+          var(--disclaimer-xsmall-line-height),
+          var(--text-disclaimer),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--paragraph-xsmall-size);
+          line-height: var(--paragraph-xsmall-line-height);
+        }
+
+        .inner-otp-con1 {
+          text-decoration: underline;
+          text-underline-offset: 2.8px;
+
+          @include font-style(
+            var(--text-link-xsmall-size),
+            var(--text-link-xsmall-line-height),
+            var(--text-text-link),
+            400,
+            var(--body)
+          );
+
+          @include media(mobile) {
+            font-size: var(--text-link-xsmall-size);
+            line-height: var(--text-link-xsmall-line-height);
+          }
+        }
+      }
+    }
+
+    .new-investor {
+      .sub-otp-con10 {
+        margin: var(--spacing-12) 0 0;
+
+        @include font-style(
+          var(--body-small-regular-size),
+          var(--label-large-line-height),
+          var(--text-black),
+          400,
+          var(--body)
+        );
+
+        @include media(mobile) {
+          font-size: var(--paragraph-small-regular-size);
+          line-height: var(--paragraph-small-regular-line-height);
+        }
+
+        .inner-otp-con1 {
+          text-decoration: underline;
+          text-underline-offset: 2.8px;
+          padding: 0 0 0 var(--spacing-4);
+          cursor: pointer;
+
+          @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
+
+          @include media(mobile) {
+            font-size: var(--text-link-small-size);
+            line-height: var(--text-link-small-line-height);
+          }
+        }
+      }
+    }
+  }
+}
+
+// OTP FDP End
+
 // Pan KYC Start
 
 .section.fdp-kyc-form {
@@ -1337,434 +1771,7 @@
 //   }
 // }
 
-// OTP FDP Start
-.section.otp-fdp {
-  // width: 372px;
-  height: 100%;
-  background-color: var(--neutrals-white);
-  z-index: 1000;
-  overflow: hidden;
 
-  // display: none;
-
-  @include media(mobile) {
-    width: 100%;
-    border-radius: 32px 32px 0 0;
-  }
-
-  .default-content-wrapper {
-    display: none;
-  }
-
-  .otp-container {
-    position: relative;
-    padding: 36px 16px 21px;
-    overflow: auto;
-    height: 100%;
-
-    @include media(mobile) {
-      padding: 64px 16px 74px;
-    }
-
-    .modal-cross-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 24px;
-      height: 24px;
-
-      .sub-otp-con1,
-      .sub-otp-con1 .icon {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .otp-heading {
-      .sub-otp-con2,
-      .sub-otp-con2 .inner-otp-con1 {
-        @include font-style(
-          var(--sub-header-medium-size),
-          var(--sub-header-medium-line-height),
-          var(--text-black),
-          500,
-          var(--body)
-        );
-
-        margin: 0 0 40px;
-        display: block;
-
-        @include media(mobile) {
-          font-size: var(--paragraph-large-size);
-          line-height: var(--paragraph-medium-line-height);
-          margin: 0 0 var(--spacing-24);
-        }
-      }
-    }
-
-    .pan-wrap {
-      .pan-field {
-        position: relative;
-        padding: var(--spacing-8) var(--spacing-12);
-        border-radius: var(--border-radius-8, 8px);
-        border: var(--border-width-01) solid var(--strokes-default);
-        line-height: 0;
-        margin: 0 0 var(--spacing-8);
-
-        .pan-label {
-          position: absolute;
-          top: 50%;
-          left: 10px;
-          padding: 0 4px;
-          background-color: var(--neutrals-white);
-          transform: translateY(-50%);
-          transition: all 0.3s;
-
-          @include font-style(
-            var(--label-small-size),
-            var(--label-small-line-height),
-            var(--text-body),
-            400,
-            var(--body)
-          );
-
-          @include media(mobile) {
-            font-size: var(--label-small-size);
-            line-height: var(--label-small-line-height);
-          }
-        }
-
-        .pan-inp {
-          border: none;
-          outline: none;
-          background-color: transparent;
-          width: 100%;
-          position: relative;
-          padding: 2px 0;
-
-          @include font-style(
-            var(--body-medium-regular-size),
-            var(--body-medium-regular-line-height),
-            var(--text-typed-input),
-            400,
-            var(--body)
-          );
-
-          @include media(mobile) {
-            font-size: var(--body-medium-regular-size);
-            line-height: var(--body-medium-regular-line-height);
-          }
-        }
-
-        &:focus-within,
-        &.active {
-          .pan-label {
-            top: -8px;
-            transform: unset;
-            z-index: 2;
-          }
-        }
-      }
-
-      .kyc-verify {
-        .sub-otp-con4 {
-          margin: 0;
-          display: flex;
-          align-items: center;
-          gap: var(--spacing-8);
-
-          //           color: var(--MOSL-Black, #231F20);
-          // font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
-
-          // /* Mobile/Paragraph/Small-regular */
-          // font-family: var(--Body, Inter);
-          // font-size: var(--Paragraph-Small-regular-Size, 14px);
-          // font-style: normal;
-          // font-weight: 400;
-          // line-height: var(--Paragraph-Small-regular-Line-Height, 20px); /* 142.857% */
-
-          @include font-style(
-            var(--body-small-regular-size),
-            var(--label-large-line-height),
-            var(--mosl-black),
-            400,
-            var(--body)
-          );
-
-          @include media(mobile) {
-            font-size: var(--paragraph-small-regular-size);
-            line-height: var(--paragraph-small-regular-line-height);
-          }
-
-          .icon {
-            width: 20px;
-            height: 20px;
-          }
-        }
-      }
-    }
-
-    .otp-wrap {
-      line-height: 0;
-
-      .otp-label {
-        margin: var(--spacing-16) 0 var(--spacing-8);
-
-        @include font-style(
-          var(--label-small-size),
-          var(--label-small-line-height),
-          var(--mo-body-copy-other),
-          400,
-          var(--body)
-        );
-
-        @include media(mobile) {
-          font-size: var(--label-small-size);
-          line-height: var(--label-small-line-height);
-        }
-      }
-
-      .otp-error {
-        margin: 8px 0 0;
-        display: none;
-
-        @include font-style(
-          var(--paragraph-xsmall-size),
-          var(--paragraph-xsmall-line-height),
-          var(--essentials-red),
-          400,
-          var(--body)
-        );
-
-        @include media(mobile) {
-          font-size: var(--paragraph-xsmall-size);
-          line-height: var(--paragraph-xsmall-line-height);
-        }
-      }
-
-      .otp-field {
-        display: flex;
-        align-items: center;
-        gap: var(--spacing-8);
-        margin: 0 0 var(--spacing-4);
-
-        @include media(mobile) {
-          margin: 0 0 var(--spacing-40);
-        }
-
-        &.otp-fail {
-          margin: 0;
-
-          .otp-wrap {
-            border: var(--border-width-01) solid var(--strokes-error);
-          }
-
-          & ~ .otp-error {
-            display: block;
-            margin: 8px 0 12px;
-          }
-
-          & ~ .resend-btn {
-            display: none;
-          }
-        }
-
-        &.otp-success {
-          margin: 0 0 36px;
-
-          .otp-wrap {
-            border: var(--border-width-01) solid var(--strokes-success);
-          }
-
-          & ~ .otp-error {
-            display: none;
-          }
-
-          & ~ .resend-btn {
-            display: none;
-          }
-        }
-
-        .otp-wrap {
-          width: 40px;
-          height: 40px;
-          border-radius: var(--border-radius-8);
-          border: var(--border-width-01) solid var(--strokes-default);
-          padding: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          &:focus-within {
-            border: var(--border-width-02) solid var(--strokes-typing);
-
-            .otp-inp {
-              caret-color: var(--strokes-typing);
-            }
-          }
-
-          .otp-inp {
-            width: 100%;
-            height: 100%;
-            border: none;
-            outline: none;
-            text-align: center;
-
-            @include font-style(
-              var(--body-xlarge-semibold-size),
-              var(--body-xlarge-semibold-line-height),
-              var(--text-typed-input),
-              600,
-              var(--body)
-            );
-
-            @include media(mobile) {
-              font-size: var(--body-xlarge-semibold-size);
-              line-height: var(--body-xlarge-semibold-line-height);
-            }
-          }
-        }
-      }
-
-      .resend-btn {
-        margin: 0 0 var(--spacing-36);
-        padding: var(--spacing-8) 0;
-        border-radius: 0;
-        border: none;
-        background-color: transparent;
-        text-decoration: underline;
-        text-underline-offset: 2.8px;
-
-        @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
-
-        @include media(mobile) {
-          padding: 0;
-          margin: 0 0 12px;
-          font-size: var(--text-link-small-size);
-          line-height: var(--text-link-small-line-height);
-        }
-      }
-    }
-
-    .otp-sent-text {
-      // margin: var(--spacing-36) 0 0;
-      margin: 0;
-
-      @include font-style(
-        var(--body-small-regular-size),
-        var(--label-large-line-height),
-        var(--text-body-2),
-        400,
-        var(--body)
-      );
-
-      @include media(mobile) {
-        font-size: var(--body-small-regular-size);
-        line-height: var(--label-large-line-height);
-      }
-    }
-
-    .sbmt-btn {
-      margin: var(--spacing-20) 0;
-      padding: var(--spacing-12);
-      border: none;
-      border-radius: var(--border-radius-8);
-      background: var(--button-primary-default);
-      width: 100%;
-      cursor: pointer;
-      min-width: calc(100% + 6px);
-      margin-left: -3px;
-      margin-right: -3px;
-
-      @include font-style(
-        var(--button-medium-size),
-        var(--button-medium-line-height),
-        var(--text-white),
-        500,
-        var(--body)
-      );
-
-      @include media(mobile) {
-        margin: 24px 0 var(--spacing-20);
-        font-size: var(--button-medium-size);
-        line-height: var(--button-medium-line-height);
-      }
-    }
-
-    .terms-policy {
-      .sub-otp-con9 {
-        margin: 0;
-
-        @include font-style(
-          var(--disclaimer-xsmall-size),
-          var(--disclaimer-xsmall-line-height),
-          var(--text-disclaimer),
-          400,
-          var(--body)
-        );
-
-        @include media(mobile) {
-          font-size: var(--paragraph-xsmall-size);
-          line-height: var(--paragraph-xsmall-line-height);
-        }
-
-        .inner-otp-con1 {
-          text-decoration: underline;
-          text-underline-offset: 2.8px;
-
-          @include font-style(
-            var(--text-link-xsmall-size),
-            var(--text-link-xsmall-line-height),
-            var(--text-text-link),
-            400,
-            var(--body)
-          );
-
-          @include media(mobile) {
-            font-size: var(--text-link-xsmall-size);
-            line-height: var(--text-link-xsmall-line-height);
-          }
-        }
-      }
-    }
-
-    .new-investor {
-      .sub-otp-con10 {
-        margin: var(--spacing-12) 0 0;
-
-        @include font-style(
-          var(--body-small-regular-size),
-          var(--label-large-line-height),
-          var(--text-black),
-          400,
-          var(--body)
-        );
-
-        @include media(mobile) {
-          font-size: var(--paragraph-small-regular-size);
-          line-height: var(--paragraph-small-regular-line-height);
-        }
-
-        .inner-otp-con1 {
-          text-decoration: underline;
-          text-underline-offset: 2.8px;
-          padding: 0 0 0 var(--spacing-4);
-          cursor: pointer;
-
-          @include font-style(14px, var(--text-link-small-line-height), var(--text-text-link), 400, var(--body));
-
-          @include media(mobile) {
-            font-size: var(--text-link-small-size);
-            line-height: var(--text-link-small-line-height);
-          }
-        }
-      }
-    }
-  }
-}
-
-// OTP FDP End
 
 // Reset Passcode Start
 
