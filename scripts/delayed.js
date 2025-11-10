@@ -47,7 +47,7 @@ export default async function createBreadcrumbs() {
   const homeIcon = '../../icons/home-icon.svg';
   // const homeLink = '/motilalfigma/home-page';
   return ul(
-    decorateBreadcrumbItems('Home', '/motilalfigma/home-page', homeIcon),
+    decorateBreadcrumbItems('Home', '/mutual-fund/in/en/home-page', homeIcon),
     ...items.filter((item) => item !== null),
     decorateBreadcrumbItems(
       getMetadata('breadcrumbs_title'),
@@ -73,31 +73,6 @@ export default async function createBreadcrumbs() {
 
 // decorateBreadcrumbs();
 
-// async function decorateBreadcrumbs() {
-//   try {
-//     if (getMetadata('breadcrumbs') === 'true') {
-//       const breadcrumb = await createBreadcrumbs();
-//       breadcrumb.classList.add('breadul');
-//       Array.from(breadcrumb.children).forEach((brelesub) => {
-//         brelesub.classList.add('breadli');
-//       });
-
-//       // --- CHANGE IS HERE ---
-//       // Find the container using the data-id attribute
-//       const container = document.querySelector('[data-id="breadcrumb"]');
-
-//       // Check if the container exists before appending
-//       if (container) {
-//         container.appendChild(breadcrumb);
-//       } else {
-//         // Log an error if the container isn't found
-//         console.warn('Breadcrumb container [data-id="breadcrumb"] not found.');
-//       }
-//     }
-//   } catch (error) {
-//     console.error('Error decorating breadcrumbs:', error);
-//   }
-// }
 async function decorateBreadcrumbs() {
   try {
     if (getMetadata('breadcrumbs') === 'true') {
@@ -108,19 +83,15 @@ async function decorateBreadcrumbs() {
       });
 
       // --- CHANGE IS HERE ---
-      // Select the first element that has EITHER [data-id="breadcrumb"] OR .breadcrumbs-fdp
-      const container = document.querySelector(
-        '[data-id="breadcrumb"], .breadcrumbs-fdp'
-      );
+      // Find the container using the data-id attribute
+      const container = document.querySelector('[data-id="breadcrumb"]');
 
-      // Check if a container was found
+      // Check if the container exists before appending
       if (container) {
         container.appendChild(breadcrumb);
       } else {
-        // Log an error if neither container is found
-        console.warn(
-          'Breadcrumb container ([data-id="breadcrumb"] or .breadcrumbs-fdp) not found.'
-        );
+        // Log an error if the container isn't found
+        console.warn('Breadcrumb container [data-id="breadcrumb"] not found.');
       }
     }
   } catch (error) {
@@ -128,7 +99,6 @@ async function decorateBreadcrumbs() {
   }
 }
 
-// (Assumes createBreadcrumbs function is defined elsewhere as in previous examples)
 decorateBreadcrumbs();
 
 const newSection = document.querySelector('.moedge-article-main .article-sub-left.articlesub1 .leftartsub1');
