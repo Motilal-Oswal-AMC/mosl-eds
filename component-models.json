@@ -2081,9 +2081,9 @@
       },
       {
         "component": "select",
-        "name": "style",
-        "label": "Style Options",
-        "multi": true,
+        "name": "titleType",
+        "label": "Title Type",
+        "multi": false,
         "options": [
           {
             "name": "video",
