@@ -8,7 +8,7 @@ import { isDesktop } from '../header/header.js';
  *
  * @param {HTMLElement} block - The accordion block element.
  */
-// Hello World Alok
+// Hello World alok
 export default function decorate(block) {
   if (window.location.href.includes('//author')) return;
 
