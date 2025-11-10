@@ -329,7 +329,7 @@ const initComponent = (selector, prefixes) => {
 };
 
 function loadDelayed() {
-  window.setTimeout(() => import('./delayed.js'), 3000);
+  window.setTimeout(() => import('./delayed.js'), 5000);
 }
 
 async function loadPage() {

@@ -44,8 +44,8 @@ export default async function createBreadcrumbs() {
       );
     }),
   );
-  const homeIcon = '../../icons/home-icon.svg';
-  // const homeLink = '/motilalfigma/home-page';
+  const homeIcon = '/icons/home-icon.svg';
+  // const homeLink = '/in/en/mutual-fund/home-page';
   return ul(
     decorateBreadcrumbItems('Home', '/mutual-fund/in/en/home-page', homeIcon),
     ...items.filter((item) => item !== null),
@@ -83,15 +83,19 @@ async function decorateBreadcrumbs() {
       });
 
       // --- CHANGE IS HERE ---
-      // Find the container using the data-id attribute
-      const container = document.querySelector('[data-id="breadcrumb"]');
+      // Select the first element that has EITHER [data-id="breadcrumb"] OR .breadcrumbs-fdp
+      const container = document.querySelector(
+        '[data-id="breadcrumb"], .breadcrumbs-fdp',
+      );
 
-      // Check if the container exists before appending
+      // Check if a container was found
       if (container) {
         container.appendChild(breadcrumb);
       } else {
-        // Log an error if the container isn't found
-        console.warn('Breadcrumb container [data-id="breadcrumb"] not found.');
+        // Log an error if neither container is found
+        console.warn(
+          'Breadcrumb container ([data-id="breadcrumb"] or .breadcrumbs-fdp) not found.',
+        );
       }
     }
   } catch (error) {
@@ -99,6 +103,7 @@ async function decorateBreadcrumbs() {
   }
 }
 
+// (Assumes createBreadcrumbs function is defined elsewhere as in previous examples)
 decorateBreadcrumbs();
 
 const newSection = document.querySelector('.moedge-article-main .article-sub-left.articlesub1 .leftartsub1');
