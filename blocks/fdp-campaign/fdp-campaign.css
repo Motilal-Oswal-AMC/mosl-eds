@@ -257,11 +257,6 @@
 }
 @media (max-width: 768px) {
   .section.table-wrapper.pws-hero-section.fdp-campaign-container .fdp-campaign-wrapper .fdp-campaign .compaign1 {
-    display: block;
-  }
-}
-@media (max-width: 391px) {
-  .section.table-wrapper.pws-hero-section.fdp-campaign-container .fdp-campaign-wrapper .fdp-campaign .compaign1 {
     display: none;
   }
 }
@@ -278,10 +273,16 @@
   max-width: 100%;
   font-size: 0;
 }
-@media (max-width: 391px) {
+@media (max-width: 768px) {
   .section.table-wrapper.pws-hero-section.fdp-campaign-container .fdp-campaign-wrapper .fdp-campaign .compaign2 {
     display: block;
   }
+  .section.table-wrapper.pws-hero-section.fdp-campaign-container .fdp-campaign-wrapper .fdp-campaign .compaign2 img.comlist {
+    max-height: 718px;
+    width: 100%;
+  }
+}
+@media (max-width: 391px) {
   .section.table-wrapper.pws-hero-section.fdp-campaign-container .fdp-campaign-wrapper .fdp-campaign .compaign2 .mobimg-34 {
     height: 100%;
     aspect-ratio: 186/359;
