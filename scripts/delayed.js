@@ -22,9 +22,9 @@ export default async function createBreadcrumbs() {
   let currentPath = '';
   // splice(0, segments.length - 1)
   const items = await Promise.all(
-    segments.slice(0, segments.length - 1).map(async (segment) => {
+    segments.slice(3, segments.length - 1).map(async (segment) => {
       currentPath += `/${segment}`;
-      const url = currentPath;
+      const url = `/mutual-fund/in/en${currentPath}`;
       const resp = await fetch(url);
       const html = await resp.text();
       const tempDiv = document.createElement('div');
