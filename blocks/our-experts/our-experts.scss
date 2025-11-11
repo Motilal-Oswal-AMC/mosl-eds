@@ -39,6 +39,7 @@
 
             &-cont1 {
                 .our-expert-section1 {
+
                     h1,
                     h2,
                     h3,
@@ -112,6 +113,10 @@
                             font-style: normal;
                             font-weight: 400;
                             line-height: var(--body-medium-regular-line-height, 20px);
+
+                            ::placeholder {
+                                color: var(--text-body-2);
+                            }
                         }
 
                         .floating-label-wrapper {

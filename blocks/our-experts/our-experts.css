@@ -109,6 +109,12 @@
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height, 20px);
 }
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 input ::-moz-placeholder {
+  color: var(--text-body-2);
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 input ::placeholder {
+  color: var(--text-body-2);
+}
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper {
   line-height: 0;
 }

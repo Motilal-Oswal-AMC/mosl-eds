@@ -166,7 +166,12 @@
   }
 }
 .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
-  width: 36.8%;
+  padding-right: 106px;
+}
+@media (max-width: 1299px) {
+  .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
+    padding-right: 0;
+  }
 }
 @media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
