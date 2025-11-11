@@ -8,6 +8,12 @@ indices:
       - '/**.json'
     target: /query-index.json
     properties:
+      tags:
+        select: body > main > .section > ul > li > p
+        value: el
+      title:
+        select: body > main > .section > p
+        value: el  
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
