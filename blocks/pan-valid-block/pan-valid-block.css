@@ -973,7 +973,7 @@
   cursor: pointer;
 }
 .section.reset-passcode .reset-passcode-container .modal-cross-wrap .innerpasscode1,
-.section.reset-passcode .reset-passcode-container .modal-cross-wrap .innerpasscode1 .icon {
+.section.reset-passcode .reset-passcode-container .modal-cross-wrap .innerpasscode1 span.icon {
   margin: 0;
   width: 24px;
   height: 24px;
@@ -1107,7 +1107,7 @@
 .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .otp-field-wrap.otp-success ~ .otp-msg {
   display: none;
 }
-.section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .resend-btn {
+.section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .resend-btn.reset-resend {
   text-decoration: underline;
   text-underline-offset: 2.8px;
   background-color: transparent;
@@ -1126,7 +1126,7 @@
   font-weight: 400;
 }
 @media (max-width: 768px) {
-  .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .resend-btn {
+  .section.reset-passcode .reset-passcode-container .reset-otp-wrap .input-resend-wrap .resend-btn.reset-resend {
     font-size: var(--text-link-small-size);
     line-height: var(--text-link-small-line-height);
     padding: 0;

@@ -1804,7 +1804,7 @@
       cursor: pointer;
 
       .innerpasscode1,
-      .innerpasscode1 .icon {
+      .innerpasscode1 span.icon {
         margin: 0;
         width: 24px;
         height: 24px;
@@ -1955,7 +1955,7 @@
           }
         }
 
-        .resend-btn {
+        .resend-btn.reset-resend {
           text-decoration: underline;
           text-underline-offset: 2.8px;
           background-color: transparent;

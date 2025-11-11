@@ -217,6 +217,18 @@
 .section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist.mainarticle1 li.itemsubart6 {
   padding: 8px;
 }
+.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist:first-child {
+  border-radius: 8px 0 0 8px;
+}
+.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist:last-child {
+  border-bottom: none;
+}
+.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist:nth-child(odd) {
+  background: #F5F5F5;
+}
+.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist:nth-child(odd):not(.mainarticle1) {
+  background: #F5F5F5;
+}
 .section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist .itemarticle1 {
   list-style: none;
   margin: 0;
@@ -227,7 +239,7 @@
   box-sizing: border-box;
   gap: unset;
 }
-.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist .itemarticle1 > li {
+.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist .itemarticle1 > li.comlist {
   flex-grow: 0;
   flex-shrink: 0;
 }
@@ -298,18 +310,6 @@
 }
 .section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist .itemarticle1 .itemsubart6::before {
   content: unset;
-}
-.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist:first-child {
-  border-radius: 8px 0 0 8px;
-}
-.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist:last-child {
-  border-bottom: none;
-}
-.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist:nth-child(odd) {
-  background: #F5F5F5;
-}
-.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub2 .leftartsub1 .leftartitem4 > li.comlist:nth-child(odd):not(.mainarticle1) {
-  background: #F5F5F5;
 }
 .section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub4 .default-content-wrapper {
   margin: 40px 0 0;

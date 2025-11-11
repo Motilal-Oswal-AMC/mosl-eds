@@ -403,7 +403,7 @@ export default function decorate(block) {
             ),
           ),
           span({ class: 'otp-msg' }, 'Incorrect OTP'),
-          button({ class: 'resend-btn' }, resetpassreotp),
+          button({ class: 'resend-btn reset-resend' }, resetpassreotp),
         ),
       ),
       div(
