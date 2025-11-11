@@ -2064,13 +2064,13 @@
       },
       {
         "component": "text",
-        "name": "imageAlt",
+        "name": "imageAlt",    
         "label": "Alt Text"
       },
       {
         "component": "richtext",
-        "name": "Video_link",
-        "label": "Video Link",
+        "name": "Image_link",
+        "label": "Image Link",
         "value": ""
       },
       {
