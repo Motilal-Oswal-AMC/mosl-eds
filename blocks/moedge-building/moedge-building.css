@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import "../../../styles/fonts.css";
 .moedge-building {
   display: flex;
@@ -13,7 +12,7 @@
 .moedge-building > div .moedge-build-sec1 img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16/8.85;
+  aspect-ratio: 16/9;
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
@@ -34,7 +33,6 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text1 {
   display: flex;
@@ -93,8 +91,13 @@
   margin-bottom: 1.5px;
 }
 .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text1 .moedge-build-list2 li::before {
-  content: "•";
-  color: #5659FA;
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: url("../../icons/blue-dot.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text1 .moedge-build-list2 > li:first-child::before {
   display: none;
@@ -255,6 +258,11 @@
   -o-object-position: top;
      object-position: top;
 }
+@media (max-width: 391px) {
+  .learn-about.moedge-building-container .moedge-building > div .moedge-build-sec1 img {
+    aspect-ratio: 16/8.85;
+  }
+}
 .learn-about.moedge-building-container .moedge-building > div .moedge-build-sec3 {
   padding-top: 16px;
 }
@@ -274,14 +282,17 @@
     gap: 16px;
     flex-direction: unset;
   }
-  .learn-about.moedge-building-container .moedge-building > div .moedge-build-sec3 {
+  .learn-about.moedge-building-container .moedge-building > div .secs-wrapper {
+    flex: 0 0 49.35%;
+  }
+  .learn-about.moedge-building-container .moedge-building > div .secs-wrapper .moedge-build-sec3 {
     flex: 0 0 49.35%;
     padding: 0;
   }
-  .learn-about.moedge-building-container .moedge-building > div .moedge-build-sec3 .moedge-build-sub1 {
+  .learn-about.moedge-building-container .moedge-building > div .secs-wrapper .moedge-build-sec3 .moedge-build-sub1 {
     padding-top: 24px;
   }
-  .learn-about.moedge-building-container .moedge-building > div .moedge-build-sec3 .moedge-build-inner-text2 {
+  .learn-about.moedge-building-container .moedge-building > div .secs-wrapper .moedge-build-sec3 .moedge-build-inner-text2 {
     flex-grow: unset;
   }
   .learn-about.moedge-building-container .moedge-build-sec1 {
@@ -297,7 +308,6 @@
 }
 .in-the-news.popular-artical.moedge-building-container {
   position: relative;
-  margin-top: 0;
   padding: 0;
 }
 .in-the-news.popular-artical.moedge-building-container .moedge-building {
@@ -306,7 +316,7 @@
 }
 @media (max-width: 768px) {
   .in-the-news.popular-artical.moedge-building-container .moedge-building {
-    padding-bottom: 0;
+    padding-bottom: 96px;
     gap: unset;
   }
 }
@@ -376,7 +386,7 @@
 @media (max-width: 768px) {
   .in-the-news.popular-artical.moedge-building-container .default-content-wrapper p.button-container {
     position: absolute;
-    bottom: 0;
+    bottom: 40px;
   }
 }
 .in-the-news.popular-artical.moedge-building-container .default-content-wrapper p.button-container a.button {
@@ -420,7 +430,6 @@
 @media (max-width: 768px) {
   .popular-artical.moedge-building-container {
     padding-top: 16px;
-    margin-top: 0;
   }
 }
 .popular-artical.moedge-building-container p.comlist,

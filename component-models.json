@@ -553,6 +553,10 @@
           {
             "name": "Breadcrumbs",
             "value": "breadcrumbs"
+          },
+          {
+            "name": "Pr News List",
+            "value": "pr-news-list"
           }
         ]
       },
