@@ -15,7 +15,8 @@ import {
   loadCSS,
 } from './aem.js';
 
-import dataMapMoObj from './constant.js';
+import dataMapMoObj from '../scripts/constant.js';
+import formBlock from '../blocks/form/form.js';
 
 // eslint-disable-next-line import/no-cycle
 import {
@@ -336,6 +337,7 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
+  dataMapMoObj.article();
 }
 
 loadPage();
@@ -440,3 +442,42 @@ if (calculatorsCard != null) {
 }
 
 // *Calculators card  End *//
+
+// article 
+function articleStructure() {
+   // Investor Education article left and right wrapper
+  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details')) {
+    const maincloser = document.querySelector('main');
+    const rightSub = maincloser.querySelectorAll('.article-sub-right');
+    const rightarticle = maincloser.querySelector('.article-right-wrapper');
+    Array.from(rightSub).forEach((rightel) => {
+      rightarticle.append(rightel);
+    });
+    const leftSub = maincloser.querySelectorAll('.article-sub-left');
+    const leftarticle = maincloser.querySelector('.article-left-wrapper');
+    Array.from(leftSub).forEach((leftel) => {
+      leftarticle.append(leftel);
+    });
+    if (maincloser.querySelector('.moedge-article-details')) {
+      dataMapMoObj.CLASS_PREFIXES = ['articlemain', 'articlesub', 'articleitem',
+        'subarticle', 'mainarticle', 'itemarticle', 'itemsubart',
+        'mainitemart', 'itemmainart', 'submainart'];
+      dataMapMoObj.addIndexed(
+        maincloser.querySelector('.moedge-article-details'),
+      );
+
+      const mainleft = maincloser.querySelector('.article-left-wrapper');
+      dataMapMoObj.CLASS_PREFIXES = ['leftartmain', 'leftartsub', 'leftartitem',
+        'subleftart', 'mainleftart', 'itemleftart', 'itemleftart',
+        'mainitemleftart', 'itemmainleftart', 'submainleftart'];
+      dataMapMoObj.addIndexed(
+        mainleft,
+      );
+    }
+    const formpath = maincloser.querySelector('.article-right-wrapper .subscribe-email');
+    const formdiv = formpath
+      .querySelector('.subscribe-email .button-container');
+    formBlock(formdiv);
+  }
+}
+dataMapMoObj.article = articleStructure;
