@@ -1,4 +1,5 @@
 import dataMapMoObj from '../../scripts/constant.js';
+import myblockdeco from '../my-block/my-block.js';
 
 export default function decorate(block) {
   // --- 1. Add Indexed Classes ---
@@ -37,6 +38,7 @@ export default function decorate(block) {
       wrapperDiv.appendChild(sec1);
       wrapperDiv.appendChild(sec2);
     }
+    myblockdeco(container);
   });
 
   // --- 3. NEW "View All / View Less" Toggle Logic ---
