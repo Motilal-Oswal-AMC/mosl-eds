@@ -573,11 +573,14 @@
 
 .moedge-article-main {
     .section.future-building-container>.library-btn3 {
-        top: 14px;
+        top: 30px;
 
         @include media(mobile) {
            display: flex;
            justify-content: center;
         }
+    }
+    .section.future-building-container.future-building-article-details>.library-btn3 {
+        top: 14px;
     }
 }

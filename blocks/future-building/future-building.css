@@ -536,11 +536,14 @@
 }
 
 .moedge-article-main .section.future-building-container > .library-btn3 {
-  top: 14px;
+  top: 30px;
 }
 @media (max-width: 768px) {
   .moedge-article-main .section.future-building-container > .library-btn3 {
     display: flex;
     justify-content: center;
   }
+}
+.moedge-article-main .section.future-building-container.future-building-article-details > .library-btn3 {
+  top: 14px;
 }/*# sourceMappingURL=future-building.css.map */
