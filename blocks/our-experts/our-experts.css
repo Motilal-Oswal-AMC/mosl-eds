@@ -2,6 +2,11 @@
 .section.our-experts-container {
   margin-bottom: 0;
 }
+@media (max-width: 768px) {
+  .section.our-experts-container {
+    margin-top: 0;
+  }
+}
 .section.our-experts-container .our-experts-wrapper ul {
   width: 100%;
   list-style: none;
@@ -16,7 +21,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 40px 0;
+  padding: 0;
   padding-bottom: 0;
 }
 @media (max-width: 768px) {
@@ -103,6 +108,12 @@
   font-style: normal;
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height, 20px);
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 input ::-moz-placeholder {
+  color: var(--text-body-2);
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 input ::placeholder {
+  color: var(--text-body-2);
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper {
   line-height: 0;

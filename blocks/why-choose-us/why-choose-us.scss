@@ -176,10 +176,16 @@
         }
 
         .why-choose-us-row2 {
-            width: 36.8%;
+            // width: 36.8%;
+            padding-right: 106px;
+
+            @include media (desktop-sm) {
+                padding-right: 0;
+            }
 
             @include media (mobile) {
                 width: 100%;
+
             }
 
             .why-choose-us-sec1 {
