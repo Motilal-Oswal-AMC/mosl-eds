@@ -371,6 +371,7 @@
   .section.pms-choose .pms-choose2 {
     margin: 0;
     padding-top: 16px;
+    padding-bottom: 0;
   }
 }
 .section.pms-choose .pms-choose2 h3 {
