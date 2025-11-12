@@ -1564,6 +1564,7 @@ z-index: -1;
     display: flex !important;
     flex-wrap: wrap;
     gap: 16px;
+    margin: 0;
 }
 
 .section.media-coverage.embed-container .default-content-wrapper {
@@ -1735,7 +1736,12 @@ main>.section.media-coverage .default-content-wrapper h6 {
     align-items: center;
     gap: 70px; */
     flex-direction: column;
-    background-color: red;
+    /* background-color: red; */
+    background-color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    gap: 15px;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .maintab>.tab-dropdown-wrap .tabs-list .tabs-tab {
@@ -1952,6 +1958,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     display: none;
 }
 
+.modal.block.coverage-image-modal .modal-content .section,
 .modal.block.coverage-image-modal .modal-content .default-content-wrapper p {
     margin: 0;
 }

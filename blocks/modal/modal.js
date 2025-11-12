@@ -21,7 +21,7 @@ export async function createModal(contentNodes) {
   const dialogContent = document.createElement('div');
   dialogContent.classList.add('modal-content');
   dialogContent.append(...contentNodes);
-  if (dialogContent.querySelector('.maintab') && window.location.pathname.includes('wealth-page/coverage')) {
+  if (dialogContent.querySelector('.maintab') && window.location.pathname.includes('/wcs/in/en/coverage')) {
     dialogContent.querySelector('.maintab').remove();
   }
   dialog.append(dialogContent);
@@ -381,7 +381,7 @@ export function initializeModalHandlers() {
     }
 
     // Media coverage page - Adding class to modal
-    if (window.location.pathname.includes('/wealth-page/coverage')) {
+    if (window.location.pathname.includes('/wcs/in/en/coverage')) {
       if (!modal.querySelector('.embed')) {
         modal.classList.add('coverage-image-modal');
         if (!modal.querySelector('.modal-content .close-button')) {

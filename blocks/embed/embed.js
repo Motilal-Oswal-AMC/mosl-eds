@@ -112,7 +112,7 @@ export default function decorate(block) {
     // console.log('classes not appended');
   }
 
-  if (placeholder) {
+  if (placeholder && !block.closest('.media-coverage')) {
     const wrapper = document.createElement('div');
     wrapper.className = 'embed-placeholder';
     wrapper.innerHTML = '<div class="embed-placeholder-play"><button type="button" title="Play"></button></div>';
@@ -131,7 +131,7 @@ export default function decorate(block) {
     observer.observe(block);
   }
   const data = block.closest('main');
-  if (data !== null && window.location.href.includes('wealth-page/coverage')) {
+  if (data !== null && window.location.href.includes('/wcs/in/en/coverage')) {
     if (!data.querySelector('.maintab')) {
       const subdata = data.querySelectorAll('.section');
       if (dataMapMoObj.objdata === undefined) {
@@ -186,7 +186,7 @@ export default function decorate(block) {
         const paneldata = dataMapMoObj.objdata[headkey][key];
         const htmldata = paneldata.querySelector('ul ul').querySelectorAll('ul');
         const selectedLabelTab = paneldata.querySelector('p').textContent.trim();
-        if (window.location.pathname.includes('/wealth-page/coverage')) {
+        if (window.location.pathname.includes('/wcs/in/en/coverage')) {
           const tableMain = div(
             { class: 'coverage-table-container' },
             p({ class: 'studytab-title' }, selectedLabelTab),
