@@ -8,8 +8,9 @@
             position: relative;
 
             .subleftart1{
+                .itemarticle1.mainleftart1{
+                    font-size: 0;
                 @include media(mobile) {
-                  .itemarticle1.mainleftart1{
                     font-size: 0;
                   }
                 }
