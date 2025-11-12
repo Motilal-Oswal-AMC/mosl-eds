@@ -553,6 +553,10 @@
           {
             "name": "Breadcrumbs",
             "value": "breadcrumbs"
+          },
+          {
+            "name": "Future Building Article Details",
+            "value": "future-building-article-details"
           }
         ]
       },
