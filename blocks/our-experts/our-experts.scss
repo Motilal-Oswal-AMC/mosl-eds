@@ -40,6 +40,7 @@
 
             &-cont1 {
                 .our-expert-section1 {
+
                     h1,
                     h2,
                     h3,
@@ -120,9 +121,26 @@
                         }
 
                         .floating-label-wrapper {
+                            width: 100%;
                             line-height: 0;
 
-                            label {
+                            // & input:focus+label,
+                            // & input:not(:placeholder-shown)+label {
+                            //     top: -8px;
+                            //     left: 25px;
+                            //     padding: 0 4px;
+                            //     color: #2E2A94;
+                            //     font-feature-settings: var(--font-features-default);
+                            //     font-family: var(--body);
+                            //     font-size: var(--text-link-xsmall-size);
+                            //     font-style: normal;
+                            //     font-weight: 400;
+                            //     line-height: var(--text-link-xsmall-line-height, 16px);
+                            //     background-color: #FFF;
+                            // }
+
+                            >label {
+                                display: none;
                                 position: absolute;
                                 top: 12px;
                                 left: 45px;

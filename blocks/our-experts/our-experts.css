@@ -115,9 +115,11 @@
   color: var(--text-body-2);
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper {
+  width: 100%;
   line-height: 0;
 }
-.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper label {
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper > label {
+  display: none;
   position: absolute;
   top: 12px;
   left: 45px;
