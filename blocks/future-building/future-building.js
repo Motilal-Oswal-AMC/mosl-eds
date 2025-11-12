@@ -158,6 +158,7 @@ export default function decorate(block) {
     } else {
     console.warn('⚠️ Required sections not found in DOM');
     }
+    // 
     }
 
 
