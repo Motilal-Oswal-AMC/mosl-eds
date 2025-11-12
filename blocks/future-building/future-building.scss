@@ -22,6 +22,7 @@
 
     @include media(mobile) {
         padding-top: unset;
+        margin: 40px 0;
     }
 
     .future-building-wrapper {
@@ -245,13 +246,23 @@
                                     gap: 4px;
                                     padding: 0 8px;
                                 }
+
+                                .list-grandch-child1{
+                                    width: 20px;
+                                    height: 20px;
+
+                                    @include media(mobile){
+                                     width: 16px;
+                                     height: 16px;
+                                    }
+                                }
                             }
 
                             ul.list-child-12 {
                                 margin: 0;
                                 display: flex;
                                 align-items: center;
-                                gap: 12px;
+                                // gap: 12px;
                                 list-style: none;
 
                                 li {
@@ -285,17 +296,21 @@
 
                                 li.list-grandch-child1 {
                                     list-style: none;
-                                    padding-right: 10px;
-                                    position: relative;
+                                    // padding-right: 8px;
+                                    // position: relative;
 
                                     &::after {
                                         content: "•";
                                         color: #5659fa;
-                                        position: absolute;
+                                        // position: absolute;
                                         width: 4px;
-                                        height: 4px;
-                                        right: -2px;
-                                        top: 0;
+                                        height: 100%;
+                                        // right: -2px;
+                                        // top: 0;
+                                        display: inline-flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        margin: auto 8px;
                                     }
                                 }
                             }
@@ -395,6 +410,8 @@
                                             $text-text-link,
                                             400,
                                             $body);
+                                           line-height: var(--text-link-small-line-height);
+                                           min-height: unset;
                                     }
                                 }
                             }
@@ -512,6 +529,11 @@
             position: unset;
             padding: 0 16px;
             margin-top: 24px;
+            justify-content: center;
+        }
+
+        @include media(mobile) {
+            padding: 0px;
         }
 
         p.libr-btn-p {
@@ -534,7 +556,7 @@
                 gap: 4px;
                 border-radius: map.get($radius, r8);
                 background: map.get($button-primary, default);
-                height: 40px;
+                height: 44px;
                 width: 240px;
 
                 @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $inter);
@@ -551,6 +573,11 @@
 
 .moedge-article-main {
     .section.future-building-container>.library-btn3 {
-        top: 30px;
+        top: 14px;
+
+        @include media(mobile) {
+           display: flex;
+           justify-content: center;
+        }
     }
 }

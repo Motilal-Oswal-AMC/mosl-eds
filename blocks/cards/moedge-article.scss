@@ -183,7 +183,7 @@
                 .comlist.leftartitem2,
                 .leftartitem3,
                 .leftartitem5 {
-                    margin: 24px 0 25px;
+                    margin: 24px 0 24px;
                     color: #3D3D3D;
                     font-feature-settings: 'ss01'on, 'ss04'on, 'cv01'on, 'cv02'on, 'cv03'on, 'cv04'on, 'cv06'on, 'cv09'on, 'cv10'on, 'cv11'on;
                     font-family: var(--body);
@@ -504,7 +504,7 @@
         .article-sub-right {
             &.recommended-posts.cards-container {
                 @include media (mobile) {
-                    padding-bottom: 40px;
+                    // padding-bottom: 40px;
                 }
             }
         }
