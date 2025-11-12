@@ -3,7 +3,7 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.our-experts-container {
-    margin-bottom: 0;
+    margin-top: 24px;
 
     @include media (mobile) {
         margin-top: 0;
@@ -34,12 +34,13 @@
                 align-items: flex-start;
                 gap: 40px;
                 padding: 0;
-                
+
                 // padding-top: 24px;
             }
 
             &-cont1 {
                 .our-expert-section1 {
+
                     h1,
                     h2,
                     h3,

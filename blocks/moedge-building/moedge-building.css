@@ -125,7 +125,7 @@
   margin: 0;
   padding: 0;
   text-align: left;
-  word-break: auto-phrase;
+  word-break: break-word;
   white-space: unset;
   overflow: unset;
 }
@@ -403,6 +403,18 @@
   padding: 0;
   border: unset;
   border-radius: unset;
+}
+
+@media (max-width: 768px) {
+  .pr-news-list.in-the-news.popular-artical.moedge-building-container {
+    margin-top: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 768px) {
+  .pr-news-list.in-the-news.popular-artical.moedge-building-container .moedge-building {
+    padding-bottom: 0;
+  }
 }
 
 @media (max-width: 768px) {

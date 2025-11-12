@@ -122,7 +122,7 @@ $breakpoint-dks: 1279px;
               display: block;
               object-fit: cover;
               aspect-ratio: 1 / 1;
-             border-radius: var(--border-radius-8);
+              border-radius: var(--border-radius-8);
               background: lightgray 50% / cover no-repeat;
             }
           }
@@ -342,6 +342,18 @@ $breakpoint-dks: 1279px;
 
   @include media(mobile) {
     margin-top: 36px;
+  }
+
+  .default-content-wrapper:last-of-type {
+    .button-container {
+      .button {
+         height: 40px;
+
+        // @include media(mobile) {
+        //   height: 40px;
+        // }
+      }
+    }
   }
 
   .cards-card-hidden {

@@ -221,6 +221,9 @@
     margin-top: 36px;
   }
 }
+.behind-the-content.our-author-list .default-content-wrapper:last-of-type .button-container .button {
+  height: 40px;
+}
 .behind-the-content.our-author-list .cards-card-hidden {
   display: none !important;
 }

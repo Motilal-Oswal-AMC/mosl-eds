@@ -329,12 +329,21 @@
     list-style: none;
     padding: 0;
 
+
     @media (width <=1279px) {
       padding: 0 24px;
     }
 
     @include media (mobile) {
       padding: 0 16px;
+      overflow-x: auto;
+      margin-right: 25px;
+
+
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
     }
 
 
@@ -346,7 +355,8 @@
       &:not(:first-child) {
         &::before {
           content: "|";
-          width: 6px;
+          max-width: 6px;
+          height: 16px;
           display: inline-block;
           color: var(--neutrals-800);
           font-family: var(--body);
@@ -354,7 +364,7 @@
           font-style: normal;
           font-weight: 300;
           line-height: 16px;
-          transform: rotate(7deg);
+          transform: rotate(6deg);
         }
       }
 
@@ -369,10 +379,15 @@
         font-style: normal;
         font-weight: 400;
         line-height: var(--label-small-line-height);
+        white-space: nowrap;
 
         img {
           width: 20px;
           height: 20px;
+
+          @include media (mobile) {
+            min-width: 20px;
+          }
         }
       }
 
