@@ -16,7 +16,7 @@
 }
 @media (max-width: 768px) {
   .section.investment-philosophy .invest-philo-cont1 {
-    padding: 40px 15px;
+    padding: 40px 16px;
   }
 }
 .section.investment-philosophy .invest-philo-cont1 h4 {
@@ -33,7 +33,7 @@
 }
 @media (max-width: 768px) {
   .section.investment-philosophy .invest-philo-cont1 h4 {
-    font-size: var(--heading-h5-size);
+    font-size: var(--heading-h4-size);
     line-height: var(--sub-header-large-line-height);
     word-break: auto-phrase;
     padding: 0 21px 4px;

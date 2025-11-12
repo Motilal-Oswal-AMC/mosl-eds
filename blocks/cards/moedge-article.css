@@ -84,6 +84,28 @@
 .section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub1.leftartmain1 .leftartsub1 .subarticle4 .subleftart1 p {
   width: auto;
 }
+.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub1.leftartmain1 .leftartsub1 .video-wrap {
+  position: relative;
+}
+.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub1.leftartmain1 .leftartsub1 .video-wrap .leftartitem6 {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+.section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub1.leftartmain1 .leftartsub1 .video-wrap .leftartitem6 .button {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .section.main-wrapper.moedge-article-details .article-left-wrapper .articlesub1.leftartmain1 .leftartsub1 .leftartitem7 {
   border: none;
 }

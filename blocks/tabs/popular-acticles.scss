@@ -141,7 +141,7 @@
             padding: 16px 0;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 16px;
 
             @include media(mobile) {
                 padding: 0;
@@ -160,6 +160,7 @@
 
                 @include media(mobile) {
                     border-radius: var(--border-radius-8);
+                    height: 40px;
                 }
 
                 a {

@@ -557,6 +557,10 @@
           {
             "name": "Future Building Article Details",
             "value": "future-building-article-details"
+          },
+          {
+            "name": "Pr News List",
+            "value": "pr-news-list"
           }
         ]
       },

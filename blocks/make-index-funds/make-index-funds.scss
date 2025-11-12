@@ -73,7 +73,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 0;
+            margin: 0;
 
             a {
                 display: flex;
@@ -88,6 +88,7 @@
                 background: $primary-blue;
                 margin: 0;
                 font-style: normal;
+                border: none;
 
                 @include font-style(var(--button-medium-size), var(--button-medium-line-height), $text-white, 500, $body);
 
@@ -279,7 +280,7 @@
     //     position: unset;
     // }
 
-    .swiper-pagination.swiper-pagination-bullets {
+    .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
         bottom: 70px;
 
         @include media(mobile) {
@@ -290,7 +291,7 @@
         .swiper-pagination-bullet {
             width: 50px;
             height: 2px;
-            margin: 0;
+            margin: 0 !important;
             background-color: #9DADFE;
             border-radius: unset;
             opacity: unset;
@@ -322,5 +323,19 @@
 
     @include media (mobile) {
         padding: 40px 0;
+    }
+
+    >div:first-child {
+        h3 {
+            @include media (mobile) {
+                padding: 0;
+            }
+        }
+    }
+
+    .make-index-funds.block {
+        @include media (mobile) {
+            padding-top: 40px;
+        }
     }
 }

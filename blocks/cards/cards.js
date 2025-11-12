@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import dataMapMoObj from '../../scripts/constant.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
-import formBlock from '../form/form.js';
+// import formBlock from '../form/form.js';
 
 export default function decorate(block) {
   /* change to ul, li */
@@ -184,40 +184,40 @@ export default function decorate(block) {
   }
   // aif component end
 
-  // Investor Education article left and right wrapper
-  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details')) {
-    const maincloser = block.closest('main');
-    const rightSub = maincloser.querySelectorAll('.article-sub-right');
-    const rightarticle = maincloser.querySelector('.article-right-wrapper');
-    Array.from(rightSub).forEach((rightel) => {
-      rightarticle.append(rightel);
-    });
-    const leftSub = maincloser.querySelectorAll('.article-sub-left');
-    const leftarticle = maincloser.querySelector('.article-left-wrapper');
-    Array.from(leftSub).forEach((leftel) => {
-      leftarticle.append(leftel);
-    });
-    if (maincloser.querySelector('.moedge-article-details')) {
-      dataMapMoObj.CLASS_PREFIXES = ['articlemain', 'articlesub', 'articleitem',
-        'subarticle', 'mainarticle', 'itemarticle', 'itemsubart',
-        'mainitemart', 'itemmainart', 'submainart'];
-      dataMapMoObj.addIndexed(
-        maincloser.querySelector('.moedge-article-details'),
-      );
+  // // Investor Education article left and right wrapper
+  // if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details')) {
+  //   const maincloser = block.closest('main');
+  //   const rightSub = maincloser.querySelectorAll('.article-sub-right');
+  //   const rightarticle = maincloser.querySelector('.article-right-wrapper');
+  //   Array.from(rightSub).forEach((rightel) => {
+  //     rightarticle.append(rightel);
+  //   });
+  //   const leftSub = maincloser.querySelectorAll('.article-sub-left');
+  //   const leftarticle = maincloser.querySelector('.article-left-wrapper');
+  //   Array.from(leftSub).forEach((leftel) => {
+  //     leftarticle.append(leftel);
+  //   });
+  //   if (maincloser.querySelector('.moedge-article-details')) {
+  //     dataMapMoObj.CLASS_PREFIXES = ['articlemain', 'articlesub', 'articleitem',
+  //       'subarticle', 'mainarticle', 'itemarticle', 'itemsubart',
+  //       'mainitemart', 'itemmainart', 'submainart'];
+  //     dataMapMoObj.addIndexed(
+  //       maincloser.querySelector('.moedge-article-details'),
+  //     );
 
-      const mainleft = maincloser.querySelector('.article-left-wrapper');
-      dataMapMoObj.CLASS_PREFIXES = ['leftartmain', 'leftartsub', 'leftartitem',
-        'subleftart', 'mainleftart', 'itemleftart', 'itemleftart',
-        'mainitemleftart', 'itemmainleftart', 'submainleftart'];
-      dataMapMoObj.addIndexed(
-        mainleft,
-      );
-    }
-    const formpath = maincloser.querySelector('.article-right-wrapper .subscribe-email');
-    const formdiv = formpath
-      .querySelector('.subscribe-email .button-container');
-    formBlock(formdiv);
-  }
+  //     const mainleft = maincloser.querySelector('.article-left-wrapper');
+  //     dataMapMoObj.CLASS_PREFIXES = ['leftartmain', 'leftartsub', 'leftartitem',
+  //       'subleftart', 'mainleftart', 'itemleftart', 'itemleftart',
+  //       'mainitemleftart', 'itemmainleftart', 'submainleftart'];
+  //     dataMapMoObj.addIndexed(
+  //       mainleft,
+  //     );
+  //   }
+  //   const formpath = maincloser.querySelector('.article-right-wrapper .subscribe-email');
+  //   const formdiv = formpath
+  //     .querySelector('.subscribe-email .button-container');
+  //   formBlock(formdiv);
+  // }
 
   // WCS Series
   if (block.closest('.wcs-series-pdf')) {
