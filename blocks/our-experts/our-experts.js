@@ -84,7 +84,7 @@ export default function decorate(block) {
   const inputEl = document.createElement('input');
   inputEl.type = 'text';
   inputEl.id = 'our-experts-search';
-  inputEl.placeholder = ' ';
+  inputEl.placeholder = 'Search here';
 
   const labelEl = document.createElement('label');
   labelEl.htmlFor = inputEl.id;
@@ -104,13 +104,18 @@ export default function decorate(block) {
   if (section1) {
     // Add class on input click (focus)
     inputEl.addEventListener('focus', () => {
-      section1.classList.add('input-focused');
+      if (inputEl.value !== '') {
+        section1.classList.add('input-focused');
+      } else {
+        section1.classList.remove('input-focused');
+      }
     });
 
     // Remove class when clicking away (blur)
     inputEl.addEventListener('blur', () => {
       section1.classList.remove('input-focused');
     });
+    inputEl.focus();
   }
   // --- END: NEW CODE ---
 
