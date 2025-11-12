@@ -43,6 +43,12 @@ export default async function decorate(block) {
       });
       tabpanel.setAttribute('aria-hidden', false);
       tabbtn.setAttribute('aria-selected', true);
+      if (tabpanel.querySelector('.tabs-list')) {
+        const idattr = tabpanel.querySelector('.tabs-list [aria-selected="true"]').getAttribute('id');
+        const attr = idattr.replace('tab', 'tabpanel');
+        tabpanel.querySelector(`#${attr}`).setAttribute('aria-hidden', false);
+        tabpanel.querySelector(`#${attr} .section`).style.display = 'block';
+      }
     });
     tablist.append(tabbtn);
     tab.remove();
@@ -435,7 +441,7 @@ export default async function decorate(block) {
   }
   // const planslabel = planCode.split(':')[1];
   const planObj = dataCfObj.cfDataObjs.filter((el) => planslabel === el.schcode);
-  if (block.parentElement.parentElement.classList.contains('tabdiv')) {
+  if (block.closest('tabdiv')) {
     dataMapMoObj.scheme = planObj;
     generateBarChart(planObj[0].sector);
   }
