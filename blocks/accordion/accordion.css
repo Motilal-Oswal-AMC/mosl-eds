@@ -128,6 +128,11 @@
 .section.freq-ask-ques {
   width: 100%;
 }
+@media (max-width: 768px) {
+  .section.freq-ask-ques {
+    padding-bottom: 40px;
+  }
+}
 .section.freq-ask-ques .faq-our-fund {
   display: grid;
   justify-content: space-between;

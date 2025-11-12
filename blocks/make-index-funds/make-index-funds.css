@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0;
+  margin: 0;
 }
 .section.make-index-funds-container > div:last-child .button-container a {
   display: flex;
@@ -74,6 +74,7 @@
   background: #2e2a94;
   margin: 0;
   font-style: normal;
+  border: none;
   font-size: var(--button-medium-size);
   line-height: var(--button-medium-line-height);
   color: #fff;
@@ -244,26 +245,26 @@
 }
 
 @media (max-width: 768px) {
-  .swiper-pagination.swiper-pagination-bullets {
+  .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: 70px;
   }
 }
 @media (max-width: 768px) and (max-width: 768px) {
-  .swiper-pagination.swiper-pagination-bullets {
+  .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: 115px;
     top: unset;
   }
 }
 @media (max-width: 768px) {
-  .swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet {
+  .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
     width: 50px;
     height: 2px;
-    margin: 0;
+    margin: 0 !important;
     background-color: #9DADFE;
     border-radius: unset;
     opacity: unset;
   }
-  .swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
+  .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
     background-color: #2E2A94;
     border-radius: 2px;
     opacity: unset;
@@ -275,5 +276,15 @@
 @media (max-width: 768px) {
   .moedge-buliding.make-index-funds-container {
     padding: 40px 0;
+  }
+}
+@media (max-width: 768px) {
+  .moedge-buliding.make-index-funds-container > div:first-child h3 {
+    padding: 0;
+  }
+}
+@media (max-width: 768px) {
+  .moedge-buliding.make-index-funds-container .make-index-funds.block {
+    padding-top: 40px;
   }
 }/*# sourceMappingURL=make-index-funds.css.map */

@@ -1,6 +1,6 @@
 @import "../../../styles/fonts.css";
 .section.our-experts-container {
-  margin-bottom: 0;
+  margin-top: 24px;
 }
 @media (max-width: 768px) {
   .section.our-experts-container {
@@ -30,7 +30,6 @@
     align-items: flex-start;
     gap: 40px;
     padding: 0;
-    padding-top: 24px;
   }
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont1 .our-expert-section1 h1,
