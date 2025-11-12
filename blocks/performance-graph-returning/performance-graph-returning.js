@@ -18,6 +18,7 @@ export default function decorate(block) {
   const container = block.closest('.performance-graph-returning-container');
   if (container) {
     const defaultContent = container.querySelector('.default-content-wrapper');
+    const performanceGraphReturningWrapper = container.querySelector('.performance-graph-returning-wrapper');
     const performanceWrapper = container.querySelector(
       '.performance-graph-returning-wrapper',
     );
@@ -33,6 +34,11 @@ export default function decorate(block) {
       newWrapper.classList.add('performance-graph-wrapper');
       container.insertBefore(newWrapper, defaultContent);
       newWrapper.appendChild(defaultContent);
+      newWrapper.appendChild(performanceWrapper);
+    }else{
+      const newWrapper = document.createElement('div');
+      newWrapper.classList.add('performance-graph-wrapper');
+      container.insertBefore(newWrapper,performanceGraphReturningWrapper)
       newWrapper.appendChild(performanceWrapper);
     }
   }

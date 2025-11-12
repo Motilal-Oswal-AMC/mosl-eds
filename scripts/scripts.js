@@ -225,6 +225,7 @@ async function loadLazy(doc) {
   }
   wrapImgsInLinks(doc);
   await loadSections(main);
+  dataMapMoObj.article();
 
   const {
     hash,
@@ -336,8 +337,8 @@ function loadDelayed() {
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
+  
   loadDelayed();
-  dataMapMoObj.article();
 }
 
 loadPage();
@@ -478,6 +479,18 @@ function articleStructure() {
     const formdiv = formpath
       .querySelector('.subscribe-email .button-container');
     formBlock(formdiv);
+
+    const mainArticle1 = maincloser.querySelector('.moedge-article-video .mainarticle1');
+  const mainArticle2 = maincloser.querySelector('.moedge-article-video .mainarticle2');
+
+  if (mainArticle1 && mainArticle2 && mainArticle1.parentNode === mainArticle2.parentNode) {
+    const parent = mainArticle1.parentNode;
+    const wrapperDiv = document.createElement('div');
+    wrapperDiv.classList.add('articles-wrapper');
+    parent.insertBefore(wrapperDiv, mainArticle1);
+    wrapperDiv.appendChild(mainArticle1);
+    wrapperDiv.appendChild(mainArticle2);
+  }
   }
 }
 dataMapMoObj.article = articleStructure;
