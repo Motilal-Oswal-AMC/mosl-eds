@@ -1683,7 +1683,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     position: absolute;
     right: 16px;
     top: -4px;
-    max-width: 27.85%;
+    max-width: 26.899%;
     width: 100%;
     cursor: pointer;
     margin: 0 0 0 24px;
@@ -1703,6 +1703,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     border: var(--border-width-01) solid var(--strokes-default);
     padding: var(--spacing-8) var(--spacing-12);
     margin: 0;
+    height: 40px;
 }
 
 .maintab>.tab-dropdown-wrap .selected-tab::after {
@@ -2040,7 +2041,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     .maintab>.tab-dropdown-wrap {
         max-width: 100%;
         margin: 32px 0 24px;
-        padding: 0 16px;
+        padding: 0 14.5px;
         top: 0;
         right: 0;
     }
