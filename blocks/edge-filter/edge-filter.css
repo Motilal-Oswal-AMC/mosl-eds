@@ -118,4 +118,10 @@
 }
 .section.edge-filter-container .edge-filter-wrapper .edge-filter .edge-filter-sub1 .comlist.filter-lists-wrap1 + .filter-lists-wrap2 {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .moedge-list.edge-filter-container {
+    display: none;
+  }
 }/*# sourceMappingURL=edge-filter.css.map */

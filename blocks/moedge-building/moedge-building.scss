@@ -541,8 +541,24 @@
     .moedge-building {
         row-gap: 40px;
 
+        @include media(mobile) {
+            row-gap: 16px;
+        }
+
         .hidden {
             display: none;
+        }
+
+        >div .moedge-build-sec3 {
+            >.moedge-build-sub1 {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    >div.default-content-wrapper {
+        @include media (mobile) {
+            padding-top: 0;
         }
     }
 }

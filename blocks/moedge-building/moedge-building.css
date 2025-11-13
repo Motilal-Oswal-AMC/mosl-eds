@@ -432,8 +432,21 @@
 .popular-artical.our-author-detail.moedge-building-container .moedge-building {
   row-gap: 40px;
 }
+@media (max-width: 768px) {
+  .popular-artical.our-author-detail.moedge-building-container .moedge-building {
+    row-gap: 16px;
+  }
+}
 .popular-artical.our-author-detail.moedge-building-container .moedge-building .hidden {
   display: none;
+}
+.popular-artical.our-author-detail.moedge-building-container .moedge-building > div .moedge-build-sec3 > .moedge-build-sub1 {
+  padding-bottom: 0;
+}
+@media (max-width: 768px) {
+  .popular-artical.our-author-detail.moedge-building-container > div.default-content-wrapper {
+    padding-top: 0;
+  }
 }
 
 .popular-artical.moedge-building-container {

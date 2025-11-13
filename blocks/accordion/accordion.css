@@ -23,9 +23,6 @@
   list-style: none;
   overflow: auto;
 }
-.accordion details summary:focus, .accordion details summary:hover {
-  background-color: var(--light-color);
-}
 .accordion details summary::-webkit-details-marker {
   display: none;
 }
@@ -220,21 +217,25 @@
   }
 }
 .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary {
-  position: relative;
   padding: 16px 0px;
   cursor: pointer;
   list-style: none;
   overflow: hidden;
 }
-.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary:focus, .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary:hover {
-  background-color: var(--light-color);
-}
 .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary::-webkit-details-marker {
   display: none;
 }
 .section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary::after {
+  position: unset;
+  content: unset;
+}
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary p {
+  position: relative;
+}
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details summary p::after {
   content: "";
   position: absolute;
+  top: 10px;
   right: 0;
   width: 24px;
   height: 24px;
@@ -258,7 +259,10 @@
   padding: 16px 0px 8px 0px;
   background-color: transparent;
 }
-.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] summary::after {
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] summary p {
+  position: relative;
+}
+.section.freq-ask-ques .faq-our-fund .accordion-wrapper .accordion details.accordion-item[open] summary p::after {
   right: 0;
   background: url("/icons/mins-blue.svg");
   transform: translateY(-50%);
@@ -325,11 +329,11 @@
 .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) {
   grid-column: 2/2;
   grid-row: 2;
-  margin-top: 16px;
+  margin-top: 32px;
 }
 @media (max-width: 768px) {
   .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 }
 .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) .button-container {
