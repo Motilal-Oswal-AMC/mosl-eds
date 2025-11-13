@@ -1825,6 +1825,12 @@ main>.section.media-coverage .default-content-wrapper h6 {
     padding: 0 0 12px;
     margin: 0;
     border: none;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+.maintab>.tabs-panel .innerdiv .tabs-panel::-webkit-scrollbar {
+    display: none;
 }
 
 /* .maintab>.tabs-panel .innerdiv .tabs-panel .section.media-coverage .default-content-wrapper {
