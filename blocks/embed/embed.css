@@ -63,6 +63,10 @@
   display: none;
 }
 
+/* .innerdiv .tabs-panel[aria-hidden='false'] {
+  display: flex;
+} */
+
 .embed-wrapper {
   height: 100%;
 }

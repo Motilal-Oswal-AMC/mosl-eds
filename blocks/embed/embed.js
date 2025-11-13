@@ -159,6 +159,9 @@ export default function decorate(block) {
           );
           dataMapMoObj.CLASS_PREFIXES = ['embed-main', 'embed-inner', 'embed-subitem', 'embed-childitem', 'embed-childinner'];
           dataMapMoObj.addIndexed(valueAry[index][inner]);
+          if (index === 0) {
+            valueAry[index][inner].style.display = 'flex';
+          }
           subinner.querySelector('.subbinner').innerHTML += valueAry[index][inner].outerHTML;
           // subinner.querySelector('.section > .default-content-wrapper > p')
           //   .classList.add('studytab-title');
@@ -288,6 +291,7 @@ export default function decorate(block) {
           });
         }
       });
+      block.closest('.section').style.display = 'block';
     }
   }
   return block;

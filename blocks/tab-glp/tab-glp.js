@@ -2,7 +2,8 @@ import dataMapMoObj from '../../scripts/constant.js';
 
 export default function decorate(block) {
   // console.log(block);
-  const data = block.querySelectorAll('.tab-glp');
+  const mainbl = block.closest('main');
+  const data = mainbl.querySelectorAll('.tab-glp');
   data.forEach((ele) => {
     if (ele != null) {
       dataMapMoObj.CLASS_PREFIXES = [
@@ -22,21 +23,26 @@ export default function decorate(block) {
       ];
       dataMapMoObj.addIndexed(ele);
 
-      const addClassName = document.querySelectorAll('.glp-tab-li1');
+      const addClassName = ele.querySelectorAll('.glp-tab-li1');
+      if (addClassName) {
+        addClassName.forEach((elem) => {
+          elem.classList.add('li-containers');
+        });
+      }
 
-      addClassName.forEach((elem) => {
-        elem.classList.add('li-containers');
-      });
+      const addClassNameli = ele.querySelectorAll('.glp-tab-sub-inner-ul2');
+      if (addClassNameli) {
+        addClassNameli.forEach((elem) => {
+          elem.classList.add('same-li');
+        });
+      }
 
-      const addClassNameli = document.querySelectorAll('.glp-tab-sub-inner-ul2');
-      addClassNameli.forEach((elem) => {
-        elem.classList.add('same-li');
-      });
-
-      const addClassNamel = document.querySelectorAll('.glp-tab-sub-inner-ul1');
-      addClassNamel.forEach((elem) => {
-        elem.classList.add('same-li');
-      });
+      const addClassNamel = ele.querySelectorAll('.glp-tab-sub-inner-ul1');
+      if (addClassNamel) {
+        addClassNamel.forEach((elem) => {
+          elem.classList.add('same-li');
+        });
+      }
     }
   });
 }
