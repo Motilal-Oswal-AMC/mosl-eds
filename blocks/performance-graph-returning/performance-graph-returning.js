@@ -99,7 +99,6 @@ export default function decorate(block) {
       window.am5xy.DateAxis.new(root, {
         baseInterval: { timeUnit: 'day', count: 1 },
         // gridInterval: { timeUnit: 'month', count: 3 },
-        
 
         renderer: window.am5xy.AxisRendererX.new(root, {
           line: window.am5.Line.new(root, {
@@ -122,38 +121,10 @@ export default function decorate(block) {
     xAxis.set('zIndex', 10);
 
     // test
-//     let xAxiser = chart.xAxes.push(am5xy.DateAxis.new(root, {
-  
-//   // 2. SET THE TIME UNITS
-//   // Tell the axis your data is daily
-//   baseInterval: {
-//     timeUnit: "day",
-//     count: 1
-//   },
-  
-//   // 3. FORCE MONTHLY LABELS
-//   // Tell the axis to ONLY show labels for months
-  // gridIntervals: [
-  //   { timeUnit: "month", count: 1 }
-  // ],
-  
-//   // 4. SET THE CORRECT FORMAT
-//   // This is the code from before
-//   dateFormats: {
-//     "month": "MMM'yy"
-//   },
-//   periodChangeDateFormats: {
-//     "month": "MMM'yy"
-//   },
-  
-//   // 5. CONFIGURE THE RENDERER
-//   renderer: am5xy.AxisRendererX.new(root, {})
-// }));
-    // Assuming 'xAxis' is your DateAxis object
     xAxis.get('renderer').labels.template.setAll({
       centerY: window.am5.p50, // Align text vertically
-      //  text: '{valueX.formatDate("MMM yy")}', // Should show 'Jul 24', 'Sep 24'
-       // text: '{valueX.formatDate("MMM yy")}', // Note the single quotes around yy
+      // text: '{valueX.formatDate('MMM yy')}', // Should show 'Jul 24', 'Sep 24'
+      text: '{valueX.formatDate("MMM yy")}', // Note the single quotes around yy
       fill: window.am5.color('#212121'), // A dark color for the text
       fontFamily: 'Inter', // As requested
       fontSize: '14px', // Font size
@@ -162,17 +133,6 @@ export default function decorate(block) {
       paddingTop: 10,
       // lineHeight: '16px',
     });
-
-    // Add this code after you've configured your xAxis
-xAxis.get('renderer').labels.template.adapters.add('text', (text, target) => {
-  if (target.dataItem && target.dataItem.get('valueX')) {
-    let date = new Date(target.dataItem.get('valueX'));
-    
-    // Use the chart's root formatter to manually format the date
-    return chart.root.dateFormatter.format(date, "MMM'yy");
-  }
-  return text;
-});
 
     // Custom formatter for x-axis labels
     // xAxis.get('renderer').labels.template.adapters.add('text', function (text, target) {
