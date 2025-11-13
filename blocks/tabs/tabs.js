@@ -48,6 +48,7 @@ export default async function decorate(block) {
         const attr = idattr.replace('tab', 'tabpanel');
         tabpanel.querySelector(`#${attr}`).setAttribute('aria-hidden', false);
         tabpanel.querySelector(`#${attr} .section`).style.display = 'block';
+        tabpanel.querySelector(`#${attr} .section`).style.display = 'flex';
       }
     });
     tablist.append(tabbtn);
