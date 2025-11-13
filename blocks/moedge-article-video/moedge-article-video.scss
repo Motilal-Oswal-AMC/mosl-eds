@@ -7,6 +7,15 @@
         .articles-wrapper {
             position: relative;
 
+            .subleftart1{
+                .itemarticle1.mainleftart1{
+                    font-size: 0;
+                @include media(mobile) {
+                    font-size: 0;
+                  }
+                }
+            }
+
             .mainarticle1 {
                 .itemarticle1 {
                     img {
@@ -19,6 +28,8 @@
                         }
                     }
                 }
+
+
             }
 
             .mainarticle2 {

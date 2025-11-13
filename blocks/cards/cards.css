@@ -569,6 +569,7 @@ main.nfo-nav .main-wrapper .section:first-of-type {
   font-style: normal;
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height);
+  height: 40px;
 }
 
 .section.article-sub-right.subscribe-email .field-wrapper input::placeholder {
@@ -585,7 +586,7 @@ main.nfo-nav .main-wrapper .section:first-of-type {
   width: 100%;
   margin: 0;
   display: flex;
-  height: 40px;
+  height: 44px;
   padding: 12px var(--spacing-12, 12px);
   justify-content: center;
   align-items: center;
@@ -664,7 +665,7 @@ main.nfo-nav .main-wrapper .section:first-of-type {
 .section.article-sub-right.recommended-posts .cards ul li {
   padding: var(--spacing-16) 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   border: none;
 }
@@ -721,6 +722,7 @@ main.nfo-nav .main-wrapper .section:first-of-type {
   line-height: var(--body-small-medium-line-height);
   margin: 8px 0;
   word-break: auto-phrase;
+  font-style: normal;
 }
 
 .section.article-sub-right.recommended-posts .cards ul li .cards-card-body p:last-of-type {

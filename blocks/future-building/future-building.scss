@@ -22,6 +22,7 @@
 
     @include media(mobile) {
         padding-top: unset;
+        margin: 40px 0;
     }
 
     .future-building-wrapper {
@@ -33,7 +34,7 @@
     >div.library-btn1 {
         width: 100%;
         height: 100%;
-        padding-bottom: 24px;
+        padding-bottom: 40px;
 
         @include media(mobile) {
             padding-bottom: 24px;
@@ -245,13 +246,23 @@
                                     gap: 4px;
                                     padding: 0 8px;
                                 }
+
+                                .list-grandch-child1{
+                                    width: 20px;
+                                    height: 20px;
+
+                                    @include media(mobile){
+                                     width: 16px;
+                                     height: 16px;
+                                    }
+                                }
                             }
 
                             ul.list-child-12 {
                                 margin: 0;
                                 display: flex;
                                 align-items: center;
-                                gap: 12px;
+                                // gap: 12px;
                                 list-style: none;
 
                                 li {
@@ -285,17 +296,21 @@
 
                                 li.list-grandch-child1 {
                                     list-style: none;
-                                    padding-right: 10px;
-                                    position: relative;
+                                    // padding-right: 8px;
+                                    // position: relative;
 
                                     &::after {
                                         content: "•";
                                         color: #5659fa;
-                                        position: absolute;
+                                        // position: absolute;
                                         width: 4px;
-                                        height: 4px;
-                                        right: -2px;
-                                        top: 0;
+                                        height: 100%;
+                                        // right: -2px;
+                                        // top: 0;
+                                        display: inline-flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        margin: auto 8px;
                                     }
                                 }
                             }
@@ -309,6 +324,7 @@
                             p {
                                 margin: 0;
                                 padding: 0;
+                                font-size: 0;
 
                                 // margin-bottom: 8px;
 
@@ -369,6 +385,8 @@
 
                             .button-container {
                                 margin: 0;
+                                height: 100%;
+                                font-size: 0;
 
                                 a {
                                     text-decoration-line: underline;
@@ -382,6 +400,8 @@
                                     background: transparent;
                                     margin: 0;
                                     padding-left: 2px;
+                                    height: 100%;
+                                    min-height: unset;
 
                                     @include font-style(map.get($typography-desktop, body-small-regular-size),
                                         map.get($typography-desktop, body-small-regular-line-height),
@@ -395,6 +415,8 @@
                                             $text-text-link,
                                             400,
                                             $body);
+                                           line-height: var(--text-link-small-line-height);
+                                           min-height: unset;
                                     }
                                 }
                             }
@@ -512,6 +534,11 @@
             position: unset;
             padding: 0 16px;
             margin-top: 24px;
+            justify-content: center;
+        }
+
+        @include media(mobile) {
+            padding: 0px;
         }
 
         p.libr-btn-p {
@@ -534,7 +561,7 @@
                 gap: 4px;
                 border-radius: map.get($radius, r8);
                 background: map.get($button-primary, default);
-                height: 40px;
+                height: 44px;
                 width: 240px;
 
                 @include font-style(16px, 20px, $primary-white, map.get($font-weights, medium), $inter);
@@ -552,5 +579,22 @@
 .moedge-article-main {
     .section.future-building-container>.library-btn3 {
         top: 30px;
+
+        @include media(mobile) {
+           display: flex;
+           justify-content: center;
+        }
+    }
+    .section.future-building-container.future-building-article-details>.library-btn3 {
+        top: 14px;
+    }
+
+    .section.future-building-container.future-building-article-details .future-building .swiper-wrapper .swiper-slide .swiper-slide-cards-2 > ul.cards-listcards1 > li.cards-list-1-cards4 .button-container a{
+        line-height: 20px;
+        // text-underline-offset: 20%;
+
+        @include media(mobile){
+           line-height: 16px;
+        }
     }
 }
