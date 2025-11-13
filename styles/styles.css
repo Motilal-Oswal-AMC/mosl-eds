@@ -1827,7 +1827,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     display: none !important;
 } */
 
-.maintab>.tabs-panel .innerdiv .tabs-panel .section.media-coverage{
+.maintab>.tabs-panel .innerdiv .tabs-panel .section.media-coverage {
     margin: 0;
 }
 
@@ -2009,7 +2009,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     }
 
     main>.section.media-coverage,
-        main.nfo-nav>.section.media-coverage {
+    main.nfo-nav>.section.media-coverage {
         margin: 82px auto 0;
     }
 
