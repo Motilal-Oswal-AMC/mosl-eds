@@ -10,7 +10,7 @@
   gap: 20px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper {
     display: flex;
     padding: 0 16px;
@@ -25,7 +25,7 @@
   width: 100%;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .default-content-wrapper {
     width: 100%;
   }
@@ -33,7 +33,7 @@
 
 .performance-graph-returning-container .performance-graph-wrapper .default-content-wrapper h3 {
   color: #2e2a94;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
@@ -41,7 +41,7 @@
   margin: 0;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .default-content-wrapper h3 {
     font-size: 24px;
     font-style: normal;
@@ -62,7 +62,7 @@
   align-self: stretch;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning {
     display: flex;
     flex-direction: column;
@@ -79,7 +79,7 @@
   align-self: stretch;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header {
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@
   width: 100%;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details {
     display: flex;
     flex-direction: column;
@@ -115,7 +115,7 @@
   align-items: flex-start;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-identity {
     display: flex;
     width: 340px;
@@ -126,7 +126,7 @@
 
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-identity .fund-note {
   color: #4338f3;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -134,10 +134,10 @@
   margin: 0;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-identity .fund-note {
     color: #5659fa;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -148,7 +148,7 @@
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-identity .fund-name {
   align-self: stretch;
   color: #2e2a94;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -156,10 +156,10 @@
   margin: 0;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-identity .fund-name {
     color: #2e2a94;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -174,7 +174,7 @@
   gap: 8px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta {
     display: flex;
     flex-direction: column;
@@ -190,7 +190,7 @@
   gap: 4px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-tags-wrapper {
     display: flex;
     align-items: center;
@@ -210,7 +210,7 @@
   gap: 16px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-tags-wrapper .fund-tags-main {
     display: flex;
     padding: 5px 10px;
@@ -223,17 +223,17 @@
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-tags-wrapper .fund-tags-main .fund-tag {
   display: flex;
   color: #2e2a94;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-tags-wrapper .fund-tags-main .fund-tag {
     color: #2e2a94;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -247,7 +247,7 @@
   gap: 8px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-returns-main {
     display: flex;
     align-items: center;
@@ -258,17 +258,17 @@
 
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-returns-main .fund-returns {
   color: #616161;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-returns-main .fund-returns {
     color: #424242;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -280,23 +280,27 @@
   width: 55px;
   align-self: stretch;
   color: #2e2a94;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-returns-main .value {
     color: #2e2a94;
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
     align-self: unset;
   }
+}
+
+.performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-returns-main .value .fund-percentage {
+  margin-left: 4px;
 }
 
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .invest-now-btn .button-desktop {
@@ -311,7 +315,7 @@
   background: #2e2a94;
   border: none;
   color: #fff;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -321,7 +325,7 @@
   margin: 0;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .invest-now-btn .button-desktop {
     display: none;
   }
@@ -338,7 +342,7 @@
   position: relative;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .invest-now-btn-mobile {
     padding-top: 4px;
     padding-bottom: 14px;
@@ -350,7 +354,7 @@
   display: none;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .invest-now-btn-mobile .button-mobile {
     text-align: center;
     display: flex;
@@ -372,3 +376,5 @@
     line-height: 20px;
   }
 }
+
+/*# sourceMappingURL=performance-graph-returning.css.map */

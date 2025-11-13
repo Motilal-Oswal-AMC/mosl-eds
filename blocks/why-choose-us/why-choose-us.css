@@ -4,14 +4,14 @@
   margin-bottom: 0;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container {
     margin-bottom: 0;
     padding-bottom: 0;
   }
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us-wrapper {
     padding: 0;
   }
@@ -25,7 +25,7 @@
   align-self: stretch;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us {
     gap: 28px;
     flex-direction: column;
@@ -39,9 +39,10 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  padding-top: 130px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 {
     width: 100%;
     padding: 0 16px;
@@ -57,7 +58,7 @@
   align-items: flex-start;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 .why-choose-us-sec1 {
     gap: 40px;
   }
@@ -72,7 +73,7 @@
   align-items: flex-start;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 .why-choose-us-sec1 ul {
     gap: 14px;
   }
@@ -82,7 +83,7 @@
   position: relative;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 .why-choose-us-sec1 ul li.choose-us-lists1 {
     padding-left: 19px;
   }
@@ -100,7 +101,7 @@
   line-height: var(--heading-h1-line-height);
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 .why-choose-us-sec1 ul li.choose-us-lists1 h1 {
     width: 100%;
     font-size: 32px;
@@ -114,7 +115,7 @@
   top: -17px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 .why-choose-us-sec1 ul li.choose-us-lists1 .choose-us-lists-wrap2 {
     left: 0;
     top: -7px;
@@ -126,7 +127,7 @@
   height: 89px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 .why-choose-us-sec1 ul li.choose-us-lists1 .choose-us-lists-wrap2 li span {
     width: 64.925px;
     height: 69px;
@@ -149,7 +150,7 @@
   line-height: 24px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 .why-choose-us-sec1 ul .choose-us-lists2 p {
     font-size: var(--paragraph-medium-regular-size);
     font-style: normal;
@@ -185,19 +186,35 @@
   line-height: var(--button-medium-line-height);
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 .why-choose-us-sec1 .why-choose-us-sub2 .button {
     border-radius: var(--border-radius-8);
   }
 }
 
 .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
-  width: 36.8%;
+  padding-right: 106px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 1299px) {
+  .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
     width: 100%;
+  }
+}
+
+.section.why-choose-us-container .why-choose-us .why-choose-us-row2 .why-choose-us-sec1 {
+  height: 422px;
+}
+
+@media (max-width: 768px) {
+  .section.why-choose-us-container .why-choose-us .why-choose-us-row2 .why-choose-us-sec1 {
+    height: 346px;
   }
 }
 
@@ -207,10 +224,12 @@
   aspect-ratio: 453/422;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row2 .why-choose-us-sec1 .choose-us-lists4 {
     width: 100%;
     height: 346px;
     aspect-ratio: 186/173;
   }
 }
+
+/*# sourceMappingURL=why-choose-us.css.map */

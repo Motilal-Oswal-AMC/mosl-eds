@@ -3,8 +3,8 @@
 /*   media-feature-range-notation */
 
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 @import "./faq-page.css";
 
 .accordion-container {
@@ -34,10 +34,10 @@
 
       // transition: background-color 0.2s;
 
-      &:focus,
-      &:hover {
-        background-color: var(--light-color);
-      }
+      // &:focus,
+      // &:hover {
+      //   background-color: var(--light-color);
+      // }
 
       &::-webkit-details-marker {
         display: none;
@@ -169,6 +169,10 @@
 .section.freq-ask-ques {
   width: 100%;
 
+  @include media(mobile) {
+    padding-bottom: 40px;
+  }
+
   // background-color: #f5f5f5;
   // margin: 0;
   // padding: 40px 0;
@@ -219,7 +223,7 @@
           map.get($typography-desktop, heading-h4-line-height),
           $blue-1-800-primary,
           600,
-          $title );
+          $title);
 
         padding: 0;
         margin: 0;
@@ -229,7 +233,7 @@
             28px,
             $blue-1-800-primary,
             600,
-            $title );
+            $title);
         }
       }
     }
@@ -278,7 +282,7 @@
           }
 
           summary {
-            position: relative;
+            // position: relative;
             padding: $spacing-16 $spacing-none;
             cursor: pointer;
             list-style: none;
@@ -286,33 +290,43 @@
 
             // transition: all 0.3s ease-in-out;
 
-            &:focus,
-            &:hover {
-              background-color: var(--light-color);
-            }
+            // &:focus,
+            // &:hover {
+            //   background-color: var(--light-color);
+            // }
 
             &::-webkit-details-marker {
               display: none;
             }
 
             &::after {
-              content: "";
-              position: absolute;
+              position: unset;
+              content: unset;
+            }
 
-              // top: 2px;
-              right: 0;
-              width: 24px;
-              height: 24px;
-              border: none;
-              border-width: unset;
-              transform: translateY(-50%);
-              background: url("/icons/plus-blue.svg");
+            p {
+              position: relative;
 
-              // transition: all 0.3s ease-in-out;
+              &::after {
+                content: "";
+                position: absolute;
+                top: 10px;
 
-              @include media(mobile) {
-                // top: 12px;
-                // right: 0;
+                // top: 2px;
+                right: 0;
+                width: 24px;
+                height: 24px;
+                border: none;
+                border-width: unset;
+                transform: translateY(-50%);
+                background: url("/icons/plus-blue.svg");
+
+                // transition: all 0.3s ease-in-out;
+
+                @include media(mobile) {
+                  // top: 12px;
+                  // right: 0;
+                }
               }
             }
           }
@@ -342,15 +356,19 @@
                 // padding-bottom: 8px;
               }
 
-              &::after {
-                // top: 15px;
-                right: 0;
-                background: url("/icons/mins-blue.svg");
-                transform: translateY(-50%);
+              p {
+                position: relative;
 
-                //    @include media(mobile) {
-                //    right: 0;
-                // }
+                &::after {
+                  // top: 15px;
+                  right: 0;
+                  background: url("/icons/mins-blue.svg");
+                  transform: translateY(-50%);
+
+                  //    @include media(mobile) {
+                  //    right: 0;
+                  // }
+                }
               }
 
               p {
@@ -430,15 +448,15 @@
     }
 
     &>.default-content-wrapper:nth-child(3) {
-     grid-column: 2 / 2;
+      grid-column: 2 / 2;
       grid-row: 2;
-      margin-top: 16px;
+      margin-top: 32px;
 
       // padding-left: 15px;
       // pad/ding: 0 16px;
 
       @include media(mobile) {
-        margin-top: 16px;
+        margin-top: 12px;
       }
 
       .button-container {
@@ -461,7 +479,7 @@
             map.get($typography-desktop, Button-Small-Line-Height),
             $text-white,
             500,
-            $body );
+            $body);
         }
       }
 

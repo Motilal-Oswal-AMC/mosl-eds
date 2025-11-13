@@ -222,7 +222,7 @@ export default async function decorate(block) {
     } else if (block.querySelector('#form-email')) {
       blokform = block.querySelector('#form-email');
     }
-    if (blokform !== null) {
+    if (blokform !== null && blokform !== undefined) {
       const elemObj = {};
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const formem = blokform;

@@ -502,10 +502,12 @@ $text-button-disabled: $neutrals-500;
 $card-stroke: #B9BBFF;
 $surface-icon-primary-normal: $blue-1-800-primary;
 
-// semantic-lights end
+//  semantic-lights end
 
-// typescale-desktop start
-$typography-desktop: (body-xlarge-bold-font: $body,
+//  typescale-desktop start
+
+$typography-desktop: (
+  body-xlarge-bold-font: $body,
   body-xlarge-bold-weight: $weight-semibold,
   body-xlarge-bold-size: $spacing-20,
   body-xlarge-bold-line-height: $spacing-24,
@@ -662,7 +664,8 @@ $typography-desktop: (body-xlarge-bold-font: $body,
 // typescale-desktop end
 
 // typescale-mobile start
-$typography-mobile: (body-xlarge-bold-font: $body,
+$typography-mobile: (
+  body-xlarge-bold-font: $body,
   body-xlarge-bold-weight: $weight-semibold,
   body-xlarge-bold-size: $spacing-20,
   body-xlarge-bold-line-height: $spacing-24,

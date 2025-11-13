@@ -1,5 +1,4 @@
 @import "../../../styles/fonts.css";
-
 .investing-terms {
   display: flex;
   gap: 16px;
@@ -7,29 +6,25 @@
   border-radius: 8px;
   background: var(--blue-1-50);
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .investing-terms {
     flex-direction: column;
     padding: 40px 16px;
   }
 }
-
 .investing-terms .inversting1 {
   height: 88px;
 }
-
 .investing-terms .inversting1 .inverstingsub1 {
   width: 88px;
 }
-
 .investing-terms .inversting1 .inverstingsub1 .inverstingsubinner4 {
   width: 88px;
   height: 88px;
   flex-shrink: 0;
+  -o-object-fit: cover;
      object-fit: cover;
 }
-
 .investing-terms .inversting2 .inverstingsub1 .inverstinginner1 {
   margin: 0;
   font-style: normal;
@@ -41,14 +36,12 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 600;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .investing-terms .inversting2 .inverstingsub1 .inverstinginner1 {
     font-size: var(--sub-header-large-size);
     line-height: 28px;
   }
 }
-
 .investing-terms .inversting2 .inverstingsub1 .inverstinginner2 {
   margin: 0;
   font-style: normal;
@@ -60,14 +53,12 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .investing-terms .inversting2 .inverstingsub1 .inverstinginner2 {
     font-size: var(--paragraph-xsmall-size);
     line-height: var(--paragraph-xsmall-line-height);
   }
 }
-
 .investing-terms .inversting2 .inverstingsub1 .inverstinginner3 {
   margin: 0;
   padding-bottom: 12px;
@@ -79,14 +70,12 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .investing-terms .inversting2 .inverstingsub1 .inverstinginner3 {
     font-size: var(--body-small-medium-size);
     line-height: var(--body-small-medium-line-height);
   }
 }
-
 .investing-terms .inversting2 .inverstingsub1 .inverstinginner4 {
   margin: 0;
   list-style: none;
@@ -96,7 +85,6 @@
   align-items: center;
   padding-bottom: 40px;
 }
-
 .investing-terms .inversting2 .inverstingsub1 .inverstinginner4 li {
   display: flex;
   height: 32px;
@@ -114,7 +102,6 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 400;
 }
-
 .investing-terms .inversting2 .inverstingsub1 .inverstinginner5 {
   display: flex;
   width: 239px;
@@ -136,10 +123,9 @@
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
   font-weight: 500;
 }
-
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .investing-terms .inversting2 .inverstingsub1 .inverstinginner5 {
     font-size: var(--button-medium-size);
     line-height: var(--button-medium-line-height);
   }
-}
+}/*# sourceMappingURL=investing-terms.css.map */

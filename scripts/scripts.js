@@ -15,7 +15,8 @@ import {
   loadCSS,
 } from './aem.js';
 
-import dataMapMoObj from './constant.js';
+import dataMapMoObj from '../scripts/constant.js';
+import formBlock from '../blocks/form/form.js';
 
 // eslint-disable-next-line import/no-cycle
 import {
@@ -224,6 +225,7 @@ async function loadLazy(doc) {
   }
   wrapImgsInLinks(doc);
   await loadSections(main);
+  dataMapMoObj.article();
 
   const {
     hash,
@@ -329,12 +331,13 @@ const initComponent = (selector, prefixes) => {
 };
 
 function loadDelayed() {
-  window.setTimeout(() => import('./delayed.js'), 5000);
+  window.setTimeout(() => import('./delayed.js'), 3000);
 }
 
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
+  
   loadDelayed();
 }
 
@@ -440,3 +443,53 @@ if (calculatorsCard != null) {
 }
 
 // *Calculators card  End *//
+// // article 
+function articleStructure() {
+  // Investor Education article left and right wrapper
+  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details') || window.location.href.includes('/motilal-oswal-edge/our-authors/prateek-agrawal')) {
+    const maincloser = document.querySelector('main');
+    const rightSub = maincloser.querySelectorAll('.article-sub-right');
+    const rightarticle = maincloser.querySelector('.article-right-wrapper');
+    Array.from(rightSub).forEach((rightel) => {
+      rightarticle.append(rightel);
+    });
+    const leftSub = maincloser.querySelectorAll('.article-sub-left');
+    const leftarticle = maincloser.querySelector('.article-left-wrapper');
+    Array.from(leftSub).forEach((leftel) => {
+      leftarticle.append(leftel);
+    });
+    if (maincloser.querySelector('.moedge-article-details')) {
+      dataMapMoObj.CLASS_PREFIXES = ['articlemain', 'articlesub', 'articleitem',
+        'subarticle', 'mainarticle', 'itemarticle', 'itemsubart',
+        'mainitemart', 'itemmainart', 'submainart'];
+      dataMapMoObj.addIndexed(
+        maincloser.querySelector('.moedge-article-details'),
+      );
+
+      const mainleft = maincloser.querySelector('.article-left-wrapper');
+      dataMapMoObj.CLASS_PREFIXES = ['leftartmain', 'leftartsub', 'leftartitem',
+        'subleftart', 'mainleftart', 'itemleftart', 'itemleftart',
+        'mainitemleftart', 'itemmainleftart', 'submainleftart'];
+      dataMapMoObj.addIndexed(
+        mainleft,
+      );
+    }
+    const formpath = maincloser.querySelector('.article-right-wrapper .subscribe-email');
+    const formdiv = formpath
+      .querySelector('.subscribe-email .button-container');
+    formBlock(formdiv);
+
+    const mainArticle1 = maincloser.querySelector('.moedge-article-video .mainarticle1');
+  const mainArticle2 = maincloser.querySelector('.moedge-article-video .mainarticle2');
+
+  if (mainArticle1 && mainArticle2 && mainArticle1.parentNode === mainArticle2.parentNode) {
+    const parent = mainArticle1.parentNode;
+    const wrapperDiv = document.createElement('div');
+    wrapperDiv.classList.add('articles-wrapper');
+    parent.insertBefore(wrapperDiv, mainArticle1);
+    wrapperDiv.appendChild(mainArticle1);
+    wrapperDiv.appendChild(mainArticle2);
+  }
+  }
+}
+dataMapMoObj.article = articleStructure;

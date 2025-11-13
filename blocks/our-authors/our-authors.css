@@ -22,7 +22,7 @@
   background: var(--blue-1-25, #EDF1FF);
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .our-authors-container .our-authors {
     flex-direction: column;
     align-items: flex-start;
@@ -36,6 +36,23 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 5.297px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .our-authors-container .our-authors .our-authors-cont1 {
+    margin-bottom: 0;
+  }
+}
+
+.our-authors-container .our-authors .our-authors-cont1 .our-authors-section1 {
+  height: 196px;
+}
+
+@media (max-width: 768px) {
+  .our-authors-container .our-authors .our-authors-cont1 .our-authors-section1 {
+    height: 308px;
+  }
 }
 
 .our-authors-container .our-authors .our-authors-cont1 .our-authors-section1 img {
@@ -44,14 +61,14 @@
   border-radius: 8.556px;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .our-authors-container .our-authors .our-authors-cont1 .our-authors-section1 img {
     max-width: 308px;
     border-radius: 8.556px;
   }
 }
 
-.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1 > ul {
+.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1>ul {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -63,7 +80,7 @@
   list-style: none;
 }
 
-.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1 > ul .authors-lists1 {
+.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1>ul .authors-lists1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -71,7 +88,7 @@
   align-self: stretch;
 }
 
-.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1 > ul .authors-lists1 h6 {
+.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1>ul .authors-lists1 h6 {
   margin: 0;
   padding: 0;
   color: var(--blue-1800-primary, #2E2A94);
@@ -83,14 +100,14 @@
   line-height: var(--heading-h6-line-height, 28px);
 }
 
-@media (width <= 768px) {
-  .our-authors-container .our-authors .our-authors-cont2 .our-authors-section1 > ul .authors-lists1 h6 {
+@media (max-width: 768px) {
+  .our-authors-container .our-authors .our-authors-cont2 .our-authors-section1>ul .authors-lists1 h6 {
     font-size: 20px;
     line-height: 24px;
   }
 }
 
-.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1 > ul .authors-lists1 ul li {
+.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1>ul .authors-lists1 ul li {
   color: var(--neutrals-700, #616161);
   font-feature-settings: var(--font-features-default);
   font-family: var(--body, Inter);
@@ -100,22 +117,23 @@
   line-height: var(--label-medium-line-height, 16px);
 }
 
-@media (width <= 768px) {
-  .our-authors-container .our-authors .our-authors-cont2 .our-authors-section1 > ul .authors-lists1 ul li {
+@media (max-width: 768px) {
+  .our-authors-container .our-authors .our-authors-cont2 .our-authors-section1>ul .authors-lists1 ul li {
     font-size: var(--label-medium-size);
     line-height: var(--label-medium-line-height);
   }
 }
 
-.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1 > ul .authors-lists2 {
+.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1>ul .authors-lists2 {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  word-break: break-word;
 }
 
-.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1 > ul .authors-lists2 p {
+.our-authors-container .our-authors .our-authors-cont2 .our-authors-section1>ul .authors-lists2 p {
   color: var(--text-body);
-  font-feature-settings: --font-features-default;
+  font-feature-settings: var(--font-features-default);
   font-family: var(--body);
   font-size: var(--body-small-regular-size, 14px);
   font-style: normal;
@@ -123,20 +141,27 @@
   line-height: var(--label-large-line-height, 20px);
 }
 
-@media (width <= 768px) {
+.section.our-author-detail.our-authors-container {
+  padding-top: 0;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
   .section.our-author-detail.our-authors-container {
     margin-top: 0;
   }
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .popular-artical.our-author-detail.moedge-building-container {
     padding-top: 0;
   }
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .popular-artical.our-author-detail.moedge-building-container .default-content-wrapper ul {
     padding-bottom: 16px;
   }
 }
+
+/*# sourceMappingURL=our-authors.css.map */

@@ -553,6 +553,14 @@
           {
             "name": "Breadcrumbs",
             "value": "breadcrumbs"
+          },
+          {
+            "name": "Future Building Article Details",
+            "value": "future-building-article-details"
+          },
+          {
+            "name": "Pr News List",
+            "value": "pr-news-list"
           }
         ]
       },
@@ -2064,13 +2072,13 @@
       },
       {
         "component": "text",
-        "name": "imageAlt",
+        "name": "imageAlt",    
         "label": "Alt Text"
       },
       {
         "component": "richtext",
-        "name": "Video_link",
-        "label": "Video Link",
+        "name": "Image_link",
+        "label": "Image Link",
         "value": ""
       },
       {
@@ -2078,6 +2086,30 @@
         "name": "description",
         "label": "motilal edge Building Item Description",
         "value": ""
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "multi": false,
+        "options": [
+          {
+            "name": "video",
+            "value": "video"
+          },
+          {
+            "name": "blog",
+            "value": "blog"
+          },
+          {
+            "name": "podcast",
+            "value": "podcast"
+          },
+          {
+            "name": "article",
+            "value": "article"
+          }
+        ]
       }
     ]
   },

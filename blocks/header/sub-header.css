@@ -1,6 +1,5 @@
 @import "../../../styles/fonts.css";
-
-header nav[aria-expanded="true"] .nav-sections.header-sub-pms .nav-sec-sec1 li p a {
+header nav[aria-expanded=true] .nav-sections.header-sub-pms .nav-sec-sec1 li p a {
   color: var(--neutrals-white);
   background-color: transparent;
   font-feature-settings: var(--font-feature-default);
@@ -10,9 +9,8 @@ header nav[aria-expanded="true"] .nav-sections.header-sub-pms .nav-sec-sec1 li p
   font-weight: 400;
   line-height: var(--label-large-line-height);
 }
-
-@media (width <= 768px) {
-  header nav[aria-expanded="true"] .nav-sections.header-sub-pms .nav-sec-sec1 li p a {
+@media (max-width: 768px) {
+  header nav[aria-expanded=true] .nav-sections.header-sub-pms .nav-sec-sec1 li p a {
     width: 100%;
     text-align: left;
     color: var(--blue-1800-primary, #2E2A94);
@@ -21,25 +19,21 @@ header nav[aria-expanded="true"] .nav-sections.header-sub-pms .nav-sec-sec1 li p
     line-height: var(--body-medium-semibold-line-height);
   }
 }
-
-@media (width <= 768px) {
-  header nav[aria-expanded="true"] .nav-sections.header-sub-pms .nav-sec-sec1 li.nav-sec-sub1 {
+@media (max-width: 768px) {
+  header nav[aria-expanded=true] .nav-sections.header-sub-pms .nav-sec-sec1 li.nav-sec-sub1 {
     display: none;
   }
 }
-
-@media (width <= 768px) {
-  header nav[aria-expanded="true"] .nav-sections.header-sub-pms .nav-sec-sec1 .nav-sec-sub2 {
+@media (max-width: 768px) {
+  header nav[aria-expanded=true] .nav-sections.header-sub-pms .nav-sec-sec1 .nav-sec-sub2 {
     margin-top: 24px;
   }
 }
-
-header nav[aria-expanded="true"] .header-top.header-sub-pms {
+header nav[aria-expanded=true] .header-top.header-sub-pms {
   width: 55%;
 }
-
-@media (width <= 768px) {
-  header nav[aria-expanded="true"] .header-top.header-sub-pms {
+@media (max-width: 768px) {
+  header nav[aria-expanded=true] .header-top.header-sub-pms {
     width: 100%;
   }
-}
+}/*# sourceMappingURL=sub-header.css.map */
