@@ -337,7 +337,7 @@ function loadDelayed() {
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
-  
+
   loadDelayed();
 }
 
@@ -480,16 +480,16 @@ function articleStructure() {
     formBlock(formdiv);
 
     const mainArticle1 = maincloser.querySelector('.moedge-article-video .mainarticle1');
-  const mainArticle2 = maincloser.querySelector('.moedge-article-video .mainarticle2');
+    const mainArticle2 = maincloser.querySelector('.moedge-article-video .mainarticle2');
 
-  if (mainArticle1 && mainArticle2 && mainArticle1.parentNode === mainArticle2.parentNode) {
-    const parent = mainArticle1.parentNode;
-    const wrapperDiv = document.createElement('div');
-    wrapperDiv.classList.add('articles-wrapper');
-    parent.insertBefore(wrapperDiv, mainArticle1);
-    wrapperDiv.appendChild(mainArticle1);
-    wrapperDiv.appendChild(mainArticle2);
-  }
+    if (mainArticle1 && mainArticle2 && mainArticle1.parentNode === mainArticle2.parentNode) {
+      const parent = mainArticle1.parentNode;
+      const wrapperDiv = document.createElement('div');
+      wrapperDiv.classList.add('articles-wrapper');
+      parent.insertBefore(wrapperDiv, mainArticle1);
+      wrapperDiv.appendChild(mainArticle1);
+      wrapperDiv.appendChild(mainArticle2);
+    }
   }
 }
 dataMapMoObj.article = articleStructure;
