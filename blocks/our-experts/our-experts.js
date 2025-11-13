@@ -104,9 +104,9 @@ export default function decorate(block) {
 
   const crossIcon = document.createElement('img');
   crossIcon.classList.add('cancel-btn');
-  crossIcon.setAttribute('src', "/icons/input-cancel.svg");
-  crossIcon.setAttribute('alt', "cancel button");
-  crossIcon.setAttribute('loading', "eager");
+  crossIcon.setAttribute('src', '/icons/input-cancel.svg');
+  crossIcon.setAttribute('alt', 'cancel button');
+  crossIcon.setAttribute('loading', 'eager');
   crossIcon.style.display = 'flex';
   crossIcon.style.cursor = 'pointer';
   crossIconWrap.appendChild(crossIcon);
@@ -168,14 +168,13 @@ export default function decorate(block) {
   seachSection.appendChild(searchNewEle);
   const searchFld = document.querySelector('#our-experts-search');
   let currentFocusIndex = -1;
-  const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const closeBtn = document.querySelector('.cross-icon-wrap');
-
 
   if (searchFld) {
     const listContainer = document.querySelector('.search-results');
 
-    function updateActiveItem(items) {
+    const updateActiveItem = (items) => {
       items.forEach((item, idx) => {
         if (idx === currentFocusIndex) {
           item.classList.add('active-search-item');
@@ -186,7 +185,7 @@ export default function decorate(block) {
           item.classList.remove('active-search-item');
         }
       });
-    }
+    };
 
     searchFld.addEventListener('focus', () => {
       searchNewEle.classList.remove('dsp-none');
@@ -196,41 +195,40 @@ export default function decorate(block) {
 
       titles.forEach((title) => {
         const storeTitle = title.textContent.trim();
-        if (storeTitle && storeTitle.toLowerCase() !== "read now") {
+        if (storeTitle && storeTitle.toLowerCase() !== 'read now') {
           titleAry.push(storeTitle);
         }
       });
 
-      const profileNameAry = []
-      profileName.forEach((profileName) => {
-        const storePflName = profileName.textContent.trim();
-        if (storePflName && storePflName.toLowerCase() !== "card_link") {
+      const profileNameAry = [];
+      profileName.forEach((subprofileName) => {
+        const storePflName = subprofileName.textContent.trim();
+        if (storePflName && storePflName.toLowerCase() !== 'card_link') {
           profileNameAry.push(storePflName);
         }
       });
 
       const mergedArray = [...new Set([...titleAry, ...profileNameAry])];
       // console.log('Our Experts search clicked!', event);
-      console.log('Filtered Titles:', titleAry);
-      console.log('Filtered Profile Name:', profileNameAry);
-      console.log('Filtered Final Array:', mergedArray);
+      // console.log('Filtered Titles:', titleAry);
+      // console.log('Filtered Profile Name:', profileNameAry);
+      // console.log('Filtered Final Array:', mergedArray);
 
       if (searchNewEle && mergedArray.length > 0) {
         searchNewEle.innerHTML = '';
 
-        mergedArray.forEach(value => {
+        mergedArray.forEach((value) => {
           const newItem = document.createElement('p');
           const anchotTag = document.createElement('a');
           anchotTag.classList.add('list');
           anchotTag.setAttribute('href', '#');
           newItem.classList.add('result-item');
-          newItem.setAttribute('data-original-text', value)
+          newItem.setAttribute('data-original-text', value);
           searchNewEle.appendChild(newItem);
           newItem.appendChild(anchotTag);
           anchotTag.textContent = value;
         });
       }
-
     });
 
     listContainer.addEventListener('click', (event) => {
@@ -240,7 +238,7 @@ export default function decorate(block) {
     });
 
     const filterListItems = (searchTerm) => {
-      let listItems = document.querySelectorAll('.result-item');
+      const listItems = document.querySelectorAll('.result-item');
       const term = searchTerm.trim();
       const existingNoResultsMessage = listContainer.querySelector('.no-results-message');
       if (existingNoResultsMessage) existingNoResultsMessage.remove();
@@ -254,7 +252,7 @@ export default function decorate(block) {
         return;
       }
 
-      const searchRegex = new RegExp(escapeRegExp(term), 'gi');
+      // const searchRegex = new RegExp(escapeRegExp(term), 'gi');
       let matchesFound = false;
 
       listItems.forEach((item) => {
@@ -300,7 +298,6 @@ export default function decorate(block) {
         currentFocusIndex = (currentFocusIndex - 1 + visibleItems.length) % visibleItems.length;
         updateActiveItem(visibleItems);
       } if (event.key === 'Enter') {
-
         if (visibleItems.length === 0) return;
 
         if (currentFocusIndex < 0 || currentFocusIndex >= visibleItems.length) {
@@ -310,12 +307,12 @@ export default function decorate(block) {
         }
 
         listContainer.classList.add('dsp-none');
-
       } if (event.key === 'Backspace' || event.key === 'Delete') {
         currentFocusIndex = -1;
         event.preventDefault();
         searchFld.value = searchFld.value.slice(0, -1);
       }
+      return event;
     });
 
     closeBtn.addEventListener('click', () => {
@@ -323,7 +320,6 @@ export default function decorate(block) {
       filterListItems('');
       closeBtn.style.display = 'none';
     });
-
   }
   // --- END SEARCH FUNCTIONALITY ---
 }
