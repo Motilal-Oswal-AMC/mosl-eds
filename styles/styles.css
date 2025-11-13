@@ -1652,7 +1652,7 @@ z-index: -1;
 
 main>.section.media-coverage,
 main.nfo-nav>.section.media-coverage {
-    margin: 100px auto 24px;
+    margin: 100px auto 28px;
 }
 
 main>.section.media-coverage .default-content-wrapper h1,
@@ -1768,7 +1768,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
 .maintab>.tabs-panel {
     padding: 0;
     border: none;
-    margin: 24px 0 0;
+    margin: 0;
 }
 
 .maintab>.tabs-panel[aria-hidden='true'] {
