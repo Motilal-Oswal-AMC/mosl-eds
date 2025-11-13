@@ -117,7 +117,6 @@ export default function decorate(block) {
     Array.from(fetchAnchor).forEach((anchor) => {
       anchor.classList.add('list-data');
     });
-
   }
 
   const pmsRooted = block.closest('.pms-rooted');
