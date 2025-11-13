@@ -978,9 +978,7 @@
         white-space: unset;
 
         @include media(mobile) {
-            position: fixed;
             right: 16px;
-            top: unset;
             bottom: 150px;
         }
     }

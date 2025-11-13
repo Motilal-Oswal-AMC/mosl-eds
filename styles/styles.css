@@ -1978,7 +1978,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
 
 /* Media Coverage Image modal end */
 
-@media screen and (width >=1025px) {
+@media screen and (width <=1299px) {
     .section.media-coverage.embed-container .embed-wrapper {
         max-width: 32.2%;
         height: auto;

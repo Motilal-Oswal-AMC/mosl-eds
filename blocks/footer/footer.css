@@ -782,9 +782,7 @@
 }
 @media (max-width: 768px) {
   .footer-wrapper .scroll-to-top {
-    position: fixed;
     right: 16px;
-    top: unset;
     bottom: 150px;
   }
 }

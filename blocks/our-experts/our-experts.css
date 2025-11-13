@@ -242,6 +242,14 @@
   }
 }
 
+.section.out-expert-listing.our-experts-container {
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .section.out-expert-listing.our-experts-container {
+    margin-bottom: 0;
+  }
+}
 @media (max-width: 768px) {
   .section.out-expert-listing.our-experts-container .our-experts-wrapper .our-experts .our-experts-cont1 .our-expert-section1 .our-expert-sub1 {
     font-size: var(--sub-header-large-size);
