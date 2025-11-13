@@ -443,11 +443,10 @@ if (calculatorsCard != null) {
 }
 
 // *Calculators card  End *//
-
-// article 
+// // article 
 function articleStructure() {
-   // Investor Education article left and right wrapper
-  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details')) {
+  // Investor Education article left and right wrapper
+  if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details') || window.location.href.includes('/motilal-oswal-edge/our-authors/prateek-agrawal')) {
     const maincloser = document.querySelector('main');
     const rightSub = maincloser.querySelectorAll('.article-sub-right');
     const rightarticle = maincloser.querySelector('.article-right-wrapper');

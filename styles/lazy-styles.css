@@ -1,6 +1,5 @@
 @import "../../../styles/fonts.css";
 @import '../blocks/swiper/swiper-bundle.min.css';
-@import '../blocks/moedge-article-details/moedge-article-details.css';
 .section.learning-fdp.future-building-container {
   padding: 40px 0;
 }
