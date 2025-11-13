@@ -26,6 +26,7 @@
   }
 }
 .mo-qglp-container .mo-qglp > div .invest-philo-inner-text1 {
+  min-height: 232px;
   display: flex;
   padding: 24px 12px;
   justify-content: center;
