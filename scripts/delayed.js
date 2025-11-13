@@ -126,6 +126,20 @@ if (newSection) {
   }
 
 }
+if(window.innerWidth <= 767){
+    const futureBuildingSection = document.querySelector('.future-building-container');
+    const stayUpdatedSection = document.querySelector('.article-sub-right.stay-updated.comlist.articlesub2');
+
+    
+    if (futureBuildingSection && stayUpdatedSection) {
+    // Move future-building-container above stay-updated
+    stayUpdatedSection.parentNode.insertBefore(futureBuildingSection, stayUpdatedSection);
+    console.log('✅ future-building-container moved above stay-updated');
+    } else {
+    console.warn('⚠️ Required sections not found in DOM');
+    }
+    // 
+    }
 
 // function articleStructure() {
 //    // Investor Education article left and right wrapper
