@@ -97,7 +97,7 @@ export const loadEmbed = (block, link, autoplay) => {
 export default function decorate(block) {
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
-  if (!block.closest('.media-coverage')) {
+  if (!block.closest('.media-coverage') && !block.closest('.prev-studies-wrapper')) {
     block.textContent = '';
   }
   // wcs js
@@ -112,7 +112,18 @@ export default function decorate(block) {
     // console.log('classes not appended');
   }
 
-  if (placeholder && !block.closest('.media-coverage')) {
+  const main = block.closest('main');
+  const prevStudieswrapper = main.querySelectorAll('.prev-studies-wrapper');
+  if (prevStudieswrapper != null) {
+    prevStudieswrapper.forEach((el) => {
+      dataMapMoObj.CLASS_PREFIXES = ['annual-wealth-wrap', 'aw-ctn', 'aw-subctn', 'aw-subctnIn'];
+      dataMapMoObj.addIndexed(el);
+    });
+    
+  }
+
+  if (!block.closest('.prev-studies-wrapper')) {
+  if (placeholder && !block.closest('.media-coverage') && !block.closest('.prev-studies-wrapper')) {
     const wrapper = document.createElement('div');
     wrapper.className = 'embed-placeholder';
     wrapper.innerHTML = '<div class="embed-placeholder-play"><button type="button" title="Play"></button></div>';
@@ -130,6 +141,7 @@ export default function decorate(block) {
     });
     observer.observe(block);
   }
+}
   const data = block.closest('main');
   if (data !== null && window.location.href.includes('/wcs/in/en/coverage')) {
     if (!data.querySelector('.maintab')) {

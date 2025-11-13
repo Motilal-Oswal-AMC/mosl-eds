@@ -1922,13 +1922,13 @@ main>.section.media-coverage .default-content-wrapper h6 {
 
 .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-2 {
     width: 232px;
-    padding: 16px 0;
+    padding: 16px 0 22px;
     vertical-align: top;
 }
 
 .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-3 {
     width: 364px;
-    padding: 16px 8px 0 132px;
+    padding: 16px 8px 22px 132px;
     vertical-align: top;
 }
 
@@ -2119,6 +2119,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
 
     .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-2 {
         min-width: 76px;
+        padding: 16px 0;
     }
 
     .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-3 {
