@@ -11,6 +11,8 @@ import * as am5themes_Animated from '../../scripts/Animated.js';
 import chartsDataReturn from './datareturn.js';
 import { initObserver, myAPI } from '../../scripts/scripts.js';
 
+window.am5.addLicense('AM5C-253273928');
+
 export default function decorate(block) {
   // Extract authored content
   const container = block.closest('.performance-graph-returning-container');

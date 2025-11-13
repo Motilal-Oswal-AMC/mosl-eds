@@ -33,6 +33,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  padding-top: 130px;
 }
 @media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row1 {
@@ -166,11 +167,24 @@
   }
 }
 .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
-  width: 36.8%;
+  padding-right: 106px;
+}
+@media (max-width: 1299px) {
+  .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
+    padding-right: 0;
+  }
 }
 @media (max-width: 768px) {
   .section.why-choose-us-container .why-choose-us .why-choose-us-row2 {
     width: 100%;
+  }
+}
+.section.why-choose-us-container .why-choose-us .why-choose-us-row2 .why-choose-us-sec1 {
+  height: 422px;
+}
+@media (max-width: 768px) {
+  .section.why-choose-us-container .why-choose-us .why-choose-us-row2 .why-choose-us-sec1 {
+    height: 346px;
   }
 }
 .section.why-choose-us-container .why-choose-us .why-choose-us-row2 .why-choose-us-sec1 .choose-us-lists4 {

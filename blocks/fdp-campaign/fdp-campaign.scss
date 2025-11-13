@@ -311,12 +311,12 @@ $breakpoint-tablet: 900px;
 
 
             @include media(mobile){
-              display: block;
-            }
-
-            @include media(mobile-md){
               display: none;
             }
+
+            // @include media(mobile-md){
+            //   display: none;
+            // }
              
             .compaignsub1{
               font-size: 0;
@@ -334,8 +334,16 @@ $breakpoint-tablet: 900px;
             max-width: 100%;
             font-size: 0;
               
-            @include media(mobile-md){
+            @include media(mobile){
               display: block;
+
+              img.comlist{
+                max-height: 718px;
+                width: 100%;
+              }
+            }
+
+            @include media(mobile-md){
               
               .mobimg-34{                
                 height: 100%;

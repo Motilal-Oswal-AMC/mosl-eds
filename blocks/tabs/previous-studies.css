@@ -83,6 +83,7 @@
 .previous-studies-ctn.tabs-container .previous-studies-ex2 .tabs-panel {
   border: none;
   padding: 40px 0;
+  margin: 0;
 }
 @media (max-width: 768px) {
   .previous-studies-ctn.tabs-container .previous-studies-ex2 .tabs-panel {

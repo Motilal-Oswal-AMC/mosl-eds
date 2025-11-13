@@ -130,7 +130,7 @@
   padding: 16px 0;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 }
 @media (max-width: 768px) {
   .popular-artical .default-content-wrapper:last-of-type > ul {
@@ -151,6 +151,7 @@
 @media (max-width: 768px) {
   .popular-artical .default-content-wrapper:last-of-type > ul li {
     border-radius: var(--border-radius-8);
+    height: 40px;
   }
 }
 .popular-artical .default-content-wrapper:last-of-type > ul li a {

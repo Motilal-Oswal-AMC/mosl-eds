@@ -3,8 +3,10 @@
 /* media-feature-range-notation */
 
 @use "sass:map";
-@use "../styles/common-theme/css/variables_mixins" as *;
-@use "../styles/common-theme/css/fluid-typography" as *;
+@use "../styles/common-theme/css/variables_mixins"as *;
+@use "../styles/common-theme/css/fluid-typography"as *;
+@import '../blocks/moedge-article-details/moedge-article-details.css';
+
 
 
 
@@ -198,7 +200,7 @@
 
 
 // WCS Landing Scss Start
-.wcs-landing.section.embed-container{
+.wcs-landing.section.embed-container {
   max-width: 1232px;
   margin: 0 auto;
   margin-top: 16px;
@@ -213,13 +215,13 @@
     flex-direction: column;
     padding-top: 56px;
     position: relative;
-    }
+  }
 
-  .wcs1{
+  .wcs1 {
     margin-left: 0;
     margin-right: 0;
 
-    .text1{
+    .text1 {
       max-width: 504px;
       width: 100%;
       margin-top: 0;
@@ -231,13 +233,13 @@
       line-height: var(--heading-h1-line-height);
       margin-bottom: 12px;
 
-       @include media(mobile) {
+      @include media(mobile) {
         font-size: 28px;
         line-height: var(--sub-header-large-line-height);
-    }
+      }
     }
 
-    .text2{
+    .text2 {
       margin-top: 0;
       max-width: 504px;
       width: 100%;
@@ -251,22 +253,23 @@
 
       @include media(mobile) {
         margin-bottom: 28px;
-    }
+      }
     }
 
-    .text3{
+    .text3 {
       padding: 0 4px 0 0;
-       @include media(mobile) {
+
+      @include media(mobile) {
         padding: 0 16px 0 20px;
         margin: 0 auto;
         position: absolute;
         bottom: 0;
         left: 0;
-        right: 0;    
+        right: 0;
         display: flex;
       }
 
-      .cta1{
+      .cta1 {
         color: var(--text-white);
         text-align: center;
         font-family: var(--body);
@@ -283,12 +286,12 @@
           width: 100%;
           margin: 0 auto 28px;
           border: none;
-       }
+        }
       }
     }
   }
 
-  .wcs2{
+  .wcs2 {
     display: flex;
     max-width: 607px;
     width: 100%;
@@ -298,23 +301,111 @@
     border-radius: 5.948px;
     overflow: hidden;
 
-     @include media(mobile) {
-     display: flex;
-     width: 100%;
-     height: 100%;
-     flex-direction: column;
-     margin: 0 auto 80px;
+    @include media(mobile) {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      margin: 0 auto 80px;
 
-    //  max-width: 339.441px;
-    //  max-height: 190.737px;
+      //  max-width: 339.441px;
+      //  max-height: 190.737px;
     }
   }
 }
 
 // WCs Landing Scss End
 
-// Inverters Blogs scss start
+// common breadcrumbs scss start
+.section.breadcrumbs {
+  margin: 0;
+  padding: 24px 0;
 
 
+  .breadul {
+    max-width: 1232px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
 
-// Inverters Blogs scss End
+
+    @media (width <=1279px) {
+      padding: 0 24px;
+    }
+
+    @include media (mobile) {
+      padding: 0 16px;
+      overflow-x: auto;
+      margin-right: 25px;
+
+
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    .breadli {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &:not(:first-child) {
+        &::before {
+          content: "|";
+          max-width: 6px;
+          height: 16px;
+          display: inline-block;
+          color: var(--neutrals-800);
+          font-family: var(--body);
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: 16px;
+          transform: rotate(6deg);
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--blue-1800-primary, #2E2A94);
+        font-feature-settings: var(--font-features-default);
+        font-family: var(--body, Inter);
+        font-size: var(--label-small-size);
+        font-style: normal;
+        font-weight: 400;
+        line-height: var(--label-small-line-height);
+        white-space: nowrap;
+
+        img {
+          width: 20px;
+          height: 20px;
+
+          @include media (mobile) {
+            min-width: 20px;
+          }
+        }
+      }
+
+      &:last-child {
+        a {
+          color: var(--blue-1800-primary, #2E2A94);
+          font-feature-settings: var(--font-features-default);
+          font-family: var(--body, Inter);
+          font-size: var(--label-small-size);
+          font-style: normal;
+          font-weight: 400;
+          line-height: var(--label-small-line-height);
+        }
+      }
+    }
+  }
+}
+
+// common breadcrumbs scss End

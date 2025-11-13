@@ -3,8 +3,8 @@
 /*   media-feature-range-notation */
 
 @use "sass:map";
-@use "../../styles/common-theme/css/variables_mixins" as *;
-@use "../../styles/common-theme/css/fluid-typography" as *;
+@use "../../styles/common-theme/css/variables_mixins"as *;
+@use "../../styles/common-theme/css/fluid-typography"as *;
 @import "./faq-page.css";
 
 .accordion-container {
@@ -169,6 +169,10 @@
 .section.freq-ask-ques {
   width: 100%;
 
+  @include media(mobile) {
+    padding-bottom: 40px;
+  }
+
   // background-color: #f5f5f5;
   // margin: 0;
   // padding: 40px 0;
@@ -219,7 +223,7 @@
           map.get($typography-desktop, heading-h4-line-height),
           $blue-1-800-primary,
           600,
-          $title );
+          $title);
 
         padding: 0;
         margin: 0;
@@ -229,7 +233,7 @@
             28px,
             $blue-1-800-primary,
             600,
-            $title );
+            $title);
         }
       }
     }
@@ -430,7 +434,7 @@
     }
 
     &>.default-content-wrapper:nth-child(3) {
-     grid-column: 2 / 2;
+      grid-column: 2 / 2;
       grid-row: 2;
       margin-top: 16px;
 
@@ -461,7 +465,7 @@
             map.get($typography-desktop, Button-Small-Line-Height),
             $text-white,
             500,
-            $body );
+            $body);
         }
       }
 
