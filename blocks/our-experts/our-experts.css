@@ -72,6 +72,7 @@
   align-items: flex-start;
   gap: 12px;
   flex-shrink: 0;
+  position: relative;
 }
 @media (max-width: 768px) {
   .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 {
@@ -117,6 +118,7 @@
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper {
   line-height: 0;
+  width: 100%;
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub1 .floating-label-wrapper label {
   position: absolute;
@@ -226,6 +228,51 @@
   padding-right: 8px;
 }
 .section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .our-expert-sub3 {
+  display: none;
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .search-results {
+  position: absolute;
+  top: 45px;
+  display: block;
+  background-color: var(--neutrals-white);
+  border: 1px solid var(--neutrals-200);
+  border-radius: 6px;
+  width: 100%;
+  margin: 4px 0 0;
+  max-height: 300px;
+  overflow: auto;
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .search-results::-webkit-scrollbar {
+  width: 3px;
+  background-color: #464343;
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .search-results::-webkit-scrollbar-thumb {
+  width: 3px;
+  background-color: #424242;
+  border-radius: 0 1px 1px 0;
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .search-results::-webkit-scrollbar-track {
+  width: 3px;
+  background-color: var(--neutrals-white);
+  border-radius: 0 6px 6px 0;
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .search-results .result-item {
+  margin: unset;
+  padding: 12px 20px 12px;
+  cursor: pointer;
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .search-results .result-item .list {
+  font-size: var(--body-small-regular-size);
+  line-height: var(--label-large-line-height);
+  color: var(--neutrals-black);
+  font-family: var(--body);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .search-results .result-item:last-child {
+  padding-bottom: unset;
+}
+.section.our-experts-container .our-experts-wrapper .our-experts-cont2 .our-expert-section1 .search-results.dsp-none {
   display: none;
 }
 
