@@ -429,7 +429,7 @@
                 .leftartitem1,
                 .leftartitem3,
                 .leftartitem4 {
-                    padding: 40px 0 0;
+                    padding: 0;
                     margin: 0;
                     color: #3D3D3D;
                     font-feature-settings: var(--font-features-default);
@@ -445,6 +445,10 @@
                         font-size: var(--paragraph-small-size);
                         line-height: var(--paragraph-small-line-height);
                     }
+                }
+
+                .leftartitem4 {
+                   padding: 40px 0 0;
                 }
 
                 .leftartitem2.comlist {
