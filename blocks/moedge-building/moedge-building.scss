@@ -396,8 +396,7 @@
 
 .in-the-news.popular-artical.moedge-building-container {
     position: relative;
-
-    // margin-top: 0;
+    margin-top: 24px;
     padding: 0;
 
     .moedge-building {
@@ -521,11 +520,11 @@
     }
 }
 
-.section.in-the-news.edge-filter-container {
-    @include media(mobile) {
-        display: none;
-    }
-}
+// .section.in-the-news.edge-filter-container {
+//     @include media(mobile) {
+//         display: none;
+//     }
+// }
 
 .out-expert-listing.in-the-news {
     .our-experts-wrapper {

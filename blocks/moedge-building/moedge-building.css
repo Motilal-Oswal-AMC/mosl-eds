@@ -308,6 +308,7 @@
 }
 .in-the-news.popular-artical.moedge-building-container {
   position: relative;
+  margin-top: 24px;
   padding: 0;
 }
 .in-the-news.popular-artical.moedge-building-container .moedge-building {
@@ -414,12 +415,6 @@
 @media (max-width: 768px) {
   .pr-news-list.in-the-news.popular-artical.moedge-building-container .moedge-building {
     padding-bottom: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .section.in-the-news.edge-filter-container {
-    display: none;
   }
 }
 

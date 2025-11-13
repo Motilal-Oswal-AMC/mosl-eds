@@ -278,6 +278,12 @@
 }
 
 .section.out-expert-listing.our-experts-container {
+    margin-bottom: 24px;
+
+    @include media (mobile) {
+        margin-bottom: 0;
+    }
+
     .our-experts-wrapper {
         .our-experts {
             .our-experts-cont1 {
