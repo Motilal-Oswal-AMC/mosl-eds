@@ -1561,7 +1561,7 @@ z-index: -1;
 
 /* Wealth Page - Media Coverage Start */
 .maintab .tabs-panel .section.media-coverage.embed-container {
-    display: flex !important;
+    display: flex;
     flex-wrap: wrap;
     gap: 16px;
     margin: 0;
@@ -1769,6 +1769,14 @@ main>.section.media-coverage .default-content-wrapper h6 {
     padding: 0;
     border: none;
     margin: 24px 0 0;
+}
+
+.maintab>.tabs-panel[aria-hidden='true'] {
+    display: none;
+}
+
+.maintab>.tabs-panel[aria-hidden='false'] .section.media-coverage{
+    display: flex;
 }
 
 .maintab>.tabs-panel .innerdiv .tabs-list {
