@@ -265,6 +265,9 @@
     align-self: unset;
   }
 }
+.performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .fund-details .fund-meta .fund-returns-main .value .fund-percentage {
+  margin-left: 4px;
+}
 .performance-graph-returning-container .performance-graph-wrapper .performance-graph-returning-wrapper .performance-graph-returning .fund-header .invest-now-btn .button-desktop {
   text-align: center;
   font-style: normal;
