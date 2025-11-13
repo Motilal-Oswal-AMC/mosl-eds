@@ -410,9 +410,6 @@ main > .section.previous-studies-tab {
   margin: 57px auto;
   position: relative;
 }
-main > .section.previous-studies-tab .default-content-wrapper {
-  padding-top: 40px;
-}
 @media (max-width: 768px) {
   main > .section.previous-studies-tab .default-content-wrapper {
     padding-top: 12px;
@@ -428,6 +425,7 @@ main > .section.previous-studies-tab .default-content-wrapper p {
   line-height: var(--heading-h1-line-height);
   margin-top: 63px;
   margin: 0;
+  padding-top: 40px;
 }
 @media (max-width: 768px) {
   main > .section.previous-studies-tab .default-content-wrapper p {
@@ -507,7 +505,7 @@ main > .section.previous-studies-tab .tab-dropdown-wrap .tab-droplist .tabs-list
   flex-direction: column;
   gap: 40px;
   padding-bottom: 40px;
-  padding-top: 40px;
+  padding-top: 64px;
 }
 @media (max-width: 768px) {
   .prev-studies-wrapper {

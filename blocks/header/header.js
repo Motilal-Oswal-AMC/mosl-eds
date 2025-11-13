@@ -111,7 +111,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  if (window.location.href.includes('/wealth-page')) {
+  if (window.location.href.includes('/wcs')) {
     block.classList.add('wealth-header');
   }
 
