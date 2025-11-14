@@ -15,16 +15,15 @@ import {
   loadCSS,
 } from './aem.js';
 
-import dataMapMoObj from '../scripts/constant.js';
-import formBlock from '../blocks/form/form.js';
+import dataMapMoObj from './constant.js';
+import formBlock, {
+  createForm,
+} from '../blocks/form/form.js';
 
 // eslint-disable-next-line import/no-cycle
 import {
   initializeModalHandlers,
 } from '../blocks/modal/modal.js';
-import {
-  createForm,
-} from '../blocks/form/form.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -225,6 +224,8 @@ async function loadLazy(doc) {
   }
   wrapImgsInLinks(doc);
   await loadSections(main);
+  dataMapMoObj.article();
+  dataMapMoObj.qglpwcs();
 
   const {
     hash,
@@ -336,8 +337,8 @@ function loadDelayed() {
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
+
   loadDelayed();
-  dataMapMoObj.article();
 }
 
 loadPage();
@@ -442,10 +443,9 @@ if (calculatorsCard != null) {
 }
 
 // *Calculators card  End *//
-
-// article 
+// // article
 function articleStructure() {
-   // Investor Education article left and right wrapper
+  // Investor Education article left and right wrapper
   if (window.location.href.includes('/investor-education/all-articles/') || window.location.href.includes('/motilal-oswal-edge/article-details')) {
     const maincloser = document.querySelector('main');
     const rightSub = maincloser.querySelectorAll('.article-sub-right');
@@ -478,6 +478,67 @@ function articleStructure() {
     const formdiv = formpath
       .querySelector('.subscribe-email .button-container');
     formBlock(formdiv);
+
+    const mainArticle1 = maincloser.querySelector('.moedge-article-video .mainarticle1');
+    const mainArticle2 = maincloser.querySelector('.moedge-article-video .mainarticle2');
+
+    if (mainArticle1 && mainArticle2 && mainArticle1.parentNode === mainArticle2.parentNode) {
+      const parent = mainArticle1.parentNode;
+      const wrapperDiv = document.createElement('div');
+      wrapperDiv.classList.add('articles-wrapper');
+      parent.insertBefore(wrapperDiv, mainArticle1);
+      wrapperDiv.appendChild(mainArticle1);
+      wrapperDiv.appendChild(mainArticle2);
+    }
   }
 }
 dataMapMoObj.article = articleStructure;
+
+function qglpwcs() {
+  const mainbl = document.querySelector('main');
+  const data = mainbl.querySelectorAll('.tab-glp');
+  if (data.length !== 0) {
+    data.forEach((ele) => {
+      if (ele != null) {
+        dataMapMoObj.CLASS_PREFIXES = [
+          'glp-tab-block',
+          'glp-tab-inner',
+          'glp-tab-sub-inner',
+          'glp-tab-sub-inner-sub',
+          'glp-tab-ul',
+          'glp-tab-inner-ul',
+          'glp-tab-li',
+          'glp-tab-sub-inner-ul',
+          'glp-tab-inner-li',
+          'glp-tab-sub-inner-li',
+          'glp-tab-sub-inner-li-sub',
+          'glp-li',
+          'glp-li-inner',
+        ];
+        dataMapMoObj.addIndexed(ele);
+
+        const addClassName = ele.querySelectorAll('.glp-tab-li1');
+        if (addClassName) {
+          addClassName.forEach((elem) => {
+            elem.classList.add('li-containers');
+          });
+        }
+
+        const addClassNameli = ele.querySelectorAll('.glp-tab-sub-inner-ul2');
+        if (addClassNameli) {
+          addClassNameli.forEach((elem) => {
+            elem.classList.add('same-li');
+          });
+        }
+
+        const addClassNamel = ele.querySelectorAll('.glp-tab-sub-inner-ul1');
+        if (addClassNamel) {
+          addClassNamel.forEach((elem) => {
+            elem.classList.add('same-li');
+          });
+        }
+      }
+    });
+  }
+}
+dataMapMoObj.qglpwcs = qglpwcs;

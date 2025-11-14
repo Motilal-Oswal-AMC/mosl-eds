@@ -309,6 +309,10 @@
   }
 }
 
+.section.wealth-register.wealth-modal-container:first-child {
+  margin-top: unset;
+}
+
 .modal.modal-journey .close-button {
   display: none;
 }

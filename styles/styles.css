@@ -1564,7 +1564,7 @@ z-index: -1;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin: 0;
+    margin: 0 0 40px;
 }
 
 .section.media-coverage.embed-container .default-content-wrapper {
@@ -1650,9 +1650,12 @@ z-index: -1;
     border-radius: 8px;
 }
 
-main>.section.media-coverage,
+main>.section.media-coverage{
+    margin: 40px auto 28px;
+}
+
 main.nfo-nav>.section.media-coverage {
-    margin: 100px auto 24px;
+    margin: 60px auto 28px;
 }
 
 main>.section.media-coverage .default-content-wrapper h1,
@@ -1674,7 +1677,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
 .maintab {
     max-width: 1264px;
     width: 100%;
-    margin: 0 auto 18px;
+    margin: 0 auto;
     position: relative;
     padding: 0 16px;
 }
@@ -1683,7 +1686,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     position: absolute;
     right: 16px;
     top: -4px;
-    max-width: 27.85%;
+    max-width: 26.899%;
     width: 100%;
     cursor: pointer;
     margin: 0 0 0 24px;
@@ -1703,6 +1706,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     border: var(--border-width-01) solid var(--strokes-default);
     padding: var(--spacing-8) var(--spacing-12);
     margin: 0;
+    height: 40px;
 }
 
 .maintab>.tab-dropdown-wrap .selected-tab::after {
@@ -1768,14 +1772,14 @@ main>.section.media-coverage .default-content-wrapper h6 {
 .maintab>.tabs-panel {
     padding: 0;
     border: none;
-    margin: 24px 0 0;
+    margin: 0;
 }
 
 .maintab>.tabs-panel[aria-hidden='true'] {
     display: none;
 }
 
-.maintab>.tabs-panel[aria-hidden='false'] .section.media-coverage{
+.maintab>.tabs-panel[aria-hidden='false'] .section.media-coverage {
     display: flex;
 }
 
@@ -1821,9 +1825,15 @@ main>.section.media-coverage .default-content-wrapper h6 {
 }
 
 .maintab>.tabs-panel .innerdiv .tabs-panel {
-    padding: 0 0 12px;
+    padding: 0;
     margin: 0;
     border: none;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+.maintab>.tabs-panel .innerdiv .tabs-panel::-webkit-scrollbar {
+    display: none;
 }
 
 /* .maintab>.tabs-panel .innerdiv .tabs-panel .section.media-coverage .default-content-wrapper {
@@ -1835,11 +1845,15 @@ main>.section.media-coverage .default-content-wrapper h6 {
     display: none !important;
 } */
 
-.maintab>.tabs-panel .innerdiv .tabs-panel .section.media-coverage {
+/* .maintab>.tabs-panel .innerdiv .tabs-panel .section.media-coverage {
     margin: 0;
-}
+} */
 
 /* Table start */
+.maintab>.tabs-panel .innerdiv .tabs-panel .section.coverage-table-panel {
+    margin: 0 0 12px;
+}
+
 .maintab>.tabs-panel .innerdiv .tabs-panel .coverage-table-container .studytab-title {
     margin: 0 0 24px;
     color: var(--text-body);
@@ -1922,13 +1936,13 @@ main>.section.media-coverage .default-content-wrapper h6 {
 
 .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-2 {
     width: 232px;
-    padding: 16px 0;
+    padding: 16px 0 22px;
     vertical-align: top;
 }
 
 .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-3 {
     width: 364px;
-    padding: 16px 8px 0 132px;
+    padding: 16px 8px 22px 132px;
     vertical-align: top;
 }
 
@@ -1941,11 +1955,13 @@ main>.section.media-coverage .default-content-wrapper h6 {
 
 .modal.block.coverage-image-modal .modal-content {
     padding: 0;
-    max-height: 100%;
+    max-height: 497px;
     height: auto;
-    max-width: 450px;
+    /* max-width: 450px; */
+    max-width: 543px;
     width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .modal.block.coverage-image-modal .modal-content .close-button {
@@ -1976,9 +1992,15 @@ main>.section.media-coverage .default-content-wrapper h6 {
     margin: 0;
 }
 
+.modal.block.coverage-image-modal .modal-content .default-content-wrapper p picture {
+    line-height: 0;
+    height: 100%;
+    display: block;
+}
+
 /* Media Coverage Image modal end */
 
-@media screen and (width >=1025px) {
+@media screen and (width <=1299px) {
     .section.media-coverage.embed-container .embed-wrapper {
         max-width: 32.2%;
         height: auto;
@@ -1995,6 +2017,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
 @media screen and (width <=768px) {
     .maintab .tabs-panel .section.media-coverage.embed-container {
         gap: 32px;
+        margin: 0 0 144px;
     }
 
     .section.media-coverage.embed-container .default-content-wrapper .embed-inner1 {
@@ -2016,9 +2039,12 @@ main>.section.media-coverage .default-content-wrapper h6 {
         width: 100%;
     }
 
-    main>.section.media-coverage,
+    main>.section.media-coverage{
+        margin: 24px auto 0;
+    }
+
     main.nfo-nav>.section.media-coverage {
-        margin: 82px auto 0;
+        margin: 73px auto 0;
     }
 
     main>.section.media-coverage .default-content-wrapper h1,
@@ -2034,13 +2060,13 @@ main>.section.media-coverage .default-content-wrapper h6 {
 
     .maintab {
         max-width: 100%;
-        margin: 0 0 36px;
+        margin: 0;
     }
 
     .maintab>.tab-dropdown-wrap {
         max-width: 100%;
         margin: 32px 0 24px;
-        padding: 0 16px;
+        padding: 0 14.5px;
         top: 0;
         right: 0;
     }
@@ -2071,6 +2097,10 @@ main>.section.media-coverage .default-content-wrapper h6 {
     .maintab>.tabs-panel .innerdiv .tabs-list .tabs-tab[aria-selected='true'] {
         font-size: var(--body-small-medium-size);
         line-height: var(--body-small-medium-line-height);
+    }
+
+    .maintab>.tabs-panel .innerdiv .tabs-panel .section.coverage-table-panel {
+        margin: 0;
     }
 
     .maintab>.tabs-panel .innerdiv .tabs-panel .coverage-table-container .studytab-title {
@@ -2119,6 +2149,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
 
     .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-2 {
         min-width: 76px;
+        padding: 16px 0;
     }
 
     .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-3 {
@@ -2133,6 +2164,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
         height: 100%;
         background-color: var(--neutrals-white);
         max-width: 100%;
+        max-height: 100%;
     }
 
     .modal.block.coverage-image-modal .modal-content .close-button {
@@ -2140,10 +2172,17 @@ main>.section.media-coverage .default-content-wrapper h6 {
         right: 15px;
     }
 
-    .modal.block.coverage-image-modal .modal-content .section {
+    .modal.block.coverage-image-modal .modal-content .section .default-content-wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .modal.block.coverage-image-modal .modal-content .default-content-wrapper p {
+        max-width: 94.894%;
+        width: 100%;
     }
 
     /* Media Coverage Image modal end */
