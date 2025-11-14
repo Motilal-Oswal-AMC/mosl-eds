@@ -5,11 +5,11 @@
 .section .decoding-qglp-wrapper {
   max-width: 1366px;
   width: 100%;
-  margin-top: 116px;
+  margin-top: 56px;
 
-  @include media(mobile) {
-    margin-top: 114px;
-  }
+  // @include media(mobile) {
+  //   margin-top: 56px;
+  // }
 
   .decoding-qglp {
     display: flex;
@@ -101,5 +101,12 @@
         background: var(--blue-1-25);
       }
     }
+  }
+}
+
+.section.decoding-qglp-container{
+
+  @include media(mobile) {
+  padding-bottom: 8px;
   }
 }
