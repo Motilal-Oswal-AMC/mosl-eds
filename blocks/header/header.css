@@ -2965,4 +2965,10 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     .wealth-header .nav-sections .nav-sec-sec1 .nav-drop.nav-sec-sub2 {
         margin-top: 15px;
     }
+
+}
+@media (width >= 900px) {        
+    .header.wealth-header nav .nav-sections .nav-sec-sec1 {
+        justify-content: flex-end;
+    }
 }
