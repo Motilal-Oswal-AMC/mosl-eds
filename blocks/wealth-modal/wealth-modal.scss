@@ -12,7 +12,7 @@
   height: 100vh !important;
 
   @media (width <= 768px) {
-    padding: 36px 16px;
+    padding: 36px 16px 32px;
     position: fixed;
     z-index: 11;
     bottom: 0px;
@@ -61,11 +61,11 @@
     > .inp-lab {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 36px;
 
-      @media (width <= 768px) {
-        gap: 32px;
-      }
+      // @media (width <= 768px) {
+      //   gap: 32px;
+      // }
 
       .inp-lab-div {
         position: relative;
@@ -178,6 +178,15 @@
           left: 12px;
           top: 5px;
           margin-top: 3px;
+
+          @include media(mobile) {
+            top: 7px;
+          }
+
+          .icon-national-flag {
+            height: 20px;
+            width: 28px;
+          }
         }
 
         ul {
@@ -223,11 +232,11 @@
 
         .dropdown-arrow {
           background-image: url('/icons/arrow-down-black.svg');
-          width: 20px;
-          height: 20px;
+          width: 24px;
+          height: 24px;
           position: absolute;
-          right: 8px;
-          top: 10px;
+          right: 13px;
+          top: 9px;
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
@@ -242,16 +251,16 @@
         .country-drop{
           width: 37.1%;
           .cont-label{
-             position: absolute;
-          top: 50%;
-          left: 40px;
-          transform: translateY(-50%);
-          transition: all 0.2s ease-in-out;
-          color: var(--text-default-input);
-          font-family: var(--body);
-          font-size: var(--body-medium-regular-size);
-          line-height: var(--body-medium-regular-line-height);
-          font-weight: 400;
+              position: absolute;
+              top: 50%;
+              left: 45px;
+              transform: translateY(-50%);
+              transition: all 0.2s ease-in-out;
+              color: var(--text-default-input);
+              font-family: var(--body);
+              font-size: var(--body-medium-regular-size);
+              line-height: var(--body-medium-regular-line-height);
+              font-weight: 400;
           
             &::after{
               content: "";
@@ -259,8 +268,8 @@
               width: 20px;
               height: 20px;
               position: absolute;
-              right: -40px;
-              top: 1px;
+              right: -33px;
+              // top: 1px;
               background-position: center;
               background-repeat: no-repeat;
               background-size: cover;
@@ -279,6 +288,11 @@
       flex-direction: column;
       gap: 12px;
 
+      @include media(mobile) {
+        margin-top: 32px;
+        gap: 20px;
+      }
+
       .btn {
         width: 100%;
         display: flex;
@@ -292,6 +306,8 @@
         font-size: var(--button-medium-size);
         font-weight: 500;
         cursor: pointer;
+        margin: unset;
+        padding: 12px;
 
         > p {
           margin: 0;
@@ -316,6 +332,7 @@
         font-family: var(--body);
         font-size: 12px;
         line-height: 16px;
+        margin: unset;
 
         p {
           margin: 0;

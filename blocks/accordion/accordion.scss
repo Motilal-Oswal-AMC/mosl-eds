@@ -456,7 +456,7 @@
       // pad/ding: 0 16px;
 
       @include media(mobile) {
-        margin-top: 12px;
+        margin-top: 13px;
       }
 
       .button-container {
@@ -474,9 +474,10 @@
           height: 32px;
           display: flex;
           align-items: center;
+          border: none;
 
           @include font-style(map.get($typography-desktop, button-small-size),
-            map.get($typography-desktop, Button-Small-Line-Height),
+            map.get($typography-desktop, button-small-line-height),
             $text-white,
             500,
             $body);
