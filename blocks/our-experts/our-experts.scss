@@ -3,9 +3,11 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.our-experts-container {
-    margin-bottom: 0;
+    margin-top: 24px;
 
-    // @include media mobile {}
+    @include media (mobile) {
+        margin-top: 0;
+    }
 
     .our-experts-wrapper {
         ul {
@@ -24,7 +26,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 40px 0;
+            padding: 0;
             padding-bottom: 0;
 
             @include media(mobile) {
@@ -32,11 +34,13 @@
                 align-items: flex-start;
                 gap: 40px;
                 padding: 0;
-                padding-top: 24px;
+
+                // padding-top: 24px;
             }
 
             &-cont1 {
                 .our-expert-section1 {
+
                     h1,
                     h2,
                     h3,
@@ -110,12 +114,33 @@
                             font-style: normal;
                             font-weight: 400;
                             line-height: var(--body-medium-regular-line-height, 20px);
+
+                            ::placeholder {
+                                color: var(--text-body-2);
+                            }
                         }
 
                         .floating-label-wrapper {
+                            width: 100%;
                             line-height: 0;
 
-                            label {
+                            // & input:focus+label,
+                            // & input:not(:placeholder-shown)+label {
+                            //     top: -8px;
+                            //     left: 25px;
+                            //     padding: 0 4px;
+                            //     color: #2E2A94;
+                            //     font-feature-settings: var(--font-features-default);
+                            //     font-family: var(--body);
+                            //     font-size: var(--text-link-xsmall-size);
+                            //     font-style: normal;
+                            //     font-weight: 400;
+                            //     line-height: var(--text-link-xsmall-line-height, 16px);
+                            //     background-color: #FFF;
+                            // }
+
+                            >label {
+                                display: none;
                                 position: absolute;
                                 top: 12px;
                                 left: 45px;
@@ -253,6 +278,12 @@
 }
 
 .section.out-expert-listing.our-experts-container {
+    margin-bottom: 24px;
+
+    @include media (mobile) {
+        margin-bottom: 0;
+    }
+
     .our-experts-wrapper {
         .our-experts {
             .our-experts-cont1 {

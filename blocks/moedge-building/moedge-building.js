@@ -12,6 +12,15 @@ export default function decorate(block) {
   ];
   dataMapMoObj.addIndexed(block);
 
+  Array.from(block.children).forEach((container) => {
+    if (container.querySelector('.moedge-build-sec4 .moedge-build-sub1')) {
+      const txtletter = container
+        .querySelector('.moedge-build-sec4');
+      const txtdup = txtletter.textContent.trim();
+      container.classList.add(txtdup);
+      txtletter.remove();
+    }
+  });
   // --- 2. Wrap Sections ---
   // allCards is a NodeList of all card containers in this block
   const allCards = block.querySelectorAll(':scope > div[class*="moedge-build-cont"]');

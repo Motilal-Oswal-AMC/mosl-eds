@@ -68,7 +68,7 @@
 .moedge-article-details-wrapper .moedge-article-details .mainarticle1 .itemarticle1 ul .mainitemart1 ul .submainart2 {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 .moedge-article-details-wrapper .moedge-article-details .mainarticle1 .itemarticle1 ul .mainitemart1 ul .submainart2::before {
   content: "";
@@ -76,6 +76,7 @@
   height: 4px;
   background-color: var(--blue-1-400);
   border-radius: 50%;
+  margin-right: 4px;
 }
 .moedge-article-details-wrapper .moedge-article-details .mainarticle1 .itemarticle1 ul .mainitemart1 ul .submainart3 {
   display: flex;

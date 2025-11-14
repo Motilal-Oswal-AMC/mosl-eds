@@ -116,6 +116,7 @@ export default async function decorate(block) {
       event.target.value = sanitizedValue;
     };
     phno.addEventListener('input', sanitizeInput);
+    updateSelectIds('countrySelect', 'countryLabel');
   }
 
   // Change select id and its label
@@ -131,5 +132,4 @@ export default async function decorate(block) {
     labelEl.remove();
     selectEl.setAttribute('aria-label', 'Select country code');
   }
-  updateSelectIds('countrySelect', 'countryLabel');
 }

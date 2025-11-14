@@ -2,6 +2,14 @@
 .moedge-article-video-wrapper .moedge-article-video .articles-wrapper {
   position: relative;
 }
+.moedge-article-video-wrapper .moedge-article-video .articles-wrapper .subleftart1 .itemarticle1.mainleftart1 {
+  font-size: 0;
+}
+@media (max-width: 768px) {
+  .moedge-article-video-wrapper .moedge-article-video .articles-wrapper .subleftart1 .itemarticle1.mainleftart1 {
+    font-size: 0;
+  }
+}
 .moedge-article-video-wrapper .moedge-article-video .articles-wrapper .mainarticle1 .itemarticle1 img {
   width: 816px;
   height: 320px;

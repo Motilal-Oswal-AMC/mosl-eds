@@ -5,6 +5,10 @@
  * https://www.hlx.live/developer/block-collection/embed
  */
 import dataMapMoObj from '../../scripts/constant.js';
+import {
+  div, table, thead, tbody, tr, p,
+} from '../../scripts/dom-helpers.js';
+import tabBlock from '../tabs/tabs.js';
 
 const loadScript = (url, callback, type) => {
   const head = document.querySelector('head');
@@ -93,7 +97,9 @@ export const loadEmbed = (block, link, autoplay) => {
 export default function decorate(block) {
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
-  block.textContent = '';
+  if (!block.closest('.media-coverage') && !block.closest('.prev-studies-wrapper')) {
+    block.textContent = '';
+  }
   // wcs js
   try {
     const main = block.closest('main');
@@ -106,7 +112,18 @@ export default function decorate(block) {
     // console.log('classes not appended');
   }
 
-  if (placeholder) {
+  const main = block.closest('main');
+  const prevStudieswrapper = main.querySelectorAll('.prev-studies-wrapper');
+  if (prevStudieswrapper != null) {
+    prevStudieswrapper.forEach((el) => {
+      dataMapMoObj.CLASS_PREFIXES = ['annual-wealth-wrap', 'aw-ctn', 'aw-subctn', 'aw-subctnIn'];
+      dataMapMoObj.addIndexed(el);
+    });
+    
+  }
+
+  if (!block.closest('.prev-studies-wrapper')) {
+  if (placeholder && !block.closest('.media-coverage') && !block.closest('.prev-studies-wrapper')) {
     const wrapper = document.createElement('div');
     wrapper.className = 'embed-placeholder';
     wrapper.innerHTML = '<div class="embed-placeholder-play"><button type="button" title="Play"></button></div>';
@@ -124,4 +141,170 @@ export default function decorate(block) {
     });
     observer.observe(block);
   }
+}
+  const data = block.closest('main');
+  if (data !== null && window.location.href.includes('/wcs/in/en/coverage')) {
+    if (!data.querySelector('.maintab')) {
+      const subdata = data.querySelectorAll('.section');
+      if (dataMapMoObj.objdata === undefined) {
+        dataMapMoObj.objdata = {};
+      }
+      Array.from(subdata).forEach((eldata) => {
+        if (eldata.getAttribute('data-tab-head-title') !== null) {
+          if (dataMapMoObj.objdata[eldata.getAttribute('data-tab-head-title')] === undefined) {
+            dataMapMoObj.objdata[eldata.getAttribute('data-tab-head-title')] = {};
+          }
+          dataMapMoObj.objdata[eldata.getAttribute('data-tab-head-title')][eldata.getAttribute('data-tab-title')] = eldata;
+          eldata.remove();
+        }
+      });
+      // console.log(dataMapMoObj.objdata);
+      const divmain = div({ class: 'maintab' });
+      Object.keys(dataMapMoObj.objdata).forEach((elobj, index) => {
+        const innerdiv = div({ class: 'innerdiv' });
+        const valueAry = Object.values(dataMapMoObj.objdata);
+        Object.keys(valueAry[index]).forEach((inner) => {
+          const subinner = div(
+            { class: 'subinnercontain' },
+            div(inner),
+            div({ class: 'subbinner' }),
+          );
+          dataMapMoObj.CLASS_PREFIXES = ['embed-main', 'embed-inner', 'embed-subitem', 'embed-childitem', 'embed-childinner'];
+          dataMapMoObj.addIndexed(valueAry[index][inner]);
+          if (index === 0) {
+            valueAry[index][inner].style.display = 'flex';
+          }
+          subinner.querySelector('.subbinner').innerHTML += valueAry[index][inner].outerHTML;
+          // subinner.querySelector('.section > .default-content-wrapper > p')
+          //   .classList.add('studytab-title');
+          // .append(valueAry[index][inner]);
+          innerdiv.append(subinner);
+        });
+        tabBlock(innerdiv);
+        const container = div(
+          { class: 'contain' },
+          div(elobj),
+          div({ class: 'maininnerdiv' }),
+        );
+        container.querySelector('.maininnerdiv').innerHTML += innerdiv.outerHTML;
+        divmain.append(container);
+      });
+      // console.log(divmain);
+      tabBlock(divmain);
+      if (!data.classList.contains('modal-wrapper')) {
+        data.append(divmain);
+      }
+
+      const tableRender = (panel) => {
+        const headkey = panel.querySelector('.section').getAttribute('data-tab-head-title');
+        const key = panel.querySelector('.section').getAttribute('data-tab-title');
+        const paneldata = dataMapMoObj.objdata[headkey][key];
+        const htmldata = paneldata.querySelector('ul ul').querySelectorAll('ul');
+        const selectedLabelTab = paneldata.querySelector('p').textContent.trim();
+        if (window.location.pathname.includes('/wcs/in/en/coverage')) {
+          const tableMain = div(
+            { class: 'coverage-table-container' },
+            p({ class: 'studytab-title' }, selectedLabelTab),
+            table(
+              { class: 'coverage-table' },
+              thead(
+                { class: 'coverage-thead' },
+                tr(
+                  { class: 'coverage-thead-tr' },
+                ),
+              ),
+              tbody(
+                { class: 'coverage-tbody' },
+              ),
+            ),
+          );
+          Array.from(htmldata[0].querySelectorAll('li')).map((el, headind) => {
+            el.classList.add('coverage-thead-th');
+            el.classList.add(`coverage-th-${headind + 1}`);
+            const stringel = el.outerHTML;
+            const repformat = stringel.replaceAll('<li', '<th').replaceAll('</li>', '</th>');
+            tableMain.querySelector('.coverage-thead tr').innerHTML += repformat;
+            return el;
+          });
+          Array.from(Array.from(htmldata).slice(1)).map((el) => {
+            el.classList.add('coverage-tbody-tr');
+            const eldatali = el.querySelectorAll('li');
+            Array.from(eldatali).forEach((elsub, index) => {
+              elsub.classList.add('coverage-tbody-td');
+              elsub.classList.add(`coverage-td-${index + 1}`);
+            });
+            const stringsec = el.outerHTML;
+            const repformat = stringsec.replaceAll('<ul', '<tr')
+              .replaceAll('</ul>', '</tr>').replaceAll('<li', '<td').replaceAll('</li>', '</td>');
+            tableMain.querySelector('.coverage-tbody').innerHTML += repformat;
+            return el;
+          });
+          if (!panel.querySelector('.coverage-table-container')) {
+            panel.querySelector('.coverage-table-panel').append(tableMain);
+            panel.querySelector('.coverage-table-panel').style.display = 'block';
+            panel.querySelector('.default-content-wrapper').style.display = 'none';
+          }
+        }
+      };
+
+      data.querySelectorAll('.innerdiv').forEach((eldiv) => {
+        eldiv.querySelectorAll('.tabs-list button').forEach((tabbtn) => {
+          tabbtn.addEventListener('click', () => {
+            eldiv.querySelectorAll('[role=tabpanel]').forEach((panel) => {
+              panel.setAttribute('aria-hidden', true);
+            });
+            eldiv.querySelectorAll('.tabs-list button').forEach((btn) => {
+              btn.setAttribute('aria-selected', false);
+            });
+            tabbtn.setAttribute('aria-selected', true);
+            const attr = tabbtn.getAttribute('id').replace('tab', 'tabpanel');
+            const tabpanel = eldiv.querySelector(`#${attr}`);
+            tabpanel.setAttribute('aria-hidden', false);
+            if (tabpanel.querySelector('.coverage-table-panel')) {
+              tableRender(tabpanel);
+            }
+          });
+        });
+        eldiv.querySelectorAll('.tabs-list button')[0]
+          .setAttribute('aria-selected', true);
+        eldiv.querySelectorAll('[role=tabpanel]')[0]
+          .setAttribute('aria-hidden', false);
+      });
+
+      // Coverage Tab Dropdown
+      const dropdownlist = divmain.querySelector('.tabs-list');
+      let activeTab;
+      Array.from(dropdownlist.children).forEach((el) => {
+        if (el.getAttribute('aria-selected') === 'true') {
+          activeTab = el.textContent;
+        }
+      });
+      const tabDrodpwon = div(
+        { class: 'tab-dropdown-wrap' },
+        p({ class: 'selected-tab' }, activeTab),
+        div({ class: 'tab-droplist' }),
+      );
+      tabDrodpwon.querySelector('.tab-droplist').append(dropdownlist);
+
+      divmain.prepend(tabDrodpwon);
+
+      const tabmainclick = divmain.querySelector('.tab-dropdown-wrap');
+      tabmainclick.addEventListener('click', () => {
+        const selectedTab = tabmainclick.querySelector('.selected-tab');
+        const tabslistwrap = tabmainclick.querySelector('.tab-droplist');
+        const tabslist = tabmainclick.querySelectorAll('.tabs-list .tabs-tab');
+        tabmainclick.classList.toggle('active');
+
+        if (!tabslistwrap.classList.contains('active')) {
+          tabslist.forEach((tab) => {
+            if (tab.getAttribute('aria-selected') === 'true') {
+              selectedTab.textContent = tab.textContent;
+            }
+          });
+        }
+      });
+      block.closest('.section').style.display = 'block';
+    }
+  }
+  return block;
 }

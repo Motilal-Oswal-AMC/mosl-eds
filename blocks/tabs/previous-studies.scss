@@ -94,6 +94,7 @@
     .tabs-panel{
       border: none;
       padding: 40px 0;
+      margin: 0;
 
         @include media(mobile) {
             padding: 52px 16px 72px;

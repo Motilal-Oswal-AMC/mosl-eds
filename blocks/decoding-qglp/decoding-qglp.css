@@ -2,11 +2,11 @@
 .section .decoding-qglp-wrapper {
   max-width: 1366px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 116px;
 }
 @media (max-width: 768px) {
   .section .decoding-qglp-wrapper {
-    margin-top: 20px;
+    margin-top: 114px;
   }
 }
 .section .decoding-qglp-wrapper .decoding-qglp {

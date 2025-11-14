@@ -35,6 +35,7 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
+            padding-top: 130px;
 
             @include media (mobile) {
                 width: 100%;
@@ -176,13 +177,25 @@
         }
 
         .why-choose-us-row2 {
-            width: 36.8%;
+            // width: 36.8%;
+            padding-right: 106px;
+
+            @include media (desktop-sm) {
+                padding-right: 0;
+            }
 
             @include media (mobile) {
                 width: 100%;
+
             }
 
             .why-choose-us-sec1 {
+                height: 422px;
+
+                @include media (mobile) {
+                    height: 346px;
+                }
+
                 .choose-us-lists4 {
                     width: 453px;
                     height: 422px;
