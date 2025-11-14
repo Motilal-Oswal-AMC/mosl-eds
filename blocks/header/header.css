@@ -2920,7 +2920,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
 @media (width <=768px) {
     .wealth-header .nav-sections .nav-sec-sec1 {
-        gap:23px
+        gap:28px
     }
 
     .wealth-header .nav-wrapper .nav-brand .navbrand-cont1 .navbrand-sec3 .navbrand-sub1 {
@@ -2963,7 +2963,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     }
 
     .wealth-header .nav-sections .nav-sec-sec1 .nav-drop.nav-sec-sub2 {
-        margin-top: 15px;
+        margin-top: 16px;
     }
 
 }
