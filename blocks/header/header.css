@@ -2971,4 +2971,9 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     .header.wealth-header nav .nav-sections .nav-sec-sec1 {
         justify-content: flex-end;
     }
+
+    .header.wealth-header nav .nav-sections .nav-sec-sec1 .nav-sec-inner-text1{
+        line-height: 0;
+        font-size: 0;
+    }
 }
