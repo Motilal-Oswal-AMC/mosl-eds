@@ -83,7 +83,7 @@
 
               @include media(mobile) {
                 font-size: var(--body-medium-regular-size);
-                font-weight: var(--body-medium-regular-line-height);
+                line-height: var(--body-medium-regular-line-height);
               }
             }
 
@@ -100,7 +100,7 @@
 
               @include media(mobile) {
                 font-size: var(--body-medium-semibold-size);
-                font-weight: var(--body-medium-semibold-line-height);
+                line-height: var(--body-medium-semibold-line-height);
               }
             }
           }
@@ -416,7 +416,7 @@
           -ms-overflow-style: none;
           justify-content: flex-start;
           padding: 16px;
-          padding-top: 8px;
+          // padding-top: 8px;
         }
       }
 

@@ -82,7 +82,7 @@
 @media (max-width: 768px) {
   .section.glp-tab .tab-glp-wrapper .tab-glp .glp-tab-block1 .glp-tab-inner1 .glp-tab-sub-inner2 .glp-tab-sub-inner-sub1 {
     font-size: var(--body-medium-regular-size);
-    font-weight: var(--body-medium-regular-line-height);
+    line-height: var(--body-medium-regular-line-height);
   }
 }
 .section.glp-tab .tab-glp-wrapper .tab-glp .glp-tab-block1 .glp-tab-inner1 .glp-tab-sub-inner2 .glp-tab-sub-inner-sub2 {
@@ -97,7 +97,7 @@
 @media (max-width: 768px) {
   .section.glp-tab .tab-glp-wrapper .tab-glp .glp-tab-block1 .glp-tab-inner1 .glp-tab-sub-inner2 .glp-tab-sub-inner-sub2 {
     font-size: var(--body-medium-semibold-size);
-    font-weight: var(--body-medium-semibold-line-height);
+    line-height: var(--body-medium-semibold-line-height);
   }
 }
 .section.glp-tab .tab-glp-wrapper .tab-glp .glp-tab-block2 {
@@ -352,7 +352,6 @@
     -ms-overflow-style: none;
     justify-content: flex-start;
     padding: 16px;
-    padding-top: 8px;
   }
 }
 .section.qglp-tabs .tabs-wrapper .tabs .tabs-list::-webkit-scrollbar {
