@@ -85,6 +85,7 @@ export default function decorate(block) {
   inputEl.type = 'text';
   inputEl.id = 'our-experts-search';
   inputEl.placeholder = ' ';
+  inputEl.autocomplete = 'off';
 
   const labelEl = document.createElement('label');
   labelEl.htmlFor = inputEl.id;
@@ -209,31 +210,42 @@ export default function decorate(block) {
       });
 
       const mergedArray = [...new Set([...titleAry, ...profileNameAry])];
-      // console.log('Our Experts search clicked!', event);
-      // console.log('Filtered Titles:', titleAry);
-      // console.log('Filtered Profile Name:', profileNameAry);
-      // console.log('Filtered Final Array:', mergedArray);
-
-      if (searchNewEle && mergedArray.length > 0) {
+      if (searchNewEle && searchFld.value.length === 0 && mergedArray.length > 0) {
         searchNewEle.innerHTML = '';
 
         mergedArray.forEach((value) => {
           const newItem = document.createElement('p');
           const anchotTag = document.createElement('a');
           anchotTag.classList.add('list');
-          anchotTag.setAttribute('href', '#');
+          anchotTag.setAttribute(
+            'href',
+            'https://mosl-dev-upd--mosl-eds--motilal-oswal-amc.aem.live/mutual-fund/in/en/motilal-oswal-edge/article-details-list',
+          );
           newItem.classList.add('result-item');
           newItem.setAttribute('data-original-text', value);
           searchNewEle.appendChild(newItem);
           newItem.appendChild(anchotTag);
           anchotTag.textContent = value;
         });
+      } else {
+        listContainer.querySelectorAll('.list').forEach((item) => {
+        // Check if the item's text includes the search parameter
+          const isVisible = item.textContent.toLocaleLowerCase()
+            .includes(searchFld.value.toLocaleLowerCase());
+          // 2. Perform the "side effect": Show or hide the parent
+          item.parentElement.style.display = isVisible ? 'block' : 'none';
+        });
+        // Array.from(listContainer.querySelectorAll('.list'))
+        //   .filter((item) => (item.textContent.includes(searchFld.value)
+        //  ? item.parentElement.style.display = 'block'
+        // : item.parentElement.style.display = 'none'));
       }
     });
 
     listContainer.addEventListener('click', (event) => {
       closeBtn.style.display = 'block';
       searchFld.value = event.target.parentNode.dataset.originalText;
+      window.location.href = event.target.getAttribute('href');
       listContainer.classList.add('dsp-none');
     });
 
@@ -280,46 +292,83 @@ export default function decorate(block) {
 
     searchFld.addEventListener('input', (event) => {
       filterListItems(event.target.value);
+      Array.from(listContainer.querySelectorAll('.list')).forEach((list) => {
+        if (list.textContent.toLocaleLowerCase().includes(searchFld.value.toLocaleLowerCase())) {
+          list.parentElement.style.display = 'block';
+        } else {
+          list.parentElement.style.display = 'none';
+        }
+      });
       closeBtn.style.display = event.target.value.length > 0 ? 'flex' : 'none';
     });
-
-    searchFld.addEventListener('keydown', (event) => {
-      closeBtn.style.display = 'block';
-      const visibleItems = Array.from(listContainer.querySelectorAll('.list'))
-        .filter((item) => item.style.display !== 'none' && !item.classList.contains('no-results-message'));
-
-      if (event.key === 'ArrowDown') {
-        event.preventDefault();
-        currentFocusIndex = (currentFocusIndex + 1) % visibleItems.length;
-        updateActiveItem(visibleItems);
-        return false;
-      } if (event.key === 'ArrowUp') {
-        event.preventDefault();
-        currentFocusIndex = (currentFocusIndex - 1 + visibleItems.length) % visibleItems.length;
-        updateActiveItem(visibleItems);
-      } if (event.key === 'Enter') {
-        if (visibleItems.length === 0) return;
-
-        if (currentFocusIndex < 0 || currentFocusIndex >= visibleItems.length) {
-          searchFld.value = visibleItems[0].textContent.trim();
-        } else {
-          searchFld.value = visibleItems[currentFocusIndex].textContent.trim();
-        }
-
-        listContainer.classList.add('dsp-none');
-      } if (event.key === 'Backspace' || event.key === 'Delete') {
-        currentFocusIndex = -1;
-        event.preventDefault();
-        searchFld.value = searchFld.value.slice(0, -1);
-      }
-      return event;
-    });
-
     closeBtn.addEventListener('click', () => {
       searchFld.value = '';
       filterListItems('');
       closeBtn.style.display = 'none';
     });
+    searchFld.addEventListener('keydown', (event) => {
+      closeBtn.style.display = 'block';
+      const visibleItems = (param) => {
+        if (param === undefined) {
+          return Array.from(listContainer.querySelectorAll('.list'))
+            .filter((item) => item.parentElement.style.display !== 'none' && !item.classList.contains('no-results-message'));
+        }
+        return Array.from(listContainer.querySelectorAll('.list'))
+          .filter((item) => (item.textContent.toLocaleLowerCase().includes(param.toLocaleLowerCase()) ? item.parentElement.style.display = 'block' : item.parentElement.style.display = 'none'));
+      };
+
+      switch (event.key) {
+        case 'ArrowDown':
+          event.preventDefault();
+          currentFocusIndex = (currentFocusIndex + 1) % visibleItems().length;
+          updateActiveItem(visibleItems());
+          break;
+        case 'ArrowUp':
+          event.preventDefault();
+          currentFocusIndex = ((currentFocusIndex - 1 + visibleItems().length)
+           % visibleItems().length);
+          updateActiveItem(visibleItems());
+          break;
+        case 'Enter':
+          if (visibleItems().length === 0) return false;
+
+          if (currentFocusIndex < 0 || currentFocusIndex >= visibleItems().length) {
+            searchFld.value = visibleItems()[0].textContent.trim();
+            window.location.href = visibleItems()[0].getAttribute('href');
+          } else {
+            searchFld.value = visibleItems()[currentFocusIndex].textContent.trim();
+            window.location.href = visibleItems()[currentFocusIndex].getAttribute('href');
+          }
+
+          listContainer.classList.add('dsp-none');
+          break;
+        // case 'Backspace':
+        //   currentFocusIndex = -1;
+        //   event.preventDefault();
+        //   searchFld.value = searchFld.value.slice(0, -1);
+        //   visibleItems(searchFld.value);
+        //   break;
+        // case 'Delete':
+        //   currentFocusIndex = -1;
+        //   event.preventDefault();
+        //   searchFld.value = searchFld.value.slice(0, -1);
+        //   visibleItems(searchFld.value);
+        //   break;
+        default:
+          break;
+      }
+      return event;
+    });
   }
+  document.addEventListener('click', (event) => {
+    const inputbox = block.querySelector('.our-experts-cont2 .our-expert-sub1 input');
+    const searchbox = block.querySelector('.our-experts-cont2 .search-results');
+    if (!inputbox.contains(event.target) && !searchbox.contains(event.target)) {
+      searchbox.classList.add('dsp-none');
+      if (searchFld.value === '') {
+        closeBtn.style.display = 'none';
+      }
+    }
+  });
   // --- END SEARCH FUNCTIONALITY ---
 }
