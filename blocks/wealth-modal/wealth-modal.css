@@ -249,6 +249,7 @@
 @media (max-width: 768px) {
   .section.wealth-register .ragis-lab-btn > .btn-mand {
     margin-top: 32px;
+    gap: 20px;
   }
 }
 .section.wealth-register .ragis-lab-btn > .btn-mand .btn {
@@ -286,6 +287,7 @@
   font-family: var(--body);
   font-size: 12px;
   line-height: 16px;
+  margin: unset;
 }
 .section.wealth-register .ragis-lab-btn > .btn-mand .mandatory p {
   margin: 0;

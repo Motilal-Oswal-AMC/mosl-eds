@@ -290,6 +290,7 @@
 
       @include media(mobile) {
         margin-top: 32px;
+        gap: 20px;
       }
 
       .btn {
@@ -331,6 +332,7 @@
         font-family: var(--body);
         font-size: 12px;
         line-height: 16px;
+        margin: unset;
 
         p {
           margin: 0;
