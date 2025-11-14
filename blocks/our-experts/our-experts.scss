@@ -3,7 +3,7 @@
 @use "../../styles/common-theme/css/fluid-typography"as *;
 
 .section.our-experts-container {
-    margin-top: 24px;
+    // margin-top: 24px;
 
     @include media (mobile) {
         margin-top: 0;
@@ -40,7 +40,6 @@
 
             &-cont1 {
                 .our-expert-section1 {
-
                     h1,
                     h2,
                     h3,
@@ -278,10 +277,10 @@
 }
 
 .section.out-expert-listing.our-experts-container {
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
 
     @include media (mobile) {
-        margin-bottom: 0;
+        margin-bottom: 56px;
     }
 
     .our-experts-wrapper {
@@ -299,9 +298,9 @@
                 }
             }
 
-            .our-experts-cont2 {
-                display: none;
-            }
+            // .our-experts-cont2 {
+            //     display: none;
+            // }
         }
     }
 }

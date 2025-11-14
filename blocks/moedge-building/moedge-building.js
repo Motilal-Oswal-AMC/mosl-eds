@@ -239,7 +239,7 @@ export default function decorate(block) {
   if (mainContainer) {
     // Select all the card items
     const items = Array.from(block.querySelectorAll(':scope > [class*="moedge-build-cont"]'));
-    const itemsPerPage = 9;
+    const itemsPerPage = 12;
 
     if (items.length > itemsPerPage) {
       setupPagination(block, items, itemsPerPage);
