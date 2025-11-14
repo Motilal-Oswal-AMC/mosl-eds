@@ -119,7 +119,7 @@
                         display: flex;
                         flex-direction: column;
                         gap: 16px;
-                        word-break: break-word;
+                        word-break: auto-phrase;
 
                         p {
                             color: var(--text-body);

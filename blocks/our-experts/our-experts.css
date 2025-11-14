@@ -242,9 +242,6 @@
   }
 }
 
-.section.out-expert-listing.our-experts-container {
-  margin-bottom: 24px;
-}
 @media (max-width: 768px) {
   .section.out-expert-listing.our-experts-container {
     margin-bottom: 0;
@@ -255,7 +252,4 @@
     font-size: var(--sub-header-large-size);
     line-height: 28px;
   }
-}
-.section.out-expert-listing.our-experts-container .our-experts-wrapper .our-experts .our-experts-cont2 {
-  display: none;
 }/*# sourceMappingURL=our-experts.css.map */

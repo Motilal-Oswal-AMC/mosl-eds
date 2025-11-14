@@ -40,7 +40,6 @@
 
             &-cont1 {
                 .our-expert-section1 {
-
                     h1,
                     h2,
                     h3,
@@ -278,7 +277,7 @@
 }
 
 .section.out-expert-listing.our-experts-container {
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
 
     @include media (mobile) {
         margin-bottom: 0;
@@ -299,9 +298,9 @@
                 }
             }
 
-            .our-experts-cont2 {
-                display: none;
-            }
+            // .our-experts-cont2 {
+            //     display: none;
+            // }
         }
     }
 }
