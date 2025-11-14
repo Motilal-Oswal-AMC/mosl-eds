@@ -1650,7 +1650,10 @@ z-index: -1;
     border-radius: 8px;
 }
 
-main>.section.media-coverage,
+main>.section.media-coverage{
+    margin: 40px auto 28px;
+}
+
 main.nfo-nav>.section.media-coverage {
     margin: 60px auto 28px;
 }
@@ -2036,7 +2039,10 @@ main>.section.media-coverage .default-content-wrapper h6 {
         width: 100%;
     }
 
-    main>.section.media-coverage,
+    main>.section.media-coverage{
+        margin: 24px auto 0;
+    }
+
     main.nfo-nav>.section.media-coverage {
         margin: 73px auto 0;
     }
