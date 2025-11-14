@@ -131,6 +131,7 @@
   line-height: var(--body-medium-regular-line-height);
   font-family: var(--body);
   font-style: normal;
+  height: 40px;
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .inp-lab-div .inp:-moz-read-only {
   color: #333;
@@ -214,6 +215,7 @@
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .nat-numb .country-drop {
   width: 37.1%;
+  max-width: 112px;
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .nat-numb .country-drop .cont-label {
   position: absolute;

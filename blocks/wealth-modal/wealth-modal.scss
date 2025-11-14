@@ -157,6 +157,7 @@
           line-height: var(--body-medium-regular-line-height);
           font-family: var(--body);
           font-style: normal;
+          height: 40px;
 
           &:read-only {
             color: #333;
@@ -250,6 +251,7 @@
         gap: 12px;
         .country-drop{
           width: 37.1%;
+          max-width: 112px;
           .cont-label{
               position: absolute;
               top: 50%;
