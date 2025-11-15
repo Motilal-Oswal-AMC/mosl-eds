@@ -315,6 +315,7 @@
 }
 .section.glp-tab.glp-tab-price .tab-glp-wrapper .glp-tab-block2 .glp-tab-inner1 .glp-tab-sub-inner1 .glp-tab-sub-inner-sub2 .glp-tab-ul1 .glp-tab-inner-ul1 .li-containers .glp-tab-inner-li2 .glp-tab-sub-inner-li4 .glp-tab-sub-inner-li-sub2 {
   padding-left: 16px;
+  margin-left: 8px;
 }
 .section.glp-tab.glp-tab-price .tab-glp-wrapper .glp-tab-block2 .glp-tab-inner1 .glp-tab-sub-inner1 .glp-tab-sub-inner-sub2 .glp-tab-ul1 .glp-tab-inner-ul1 .li-containers .glp-tab-inner-li2 .glp-tab-sub-inner-li4 .glp-tab-sub-inner-li-sub2 .comlist {
   list-style: disc;
@@ -333,6 +334,9 @@
   display: none;
 }
 
+.section.qglp-tabs {
+  margin-bottom: 60px;
+}
 .section.qglp-tabs .tabs-wrapper {
   max-width: 1366px;
   width: 100%;

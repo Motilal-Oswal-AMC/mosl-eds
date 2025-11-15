@@ -362,6 +362,7 @@
 
                       .glp-tab-sub-inner-li-sub2 {
                         padding-left: 16px;
+                        margin-left: 8px;
 
                         .comlist {
                           list-style: disc;
@@ -398,6 +399,8 @@
 }
 
 .section.qglp-tabs {
+  margin-bottom: 60px;
+
   .tabs-wrapper {
     max-width: 1366px;
     width: 100%;

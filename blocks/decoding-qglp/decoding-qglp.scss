@@ -5,11 +5,11 @@
 .section .decoding-qglp-wrapper {
   max-width: 1366px;
   width: 100%;
-  margin-top: 56px;
+  margin-top: 73px;
 
-  // @include media(mobile) {
-  //   margin-top: 56px;
-  // }
+  @include media(mobile) {
+    margin-top: 56px;
+  }
 
   .decoding-qglp {
     display: flex;
