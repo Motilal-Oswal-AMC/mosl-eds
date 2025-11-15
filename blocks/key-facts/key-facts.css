@@ -41,7 +41,6 @@
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.0509803922);
 }
-
 @media (width <= 768px) {
   .key-facts-container {
     padding: 40px 16px;

@@ -49,6 +49,9 @@
   gap: 8px;
   scrollbar-width: none;
 }
+.previous-studies-ctn.tabs-container .previous-studies-ex2 .tabs-list::-webkit-scrollbar {
+  display: none;
+}
 @media (max-width: 768px) {
   .previous-studies-ctn.tabs-container .previous-studies-ex2 .tabs-list {
     padding: 0 16px;
