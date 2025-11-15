@@ -9,7 +9,7 @@
   background: var(--neutrals-white);
   padding: 36px 18px;
   position: relative;
-  height: 100vh !important;
+  height: 100vh;
 
   @media (width <=768px) {
     padding: 36px 16px 32px;
@@ -18,7 +18,8 @@
     bottom: 0;
     border-radius: 24px 24px 0 0;
     // height: 83vh !important;
-    height: max-content !important;
+    height: max-content;
+    max-width: 100%;
   }
 
   .wealth-modal-wrapper {
