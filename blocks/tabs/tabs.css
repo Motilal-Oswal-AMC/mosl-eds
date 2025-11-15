@@ -820,20 +820,51 @@ table>tbody>tr>td:nth-child(7) {
 .section.previous-studies-tab .tabs-wrapper .tabs .tabs-list {
   border-radius: 8px;
   background: var(--neutrals-white);
-  box-shadow: 0 4px 16px 0 rgba(47, 64, 84, 0.12);
+  box-shadow: 0 4px 16px 0 rgb(47 64 84 / 12%);
 }
 
-.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list,
 .section.previous-studies-tab .tabs-wrapper .tabs .tabs-list .tabs-tab {
   border: unset;
-  padding: 6px;
+  padding: 16px;
   color: var(--neutrals-900);
-  background-color: unset;
-  font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
+  font-feature-settings: var(--font-features-default);
   font-family: var(--body);
   font-size: var(--body-medium-regular-size);
   font-weight: 400;
   line-height: var(--body-medium-regular-line-height);
+  background: var(--surface-background-neutral-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list .tabs-tab::after {
+  content: '';
+  background: url('../../icons/dropdown-tick.svg') center center no-repeat;
+  width: 24px;
+  height: 24px;
+  display: none;
+}
+
+.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list .tabs-tab:hover {
+    background: var(--blue-1-25);
+}
+
+.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list .tabs-tab:focus {
+    background: var(--blue-1-50);
+}
+
+.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list .tabs-tab[aria-selected='true'] {
+    color: var(--blue-1-800-primary);
+    font-size: var(--body-medium-semibold-size);
+    line-height: var(--body-medium-semibold-line-height);
+    font-weight: 600;
+}
+
+.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list .tabs-tab[aria-selected='true']::after {
+    display: block;
 }
 
 @media screen and (max-width<=786px) {

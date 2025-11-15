@@ -520,7 +520,7 @@ main > .section.previous-studies-tab .tab-dropdown-wrap .tab-droplist {
   flex-direction: column;
   width: 100%;
   display: none;
-  bottom: -11px;
+  margin: 6px 0 0;
 }
 @media (max-width: 768px) {
   main > .section.previous-studies-tab .tab-dropdown-wrap .tab-droplist {
@@ -536,6 +536,7 @@ main > .section.previous-studies-tab .tab-dropdown-wrap .tab-droplist.active {
 main > .section.previous-studies-tab .tab-dropdown-wrap .tab-droplist .tabs-list {
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
 
 .prev-studies-wrapper {

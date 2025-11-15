@@ -444,7 +444,8 @@ main > .section.previous-studies-tab {
       flex-direction: column;
       width: 100%;
       display: none;
-      bottom: -11px;
+      // bottom: -11px;
+      margin: 6px 0 0;
 
       @include media(mobile) {
         width: 100%;
@@ -460,6 +461,7 @@ main > .section.previous-studies-tab {
       .tabs-list {
         display: flex;
         flex-direction: column;
+        gap: 0;
       }
     }
   }
