@@ -377,6 +377,10 @@
   background: var(--button-primary-default);
   margin-top: 0;
   padding: 10px 12px;
+  border: unset;
+  max-width: 336px;
+  width: 100%;
+  height: 40px;
 }
 @media (max-width: 768px) {
   .wcs-landing.section.embed-container .wcs1 .text3 .cta1 {
@@ -401,7 +405,12 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
-    margin: 0 auto 80px;
+    margin: 0 auto 69px;
+  }
+}
+@media (max-width: 768px) and (max-width: 768px) {
+  .wcs-landing.section.embed-container .wcs2 .embed {
+    padding-bottom: 28px;
   }
 }
 
