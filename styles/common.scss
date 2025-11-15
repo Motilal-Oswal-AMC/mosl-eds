@@ -817,7 +817,9 @@ main > .section.previous-studies-tab {
         @include media(mobile) {
           display: grid; // switch to grid on mobile
           grid-template-columns: 1fr 1fr; // 2 columns
-          gap: 19px;
+          // gap: 19px;
+          row-gap: 19px;
+          column-gap: 12px;
           margin-top: 33px;
         }
 
@@ -870,7 +872,7 @@ main > .section.previous-studies-tab {
             gap: 4px;
 
             @include media(mobile) {
-              width: 98%;
+              // width: 98%;
               justify-content: center;
             }
 
@@ -910,7 +912,7 @@ main > .section.previous-studies-tab {
             gap: 4px;
 
             @include media(mobile) {
-              width: 98%;
+              // width: 98%;
               justify-content: center;
             }
 
