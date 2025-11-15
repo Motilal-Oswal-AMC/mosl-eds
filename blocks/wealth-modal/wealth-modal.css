@@ -186,6 +186,10 @@
   cursor: pointer;
   font-family: var(--body);
   font-size: var(--body-medium-regular-size);
+  color: var(--neutrals-900);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+  line-height: var(--body-medium-regular-line-height);
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .inp-lab-div ul li:hover {
   background: var(--neutrals-light-gray);

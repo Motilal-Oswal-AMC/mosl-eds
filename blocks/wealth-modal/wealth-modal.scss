@@ -11,17 +11,17 @@
   position: relative;
   height: 100vh !important;
 
-  @media (width <= 768px) {
+  @media (width <=768px) {
     padding: 36px 16px 32px;
     position: fixed;
     z-index: 11;
     bottom: 0px;
-    border-radius: 24px 24px 0 0 ;
+    border-radius: 24px 24px 0 0;
     height: 83vh !important;
   }
 
   .wealth-modal-wrapper {
-    @media (width <= 768px) {
+    @media (width <=768px) {
       padding: 0px;
     }
   }
@@ -44,21 +44,21 @@
   }
 
   .ragis-lab-btn {
-    > .rag-lable {
+    >.rag-lable {
       margin: 0 0 40px 0;
       color: var(--text-black);
       font-family: var(--body);
       font-size: var(--sub-header-medium-size);
-      font-weight: 500; 
+      font-weight: 500;
       line-height: var(--sub-header-medium-line-height);
 
-      @media (width <= 768px) {
+      @media (width <=768px) {
         margin-bottom: 24px;
         margin-top: 12px;
       }
     }
 
-    > .inp-lab {
+    >.inp-lab {
       display: flex;
       flex-direction: column;
       gap: 36px;
@@ -70,7 +70,7 @@
       .inp-lab-div {
         position: relative;
         line-height: unset;
-         
+
         .label {
           position: absolute;
           top: 50%;
@@ -215,6 +215,10 @@
             cursor: pointer;
             font-family: var(--body);
             font-size: var(--body-medium-regular-size);
+            color: var(--neutrals-900);
+            font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
+            font-weight: 400;
+            line-height: var(--body-medium-regular-line-height);
 
             &:hover {
               background: var(--neutrals-light-gray);
@@ -227,7 +231,7 @@
           display: block;
         }
       }
-      
+
       .associated-drop {
         position: relative;
 
@@ -249,22 +253,24 @@
       .nat-numb {
         display: flex;
         gap: 12px;
-        .country-drop{
+
+        .country-drop {
           width: 37.1%;
           max-width: 112px;
-          .cont-label{
-              position: absolute;
-              top: 50%;
-              left: 45px;
-              transform: translateY(-50%);
-              transition: all 0.2s ease-in-out;
-              color: var(--text-default-input);
-              font-family: var(--body);
-              font-size: var(--body-medium-regular-size);
-              line-height: var(--body-medium-regular-line-height);
-              font-weight: 400;
-          
-            &::after{
+
+          .cont-label {
+            position: absolute;
+            top: 50%;
+            left: 45px;
+            transform: translateY(-50%);
+            transition: all 0.2s ease-in-out;
+            color: var(--text-default-input);
+            font-family: var(--body);
+            font-size: var(--body-medium-regular-size);
+            line-height: var(--body-medium-regular-line-height);
+            font-weight: 400;
+
+            &::after {
               content: "";
               background-image: url('/icons/arrow-down-black.svg');
               width: 20px;
@@ -284,7 +290,7 @@
       }
     }
 
-    > .btn-mand {
+    >.btn-mand {
       margin-top: 36px;
       display: flex;
       flex-direction: column;
@@ -311,7 +317,7 @@
         margin: unset;
         padding: 12px;
 
-        > p {
+        >p {
           margin: 0;
         }
 
@@ -342,17 +348,17 @@
       }
     }
 
-    @media (width <= 768px) {
+    @media (width <=768px) {
       border-radius: 32px 32px 0 0;
 
-      > .ragis-lab-btn {
-        > .rag-lable {
+      >.ragis-lab-btn {
+        >.rag-lable {
           margin-bottom: 24px;
           margin-top: 12px;
           font-size: var(--paragraph-large-regular-size);
         }
 
-        > .btn-mand {
+        >.btn-mand {
           margin-top: 20px;
         }
       }
@@ -365,14 +371,17 @@
     }
   }
 }
+
 .section.wealth-register.wealth-modal-container:first-child {
   margin-top: unset;
 }
-.modal.modal-journey{
-  .close-button{
+
+.modal.modal-journey {
+  .close-button {
     display: none;
   }
-  .modal-content{
+
+  .modal-content {
     display: flex;
     justify-content: end;
     padding-right: 0px;
