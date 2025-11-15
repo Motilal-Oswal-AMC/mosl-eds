@@ -9,7 +9,7 @@
 }
 @media (width <= 768px) {
   .section.wealth-register {
-    padding: 36px 16px;
+    padding: 36px 16px 32px;
     position: fixed;
     z-index: 11;
     bottom: 0px;
@@ -51,12 +51,7 @@
 .section.wealth-register .ragis-lab-btn > .inp-lab {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-@media (width <= 768px) {
-  .section.wealth-register .ragis-lab-btn > .inp-lab {
-    gap: 32px;
-  }
+  gap: 36px;
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .inp-lab-div {
   position: relative;
@@ -137,6 +132,7 @@
   line-height: var(--body-medium-regular-line-height);
   font-family: var(--body);
   font-style: normal;
+  height: 40px;
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .inp-lab-div .inp:-moz-read-only {
   color: #333;
@@ -158,6 +154,15 @@
   top: 5px;
   margin-top: 3px;
 }
+@media (max-width: 768px) {
+  .section.wealth-register .ragis-lab-btn > .inp-lab .inp-lab-div .coun-img {
+    top: 7px;
+  }
+}
+.section.wealth-register .ragis-lab-btn > .inp-lab .inp-lab-div .coun-img .icon-national-flag {
+  height: 20px;
+  width: 28px;
+}
 .section.wealth-register .ragis-lab-btn > .inp-lab .inp-lab-div ul {
   position: absolute;
   top: 100%;
@@ -167,7 +172,7 @@
   box-shadow: 0 4px 16px 0 rgba(47, 64, 84, 0.12);
   border-radius: var(--border-radius-8);
   padding: 0;
-  margin: 4px 0 0 0;
+  margin: 5px 0 0 0;
   display: none;
   max-height: 150px;
   overflow-y: auto;
@@ -182,6 +187,10 @@
   cursor: pointer;
   font-family: var(--body);
   font-size: var(--body-medium-regular-size);
+  color: var(--neutrals-900);
+  font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+  font-weight: 400;
+  line-height: var(--body-medium-regular-line-height);
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .inp-lab-div ul li:hover {
   background: var(--neutrals-light-gray);
@@ -194,11 +203,11 @@
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .associated-drop .dropdown-arrow {
   background-image: url("/icons/arrow-down-black.svg");
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   position: absolute;
-  right: 8px;
-  top: 10px;
+  right: 13px;
+  top: 9px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -211,11 +220,12 @@
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .nat-numb .country-drop {
   width: 37.1%;
+  max-width: 112px;
 }
 .section.wealth-register .ragis-lab-btn > .inp-lab .nat-numb .country-drop .cont-label {
   position: absolute;
   top: 50%;
-  left: 40px;
+  left: 45px;
   transform: translateY(-50%);
   transition: all 0.2s ease-in-out;
   color: var(--text-default-input);
@@ -230,8 +240,7 @@
   width: 20px;
   height: 20px;
   position: absolute;
-  right: -40px;
-  top: 1px;
+  right: -33px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -242,6 +251,12 @@
   margin-top: 36px;
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 768px) {
+  .section.wealth-register .ragis-lab-btn > .btn-mand {
+    margin-top: 32px;
+    gap: 20px;
+  }
 }
 .section.wealth-register .ragis-lab-btn > .btn-mand .btn {
   width: 100%;
@@ -256,6 +271,8 @@
   font-size: var(--button-medium-size);
   font-weight: 500;
   cursor: pointer;
+  margin: unset;
+  padding: 12px;
 }
 .section.wealth-register .ragis-lab-btn > .btn-mand .btn > p {
   margin: 0;
@@ -276,7 +293,7 @@
   font-family: var(--body);
   font-size: 12px;
   line-height: 16px;
-  margin: 0;
+  margin: unset;
 }
 @media (max-width: 768px) {
   .section.wealth-register .ragis-lab-btn > .btn-mand .mandatory {

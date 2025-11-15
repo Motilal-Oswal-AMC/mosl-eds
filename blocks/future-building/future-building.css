@@ -478,6 +478,7 @@
   padding: 0;
   top: 78px;
   right: 1px;
+  width: unset;
 }
 @media (max-width: 1299px) {
   .section.future-building-container > .library-btn3 {

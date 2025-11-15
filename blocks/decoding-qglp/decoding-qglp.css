@@ -2,12 +2,7 @@
 .section .decoding-qglp-wrapper {
   max-width: 1366px;
   width: 100%;
-  margin-top: 116px;
-}
-@media (max-width: 768px) {
-  .section .decoding-qglp-wrapper {
-    margin-top: 114px;
-  }
+  margin-top: 56px;
 }
 .section .decoding-qglp-wrapper .decoding-qglp {
   display: flex;
@@ -97,4 +92,10 @@
   flex-shrink: 0;
   border-radius: 16px;
   background: var(--blue-1-25);
+}
+
+@media (max-width: 768px) {
+  .section.decoding-qglp-container {
+    padding-bottom: 8px;
+  }
 }/*# sourceMappingURL=decoding-qglp.css.map */

@@ -524,6 +524,7 @@
         padding: 0;
         top: 78px;
         right: 1px;
+        width: unset;
 
         @include media(desktop-sm) {
             right: 20px;

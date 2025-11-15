@@ -1865,6 +1865,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
         background-color: transparent;
         color: unset;
         margin: 0;
+        padding-left: 40%;
 
         /* overflow: unset;
     height: unset; */
@@ -2919,7 +2920,7 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
 
 @media (width <=768px) {
     .wealth-header .nav-sections .nav-sec-sec1 {
-        gap:23px
+        gap:28px
     }
 
     .wealth-header .nav-wrapper .nav-brand .navbrand-cont1 .navbrand-sec3 .navbrand-sub1 {
@@ -2962,6 +2963,17 @@ header nav .header-top .default-content-wrapper .header-top-sec1 .header-top-sub
     }
 
     .wealth-header .nav-sections .nav-sec-sec1 .nav-drop.nav-sec-sub2 {
-        margin-top: 15px;
+        margin-top: 16px;
+    }
+
+}
+@media (width >= 900px) {        
+    .header.wealth-header nav .nav-sections .nav-sec-sec1 {
+        justify-content: flex-end;
+    }
+
+    .header.wealth-header nav .nav-sections .nav-sec-sec1 .nav-sec-inner-text1{
+        line-height: 0;
+        font-size: 0;
     }
 }

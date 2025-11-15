@@ -333,7 +333,7 @@
 }
 @media (max-width: 768px) {
   .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) {
-    margin-top: 12px;
+    margin-top: 13px;
   }
 }
 .section.freq-ask-ques .faq-our-fund > .default-content-wrapper:nth-child(3) .button-container {
@@ -351,7 +351,9 @@
   height: 32px;
   display: flex;
   align-items: center;
+  border: none;
   font-size: 14px;
+  line-height: 16px;
   color: #fff;
   font-family: "Inter", sans-serif;
   font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
