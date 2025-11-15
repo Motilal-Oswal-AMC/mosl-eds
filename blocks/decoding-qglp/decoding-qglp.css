@@ -2,7 +2,12 @@
 .section .decoding-qglp-wrapper {
   max-width: 1366px;
   width: 100%;
-  margin-top: 56px;
+  margin-top: 73px;
+}
+@media (max-width: 768px) {
+  .section .decoding-qglp-wrapper {
+    margin-top: 56px;
+  }
 }
 .section .decoding-qglp-wrapper .decoding-qglp {
   display: flex;

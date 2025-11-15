@@ -5,10 +5,7 @@
 @use "sass:map";
 @use "../styles/common-theme/css/variables_mixins" as *;
 @use "../styles/common-theme/css/fluid-typography" as *;
-@import '../blocks/moedge-article-details/moedge-article-details.css';
-
-
-
+@import "../blocks/moedge-article-details/moedge-article-details.css";
 
 .section.download {
   width: 100%;
@@ -21,19 +18,21 @@
   }
 
   .default-content-wrapper {
-    >p.download-ul1 {
+    > p.download-ul1 {
       font-style: normal;
       padding-bottom: 24px;
       margin: unset;
 
-      @include font-style(var(--body-xlarge-bold-size),
+      @include font-style(
+        var(--body-xlarge-bold-size),
         var(--body-xlarge-bold-line-height),
         var(--blue-1-800-primary),
         600,
-        var(--body));
+        var(--body)
+      );
     }
 
-    >ul.download-ul2 {
+    > ul.download-ul2 {
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -45,15 +44,15 @@
       }
 
       /* stylelint-disable-next-line no-descending-specificity */
-      >li.download-li1,
-      >li.download-li2,
-      >li.download-li3,
-      >li.download-li4,
-      >li.download-li5 {
+      > li.download-li1,
+      > li.download-li2,
+      > li.download-li3,
+      > li.download-li4,
+      > li.download-li5 {
         list-style-type: none;
         height: 48px;
 
-        >ul.download-inner-ul1 {
+        > ul.download-inner-ul1 {
           list-style-type: none;
           display: flex;
           justify-content: space-between;
@@ -68,11 +67,13 @@
               padding: 0 16px 0 0;
               font-style: normal;
 
-              @include font-style(var(--body-medium-medium-size),
+              @include font-style(
+                var(--body-medium-medium-size),
                 var(--body-medium-medium-line-height),
                 var(--blue-1-800-primary),
                 500,
-                var(--body));
+                var(--body)
+              );
 
               &:focus-visible {
                 outline: 2px solid #2e2a94;
@@ -98,7 +99,7 @@
 
         // Icon logic for each list item
         @for $i from 1 through 5 {
-          &:nth-child(#{$i})>ul.download-inner-ul1>li.download-first-list1:first-child::before {
+          &:nth-child(#{$i}) > ul.download-inner-ul1 > li.download-first-list1:first-child::before {
             content: "";
             display: inline-block;
             width: 48px;
@@ -197,7 +198,6 @@
 }
 
 // Invest Now Scss Start
-
 
 // WCS Landing Scss Start
 .wcs-landing.section.embed-container {
@@ -327,8 +327,14 @@
 
 // WCs Landing Scss End
 
-// Previous Page Scss Start 
-main>.section.previous-studies-tab {
+// Previous Page Scss Start
+.modal.block .modal-content {
+  max-height: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+main > .section.previous-studies-tab {
   max-width: 1232px;
   width: 100%;
   margin: 0 auto;
@@ -339,10 +345,9 @@ main>.section.previous-studies-tab {
   }
 
   .default-content-wrapper {
-
     padding-top: 16px;
 
-    @include media (mobile) {
+    @include media(mobile) {
       // padding-top: 24px;
       padding-top: 24px;
       margin-top: unset;
@@ -359,7 +364,7 @@ main>.section.previous-studies-tab {
       margin: 0;
       padding-top: 40px;
 
-      @include media (mobile) {
+      @include media(mobile) {
         // margin-top: 25px;
         margin: 0px;
         // margin-bottom: 32px;
@@ -397,7 +402,7 @@ main>.section.previous-studies-tab {
     top: 8px;
     padding: 54px 16px;
 
-    @include media (mobile) {
+    @include media(mobile) {
       width: 100%;
       max-width: unset;
       top: unset;
@@ -406,7 +411,7 @@ main>.section.previous-studies-tab {
 
     .selected-tab {
       margin: 0;
-      color: #2E2A94;
+      color: #2e2a94;
       font-feature-settings: var(--font-features-default);
       font-family: var(--body);
       font-size: var(--body-medium-semibold-size);
@@ -424,8 +429,8 @@ main>.section.previous-studies-tab {
       }
 
       &::after {
-        content: '';
-        background: url('../icons/arrow-down-black.svg') center center no-repeat;
+        content: "";
+        background: url("../icons/arrow-down-black.svg") center center no-repeat;
         width: 24px;
         height: 24px;
         display: block;
@@ -439,7 +444,7 @@ main>.section.previous-studies-tab {
       width: 100%;
       display: none;
 
-      @include media (mobile) {
+      @include media(mobile) {
         width: 100%;
       }
 
@@ -450,12 +455,9 @@ main>.section.previous-studies-tab {
       .tabs-list {
         display: flex;
         flex-direction: column;
-        ;
       }
     }
   }
-
-
 
   // }
   // .tabpanel1{
@@ -470,12 +472,12 @@ main>.section.previous-studies-tab {
   padding-bottom: 88px;
   padding-top: 64px;
 
-  @include media (mobile) {
+  @include media(mobile) {
     width: 100%;
     gap: 0px;
     padding-top: 74px;
+    padding-bottom: 40px;
   }
-
 }
 
 .default-content-wrapper {
@@ -497,7 +499,7 @@ main>.section.previous-studies-tab {
     margin-bottom: 40px;
     margin: 0px;
 
-    @include media (mobile) {
+    @include media(mobile) {
       margin-top: 32px;
       font-size: 20px;
       line-height: 24px;
@@ -511,7 +513,7 @@ main>.section.previous-studies-tab {
     }
 
     .aw-ctn2 {
-      @include media (mobile) {
+      @include media(mobile) {
         margin-bottom: 44px;
       }
     }
@@ -580,7 +582,6 @@ main>.section.previous-studies-tab {
         width: 340px;
         padding: 0px;
       }
-
     }
 
     .default-content-wrapper.aw-subctn2 {
@@ -621,11 +622,10 @@ main>.section.previous-studies-tab {
           font-size: var(--body-small-regular-size);
           line-height: var(--label-large-line-height);
           margin-top: 0px;
-          margin-bottom: 24px
+          margin-bottom: 24px;
         }
       }
     }
-
 
     .embed {
       color: var(--neutrals-900);
@@ -639,16 +639,13 @@ main>.section.previous-studies-tab {
       margin: 0;
       border-radius: 8px;
 
-
       div {
-
         &:first-child {
           position: relative;
           margin-top: 2px;
         }
 
         div {
-
           &:first-child {
             position: static;
 
@@ -670,7 +667,7 @@ main>.section.previous-studies-tab {
                   position: absolute;
                   top: 50%;
                   left: 50%;
-                  transform: translate(-50%, -50%)
+                  transform: translate(-50%, -50%);
                 }
 
                 a {
@@ -706,29 +703,26 @@ main>.section.previous-studies-tab {
               }
             }
           }
-
         }
-
       }
     }
 
     .embed {
-      background-color: #2C2A96;
+      background-color: #2c2a96;
 
       @include media(mobile) {
         height: 160px;
       }
     }
-
-
-
   }
-
-
 
   .co-branding-wrapper {
     max-width: 504px;
     width: 100%;
+
+    @include media(mobile) {
+      max-width: 100%;
+    }
 
     .comlist {
       p {
@@ -740,7 +734,6 @@ main>.section.previous-studies-tab {
           font-weight: 600;
           line-height: var(--body-medium-semibold-line-height);
           margin: 0 0 8px 0;
-
         }
 
         &:nth-child(2) {
@@ -756,6 +749,7 @@ main>.section.previous-studies-tab {
 
           @include media(mobile) {
             margin: 0 0 33px 0;
+            max-width: 100%;
           }
         }
 
@@ -794,7 +788,7 @@ main>.section.previous-studies-tab {
           text-decoration-style: solid;
           text-decoration-skip-ink: auto;
           text-decoration-thickness: auto;
-          text-underline-offset: 20%;
+          text-underline-offset: 2.8px;
           text-underline-position: from-font;
           background-color: unset;
           padding: 0;
@@ -805,25 +799,33 @@ main>.section.previous-studies-tab {
           white-space: unset;
           text-align: left;
 
+          @include media(mobile) {
+            text-underline-offset: 2.4px;
+            font-size: 12px;
+            line-height: 16px;
+          }
         }
       }
 
       ul {
         list-style: none;
         display: flex;
-        margin: 24px 0px 0px 0px;
+        flex-wrap: wrap;
+        margin: 24px 0 0;
         gap: 16px;
 
         @include media(mobile) {
           display: grid; // switch to grid on mobile
           grid-template-columns: 1fr 1fr; // 2 columns
-          gap: 19px;
+          // gap: 19px;
+          row-gap: 19px;
+          column-gap: 12px;
           margin-top: 33px;
         }
 
         li {
           &:nth-child(1) {
-            color: var(--text-white, #FFF);
+            color: var(--text-white, #fff);
             text-align: center;
             font-family: var(--body);
             font-size: 14px;
@@ -832,7 +834,7 @@ main>.section.previous-studies-tab {
             line-height: 16px;
             font-feature-settings: var(--font-features-default);
             border-radius: var(--border-radius-8);
-            background-color: #2E2A94;
+            background-color: #2e2a94;
             padding: 8px 12px;
             width: 100%;
             max-width: 168px;
@@ -865,28 +867,35 @@ main>.section.previous-studies-tab {
           }
 
           &:nth-child(2) {
-            color: var(--neutrals-700);
-            font-family: var(--body);
-            font-size: var(--body-xsmall-regular-size);
-            font-style: normal;
-            font-weight: 400;
-            line-height: var(--body-xsmall-regular-line-height);
             display: flex;
             align-items: center;
             gap: 4px;
 
             @include media(mobile) {
-              width: 98%;
+              // width: 98%;
               justify-content: center;
             }
 
-            span {
-              width: 24px;
-              height: 24px;
+            a {
+              color: var(--neutrals-700);
+              font-family: var(--body);
+              font-size: var(--body-xsmall-regular-size);
+              font-style: normal;
+              font-weight: 400;
+              line-height: var(--body-xsmall-regular-line-height);
+              font-feature-settings: var(--font-features-default);
+              display: flex;
+              align-items: center;
+              gap: 4px;
 
-              img {
-                width: 100%;
-                height: 100%;
+              span {
+                width: 24px;
+                height: 24px;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
               }
             }
           }
@@ -903,7 +912,7 @@ main>.section.previous-studies-tab {
             gap: 4px;
 
             @include media(mobile) {
-              width: 98%;
+              // width: 98%;
               justify-content: center;
             }
 
@@ -923,13 +932,12 @@ main>.section.previous-studies-tab {
   }
 }
 
-// Previous Page Scss End 
+// Previous Page Scss End
 
 // common breadcrumbs scss start
 .section.breadcrumbs {
   margin: 0;
   padding: 24px 0;
-
 
   .breadul {
     max-width: 1232px;
@@ -940,23 +948,19 @@ main>.section.previous-studies-tab {
     list-style: none;
     padding: 0;
 
-
     @media (width <=1279px) {
       padding: 0 24px;
     }
 
-    @include media (mobile) {
+    @include media(mobile) {
       padding: 0 16px;
       overflow-x: auto;
       margin-right: 25px;
-
-
     }
 
     &::-webkit-scrollbar {
       display: none;
     }
-
 
     .breadli {
       display: flex;
@@ -983,7 +987,7 @@ main>.section.previous-studies-tab {
         display: flex;
         align-items: center;
         text-decoration: none;
-        color: var(--blue-1800-primary, #2E2A94);
+        color: var(--blue-1800-primary, #2e2a94);
         font-feature-settings: var(--font-features-default);
         font-family: var(--body, Inter);
         font-size: var(--label-small-size);
@@ -996,7 +1000,7 @@ main>.section.previous-studies-tab {
           width: 20px;
           height: 20px;
 
-          @include media (mobile) {
+          @include media(mobile) {
             min-width: 20px;
           }
         }
@@ -1004,7 +1008,7 @@ main>.section.previous-studies-tab {
 
       &:last-child {
         a {
-          color: var(--blue-1800-primary, #2E2A94);
+          color: var(--blue-1800-primary, #2e2a94);
           font-feature-settings: var(--font-features-default);
           font-family: var(--body, Inter);
           font-size: var(--label-small-size);
@@ -1021,7 +1025,6 @@ main>.section.previous-studies-tab {
       display: none;
     }
   }
-
 }
 
 // common breadcrumbs scss End

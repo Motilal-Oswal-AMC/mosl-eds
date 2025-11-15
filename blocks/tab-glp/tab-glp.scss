@@ -281,7 +281,7 @@
                               .glp-li-inner2 {
                                 list-style: disc;
                                 padding-left: 16px;
-                                margin-left: 8px;
+                                margin-left: 6px;
                               }
                             }
                           }
@@ -335,7 +335,7 @@
 
             @include media(mobile) {
               padding: 24px 12px;
-              max-width: 316px;
+              max-width: 340px;
               height: 232px;
             }
 
@@ -360,8 +360,9 @@
                       flex-direction: column;
                       gap: 10px;
 
-                      .glp-tab-sub-inner-li-sub2 {
+                      .glp-tab-sub-inner-li-sub2.comlist {
                         padding-left: 16px;
+                        margin-left: 6px;
 
                         .comlist {
                           list-style: disc;
@@ -398,6 +399,8 @@
 }
 
 .section.qglp-tabs {
+  margin-bottom: 60px;
+
   .tabs-wrapper {
     max-width: 1366px;
     width: 100%;

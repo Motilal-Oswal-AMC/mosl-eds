@@ -1954,10 +1954,20 @@ main>.section.media-coverage .default-content-wrapper h6 {
 }
 
 /* Media Coverage Image modal start */
+.modal.block.coverage-video-modal .modal-content{
+    padding: 0;
+    max-height: 100%;
+    height: 100%;
+}
+
 .modal.block.coverage-image-modal dialog {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modal.block.coverage-image-modal dialog[open]::backdrop {
+    background-color: rgb(1 1 1 / 60%);
 }
 
 .modal.block.coverage-image-modal .modal-content {
