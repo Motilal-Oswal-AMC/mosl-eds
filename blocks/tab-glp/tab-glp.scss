@@ -360,8 +360,9 @@
                       flex-direction: column;
                       gap: 10px;
 
-                      .glp-tab-sub-inner-li-sub2 {
+                      .glp-tab-sub-inner-li-sub2.comlist {
                         padding-left: 16px;
+                        margin: 0 0 0 8px;
 
                         .comlist {
                           list-style: disc;
