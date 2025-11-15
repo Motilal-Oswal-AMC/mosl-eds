@@ -1960,7 +1960,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
     align-items: center;
 }
 
-.modal.block.coverage-image-modal dialog::backdrop {
+.modal.block.coverage-image-modal dialog[open]::backdrop {
     background-color: rgb(1 1 1 / 60%);
 }
 
