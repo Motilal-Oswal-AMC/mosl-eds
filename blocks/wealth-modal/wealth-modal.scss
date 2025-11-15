@@ -15,9 +15,10 @@
     padding: 36px 16px 32px;
     position: fixed;
     z-index: 11;
-    bottom: 0px;
+    bottom: 0;
     border-radius: 24px 24px 0 0;
-    height: 83vh !important;
+    // height: 83vh !important;
+    height: max-content !important;
   }
 
   .wealth-modal-wrapper {
