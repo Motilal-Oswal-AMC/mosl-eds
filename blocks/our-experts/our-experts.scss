@@ -78,6 +78,7 @@
                     align-items: flex-start;
                     gap: 12px;
                     flex-shrink: 0;
+                    position: relative;
 
                     @include media(mobile) {
                         margin-right: -16px;
@@ -122,24 +123,9 @@
                         .floating-label-wrapper {
                             width: 100%;
                             line-height: 0;
+                            width: 100%;
 
-                            // & input:focus+label,
-                            // & input:not(:placeholder-shown)+label {
-                            //     top: -8px;
-                            //     left: 25px;
-                            //     padding: 0 4px;
-                            //     color: #2E2A94;
-                            //     font-feature-settings: var(--font-features-default);
-                            //     font-family: var(--body);
-                            //     font-size: var(--text-link-xsmall-size);
-                            //     font-style: normal;
-                            //     font-weight: 400;
-                            //     line-height: var(--text-link-xsmall-line-height, 16px);
-                            //     background-color: #FFF;
-                            // }
-
-                            >label {
-                                display: none;
+                            label {
                                 position: absolute;
                                 top: 12px;
                                 left: 45px;
@@ -246,6 +232,58 @@
                     .our-expert-sub3 {
                         display: none;
                     }
+
+                    .search-results {
+                        position: absolute;
+                        top: 45px;
+                        display: block;
+                        background-color: var(--neutrals-white);
+                        border: 1px solid var(--neutrals-200);
+                        border-radius: 6px;
+                        width: 100%;
+                        margin: 4px 0 0;
+                        max-height: 300px;
+                        overflow: auto;
+
+                        &::-webkit-scrollbar {
+                            width: 3px;
+                            background-color: #464343;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            width: 3px;
+                            background-color: #424242;
+                            border-radius: 0 1px 1px 0;
+                        }
+
+                        &::-webkit-scrollbar-track {
+                            width: 3px;
+                            background-color: var(--neutrals-white);
+                            border-radius: 0 6px 6px 0;
+                        }
+
+                        .result-item {
+                            margin: unset;
+                            padding: 12px 20px 12px;
+                            cursor: pointer;
+
+                            .list {
+                                font-size: var(--body-small-regular-size);
+                                line-height: var(--label-large-line-height);
+                                color: var(--neutrals-black);
+                                font-family: var(--body);
+                                font-feature-settings: "ss01" on, "ss04" on, "cv01" on, "cv02" on, "cv03" on, "cv04" on, "cv06" on, "cv09" on, "cv10" on, "cv11" on;
+                                font-weight: 400;
+                            }
+
+                            &:last-child {
+                                padding-bottom: unset;
+                            }
+                        }
+                    }
+                    .search-results.dsp-none {
+                        display: none;
+                    }
                 }
             }
         }
@@ -298,9 +336,9 @@
                 }
             }
 
-            // .our-experts-cont2 {
-            //     display: none;
-            // }
+            .our-experts-cont2 {
+                display: none;
+            }
         }
     }
 }
