@@ -125,6 +125,7 @@
               flex-direction: column;
               gap: 28px;
               align-items: center;
+              margin: 0 16px;
             }
 
             .glp-tab-sub-inner-sub1 {
@@ -141,7 +142,7 @@
 
               @include media(mobile) {
                 padding: 24px 12px;
-                max-width: 340px;
+                max-width: unset;
                 height: 232px;
                 box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
               }
@@ -162,7 +163,7 @@
               width: 100%;
 
               @include media(mobile) {
-                padding: 0 16px;
+                padding: 0;
               }
 
               .glp-tab-ul1 {
@@ -319,6 +320,7 @@
             flex-direction: column;
             gap: 28px;
             align-items: center;
+            margin: 0 16px;
           }
 
           .glp-tab-sub-inner-sub1 {
@@ -335,7 +337,7 @@
 
             @include media(mobile) {
               padding: 24px 12px;
-              max-width: 340px;
+              max-width: unset;
               height: 232px;
             }
 
