@@ -341,7 +341,7 @@ main>.section.previous-studies-tab {
     p {
       color: var(--blue-1-800-primary);
       font-family: var(--title);
-      font-size: 28px;
+      font-size: var(--heading-h1-size);
       font-style: normal;
       font-weight: 600;
       line-height: var(--heading-h1-line-height);
@@ -353,7 +353,7 @@ main>.section.previous-studies-tab {
         // margin-top: 25px;
         margin: 0px;
         // margin-bottom: 32px;
-        font-size: var(--heading-h5-size);
+        font-size: 28px;
         line-height: var(--sub-header-large-line-height);
         padding-top: unset;
       }
