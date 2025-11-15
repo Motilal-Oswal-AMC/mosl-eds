@@ -459,6 +459,7 @@ table>tbody>tr>td:nth-child(7) {
 }
 
 @media(width <=768px) {
+
   .schemename,
   .schemenum {
     height: 70px;
@@ -815,7 +816,34 @@ table>tbody>tr>td:nth-child(7) {
 }
 
 
+/* Previous Studies Start */
+.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list {
+  border-radius: 8px;
+  background: var(--neutrals-white);
+  box-shadow: 0 4px 16px 0 rgba(47, 64, 84, 0.12);
+}
 
+.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list,
+.section.previous-studies-tab .tabs-wrapper .tabs .tabs-list .tabs-tab {
+  border: unset;
+  padding: 6px;
+  color: var(--neutrals-900);
+  background-color: unset;
+  font-feature-settings: 'ss01' on, 'ss04' on, 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv06' on, 'cv09' on, 'cv10' on, 'cv11' on;
+  font-family: var(--body);
+  font-size: var(--body-medium-regular-size);
+  font-weight: 400;
+  line-height: var(--body-medium-regular-line-height);
+}
+
+@media screen and (max-width<=786px) {
+  .section.previous-studies-tab .tabs-wrapper .tabs .tabs-list {
+    background-color: #fff;
+    z-index: 9999999;
+  }
+}
+
+/* Previous Studies End */
 
 
 /* popular-tab  Start */
