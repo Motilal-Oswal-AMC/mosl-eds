@@ -836,6 +836,13 @@ table>tbody>tr>td:nth-child(7) {
   line-height: var(--body-medium-regular-line-height);
 }
 
+@media screen and (max-width<=786px) {
+  .section.previous-studies-tab .tabs-wrapper .tabs .tabs-list {
+    background-color: #fff;
+    z-index: 9999999;
+  }
+}
+
 /* Previous Studies End */
 
 

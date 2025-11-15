@@ -525,6 +525,8 @@ main > .section.previous-studies-tab .tab-dropdown-wrap .tab-droplist {
 @media (max-width: 768px) {
   main > .section.previous-studies-tab .tab-dropdown-wrap .tab-droplist {
     width: 100%;
+    padding: 0 15px;
+    bottom: -85px;
   }
 }
 main > .section.previous-studies-tab .tab-dropdown-wrap .tab-droplist.active {
