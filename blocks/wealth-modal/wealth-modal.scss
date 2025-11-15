@@ -2,22 +2,23 @@
 @use "../../styles/common-theme/css/variables_mixins" as *;
 @use "../../styles/common-theme/css/fluid-typography" as *;
 
-.section.wealth-register {
+.modal dialog .section.wealth-register {
   max-width: 379px;
   width: 100%;
   // margin: 0 auto;
   background: var(--neutrals-white);
   padding: 36px 18px;
   position: relative;
-  height: 100vh !important;
+  height: 100vh;
 
   @media (width <=768px) {
     padding: 36px 16px 32px;
     position: fixed;
     z-index: 11;
-    bottom: 0px;
+    bottom: 0;
     border-radius: 24px 24px 0 0;
-    height: 83vh !important;
+    // height: 83vh !important;
+    height: max-content;
     max-width: 100%;
   }
 
@@ -256,7 +257,8 @@
         gap: 12px;
 
         .country-drop {
-          width: 37.1%;
+          // width: 37.1%;
+          width: 100%;
           max-width: 112px;
 
           .cont-label {
