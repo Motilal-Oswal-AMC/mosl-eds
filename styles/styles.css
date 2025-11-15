@@ -1909,13 +1909,7 @@ main>.section.media-coverage .default-content-wrapper h6 {
 } */
 
 .coverage-table .coverage-tbody .coverage-tbody-tr:nth-child(odd) {
-    /* background-color: var(--neutrals-100); */
-    background-color: blue;
-}
-
-.coverage-table .coverage-tbody .coverage-tbody-tr:nth-child(even) {
-    /* background-color: var(--neutrals-100); */
-    background-color: green;
+    background-color: var(--neutrals-100);
 }
 
 .coverage-table .coverage-tbody .coverage-tbody-td.coverage-td-1 {
