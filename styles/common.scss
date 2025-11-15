@@ -363,6 +363,7 @@ main > .section.previous-studies-tab {
       margin-top: 63px;
       margin: 0;
       padding-top: 40px;
+      margin-top: 16px;
 
       @include media(mobile) {
         // margin-top: 25px;
@@ -400,7 +401,7 @@ main > .section.previous-studies-tab {
     right: 0;
     cursor: pointer;
     top: 8px;
-    padding: 54px 16px;
+    padding: 71px 0;
 
     @include media(mobile) {
       width: 100%;
@@ -443,6 +444,7 @@ main > .section.previous-studies-tab {
       flex-direction: column;
       width: 100%;
       display: none;
+      bottom: -11px;
 
       @include media(mobile) {
         width: 100%;
