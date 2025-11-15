@@ -220,7 +220,7 @@
   gap: 12px;
 }
 .modal dialog .section.wealth-register .ragis-lab-btn > .inp-lab .nat-numb .country-drop {
-  width: 37.1%;
+  width: 100%;
   max-width: 112px;
 }
 .modal dialog .section.wealth-register .ragis-lab-btn > .inp-lab .nat-numb .country-drop .cont-label {
